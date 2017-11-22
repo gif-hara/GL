@@ -1,0 +1,65 @@
+﻿using UnityEngine;
+using UnityEngine.Assertions;
+using System.Collections.Generic;
+using UnityEngine.UI;
+using HK.GL.Events;
+using UniRx;
+using System.Text;
+using HK.GL.Battle;
+
+namespace HK.GL.Test.Battle
+{
+    /// <summary>
+    /// 全てのキャラクターのステータスを表示するヤーツ.
+    /// </summary>
+    public sealed class DrawAllCharacterStatus : MonoBehaviour
+    {
+        [SerializeField]
+        [Multiline()]
+        private string format;
+
+        private Text cachedText;
+        
+        void Awake()
+        {
+            this.cachedText = this.GetComponent<Text>();
+            this.Subscribe(GLEvent.GlobalBroker.Receive<Events.Battle.NextTurn>());
+        }
+
+        private void Draw()
+        {
+            var builder = new StringBuilder();
+            BuildText(builder, this.format, BattleManager.Instance.Party.Player);
+            builder.AppendLine("------------------------------");
+            BuildText(builder, this.format, BattleManager.Instance.Party.Enemy);
+            this.cachedText.text = builder.ToString();
+        }
+
+        private void Subscribe<T>(IObservable<T> observable)
+        {
+            observable
+                .Subscribe(_ => this.Draw())
+                .AddTo(this);
+        }
+
+        private static void BuildText(StringBuilder builder, string format, Party party)
+        {
+            party.Members.ForEach(m =>
+            {
+                builder.AppendLine(string.Format(
+                    format,
+                    m.Status.Name,
+                    m.Status.HitPointMax,
+                    m.Status.HitPoint,
+                    m.Status.Strength,
+                    m.Status.Defense,
+                    m.Status.Sympathy,
+                    m.Status.Nega,
+                    m.Status.Speed,
+                    m.Status.Wait
+                    )
+                    );
+            });
+        }
+    }
+}

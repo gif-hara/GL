@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c932cb5455f464b288e33eb7fa54f213, type: 3}
+  m_Name: CommandName
+  m_EditorClassIdentifier: 
+  database:
+  - value:
+      ja: "\u5F31\u3044\u30E4\u30C4\u653B\u6483"
+      en: 
+    guid: b8851885-c9e5-4228-af2c-bd647dc91b87
+  - value:
+      ja: "\u5F37\u3044\u30E4\u30C4\u653B\u6483"
+      en: 
+    guid: 921c1012-ba4b-47d5-8afe-53d421fd2139
+  - value:
+      ja: "\u5168\u4F53\u653B\u6483"
+      en: 
+    guid: c9b56039-4171-47a7-96ca-3383a1cfcad2
+  - value:
+      ja: "\u5F31\u3044\u30CA\u30AB\u30DE\u5B88\u308B"
+      en: 
+    guid: 0af79a02-5af8-4f86-9cf2-02fd695d0688
+  - value:
+      ja: "\u5F37\u3044\u30CA\u30AB\u30DE\u5B88\u308B"
+      en: 
+    guid: 70e1b7b5-5a51-4014-a548-250ec6986494
+  - value:
+      ja: "\u30CA\u30AB\u30DE\u307F\u3093\u306A\u5B88\u308B"
+      en: 
+    guid: dfda0df1-293a-41c6-a19b-3fecd06a7b95

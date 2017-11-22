@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 137d80a99cae4414dab907f30658dff5
+timeCreated: 1493128631
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: PixelMplus12
+  fontNames:
+  - PixelMplus12
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 2
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

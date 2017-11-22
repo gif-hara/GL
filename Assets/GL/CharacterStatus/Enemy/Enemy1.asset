@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c05a5979337d4f278b5096f8db1513d, type: 3}
+  m_Name: Enemy1
+  m_EditorClassIdentifier: 
+  model: {fileID: 1335689840358778, guid: fa79dadbb5fd747d1b2a7072cf11a857, type: 2}
+  characterName: Enemy1
+  hitPoint: 50
+  strength: 10
+  defense: 5
+  sympathy: 0
+  nega: 0
+  speed: 6
+  commandSettings:
+  - {fileID: 11400000, guid: 9cdf96bed368c40c9afb237d665437d1, type: 2}
+  - {fileID: 11400000, guid: c1a29128a524e4b8db163cd5aa262161, type: 2}
+  - {fileID: 11400000, guid: d45505cef08c549eda695fde6d2898d1, type: 2}
