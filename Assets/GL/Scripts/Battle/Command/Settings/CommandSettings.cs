@@ -1,10 +1,8 @@
-﻿using UnityEngine;
-using UnityEngine.Assertions;
-using System.Collections.Generic;
-using HK.Framework;
-using HK.Framework.Text;
+﻿using HK.Framework.Text;
+using HK.GL.Battle;
+using UnityEngine;
 
-namespace HK.GL.Battle
+namespace GL.Scripts.Battle.Command.Settings
 {
     /// <summary>
     /// コマンドの設定データ.

@@ -1,4 +1,5 @@
 ﻿using GL.Scripts.Battle.CharacterControllers;
+using GL.Scripts.Battle.Command;
 using HK.Framework.EventSystems;
 using HK.GL.Battle;
 

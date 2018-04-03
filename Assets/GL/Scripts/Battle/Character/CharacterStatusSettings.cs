@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using GL.Scripts.Battle.Command;
+using GL.Scripts.Battle.Command.Settings;
 using HK.GL.Battle;
 using UnityEngine;
 

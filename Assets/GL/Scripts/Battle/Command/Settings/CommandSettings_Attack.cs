@@ -1,10 +1,6 @@
 ﻿using UnityEngine;
-using UnityEngine.Assertions;
-using System.Collections.Generic;
-using System;
-using HK.Framework;
 
-namespace HK.GL.Battle
+namespace GL.Scripts.Battle.Command.Settings
 {
     /// <summary>
     /// 攻撃コマンドの設定データ.

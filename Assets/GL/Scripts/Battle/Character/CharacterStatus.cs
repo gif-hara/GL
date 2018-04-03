@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using GL.Scripts.Battle.Command;
 using HK.GL.Battle;
 
 namespace GL.Scripts.Battle.CharacterControllers

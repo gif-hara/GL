@@ -1,6 +1,7 @@
 ﻿using GL.Scripts.Battle.CharacterControllers;
+using HK.GL.Battle;
 
-namespace HK.GL.Battle
+namespace GL.Scripts.Battle.Command
 {
     /// <summary>
     /// コマンド処理で使う便利機能
