@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using UnityEngine.Assertions;
 using System.Collections.Generic;
-using HK.GL.Events;
+using HK.Framework.EventSystems;
 using HK.GL.Events.Battle;
 using UniRx;
 using HK.GL.Battle;
@@ -18,11 +17,11 @@ namespace HK.GL.UI.Battle
 
         void Awake()
         {
-            GLEvent.GlobalBroker.Receive<NextTurn>()
+            UniRxEvent.GlobalBroker.Receive<NextTurn>()
                 .Where(n => n.NextCharacter.CharacterType == Constants.CharacterType.Player)
                 .Subscribe(this.OnNextTurnFromPlayer)
                 .AddTo(this);
-            GLEvent.GlobalBroker.Receive<NextTurn>()
+            UniRxEvent.GlobalBroker.Receive<NextTurn>()
                 .Where(n => n.NextCharacter.CharacterType == Constants.CharacterType.Enemy)
                 .Subscribe(this.OnNextTurnFromEnemy)
                 .AddTo(this);

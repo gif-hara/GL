@@ -1,10 +1,7 @@
 ﻿using UnityEngine;
-using UnityEngine.Assertions;
-using System.Collections.Generic;
 using UniRx;
 using UnityEngine.EventSystems;
-using System;
-using HK.GL.Events;
+using HK.Framework.EventSystems;
 
 namespace HK.GL.Test
 {
@@ -29,11 +26,11 @@ namespace HK.GL.Test
 
         void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
         {
-            GLEvent.GlobalBroker.Publish<GLTestEvent>(GLTestEvent.Get(10));
+	        UniRxEvent.GlobalBroker.Publish(GLTestEvent.Get(10));
         }
     }
 
-	public class GLTestEvent : GLEvent<GLTestEvent, int>
+	public class GLTestEvent : UniRxEvent<GLTestEvent, int>
 	{
 		public int Value{ get { return this.param1; } }
     }

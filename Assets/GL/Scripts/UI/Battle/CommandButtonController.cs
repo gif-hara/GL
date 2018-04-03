@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using HK.GL.Battle;
 using UnityEngine.EventSystems;
 using System;
+using HK.Framework.EventSystems;
 using HK.GL.Events;
 using HK.GL.Events.Battle;
 using UniRx.Triggers;
@@ -29,8 +30,8 @@ namespace HK.GL.UI.Battle
 
             this.button.OnClickAsObservable()
                 .First()
-                .TakeUntil(GLEvent.GlobalBroker.Receive<InvokeCommand>())
-                .Subscribe(_ => GLEvent.GlobalBroker.Publish(InvokeCommand.Get(invoker, command)))
+                .TakeUntil(UniRxEvent.GlobalBroker.Receive<InvokeCommand>())
+                .Subscribe(_ => UniRxEvent.GlobalBroker.Publish(InvokeCommand.Get(invoker, command)))
                 .AddTo(this);
         }
     }

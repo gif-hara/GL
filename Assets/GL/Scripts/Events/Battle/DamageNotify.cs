@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-using UnityEngine.Assertions;
-using System.Collections.Generic;
+﻿using HK.Framework.EventSystems;
 using HK.GL.Battle;
 
 namespace HK.GL.Events.Battle
@@ -8,7 +6,7 @@ namespace HK.GL.Events.Battle
     /// <summary>
     /// ダメージを通知するイベント
     /// </summary>
-    public sealed class DamageNotify : GLEvent<DamageNotify, Character, int>
+    public sealed class DamageNotify : UniRxEvent<DamageNotify, Character, int>
     {
         /// <summary>
         /// ダメージを受けたヤーツ

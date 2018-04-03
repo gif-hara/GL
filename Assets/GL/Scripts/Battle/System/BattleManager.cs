@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Assertions;
-using System.Collections.Generic;
-using HK.GL.Events;
+using HK.Framework.EventSystems;
 using HK.GL.Events.Battle;
-using UniRx;
 
 namespace HK.GL.Battle
 {
@@ -35,7 +33,7 @@ namespace HK.GL.Battle
         public void Initialize(BattleParty party)
         {
             this.Party = party;
-            GLEvent.GlobalBroker.Publish(StartBattle.Get());
+            UniRxEvent.GlobalBroker.Publish(StartBattle.Get());
             this.NextTurn();
         }
 
@@ -43,7 +41,7 @@ namespace HK.GL.Battle
         {
             this.BehavioralOrder.Elapse(this.Party);
             var order = this.BehavioralOrder.Simulation(this.Party, Constants.TurnSimulationNumber);
-            GLEvent.GlobalBroker.Publish(Events.Battle.NextTurn.Get(order));
+            UniRxEvent.GlobalBroker.Publish(Events.Battle.NextTurn.Get(order));
         }
 
         public void EndTurn()
@@ -53,12 +51,12 @@ namespace HK.GL.Battle
             var battleResult = this.Party.Result;
             if(battleResult == Constants.BattleResult.Unsettlement)
             {
-                GLEvent.GlobalBroker.Publish(Events.Battle.EndTurn.Get());
+                UniRxEvent.GlobalBroker.Publish(Events.Battle.EndTurn.Get());
                 this.NextTurn();
             }
             else
             {
-                GLEvent.GlobalBroker.Publish(EndBattle.Get(battleResult));
+                UniRxEvent.GlobalBroker.Publish(EndBattle.Get(battleResult));
             }
         }
     }

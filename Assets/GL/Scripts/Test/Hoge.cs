@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
-using UnityEngine.Assertions;
-using System.Collections.Generic;
-using HK.GL.Events;
+using HK.Framework.EventSystems;
 using UniRx;
 
 namespace HK.GL.Test
@@ -13,7 +11,7 @@ namespace HK.GL.Test
 	{
 		void Awake()
 		{
-            GLEvent.GlobalBroker.Receive<GLTestEvent>()
+			UniRxEvent.GlobalBroker.Receive<GLTestEvent>()
                 .Subscribe(g => Debug.Log("Hoge = " + g.Value));
         }
 	}

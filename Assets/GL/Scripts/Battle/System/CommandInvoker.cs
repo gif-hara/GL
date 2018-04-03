@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using HK.GL.Events;
+﻿using HK.Framework.EventSystems;
+using UnityEngine;
 using HK.GL.Events.Battle;
 using UniRx;
 
@@ -12,12 +12,12 @@ namespace HK.GL.Battle
     {
         void Awake()
         {
-            GLEvent.GlobalBroker.Receive<NextTurn>()
+            UniRxEvent.GlobalBroker.Receive<NextTurn>()
                 .Where(n => n.NextCharacter.CharacterType == Constants.CharacterType.Enemy)
                 .Subscribe(this.OnInvokeCommandFromEnemy)
                 .AddTo(this);
 
-            GLEvent.GlobalBroker.Receive<InvokeCommand>()
+            UniRxEvent.GlobalBroker.Receive<InvokeCommand>()
                 .Subscribe(this.OnInvokeCommand)
                 .AddTo(this);
         }

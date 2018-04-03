@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.Assertions;
 using System.Collections.Generic;
-using HK.GL.Events;
 using HK.GL.Events.Battle;
 using UniRx;
 using UnityEngine.UI;
 using HK.GL.Battle;
 using System.Text;
+using HK.Framework.EventSystems;
 
 namespace HK.GL.Test
 {
@@ -22,7 +22,7 @@ namespace HK.GL.Test
             this.text = this.GetComponent<Text>();
             Assert.IsNotNull(this.text);
 
-            GLEvent.GlobalBroker.Receive<BehavioralOrderSimulationed>()
+            UniRxEvent.GlobalBroker.Receive<BehavioralOrderSimulationed>()
                 .Select(b => b.Order)
                 .Subscribe(this.Draw)
                 .AddTo(this);

@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Assertions;
-using System.Collections.Generic;
 using System;
-using HK.GL.Events;
+using HK.Framework.EventSystems;
 using HK.GL.Events.Battle;
 
 namespace HK.GL.Battle
@@ -45,7 +44,7 @@ namespace HK.GL.Battle
         public void TakeDamage(int damage)
         {
             this.Status.TakeDamage(damage);
-            GLEvent.GlobalBroker.Publish(DamageNotify.Get(this, damage));
+            UniRxEvent.GlobalBroker.Publish(DamageNotify.Get(this, damage));
 
             if(this.Status.IsDead)
             {

@@ -1,10 +1,8 @@
 ﻿using UnityEngine;
-using UnityEngine.Assertions;
-using System.Collections.Generic;
 using UnityEngine.UI;
-using HK.GL.Events;
 using UniRx;
 using System.Text;
+using HK.Framework.EventSystems;
 using HK.GL.Battle;
 
 namespace HK.GL.Test.Battle
@@ -23,7 +21,7 @@ namespace HK.GL.Test.Battle
         void Awake()
         {
             this.cachedText = this.GetComponent<Text>();
-            this.Subscribe(GLEvent.GlobalBroker.Receive<Events.Battle.NextTurn>());
+            this.Subscribe(UniRxEvent.GlobalBroker.Receive<Events.Battle.NextTurn>());
         }
 
         private void Draw()

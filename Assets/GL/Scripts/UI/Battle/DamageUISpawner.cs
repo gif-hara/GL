@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Assertions;
-using System.Collections.Generic;
-using HK.GL.Events;
+using HK.Framework.EventSystems;
 using HK.GL.Events.Battle;
 using UniRx;
 
@@ -31,7 +30,7 @@ namespace HK.GL.UI.Battle
             this.cachedTransform = this.transform;
             Assert.IsNotNull(this.cachedTransform);
 
-            GLEvent.GlobalBroker.Receive<DamageNotify>()
+            UniRxEvent.GlobalBroker.Receive<DamageNotify>()
                 .SubscribeWithState(this, (d, _this) => _this.Create(d.Receiver.transform, d.Value))
                 .AddTo(this);
         }

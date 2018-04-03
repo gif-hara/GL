@@ -1,6 +1,5 @@
-﻿using UnityEngine;
-using UnityEngine.Assertions;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using HK.Framework.EventSystems;
 using HK.GL.Battle;
 
 namespace HK.GL.Events.Battle
@@ -8,7 +7,7 @@ namespace HK.GL.Events.Battle
     /// <summary>
     /// 次のターンに進んだことを通知するイベント
     /// </summary>
-    public sealed class NextTurn : GLEvent<NextTurn, List<Character>>
+    public sealed class NextTurn : UniRxEvent<NextTurn, List<Character>>
     {
         /// <summary>
         /// 行動順

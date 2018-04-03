@@ -2,7 +2,7 @@
 using UnityEngine.Assertions;
 using System.Collections.Generic;
 using System.Linq;
-using HK.GL.Events;
+using HK.Framework.EventSystems;
 using HK.GL.Events.Battle;
 using UniRx;
 
@@ -20,7 +20,7 @@ namespace HK.GL.Battle
 
         void Awake()
         {
-            GLEvent.GlobalBroker.Receive<NextTurn>()
+            UniRxEvent.GlobalBroker.Receive<NextTurn>()
                 .SubscribeWithState(this, (n, _this) => _this.currentCharacter = n.Order[0])
                 .AddTo(this);
         }
@@ -80,7 +80,7 @@ namespace HK.GL.Battle
                 }
             }
 
-            GLEvent.GlobalBroker.Publish(BehavioralOrderSimulationed.Get(result));
+            UniRxEvent.GlobalBroker.Publish(BehavioralOrderSimulationed.Get(result));
             return result;
         }
 
