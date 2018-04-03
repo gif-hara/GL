@@ -46,7 +46,7 @@ namespace GL.Scripts.Battle.CharacterControllers
         public int Speed{ get{ return this.speed; } }
 
         [SerializeField]
-        private List<CommandSettings> commandSettings;
+        private List<Settings> commandSettings;
         public List<ICommand> Commands{ get{ return this.commandSettings.Select(c => c.Create()).ToList(); } }
 
         /// <summary>

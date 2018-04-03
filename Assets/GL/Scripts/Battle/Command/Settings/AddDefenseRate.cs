@@ -6,11 +6,11 @@ namespace GL.Scripts.Battle.Command.Settings
     /// 防御力倍率上昇コマンドの設定データ.
     /// </summary>
     [CreateAssetMenu()]
-    public sealed class CommandSettings_AddDefenseRate : CommandSettings
+    public sealed class AddDefenseRate : Settings
     {
         public override ICommand Create()
         {
-            return new Command_AddDefenseRate(this.commandName.Get, this.targetType);
+            return new Command.AddDefenseRate(this.commandName.Get, this.targetType);
         }
     }
 }

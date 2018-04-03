@@ -6,7 +6,7 @@ namespace GL.Scripts.Battle.Command
     /// <summary>
     /// 攻撃を行うコマンド.
     /// </summary>
-    public sealed class Command_Attack : ICommand
+    public sealed class Attack : ICommand
     {
         private string name;
 
@@ -33,7 +33,7 @@ namespace GL.Scripts.Battle.Command
             });
         }
 
-        public Command_Attack(string name, Constants.TargetType targetType, float rate)
+        public Attack(string name, Constants.TargetType targetType, float rate)
         {
             this.name = name;
             this.targetType = targetType;

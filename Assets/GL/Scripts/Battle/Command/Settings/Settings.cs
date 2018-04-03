@@ -7,7 +7,7 @@ namespace GL.Scripts.Battle.Command.Settings
     /// <summary>
     /// コマンドの設定データ.
     /// </summary>
-    public abstract class CommandSettings : ScriptableObject
+    public abstract class Settings : ScriptableObject
     {
         /// <summary>
         /// コマンド名

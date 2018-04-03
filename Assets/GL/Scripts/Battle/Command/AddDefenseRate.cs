@@ -6,7 +6,7 @@ namespace GL.Scripts.Battle.Command
     /// <summary>
     /// 防御力倍率上昇を行うコマンド.
     /// </summary>
-    public sealed class Command_AddDefenseRate : ICommand
+    public sealed class AddDefenseRate : ICommand
     {
         private string name;
 
@@ -29,7 +29,7 @@ namespace GL.Scripts.Battle.Command
             });
         }
 
-        public Command_AddDefenseRate(string name, Constants.TargetType targetType)
+        public AddDefenseRate(string name, Constants.TargetType targetType)
         {
             this.name = name;
             this.targetType = targetType;

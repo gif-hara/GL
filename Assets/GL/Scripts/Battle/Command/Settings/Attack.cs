@@ -6,14 +6,14 @@ namespace GL.Scripts.Battle.Command.Settings
     /// 攻撃コマンドの設定データ.
     /// </summary>
     [CreateAssetMenu()]
-    public sealed class CommandSettings_Attack : CommandSettings
+    public sealed class Attack : Settings
     {
         [SerializeField]
         private float rate;
          
         public override ICommand Create()
         {
-            return new Command_Attack(this.commandName.Get, this.targetType, this.rate);
+            return new Command.Attack(this.commandName.Get, this.targetType, this.rate);
         }
     }
 }
