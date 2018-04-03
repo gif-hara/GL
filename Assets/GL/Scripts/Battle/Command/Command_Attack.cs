@@ -25,7 +25,7 @@ namespace GL.Scripts.Battle.Command
         {
             invoker.StartAttack(() =>
             {
-                var targets = BattleManager.Instance.Party
+                var targets = BattleManager.Instance.Parties
                     .Opponent(invoker)
                     .GetTargets(this.targetType, c => c.Status.HitPoint);
                 targets.ForEach(t => t.TakeDamage(Calculator.GetBasicAttackDamage(invoker.Status, t.Status, this.rate)));

@@ -20,7 +20,7 @@ namespace GL.Scripts.Battle.Command
         {
             invoker.StartAttack(() =>
             {
-                var targets = BattleManager.Instance.Party
+                var targets = BattleManager.Instance.Parties
                     .Ally(invoker)
                     .GetTargets(this.targetType, c => c.Status.Defense);
                 var addDefense = Calculator.GetAddDefenseValue(invoker.Status);

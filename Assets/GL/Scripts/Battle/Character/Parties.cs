@@ -6,7 +6,7 @@ namespace GL.Scripts.Battle.CharacterControllers
     /// <summary>
     /// バトルに参加しているパーティ
     /// </summary>
-    public sealed class BattleParty
+    public sealed class Parties
     {
         public Party Player { private set; get; }
 
@@ -17,7 +17,7 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// </summary>
         public List<Character> AllMember { private set; get; }
 
-        public BattleParty(Party player, Party enemy)
+        public Parties(Party player, Party enemy)
         {
             this.Player = player;
             this.Enemy = enemy;

@@ -33,12 +33,12 @@ namespace HK.GL.Test.Battle
 
         void Start()
         {
-            var party = new BattleParty(
+            var parties = new Parties(
                 this.CreateParty(this.players, Constants.CharacterType.Player, this.playerParent, this.playerInterval, -1.0f),
                 this.CreateParty(this.enemies, Constants.CharacterType.Enemy, this.enemyParent, this.enemyInterval, 1.0f)
             );
 
-            BattleManager.Instance.Initialize(party);
+            BattleManager.Instance.Initialize(parties);
         }
 
         private Character CreateCharacter(

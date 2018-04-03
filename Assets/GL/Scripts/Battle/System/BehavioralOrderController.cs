@@ -32,9 +32,9 @@ namespace HK.GL.Battle
         /// <remarks>
         /// 今回行動したキャラクターのwaitをリセットする
         /// </remarks>
-        public void Elapse(BattleParty party)
+        public void Elapse(Parties parties)
         {
-            var allMember = party.AllMember;
+            var allMember = parties.AllMember;
             var waits = allMember.Select(m => m.Status.Wait).ToList();
             var waitMax = allMember.Count;
             var speedMax = allMember.Max(c => c.Status.Speed);
@@ -48,16 +48,16 @@ namespace HK.GL.Battle
         /// <summary>
         /// ターン終了処理を行う
         /// </summary>
-        public void EndTurn(BattleParty party)
+        public void EndTurn(Parties parties)
         {
-            var waitMax = party.AllMember.Count;
+            var waitMax = parties.AllMember.Count;
             this.currentCharacter.Status.Wait -= waitMax;
         }
 
-        public List<Character> Simulation(BattleParty party, int length)
+        public List<Character> Simulation(Parties paties, int length)
         {
             var result = new List<Character>();
-            var allMember = party.AllMember;
+            var allMember = paties.AllMember;
             var waits = new List<float>();
             var waitMax = allMember.Count;
             var speedMax = allMember.Max(c => c.Status.Speed);

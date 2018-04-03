@@ -28,9 +28,9 @@ namespace HK.GL.Test.Battle
         private void Draw()
         {
             var builder = new StringBuilder();
-            BuildText(builder, this.format, BattleManager.Instance.Party.Player);
+            BuildText(builder, this.format, BattleManager.Instance.Parties.Player);
             builder.AppendLine("------------------------------");
-            BuildText(builder, this.format, BattleManager.Instance.Party.Enemy);
+            BuildText(builder, this.format, BattleManager.Instance.Parties.Enemy);
             this.cachedText.text = builder.ToString();
         }
 

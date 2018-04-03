@@ -14,7 +14,7 @@ namespace HK.GL.Battle
     {
         public static BattleManager Instance { private set; get; }
 
-        public BattleParty Party { private set; get; }
+        public Parties Parties { private set; get; }
 
         public BehavioralOrderController BehavioralOrder { private set; get; }
 
@@ -31,25 +31,25 @@ namespace HK.GL.Battle
             Instance = null;
         }
 
-        public void Initialize(BattleParty party)
+        public void Initialize(Parties paties)
         {
-            this.Party = party;
+            this.Parties = paties;
             Broker.Global.Publish(StartBattle.Get());
             this.NextTurn();
         }
 
         public void NextTurn()
         {
-            this.BehavioralOrder.Elapse(this.Party);
-            var order = this.BehavioralOrder.Simulation(this.Party, Constants.TurnSimulationNumber);
+            this.BehavioralOrder.Elapse(this.Parties);
+            var order = this.BehavioralOrder.Simulation(this.Parties, Constants.TurnSimulationNumber);
             Broker.Global.Publish(Events.Battle.NextTurn.Get(order));
         }
 
         public void EndTurn()
         {
-            this.BehavioralOrder.EndTurn(this.Party);
+            this.BehavioralOrder.EndTurn(this.Parties);
 
-            var battleResult = this.Party.Result;
+            var battleResult = this.Parties.Result;
             if(battleResult == Constants.BattleResult.Unsettlement)
             {
                 Broker.Global.Publish(Events.Battle.EndTurn.Get());
