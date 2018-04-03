@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using GL.Scripts.Battle.Command;
-using GL.Scripts.Battle.Command.Blueprints;
-using GL.Scripts.Battle.Command.Impletents;
-using HK.GL.Battle;
+using GL.Scripts.Battle.Commands.Blueprints;
+using GL.Scripts.Battle.Commands.Impletents;
 using UnityEngine;
 
 namespace GL.Scripts.Battle.CharacterControllers

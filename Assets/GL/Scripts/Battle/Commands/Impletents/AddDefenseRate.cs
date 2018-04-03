@@ -1,7 +1,7 @@
 ﻿using GL.Scripts.Battle.CharacterControllers;
 using HK.GL.Battle;
 
-namespace GL.Scripts.Battle.Command.Impletents
+namespace GL.Scripts.Battle.Commands.Impletents
 {
     /// <summary>
     /// 防御力倍率上昇を行うコマンド.

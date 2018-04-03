@@ -1,7 +1,7 @@
 ﻿using GL.Scripts.Battle.CharacterControllers;
 using HK.GL.Battle;
 
-namespace GL.Scripts.Battle.Command.Impletents
+namespace GL.Scripts.Battle.Commands.Impletents
 {
     /// <summary>
     /// 攻撃を行うコマンド.

@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
-using GL.Scripts.Battle.Command;
-using GL.Scripts.Battle.Command.Impletents;
-using HK.GL.Battle;
+using GL.Scripts.Battle.Commands.Impletents;
 
 namespace GL.Scripts.Battle.CharacterControllers
 {

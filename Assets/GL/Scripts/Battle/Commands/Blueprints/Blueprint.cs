@@ -1,9 +1,9 @@
-﻿using GL.Scripts.Battle.Command.Impletents;
+﻿using GL.Scripts.Battle.Commands.Impletents;
 using HK.Framework.Text;
 using HK.GL.Battle;
 using UnityEngine;
 
-namespace GL.Scripts.Battle.Command.Blueprints
+namespace GL.Scripts.Battle.Commands.Blueprints
 {
     /// <summary>
     /// コマンドを構成する設計図の抽象クラス
