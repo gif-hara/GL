@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using GL.Scripts.Battle.Command;
-using GL.Scripts.Battle.Command.Settings;
+using GL.Scripts.Battle.Command.Blueprints;
 using HK.GL.Battle;
 using UnityEngine;
 
@@ -46,7 +46,7 @@ namespace GL.Scripts.Battle.CharacterControllers
         public int Speed{ get{ return this.speed; } }
 
         [SerializeField]
-        private List<Settings> commandSettings;
+        private List<Blueprint> commandSettings;
         public List<ICommand> Commands{ get{ return this.commandSettings.Select(c => c.Create()).ToList(); } }
 
         /// <summary>

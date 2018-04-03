@@ -2,12 +2,12 @@
 using HK.GL.Battle;
 using UnityEngine;
 
-namespace GL.Scripts.Battle.Command.Settings
+namespace GL.Scripts.Battle.Command.Blueprints
 {
     /// <summary>
-    /// コマンドの設定データ.
+    /// コマンドを構成する設計図の抽象クラス
     /// </summary>
-    public abstract class Settings : ScriptableObject
+    public abstract class Blueprint : ScriptableObject
     {
         /// <summary>
         /// コマンド名
@@ -22,7 +22,7 @@ namespace GL.Scripts.Battle.Command.Settings
         protected Constants.TargetType targetType;
 
         /// <summary>
-        /// 設定データからコマンドを作成する
+        /// 設計図からコマンドを作成する
         /// </summary>
         public abstract ICommand Create();
     }

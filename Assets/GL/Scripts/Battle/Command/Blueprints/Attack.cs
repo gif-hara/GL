@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 
-namespace GL.Scripts.Battle.Command.Settings
+namespace GL.Scripts.Battle.Command.Blueprints
 {
     /// <summary>
     /// 攻撃コマンドの設定データ.
     /// </summary>
     [CreateAssetMenu()]
-    public sealed class Attack : Settings
+    public sealed class Attack : Blueprint
     {
         [SerializeField]
         private float rate;
