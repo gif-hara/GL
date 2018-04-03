@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using HK.GL.Battle;
 
-namespace HK.GL.Battle
+namespace GL.Scripts.Battle.CharacterControllers
 {
     /// <summary>
     /// バトルに参加しているパーティ

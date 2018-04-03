@@ -1,10 +1,11 @@
-﻿using UnityEngine;
-using UnityEngine.Assertions;
-using System;
+﻿using System;
 using HK.Framework.EventSystems;
+using HK.GL.Battle;
 using HK.GL.Events.Battle;
+using UnityEngine;
+using UnityEngine.Assertions;
 
-namespace HK.GL.Battle
+namespace GL.Scripts.Battle.CharacterControllers
 {
     /// <summary>
     /// キャラクター.

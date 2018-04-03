@@ -1,14 +1,9 @@
 ﻿using UnityEngine;
-using UnityEngine.Assertions;
-using System.Collections.Generic;
 using UnityEngine.UI;
 using HK.GL.Battle;
-using UnityEngine.EventSystems;
-using System;
+using GL.Scripts.Battle.CharacterControllers;
 using HK.Framework.EventSystems;
-using HK.GL.Events;
 using HK.GL.Events.Battle;
-using UniRx.Triggers;
 using UniRx;
 
 namespace HK.GL.UI.Battle

@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using HK.GL.Events.Battle;
 using UniRx;
 using UnityEngine.UI;
-using HK.GL.Battle;
 using System.Text;
+using GL.Scripts.Battle.CharacterControllers;
 using HK.Framework.EventSystems;
 
 namespace HK.GL.Test

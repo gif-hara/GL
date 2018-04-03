@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using UniRx;
 using System.Text;
+using GL.Scripts.Battle.CharacterControllers;
 using HK.Framework.EventSystems;
 using HK.GL.Battle;
 

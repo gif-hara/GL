@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
+using GL.Scripts.Battle.CharacterControllers;
 using HK.Framework.EventSystems;
-using HK.GL.Battle;
 
 namespace HK.GL.Events.Battle
 {

@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-using UnityEngine.Assertions;
-using System.Collections.Generic;
+﻿using GL.Scripts.Battle.CharacterControllers;
 
 namespace HK.GL.Battle
 {

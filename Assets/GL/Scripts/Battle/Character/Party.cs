@@ -1,11 +1,11 @@
-﻿using UnityEngine;
-using UnityEngine.Assertions;
+﻿using System;
 using System.Collections.Generic;
-using HK.GL.Extensions;
-using System;
 using System.Linq;
+using HK.GL.Battle;
+using HK.GL.Extensions;
+using UnityEngine.Assertions;
 
-namespace HK.GL.Battle
+namespace GL.Scripts.Battle.CharacterControllers
 {
     /// <summary>
     /// パーティを管理するヤーツ.

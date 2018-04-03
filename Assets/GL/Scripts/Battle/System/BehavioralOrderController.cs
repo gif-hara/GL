@@ -2,6 +2,7 @@
 using UnityEngine.Assertions;
 using System.Collections.Generic;
 using System.Linq;
+using GL.Scripts.Battle.CharacterControllers;
 using HK.Framework.EventSystems;
 using HK.GL.Events.Battle;
 using UniRx;

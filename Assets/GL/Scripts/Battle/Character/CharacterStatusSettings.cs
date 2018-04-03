@@ -1,9 +1,9 @@
-﻿using UnityEngine;
-using UnityEngine.Assertions;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using HK.GL.Battle;
+using UnityEngine;
 
-namespace HK.GL.Battle
+namespace GL.Scripts.Battle.CharacterControllers
 {
     /// <summary>
     /// キャラクターステータスを設定するヤーツ.

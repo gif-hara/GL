@@ -1,9 +1,6 @@
-﻿using UnityEngine;
-using UnityEngine.Assertions;
-using System.Collections.Generic;
-using System;
+﻿using System;
 
-namespace HK.GL.Battle
+namespace GL.Scripts.Battle.CharacterControllers
 {
     /// <summary>
     /// キャラクターのアニメーションを制御する

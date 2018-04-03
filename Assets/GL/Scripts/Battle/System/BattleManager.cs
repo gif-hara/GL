@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using GL.Scripts.Battle.CharacterControllers;
+using UnityEngine;
 using UnityEngine.Assertions;
 using HK.Framework.EventSystems;
 using HK.GL.Events.Battle;

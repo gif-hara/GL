@@ -1,11 +1,10 @@
-﻿using UnityEngine;
-using UnityEngine.Assertions;
-using System.Collections.Generic;
-using System;
-using UniRx.Triggers;
+﻿using System;
 using UniRx;
+using UniRx.Triggers;
+using UnityEngine;
+using UnityEngine.Assertions;
 
-namespace HK.GL.Battle
+namespace GL.Scripts.Battle.CharacterControllers
 {
     /// <summary>
     /// 
