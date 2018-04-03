@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using GL.Scripts.Battle.CharacterControllers;
-using HK.GL.Battle;
+using GL.Scripts.Battle.Systems;
 
 namespace HK.GL.Test.Battle
 {

@@ -1,6 +1,6 @@
 ﻿using System;
+using GL.Scripts.Battle.Systems;
 using HK.Framework.EventSystems;
-using HK.GL.Battle;
 using HK.GL.Events.Battle;
 using UnityEngine;
 using UnityEngine.Assertions;

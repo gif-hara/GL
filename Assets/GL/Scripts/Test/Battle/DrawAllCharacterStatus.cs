@@ -3,8 +3,8 @@ using UnityEngine.UI;
 using UniRx;
 using System.Text;
 using GL.Scripts.Battle.CharacterControllers;
+using GL.Scripts.Battle.Systems;
 using HK.Framework.EventSystems;
-using HK.GL.Battle;
 
 namespace HK.GL.Test.Battle
 {

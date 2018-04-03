@@ -1,5 +1,5 @@
-﻿using HK.Framework.EventSystems;
-using HK.GL.Battle;
+﻿using GL.Scripts.Battle.Systems;
+using HK.Framework.EventSystems;
 
 namespace HK.GL.Events.Battle
 {

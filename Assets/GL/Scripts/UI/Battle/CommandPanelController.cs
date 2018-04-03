@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using GL.Scripts.Battle.Systems;
 using HK.Framework.EventSystems;
 using HK.GL.Events.Battle;
 using UniRx;
-using HK.GL.Battle;
 
 namespace HK.GL.UI.Battle
 {

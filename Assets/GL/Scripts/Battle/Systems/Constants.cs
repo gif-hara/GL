@@ -1,8 +1,4 @@
-﻿using UnityEngine;
-using UnityEngine.Assertions;
-using System.Collections.Generic;
-
-namespace HK.GL.Battle
+﻿namespace GL.Scripts.Battle.Systems
 {
     /// <summary>
     /// バトルで使用する定数.

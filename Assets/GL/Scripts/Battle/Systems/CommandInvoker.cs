@@ -1,9 +1,9 @@
 ﻿using HK.Framework.EventSystems;
-using UnityEngine;
 using HK.GL.Events.Battle;
 using UniRx;
+using UnityEngine;
 
-namespace HK.GL.Battle
+namespace GL.Scripts.Battle.Systems
 {
     /// <summary>
     /// 行動するキャラクターのコマンドを実行するヤーツ

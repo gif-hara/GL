@@ -1,10 +1,10 @@
 ﻿using GL.Scripts.Battle.CharacterControllers;
-using UnityEngine;
-using UnityEngine.Assertions;
 using HK.Framework.EventSystems;
 using HK.GL.Events.Battle;
+using UnityEngine;
+using UnityEngine.Assertions;
 
-namespace HK.GL.Battle
+namespace GL.Scripts.Battle.Systems
 {
     /// <summary>
     /// バトルを管理するヤーツ.
@@ -42,7 +42,7 @@ namespace HK.GL.Battle
         {
             this.BehavioralOrder.Elapse(this.Parties);
             var order = this.BehavioralOrder.Simulation(this.Parties, Constants.TurnSimulationNumber);
-            Broker.Global.Publish(Events.Battle.NextTurn.Get(order));
+            Broker.Global.Publish(HK.GL.Events.Battle.NextTurn.Get(order));
         }
 
         public void EndTurn()
@@ -52,7 +52,7 @@ namespace HK.GL.Battle
             var battleResult = this.Parties.Result;
             if(battleResult == Constants.BattleResult.Unsettlement)
             {
-                Broker.Global.Publish(Events.Battle.EndTurn.Get());
+                Broker.Global.Publish(HK.GL.Events.Battle.EndTurn.Get());
                 this.NextTurn();
             }
             else

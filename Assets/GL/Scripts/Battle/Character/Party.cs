@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using HK.GL.Battle;
+using GL.Scripts.Battle.Systems;
 using HK.GL.Extensions;
 using UnityEngine.Assertions;
 

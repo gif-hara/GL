@@ -1,5 +1,5 @@
 ﻿using GL.Scripts.Battle.CharacterControllers;
-using HK.GL.Battle;
+using GL.Scripts.Battle.Systems;
 
 namespace GL.Scripts.Battle.Commands.Impletents
 {

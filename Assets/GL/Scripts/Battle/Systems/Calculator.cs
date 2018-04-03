@@ -1,7 +1,7 @@
-﻿using UnityEngine;
-using GL.Scripts.Battle.CharacterControllers;
+﻿using GL.Scripts.Battle.CharacterControllers;
+using UnityEngine;
 
-namespace HK.GL.Battle
+namespace GL.Scripts.Battle.Systems
 {
     /// <summary>
     /// バトルで必要な計算を行う

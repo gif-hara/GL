@@ -1,13 +1,13 @@
-﻿using UnityEngine;
-using UnityEngine.Assertions;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using GL.Scripts.Battle.CharacterControllers;
 using HK.Framework.EventSystems;
 using HK.GL.Events.Battle;
 using UniRx;
+using UnityEngine;
+using UnityEngine.Assertions;
 
-namespace HK.GL.Battle
+namespace GL.Scripts.Battle.Systems
 {
     /// <summary>
     /// バトルの行動順を制御するヤーツ.
