@@ -105,7 +105,7 @@ namespace HK.Framework
 		{
 			get
 			{
-				return Application.isConsolePlatform || Application.isWebPlayer || Application.isEditor;
+				return Application.isConsolePlatform || Application.isEditor;
 			}
 		}
 
