@@ -25,7 +25,7 @@ namespace HK.GL.Battle
         private void OnInvokeCommand(InvokeCommand eventData)
         {
             var character = eventData.Invoker;
-            eventData.Command.Invoke(character);
+            eventData.Implement.Invoke(character);
         }
 
         private void OnInvokeCommandFromEnemy(NextTurn eventData)

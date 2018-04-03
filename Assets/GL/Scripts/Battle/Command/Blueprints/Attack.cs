@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using GL.Scripts.Battle.Command.Impletents;
+using UnityEngine;
 
 namespace GL.Scripts.Battle.Command.Blueprints
 {
@@ -11,9 +12,9 @@ namespace GL.Scripts.Battle.Command.Blueprints
         [SerializeField]
         private float rate;
          
-        public override ICommand Create()
+        public override IImplement Create()
         {
-            return new Command.Attack(this.commandName.Get, this.targetType, this.rate);
+            return new Impletents.Attack(this.commandName.Get, this.targetType, this.rate);
         }
     }
 }

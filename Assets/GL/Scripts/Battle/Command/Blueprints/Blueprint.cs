@@ -1,4 +1,5 @@
-﻿using HK.Framework.Text;
+﻿using GL.Scripts.Battle.Command.Impletents;
+using HK.Framework.Text;
 using HK.GL.Battle;
 using UnityEngine;
 
@@ -24,6 +25,6 @@ namespace GL.Scripts.Battle.Command.Blueprints
         /// <summary>
         /// 設計図からコマンドを作成する
         /// </summary>
-        public abstract ICommand Create();
+        public abstract IImplement Create();
     }
 }

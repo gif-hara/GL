@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using GL.Scripts.Battle.Command;
+using GL.Scripts.Battle.Command.Impletents;
 using HK.GL.Battle;
 
 namespace GL.Scripts.Battle.CharacterControllers
@@ -58,7 +59,7 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// <summary>
         /// 使用可能なコマンド
         /// </summary>
-        public List<ICommand> Commands { private set; get; }
+        public List<IImplement> Commands { private set; get; }
 
         /// <summary>
         /// 待機した量

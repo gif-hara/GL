@@ -2,6 +2,7 @@
 using System.Linq;
 using GL.Scripts.Battle.Command;
 using GL.Scripts.Battle.Command.Blueprints;
+using GL.Scripts.Battle.Command.Impletents;
 using HK.GL.Battle;
 using UnityEngine;
 
@@ -47,7 +48,7 @@ namespace GL.Scripts.Battle.CharacterControllers
 
         [SerializeField]
         private List<Blueprint> commandSettings;
-        public List<ICommand> Commands{ get{ return this.commandSettings.Select(c => c.Create()).ToList(); } }
+        public List<IImplement> Commands{ get{ return this.commandSettings.Select(c => c.Create()).ToList(); } }
 
         /// <summary>
         /// 設定を元に<see cref="CharacterStatus"/>を作成する

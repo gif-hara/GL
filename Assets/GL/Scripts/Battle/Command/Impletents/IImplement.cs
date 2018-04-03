@@ -1,12 +1,12 @@
 ﻿using GL.Scripts.Battle.CharacterControllers;
 using HK.GL.Battle;
 
-namespace GL.Scripts.Battle.Command
+namespace GL.Scripts.Battle.Command.Impletents
 {
     /// <summary>
-    /// コマンドたらしめるインターフェイス.
+    /// 実際にゲームで使用するコマンドのインターフェイス
     /// </summary>
-    public interface ICommand
+    public interface IImplement
     {
         /// <summary>
         /// コマンド名
@@ -24,7 +24,7 @@ namespace GL.Scripts.Battle.Command
         /// <summary>
         /// コマンドを実行する
         /// </summary>
-        /// <param name="invoker">実行するヤーツ</param>
+        /// <param name="invoker">実行するキャラクター</param>
         void Invoke(Character invoker);
     }
 }

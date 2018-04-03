@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using GL.Scripts.Battle.Command.Impletents;
+using UnityEngine;
 
 namespace GL.Scripts.Battle.Command.Blueprints
 {
@@ -8,9 +9,9 @@ namespace GL.Scripts.Battle.Command.Blueprints
     [CreateAssetMenu()]
     public sealed class AddDefenseRate : Blueprint
     {
-        public override ICommand Create()
+        public override IImplement Create()
         {
-            return new Command.AddDefenseRate(this.commandName.Get, this.targetType);
+            return new Impletents.AddDefenseRate(this.commandName.Get, this.targetType);
         }
     }
 }
