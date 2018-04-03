@@ -15,6 +15,15 @@ namespace HK.GL.UI.Battle
         [SerializeField]
         private DamageUIController controller;
 
+        [SerializeField]
+        private RectTransform canvasTransform;
+
+        [SerializeField]
+        private Camera uiCamera;
+
+        [SerializeField]
+        private Camera worldCamera;
+
         private Transform cachedTransform;
 
         void Awake()
@@ -30,7 +39,7 @@ namespace HK.GL.UI.Battle
         public void Create(Transform receiver, int damage)
         {
             var instance = Instantiate(this.controller, this.cachedTransform, false);
-            instance.SetProperty(receiver, damage);
+            instance.SetProperty(receiver, damage, this.canvasTransform, this.uiCamera, this.worldCamera);
         }
     }
 }

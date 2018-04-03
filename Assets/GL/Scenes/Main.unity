@@ -1867,6 +1867,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 114844339297531098, guid: 421fed38ab92e4ec9910ac4c0c32e813,
     type: 2}
+  canvasTransform: {fileID: 2025855399}
+  uiCamera: {fileID: 1356463855}
+  worldCamera: {fileID: 1344767718}
 --- !u!222 &2025855402
 CanvasRenderer:
   m_ObjectHideFlags: 0
