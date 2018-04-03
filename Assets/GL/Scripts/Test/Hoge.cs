@@ -11,7 +11,7 @@ namespace HK.GL.Test
 	{
 		void Awake()
 		{
-			UniRxEvent.GlobalBroker.Receive<GLTestEvent>()
+			Broker.Global.Receive<GLTestEvent>()
                 .Subscribe(g => Debug.Log("Hoge = " + g.Value));
         }
 	}

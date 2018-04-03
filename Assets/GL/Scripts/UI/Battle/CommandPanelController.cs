@@ -17,11 +17,11 @@ namespace HK.GL.UI.Battle
 
         void Awake()
         {
-            UniRxEvent.GlobalBroker.Receive<NextTurn>()
+            Broker.Global.Receive<NextTurn>()
                 .Where(n => n.NextCharacter.CharacterType == Constants.CharacterType.Player)
                 .Subscribe(this.OnNextTurnFromPlayer)
                 .AddTo(this);
-            UniRxEvent.GlobalBroker.Receive<NextTurn>()
+            Broker.Global.Receive<NextTurn>()
                 .Where(n => n.NextCharacter.CharacterType == Constants.CharacterType.Enemy)
                 .Subscribe(this.OnNextTurnFromEnemy)
                 .AddTo(this);

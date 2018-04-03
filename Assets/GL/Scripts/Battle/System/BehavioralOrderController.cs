@@ -20,7 +20,7 @@ namespace HK.GL.Battle
 
         void Awake()
         {
-            UniRxEvent.GlobalBroker.Receive<NextTurn>()
+            Broker.Global.Receive<NextTurn>()
                 .SubscribeWithState(this, (n, _this) => _this.currentCharacter = n.Order[0])
                 .AddTo(this);
         }
@@ -80,7 +80,7 @@ namespace HK.GL.Battle
                 }
             }
 
-            UniRxEvent.GlobalBroker.Publish(BehavioralOrderSimulationed.Get(result));
+            Broker.Global.Publish(BehavioralOrderSimulationed.Get(result));
             return result;
         }
 

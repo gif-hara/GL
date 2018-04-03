@@ -30,7 +30,7 @@ namespace HK.GL.UI.Battle
             this.cachedTransform = this.transform;
             Assert.IsNotNull(this.cachedTransform);
 
-            UniRxEvent.GlobalBroker.Receive<DamageNotify>()
+            Broker.Global.Receive<DamageNotify>()
                 .SubscribeWithState(this, (d, _this) => _this.Create(d.Receiver.transform, d.Value))
                 .AddTo(this);
         }

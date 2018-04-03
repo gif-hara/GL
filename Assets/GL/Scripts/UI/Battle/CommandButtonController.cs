@@ -30,8 +30,8 @@ namespace HK.GL.UI.Battle
 
             this.button.OnClickAsObservable()
                 .First()
-                .TakeUntil(UniRxEvent.GlobalBroker.Receive<InvokeCommand>())
-                .Subscribe(_ => UniRxEvent.GlobalBroker.Publish(InvokeCommand.Get(invoker, command)))
+                .TakeUntil(Broker.Global.Receive<InvokeCommand>())
+                .Subscribe(_ => Broker.Global.Publish(InvokeCommand.Get(invoker, command)))
                 .AddTo(this);
         }
     }

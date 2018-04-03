@@ -7,7 +7,7 @@ namespace HK.GL.Events.Battle
     /// <summary>
     /// 次のターンに進んだことを通知するイベント
     /// </summary>
-    public sealed class NextTurn : UniRxEvent<NextTurn, List<Character>>
+    public sealed class NextTurn : Message<NextTurn, List<Character>>
     {
         /// <summary>
         /// 行動順

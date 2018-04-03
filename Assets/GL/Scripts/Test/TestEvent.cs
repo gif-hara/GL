@@ -26,11 +26,11 @@ namespace HK.GL.Test
 
         void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
         {
-	        UniRxEvent.GlobalBroker.Publish(GLTestEvent.Get(10));
+	        Framework.EventSystems.Broker.Global.Publish(GLTestEvent.Get(10));
         }
     }
 
-	public class GLTestEvent : UniRxEvent<GLTestEvent, int>
+	public class GLTestEvent : Message<GLTestEvent, int>
 	{
 		public int Value{ get { return this.param1; } }
     }

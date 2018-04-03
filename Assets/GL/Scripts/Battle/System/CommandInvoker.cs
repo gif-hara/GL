@@ -12,12 +12,12 @@ namespace HK.GL.Battle
     {
         void Awake()
         {
-            UniRxEvent.GlobalBroker.Receive<NextTurn>()
+            Broker.Global.Receive<NextTurn>()
                 .Where(n => n.NextCharacter.CharacterType == Constants.CharacterType.Enemy)
                 .Subscribe(this.OnInvokeCommandFromEnemy)
                 .AddTo(this);
 
-            UniRxEvent.GlobalBroker.Receive<InvokeCommand>()
+            Broker.Global.Receive<InvokeCommand>()
                 .Subscribe(this.OnInvokeCommand)
                 .AddTo(this);
         }

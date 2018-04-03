@@ -44,7 +44,7 @@ namespace HK.GL.Battle
         public void TakeDamage(int damage)
         {
             this.Status.TakeDamage(damage);
-            UniRxEvent.GlobalBroker.Publish(DamageNotify.Get(this, damage));
+            Broker.Global.Publish(DamageNotify.Get(this, damage));
 
             if(this.Status.IsDead)
             {

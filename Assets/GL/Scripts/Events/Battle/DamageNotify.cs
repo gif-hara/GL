@@ -6,7 +6,7 @@ namespace HK.GL.Events.Battle
     /// <summary>
     /// ダメージを通知するイベント
     /// </summary>
-    public sealed class DamageNotify : UniRxEvent<DamageNotify, Character, int>
+    public sealed class DamageNotify : Message<DamageNotify, Character, int>
     {
         /// <summary>
         /// ダメージを受けたヤーツ

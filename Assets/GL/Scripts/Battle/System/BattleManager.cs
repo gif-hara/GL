@@ -33,7 +33,7 @@ namespace HK.GL.Battle
         public void Initialize(BattleParty party)
         {
             this.Party = party;
-            UniRxEvent.GlobalBroker.Publish(StartBattle.Get());
+            Broker.Global.Publish(StartBattle.Get());
             this.NextTurn();
         }
 
@@ -41,7 +41,7 @@ namespace HK.GL.Battle
         {
             this.BehavioralOrder.Elapse(this.Party);
             var order = this.BehavioralOrder.Simulation(this.Party, Constants.TurnSimulationNumber);
-            UniRxEvent.GlobalBroker.Publish(Events.Battle.NextTurn.Get(order));
+            Broker.Global.Publish(Events.Battle.NextTurn.Get(order));
         }
 
         public void EndTurn()
@@ -51,12 +51,12 @@ namespace HK.GL.Battle
             var battleResult = this.Party.Result;
             if(battleResult == Constants.BattleResult.Unsettlement)
             {
-                UniRxEvent.GlobalBroker.Publish(Events.Battle.EndTurn.Get());
+                Broker.Global.Publish(Events.Battle.EndTurn.Get());
                 this.NextTurn();
             }
             else
             {
-                UniRxEvent.GlobalBroker.Publish(EndBattle.Get(battleResult));
+                Broker.Global.Publish(EndBattle.Get(battleResult));
             }
         }
     }

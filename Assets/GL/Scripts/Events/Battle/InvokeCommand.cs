@@ -6,7 +6,7 @@ namespace HK.GL.Events.Battle
     /// <summary>
     /// コマンドを実行する事を通知するイベント
     /// </summary>
-    public sealed class InvokeCommand : UniRxEvent<InvokeCommand, Character, ICommand>
+    public sealed class InvokeCommand : Message<InvokeCommand, Character, ICommand>
     {
         /// <summary>
         /// 実行するヤーツ

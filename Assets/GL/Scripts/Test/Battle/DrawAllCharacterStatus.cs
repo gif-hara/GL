@@ -21,7 +21,7 @@ namespace HK.GL.Test.Battle
         void Awake()
         {
             this.cachedText = this.GetComponent<Text>();
-            this.Subscribe(UniRxEvent.GlobalBroker.Receive<Events.Battle.NextTurn>());
+            this.Subscribe(Broker.Global.Receive<Events.Battle.NextTurn>());
         }
 
         private void Draw()

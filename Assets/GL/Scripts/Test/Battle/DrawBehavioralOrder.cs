@@ -22,7 +22,7 @@ namespace HK.GL.Test
             this.text = this.GetComponent<Text>();
             Assert.IsNotNull(this.text);
 
-            UniRxEvent.GlobalBroker.Receive<BehavioralOrderSimulationed>()
+            Broker.Global.Receive<BehavioralOrderSimulationed>()
                 .Select(b => b.Order)
                 .Subscribe(this.Draw)
                 .AddTo(this);
