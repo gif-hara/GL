@@ -1,12 +1,12 @@
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace HK.GL
+namespace GL
 {
     /// <summary>
-    /// .
+    /// 
     /// </summary>
-    public class #SCRIPTNAME# : MonoBehaviour
+    public sealed class #SCRIPTNAME# : MonoBehaviour
     {
     }
 }
