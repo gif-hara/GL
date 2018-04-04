@@ -13,7 +13,7 @@ namespace GL.Scripts.Battle.CharacterControllers
     {
         [SerializeField]
         private GameObject model;
-        public GameObject Model{ get { return this.model; } }
+        public GameObject Model { get { return this.model; } }
 
         [SerializeField]
         private CharacterStatus status;
@@ -21,7 +21,7 @@ namespace GL.Scripts.Battle.CharacterControllers
 
         [SerializeField]
         private List<Commands.Blueprints.Blueprint> commandSettings;
-        public List<IImplement> Commands{ get{ return this.commandSettings.Select(c => c.Create()).ToList(); } }
+        public List<IImplement> Commands { get { return this.commandSettings.Select(c => c.Create()).ToList(); } }
 
         /// <summary>
         /// 設定を元に<see cref="CharacterStatusController"/>を作成する
