@@ -1,6 +1,7 @@
 ﻿using GL.Scripts.Battle.CharacterControllers;
 using HK.Framework.EventSystems;
 using HK.GL.Events.Battle;
+using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -24,6 +25,12 @@ namespace GL.Scripts.Battle.Systems
             Instance = this;
 
             this.BehavioralOrder = this.GetComponent<BehavioralOrderController>();
+            
+            // FIXME: リザルト実装したら削除する
+            Broker.Global.Receive<EndBattle>()
+                .Take(1)
+                .Subscribe(x => Debug.Log(x.Result))
+                .AddTo(this);
         }
 
         void OnDestroy()
