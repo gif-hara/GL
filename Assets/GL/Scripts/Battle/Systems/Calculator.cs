@@ -20,6 +20,14 @@ namespace GL.Scripts.Battle.Systems
         }
 
         /// <summary>
+        /// 攻撃力上昇系コマンドの上昇量を返す
+        /// </summary>
+        public static int GetAddStrengthValue(CharacterStatusController invoker)
+        {
+            return invoker.TotalSympathy / 2;
+        }
+
+        /// <summary>
         /// 防御力上昇系コマンドの上昇量を返す
         /// </summary>
         public static int GetAddDefenseValue(CharacterStatusController invoker)
