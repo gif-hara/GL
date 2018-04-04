@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Name: Player1
   m_EditorClassIdentifier: 
   model: {fileID: 1194736803251712, guid: 2eb06565129524566a10b82954786740, type: 2}
-  characterName: Player1
-  hitPoint: 100
-  strength: 10
-  defense: 5
-  sympathy: 1
-  nega: 0
-  speed: 9
+  status:
+    Name: Player1
+    HitPoint: 100
+    Strength: 10
+    Defense: 5
+    Sympathy: 1
+    Nega: 0
+    Speed: 9
   commandSettings:
   - {fileID: 11400000, guid: 9cdf96bed368c40c9afb237d665437d1, type: 2}
   - {fileID: 11400000, guid: c1a29128a524e4b8db163cd5aa262161, type: 2}

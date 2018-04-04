@@ -21,7 +21,7 @@ namespace GL.Scripts.Battle.CharacterControllers
 
         private ICharacterAnimation characterAnimation;
 
-        public void Initialize(CharacterStatusSettings statusSettings, Constants.CharacterType characterType)
+        public void Initialize(Blueprint statusSettings, Constants.CharacterType characterType)
         {
             this.StatusController = statusSettings.Create();
             this.CharacterType = characterType;

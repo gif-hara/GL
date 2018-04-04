@@ -26,10 +26,10 @@ namespace HK.GL.Test.Battle
         private Vector3 enemyInterval;
 
         [SerializeField]
-        private List<CharacterStatusSettings> players;
+        private List<Blueprint> players;
 
         [SerializeField]
-        private List<CharacterStatusSettings> enemies;
+        private List<Blueprint> enemies;
 
         void Start()
         {
@@ -42,7 +42,7 @@ namespace HK.GL.Test.Battle
         }
 
         private Character CreateCharacter(
-            CharacterStatusSettings settings,
+            Blueprint settings,
             Constants.CharacterType characterType,
             Transform parent,
             Vector3 position,
@@ -62,7 +62,7 @@ namespace HK.GL.Test.Battle
         }
 
         private Party CreateParty(
-            List<CharacterStatusSettings> settings,
+            List<Blueprint> settings,
             Constants.CharacterType characterType,
             Transform parent,
             Vector3 interval,

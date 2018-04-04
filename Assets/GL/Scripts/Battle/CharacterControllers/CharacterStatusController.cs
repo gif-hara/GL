@@ -23,19 +23,19 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// <summary>
         /// 元となるスペック
         /// </summary>
-        public CharacterStatusSettings BaseSpec{ private set; get; }
+        public Blueprint BaseSpec{ private set; get; }
 
         /// <summary>
         /// ヒットポイント最大値
         /// </summary>
-        public int HitPointMax { get { return this.BaseSpec.HitPoint; } }
+        public int HitPointMax { get { return this.BaseSpec.Status.HitPoint; } }
         
         /// <summary>
         /// 死亡しているか返す
         /// </summary>
         public bool IsDead { get { return this.Status.HitPoint <= 0; } }
 
-        public CharacterStatusController(CharacterStatusSettings baseSpec)
+        public CharacterStatusController(Blueprint baseSpec)
         {
             this.BaseSpec = baseSpec;
             this.Status = new CharacterStatus(this.BaseSpec);

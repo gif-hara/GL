@@ -1,29 +1,37 @@
-﻿namespace GL.Scripts.Battle.CharacterControllers
+﻿using System;
+using UnityEngine;
+
+namespace GL.Scripts.Battle.CharacterControllers
 {
     /// <summary>
     /// キャラクターのステータス
     /// </summary>
+    [Serializable]
     public sealed class CharacterStatus
     {
         /// <summary>
         /// キャラクター名
         /// </summary>
-        public string Name { set; get; }
+        [SerializeField]
+        public string Name;
 
         /// <summary>
         /// ヒットポイント
         /// </summary>
-        public int HitPoint { set; get; }
+        [SerializeField]
+        public int HitPoint;
 
         /// <summary>
         /// 攻撃力
         /// </summary>
-        public int Strength { set; get; }
+        [SerializeField]
+        public int Strength;
 
         /// <summary>
         /// 防御力
         /// </summary>
-        public int Defense { set; get; }
+        [SerializeField]
+        public int Defense;
 
         /// <summary>
         /// 思いやり力
@@ -31,7 +39,8 @@
         /// <remarks>
         /// バフ系の上昇量に影響する
         /// </remarks>
-        public int Sympathy { set; get; }
+        [SerializeField]
+        public int Sympathy;
 
         /// <summary>
         /// ネガキャン力
@@ -39,22 +48,24 @@
         /// <remarks>
         /// デバフ系の上昇量に影響する
         /// </remarks>
-        public int Nega { set; get; }
+        [SerializeField]
+        public int Nega;
 
         /// <summary>
         /// 素早さ
         /// </summary>
-        public int Speed { set; get; }
+        [SerializeField]
+        public int Speed;
 
-        public CharacterStatus(CharacterStatusSettings settings)
+        public CharacterStatus(Blueprint blueprint)
         {
-            this.Name = settings.Name;
-            this.HitPoint = settings.HitPoint;
-            this.Strength = settings.Strength;
-            this.Defense = settings.Defense;
-            this.Sympathy = settings.Sympathy;
-            this.Nega = settings.Nega;
-            this.Speed = settings.Speed;
+            this.Name = blueprint.Status.Name;
+            this.HitPoint = blueprint.Status.HitPoint;
+            this.Strength = blueprint.Status.Strength;
+            this.Defense = blueprint.Status.Defense;
+            this.Sympathy = blueprint.Status.Sympathy;
+            this.Nega = blueprint.Status.Nega;
+            this.Speed = blueprint.Status.Speed;
         }
     }
 }
