@@ -49,7 +49,7 @@ namespace GL.Scripts.Battle.CharacterControllers
 
             if(this.Status.IsDead)
             {
-                this.characterAnimation.StartDead(() => this.gameObject.SetActive(false));
+                this.gameObject.SetActive(false);
             }
         }
     }
