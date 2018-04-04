@@ -50,11 +50,11 @@ namespace HK.GL.Test.Battle
                     m.StatusController.BaseStatus.Name,
                     m.StatusController.HitPointMax,
                     m.StatusController.BaseStatus.HitPoint,
-                    m.StatusController.BaseStatus.Strength,
-                    m.StatusController.BaseStatus.Defense,
-                    m.StatusController.BaseStatus.Sympathy,
-                    m.StatusController.BaseStatus.Nega,
-                    m.StatusController.BaseStatus.Speed,
+                    m.StatusController.TotalStrength,
+                    m.StatusController.TotalDefense,
+                    m.StatusController.TotalSympathy,
+                    m.StatusController.TotalNega,
+                    m.StatusController.TotalSpeed,
                     m.StatusController.Wait
                     )
                     );
