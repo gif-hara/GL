@@ -12,6 +12,9 @@ namespace GL.Scripts.Battle.CharacterControllers
     /// </summary>
     public sealed class Character : MonoBehaviour
     {
+        /// <summary>
+        /// 基本ステータス
+        /// </summary>
         public CharacterStatus Status { private set; get; }
 
         public Constants.CharacterType CharacterType { private set; get; }
@@ -32,11 +35,43 @@ namespace GL.Scripts.Battle.CharacterControllers
         }
 
         /// <summary>
-        /// 防御力上昇を行う
+        /// 攻撃力を加算する
+        /// </summary>
+        public void AddStrength(int value)
+        {
+            this.Status.Strength += value;
+        }
+
+        /// <summary>
+        /// 防御力を加算する
         /// </summary>
         public void AddDefense(int value)
         {
-            this.Status.AddDefense(value);
+            this.Status.Defense += value;
+        }
+
+        /// <summary>
+        /// 思いやり力を加算する
+        /// </summary>
+        public void AddSympathy(int value)
+        {
+            this.Status.Sympathy += value;
+        }
+
+        /// <summary>
+        /// ネガティブ力を加算する
+        /// </summary>
+        public void AddNega(int value)
+        {
+            this.Status.Nega += value;
+        }
+
+        /// <summary>
+        /// 素早さを加算する
+        /// </summary>
+        public void AddSpeed(int value)
+        {
+            this.Status.Speed += value;
         }
 
         /// <summary>
@@ -44,7 +79,7 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// </summary>
         public void TakeDamage(int damage)
         {
-            this.Status.TakeDamage(damage);
+            this.Status.HitPoint -= damage;
             Broker.Global.Publish(DamageNotify.Get(this, damage));
 
             if(this.Status.IsDead)

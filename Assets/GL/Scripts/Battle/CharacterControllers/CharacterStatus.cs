@@ -11,27 +11,27 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// <summary>
         /// キャラクター名
         /// </summary>
-        public string Name { private set; get; }
+        public string Name { set; get; }
 
         /// <summary>
         /// ヒットポイント最大値
         /// </summary>
-        public int HitPointMax { private set; get; }
+        public int HitPointMax { get { return this.BaseSpec.HitPoint; } }
 
         /// <summary>
         /// ヒットポイント
         /// </summary>
-        public int HitPoint { private set; get; }
+        public int HitPoint { set; get; }
 
         /// <summary>
         /// 攻撃力
         /// </summary>
-        public int Strength { private set; get; }
+        public int Strength { set; get; }
 
         /// <summary>
         /// 防御力
         /// </summary>
-        public int Defense { private set; get; }
+        public int Defense { set; get; }
 
         /// <summary>
         /// 思いやり力
@@ -39,7 +39,7 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// <remarks>
         /// バフ系の上昇量に影響する
         /// </remarks>
-        public int Sympathy { private set; get; }
+        public int Sympathy { set; get; }
 
         /// <summary>
         /// ネガキャン力
@@ -47,12 +47,12 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// <remarks>
         /// デバフ系の上昇量に影響する
         /// </remarks>
-        public int Nega { private set; get; }
+        public int Nega { set; get; }
 
         /// <summary>
         /// 素早さ
         /// </summary>
-        public int Speed { private set; get; }
+        public int Speed { set; get; }
 
         /// <summary>
         /// 使用可能なコマンド
@@ -84,8 +84,7 @@ namespace GL.Scripts.Battle.CharacterControllers
         {
             this.BaseSpec = baseSpec;
             this.Name = this.BaseSpec.Name;
-            this.HitPointMax = this.BaseSpec.HitPoint;
-            this.HitPoint = this.HitPointMax;
+            this.HitPoint = this.BaseSpec.HitPoint;
             this.Strength = this.BaseSpec.Strength;
             this.Defense = this.BaseSpec.Defense;
             this.Sympathy = this.BaseSpec.Sympathy;
@@ -93,16 +92,6 @@ namespace GL.Scripts.Battle.CharacterControllers
             this.Speed = this.BaseSpec.Speed;
             this.Commands = this.BaseSpec.Commands;
             this.Wait = 0.0f;
-        }
-
-        public void AddDefense(int value)
-        {
-            this.Defense += value;
-        }
-
-        public void TakeDamage(int damage)
-        {
-            this.HitPoint -= damage;
         }
     }
 }
