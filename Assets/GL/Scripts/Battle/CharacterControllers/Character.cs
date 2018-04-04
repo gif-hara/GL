@@ -79,7 +79,7 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// </summary>
         public void TakeDamage(int damage)
         {
-            this.StatusController.BaseStatus.HitPoint -= damage;
+            this.StatusController.HitPoint -= damage;
             Broker.Global.Publish(DamageNotify.Get(this, damage));
 
             if(this.StatusController.IsDead)

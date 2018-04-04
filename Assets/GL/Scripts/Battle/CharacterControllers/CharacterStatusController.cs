@@ -44,12 +44,12 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// </summary>
         public int HitPointMax { get { return this.Blueprint.Status.HitPoint; } }
 
-        public int HitPoint { get { return this.BaseStatus.HitPoint; } }
+        public int HitPoint { set { this.BaseStatus.HitPoint = value; } get { return this.BaseStatus.HitPoint; } }
 
         /// <summary>
         /// 死亡しているか返す
         /// </summary>
-        public bool IsDead { get { return this.BaseStatus.HitPoint <= 0; } }
+        public bool IsDead { get { return this.HitPoint <= 0; } }
 
         public int TotalStrength { get { return this.BaseStatus.Strength + this.AdditiveStatus.Strength; } }
 
