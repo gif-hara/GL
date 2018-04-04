@@ -13,8 +13,8 @@ namespace GL.Scripts.Battle.Systems
         /// </summary>
         public static int GetBasicAttackDamage(CharacterStatusController invoker, CharacterStatusController target, float rate)
         {
-            var baseStrength = Mathf.Pow(invoker.Strength, 2) * rate;
-            var baseDefense = Mathf.Pow(target.Defense, 2);
+            var baseStrength = Mathf.Pow(invoker.Status.Strength, 2) * rate;
+            var baseDefense = Mathf.Pow(target.Status.Defense, 2);
             var result = Mathf.FloorToInt(baseStrength - baseDefense);
             return result < 1 ? 1 : result;
         }
@@ -24,7 +24,7 @@ namespace GL.Scripts.Battle.Systems
         /// </summary>
         public static int GetAddDefenseValue(CharacterStatusController invoker)
         {
-            return invoker.Sympathy / 2;
+            return invoker.Status.Sympathy / 2;
         }
     }
 }

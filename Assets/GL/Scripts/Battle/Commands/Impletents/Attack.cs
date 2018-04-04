@@ -27,7 +27,7 @@ namespace GL.Scripts.Battle.Commands.Impletents
             {
                 var targets = BattleManager.Instance.Parties
                     .Opponent(invoker)
-                    .GetTargets(this.targetType, c => c.StatusController.HitPoint);
+                    .GetTargets(this.targetType, c => c.StatusController.Status.HitPoint);
                 targets.ForEach(t => t.TakeDamage(Calculator.GetBasicAttackDamage(invoker.StatusController, t.StatusController, this.rate)));
                 BattleManager.Instance.EndTurn();
             });

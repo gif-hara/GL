@@ -39,7 +39,7 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// </summary>
         public void AddStrength(int value)
         {
-            this.StatusController.Strength += value;
+            this.StatusController.Status.Strength += value;
         }
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// </summary>
         public void AddDefense(int value)
         {
-            this.StatusController.Defense += value;
+            this.StatusController.Status.Defense += value;
         }
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// </summary>
         public void AddSympathy(int value)
         {
-            this.StatusController.Sympathy += value;
+            this.StatusController.Status.Sympathy += value;
         }
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// </summary>
         public void AddNega(int value)
         {
-            this.StatusController.Nega += value;
+            this.StatusController.Status.Nega += value;
         }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// </summary>
         public void AddSpeed(int value)
         {
-            this.StatusController.Speed += value;
+            this.StatusController.Status.Speed += value;
         }
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// </summary>
         public void TakeDamage(int damage)
         {
-            this.StatusController.HitPoint -= damage;
+            this.StatusController.Status.HitPoint -= damage;
             Broker.Global.Publish(DamageNotify.Get(this, damage));
 
             if(this.StatusController.IsDead)

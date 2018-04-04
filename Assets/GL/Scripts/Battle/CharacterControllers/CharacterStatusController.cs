@@ -8,52 +8,8 @@ namespace GL.Scripts.Battle.CharacterControllers
     /// </summary>
     public sealed class CharacterStatusController
     {
-        /// <summary>
-        /// キャラクター名
-        /// </summary>
-        public string Name { set; get; }
-
-        /// <summary>
-        /// ヒットポイント最大値
-        /// </summary>
-        public int HitPointMax { get { return this.BaseSpec.HitPoint; } }
-
-        /// <summary>
-        /// ヒットポイント
-        /// </summary>
-        public int HitPoint { set; get; }
-
-        /// <summary>
-        /// 攻撃力
-        /// </summary>
-        public int Strength { set; get; }
-
-        /// <summary>
-        /// 防御力
-        /// </summary>
-        public int Defense { set; get; }
-
-        /// <summary>
-        /// 思いやり力
-        /// </summary>
-        /// <remarks>
-        /// バフ系の上昇量に影響する
-        /// </remarks>
-        public int Sympathy { set; get; }
-
-        /// <summary>
-        /// ネガキャン力
-        /// </summary>
-        /// <remarks>
-        /// デバフ系の上昇量に影響する
-        /// </remarks>
-        public int Nega { set; get; }
-
-        /// <summary>
-        /// 素早さ
-        /// </summary>
-        public int Speed { set; get; }
-
+        public CharacterStatus Status { private set; get; }
+        
         /// <summary>
         /// 使用可能なコマンド
         /// </summary>
@@ -70,26 +26,19 @@ namespace GL.Scripts.Battle.CharacterControllers
         public CharacterStatusSettings BaseSpec{ private set; get; }
 
         /// <summary>
+        /// ヒットポイント最大値
+        /// </summary>
+        public int HitPointMax { get { return this.BaseSpec.HitPoint; } }
+        
+        /// <summary>
         /// 死亡しているか返す
         /// </summary>
-        public bool IsDead
-        {
-            get
-            {
-                return this.HitPoint <= 0;
-            }
-        }
+        public bool IsDead { get { return this.Status.HitPoint <= 0; } }
 
         public CharacterStatusController(CharacterStatusSettings baseSpec)
         {
             this.BaseSpec = baseSpec;
-            this.Name = this.BaseSpec.Name;
-            this.HitPoint = this.BaseSpec.HitPoint;
-            this.Strength = this.BaseSpec.Strength;
-            this.Defense = this.BaseSpec.Defense;
-            this.Sympathy = this.BaseSpec.Sympathy;
-            this.Nega = this.BaseSpec.Nega;
-            this.Speed = this.BaseSpec.Speed;
+            this.Status = new CharacterStatus(this.BaseSpec);
             this.Commands = this.BaseSpec.Commands;
             this.Wait = 0.0f;
         }

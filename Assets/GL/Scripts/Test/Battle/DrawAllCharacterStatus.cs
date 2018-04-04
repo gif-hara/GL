@@ -47,14 +47,14 @@ namespace HK.GL.Test.Battle
             {
                 builder.AppendLine(string.Format(
                     format,
-                    m.StatusController.Name,
+                    m.StatusController.Status.Name,
                     m.StatusController.HitPointMax,
-                    m.StatusController.HitPoint,
-                    m.StatusController.Strength,
-                    m.StatusController.Defense,
-                    m.StatusController.Sympathy,
-                    m.StatusController.Nega,
-                    m.StatusController.Speed,
+                    m.StatusController.Status.HitPoint,
+                    m.StatusController.Status.Strength,
+                    m.StatusController.Status.Defense,
+                    m.StatusController.Status.Sympathy,
+                    m.StatusController.Status.Nega,
+                    m.StatusController.Status.Speed,
                     m.StatusController.Wait
                     )
                     );
