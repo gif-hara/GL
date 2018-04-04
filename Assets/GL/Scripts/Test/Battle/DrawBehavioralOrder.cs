@@ -31,7 +31,7 @@ namespace HK.GL.Test
         private void Draw(List<Character> order)
         {
             var stringBuilder = new StringBuilder();
-            order.ForEach(o => stringBuilder.AppendLine(o.Status.Name));
+            order.ForEach(o => stringBuilder.AppendLine(o.StatusController.Name));
 
             this.text.text = stringBuilder.ToString();
         }

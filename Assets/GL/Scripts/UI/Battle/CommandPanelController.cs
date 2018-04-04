@@ -29,7 +29,7 @@ namespace HK.GL.UI.Battle
 
         private void OnNextTurnFromPlayer(NextTurn eventData)
         {
-            var commands = eventData.NextCharacter.Status.Commands;
+            var commands = eventData.NextCharacter.StatusController.Commands;
             for(int i=0; i<commands.Count; i++)
             {
                 var button = this.buttons[i];

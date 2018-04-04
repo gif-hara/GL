@@ -4,9 +4,9 @@ using GL.Scripts.Battle.Commands.Impletents;
 namespace GL.Scripts.Battle.CharacterControllers
 {
     /// <summary>
-    /// キャラクターのステータス.
+    /// キャラクターのステータスを制御するクラス.
     /// </summary>
-    public sealed class CharacterStatus
+    public sealed class CharacterStatusController
     {
         /// <summary>
         /// キャラクター名
@@ -80,7 +80,7 @@ namespace GL.Scripts.Battle.CharacterControllers
             }
         }
 
-        public CharacterStatus(CharacterStatusSettings baseSpec)
+        public CharacterStatusController(CharacterStatusSettings baseSpec)
         {
             this.BaseSpec = baseSpec;
             this.Name = this.BaseSpec.Name;

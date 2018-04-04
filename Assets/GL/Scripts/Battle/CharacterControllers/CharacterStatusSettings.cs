@@ -49,11 +49,11 @@ namespace GL.Scripts.Battle.CharacterControllers
         public List<IImplement> Commands{ get{ return this.commandSettings.Select(c => c.Create()).ToList(); } }
 
         /// <summary>
-        /// 設定を元に<see cref="CharacterStatus"/>を作成する
+        /// 設定を元に<see cref="CharacterStatusController"/>を作成する
         /// </summary>
-        public CharacterStatus Create()
+        public CharacterStatusController Create()
         {
-            return new CharacterStatus(this);
+            return new CharacterStatusController(this);
         }
     }
 }

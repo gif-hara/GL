@@ -56,8 +56,8 @@ namespace GL.Scripts.Battle.CharacterControllers
         {
             get
             {
-                var isPlayerAlive = this.Player.Members.FindIndex(c => !c.Status.IsDead) != -1;
-                var isEnemyAlive = this.Enemy.Members.FindIndex(c => !c.Status.IsDead) != -1;
+                var isPlayerAlive = this.Player.Members.FindIndex(c => !c.StatusController.IsDead) != -1;
+                var isEnemyAlive = this.Enemy.Members.FindIndex(c => !c.StatusController.IsDead) != -1;
                 if(isPlayerAlive && isEnemyAlive)
                 {
                     return Constants.BattleResult.Unsettlement;

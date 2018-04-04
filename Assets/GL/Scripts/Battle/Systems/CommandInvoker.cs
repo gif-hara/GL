@@ -32,7 +32,7 @@ namespace GL.Scripts.Battle.Systems
         {
             // TODO:敵のAIからコマンドを選択する
             var character = eventData.NextCharacter;
-            var commands = character.Status.Commands;
+            var commands = character.StatusController.Commands;
             var command = commands[Random.Range(0, commands.Count)];
             command.Invoke(character);
         }

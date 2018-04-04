@@ -11,7 +11,7 @@ namespace GL.Scripts.Battle.Systems
         /// <summary>
         /// 通常攻撃でのダメージ計算を行う
         /// </summary>
-        public static int GetBasicAttackDamage(CharacterStatus invoker, CharacterStatus target, float rate)
+        public static int GetBasicAttackDamage(CharacterStatusController invoker, CharacterStatusController target, float rate)
         {
             var baseStrength = Mathf.Pow(invoker.Strength, 2) * rate;
             var baseDefense = Mathf.Pow(target.Defense, 2);
@@ -22,7 +22,7 @@ namespace GL.Scripts.Battle.Systems
         /// <summary>
         /// 防御力上昇系コマンドの上昇量を返す
         /// </summary>
-        public static int GetAddDefenseValue(CharacterStatus invoker)
+        public static int GetAddDefenseValue(CharacterStatusController invoker)
         {
             return invoker.Sympathy / 2;
         }

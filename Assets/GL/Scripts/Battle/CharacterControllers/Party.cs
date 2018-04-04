@@ -21,7 +21,7 @@ namespace GL.Scripts.Battle.CharacterControllers
         {
             get
             {
-                return this.Members.Where(m => !m.Status.IsDead).ToList();
+                return this.Members.Where(m => !m.StatusController.IsDead).ToList();
             }
         }
 

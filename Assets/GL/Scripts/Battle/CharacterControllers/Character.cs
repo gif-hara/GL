@@ -15,7 +15,7 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// <summary>
         /// 基本ステータス
         /// </summary>
-        public CharacterStatus Status { private set; get; }
+        public CharacterStatusController StatusController { private set; get; }
 
         public Constants.CharacterType CharacterType { private set; get; }
 
@@ -23,7 +23,7 @@ namespace GL.Scripts.Battle.CharacterControllers
 
         public void Initialize(CharacterStatusSettings statusSettings, Constants.CharacterType characterType)
         {
-            this.Status = statusSettings.Create();
+            this.StatusController = statusSettings.Create();
             this.CharacterType = characterType;
             this.characterAnimation = this.GetComponentInChildren<ICharacterAnimation>();
             Assert.IsNotNull(this.characterAnimation);
@@ -39,7 +39,7 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// </summary>
         public void AddStrength(int value)
         {
-            this.Status.Strength += value;
+            this.StatusController.Strength += value;
         }
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// </summary>
         public void AddDefense(int value)
         {
-            this.Status.Defense += value;
+            this.StatusController.Defense += value;
         }
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// </summary>
         public void AddSympathy(int value)
         {
-            this.Status.Sympathy += value;
+            this.StatusController.Sympathy += value;
         }
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// </summary>
         public void AddNega(int value)
         {
-            this.Status.Nega += value;
+            this.StatusController.Nega += value;
         }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// </summary>
         public void AddSpeed(int value)
         {
-            this.Status.Speed += value;
+            this.StatusController.Speed += value;
         }
 
         /// <summary>
@@ -79,10 +79,10 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// </summary>
         public void TakeDamage(int damage)
         {
-            this.Status.HitPoint -= damage;
+            this.StatusController.HitPoint -= damage;
             Broker.Global.Publish(DamageNotify.Get(this, damage));
 
-            if(this.Status.IsDead)
+            if(this.StatusController.IsDead)
             {
                 this.gameObject.SetActive(false);
             }

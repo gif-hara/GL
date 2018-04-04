@@ -35,13 +35,13 @@ namespace GL.Scripts.Battle.Systems
         public void Elapse(Parties parties)
         {
             var allMember = parties.AllMember;
-            var waits = allMember.Select(m => m.Status.Wait).ToList();
+            var waits = allMember.Select(m => m.StatusController.Wait).ToList();
             var waitMax = allMember.Count;
-            var speedMax = allMember.Max(c => c.Status.Speed);
+            var speedMax = allMember.Max(c => c.StatusController.Speed);
             var elapseTurn = GetElapseTurn(allMember, waits, waitMax, speedMax);
             for(int i=0; i<allMember.Count; i++)
             {
-                allMember[i].Status.Wait += ((float)allMember[i].Status.Speed / speedMax) * elapseTurn.TurnNumber;
+                allMember[i].StatusController.Wait += ((float)allMember[i].StatusController.Speed / speedMax) * elapseTurn.TurnNumber;
             }
         }
 
@@ -51,7 +51,7 @@ namespace GL.Scripts.Battle.Systems
         public void EndTurn(Parties parties)
         {
             var waitMax = parties.AllMember.Count;
-            this.currentCharacter.Status.Wait -= waitMax;
+            this.currentCharacter.StatusController.Wait -= waitMax;
         }
 
         public List<Character> Simulation(Parties paties, int length)
@@ -60,11 +60,11 @@ namespace GL.Scripts.Battle.Systems
             var allMember = paties.AllMember;
             var waits = new List<float>();
             var waitMax = allMember.Count;
-            var speedMax = allMember.Max(c => c.Status.Speed);
+            var speedMax = allMember.Max(c => c.StatusController.Speed);
 
             for(int i=0; i<allMember.Count; i++)
             {
-                waits.Add(allMember[i].Status.Wait);
+                waits.Add(allMember[i].StatusController.Wait);
             }
 
             while(result.Count <= length)
@@ -73,7 +73,7 @@ namespace GL.Scripts.Battle.Systems
                 result.Add(allMember[elapseTurn.BehaviourCharacterIndex]);
                 for(int i=0; i<allMember.Count; i++)
                 {
-                    waits[i] += ((float)allMember[i].Status.Speed / speedMax) * elapseTurn.TurnNumber;
+                    waits[i] += ((float)allMember[i].StatusController.Speed / speedMax) * elapseTurn.TurnNumber;
                     if(elapseTurn.BehaviourCharacterIndex == i)
                     {
                         waits[i] -= waitMax;
@@ -105,12 +105,12 @@ namespace GL.Scripts.Battle.Systems
                 elapseTurn.TurnNumber = int.MaxValue;
                 for(int i=0; i<allMember.Count; i++)
                 {
-                    if(allMember[i].Status.IsDead)
+                    if(allMember[i].StatusController.IsDead)
                     {
                         continue;
                     }
 
-                    var needTurn = GetNeedTurn(waitMax, waits[i], speedMax, allMember[i].Status.Speed);
+                    var needTurn = GetNeedTurn(waitMax, waits[i], speedMax, allMember[i].StatusController.Speed);
                     if(elapseTurn.TurnNumber > needTurn)
                     {
                         elapseTurn.TurnNumber = needTurn;
@@ -129,7 +129,7 @@ namespace GL.Scripts.Battle.Systems
             Assert.AreEqual(allMember.Count, waits.Count);
             for(int i=0; i<allMember.Count; i++)
             {
-                if(waits[i] >= waitMax && !allMember[i].Status.IsDead)
+                if(waits[i] >= waitMax && !allMember[i].StatusController.IsDead)
                 {
                     return i;
                 }
