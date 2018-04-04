@@ -47,6 +47,16 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// </summary>
         public bool IsDead { get { return this.BaseStatus.HitPoint <= 0; } }
 
+        public int TotalStrength { get { return this.BaseStatus.Strength + this.AdditiveStatus.Strength; } }
+
+        public int TotalDefense { get { return this.BaseStatus.Defense + this.AdditiveStatus.Defense; } }
+        
+        public int TotalSympathy { get { return this.BaseStatus.Sympathy + this.AdditiveStatus.Sympathy; } }
+        
+        public int TotalNega { get { return this.BaseStatus.Nega + this.AdditiveStatus.Nega; } }
+        
+        public int TotalSpeed { get { return this.BaseStatus.Speed + this.AdditiveStatus.Speed; } }
+
         public CharacterStatusController(Blueprint blueprint)
         {
             this.Blueprint = blueprint;
