@@ -17,6 +17,6 @@ namespace HK.GL.Events.Battle
         /// <summary>
         /// 実行するコマンド
         /// </summary>
-        public IImplement Implement{ get{ return this.param2; } }
+        public IImplement Command{ get{ return this.param2; } }
     }
 }

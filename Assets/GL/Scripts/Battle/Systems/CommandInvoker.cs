@@ -25,7 +25,7 @@ namespace GL.Scripts.Battle.Systems
         private void OnInvokeCommand(InvokeCommand eventData)
         {
             var character = eventData.Invoker;
-            eventData.Implement.Invoke(character);
+            eventData.Command.Invoke(character);
         }
 
         private void OnInvokeCommandFromEnemy(NextTurn eventData)
