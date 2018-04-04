@@ -37,11 +37,15 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// </summary>
         public Blueprint Blueprint{ private set; get; }
 
+        public string Name { get { return this.BaseStatus.Name; } }
+
         /// <summary>
         /// ヒットポイント最大値
         /// </summary>
         public int HitPointMax { get { return this.Blueprint.Status.HitPoint; } }
-        
+
+        public int HitPoint { get { return this.BaseStatus.HitPoint; } }
+
         /// <summary>
         /// 死亡しているか返す
         /// </summary>
