@@ -12,6 +12,7 @@ namespace GL.Scripts.Battle.Systems
     {
         void Awake()
         {
+            // FIXME: NextTurnじゃなくて敵AI経由でInvokeCommandを発行したい
             Broker.Global.Receive<NextTurn>()
                 .Where(n => n.NextCharacter.CharacterType == Constants.CharacterType.Enemy)
                 .Subscribe(this.OnInvokeCommandFromEnemy)
