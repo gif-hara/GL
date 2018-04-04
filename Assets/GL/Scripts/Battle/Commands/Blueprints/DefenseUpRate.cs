@@ -7,11 +7,11 @@ namespace GL.Scripts.Battle.Commands.Blueprints
     /// 防御力倍率上昇コマンドの設定データ.
     /// </summary>
     [CreateAssetMenu()]
-    public sealed class AddDefenseRate : Blueprint
+    public sealed class DefenseUpRate : Blueprint
     {
         public override IImplement Create()
         {
-            return new Impletents.AddDefenseRate(this.commandName.Get, this.targetType);
+            return new Impletents.DefenseUpRate(this.commandName.Get, this.targetType);
         }
     }
 }

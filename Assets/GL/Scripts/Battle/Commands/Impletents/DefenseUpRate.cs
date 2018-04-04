@@ -6,7 +6,7 @@ namespace GL.Scripts.Battle.Commands.Impletents
     /// <summary>
     /// 防御力倍率上昇を行うコマンド.
     /// </summary>
-    public sealed class AddDefenseRate : IImplement
+    public sealed class DefenseUpRate : IImplement
     {
         private string name;
 
@@ -29,7 +29,7 @@ namespace GL.Scripts.Battle.Commands.Impletents
             });
         }
 
-        public AddDefenseRate(string name, Constants.TargetType targetType)
+        public DefenseUpRate(string name, Constants.TargetType targetType)
         {
             this.name = name;
             this.targetType = targetType;
