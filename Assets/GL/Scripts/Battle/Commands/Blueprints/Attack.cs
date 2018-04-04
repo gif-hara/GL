@@ -6,7 +6,7 @@ namespace GL.Scripts.Battle.Commands.Blueprints
     /// <summary>
     /// 攻撃コマンドの設定データ.
     /// </summary>
-    [CreateAssetMenu()]
+    [CreateAssetMenu(menuName = "GL/Commands/Blueprints/Attack")]
     public sealed class Attack : Blueprint
     {
         [SerializeField]

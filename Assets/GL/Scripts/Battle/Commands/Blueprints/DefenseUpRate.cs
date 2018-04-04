@@ -6,7 +6,7 @@ namespace GL.Scripts.Battle.Commands.Blueprints
     /// <summary>
     /// 防御力倍率上昇コマンドの設定データ.
     /// </summary>
-    [CreateAssetMenu()]
+    [CreateAssetMenu(menuName = "GL/Commands/Blueprints/DefenseUp")]
     public sealed class DefenseUpRate : Blueprint
     {
         public override IImplement Create()
