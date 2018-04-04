@@ -57,6 +57,17 @@ namespace GL.Scripts.Battle.CharacterControllers
         [SerializeField]
         public int Speed;
 
+        public CharacterStatus()
+        {
+            this.Name = "";
+            this.HitPoint = 0;
+            this.Strength = 0;
+            this.Defense = 0;
+            this.Sympathy = 0;
+            this.Nega = 0;
+            this.Speed = 0;
+        }
+
         public CharacterStatus(Blueprint blueprint)
         {
             this.Name = blueprint.Status.Name;

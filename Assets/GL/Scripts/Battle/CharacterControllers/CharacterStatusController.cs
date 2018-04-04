@@ -9,8 +9,19 @@ namespace GL.Scripts.Battle.CharacterControllers
     /// </summary>
     public sealed class CharacterStatusController
     {
-        public CharacterStatus Status { private set; get; }
-        
+        /// <summary>
+        /// 基本のステータス
+        /// </summary>
+        public CharacterStatus BaseStatus { private set; get; }
+
+        /// <summary>
+        /// 加算されるステータス
+        /// </summary>
+        /// <<remarks>
+        /// バフデバフによる影響値が入ります
+        /// </remarks>
+        public CharacterStatus AdditiveStatus { private set; get; }
+
         /// <summary>
         /// 使用可能なコマンド
         /// </summary>
@@ -34,12 +45,13 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// <summary>
         /// 死亡しているか返す
         /// </summary>
-        public bool IsDead { get { return this.Status.HitPoint <= 0; } }
+        public bool IsDead { get { return this.BaseStatus.HitPoint <= 0; } }
 
         public CharacterStatusController(Blueprint blueprint)
         {
             this.Blueprint = blueprint;
-            this.Status = new CharacterStatus(this.Blueprint);
+            this.BaseStatus = new CharacterStatus(this.Blueprint);
+            this.AdditiveStatus = new CharacterStatus();
             this.Commands = this.Blueprint.Commands.Select(x => x.Create()).ToArray();
             this.Wait = 0.0f;
         }

@@ -22,7 +22,7 @@ namespace GL.Scripts.Battle.Commands.Impletents
             {
                 var targets = BattleManager.Instance.Parties
                     .Ally(invoker)
-                    .GetTargets(this.targetType, c => c.StatusController.Status.Defense);
+                    .GetTargets(this.targetType, c => c.StatusController.BaseStatus.Defense);
                 var addDefense = Calculator.GetAddDefenseValue(invoker.StatusController);
                 targets.ForEach(t => t.AddDefense(addDefense));
                 BattleManager.Instance.EndTurn();
