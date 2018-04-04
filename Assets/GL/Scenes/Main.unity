@@ -209,9 +209,9 @@ GameObject:
   - component: {fileID: 164561866}
   - component: {fileID: 164561868}
   - component: {fileID: 164561865}
-  - component: {fileID: 164561867}
   - component: {fileID: 164561869}
   - component: {fileID: 164561870}
+  - component: {fileID: 164561867}
   m_Layer: 5
   m_Name: CommandPanel
   m_TagString: Untagged
@@ -239,7 +239,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: -1500}
+  m_SizeDelta: {x: 0, y: -1300}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &164561865
 MonoBehaviour:
@@ -282,7 +282,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 164561863}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -2095666955, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 1297475563, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
@@ -291,12 +291,11 @@ MonoBehaviour:
     m_Top: 20
     m_Bottom: 20
   m_ChildAlignment: 6
-  m_StartCorner: 2
-  m_StartAxis: 0
-  m_CellSize: {x: 510, y: 180}
-  m_Spacing: {x: 20, y: 20}
-  m_Constraint: 1
-  m_ConstraintCount: 2
+  m_Spacing: 10
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 1
 --- !u!223 &164561868
 Canvas:
   m_ObjectHideFlags: 0
@@ -575,12 +574,12 @@ Prefab:
     - target: {fileID: 224039459191044058, guid: ec7cbfd90e29e425fb9ab1d50897b7d8,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: -265
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224039459191044058, guid: ec7cbfd90e29e425fb9ab1d50897b7d8,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 110
+      value: 531.25
       objectReference: {fileID: 0}
     - target: {fileID: 224039459191044058, guid: ec7cbfd90e29e425fb9ab1d50897b7d8,
         type: 2}
@@ -870,12 +869,12 @@ Prefab:
     - target: {fileID: 224039459191044058, guid: ec7cbfd90e29e425fb9ab1d50897b7d8,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: -265
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224039459191044058, guid: ec7cbfd90e29e425fb9ab1d50897b7d8,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 310
+      value: 236.25
       objectReference: {fileID: 0}
     - target: {fileID: 224039459191044058, guid: ec7cbfd90e29e425fb9ab1d50897b7d8,
         type: 2}
@@ -1184,12 +1183,12 @@ Prefab:
     - target: {fileID: 224039459191044058, guid: ec7cbfd90e29e425fb9ab1d50897b7d8,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 265
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224039459191044058, guid: ec7cbfd90e29e425fb9ab1d50897b7d8,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 310
+      value: 88.75
       objectReference: {fileID: 0}
     - target: {fileID: 224039459191044058, guid: ec7cbfd90e29e425fb9ab1d50897b7d8,
         type: 2}
@@ -1373,12 +1372,12 @@ Prefab:
     - target: {fileID: 224039459191044058, guid: ec7cbfd90e29e425fb9ab1d50897b7d8,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 265
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224039459191044058, guid: ec7cbfd90e29e425fb9ab1d50897b7d8,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 110
+      value: 383.75
       objectReference: {fileID: 0}
     - target: {fileID: 224039459191044058, guid: ec7cbfd90e29e425fb9ab1d50897b7d8,
         type: 2}
