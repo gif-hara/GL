@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using GL.Scripts.Battle.CharacterControllers;
 using GL.Scripts.Battle.Systems;
+using HK.Framework.EventSystems;
+using HK.GL.Events.Battle;
 using UniRx;
 using UnityEditor;
 using UnityEngine;
@@ -14,9 +16,11 @@ namespace GL.DevelopTools.Scripts
     /// </summary>
     public sealed class CharacterStatusWindow : EditorWindow
     {
-        private CompositeDisposable disposable = new CompositeDisposable();
+        private readonly CompositeDisposable disposable = new CompositeDisposable();
 
-        private GUIStyle textStyle = new GUIStyle();
+        private readonly GUIStyle textStyle = new GUIStyle();
+
+        private List<string> behavioralNames = new List<string>();
 
         [MenuItem("Window/GL/CharacterStatus")]
         private static void GetWindow()
@@ -33,16 +37,23 @@ namespace GL.DevelopTools.Scripts
 
         private static void OnPlayModeStateChanged(PlayModeStateChange state)
         {
-            if (state == PlayModeStateChange.ExitingEditMode)
+            if (state == PlayModeStateChange.EnteredPlayMode)
             {
                 var window = CreateInstance<CharacterStatusWindow>();
                 window.ShowUtility();
+                Broker.Global.Receive<BehavioralOrderSimulationed>()
+                    .SubscribeWithState(window, (x, w) =>
+                    {
+                        w.behavioralNames = x.Order.Select(c => c.StatusController.Name).ToList();
+                    })
+                    .AddTo(window.disposable);
             }
             
-            else if (state == PlayModeStateChange.ExitingPlayMode)
+            else if (state == PlayModeStateChange.EnteredEditMode)
             {
                 var window = GetWindow<CharacterStatusWindow>();
                 window.Close();
+                window.disposable.Clear();
             }
         }
 
@@ -66,11 +77,12 @@ namespace GL.DevelopTools.Scripts
             }
             
             this.DrawCharacterStatus(battleManager.Parties.AllMember.Select(c => c.StatusController));
+            this.DrawBehavioralNames();
         }
 
         private void DrawCharacterStatus(IEnumerable<CharacterStatusController> statusControllers)
         {
-            using (var rootHorizontal = new GUILayout.HorizontalScope())
+            using (new GUILayout.HorizontalScope())
             {
                 this.DrawStatus(statusControllers, "Name", s => s.Name);
                 this.DrawStatus(statusControllers, "HP", s => string.Format("{0}/{1}", s.HitPoint, s.HitPointMax));
@@ -83,11 +95,27 @@ namespace GL.DevelopTools.Scripts
             }
         }
 
+        private void DrawBehavioralNames()
+        {
+            var tempColor = this.textStyle.normal.textColor;
+            this.textStyle.alignment = TextAnchor.MiddleLeft;
+            using (new GUILayout.VerticalScope(GUI.skin.box))
+            {
+                for (var i = 0; i < this.behavioralNames.Count; i++)
+                {
+                    var behavioralName = this.behavioralNames[i];
+                    this.textStyle.normal.textColor = i == 0 ? Color.magenta : Color.black;
+                    GUILayout.Label(behavioralName, this.textStyle);
+                }
+            }
+            this.textStyle.normal.textColor = tempColor;
+        }
+
         private void DrawStatus(IEnumerable<CharacterStatusController> statusControllers, string header, Func<CharacterStatusController, string> labelFunc)
         {
             var tempColor = this.textStyle.normal.textColor;
             this.textStyle.alignment = TextAnchor.MiddleRight;
-            using (var scope = new GUILayout.VerticalScope(GUI.skin.box))
+            using (new GUILayout.VerticalScope(GUI.skin.box))
             {
                 GUILayout.Label(header);
                 foreach (var statusController in statusControllers)
