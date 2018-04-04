@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using GL.Scripts.Battle.Commands.Impletents;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace GL.Scripts.Battle.CharacterControllers
 {
@@ -20,15 +17,7 @@ namespace GL.Scripts.Battle.CharacterControllers
         public CharacterStatus Status { get { return status; } }
 
         [SerializeField]
-        private List<Commands.Blueprints.Blueprint> commandSettings;
-        public List<IImplement> Commands { get { return this.commandSettings.Select(c => c.Create()).ToList(); } }
-
-        /// <summary>
-        /// 設定を元に<see cref="CharacterStatusController"/>を作成する
-        /// </summary>
-        public CharacterStatusController Create()
-        {
-            return new CharacterStatusController(this);
-        }
+        private Commands.Blueprints.Blueprint[] commands;
+        public Commands.Blueprints.Blueprint[] Commands { get { return this.commands; } }
     }
 }

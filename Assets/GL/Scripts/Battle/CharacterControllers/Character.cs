@@ -21,9 +21,9 @@ namespace GL.Scripts.Battle.CharacterControllers
 
         private ICharacterAnimation characterAnimation;
 
-        public void Initialize(Blueprint statusSettings, Constants.CharacterType characterType)
+        public void Initialize(Blueprint blueprint, Constants.CharacterType characterType)
         {
-            this.StatusController = statusSettings.Create();
+            this.StatusController = new CharacterStatusController(blueprint);
             this.CharacterType = characterType;
             this.characterAnimation = this.GetComponentInChildren<ICharacterAnimation>();
             Assert.IsNotNull(this.characterAnimation);

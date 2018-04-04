@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using GL.Scripts.Battle.Commands.Impletents;
 
 namespace GL.Scripts.Battle.CharacterControllers
@@ -13,7 +14,7 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// <summary>
         /// 使用可能なコマンド
         /// </summary>
-        public List<IImplement> Commands { private set; get; }
+        public IImplement[] Commands { private set; get; }
 
         /// <summary>
         /// 待機した量
@@ -21,25 +22,25 @@ namespace GL.Scripts.Battle.CharacterControllers
         public float Wait { set; get; }
 
         /// <summary>
-        /// 元となるスペック
+        /// 元となる設計図
         /// </summary>
-        public Blueprint BaseSpec{ private set; get; }
+        public Blueprint Blueprint{ private set; get; }
 
         /// <summary>
         /// ヒットポイント最大値
         /// </summary>
-        public int HitPointMax { get { return this.BaseSpec.Status.HitPoint; } }
+        public int HitPointMax { get { return this.Blueprint.Status.HitPoint; } }
         
         /// <summary>
         /// 死亡しているか返す
         /// </summary>
         public bool IsDead { get { return this.Status.HitPoint <= 0; } }
 
-        public CharacterStatusController(Blueprint baseSpec)
+        public CharacterStatusController(Blueprint blueprint)
         {
-            this.BaseSpec = baseSpec;
-            this.Status = new CharacterStatus(this.BaseSpec);
-            this.Commands = this.BaseSpec.Commands;
+            this.Blueprint = blueprint;
+            this.Status = new CharacterStatus(this.Blueprint);
+            this.Commands = this.Blueprint.Commands.Select(x => x.Create()).ToArray();
             this.Wait = 0.0f;
         }
     }

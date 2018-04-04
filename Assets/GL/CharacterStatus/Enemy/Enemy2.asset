@@ -20,7 +20,7 @@ MonoBehaviour:
     Sympathy: 0
     Nega: 0
     Speed: 8
-  commandSettings:
+  commands:
   - {fileID: 11400000, guid: 9cdf96bed368c40c9afb237d665437d1, type: 2}
   - {fileID: 11400000, guid: c1a29128a524e4b8db163cd5aa262161, type: 2}
   - {fileID: 11400000, guid: d45505cef08c549eda695fde6d2898d1, type: 2}
