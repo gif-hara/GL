@@ -16,6 +16,8 @@ namespace GL.DevelopTools.Scripts
     {
         private CompositeDisposable disposable = new CompositeDisposable();
 
+        private GUIStyle textStyle = new GUIStyle();
+
         [MenuItem("Window/GL/CharacterStatus")]
         private static void GetWindow()
         {
@@ -79,30 +81,21 @@ namespace GL.DevelopTools.Scripts
                 this.DrawStatus(statusControllers, "SPD", s => s.TotalSpeed.ToString());
                 this.DrawStatus(statusControllers, "WAT", s => s.Wait.ToString());
             }
-//            using (var scope = new EditorGUILayout.HorizontalScope(GUI.skin.box, GUILayout.ExpandWidth(false)))
-//            {
-//                GUILayout.Label(string.Format("{0} HP:{1}/{2} STR:{3} DEF:{4} SYM:{5} NEG:{6} SPD:{7} WAT:{8}",
-//                    statusController.BaseStatus.Name,
-//                    statusController.HitPointMax,
-//                    statusController.HitPoint,
-//                    statusController.TotalStrength,
-//                    statusController.TotalDefense,
-//                    statusController.TotalSympathy,
-//                    statusController.TotalNega,
-//                    statusController.TotalSpeed,
-//                    statusController.Wait),
-//                    GUILayout.ExpandWidth(false));
-//            }
         }
 
         private void DrawStatus(IEnumerable<CharacterStatusController> statusControllers, string header, Func<CharacterStatusController, string> labelFunc)
         {
+            var tempColor = this.textStyle.normal.textColor;
+            this.textStyle.alignment = TextAnchor.MiddleRight;
             using (var scope = new GUILayout.VerticalScope(GUI.skin.box))
             {
                 GUILayout.Label(header);
                 foreach (var statusController in statusControllers)
                 {
-                    GUILayout.Label(labelFunc(statusController));
+                    this.textStyle.normal.textColor = statusController.IsDead ? Color.red : Color.black;
+                    
+                    GUILayout.Label(labelFunc(statusController), this.textStyle);
+                    this.textStyle.normal.textColor = tempColor;
                 }
             }
         }
