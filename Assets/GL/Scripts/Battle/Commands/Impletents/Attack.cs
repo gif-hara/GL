@@ -6,38 +6,29 @@ namespace GL.Scripts.Battle.Commands.Impletents
     /// <summary>
     /// 攻撃を行うコマンド.
     /// </summary>
-    public sealed class Attack : IImplement
+    public sealed class Attack : Implement
     {
-        private string name;
-
-        private Constants.TargetType targetType;
-
         /// <summary>
         /// ダメージ倍率
         /// </summary>
         private float rate;
 
-        string IImplement.Name { get{ return this.name; } }
+        public Attack(string name, Constants.TargetType targetType, float rate)
+            : base(name, targetType)
+        {
+            this.rate = rate;
+        }
 
-        Constants.TargetType IImplement.TargetType { get{ return this.targetType; } }
-
-        void IImplement.Invoke(Character invoker)
+        public override void Invoke(Character invoker)
         {
             invoker.StartAttack(() =>
             {
                 var targets = BattleManager.Instance.Parties
                     .Opponent(invoker)
-                    .GetTargets(this.targetType, c => c.StatusController.BaseStatus.HitPoint);
+                    .GetTargets(this.TargetType, c => c.StatusController.BaseStatus.HitPoint);
                 targets.ForEach(t => t.TakeDamage(Calculator.GetBasicAttackDamage(invoker.StatusController, t.StatusController, this.rate)));
                 BattleManager.Instance.EndTurn();
             });
-        }
-
-        public Attack(string name, Constants.TargetType targetType, float rate)
-        {
-            this.name = name;
-            this.targetType = targetType;
-            this.rate = rate;
         }
     }
 }
