@@ -34,5 +34,29 @@ namespace GL.Scripts.Battle.Systems
         {
             return invoker.TotalSympathy / 2;
         }
+
+        /// <summary>
+        /// 思いやり力上昇系コマンドの上昇量を返す
+        /// </summary>
+        public static int GetAddSympathyValue(CharacterStatusController invoker)
+        {
+            return invoker.TotalSympathy / 2;
+        }
+        
+        /// <summary>
+        /// ネガティブ力上昇系コマンドの上昇量を返す
+        /// </summary>
+        public static int GetAddNegaValue(CharacterStatusController invoker)
+        {
+            return invoker.TotalSympathy / 2;
+        }
+        
+        /// <summary>
+        /// 素早さ上昇系コマンドの上昇量を返す
+        /// </summary>
+        public static int GetAddSpeedValue(CharacterStatusController invoker)
+        {
+            return invoker.TotalSympathy / 2;
+        }
     }
 }

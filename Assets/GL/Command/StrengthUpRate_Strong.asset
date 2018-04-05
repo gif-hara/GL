@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38f188fc9d34a4107a8f93e70bce464d, type: 3}
+  m_Name: StrengthUpRate_Strong
+  m_EditorClassIdentifier: 
+  commandName:
+    target: {fileID: 11400000, guid: 3534e70039cc6491cad3f648e57e8b4b, type: 2}
+    value: "\u5F37\u3044\u30CA\u30AB\u30DE\u5FDC\u63F4"
+    guid: 0017cad7-a4f4-4aaa-8856-0f8e2956182f
+  targetType: 0
