@@ -52,14 +52,14 @@ namespace GL.Scripts.Battle.Systems
             Broker.Global.Publish(HK.GL.Events.Battle.NextTurn.Get(order));
         }
 
-        public void EndTurn()
+        public void EndTurn(Character character)
         {
             this.BehavioralOrder.EndTurn(this.Parties);
 
             var battleResult = this.Parties.Result;
             if(battleResult == Constants.BattleResult.Unsettlement)
             {
-                Broker.Global.Publish(HK.GL.Events.Battle.EndTurn.Get());
+                Broker.Global.Publish(HK.GL.Events.Battle.EndTurn.Get(character));
                 this.NextTurn();
             }
             else

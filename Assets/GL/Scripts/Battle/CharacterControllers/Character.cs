@@ -13,17 +13,23 @@ namespace GL.Scripts.Battle.CharacterControllers
     public sealed class Character : MonoBehaviour
     {
         /// <summary>
-        /// 基本ステータス
+        /// ステータスコントローラー
         /// </summary>
-        public CharacterStatusController StatusController { private set; get; }
+        public CharacterStatusController StatusController { get; private set; }
 
-        public Constants.CharacterType CharacterType { private set; get; }
+        /// <summary>
+        /// 状態異常コントローラー
+        /// </summary>
+        public CharacterAilmentController AilmentController { get; private set; }
+
+        public Constants.CharacterType CharacterType { get; private set; }
 
         private ICharacterAnimation characterAnimation;
 
         public void Initialize(Blueprint blueprint, Constants.CharacterType characterType)
         {
             this.StatusController = new CharacterStatusController(blueprint);
+            this.AilmentController = new CharacterAilmentController(this);
             this.CharacterType = characterType;
             this.characterAnimation = this.GetComponentInChildren<ICharacterAnimation>();
             Assert.IsNotNull(this.characterAnimation);

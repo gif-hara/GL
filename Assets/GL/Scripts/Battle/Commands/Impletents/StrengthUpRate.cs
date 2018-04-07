@@ -22,7 +22,7 @@ namespace GL.Scripts.Battle.Commands.Impletents
                     .GetTargets(this.TargetType, c => c.StatusController.BaseStatus.Defense);
                 var addDefense = Calculator.GetAddStrengthValue(invoker.StatusController);
                 targets.ForEach(t => t.AddStrength(addDefense));
-                BattleManager.Instance.EndTurn();
+                BattleManager.Instance.EndTurn(invoker);
             });
         }
     }
