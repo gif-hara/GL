@@ -17,6 +17,12 @@ namespace GL.Scripts.Battle.Commands.Blueprints
         protected StringAsset.Finder commandName;
 
         /// <summary>
+        /// 対象となるパーティタイプ
+        /// </summary>
+        [SerializeField]
+        protected Constants.TargetPartyType targetPartyType;
+        
+        /// <summary>
         /// ターゲットタイプ
         /// </summary>
         [SerializeField]

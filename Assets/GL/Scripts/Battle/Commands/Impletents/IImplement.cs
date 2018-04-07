@@ -12,6 +12,11 @@ namespace GL.Scripts.Battle.Commands.Impletents
         /// コマンド名
         /// </summary>
         string Name { get; }
+        
+        /// <summary>
+        /// 対象となるパーティタイプ
+        /// </summary>
+        Constants.TargetPartyType TargetPartyType { get; }
 
         /// <summary>
         /// ターゲットタイプ

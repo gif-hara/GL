@@ -11,7 +11,7 @@ namespace GL.Scripts.Battle.Commands.Blueprints
     {
         public override IImplement Create()
         {
-            return new Impletents.SpeedUpRate(this.commandName.Get, this.targetType);
+            return new Impletents.SpeedUpRate(this.commandName.Get, this.targetPartyType, this.targetType);
         }
     }
 }

@@ -13,8 +13,8 @@ namespace GL.Scripts.Battle.Commands.Impletents
         /// </summary>
         private float rate;
 
-        public Attack(string name, Constants.TargetType targetType, float rate)
-            : base(name, targetType)
+        public Attack(string name, Constants.TargetPartyType targetPartyType, Constants.TargetType targetType, float rate)
+            : base(name, targetPartyType, targetType)
         {
             this.rate = rate;
         }
@@ -24,7 +24,7 @@ namespace GL.Scripts.Battle.Commands.Impletents
             invoker.StartAttack(() =>
             {
                 var targets = BattleManager.Instance.Parties
-                    .Opponent(invoker)
+                    .GetFromTargetPartyType(invoker, this.TargetPartyType)
                     .GetTargets(this.TargetType, c => c.StatusController.BaseStatus.HitPoint);
                 targets.ForEach(t => t.TakeDamage(Calculator.GetBasicAttackDamage(invoker.StatusController, t.StatusController, this.rate)));
             });

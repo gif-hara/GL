@@ -49,6 +49,22 @@
             /// </summary>
             Enemy,
         }
+        
+        /// <summary>
+        /// 対象となるパーティタイプ
+        /// </summary>
+        public enum TargetPartyType
+        {
+            /// <summary>
+            /// 味方
+            /// </summary>
+            Ally,
+            
+            /// <summary>
+            /// 相手
+            /// </summary>
+            Opponent,
+        }
 
         /// <summary>
         /// 状態異常

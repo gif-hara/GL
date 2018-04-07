@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using GL.Scripts.Battle.Systems;
+using UnityEngine.Assertions;
 
 namespace GL.Scripts.Battle.CharacterControllers
 {
@@ -44,6 +45,23 @@ namespace GL.Scripts.Battle.CharacterControllers
             return character.CharacterType == Constants.CharacterType.Player
                 ? this.Enemy
                 : this.Player;
+        }
+
+        /// <summary>
+        /// <paramref name="targetPartyType"/>からパーティを返す
+        /// </summary>
+        public Party GetFromTargetPartyType(Character character, Constants.TargetPartyType targetPartyType)
+        {
+            switch (targetPartyType)
+            {
+                case Constants.TargetPartyType.Ally:
+                    return this.Ally(character);
+                case Constants.TargetPartyType.Opponent:
+                    return this.Opponent(character);
+                default:
+                    Assert.IsTrue(false, string.Format("未対応の値です {0}", targetPartyType));
+                    return null;
+            }
         }
 
         /// <summary>

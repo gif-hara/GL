@@ -15,4 +15,5 @@ MonoBehaviour:
     target: {fileID: 11400000, guid: 3534e70039cc6491cad3f648e57e8b4b, type: 2}
     value: "\u5F31\u3044\u30CA\u30AB\u30DE\u5FDC\u63F4"
     guid: 604cda20-80c3-46b7-9bc8-139423c6736e
+  targetPartyType: 0
   targetType: 1

@@ -14,7 +14,7 @@ namespace GL.Scripts.Battle.Commands.Blueprints
          
         public override IImplement Create()
         {
-            return new Impletents.Attack(this.commandName.Get, this.targetType, this.rate);
+            return new Impletents.Attack(this.commandName.Get, this.targetPartyType, this.targetType, this.rate);
         }
     }
 }

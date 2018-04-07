@@ -10,11 +10,14 @@ namespace GL.Scripts.Battle.Commands.Impletents
     {
         public string Name { get; private set; }
 
+        public Constants.TargetPartyType TargetPartyType { get; private set; }
+        
         public Constants.TargetType TargetType { get; private set; }
 
-        protected Implement(string name, Constants.TargetType targetType)
+        protected Implement(string name, Constants.TargetPartyType targetPartyType, Constants.TargetType targetType)
         {
             this.Name = name;
+            this.TargetPartyType = targetPartyType;
             this.TargetType = targetType;
         }
 

@@ -8,8 +8,8 @@ namespace GL.Scripts.Battle.Commands.Impletents
     /// </summary>
     public sealed class DefenseUpRate : Implement
     {
-        public DefenseUpRate(string name, Constants.TargetType targetType)
-            : base(name, targetType)
+        public DefenseUpRate(string name, Constants.TargetPartyType targetPartyType, Constants.TargetType targetType)
+            : base(name, targetPartyType, targetType)
         {
         }
 
@@ -18,7 +18,7 @@ namespace GL.Scripts.Battle.Commands.Impletents
             invoker.StartAttack(() =>
             {
                 var targets = BattleManager.Instance.Parties
-                    .Ally(invoker)
+                    .GetFromTargetPartyType(invoker, this.TargetPartyType)
                     .GetTargets(this.TargetType, c => c.StatusController.BaseStatus.Defense);
                 var addDefense = Calculator.GetAddDefenseValue(invoker.StatusController);
                 targets.ForEach(t => t.AddDefense(addDefense));
