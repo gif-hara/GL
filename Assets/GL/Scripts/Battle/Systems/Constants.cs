@@ -51,6 +51,38 @@
         }
 
         /// <summary>
+        /// 状態異常
+        /// </summary>
+        public enum StatusAilmentType
+        {
+            /// <summary>鬼神化</summary>
+            /// <remarks>次のターンの与えるダメージが1.5倍になる</remarks>
+            Demonization = 1,
+            
+            /// <summary>硬質化</summary>
+            /// <remarks>次のターンの受けるダメージが0になる</remarks>
+            Hardening = 2,
+            
+            /// <summary>鎌鼬</summary>
+            /// <remarks>次のターンの攻撃が全体攻撃になる</remarks>
+            Sickle = 3,
+            
+            /// <summary>先制</summary>
+            /// <remarks>次に行動するキャラクターは<see cref="PreEmpt"/>を持つキャラクターになる</remarks>
+            PreEmpt = 4,
+            
+            /// <summary>毒</summary>
+            /// <remarks>ターン終了時に一定量のダメージを受ける</remarks>
+            Poison = 101,
+            
+            /// <summary>麻痺</summary>
+            /// <remarks>1ターン何も出来ない</remarks>
+            Paralysis = 102,
+            
+            
+        }
+
+        /// <summary>
         /// バトル結果
         /// </summary>
         public enum BattleResult : int
