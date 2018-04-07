@@ -1,4 +1,5 @@
-﻿using GL.Scripts.Battle.CharacterControllers;
+﻿using System;
+using GL.Scripts.Battle.CharacterControllers;
 using GL.Scripts.Battle.Systems;
 
 namespace GL.Scripts.Battle.Commands.Impletents
@@ -6,21 +7,31 @@ namespace GL.Scripts.Battle.Commands.Impletents
     /// <summary>
     /// 実際にゲームで使用するコマンドの抽象クラス
     /// </summary>
-    public abstract class Implement : IImplement
+    public abstract class Implement<T> : IImplement where T : Implement<T>.CommandParameter
     {
-        public string Name { get; private set; }
-
-        public Constants.TargetPartyType TargetPartyType { get; private set; }
+        public T Parameter { get; private set; }
         
-        public Constants.TargetType TargetType { get; private set; }
+        public string Name { get { return this.Parameter.Name; } }
 
-        protected Implement(string name, Constants.TargetPartyType targetPartyType, Constants.TargetType targetType)
+        public Constants.TargetPartyType TargetPartyType { get { return this.Parameter.TargetPartyType; } }
+        
+        public Constants.TargetType TargetType { get { return this.Parameter.TargetType; } }
+
+        protected Implement(T parameter)
         {
-            this.Name = name;
-            this.TargetPartyType = targetPartyType;
-            this.TargetType = targetType;
+            this.Parameter = parameter;
         }
-
+        
         public abstract void Invoke(Character invoker);
+
+        [Serializable]
+        public abstract class CommandParameter
+        {
+            public string Name;
+
+            public Constants.TargetPartyType TargetPartyType;
+
+            public Constants.TargetType TargetType;
+        }
     }
 }

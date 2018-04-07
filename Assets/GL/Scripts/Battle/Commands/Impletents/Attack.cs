@@ -1,4 +1,5 @@
-﻿using GL.Scripts.Battle.CharacterControllers;
+﻿using System;
+using GL.Scripts.Battle.CharacterControllers;
 using GL.Scripts.Battle.Systems;
 
 namespace GL.Scripts.Battle.Commands.Impletents
@@ -6,17 +7,11 @@ namespace GL.Scripts.Battle.Commands.Impletents
     /// <summary>
     /// 攻撃を行うコマンド.
     /// </summary>
-    public sealed class Attack : Implement
+    public sealed class Attack : Implement<Attack.AttackParameter>
     {
-        /// <summary>
-        /// ダメージ倍率
-        /// </summary>
-        private float rate;
-
-        public Attack(string name, Constants.TargetPartyType targetPartyType, Constants.TargetType targetType, float rate)
-            : base(name, targetPartyType, targetType)
+        public Attack(AttackParameter parameter)
+            : base(parameter)
         {
-            this.rate = rate;
         }
 
         public override void Invoke(Character invoker)
@@ -26,8 +21,17 @@ namespace GL.Scripts.Battle.Commands.Impletents
                 var targets = BattleManager.Instance.Parties
                     .GetFromTargetPartyType(invoker, this.TargetPartyType)
                     .GetTargets(this.TargetType, c => c.StatusController.BaseStatus.HitPoint);
-                targets.ForEach(t => t.TakeDamage(Calculator.GetBasicAttackDamage(invoker.StatusController, t.StatusController, this.rate)));
+                targets.ForEach(t => t.TakeDamage(Calculator.GetBasicAttackDamage(invoker.StatusController, t.StatusController, this.Parameter.Rate)));
             });
+        }
+
+        [Serializable]
+        public class AttackParameter : CommandParameter
+        {
+            /// <summary>
+            /// ダメージ倍率
+            /// </summary>
+            public float Rate;
         }
     }
 }

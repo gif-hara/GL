@@ -1,4 +1,5 @@
-﻿using GL.Scripts.Battle.CharacterControllers;
+﻿using System;
+using GL.Scripts.Battle.CharacterControllers;
 using GL.Scripts.Battle.Systems;
 
 namespace GL.Scripts.Battle.Commands.Impletents
@@ -6,23 +7,11 @@ namespace GL.Scripts.Battle.Commands.Impletents
     /// <summary>
     /// パラメータ倍率上昇を行うコマンド.
     /// </summary>
-    public sealed class AddStatusParameterRate : Implement
+    public sealed class AddStatusParameterRate : Implement<AddStatusParameterRate.AddStatusParameterRateParameter>
     {
-        private readonly Constants.StatusParameterType statusParameterType;
-
-        private readonly float rate;
-        
-        public AddStatusParameterRate(
-            string name,
-            Constants.TargetPartyType targetPartyType,
-            Constants.TargetType targetType,
-            Constants.StatusParameterType statusParameterType,
-            float rate
-            )
-            : base(name, targetPartyType, targetType)
+        public AddStatusParameterRate(AddStatusParameterRateParameter parameter)
+            : base(parameter)
         {
-            this.statusParameterType = statusParameterType;
-            this.rate = rate;
         }
 
         public override void Invoke(Character invoker)
@@ -32,9 +21,17 @@ namespace GL.Scripts.Battle.Commands.Impletents
                 var targets = BattleManager.Instance.Parties
                     .GetFromTargetPartyType(invoker, this.TargetPartyType)
                     .GetTargets(this.TargetType, c => c.StatusController.BaseStatus.Defense);
-                var value = Calculator.GetAddStatusParameterValue(this.statusParameterType, invoker.StatusController, this.rate);
-                targets.ForEach(t => t.StatusController.AddStatusParameter(this.statusParameterType, value));
+                var value = Calculator.GetAddStatusParameterValue(this.Parameter.StatusParameterType, invoker.StatusController, this.Parameter.Rate);
+                targets.ForEach(t => t.StatusController.AddStatusParameter(this.Parameter.StatusParameterType, value));
             });
+        }
+
+        [Serializable]
+        public class AddStatusParameterRateParameter : CommandParameter
+        {
+            public Constants.StatusParameterType StatusParameterType;
+
+            public float Rate;
         }
     }
 }

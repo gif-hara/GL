@@ -10,11 +10,11 @@ namespace GL.Scripts.Battle.Commands.Blueprints
     public sealed class Attack : Blueprint
     {
         [SerializeField]
-        private float rate;
+        private Impletents.Attack.AttackParameter parameter;
          
         public override IImplement Create()
         {
-            return new Impletents.Attack(this.commandName.Get, this.targetPartyType, this.targetType, this.rate);
+            return new Impletents.Attack(this.parameter);
         }
     }
 }
