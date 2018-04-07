@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 280168a9594344b7d891ad691b5f1cad, type: 3}
+  m_Name: AddPoison_Weak
+  m_EditorClassIdentifier: 
+  parameter:
+    Name:
+      target: {fileID: 11400000, guid: 3534e70039cc6491cad3f648e57e8b4b, type: 2}
+      value: "\u5F31\u3044\u30E4\u30C4\u6BD2\u306B\u3059\u308B"
+      guid: ea72d6e2-6fd4-4f37-b026-aa889bf9f7a4
+    TargetPartyType: 1
+    TargetType: 1
+    StatusAilmentType: 101
+    Rate: 1
+    RemainingTurnMin: 2
+    RemainingTurnMax: 3

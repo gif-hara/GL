@@ -14,7 +14,7 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// <summary>
         /// 現在かかっている状態異常
         /// </summary>
-        private readonly List<StatusAilmentElement> elements = new List<StatusAilmentElement>();
+        public readonly List<StatusAilmentElement> Elements = new List<StatusAilmentElement>();
 
         public CharacterAilmentController(Character character)
         {
@@ -22,7 +22,7 @@ namespace GL.Scripts.Battle.CharacterControllers
                 .Where(x => x.Character == character)
                 .SubscribeWithState(this, (x, _this) =>
                 {
-                    _this.elements.ForEach(e => e.EndTurn());
+                    _this.Elements.ForEach(e => e.EndTurn());
                 })
                 .AddTo(character);
         }
@@ -40,7 +40,7 @@ namespace GL.Scripts.Battle.CharacterControllers
                 return;
             }
             
-            this.elements.Add(new StatusAilmentElement(remainingTurn, type, this));
+            this.Elements.Add(new StatusAilmentElement(remainingTurn, type, this));
         }
         
         /// <summary>
@@ -48,7 +48,7 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// </summary>
         public bool Find(Constants.StatusAilmentType type)
         {
-            return this.elements.FindIndex(e => e.Type == type) != -1;
+            return this.Elements.FindIndex(e => e.Type == type) != -1;
         }
 
         public class StatusAilmentElement
@@ -71,7 +71,7 @@ namespace GL.Scripts.Battle.CharacterControllers
                 this.RemainingTurn--;
                 if (this.RemainingTurn <= 0)
                 {
-                    this.controller.elements.Remove(this);
+                    this.controller.Elements.Remove(this);
                 }
             }
         }
