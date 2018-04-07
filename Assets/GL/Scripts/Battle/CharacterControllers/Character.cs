@@ -42,46 +42,6 @@ namespace GL.Scripts.Battle.CharacterControllers
         }
 
         /// <summary>
-        /// 攻撃力を加算する
-        /// </summary>
-        public void AddStrength(int value)
-        {
-            this.StatusController.AdditiveStatus.Strength += value;
-        }
-
-        /// <summary>
-        /// 防御力を加算する
-        /// </summary>
-        public void AddDefense(int value)
-        {
-            this.StatusController.AdditiveStatus.Defense += value;
-        }
-
-        /// <summary>
-        /// 思いやり力を加算する
-        /// </summary>
-        public void AddSympathy(int value)
-        {
-            this.StatusController.AdditiveStatus.Sympathy += value;
-        }
-
-        /// <summary>
-        /// ネガティブ力を加算する
-        /// </summary>
-        public void AddNega(int value)
-        {
-            this.StatusController.AdditiveStatus.Nega += value;
-        }
-
-        /// <summary>
-        /// 素早さを加算する
-        /// </summary>
-        public void AddSpeed(int value)
-        {
-            this.StatusController.AdditiveStatus.Speed += value;
-        }
-
-        /// <summary>
         /// ダメージを受ける
         /// </summary>
         public void TakeDamage(int damage)

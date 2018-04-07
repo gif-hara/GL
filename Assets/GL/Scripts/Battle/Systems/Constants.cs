@@ -65,6 +65,30 @@
             /// </summary>
             Opponent,
         }
+        
+        /// <summary>
+        /// パラメータ
+        /// </summary>
+        public enum StatusParameterType
+        {
+            /// <summary>ヒットポイント</summary>
+            HitPoint,
+            
+            /// <summary>攻撃力</summary>
+            Strength,
+            
+            /// <summary>防御力</summary>
+            Defense,
+            
+            /// <summary>思いやり力</summary>
+            Sympathy,
+            
+            /// <summary>ネガキャン力</summary>
+            Nega,
+            
+            /// <summary>素早さ</summary>
+            Speed,
+        }
 
         /// <summary>
         /// 状態異常

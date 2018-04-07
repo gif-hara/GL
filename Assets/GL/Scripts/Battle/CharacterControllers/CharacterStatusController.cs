@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using GL.Scripts.Battle.Commands.Impletents;
+using GL.Scripts.Battle.Systems;
 
 namespace GL.Scripts.Battle.CharacterControllers
 {
@@ -68,6 +69,28 @@ namespace GL.Scripts.Battle.CharacterControllers
             this.AdditiveStatus = new CharacterStatus();
             this.Commands = this.Blueprint.Commands.Select(x => x.Create()).ToArray();
             this.Wait = 0.0f;
+        }
+
+        public void AddStatusParameter(Constants.StatusParameterType type, int value)
+        {
+            switch (type)
+            {
+                case Constants.StatusParameterType.Strength:
+                    this.AdditiveStatus.Strength += value;
+                    break;
+                case Constants.StatusParameterType.Defense:
+                    this.AdditiveStatus.Defense += value;
+                    break;
+                case Constants.StatusParameterType.Sympathy:
+                    this.AdditiveStatus.Sympathy += value;
+                    break;
+                case Constants.StatusParameterType.Nega:
+                    this.AdditiveStatus.Nega += value;
+                    break;
+                case Constants.StatusParameterType.Speed:
+                    this.AdditiveStatus.Speed += value;
+                    break;
+            }
         }
     }
 }

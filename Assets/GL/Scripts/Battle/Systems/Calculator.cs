@@ -1,5 +1,6 @@
 ﻿using GL.Scripts.Battle.CharacterControllers;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 namespace GL.Scripts.Battle.Systems
 {
@@ -21,48 +22,106 @@ namespace GL.Scripts.Battle.Systems
         }
 
         /// <summary>
+        /// <paramref name="type"/>からパラメータ加算値を返す
+        /// </summary>
+        public static int GetAddStatusParameterValue(Constants.StatusParameterType type, CharacterStatusController invoker, float rate)
+        {
+            switch (type)
+            {
+                case Constants.StatusParameterType.Strength:
+                    return GetAddStrengthValue(invoker, rate);
+                case Constants.StatusParameterType.Defense:
+                    return GetAddDefenseValue(invoker, rate);
+                case Constants.StatusParameterType.Sympathy:
+                    return GetAddSympathyValue(invoker, rate);
+                case Constants.StatusParameterType.Nega:
+                    return GetAddNegaValue(invoker, rate);
+                case Constants.StatusParameterType.Speed:
+                    return GetAddSpeedValue(invoker, rate);
+                default:
+                    Assert.IsTrue(false, string.Format("未対応の値です {0}", type));
+                    return 0;
+            }
+        }
+
+        /// <summary>
         /// 攻撃力上昇系コマンドの上昇量を返す
         /// </summary>
-        public static int GetAddStrengthValue(CharacterStatusController invoker)
+        private static int GetAddStrengthValue(CharacterStatusController invoker, float rate)
         {
             // TODO: 実装
-            return invoker.TotalSympathy / 2;
+            if (rate >= 0.0f)
+            {
+                return Mathf.FloorToInt(invoker.TotalSympathy / 2.0f * rate);
+            }
+            else
+            {
+                return Mathf.FloorToInt(invoker.TotalNega / 2.0f * rate);
+            }
         }
 
         /// <summary>
         /// 防御力上昇系コマンドの上昇量を返す
         /// </summary>
-        public static int GetAddDefenseValue(CharacterStatusController invoker)
+        private static int GetAddDefenseValue(CharacterStatusController invoker, float rate)
         {
             // TODO: 実装
-            return invoker.TotalSympathy / 2;
+            if (rate >= 0.0f)
+            {
+                return Mathf.FloorToInt(invoker.TotalSympathy / 2.0f * rate);
+            }
+            else
+            {
+                return Mathf.FloorToInt(invoker.TotalNega / 2.0f * rate);
+            }
         }
 
         /// <summary>
         /// 思いやり力上昇系コマンドの上昇量を返す
         /// </summary>
-        public static int GetAddSympathyValue(CharacterStatusController invoker)
+        private static int GetAddSympathyValue(CharacterStatusController invoker, float rate)
         {
             // TODO: 実装
-            return invoker.TotalSympathy / 2;
+            if (rate >= 0.0f)
+            {
+                return Mathf.FloorToInt(invoker.TotalSympathy / 2.0f * rate);
+            }
+            else
+            {
+                return Mathf.FloorToInt(invoker.TotalNega / 2.0f * rate);
+            }
         }
         
         /// <summary>
-        /// ネガティブ力上昇系コマンドの上昇量を返す
+        /// ネガキャン力上昇系コマンドの上昇量を返す
         /// </summary>
-        public static int GetAddNegaValue(CharacterStatusController invoker)
+        private static int GetAddNegaValue(CharacterStatusController invoker, float rate)
         {
             // TODO: 実装
-            return invoker.TotalSympathy / 2;
+            if (rate >= 0.0f)
+            {
+                return Mathf.FloorToInt(invoker.TotalSympathy / 2.0f * rate);
+            }
+            else
+            {
+                return Mathf.FloorToInt(invoker.TotalNega / 2.0f * rate);
+            }
         }
         
         /// <summary>
         /// 素早さ上昇系コマンドの上昇量を返す
         /// </summary>
-        public static int GetAddSpeedValue(CharacterStatusController invoker)
+        private static int GetAddSpeedValue(CharacterStatusController invoker, float rate)
         {
             // TODO: 実装
-            return invoker.TotalSympathy / 2;
+            if (rate >= 0.0f)
+            {
+                return Mathf.FloorToInt(invoker.TotalSympathy / 2.0f * rate);
+            }
+            else
+            {
+                return Mathf.FloorToInt(invoker.TotalNega / 2.0f * rate);
+            }
         }
 
         /// <summary>
