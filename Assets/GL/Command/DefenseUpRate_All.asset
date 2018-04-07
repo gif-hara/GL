@@ -11,11 +11,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7434511f6bc7449eebf1a2f5b9187790, type: 3}
   m_Name: DefenseUpRate_All
   m_EditorClassIdentifier: 
-  commandName:
-    target: {fileID: 11400000, guid: 3534e70039cc6491cad3f648e57e8b4b, type: 2}
-    value: "\u30CA\u30AB\u30DE\u307F\u3093\u306A\u5B88\u308B"
-    guid: dfda0df1-293a-41c6-a19b-3fecd06a7b95
-  targetPartyType: 0
-  targetType: 2
-  statusParameterType: 2
-  rate: 1
+  parameter:
+    Name:
+      target: {fileID: 11400000, guid: 3534e70039cc6491cad3f648e57e8b4b, type: 2}
+      value: "\u30CA\u30AB\u30DE\u307F\u3093\u306A\u5B88\u308B"
+      guid: dfda0df1-293a-41c6-a19b-3fecd06a7b95
+    TargetPartyType: 0
+    TargetType: 2
+    StatusParameterType: 2
+    Rate: 0.5
