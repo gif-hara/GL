@@ -1,8 +1,9 @@
 ﻿using System;
 using GL.Scripts.Battle.CharacterControllers;
+using GL.Scripts.Battle.Commands.Impletents;
 using GL.Scripts.Battle.Systems;
 
-namespace GL.Scripts.Battle.Commands.Impletents
+namespace GL.Scripts.Battle.Commands.Implements
 {
     /// <summary>
     /// 実際にゲームで使用するコマンドの抽象クラス

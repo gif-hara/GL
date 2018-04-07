@@ -1,5 +1,6 @@
 ﻿using System;
 using GL.Scripts.Battle.CharacterControllers;
+using GL.Scripts.Battle.Commands.Implements;
 using GL.Scripts.Battle.Systems;
 using Random = UnityEngine.Random;
 
