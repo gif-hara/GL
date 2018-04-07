@@ -17,3 +17,5 @@ MonoBehaviour:
     guid: dfda0df1-293a-41c6-a19b-3fecd06a7b95
   targetPartyType: 0
   targetType: 2
+  statusParameterType: 2
+  rate: 1
