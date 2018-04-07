@@ -1,5 +1,5 @@
 ﻿using GL.Scripts.Battle.CharacterControllers;
-using GL.Scripts.Battle.Commands.Impletents;
+using GL.Scripts.Battle.Commands.Implements;
 using HK.Framework.EventSystems;
 
 namespace HK.GL.Events.Battle

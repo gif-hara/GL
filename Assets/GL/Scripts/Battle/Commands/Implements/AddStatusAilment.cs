@@ -1,17 +1,16 @@
 ﻿using System;
 using GL.Scripts.Battle.CharacterControllers;
-using GL.Scripts.Battle.Commands.Implements;
 using GL.Scripts.Battle.Systems;
 using Random = UnityEngine.Random;
 
-namespace GL.Scripts.Battle.Commands.Impletents
+namespace GL.Scripts.Battle.Commands.Implements
 {
     /// <summary>
     /// 状態異常を追加するコマンド.
     /// </summary>
-    public sealed class AddStatusAilment : Implement<AddStatusAilment.AddStatusAilmentParameter>
+    public sealed class AddStatusAilment : Implement<AddStatusAilment.Parameter>
     {
-        public AddStatusAilment(AddStatusAilmentParameter parameter)
+        public AddStatusAilment(Parameter parameter)
             : base(parameter)
         {
         }
@@ -25,9 +24,9 @@ namespace GL.Scripts.Battle.Commands.Impletents
                     .GetTargets(this.TargetType, c => c.StatusController.BaseStatus.HitPoint);
                 targets.ForEach(t =>
                 {
-                    if (Calculator.LotteryStatusAilment(this.Parameter.Rate))
+                    if (Calculator.LotteryStatusAilment(this.parameter.Rate))
                     {
-                        t.AilmentController.Add(this.RemainingTurn, this.Parameter.StatusAilmentType);
+                        t.AilmentController.Add(this.RemainingTurn, this.parameter.StatusAilmentType);
                     }
                 });
             });
@@ -35,11 +34,11 @@ namespace GL.Scripts.Battle.Commands.Impletents
 
         private int RemainingTurn
         {
-            get { return Random.Range(this.Parameter.RemainingTurnMin, this.Parameter.RemainingTurnMax + 1); }
+            get { return Random.Range(this.parameter.RemainingTurnMin, this.parameter.RemainingTurnMax + 1); }
         }
 
         [Serializable]
-        public class AddStatusAilmentParameter : CommandParameter
+        public class Parameter : CommandParameter
         {
             public Constants.StatusAilmentType StatusAilmentType;
 

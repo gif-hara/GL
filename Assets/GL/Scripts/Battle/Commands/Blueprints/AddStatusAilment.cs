@@ -1,4 +1,4 @@
-﻿using GL.Scripts.Battle.Commands.Impletents;
+﻿using GL.Scripts.Battle.Commands.Implements;
 using UnityEngine;
 
 namespace GL.Scripts.Battle.Commands.Blueprints
@@ -10,11 +10,11 @@ namespace GL.Scripts.Battle.Commands.Blueprints
     public sealed class AddStatusAilment : Blueprint
     {
         [SerializeField]
-        private Impletents.AddStatusAilment.AddStatusAilmentParameter parameter;
-
+        private Implements.AddStatusAilment.Parameter parameter;
+        
         public override IImplement Create()
         {
-            return new Impletents.AddStatusAilment(this.parameter);
+            return new Implements.AddStatusAilment(this.parameter);
         }
     }
 }

@@ -1,16 +1,15 @@
 ﻿using System;
 using GL.Scripts.Battle.CharacterControllers;
-using GL.Scripts.Battle.Commands.Implements;
 using GL.Scripts.Battle.Systems;
 
-namespace GL.Scripts.Battle.Commands.Impletents
+namespace GL.Scripts.Battle.Commands.Implements
 {
     /// <summary>
     /// パラメータ倍率上昇を行うコマンド.
     /// </summary>
-    public sealed class AddStatusParameterRate : Implement<AddStatusParameterRate.AddStatusParameterRateParameter>
+    public sealed class AddStatusParameterRate : Implement<AddStatusParameterRate.Parameter>
     {
-        public AddStatusParameterRate(AddStatusParameterRateParameter parameter)
+        public AddStatusParameterRate(Parameter parameter)
             : base(parameter)
         {
         }
@@ -22,13 +21,13 @@ namespace GL.Scripts.Battle.Commands.Impletents
                 var targets = BattleManager.Instance.Parties
                     .GetFromTargetPartyType(invoker, this.TargetPartyType)
                     .GetTargets(this.TargetType, c => c.StatusController.BaseStatus.Defense);
-                var value = Calculator.GetAddStatusParameterValue(this.Parameter.StatusParameterType, invoker.StatusController, this.Parameter.Rate);
-                targets.ForEach(t => t.StatusController.AddStatusParameter(this.Parameter.StatusParameterType, value));
+                var value = Calculator.GetAddStatusParameterValue(this.parameter.StatusParameterType, invoker.StatusController, this.parameter.Rate);
+                targets.ForEach(t => t.StatusController.AddStatusParameter(this.parameter.StatusParameterType, value));
             });
         }
 
         [Serializable]
-        public class AddStatusParameterRateParameter : CommandParameter
+        public class Parameter : CommandParameter
         {
             public Constants.StatusParameterType StatusParameterType;
 

@@ -1,4 +1,4 @@
-﻿using GL.Scripts.Battle.Commands.Impletents;
+﻿using GL.Scripts.Battle.Commands.Implements;
 using UnityEngine;
 
 namespace GL.Scripts.Battle.Commands.Blueprints
@@ -10,11 +10,11 @@ namespace GL.Scripts.Battle.Commands.Blueprints
     public sealed class Attack : Blueprint
     {
         [SerializeField]
-        private Impletents.Attack.AttackParameter parameter;
-         
+        private Implements.Attack.Parameter parameter;
+        
         public override IImplement Create()
         {
-            return new Impletents.Attack(this.parameter);
+            return new Implements.Attack(this.parameter);
         }
     }
 }

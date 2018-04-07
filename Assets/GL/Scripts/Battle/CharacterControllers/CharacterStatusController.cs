@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using GL.Scripts.Battle.Commands.Impletents;
+using GL.Scripts.Battle.Commands.Implements;
 using GL.Scripts.Battle.Systems;
 
 namespace GL.Scripts.Battle.CharacterControllers

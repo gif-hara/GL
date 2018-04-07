@@ -1,4 +1,4 @@
-﻿using GL.Scripts.Battle.Commands.Impletents;
+﻿using GL.Scripts.Battle.Commands.Implements;
 using UnityEngine;
 
 namespace GL.Scripts.Battle.Commands.Blueprints
@@ -10,11 +10,11 @@ namespace GL.Scripts.Battle.Commands.Blueprints
     public sealed class AddStatusParameterRate : Blueprint
     {
         [SerializeField]
-        private Impletents.AddStatusParameterRate.AddStatusParameterRateParameter parameter;
+        private Implements.AddStatusParameterRate.Parameter parameter;
         
         public override IImplement Create()
         {
-            return new Impletents.AddStatusParameterRate(this.parameter);
+            return new Implements.AddStatusParameterRate(this.parameter);
         }
     }
 }

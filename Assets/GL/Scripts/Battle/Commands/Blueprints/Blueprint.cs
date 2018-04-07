@@ -1,6 +1,4 @@
-﻿using GL.Scripts.Battle.Commands.Impletents;
-using GL.Scripts.Battle.Systems;
-using HK.Framework.Text;
+﻿using GL.Scripts.Battle.Commands.Implements;
 using UnityEngine;
 
 namespace GL.Scripts.Battle.Commands.Blueprints
@@ -10,27 +8,6 @@ namespace GL.Scripts.Battle.Commands.Blueprints
     /// </summary>
     public abstract class Blueprint : ScriptableObject
     {
-        /// <summary>
-        /// コマンド名
-        /// </summary>
-        [SerializeField]
-        protected StringAsset.Finder commandName;
-
-        /// <summary>
-        /// 対象となるパーティタイプ
-        /// </summary>
-        [SerializeField]
-        protected Constants.TargetPartyType targetPartyType;
-        
-        /// <summary>
-        /// ターゲットタイプ
-        /// </summary>
-        [SerializeField]
-        protected Constants.TargetType targetType;
-
-        /// <summary>
-        /// 設計図からコマンドを作成する
-        /// </summary>
         public abstract IImplement Create();
     }
 }
