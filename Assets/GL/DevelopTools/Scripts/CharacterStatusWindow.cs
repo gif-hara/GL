@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using GL.Scripts.Battle.CharacterControllers;
 using GL.Scripts.Battle.Systems;
+using GL.Scripts.Extensions;
 using HK.Framework.EventSystems;
 using HK.GL.Events.Battle;
 using UniRx;
@@ -76,12 +77,14 @@ namespace GL.DevelopTools.Scripts
                 return;
             }
             
-            this.DrawCharacterStatus(battleManager.Parties.AllMember.Select(c => c.StatusController));
+            this.DrawCharacterStatus(battleManager.Parties.AllMember);
             this.DrawBehavioralNames();
         }
 
-        private void DrawCharacterStatus(IEnumerable<CharacterStatusController> statusControllers)
+        private void DrawCharacterStatus(IEnumerable<Character> characters)
         {
+            var statusControllers = characters.Select(c => c.StatusController);
+            var ailmentControllers = characters.Select(c => c.AilmentController);
             using (new GUILayout.HorizontalScope())
             {
                 this.DrawStatus(statusControllers, "Name", s => s.Name);
@@ -92,6 +95,7 @@ namespace GL.DevelopTools.Scripts
                 this.DrawStatus(statusControllers, "NEG", s => s.TotalNega.ToString());
                 this.DrawStatus(statusControllers, "SPD", s => s.TotalSpeed.ToString());
                 this.DrawStatus(statusControllers, "WAT", s => s.Wait.ToString());
+                this.DrawStatusAilment(ailmentControllers, "状態異常");
             }
         }
 
@@ -126,6 +130,40 @@ namespace GL.DevelopTools.Scripts
                     this.textStyle.normal.textColor = tempColor;
                 }
             }
+        }
+
+        private void DrawStatusAilment(
+            IEnumerable<CharacterAilmentController> ailmentControllers,
+            string header
+            )
+        {
+            var tempColor = this.textStyle.normal.textColor;
+            this.textStyle.alignment = TextAnchor.MiddleRight;
+            using (new GUILayout.VerticalScope(GUI.skin.box))
+            {
+                GUILayout.Label(header);
+                foreach (var ailmentController in ailmentControllers)
+                {
+                    using (new GUILayout.HorizontalScope())
+                    {
+                        if (ailmentController.Elements.Count <= 0)
+                        {
+                            this.textStyle.normal.textColor = tempColor;
+                            GUILayout.Label("None", this.textStyle);
+                        }
+                        else
+                        {
+                            foreach (var element in ailmentController.Elements)
+                            {
+                                this.textStyle.normal.textColor = element.Type.IsPositive() ? Color.green : Color.red;
+                    
+                                GUILayout.Label(string.Format("{0}({1})", element.Type, element.RemainingTurn), this.textStyle);
+                            }
+                        }
+                    }
+                }
+            }
+            this.textStyle.normal.textColor = tempColor;
         }
     }
 }
