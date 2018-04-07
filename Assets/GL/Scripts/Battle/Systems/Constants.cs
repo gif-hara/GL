@@ -78,8 +78,6 @@
             /// <summary>麻痺</summary>
             /// <remarks>1ターン何も出来ない</remarks>
             Paralysis = 102,
-            
-            
         }
 
         /// <summary>

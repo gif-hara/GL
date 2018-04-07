@@ -17,7 +17,7 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// <summary>
         /// 加算されるステータス
         /// </summary>
-        /// <<remarks>
+        /// <remarks>
         /// バフデバフによる影響値が入ります
         /// </remarks>
         public CharacterStatus AdditiveStatus { private set; get; }
