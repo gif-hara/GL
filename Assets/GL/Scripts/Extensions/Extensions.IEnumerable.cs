@@ -1,15 +1,13 @@
-﻿using UnityEngine;
-using UnityEngine.Assertions;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System;
 using System.Linq;
 
 namespace HK.GL.Extensions
 {
     /// <summary>
-    /// 
+    /// <see cref="IEnumerable{T}"/>の拡張クラス
     /// </summary>
-    public static class ExtensionsIEnumerable
+    public static partial class Extensions
     {
         /// <summary>
         /// 最小値を持つ要素を返す
