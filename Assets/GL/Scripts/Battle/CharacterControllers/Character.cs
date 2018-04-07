@@ -37,7 +37,7 @@ namespace GL.Scripts.Battle.CharacterControllers
 
         public void StartAttack(Action animationCompleteAction)
         {
-            animationCompleteAction += () => BattleManager.Instance.EndTurn(this);
+            animationCompleteAction += this.InternalEndTurn;
             this.characterAnimation.StartAttack(animationCompleteAction);
         }
 
@@ -93,6 +93,11 @@ namespace GL.Scripts.Battle.CharacterControllers
             {
                 this.gameObject.SetActive(false);
             }
+        }
+
+        private void InternalEndTurn()
+        {
+            BattleManager.Instance.EndTurn(this);
         }
     }
 }
