@@ -18,35 +18,21 @@ namespace GL.Scripts.Battle.CharacterControllers
         [SerializeField]
         public Parameter Parameter;
 
+        [SerializeField]
+        public Resistance Resistance;
+
         public CharacterStatus()
         {
             this.Name = "";
             this.Parameter = new Parameter();
+            this.Resistance = new Resistance();
         }
 
         public CharacterStatus(Blueprint blueprint)
         {
             this.Name = blueprint.Status.Name;
             this.Parameter = new Parameter(blueprint);
-        }
-
-        [Serializable]
-        public class Resistance
-        {
-            [SerializeField]
-            public float Poison;
-
-            [SerializeField]
-            public float Paralysis;
-
-            [SerializeField]
-            public float Sleep;
-
-            [SerializeField]
-            public float Confuse;
-
-            [SerializeField]
-            public float Berserk;
+            this.Resistance = new Resistance(blueprint);
         }
     }
 }
