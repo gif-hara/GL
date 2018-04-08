@@ -43,6 +43,8 @@ namespace GL.Scripts.Battle.Systems
         
         public readonly Queue<Action> EndTurnEvents = new Queue<Action>();
 
+        public int TurnNumber { get; private set; }
+
         void Awake()
         {
             Assert.IsNull(Instance);
@@ -71,6 +73,10 @@ namespace GL.Scripts.Battle.Systems
                         _this.Judgement();
                     }
                 })
+                .AddTo(this);
+
+            Broker.Global.Receive<NextTurn>()
+                .SubscribeWithState(this, (_, _this) => _this.TurnNumber++)
                 .AddTo(this);
         }
 

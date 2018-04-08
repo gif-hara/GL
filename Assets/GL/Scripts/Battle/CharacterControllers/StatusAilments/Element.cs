@@ -16,11 +16,17 @@ namespace GL.Scripts.Battle.CharacterControllers.StatusAilments
 
         protected readonly CharacterAilmentController controller;
 
+        /// <summary>
+        /// この状態異常が発動したターン
+        /// </summary>
+        private readonly int invokedTurnNumber;
+
         public Element(int remainingTurn, Constants.StatusAilmentType type, CharacterAilmentController controller)
         {
             this.RemainingTurn = remainingTurn;
             this.Type = type;
             this.controller = controller;
+            this.invokedTurnNumber = BattleManager.Instance.TurnNumber;
         }
 
         public virtual void TakeDamage()
@@ -29,6 +35,12 @@ namespace GL.Scripts.Battle.CharacterControllers.StatusAilments
 
         public virtual void EndTurn()
         {
+            // 発動したターンなら減算しない
+            if (this.invokedTurnNumber == BattleManager.Instance.TurnNumber)
+            {
+                return;
+            }
+            
             this.RemainingTurn--;
             if (this.RemainingTurn <= 0)
             {
