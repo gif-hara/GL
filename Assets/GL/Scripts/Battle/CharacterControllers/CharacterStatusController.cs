@@ -13,15 +13,20 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// <summary>
         /// 基本のステータス
         /// </summary>
-        public CharacterStatus BaseStatus { private set; get; }
+        public CharacterStatus Base { private set; get; }
 
         /// <summary>
-        /// 加算されるステータス
+        /// バトル中に加算されるステータス
         /// </summary>
         /// <remarks>
         /// バフデバフによる影響値が入ります
         /// </remarks>
-        public CharacterStatus AdditiveStatus { private set; get; }
+        public CharacterStatus Dynamic { private set; get; }
+        
+        /// <summary>
+        /// アクセサリーによって加算されるステータス
+        /// </summary>
+        public CharacterStatus Accessory { private set; get; }
 
         /// <summary>
         /// 使用可能なコマンド
@@ -38,35 +43,36 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// </summary>
         public Blueprint Blueprint{ private set; get; }
 
-        public string Name { get { return this.BaseStatus.Name; } }
+        public string Name { get { return this.Base.Name; } }
 
         /// <summary>
         /// ヒットポイント最大値
         /// </summary>
         public int HitPointMax { get { return this.Blueprint.Status.HitPoint; } }
 
-        public int HitPoint { set { this.BaseStatus.HitPoint = value; } get { return this.BaseStatus.HitPoint; } }
+        public int HitPoint { set { this.Base.HitPoint = value; } get { return this.Base.HitPoint; } }
 
         /// <summary>
         /// 死亡しているか返す
         /// </summary>
         public bool IsDead { get { return this.HitPoint <= 0; } }
 
-        public int TotalStrength { get { return this.BaseStatus.Strength + this.AdditiveStatus.Strength; } }
+        public int TotalStrength { get { return this.Base.Strength + this.Dynamic.Strength; } }
 
-        public int TotalDefense { get { return this.BaseStatus.Defense + this.AdditiveStatus.Defense; } }
+        public int TotalDefense { get { return this.Base.Defense + this.Dynamic.Defense; } }
         
-        public int TotalSympathy { get { return this.BaseStatus.Sympathy + this.AdditiveStatus.Sympathy; } }
+        public int TotalSympathy { get { return this.Base.Sympathy + this.Dynamic.Sympathy; } }
         
-        public int TotalNega { get { return this.BaseStatus.Nega + this.AdditiveStatus.Nega; } }
+        public int TotalNega { get { return this.Base.Nega + this.Dynamic.Nega; } }
         
-        public int TotalSpeed { get { return this.BaseStatus.Speed + this.AdditiveStatus.Speed; } }
+        public int TotalSpeed { get { return this.Base.Speed + this.Dynamic.Speed; } }
 
         public CharacterStatusController(Blueprint blueprint)
         {
             this.Blueprint = blueprint;
-            this.BaseStatus = new CharacterStatus(this.Blueprint);
-            this.AdditiveStatus = new CharacterStatus();
+            this.Base = new CharacterStatus(this.Blueprint);
+            this.Dynamic = new CharacterStatus();
+            this.Accessory = new CharacterStatus();
             this.Commands = this.Blueprint.Commands.Select(x => x.Create()).ToArray();
             this.Wait = 0.0f;
         }
@@ -76,19 +82,19 @@ namespace GL.Scripts.Battle.CharacterControllers
             switch (type)
             {
                 case Constants.StatusParameterType.Strength:
-                    this.AdditiveStatus.Strength += value;
+                    this.Dynamic.Strength += value;
                     break;
                 case Constants.StatusParameterType.Defense:
-                    this.AdditiveStatus.Defense += value;
+                    this.Dynamic.Defense += value;
                     break;
                 case Constants.StatusParameterType.Sympathy:
-                    this.AdditiveStatus.Sympathy += value;
+                    this.Dynamic.Sympathy += value;
                     break;
                 case Constants.StatusParameterType.Nega:
-                    this.AdditiveStatus.Nega += value;
+                    this.Dynamic.Nega += value;
                     break;
                 case Constants.StatusParameterType.Speed:
-                    this.AdditiveStatus.Speed += value;
+                    this.Dynamic.Speed += value;
                     break;
             }
         }

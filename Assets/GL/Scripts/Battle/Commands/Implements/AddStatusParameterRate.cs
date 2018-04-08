@@ -20,7 +20,7 @@ namespace GL.Scripts.Battle.Commands.Implements
             {
                 var targets = BattleManager.Instance.Parties
                     .GetFromTargetPartyType(invoker, this.TargetPartyType)
-                    .GetTargets(this.TargetType, c => c.StatusController.BaseStatus.Defense);
+                    .GetTargets(this.TargetType, c => c.StatusController.Base.Defense);
                 var value = Calculator.GetAddStatusParameterValue(this.parameter.StatusParameterType, invoker.StatusController, this.parameter.Rate);
                 targets.ForEach(t => t.StatusController.AddStatusParameter(this.parameter.StatusParameterType, value));
             });
