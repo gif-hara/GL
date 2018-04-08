@@ -10,7 +10,7 @@ using UnityEngine.Assertions;
 namespace GL.Scripts.Battle.Systems
 {
     /// <summary>
-    /// バトルの行動順を制御するヤーツ.
+    /// バトルの行動順を制御するクラス.
     /// </summary>
     public sealed class BehavioralOrderController : MonoBehaviour
     {
