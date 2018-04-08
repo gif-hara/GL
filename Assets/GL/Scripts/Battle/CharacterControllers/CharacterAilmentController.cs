@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using GL.Scripts.Battle.CharacterControllers.StatusAilments;
 using GL.Scripts.Battle.Systems;
 using GL.Scripts.Events.Battle;
 using HK.Framework.EventSystems;
@@ -11,20 +12,23 @@ namespace GL.Scripts.Battle.CharacterControllers
     /// </summary>
     public sealed class CharacterAilmentController
     {
+        public Character Character { get; private set; }
+
         /// <summary>
         /// 現在かかっている状態異常
         /// </summary>
-        public readonly List<StatusAilmentElement> Elements = new List<StatusAilmentElement>();
+        public readonly List<Element> Elements = new List<Element>();
 
         public CharacterAilmentController(Character character)
         {
+            this.Character = character;
             Broker.Global.Receive<EndTurn>()
                 .Where(x => x.Character == character)
                 .SubscribeWithState(this, (x, _this) =>
                 {
                     _this.Elements.ForEach(e => e.EndTurn());
                 })
-                .AddTo(character);
+                .AddTo(this.Character);
         }
 
         /// <summary>
@@ -40,7 +44,7 @@ namespace GL.Scripts.Battle.CharacterControllers
                 return;
             }
             
-            this.Elements.Add(new StatusAilmentElement(remainingTurn, type, this));
+            this.Elements.Add(Factory.Create(remainingTurn, type, this));
         }
         
         /// <summary>
@@ -49,31 +53,6 @@ namespace GL.Scripts.Battle.CharacterControllers
         public bool Find(Constants.StatusAilmentType type)
         {
             return this.Elements.FindIndex(e => e.Type == type) != -1;
-        }
-
-        public class StatusAilmentElement
-        {
-            public int RemainingTurn { get; private set; }
-
-            public Constants.StatusAilmentType Type { get; private set; }
-
-            private readonly CharacterAilmentController controller;
-
-            public StatusAilmentElement(int remainingTurn, Constants.StatusAilmentType type, CharacterAilmentController controller)
-            {
-                this.RemainingTurn = remainingTurn;
-                this.Type = type;
-                this.controller = controller;
-            }
-
-            public void EndTurn()
-            {
-                this.RemainingTurn--;
-                if (this.RemainingTurn <= 0)
-                {
-                    this.controller.Elements.Remove(this);
-                }
-            }
         }
     }
 }
