@@ -68,6 +68,7 @@ namespace GL.Scripts.Battle.Systems
             this.BehavioralOrder.Elapse(this.Parties);
             var order = this.BehavioralOrder.Simulation(this.Parties, Constants.TurnSimulationNumber);
             Broker.Global.Publish(Events.Battle.NextTurn.Get(order));
+            Broker.Global.Publish(SelectCommand.Get(order[0]));
         }
 
         public void EndTurn(Character character)

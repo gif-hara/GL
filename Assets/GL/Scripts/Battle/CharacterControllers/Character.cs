@@ -48,30 +48,34 @@ namespace GL.Scripts.Battle.CharacterControllers
                 .AddTo(this);
 
 
-            Broker.Global.Receive<NextTurn>()
-                .Where(x => x.NextCharacter == this)
-                .Where(_ => !this.CanMove)
+            Broker.Global.Receive<SelectCommand>()
+                .Where(x => x.Character == this)
                 .SubscribeWithState(this, (_, _this) =>
                 {
-                    Debug.Log("TODO: 行動できなかった理由を表示");
-                    _this.InternalEndTurn();
+                    if (_this.CharacterType == Constants.CharacterType.Player)
+                    {
+                        if (!_this.CanMove)
+                        {
+                            Debug.Log("TODO: 行動できなかった理由を表示");
+                            _this.InternalEndTurn();
+                        }
+                    }
+                    else
+                    {
+                        if (!_this.CanMove)
+                        {
+                            Debug.Log("TODO: 行動できなかった理由を表示");
+                            _this.InternalEndTurn();
+                        }
+                        else
+                        {
+                            var commands = _this.StatusController.Commands;
+                            var command = commands[Random.Range(0, commands.Length)];
+                            command.Invoke(_this);
+                        }
+                    }
                 })
                 .AddTo(this);
-
-            if (this.CharacterType == Constants.CharacterType.Enemy)
-            {
-                // FIXME: NextTurnじゃなくて敵AI経由でInvokeCommandを発行したい
-                Broker.Global.Receive<NextTurn>()
-                    .Where(x => x.NextCharacter == this)
-                    .Where(_ => this.CanMove)
-                    .SubscribeWithState(this, (_, _this) =>
-                    {
-                        var commands = _this.StatusController.Commands;
-                        var command = commands[Random.Range(0, commands.Length)];
-                        command.Invoke(_this);
-                    })
-                    .AddTo(this);
-            }
         }
         
         public void StartAttack(Action animationCompleteAction)

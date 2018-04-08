@@ -18,18 +18,22 @@ namespace HK.GL.UI.Battle
 
         void Awake()
         {
-            Broker.Global.Receive<NextTurn>()
+            Broker.Global.Receive<SelectCommand>()
                 .SubscribeWithState(this, (x, _this) =>
                 {
-                    if (x.NextCharacter.CharacterType == Constants.CharacterType.Player)
+                    if (x.Character.CharacterType == Constants.CharacterType.Player)
                     {
-                        _this.OnSelectCommandFromPlayer(x.NextCharacter);
+                        _this.OnSelectCommandFromPlayer(x.Character);
                     }
                     else
                     {
                         _this.OnSelectCommandFromEnemy();
                     }
                 })
+                .AddTo(this);
+
+            Broker.Global.Receive<InvokeCommand>()
+                .SubscribeWithState(this, (_, _this) => _this.SetDeactiveAllButton())
                 .AddTo(this);
         }
 
