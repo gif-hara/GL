@@ -22,7 +22,7 @@ namespace GL.Scripts.Battle.Systems
         void Awake()
         {
             Broker.Global.Receive<NextTurn>()
-                .SubscribeWithState(this, (n, _this) => _this.currentCharacter = n.Order[0])
+                .SubscribeWithState(this, (n, _this) => _this.currentCharacter = n.NextCharacter)
                 .AddTo(this);
         }
 
