@@ -21,7 +21,7 @@ namespace GL.Scripts.Battle.Commands.Implements
                 var targets = BattleManager.Instance.Parties
                     .GetFromTargetPartyType(invoker, this.TargetPartyType)
                     .GetTargets(this.TargetType, c => c.StatusController.GetTotalParameter(Constants.StatusParameterType.HitPoint));
-                targets.ForEach(t => t.TakeDamage(Calculator.GetBasicAttackDamage(invoker.StatusController, t.StatusController, this.parameter.Rate)));
+                targets.ForEach(t => t.TakeDamage(Calculator.GetBasicAttackDamage(invoker, t, this.parameter.Rate)));
             });
         }
 

@@ -13,13 +13,19 @@ namespace GL.Scripts.Battle.Systems
         /// <summary>
         /// 通常攻撃でのダメージ計算を行う
         /// </summary>
-        public static int GetBasicAttackDamage(CharacterStatusController invoker, CharacterStatusController target, float rate)
+        public static int GetBasicAttackDamage(Character invoker, Character target, float rate)
         {
             // TODO: 実装
-            var baseStrength = Mathf.Pow(invoker.GetTotalParameter(Constants.StatusParameterType.Strength), 2) * rate;
-            var baseDefense = Mathf.Pow(target.GetTotalParameter(Constants.StatusParameterType.Defense), 2);
-            var result = Mathf.FloorToInt(baseStrength - baseDefense);
-            return result < 1 ? 1 : result;
+            var baseStrength = Mathf.Pow(invoker.StatusController.GetTotalParameter(Constants.StatusParameterType.Strength), 2) * rate;
+            var baseDefense = Mathf.Pow(target.StatusController.GetTotalParameter(Constants.StatusParameterType.Defense), 2);
+            var result = baseStrength - baseDefense;
+            
+            // 睡眠の場合は1.5倍
+            if (target.AilmentController.Find(Constants.StatusAilmentType.Sleep))
+            {
+                result *= 1.5f;
+            }
+            return result < 1 ? 1 : Mathf.FloorToInt(result);
         }
 
         /// <summary>
