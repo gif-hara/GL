@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using GL.Scripts.Battle.Accessories;
+using UnityEngine;
 
 namespace GL.Scripts.Battle.CharacterControllers
 {
@@ -19,5 +20,9 @@ namespace GL.Scripts.Battle.CharacterControllers
         [SerializeField]
         private Commands.Blueprints.Blueprint[] commands;
         public Commands.Blueprints.Blueprint[] Commands { get { return this.commands; } }
+
+        [SerializeField]
+        private Accessory[] accessories;
+        public Accessory[] Accessories { get { return accessories; } }
     }
 }

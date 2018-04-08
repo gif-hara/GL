@@ -2,6 +2,7 @@
 using GL.Scripts.Battle.Systems;
 using HK.Framework.EventSystems;
 using HK.GL.Events.Battle;
+using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -21,6 +22,8 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// 状態異常コントローラー
         /// </summary>
         public CharacterAilmentController AilmentController { get; private set; }
+        
+        public CharacterAccessoryController AccessoryController { get; private set; }
 
         public Constants.CharacterType CharacterType { get; private set; }
 
@@ -30,11 +33,20 @@ namespace GL.Scripts.Battle.CharacterControllers
         {
             this.StatusController = new CharacterStatusController(blueprint);
             this.AilmentController = new CharacterAilmentController(this);
+            this.AccessoryController = new CharacterAccessoryController(blueprint);
             this.CharacterType = characterType;
             this.characterAnimation = this.GetComponentInChildren<ICharacterAnimation>();
             Assert.IsNotNull(this.characterAnimation);
-        }
 
+            Broker.Global.Receive<StartBattle>()
+                .Take(1)
+                .SubscribeWithState(this, (_, _this) =>
+                {
+                    _this.AccessoryController.OnStartBattle(_this);
+                })
+                .AddTo(this);
+        }
+        
         public void StartAttack(Action animationCompleteAction)
         {
             animationCompleteAction += this.InternalEndTurn;

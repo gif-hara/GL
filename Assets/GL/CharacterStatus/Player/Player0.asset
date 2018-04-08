@@ -21,8 +21,16 @@ MonoBehaviour:
       Sympathy: 10
       Nega: 0
       Speed: 10
+    Resistance:
+      Poison: 0
+      Paralysis: 0
+      Sleep: 0
+      Confuse: 0
+      Berserk: 0
   commands:
   - {fileID: 11400000, guid: 9cdf96bed368c40c9afb237d665437d1, type: 2}
   - {fileID: 11400000, guid: c1a29128a524e4b8db163cd5aa262161, type: 2}
   - {fileID: 11400000, guid: d45505cef08c549eda695fde6d2898d1, type: 2}
   - {fileID: 11400000, guid: c17ce7fa8284e4200a804494def84ac6, type: 2}
+  accessories:
+  - {fileID: 11400000, guid: 8d5501585c9e945bf96ccdbe2528ba88, type: 2}

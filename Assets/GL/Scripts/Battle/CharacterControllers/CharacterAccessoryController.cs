@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿using GL.Scripts.Battle.Accessories;
 
 namespace GL.Scripts.Battle.CharacterControllers
 {
@@ -7,9 +7,19 @@ namespace GL.Scripts.Battle.CharacterControllers
     /// </summary>
     public sealed class CharacterAccessoryController
     {
+        public Accessory[] Accessories { get; private set; }
+        
         public CharacterAccessoryController(Blueprint blueprint)
         {
-            
+            this.Accessories = blueprint.Accessories;
+        }
+
+        public void OnStartBattle(Character equippedCharacter)
+        {
+            foreach (var accessory in this.Accessories)
+            {
+                accessory.OnStartBattle(equippedCharacter);
+            }
         }
     }
 }
