@@ -1,4 +1,6 @@
-﻿using GL.Scripts.Battle.CharacterControllers;
+﻿using System;
+using System.Collections.Generic;
+using GL.Scripts.Battle.CharacterControllers;
 using HK.Framework.EventSystems;
 using HK.GL.Events.Battle;
 using UniRx;
@@ -18,6 +20,8 @@ namespace GL.Scripts.Battle.Systems
         public Parties Parties { private set; get; }
 
         public BehavioralOrderController BehavioralOrder { private set; get; }
+        
+        public readonly Queue<Action> EndTurnEvents = new Queue<Action>();
 
         void Awake()
         {
@@ -30,6 +34,20 @@ namespace GL.Scripts.Battle.Systems
             Broker.Global.Receive<EndBattle>()
                 .Take(1)
                 .Subscribe(x => Debug.Log(x.Result))
+                .AddTo(this);
+
+            Broker.Global.Receive<CompleteEndTurnEvent>()
+                .SubscribeWithState(this, (_, _this) =>
+                {
+                    if (_this.EndTurnEvents.Count > 0)
+                    {
+                        _this.InvokeEndTurnEvent();
+                    }
+                    else
+                    {
+                        _this.Judgement();
+                    }
+                })
                 .AddTo(this);
         }
 
@@ -55,11 +73,31 @@ namespace GL.Scripts.Battle.Systems
         public void EndTurn(Character character)
         {
             this.BehavioralOrder.EndTurn(this.Parties);
+            Broker.Global.Publish(HK.GL.Events.Battle.EndTurn.Get(character));
 
+            // 何かしらイベントが登録された場合は実行開始
+            if (this.EndTurnEvents.Count > 0)
+            {
+                this.InvokeEndTurnEvent();
+            }
+            // 何もない場合はバトル判定へ
+            else
+            {
+                this.Judgement();
+            }
+        }
+
+        private void InvokeEndTurnEvent()
+        {
+            Assert.AreNotEqual(this.EndTurnEvents.Count, 0, "ターン終了イベントがありません");
+            this.EndTurnEvents.Dequeue();
+        }
+
+        public void Judgement()
+        {
             var battleResult = this.Parties.Result;
             if(battleResult == Constants.BattleResult.Unsettlement)
             {
-                Broker.Global.Publish(HK.GL.Events.Battle.EndTurn.Get(character));
                 this.NextTurn();
             }
             else
