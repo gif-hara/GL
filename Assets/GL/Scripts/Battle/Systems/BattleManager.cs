@@ -90,7 +90,7 @@ namespace GL.Scripts.Battle.Systems
         private void InvokeEndTurnEvent()
         {
             Assert.AreNotEqual(this.EndTurnEvents.Count, 0, "ターン終了イベントがありません");
-            this.EndTurnEvents.Dequeue();
+            this.EndTurnEvents.Dequeue()();
         }
 
         public void Judgement()
