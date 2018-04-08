@@ -88,7 +88,7 @@ namespace GL.Scripts.Battle.CharacterControllers
             get
             {
                 return
-                    !this.AilmentController.Find(Constants.StatusAilmentType.Paralysis) ||
+                    !this.AilmentController.Find(Constants.StatusAilmentType.Paralysis) &&
                     !this.AilmentController.Find(Constants.StatusAilmentType.Sleep);
             }
         }
