@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using GL.Scripts.Battle.CharacterControllers;
 using GL.Scripts.Battle.Systems;
 using GL.Scripts.Events.Battle;
 using HK.Framework.EventSystems;
@@ -18,24 +19,35 @@ namespace HK.GL.UI.Battle
         void Awake()
         {
             Broker.Global.Receive<NextTurn>()
-                .Where(n => n.NextCharacter.CharacterType == Constants.CharacterType.Player)
-                .Subscribe(this.OnNextTurnFromPlayer)
-                .AddTo(this);
-            Broker.Global.Receive<NextTurn>()
-                .Where(n => n.NextCharacter.CharacterType == Constants.CharacterType.Enemy)
-                .Subscribe(this.OnNextTurnFromEnemy)
+                .SubscribeWithState(this, (x, _this) =>
+                {
+                    if (x.NextCharacter.CharacterType == Constants.CharacterType.Player)
+                    {
+                        _this.OnSelectCommandFromPlayer(x.NextCharacter);
+                    }
+                    else
+                    {
+                        _this.OnSelectCommandFromEnemy();
+                    }
+                })
                 .AddTo(this);
         }
 
-        private void OnNextTurnFromPlayer(NextTurn eventData)
+        private void OnSelectCommandFromPlayer(Character character)
         {
-            var commands = eventData.NextCharacter.StatusController.Commands;
+            if (!character.CanMove)
+            {
+                this.SetDeactiveAllButton();
+                return;
+            }
+            
+            var commands = character.StatusController.Commands;
             for (int i = 0; i < commands.Length; i++)
             {
                 var button = this.buttons[i];
                 var command = commands[i];
                 button.gameObject.SetActive(true);
-                button.SetProperty(eventData.NextCharacter, command);
+                button.SetProperty(character, command);
             }
             for (int i = commands.Length; i < this.buttons.Count; i++)
             {
@@ -43,7 +55,12 @@ namespace HK.GL.UI.Battle
             }
         }
 
-        private void OnNextTurnFromEnemy(NextTurn eventData)
+        private void OnSelectCommandFromEnemy()
+        {
+            this.SetDeactiveAllButton();
+        }
+
+        private void SetDeactiveAllButton()
         {
             foreach(var b in this.buttons)
             {
