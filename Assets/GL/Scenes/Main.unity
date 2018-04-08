@@ -1327,6 +1327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   confuseBlueprint: {fileID: 11400000, guid: 3ad4c830f2cb54a9abeaa9d135c97d88, type: 2}
+  berserkBlueprint: {fileID: 11400000, guid: 0c505e02640124322875880efdc7f7f9, type: 2}
 --- !u!4 &1477821176
 Transform:
   m_ObjectHideFlags: 0

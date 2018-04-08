@@ -67,6 +67,11 @@ namespace GL.Scripts.Battle.CharacterControllers
                         Debug.Log("TODO: 混乱を表現する");
                         BattleManager.Instance.ConfuseCommand.Invoke(_this);
                     }
+                    else if (_this.AilmentController.Find(Constants.StatusAilmentType.Berserk))
+                    {
+                        Debug.Log("TODO: 狂暴を表現する");
+                        BattleManager.Instance.BerserkCommand.Invoke(_this);
+                    }
                     else
                     {
                         if (_this.CharacterType == Constants.CharacterType.Enemy)
@@ -96,7 +101,8 @@ namespace GL.Scripts.Battle.CharacterControllers
                 return
                     !this.AilmentController.Find(Constants.StatusAilmentType.Paralysis) &&
                     !this.AilmentController.Find(Constants.StatusAilmentType.Sleep) &&
-                    !this.AilmentController.Find(Constants.StatusAilmentType.Confuse);
+                    !this.AilmentController.Find(Constants.StatusAilmentType.Confuse) &&
+                    !this.AilmentController.Find(Constants.StatusAilmentType.Berserk);
             }
         }
 

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 280168a9594344b7d891ad691b5f1cad, type: 3}
+  m_Name: AddBerserk_All
+  m_EditorClassIdentifier: 
+  parameter:
+    Name:
+      target: {fileID: 11400000, guid: 3534e70039cc6491cad3f648e57e8b4b, type: 2}
+      value: "\u30E4\u30C4\u3089\u307F\u3093\u306A\u72C2\u66B4\u306B\u3059\u308B"
+      guid: 46f5f28c-5222-4b1d-b85c-ddddec0ad072
+    TargetPartyType: 1
+    TargetType: 2
+    StatusAilmentType: 105
+    TargetStatusParameterType: 0
+    Rate: 1
+    RemainingTurnMin: 2
+    RemainingTurnMax: 2

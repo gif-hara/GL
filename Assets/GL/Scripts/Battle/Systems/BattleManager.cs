@@ -23,8 +23,17 @@ namespace GL.Scripts.Battle.Systems
         [SerializeField]
         private Blueprint confuseBlueprint;
 
+        /// <summary>
+        /// 狂暴した時のコマンド
+        /// </summary>
+        [SerializeField]
+        private Blueprint berserkBlueprint;
+
         private IImplement confuseCommand;
         public IImplement ConfuseCommand { get { return confuseCommand; } }
+
+        private IImplement berserkCommand;
+        public IImplement BerserkCommand { get { return berserkCommand; } }
         
         public static BattleManager Instance { private set; get; }
 
@@ -40,6 +49,7 @@ namespace GL.Scripts.Battle.Systems
             Instance = this;
 
             this.confuseCommand = this.confuseBlueprint.Create();
+            this.berserkCommand = this.berserkBlueprint.Create();
 
             this.BehavioralOrder = this.GetComponent<BehavioralOrderController>();
             
