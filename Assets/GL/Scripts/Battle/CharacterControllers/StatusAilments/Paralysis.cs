@@ -1,4 +1,5 @@
-﻿using GL.Scripts.Battle.Systems;
+﻿using System;
+using GL.Scripts.Battle.Systems;
 using GL.Scripts.Events.Battle;
 using HK.Framework.EventSystems;
 using UniRx;
@@ -24,7 +25,7 @@ namespace GL.Scripts.Battle.CharacterControllers.StatusAilments
         private void OnEndTurnEvent()
         {
             // 同フレーム内でターン経過処理を行うとイベントの流れが正しく無くなるので1フレーム遅らせる
-            Observable.NextFrame()
+            Observable.Timer(TimeSpan.FromSeconds(1.0f))
                 .Subscribe(_ => Broker.Global.Publish(CompleteEndTurnEvent.Get()));
         }
     }
