@@ -138,5 +138,10 @@ namespace GL.Scripts.Battle.Systems
             
             return Random.value <= (rate - target.GetTotalResistance(statusAilmentType));
         }
+
+        public static int GetPoisonDamage(CharacterStatusController statusController)
+        {
+            return statusController.HitPointMax / 10;
+        }
     }
 }
