@@ -58,16 +58,6 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// </summary>
         public bool IsDead { get { return this.HitPoint <= 0; } }
 
-        public int TotalStrength { get { return this.Base.Parameter.Strength + this.Dynamic.Parameter.Strength + this.Accessory.Parameter.Strength; } }
-
-        public int TotalDefense { get { return this.Base.Parameter.Defense + this.Dynamic.Parameter.Defense + this.Accessory.Parameter.Defense; } }
-        
-        public int TotalSympathy { get { return this.Base.Parameter.Sympathy + this.Dynamic.Parameter.Sympathy + this.Accessory.Parameter.Sympathy; } }
-        
-        public int TotalNega { get { return this.Base.Parameter.Nega + this.Dynamic.Parameter.Nega + this.Accessory.Parameter.Nega; } }
-        
-        public int TotalSpeed { get { return this.Base.Parameter.Speed + this.Dynamic.Parameter.Speed + this.Accessory.Parameter.Speed; } }
-        
         public CharacterStatusController(Blueprint blueprint)
         {
             this.Blueprint = blueprint;
@@ -78,61 +68,26 @@ namespace GL.Scripts.Battle.CharacterControllers
             this.Wait = 0.0f;
         }
 
-        public void AddToDynamic(Constants.StatusParameterType type, int value)
+        public void AddParameterToDynamic(Constants.StatusParameterType type, int value)
         {
-            this.Add(this.Dynamic, type, value);
+            this.Dynamic.Parameter.Add(type, value);
         }
 
-        public void AddToAccessory(Constants.StatusParameterType type, int value)
+        public void AddParameterToAccessory(Constants.StatusParameterType type, int value)
         {
-            this.Add(this.Accessory, type, value);
+            this.Accessory.Parameter.Add(type, value);
         }
 
-        public void Add(CharacterStatus status, Constants.StatusParameterType type, int value)
+        public void AddResistanceToAccessory(Constants.StatusAilmentType type, float value)
         {
-            switch (type)
-            {
-                case Constants.StatusParameterType.Strength:
-                    status.Parameter.Strength += value;
-                    break;
-                case Constants.StatusParameterType.Defense:
-                    status.Parameter.Defense += value;
-                    break;
-                case Constants.StatusParameterType.Sympathy:
-                    status.Parameter.Sympathy += value;
-                    break;
-                case Constants.StatusParameterType.Nega:
-                    status.Parameter.Nega += value;
-                    break;
-                case Constants.StatusParameterType.Speed:
-                    status.Parameter.Speed += value;
-                    break;
-                default:
-                    Assert.IsTrue(false, string.Format("未対応の値です {0}", type));
-                    break;
-            }
+            this.Accessory.Resistance.Add(type, value);
         }
 
-        public int GetTotalStatusParameter(Constants.StatusParameterType type)
+        public int GetTotalParameter(Constants.StatusParameterType type)
         {
-            switch (type)
-            {
-                case Constants.StatusParameterType.HitPoint:
-                    return this.HitPoint;
-                case Constants.StatusParameterType.Strength:
-                    return this.TotalStrength;
-                case Constants.StatusParameterType.Defense:
-                    return this.TotalDefense;
-                case Constants.StatusParameterType.Sympathy:
-                    return this.TotalSympathy;
-                case Constants.StatusParameterType.Nega:
-                    return this.TotalNega;
-                case Constants.StatusParameterType.Speed:
-                    return this.TotalSpeed;
-                default:
-                    Assert.IsTrue(false, string.Format("未対応の値です {0}", type));
-                    return 0;
-            }
+            return this.Base.Parameter.Get(type) +
+                   this.Dynamic.Parameter.Get(type) +
+                   this.Accessory.Parameter.Get(type);
         }
 
         public float GetTotalResistance(Constants.StatusAilmentType type)

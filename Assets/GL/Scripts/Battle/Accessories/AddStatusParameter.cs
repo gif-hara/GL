@@ -28,7 +28,7 @@ namespace GL.Scripts.Battle.Accessories
         
         public override void OnStartBattle(Character equippedCharacter)
         {
-            equippedCharacter.StatusController.AddToAccessory(this.StatusParameterType, this.amount);
+            equippedCharacter.StatusController.AddParameterToAccessory(this.StatusParameterType, this.amount);
         }
     }
 }

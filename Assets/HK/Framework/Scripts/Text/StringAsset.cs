@@ -173,7 +173,7 @@ namespace HK.Framework.Text
 	            this.findDictionary = new Dictionary<string, Value>();
 	            for( int i = 0, imax = this.database.Count; i < imax; i++ )
 	            {
-	                this.findDictionary.Add( this.database[i].guid, this.database[i].value );
+	                this.findDictionary.AddParameter( this.database[i].guid, this.database[i].value );
 	            }
 	        }
 			

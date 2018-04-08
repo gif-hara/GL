@@ -21,7 +21,7 @@ namespace GL.Scripts.Battle.Commands.Implements
             {
                 var targets = BattleManager.Instance.Parties
                     .GetFromTargetPartyType(invoker, this.TargetPartyType)
-                    .GetTargets(this.TargetType, c => c.StatusController.GetTotalStatusParameter(this.parameter.TargetStatusParameterType));
+                    .GetTargets(this.TargetType, c => c.StatusController.GetTotalParameter(this.parameter.TargetStatusParameterType));
                 targets.ForEach(t =>
                 {
                     if (Calculator.LotteryStatusAilment(t.StatusController, this.parameter.StatusAilmentType, this.parameter.Rate))

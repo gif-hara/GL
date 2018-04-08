@@ -20,9 +20,9 @@ namespace GL.Scripts.Battle.Commands.Implements
             {
                 var targets = BattleManager.Instance.Parties
                     .GetFromTargetPartyType(invoker, this.TargetPartyType)
-                    .GetTargets(this.TargetType, c => c.StatusController.GetTotalStatusParameter(this.parameter.StatusParameterType));
+                    .GetTargets(this.TargetType, c => c.StatusController.GetTotalParameter(this.parameter.StatusParameterType));
                 var value = Calculator.GetAddStatusParameterValue(this.parameter.StatusParameterType, invoker.StatusController, this.parameter.Rate);
-                targets.ForEach(t => t.StatusController.AddToDynamic(this.parameter.StatusParameterType, value));
+                targets.ForEach(t => t.StatusController.AddParameterToDynamic(this.parameter.StatusParameterType, value));
             });
         }
 

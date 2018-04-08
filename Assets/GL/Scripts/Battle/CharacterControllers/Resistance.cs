@@ -42,6 +42,32 @@ namespace GL.Scripts.Battle.CharacterControllers
             this.Berserk = blueprint.Status.Resistance.Berserk;
         }
 
+        public void Add(Constants.StatusAilmentType statusAilmentType, float value)
+        {
+            Assert.IsTrue(statusAilmentType.IsNegative(), string.Format("{0}はNegativeではありません", statusAilmentType));
+            switch (statusAilmentType)
+            {
+                case Constants.StatusAilmentType.Poison:
+                    this.Poison += value;
+                    break;
+                case Constants.StatusAilmentType.Paralysis:
+                    this.Paralysis += value;
+                    break;
+                case Constants.StatusAilmentType.Sleep:
+                    this.Sleep += value;
+                    break;
+                case Constants.StatusAilmentType.Confuse:
+                    this.Confuse += value;
+                    break;
+                case Constants.StatusAilmentType.Berserk:
+                    this.Berserk += value;
+                    break;
+                default:
+                    Assert.IsTrue(false, string.Format("未対応の値です {0}", statusAilmentType));
+                    break;
+            }
+        }
+        
         public float Get(Constants.StatusAilmentType statusAilmentType)
         {
             Assert.IsTrue(statusAilmentType.IsNegative(), string.Format("{0}はNegativeではありません", statusAilmentType));

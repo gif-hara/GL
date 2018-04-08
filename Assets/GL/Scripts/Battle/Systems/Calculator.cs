@@ -16,8 +16,8 @@ namespace GL.Scripts.Battle.Systems
         public static int GetBasicAttackDamage(CharacterStatusController invoker, CharacterStatusController target, float rate)
         {
             // TODO: 実装
-            var baseStrength = Mathf.Pow(invoker.TotalStrength, 2) * rate;
-            var baseDefense = Mathf.Pow(target.TotalDefense, 2);
+            var baseStrength = Mathf.Pow(invoker.GetTotalParameter(Constants.StatusParameterType.Strength), 2) * rate;
+            var baseDefense = Mathf.Pow(target.GetTotalParameter(Constants.StatusParameterType.Defense), 2);
             var result = Mathf.FloorToInt(baseStrength - baseDefense);
             return result < 1 ? 1 : result;
         }
@@ -53,11 +53,11 @@ namespace GL.Scripts.Battle.Systems
             // TODO: 実装
             if (rate >= 0.0f)
             {
-                return Mathf.FloorToInt(invoker.TotalSympathy / 2.0f * rate);
+                return Mathf.FloorToInt(invoker.GetTotalParameter(Constants.StatusParameterType.Sympathy) / 2.0f * rate);
             }
             else
             {
-                return Mathf.FloorToInt(invoker.TotalNega / 2.0f * rate);
+                return Mathf.FloorToInt(invoker.GetTotalParameter(Constants.StatusParameterType.Nega) / 2.0f * rate);
             }
         }
 
@@ -69,11 +69,11 @@ namespace GL.Scripts.Battle.Systems
             // TODO: 実装
             if (rate >= 0.0f)
             {
-                return Mathf.FloorToInt(invoker.TotalSympathy / 2.0f * rate);
+                return Mathf.FloorToInt(invoker.GetTotalParameter(Constants.StatusParameterType.Sympathy) / 2.0f * rate);
             }
             else
             {
-                return Mathf.FloorToInt(invoker.TotalNega / 2.0f * rate);
+                return Mathf.FloorToInt(invoker.GetTotalParameter(Constants.StatusParameterType.Nega) / 2.0f * rate);
             }
         }
 
@@ -85,11 +85,11 @@ namespace GL.Scripts.Battle.Systems
             // TODO: 実装
             if (rate >= 0.0f)
             {
-                return Mathf.FloorToInt(invoker.TotalSympathy / 2.0f * rate);
+                return Mathf.FloorToInt(invoker.GetTotalParameter(Constants.StatusParameterType.Sympathy) / 2.0f * rate);
             }
             else
             {
-                return Mathf.FloorToInt(invoker.TotalNega / 2.0f * rate);
+                return Mathf.FloorToInt(invoker.GetTotalParameter(Constants.StatusParameterType.Nega) / 2.0f * rate);
             }
         }
         
@@ -101,11 +101,11 @@ namespace GL.Scripts.Battle.Systems
             // TODO: 実装
             if (rate >= 0.0f)
             {
-                return Mathf.FloorToInt(invoker.TotalSympathy / 2.0f * rate);
+                return Mathf.FloorToInt(invoker.GetTotalParameter(Constants.StatusParameterType.Sympathy) / 2.0f * rate);
             }
             else
             {
-                return Mathf.FloorToInt(invoker.TotalNega / 2.0f * rate);
+                return Mathf.FloorToInt(invoker.GetTotalParameter(Constants.StatusParameterType.Nega) / 2.0f * rate);
             }
         }
         
@@ -117,11 +117,11 @@ namespace GL.Scripts.Battle.Systems
             // TODO: 実装
             if (rate >= 0.0f)
             {
-                return Mathf.FloorToInt(invoker.TotalSympathy / 2.0f * rate);
+                return Mathf.FloorToInt(invoker.GetTotalParameter(Constants.StatusParameterType.Sympathy) / 2.0f * rate);
             }
             else
             {
-                return Mathf.FloorToInt(invoker.TotalNega / 2.0f * rate);
+                return Mathf.FloorToInt(invoker.GetTotalParameter(Constants.StatusParameterType.Nega) / 2.0f * rate);
             }
         }
 

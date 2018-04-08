@@ -90,11 +90,11 @@ namespace GL.DevelopTools.Scripts
             {
                 this.DrawStatus(statusControllers, "Name", s => s.Name);
                 this.DrawStatus(statusControllers, "HP", s => string.Format("{0}/{1}", s.HitPoint, s.HitPointMax));
-                this.DrawStatus(statusControllers, "STR", s => s.TotalStrength.ToString());
-                this.DrawStatus(statusControllers, "DEF", s => s.TotalDefense.ToString());
-                this.DrawStatus(statusControllers, "SYM", s => s.TotalSympathy.ToString());
-                this.DrawStatus(statusControllers, "NEG", s => s.TotalNega.ToString());
-                this.DrawStatus(statusControllers, "SPD", s => s.TotalSpeed.ToString());
+                this.DrawStatus(statusControllers, "STR", s => s.GetTotalParameter(Constants.StatusParameterType.Strength).ToString());
+                this.DrawStatus(statusControllers, "DEF", s => s.GetTotalParameter(Constants.StatusParameterType.Defense).ToString());
+                this.DrawStatus(statusControllers, "SYM", s => s.GetTotalParameter(Constants.StatusParameterType.Sympathy).ToString());
+                this.DrawStatus(statusControllers, "NEG", s => s.GetTotalParameter(Constants.StatusParameterType.Nega).ToString());
+                this.DrawStatus(statusControllers, "SPD", s => s.GetTotalParameter(Constants.StatusParameterType.Speed).ToString());
                 this.DrawStatus(statusControllers, "WAT", s => s.Wait.ToString());
                 this.DrawStatusAilment(ailmentControllers, "状態異常");
             }
