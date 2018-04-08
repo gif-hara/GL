@@ -78,24 +78,34 @@ namespace GL.Scripts.Battle.CharacterControllers
             this.Wait = 0.0f;
         }
 
-        public void AddStatusParameter(Constants.StatusParameterType type, int value)
+        public void AddToDynamic(Constants.StatusParameterType type, int value)
+        {
+            this.Add(this.Dynamic, type, value);
+        }
+
+        public void AddToAccessory(Constants.StatusParameterType type, int value)
+        {
+            this.Add(this.Accessory, type, value);
+        }
+
+        public void Add(CharacterStatus status, Constants.StatusParameterType type, int value)
         {
             switch (type)
             {
                 case Constants.StatusParameterType.Strength:
-                    this.Dynamic.Strength += value;
+                    status.Strength += value;
                     break;
                 case Constants.StatusParameterType.Defense:
-                    this.Dynamic.Defense += value;
+                    status.Defense += value;
                     break;
                 case Constants.StatusParameterType.Sympathy:
-                    this.Dynamic.Sympathy += value;
+                    status.Sympathy += value;
                     break;
                 case Constants.StatusParameterType.Nega:
-                    this.Dynamic.Nega += value;
+                    status.Nega += value;
                     break;
                 case Constants.StatusParameterType.Speed:
-                    this.Dynamic.Speed += value;
+                    status.Speed += value;
                     break;
                 default:
                     Assert.IsTrue(false, string.Format("未対応の値です {0}", type));

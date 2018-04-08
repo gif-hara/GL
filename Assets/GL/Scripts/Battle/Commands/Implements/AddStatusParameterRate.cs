@@ -22,7 +22,7 @@ namespace GL.Scripts.Battle.Commands.Implements
                     .GetFromTargetPartyType(invoker, this.TargetPartyType)
                     .GetTargets(this.TargetType, c => c.StatusController.GetTotalStatusParameter(this.parameter.StatusParameterType));
                 var value = Calculator.GetAddStatusParameterValue(this.parameter.StatusParameterType, invoker.StatusController, this.parameter.Rate);
-                targets.ForEach(t => t.StatusController.AddStatusParameter(this.parameter.StatusParameterType, value));
+                targets.ForEach(t => t.StatusController.AddToDynamic(this.parameter.StatusParameterType, value));
             });
         }
 
