@@ -1,5 +1,4 @@
 ﻿using GL.Scripts.Battle.Systems;
-using UnityEngine;
 
 namespace GL.Scripts.Battle.CharacterControllers.StatusAilments
 {

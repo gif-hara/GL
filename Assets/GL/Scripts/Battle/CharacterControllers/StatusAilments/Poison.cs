@@ -1,7 +1,6 @@
 ﻿using GL.Scripts.Battle.Systems;
 using GL.Scripts.Events.Battle;
 using HK.Framework.EventSystems;
-using UnityEngine;
 
 namespace GL.Scripts.Battle.CharacterControllers.StatusAilments
 {

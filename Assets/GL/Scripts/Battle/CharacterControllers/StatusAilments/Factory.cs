@@ -1,5 +1,4 @@
-﻿using System;
-using GL.Scripts.Battle.Systems;
+﻿using GL.Scripts.Battle.Systems;
 using UnityEngine.Assertions;
 
 namespace GL.Scripts.Battle.CharacterControllers.StatusAilments
