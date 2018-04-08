@@ -116,8 +116,20 @@
             Poison = 101,
             
             /// <summary>麻痺</summary>
-            /// <remarks>1ターン何も出来ない</remarks>
+            /// <remarks>このターン何も出来ない</remarks>
             Paralysis = 102,
+            
+            /// <summary>睡眠</summary>
+            /// <remarks>ダメージを受けるまで何も出来ない</remarks>
+            Sleep = 103,
+            
+            /// <summary>混乱</summary>
+            /// <remarks>コマンドを選択できず、味方を攻撃してしまう</remarks>
+            Confuse = 104,
+            
+            /// <summary>狂暴</summary>
+            /// <remarks>コマンドを選択できず、通常攻撃のみ行う</remarks>
+            Berserk = 105,
         }
 
         /// <summary>

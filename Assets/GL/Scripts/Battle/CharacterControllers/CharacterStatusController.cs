@@ -49,24 +49,24 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// <summary>
         /// ヒットポイント最大値
         /// </summary>
-        public int HitPointMax { get { return this.Blueprint.Status.HitPoint; } }
+        public int HitPointMax { get { return this.Blueprint.Status.Parameter.HitPoint; } }
 
-        public int HitPoint { set { this.Base.HitPoint = value; } get { return this.Base.HitPoint; } }
+        public int HitPoint { set { this.Base.Parameter.HitPoint = value; } get { return this.Base.Parameter.HitPoint; } }
 
         /// <summary>
         /// 死亡しているか返す
         /// </summary>
         public bool IsDead { get { return this.HitPoint <= 0; } }
 
-        public int TotalStrength { get { return this.Base.Strength + this.Dynamic.Strength; } }
+        public int TotalStrength { get { return this.Base.Parameter.Strength + this.Dynamic.Parameter.Strength + this.Accessory.Parameter.Strength; } }
 
-        public int TotalDefense { get { return this.Base.Defense + this.Dynamic.Defense; } }
+        public int TotalDefense { get { return this.Base.Parameter.Defense + this.Dynamic.Parameter.Defense + this.Accessory.Parameter.Defense; } }
         
-        public int TotalSympathy { get { return this.Base.Sympathy + this.Dynamic.Sympathy; } }
+        public int TotalSympathy { get { return this.Base.Parameter.Sympathy + this.Dynamic.Parameter.Sympathy + this.Accessory.Parameter.Sympathy; } }
         
-        public int TotalNega { get { return this.Base.Nega + this.Dynamic.Nega; } }
+        public int TotalNega { get { return this.Base.Parameter.Nega + this.Dynamic.Parameter.Nega + this.Accessory.Parameter.Nega; } }
         
-        public int TotalSpeed { get { return this.Base.Speed + this.Dynamic.Speed; } }
+        public int TotalSpeed { get { return this.Base.Parameter.Speed + this.Dynamic.Parameter.Speed + this.Accessory.Parameter.Speed; } }
 
         public CharacterStatusController(Blueprint blueprint)
         {
@@ -93,19 +93,19 @@ namespace GL.Scripts.Battle.CharacterControllers
             switch (type)
             {
                 case Constants.StatusParameterType.Strength:
-                    status.Strength += value;
+                    status.Parameter.Strength += value;
                     break;
                 case Constants.StatusParameterType.Defense:
-                    status.Defense += value;
+                    status.Parameter.Defense += value;
                     break;
                 case Constants.StatusParameterType.Sympathy:
-                    status.Sympathy += value;
+                    status.Parameter.Sympathy += value;
                     break;
                 case Constants.StatusParameterType.Nega:
-                    status.Nega += value;
+                    status.Parameter.Nega += value;
                     break;
                 case Constants.StatusParameterType.Speed:
-                    status.Speed += value;
+                    status.Parameter.Speed += value;
                     break;
                 default:
                     Assert.IsTrue(false, string.Format("未対応の値です {0}", type));
@@ -118,7 +118,7 @@ namespace GL.Scripts.Battle.CharacterControllers
             switch (type)
             {
                 case Constants.StatusParameterType.HitPoint:
-                    return this.Base.HitPoint;
+                    return this.HitPoint;
                 case Constants.StatusParameterType.Strength:
                     return this.TotalStrength;
                 case Constants.StatusParameterType.Defense:

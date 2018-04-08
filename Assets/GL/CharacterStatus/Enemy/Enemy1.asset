@@ -14,12 +14,13 @@ MonoBehaviour:
   model: {fileID: 1335689840358778, guid: fa79dadbb5fd747d1b2a7072cf11a857, type: 2}
   status:
     Name: Enemy1
-    HitPoint: 50
-    Strength: 10
-    Defense: 5
-    Sympathy: 0
-    Nega: 0
-    Speed: 6
+    Parameter:
+      HitPoint: 100
+      Strength: 10
+      Defense: 5
+      Sympathy: 1
+      Nega: 0
+      Speed: 9
   commands:
   - {fileID: 11400000, guid: 9cdf96bed368c40c9afb237d665437d1, type: 2}
   - {fileID: 11400000, guid: c1a29128a524e4b8db163cd5aa262161, type: 2}
