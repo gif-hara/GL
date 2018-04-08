@@ -67,6 +67,16 @@ namespace GL.Scripts.Battle.CharacterControllers
         public int TotalNega { get { return this.Base.Parameter.Nega + this.Dynamic.Parameter.Nega + this.Accessory.Parameter.Nega; } }
         
         public int TotalSpeed { get { return this.Base.Parameter.Speed + this.Dynamic.Parameter.Speed + this.Accessory.Parameter.Speed; } }
+        
+        public float TotalPoison { get { return this.Base.Resistance.Poison + this.Dynamic.Resistance.Poison + this.Accessory.Resistance.Poison; } }
+
+        public float TotalParalysis { get { return this.Base.Resistance.Paralysis + this.Dynamic.Resistance.Paralysis + this.Accessory.Resistance.Paralysis; } }
+
+        public float TotalSleep { get { return this.Base.Resistance.Sleep + this.Dynamic.Resistance.Sleep + this.Accessory.Resistance.Sleep; } }
+
+        public float TotalConfuse { get { return this.Base.Resistance.Confuse + this.Dynamic.Resistance.Confuse + this.Accessory.Resistance.Confuse; } }
+
+        public float TotalBerserk { get { return this.Base.Resistance.Berserk + this.Dynamic.Resistance.Berserk + this.Accessory.Resistance.Berserk; } }
 
         public CharacterStatusController(Blueprint blueprint)
         {

@@ -85,6 +85,7 @@ namespace GL.DevelopTools.Scripts
         {
             var statusControllers = characters.Select(c => c.StatusController);
             var ailmentControllers = characters.Select(c => c.AilmentController);
+            GUILayout.Label("Parameter");
             using (new GUILayout.HorizontalScope())
             {
                 this.DrawStatus(statusControllers, "Name", s => s.Name);
@@ -96,6 +97,16 @@ namespace GL.DevelopTools.Scripts
                 this.DrawStatus(statusControllers, "SPD", s => s.TotalSpeed.ToString());
                 this.DrawStatus(statusControllers, "WAT", s => s.Wait.ToString());
                 this.DrawStatusAilment(ailmentControllers, "状態異常");
+            }
+            GUILayout.Label("Resistance");
+            using (new GUILayout.HorizontalScope())
+            {
+                this.DrawStatus(statusControllers, "Name", s => s.Name);
+                this.DrawStatus(statusControllers, "Poison", s => s.TotalPoison.ToString("0.00"));
+                this.DrawStatus(statusControllers, "Paralysis", s => s.TotalParalysis.ToString("0.00"));
+                this.DrawStatus(statusControllers, "Sleep", s => s.TotalSleep.ToString("0.00"));
+                this.DrawStatus(statusControllers, "Confuse", s => s.TotalConfuse.ToString("0.00"));
+                this.DrawStatus(statusControllers, "Berserk", s => s.TotalBerserk.ToString("0.00"));
             }
         }
 
