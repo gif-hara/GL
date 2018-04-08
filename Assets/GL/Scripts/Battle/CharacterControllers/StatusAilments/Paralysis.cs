@@ -24,7 +24,7 @@ namespace GL.Scripts.Battle.CharacterControllers.StatusAilments
 
         private void OnEndTurnEvent()
         {
-            // 同フレーム内でターン経過処理を行うとイベントの流れが正しく無くなるので1フレーム遅らせる
+            // 同フレーム内でターン経過処理を行うとイベントの流れが正しく無くなるので遅らせる
             Observable.Timer(TimeSpan.FromSeconds(1.0f))
                 .Subscribe(_ => Broker.Global.Publish(CompleteEndTurnEvent.Get()));
         }

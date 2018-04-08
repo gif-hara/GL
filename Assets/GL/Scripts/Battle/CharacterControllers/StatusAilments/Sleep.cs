@@ -1,5 +1,8 @@
-﻿using GL.Scripts.Battle.Systems;
-using UnityEngine;
+﻿using System;
+using GL.Scripts.Battle.Systems;
+using GL.Scripts.Events.Battle;
+using HK.Framework.EventSystems;
+using UniRx;
 
 namespace GL.Scripts.Battle.CharacterControllers.StatusAilments
 {
@@ -17,6 +20,19 @@ namespace GL.Scripts.Battle.CharacterControllers.StatusAilments
         {
             base.TakeDamage();
             this.ForceRemove();
+        }
+        
+        public override void EndTurn()
+        {
+            BattleManager.Instance.EndTurnEvents.Enqueue(this.OnEndTurnEvent);
+            base.EndTurn();
+        }
+
+        private void OnEndTurnEvent()
+        {
+            // 同フレーム内でターン経過処理を行うとイベントの流れが正しく無くなるので遅らせる
+            Observable.Timer(TimeSpan.FromSeconds(1.0f))
+                .Subscribe(_ => Broker.Global.Publish(CompleteEndTurnEvent.Get()));
         }
     }
 }
