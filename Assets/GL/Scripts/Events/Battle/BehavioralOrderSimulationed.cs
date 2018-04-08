@@ -2,7 +2,7 @@
 using GL.Scripts.Battle.CharacterControllers;
 using HK.Framework.EventSystems;
 
-namespace HK.GL.Events.Battle
+namespace GL.Scripts.Events.Battle
 {
     /// <summary>
     /// 行動順シミュレーション結果を通知するイベント

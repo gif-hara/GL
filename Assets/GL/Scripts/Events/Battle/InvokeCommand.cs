@@ -2,7 +2,7 @@
 using GL.Scripts.Battle.Commands.Implements;
 using HK.Framework.EventSystems;
 
-namespace HK.GL.Events.Battle
+namespace GL.Scripts.Events.Battle
 {
     /// <summary>
     /// コマンドを実行する事を通知するイベント

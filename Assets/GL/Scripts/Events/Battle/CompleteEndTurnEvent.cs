@@ -1,7 +1,6 @@
-﻿using GL.Scripts.Battle.Systems;
-using HK.Framework.EventSystems;
+﻿using HK.Framework.EventSystems;
 
-namespace HK.GL.Events.Battle
+namespace GL.Scripts.Events.Battle
 {
     /// <summary>
     /// ターン終了イベントが完了したことを通知する

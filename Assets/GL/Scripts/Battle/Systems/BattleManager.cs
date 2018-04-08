@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using GL.Scripts.Battle.CharacterControllers;
+using GL.Scripts.Events.Battle;
 using HK.Framework.EventSystems;
-using HK.GL.Events.Battle;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -67,13 +67,13 @@ namespace GL.Scripts.Battle.Systems
         {
             this.BehavioralOrder.Elapse(this.Parties);
             var order = this.BehavioralOrder.Simulation(this.Parties, Constants.TurnSimulationNumber);
-            Broker.Global.Publish(HK.GL.Events.Battle.NextTurn.Get(order));
+            Broker.Global.Publish(Events.Battle.NextTurn.Get(order));
         }
 
         public void EndTurn(Character character)
         {
             this.BehavioralOrder.EndTurn(this.Parties);
-            Broker.Global.Publish(HK.GL.Events.Battle.EndTurn.Get(character));
+            Broker.Global.Publish(Events.Battle.EndTurn.Get(character));
 
             // 何かしらイベントが登録された場合は実行開始
             if (this.EndTurnEvents.Count > 0)

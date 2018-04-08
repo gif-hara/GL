@@ -1,7 +1,7 @@
 ﻿using GL.Scripts.Battle.CharacterControllers;
 using HK.Framework.EventSystems;
 
-namespace HK.GL.Events.Battle
+namespace GL.Scripts.Events.Battle
 {
     /// <summary>
     /// ターンが終了した際に通知するイベント

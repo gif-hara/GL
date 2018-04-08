@@ -1,7 +1,7 @@
 ﻿using System;
 using GL.Scripts.Battle.Systems;
+using GL.Scripts.Events.Battle;
 using HK.Framework.EventSystems;
-using HK.GL.Events.Battle;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;

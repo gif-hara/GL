@@ -1,6 +1,6 @@
 ﻿using HK.Framework.EventSystems;
 
-namespace HK.GL.Events.Battle
+namespace GL.Scripts.Events.Battle
 {
     /// <summary>
     /// バトルが開始した際のイベント.

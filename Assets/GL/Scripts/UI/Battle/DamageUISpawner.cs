@@ -1,7 +1,7 @@
-﻿using UnityEngine;
+﻿using GL.Scripts.Events.Battle;
+using UnityEngine;
 using UnityEngine.Assertions;
 using HK.Framework.EventSystems;
-using HK.GL.Events.Battle;
 using UniRx;
 
 namespace HK.GL.UI.Battle

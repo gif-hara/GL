@@ -2,8 +2,8 @@
 using UnityEngine.UI;
 using GL.Scripts.Battle.CharacterControllers;
 using GL.Scripts.Battle.Commands.Implements;
+using GL.Scripts.Events.Battle;
 using HK.Framework.EventSystems;
-using HK.GL.Events.Battle;
 using UniRx;
 
 namespace HK.GL.UI.Battle

@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using GL.Scripts.Battle.CharacterControllers;
+using GL.Scripts.Events.Battle;
 using HK.Framework.EventSystems;
-using HK.GL.Events.Battle;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;

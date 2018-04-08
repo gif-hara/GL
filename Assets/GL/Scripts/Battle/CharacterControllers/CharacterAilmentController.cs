@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using GL.Scripts.Battle.Systems;
+using GL.Scripts.Events.Battle;
 using HK.Framework.EventSystems;
-using HK.GL.Events.Battle;
 using UniRx;
 
 namespace GL.Scripts.Battle.CharacterControllers

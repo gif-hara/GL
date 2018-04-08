@@ -1,5 +1,5 @@
-﻿using HK.Framework.EventSystems;
-using HK.GL.Events.Battle;
+﻿using GL.Scripts.Events.Battle;
+using HK.Framework.EventSystems;
 using UniRx;
 using UnityEngine;
 
