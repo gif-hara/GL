@@ -30,14 +30,14 @@ namespace HK.GL.UI.Battle
         private void OnNextTurnFromPlayer(NextTurn eventData)
         {
             var commands = eventData.NextCharacter.StatusController.Commands;
-            for(int i=0; i<commands.Length; i++)
+            for (int i = 0; i < commands.Length; i++)
             {
                 var button = this.buttons[i];
                 var command = commands[i];
                 button.gameObject.SetActive(true);
                 button.SetProperty(eventData.NextCharacter, command);
             }
-            for(int i=commands.Length; i<this.buttons.Count; i++)
+            for (int i = commands.Length; i < this.buttons.Count; i++)
             {
                 this.buttons[i].gameObject.SetActive(false);
             }
