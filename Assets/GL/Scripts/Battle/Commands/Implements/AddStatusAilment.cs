@@ -24,7 +24,7 @@ namespace GL.Scripts.Battle.Commands.Implements
                     .GetTargets(this.TargetType, c => c.StatusController.GetTotalStatusParameter(this.parameter.TargetStatusParameterType));
                 targets.ForEach(t =>
                 {
-                    if (Calculator.LotteryStatusAilment(this.parameter.Rate))
+                    if (Calculator.LotteryStatusAilment(t.StatusController, this.parameter.StatusAilmentType, this.parameter.Rate))
                     {
                         t.AilmentController.Add(this.RemainingTurn, this.parameter.StatusAilmentType);
                     }

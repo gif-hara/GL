@@ -102,11 +102,11 @@ namespace GL.DevelopTools.Scripts
             using (new GUILayout.HorizontalScope())
             {
                 this.DrawStatus(statusControllers, "Name", s => s.Name);
-                this.DrawStatus(statusControllers, "Poison", s => s.TotalPoison.ToString("0.00"));
-                this.DrawStatus(statusControllers, "Paralysis", s => s.TotalParalysis.ToString("0.00"));
-                this.DrawStatus(statusControllers, "Sleep", s => s.TotalSleep.ToString("0.00"));
-                this.DrawStatus(statusControllers, "Confuse", s => s.TotalConfuse.ToString("0.00"));
-                this.DrawStatus(statusControllers, "Berserk", s => s.TotalBerserk.ToString("0.00"));
+                this.DrawStatus(statusControllers, "Poison", s => s.GetTotalResistance(Constants.StatusAilmentType.Poison).ToString("0.00"));
+                this.DrawStatus(statusControllers, "Paralysis", s => s.GetTotalResistance(Constants.StatusAilmentType.Paralysis).ToString("0.00"));
+                this.DrawStatus(statusControllers, "Sleep", s => s.GetTotalResistance(Constants.StatusAilmentType.Sleep).ToString("0.00"));
+                this.DrawStatus(statusControllers, "Confuse", s => s.GetTotalResistance(Constants.StatusAilmentType.Confuse).ToString("0.00"));
+                this.DrawStatus(statusControllers, "Berserk", s => s.GetTotalResistance(Constants.StatusAilmentType.Berserk).ToString("0.00"));
             }
         }
 

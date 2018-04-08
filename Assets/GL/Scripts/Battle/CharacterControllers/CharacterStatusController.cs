@@ -68,16 +68,6 @@ namespace GL.Scripts.Battle.CharacterControllers
         
         public int TotalSpeed { get { return this.Base.Parameter.Speed + this.Dynamic.Parameter.Speed + this.Accessory.Parameter.Speed; } }
         
-        public float TotalPoison { get { return this.Base.Resistance.Poison + this.Dynamic.Resistance.Poison + this.Accessory.Resistance.Poison; } }
-
-        public float TotalParalysis { get { return this.Base.Resistance.Paralysis + this.Dynamic.Resistance.Paralysis + this.Accessory.Resistance.Paralysis; } }
-
-        public float TotalSleep { get { return this.Base.Resistance.Sleep + this.Dynamic.Resistance.Sleep + this.Accessory.Resistance.Sleep; } }
-
-        public float TotalConfuse { get { return this.Base.Resistance.Confuse + this.Dynamic.Resistance.Confuse + this.Accessory.Resistance.Confuse; } }
-
-        public float TotalBerserk { get { return this.Base.Resistance.Berserk + this.Dynamic.Resistance.Berserk + this.Accessory.Resistance.Berserk; } }
-
         public CharacterStatusController(Blueprint blueprint)
         {
             this.Blueprint = blueprint;
@@ -143,6 +133,13 @@ namespace GL.Scripts.Battle.CharacterControllers
                     Assert.IsTrue(false, string.Format("未対応の値です {0}", type));
                     return 0;
             }
+        }
+
+        public float GetTotalResistance(Constants.StatusAilmentType type)
+        {
+            return this.Base.Resistance.Get(type) +
+                   this.Dynamic.Resistance.Get(type) +
+                   this.Accessory.Resistance.Get(type);
         }
     }
 }

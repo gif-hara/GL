@@ -1,4 +1,5 @@
 ﻿using GL.Scripts.Battle.CharacterControllers;
+using GL.Scripts.Extensions;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -127,10 +128,15 @@ namespace GL.Scripts.Battle.Systems
         /// <summary>
         /// 状態異常をかけられるか抽選する
         /// </summary>
-        public static bool LotteryStatusAilment(float rate)
+        public static bool LotteryStatusAilment(CharacterStatusController target, Constants.StatusAilmentType statusAilmentType, float rate)
         {
-            // TODO: 抽選処理
-            return true;
+            // 有利な状態異常は必ずかかる
+            if (statusAilmentType.IsPositive())
+            {
+                return true;
+            }
+            
+            return Random.value <= (rate - target.GetTotalResistance(statusAilmentType));
         }
     }
 }
