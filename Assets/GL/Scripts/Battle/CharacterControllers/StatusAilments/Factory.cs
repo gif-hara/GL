@@ -23,7 +23,7 @@ namespace GL.Scripts.Battle.CharacterControllers.StatusAilments
                 case Constants.StatusAilmentType.Poison:
                     return new Poison(remainingTurn, type, controller);
                 case Constants.StatusAilmentType.Paralysis:
-                    return new Element(remainingTurn, type, controller);
+                    return new Paralysis(remainingTurn, type, controller);
                 case Constants.StatusAilmentType.Sleep:
                     return new Element(remainingTurn, type, controller);
                 case Constants.StatusAilmentType.Confuse:
