@@ -54,6 +54,19 @@ namespace GL.Scripts.Battle.CharacterControllers
         }
 
         /// <summary>
+        /// 次のターンに行動する際に行動可能か返す
+        /// </summary>
+        public bool CanMove
+        {
+            get
+            {
+                return
+                    !this.AilmentController.Find(Constants.StatusAilmentType.Paralysis) ||
+                    !this.AilmentController.Find(Constants.StatusAilmentType.Sleep);
+            }
+        }
+
+        /// <summary>
         /// ダメージを受ける
         /// </summary>
         public void TakeDamage(int damage)
