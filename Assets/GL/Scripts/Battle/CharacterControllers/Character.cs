@@ -102,6 +102,7 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// </summary>
         public void TakeDamage(int damage)
         {
+            this.AilmentController.TakeDamage();
             this.StatusController.HitPoint -= damage;
             Broker.Global.Publish(DamageNotify.Get(this, damage));
 

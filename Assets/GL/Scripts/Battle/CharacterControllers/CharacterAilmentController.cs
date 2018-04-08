@@ -54,5 +54,13 @@ namespace GL.Scripts.Battle.CharacterControllers
         {
             return this.Elements.FindIndex(e => e.Type == type) != -1;
         }
+
+        /// <summary>
+        /// ダメージを受けた際の処理
+        /// </summary>
+        public void TakeDamage()
+        {
+            this.Elements.ForEach(e => e.TakeDamage());
+        }
     }
 }

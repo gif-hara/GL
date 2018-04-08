@@ -23,6 +23,10 @@ namespace GL.Scripts.Battle.CharacterControllers.StatusAilments
             this.controller = controller;
         }
 
+        public virtual void TakeDamage()
+        {
+        }
+
         public virtual void EndTurn()
         {
             this.RemainingTurn--;
@@ -30,6 +34,11 @@ namespace GL.Scripts.Battle.CharacterControllers.StatusAilments
             {
                 this.controller.Elements.Remove(this);
             }
+        }
+
+        protected void ForceRemove()
+        {
+            this.controller.Elements.Remove(this);
         }
     }
 }

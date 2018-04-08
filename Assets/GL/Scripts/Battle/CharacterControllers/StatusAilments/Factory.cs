@@ -25,7 +25,7 @@ namespace GL.Scripts.Battle.CharacterControllers.StatusAilments
                 case Constants.StatusAilmentType.Paralysis:
                     return new Paralysis(remainingTurn, type, controller);
                 case Constants.StatusAilmentType.Sleep:
-                    return new Element(remainingTurn, type, controller);
+                    return new Sleep(remainingTurn, type, controller);
                 case Constants.StatusAilmentType.Confuse:
                     return new Element(remainingTurn, type, controller);
                 case Constants.StatusAilmentType.Berserk:
