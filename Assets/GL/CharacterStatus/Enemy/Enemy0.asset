@@ -20,7 +20,7 @@ MonoBehaviour:
       Defense: 5
       Sympathy: 1
       Nega: 0
-      Speed: 10
+      Speed: 20
     Resistance:
       Poison: 0
       Paralysis: 0
@@ -28,5 +28,5 @@ MonoBehaviour:
       Confuse: 0
       Berserk: 0
   commands:
-  - {fileID: 11400000, guid: d0fb93192b73649b78add16646d5c817, type: 2}
+  - {fileID: 11400000, guid: ffc6894b9b79c4b41bee77b34a106662, type: 2}
   accessories: []

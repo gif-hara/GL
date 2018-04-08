@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using GL.Scripts.Battle.CharacterControllers;
+using GL.Scripts.Battle.Commands.Implements;
 using GL.Scripts.Events.Battle;
 using HK.Framework.EventSystems;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
+using Blueprint = GL.Scripts.Battle.Commands.Blueprints.Blueprint;
 
 namespace GL.Scripts.Battle.Systems
 {
@@ -15,6 +17,15 @@ namespace GL.Scripts.Battle.Systems
     [RequireComponent(typeof(BehavioralOrderController))]
     public sealed class BattleManager : MonoBehaviour
     {
+        /// <summary>
+        /// 混乱した時のコマンド
+        /// </summary>
+        [SerializeField]
+        private Blueprint confuseBlueprint;
+
+        private IImplement confuseCommand;
+        public IImplement ConfuseCommand { get { return confuseCommand; } }
+        
         public static BattleManager Instance { private set; get; }
 
         public Parties Parties { private set; get; }
@@ -27,6 +38,8 @@ namespace GL.Scripts.Battle.Systems
         {
             Assert.IsNull(Instance);
             Instance = this;
+
+            this.confuseCommand = this.confuseBlueprint.Create();
 
             this.BehavioralOrder = this.GetComponent<BehavioralOrderController>();
             

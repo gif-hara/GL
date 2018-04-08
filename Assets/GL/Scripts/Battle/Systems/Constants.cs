@@ -32,6 +32,11 @@
             /// 対象のパーティ全て
             /// </summary>
             All,
+            
+            /// <summary>
+            /// 誰を狙うか分からない
+            /// </summary>
+            Random,
         }
 
         /// <summary>

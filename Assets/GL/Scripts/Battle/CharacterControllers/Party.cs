@@ -59,8 +59,11 @@ namespace GL.Scripts.Battle.CharacterControllers
                 case Constants.TargetType.All:
                     result.AddRange(targets);
                     break;
+                case Constants.TargetType.Random:
+                    result.Add(targets[UnityEngine.Random.Range(0, targets.Count)]);
+                    break;
                 default:
-                    Assert.IsTrue(false, "未対応のTargetTypeです");
+                    Assert.IsTrue(false, string.Format("未対応の値です {0}", type));
                     break;
             }
 

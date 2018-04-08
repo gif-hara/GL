@@ -28,5 +28,5 @@ MonoBehaviour:
       Confuse: 0
       Berserk: 0
   commands:
-  - {fileID: 11400000, guid: d0fb93192b73649b78add16646d5c817, type: 2}
+  - {fileID: 11400000, guid: 9cdf96bed368c40c9afb237d665437d1, type: 2}
   accessories: []

@@ -226,7 +226,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 164561863}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -960, z: 0}
+  m_LocalPosition: {x: 0, y: -959.99994, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 486404880}
@@ -579,7 +579,7 @@ Prefab:
     - target: {fileID: 224039459191044058, guid: ec7cbfd90e29e425fb9ab1d50897b7d8,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 531.25
+      value: 531.2499
       objectReference: {fileID: 0}
     - target: {fileID: 224039459191044058, guid: ec7cbfd90e29e425fb9ab1d50897b7d8,
         type: 2}
@@ -874,7 +874,7 @@ Prefab:
     - target: {fileID: 224039459191044058, guid: ec7cbfd90e29e425fb9ab1d50897b7d8,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 236.25
+      value: 236.24994
       objectReference: {fileID: 0}
     - target: {fileID: 224039459191044058, guid: ec7cbfd90e29e425fb9ab1d50897b7d8,
         type: 2}
@@ -1326,6 +1326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 030eaa02d3e49490fb2ebf0e3846def0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  confuseBlueprint: {fileID: 11400000, guid: 3ad4c830f2cb54a9abeaa9d135c97d88, type: 2}
 --- !u!4 &1477821176
 Transform:
   m_ObjectHideFlags: 0
@@ -1377,7 +1378,7 @@ Prefab:
     - target: {fileID: 224039459191044058, guid: ec7cbfd90e29e425fb9ab1d50897b7d8,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 383.75
+      value: 383.74994
       objectReference: {fileID: 0}
     - target: {fileID: 224039459191044058, guid: ec7cbfd90e29e425fb9ab1d50897b7d8,
         type: 2}

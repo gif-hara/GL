@@ -52,22 +52,24 @@ namespace GL.Scripts.Battle.CharacterControllers
                 .Where(x => x.Character == this)
                 .SubscribeWithState(this, (_, _this) =>
                 {
-                    if (_this.CharacterType == Constants.CharacterType.Player)
+                    if (_this.AilmentController.Find(Constants.StatusAilmentType.Paralysis))
                     {
-                        if (!_this.CanMove)
-                        {
-                            Debug.Log("TODO: 行動できなかった理由を表示");
-                            _this.InternalEndTurn();
-                        }
+                        Debug.Log("TODO: 麻痺を表現する");
+                        _this.InternalEndTurn();
+                    }
+                    else if (_this.AilmentController.Find(Constants.StatusAilmentType.Sleep))
+                    {
+                        Debug.Log("TODO: 睡眠を表現する");
+                        _this.InternalEndTurn();
+                    }
+                    else if (_this.AilmentController.Find(Constants.StatusAilmentType.Confuse))
+                    {
+                        Debug.Log("TODO: 混乱を表現する");
+                        BattleManager.Instance.ConfuseCommand.Invoke(_this);
                     }
                     else
                     {
-                        if (!_this.CanMove)
-                        {
-                            Debug.Log("TODO: 行動できなかった理由を表示");
-                            _this.InternalEndTurn();
-                        }
-                        else
+                        if (_this.CharacterType == Constants.CharacterType.Enemy)
                         {
                             var commands = _this.StatusController.Commands;
                             var command = commands[Random.Range(0, commands.Length)];
@@ -93,7 +95,8 @@ namespace GL.Scripts.Battle.CharacterControllers
             {
                 return
                     !this.AilmentController.Find(Constants.StatusAilmentType.Paralysis) &&
-                    !this.AilmentController.Find(Constants.StatusAilmentType.Sleep);
+                    !this.AilmentController.Find(Constants.StatusAilmentType.Sleep) &&
+                    !this.AilmentController.Find(Constants.StatusAilmentType.Confuse);
             }
         }
 
