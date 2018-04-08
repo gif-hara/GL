@@ -20,6 +20,12 @@ namespace GL.Scripts.Battle.Systems
             var baseDefense = Mathf.Pow(target.StatusController.GetTotalParameter(Constants.StatusParameterType.Defense), 2);
             var result = baseStrength - baseDefense;
             
+            // 鬼神化の場合は1.5倍
+            if (invoker.AilmentController.Find(Constants.StatusAilmentType.Demonization))
+            {
+                result *= 1.5f;
+            }
+            
             // 睡眠の場合は1.5倍
             if (target.AilmentController.Find(Constants.StatusAilmentType.Sleep))
             {

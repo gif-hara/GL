@@ -20,7 +20,7 @@ MonoBehaviour:
       Defense: 5
       Sympathy: 1
       Nega: 0
-      Speed: 20
+      Speed: 12
     Resistance:
       Poison: 0
       Paralysis: 0
