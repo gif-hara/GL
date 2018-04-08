@@ -5,6 +5,7 @@ using HK.Framework.EventSystems;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
+using Random = UnityEngine.Random;
 
 namespace GL.Scripts.Battle.CharacterControllers
 {
@@ -45,6 +46,32 @@ namespace GL.Scripts.Battle.CharacterControllers
                     _this.AccessoryController.OnStartBattle(_this);
                 })
                 .AddTo(this);
+
+
+            Broker.Global.Receive<NextTurn>()
+                .Where(x => x.NextCharacter == this)
+                .Where(_ => !this.CanMove)
+                .SubscribeWithState(this, (_, _this) =>
+                {
+                    Debug.Log("TODO: 行動できなかった理由を表示");
+                    _this.InternalEndTurn();
+                })
+                .AddTo(this);
+
+            if (this.CharacterType == Constants.CharacterType.Enemy)
+            {
+                // FIXME: NextTurnじゃなくて敵AI経由でInvokeCommandを発行したい
+                Broker.Global.Receive<NextTurn>()
+                    .Where(x => x.NextCharacter == this)
+                    .Where(_ => this.CanMove)
+                    .SubscribeWithState(this, (_, _this) =>
+                    {
+                        var commands = _this.StatusController.Commands;
+                        var command = commands[Random.Range(0, commands.Length)];
+                        command.Invoke(_this);
+                    })
+                    .AddTo(this);
+            }
         }
         
         public void StartAttack(Action animationCompleteAction)
