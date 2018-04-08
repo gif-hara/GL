@@ -37,11 +37,11 @@ namespace GL.Scripts.Battle.Systems
             var allMember = parties.AllMember;
             var waits = allMember.Select(m => m.StatusController.Wait).ToList();
             var waitMax = allMember.Count;
-            var speedMax = allMember.Max(c => c.StatusController.BaseStatus.Speed);
+            var speedMax = allMember.Max(c => c.StatusController.TotalSpeed);
             var elapseTurn = GetElapseTurn(allMember, waits, waitMax, speedMax);
             for(int i=0; i<allMember.Count; i++)
             {
-                allMember[i].StatusController.Wait += ((float)allMember[i].StatusController.BaseStatus.Speed / speedMax) * elapseTurn.TurnNumber;
+                allMember[i].StatusController.Wait += ((float)allMember[i].StatusController.TotalSpeed / speedMax) * elapseTurn.TurnNumber;
             }
         }
 
@@ -60,7 +60,7 @@ namespace GL.Scripts.Battle.Systems
             var allMember = paties.AllMember;
             var waits = new List<float>();
             var waitMax = allMember.Count;
-            var speedMax = allMember.Max(c => c.StatusController.BaseStatus.Speed);
+            var speedMax = allMember.Max(c => c.StatusController.TotalSpeed);
 
             for(int i=0; i<allMember.Count; i++)
             {
@@ -73,7 +73,7 @@ namespace GL.Scripts.Battle.Systems
                 result.Add(allMember[elapseTurn.BehaviourCharacterIndex]);
                 for(int i=0; i<allMember.Count; i++)
                 {
-                    waits[i] += ((float)allMember[i].StatusController.BaseStatus.Speed / speedMax) * elapseTurn.TurnNumber;
+                    waits[i] += ((float)allMember[i].StatusController.TotalSpeed / speedMax) * elapseTurn.TurnNumber;
                     if(elapseTurn.BehaviourCharacterIndex == i)
                     {
                         waits[i] -= waitMax;
@@ -110,7 +110,7 @@ namespace GL.Scripts.Battle.Systems
                         continue;
                     }
 
-                    var needTurn = GetNeedTurn(waitMax, waits[i], speedMax, allMember[i].StatusController.BaseStatus.Speed);
+                    var needTurn = GetNeedTurn(waitMax, waits[i], speedMax, allMember[i].StatusController.TotalSpeed);
                     if(elapseTurn.TurnNumber > needTurn)
                     {
                         elapseTurn.TurnNumber = needTurn;
