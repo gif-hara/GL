@@ -2,6 +2,7 @@
 using System.Linq;
 using GL.Scripts.Battle.Commands.Implements;
 using GL.Scripts.Battle.Systems;
+using UnityEngine.Assertions;
 
 namespace GL.Scripts.Battle.CharacterControllers
 {
@@ -96,6 +97,31 @@ namespace GL.Scripts.Battle.CharacterControllers
                 case Constants.StatusParameterType.Speed:
                     this.Dynamic.Speed += value;
                     break;
+                default:
+                    Assert.IsTrue(false, string.Format("未対応の値です {0}", type));
+                    break;
+            }
+        }
+
+        public int GetTotalStatusParameter(Constants.StatusParameterType type)
+        {
+            switch (type)
+            {
+                case Constants.StatusParameterType.HitPoint:
+                    return this.Base.HitPoint;
+                case Constants.StatusParameterType.Strength:
+                    return this.TotalStrength;
+                case Constants.StatusParameterType.Defense:
+                    return this.TotalDefense;
+                case Constants.StatusParameterType.Sympathy:
+                    return this.TotalSympathy;
+                case Constants.StatusParameterType.Nega:
+                    return this.TotalNega;
+                case Constants.StatusParameterType.Speed:
+                    return this.TotalSpeed;
+                default:
+                    Assert.IsTrue(false, string.Format("未対応の値です {0}", type));
+                    return 0;
             }
         }
     }

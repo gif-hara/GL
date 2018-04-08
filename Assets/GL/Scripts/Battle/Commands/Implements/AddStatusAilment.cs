@@ -21,7 +21,7 @@ namespace GL.Scripts.Battle.Commands.Implements
             {
                 var targets = BattleManager.Instance.Parties
                     .GetFromTargetPartyType(invoker, this.TargetPartyType)
-                    .GetTargets(this.TargetType, c => c.StatusController.Base.HitPoint);
+                    .GetTargets(this.TargetType, c => c.StatusController.GetTotalStatusParameter(this.parameter.TargetStatusParameterType));
                 targets.ForEach(t =>
                 {
                     if (Calculator.LotteryStatusAilment(this.parameter.Rate))
@@ -40,8 +40,16 @@ namespace GL.Scripts.Battle.Commands.Implements
         [Serializable]
         public class Parameter : CommandParameter
         {
+            /// <summary>
+            /// かける状態異常タイプ
+            /// </summary>
             public Constants.StatusAilmentType StatusAilmentType;
 
+            /// <summary>
+            /// かける対象を選ぶためのステータスパラメータタイプ
+            /// </summary>
+            public Constants.StatusParameterType TargetStatusParameterType;
+            
             /// <summary>
             /// 状態異常にかかる確率
             /// </summary>

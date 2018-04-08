@@ -20,7 +20,7 @@ namespace GL.Scripts.Battle.Commands.Implements
             {
                 var targets = BattleManager.Instance.Parties
                     .GetFromTargetPartyType(invoker, this.TargetPartyType)
-                    .GetTargets(this.TargetType, c => c.StatusController.Base.Defense);
+                    .GetTargets(this.TargetType, c => c.StatusController.GetTotalStatusParameter(this.parameter.StatusParameterType));
                 var value = Calculator.GetAddStatusParameterValue(this.parameter.StatusParameterType, invoker.StatusController, this.parameter.Rate);
                 targets.ForEach(t => t.StatusController.AddStatusParameter(this.parameter.StatusParameterType, value));
             });
@@ -29,8 +29,14 @@ namespace GL.Scripts.Battle.Commands.Implements
         [Serializable]
         public class Parameter : CommandParameter
         {
+            /// <summary>
+            /// 上昇させるパラメータのタイプ
+            /// </summary>
             public Constants.StatusParameterType StatusParameterType;
 
+            /// <summary>
+            /// 倍率
+            /// </summary>
             public float Rate;
         }
     }
