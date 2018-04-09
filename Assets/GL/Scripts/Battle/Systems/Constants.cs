@@ -121,6 +121,26 @@
             /// <remarks>次に行動するキャラクターは<see cref="PreEmpt"/>を持つキャラクターになる</remarks>
             PreEmpt = 4,
             
+            /// <summary>再生</summary>
+            /// <remarks>ターン終了時に一定量回復する</remarks>
+            Regeneration = 5,
+            
+            /// <summary>孤軍奮闘</summary>
+            /// <remarks>パーティが自分自身のみの場合全てのパラメータが倍になる</remarks>
+            Soldier = 6,
+            
+            /// <summary>追い打ち</summary>
+            /// <remarks>味方が攻撃した際に自分自身も通常攻撃を行う</remarks>
+            Chase = 7,
+            
+            /// <summary>憤怒</summary>
+            /// <remarks>攻撃を受ける度に攻撃力が上昇する</remarks>
+            Rage = 8,
+            
+            /// <summary>庇う</summary>
+            /// <remarks>味方が攻撃を受ける時、自分自身が身代わりになる</remarks>
+            Protect = 9,
+            
             /// <summary>毒</summary>
             /// <remarks>ターン終了時に一定量のダメージを受ける</remarks>
             Poison = 101,
