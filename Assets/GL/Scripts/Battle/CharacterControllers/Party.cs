@@ -46,8 +46,15 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// <param name="selector">ターゲットする際の抽選方法</param>
         public List<Character> GetTargets(Character invoker, Constants.TargetType type, Func<Character, int> selector)
         {
-            var result = new List<Character>();
             var targets = this.SurvivalMembers;
+            
+            // 鎌鼬化の場合は全体化する
+            if (invoker.AilmentController.Find(Constants.StatusAilmentType.Sickle))
+            {
+                return targets;
+            }
+            
+            var result = new List<Character>();
             switch(type)
             {
                 case Constants.TargetType.Strong:
