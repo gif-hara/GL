@@ -160,6 +160,10 @@
             /// <summary>狂暴</summary>
             /// <remarks>コマンドを選択できず、通常攻撃のみ行う</remarks>
             Berserk = 105,
+            
+            /// <summary>急所</summary>
+            /// <remarks>受けるダメージが必ずクリティカルになるが一度受けると解除される</remarks>
+            Vitals = 106,
         }
 
         /// <summary>
