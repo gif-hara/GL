@@ -32,7 +32,7 @@ namespace GL.Scripts.Battle.Systems
                 result *= 1.5f;
             }
             
-            // 睡眠の場合は1.5倍
+            // 対象が睡眠の場合は1.5倍
             if (target.AilmentController.Find(Constants.StatusAilmentType.Sleep))
             {
                 result *= 1.5f;
