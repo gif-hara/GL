@@ -37,6 +37,13 @@ namespace GL.Scripts.Battle.Systems
             {
                 result *= 1.5f;
             }
+
+            // 対象が硬質化の場合は半分になる
+            if (target.AilmentController.Find(Constants.StatusAilmentType.Hardening))
+            {
+                result *= 0.5f;
+            }
+            
             return result < 1 ? 1 : Mathf.FloorToInt(result);
         }
 
