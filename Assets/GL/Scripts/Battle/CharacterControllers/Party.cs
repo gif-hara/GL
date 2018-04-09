@@ -41,10 +41,10 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// <summary>
         /// ターゲットタイプからターゲットを返す
         /// </summary>
+        /// <param name="invoker">ターゲットを選択するキャラクター</param>
         /// <param name="type">ターゲットしたいタイプ</param>
-        /// <param name="characters">ターゲットリスト</param>
         /// <param name="selector">ターゲットする際の抽選方法</param>
-        public List<Character> GetTargets(Constants.TargetType type, Func<Character, int> selector)
+        public List<Character> GetTargets(Character invoker, Constants.TargetType type, Func<Character, int> selector)
         {
             var result = new List<Character>();
             var targets = this.SurvivalMembers;
@@ -61,6 +61,9 @@ namespace GL.Scripts.Battle.CharacterControllers
                     break;
                 case Constants.TargetType.Random:
                     result.Add(targets[UnityEngine.Random.Range(0, targets.Count)]);
+                    break;
+                case Constants.TargetType.Myself:
+                    result.Add(invoker);
                     break;
                 default:
                     Assert.IsTrue(false, string.Format("未対応の値です {0}", type));

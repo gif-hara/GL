@@ -37,6 +37,11 @@
             /// 誰を狙うか分からない
             /// </summary>
             Random,
+            
+            /// <summary>
+            /// 自分自身
+            /// </summary>
+            Myself,
         }
 
         /// <summary>
@@ -101,15 +106,15 @@
         public enum StatusAilmentType
         {
             /// <summary>鬼神化</summary>
-            /// <remarks>次のターンの与えるダメージが1.5倍になる</remarks>
+            /// <remarks>与えるダメージが1.5倍になるが受けるダメージも1.5倍になる</remarks>
             Demonization = 1,
             
             /// <summary>硬質化</summary>
-            /// <remarks>次のターンの受けるダメージが0になる</remarks>
+            /// <remarks>受けるダメージが半分になる</remarks>
             Hardening = 2,
             
             /// <summary>鎌鼬</summary>
-            /// <remarks>次のターンの攻撃が全体攻撃になる</remarks>
+            /// <remarks>通常攻撃が全体攻撃になる</remarks>
             Sickle = 3,
             
             /// <summary>先制</summary>
