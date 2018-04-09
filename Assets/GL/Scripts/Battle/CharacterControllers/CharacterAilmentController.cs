@@ -56,6 +56,14 @@ namespace GL.Scripts.Battle.CharacterControllers
         }
 
         /// <summary>
+        /// <see cref="Element"/>を返す
+        /// </summary>
+        public Element Get(Constants.StatusAilmentType type)
+        {
+            return this.Elements.Find(e => e.Type == type);
+        }
+
+        /// <summary>
         /// ダメージを受けた際の処理
         /// </summary>
         public void TakeDamage()

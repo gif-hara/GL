@@ -38,7 +38,8 @@ namespace GL.Scripts.Battle.Systems
             var waits = allMember.Select(m => m.StatusController.Wait).ToList();
             var waitMax = allMember.Count;
             var speedMax = allMember.Max(c => c.StatusController.GetTotalParameter(Constants.StatusParameterType.Speed));
-            var elapseTurn = GetElapseTurn(allMember, waits, waitMax, speedMax);
+            var usedPreEmpts = allMember.Select(m => 0).ToList();
+            var elapseTurn = GetElapseTurn(allMember, waits, waitMax, speedMax, usedPreEmpts);
             for(int i=0; i<allMember.Count; i++)
             {
                 allMember[i].StatusController.Wait += ((float)allMember[i].StatusController.GetTotalParameter(Constants.StatusParameterType.Speed) / speedMax) * elapseTurn.TurnNumber;
@@ -51,7 +52,8 @@ namespace GL.Scripts.Battle.Systems
         public void EndTurn(Parties parties)
         {
             var waitMax = parties.AllMember.Count;
-            this.currentCharacter.StatusController.Wait -= waitMax;
+            var wait = this.currentCharacter.StatusController.Wait;
+            this.currentCharacter.StatusController.Wait = Mathf.Max(wait - waitMax, 0.0f);
         }
 
         public List<Character> Simulation(Parties paties, int length)
@@ -61,22 +63,24 @@ namespace GL.Scripts.Battle.Systems
             var waits = new List<float>();
             var waitMax = allMember.Count;
             var speedMax = allMember.Max(c => c.StatusController.GetTotalParameter(Constants.StatusParameterType.Speed));
+            var usedPreEmpts = new List<int>();
 
             for(int i=0; i<allMember.Count; i++)
             {
                 waits.Add(allMember[i].StatusController.Wait);
+                usedPreEmpts.Add(0);
             }
 
             while(result.Count <= length)
             {
-                var elapseTurn = GetElapseTurn(allMember, waits, waitMax, speedMax);
+                var elapseTurn = GetElapseTurn(allMember, waits, waitMax, speedMax, usedPreEmpts);
                 result.Add(allMember[elapseTurn.BehaviourCharacterIndex]);
                 for(int i=0; i<allMember.Count; i++)
                 {
                     waits[i] += ((float)allMember[i].StatusController.GetTotalParameter(Constants.StatusParameterType.Speed) / speedMax) * elapseTurn.TurnNumber;
                     if(elapseTurn.BehaviourCharacterIndex == i)
                     {
-                        waits[i] -= waitMax;
+                        waits[i] = Mathf.Max(waits[i] - waitMax, 0.0f);
                     }
                 }
             }
@@ -90,32 +94,39 @@ namespace GL.Scripts.Battle.Systems
             return Mathf.CeilToInt(Mathf.Max((waitMax - wait) / (speed / speedMax), 0.0f));
         }
 
-        private static ElapseTurn GetElapseTurn(List<Character> allMember, List<float> waits, float waitMax, float speedMax)
+        private static ElapseTurn GetElapseTurn(List<Character> allMember, List<float> waits, float waitMax, float speedMax, List<int> usedPreEmpts)
         {
             var elapseTurn = new ElapseTurn();
+            
+            // 先制を持っているキャラクターがいる場合は優先して行動できる
+            elapseTurn.BehaviourCharacterIndex = FindPreEmptIndex(allMember, usedPreEmpts);
+            if (elapseTurn.BehaviourCharacterIndex != -1)
+            {
+                return elapseTurn;
+            }
 
             // すでに待機時間が満たされているキャラクターがいるか確認する
             elapseTurn.BehaviourCharacterIndex = FindAlreadyWaitMaxIndex(allMember, waits, waitMax);
-            elapseTurn.TurnNumber = 0;
+            if (elapseTurn.BehaviourCharacterIndex != -1)
+            {
+                return elapseTurn;
+            }
 
             // 待機時間が満たされていない場合は必要ターン数を計算する
-            if(elapseTurn.BehaviourCharacterIndex < 0)
+            elapseTurn.BehaviourCharacterIndex = -1;
+            elapseTurn.TurnNumber = int.MaxValue;
+            for (int i = 0; i < allMember.Count; i++)
             {
-                elapseTurn.BehaviourCharacterIndex = -1;
-                elapseTurn.TurnNumber = int.MaxValue;
-                for(int i=0; i<allMember.Count; i++)
+                if (allMember[i].StatusController.IsDead)
                 {
-                    if(allMember[i].StatusController.IsDead)
-                    {
-                        continue;
-                    }
+                    continue;
+                }
 
-                    var needTurn = GetNeedTurn(waitMax, waits[i], speedMax, allMember[i].StatusController.GetTotalParameter(Constants.StatusParameterType.Speed));
-                    if(elapseTurn.TurnNumber > needTurn)
-                    {
-                        elapseTurn.TurnNumber = needTurn;
-                        elapseTurn.BehaviourCharacterIndex = i;
-                    }
+                var needTurn = GetNeedTurn(waitMax, waits[i], speedMax, allMember[i].StatusController.GetTotalParameter(Constants.StatusParameterType.Speed));
+                if (elapseTurn.TurnNumber > needTurn)
+                {
+                    elapseTurn.TurnNumber = needTurn;
+                    elapseTurn.BehaviourCharacterIndex = i;
                 }
             }
 
@@ -124,6 +135,37 @@ namespace GL.Scripts.Battle.Systems
             return elapseTurn;
         }
 
+        /// <summary>
+        /// 先制持ちのキャラクターのインデックスを返す
+        /// </summary>
+        /// <param name="allMember">バトルに参加している全てのメンバー</param>
+        /// <param name="usedPreEmpts">すでに先制を利用したか</param>
+        private static int FindPreEmptIndex(List<Character> allMember, List<int> usedPreEmpts)
+        {
+            const Constants.StatusAilmentType preEmpt = Constants.StatusAilmentType.PreEmpt;
+            for (var i = 0; i < allMember.Count; i++)
+            {
+                var member = allMember[i];
+                if (!member.AilmentController.Find(preEmpt))
+                {
+                    continue;
+                }
+                if(member.AilmentController.Get(preEmpt).RemainingTurn > usedPreEmpts[i])
+                {
+                    usedPreEmpts[i]++;
+                    return i;
+                }
+            }
+
+            return -1;
+        }
+
+        /// <summary>
+        /// すでにWaitが最大値まで溜まっているキャラクターのインデックスを返す
+        /// </summary>
+        /// <param name="allMember">バトルに参加している全てのメンバー</param>
+        /// <param name="waits">メンバーのWait</param>
+        /// <param name="waitMax">Waitの最大値</param>
         private static int FindAlreadyWaitMaxIndex(List<Character> allMember, List<float> waits, float waitMax)
         {
             Assert.AreEqual(allMember.Count, waits.Count);
