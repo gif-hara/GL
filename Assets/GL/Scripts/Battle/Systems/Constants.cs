@@ -1,4 +1,6 @@
-﻿namespace GL.Scripts.Battle.Systems
+﻿using System;
+
+namespace GL.Scripts.Battle.Systems
 {
     /// <summary>
     /// バトルで使用する定数.
@@ -229,28 +231,29 @@
         /// <summary>
         /// 武器タイプ
         /// </summary>
+        [Flags]
         public enum WeaponType
         {
             /// <summary>全て装備できる</summary>
             All = 0,
             
             /// <summary>剣</summary>
-            Sword = 1 << 1,
+            Sword = 1 << 0,
             
             /// <summary>メイス</summary>
-            Mace = 1 << 2,
+            Mace = 1 << 1,
             
             /// <summary>短剣</summary>
-            Dagger = 1 << 3,
+            Dagger = 1 << 2,
             
             /// <summary>棒</summary>
-            Rod = 1 << 4,
+            Rod = 1 << 3,
             
             /// <summary>ホイッスル</summary>
-            Whistle,
+            Whistle = 1 << 4,
             
             /// <summary>御札</summary>
-            Amulet,
+            Amulet = 1 << 5,
         }
 
         /// <summary>

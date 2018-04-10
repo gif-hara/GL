@@ -23,6 +23,9 @@ namespace GL.Scripts.Battle.CharacterControllers.JobSystems
         [SerializeField]
         private Resistance resistance;
 
+        [SerializeField][EnumFlags]
+        private Constants.WeaponType equipable;
+
         [SerializeField]
         private GrowthCurve growthCurve;
         

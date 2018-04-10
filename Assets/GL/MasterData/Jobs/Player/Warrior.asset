@@ -38,6 +38,7 @@ MonoBehaviour:
     Confuse: 0.1
     Berserk: 0.3
     Vitals: 0.1
+  equipable: 14
   growthCurve:
     HitPoint:
       serializedVersion: 2
