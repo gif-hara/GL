@@ -22,6 +22,8 @@ namespace GL.Scripts.Battle.CharacterControllers.StatusAilments
                     return new Element(remainingTurn, type, controller);
                 case Constants.StatusAilmentType.Regeneration:
                     return new Regeneration(remainingTurn, type, controller);
+                case Constants.StatusAilmentType.Soldier:
+                    return new Soldier(remainingTurn, type, controller);
                 case Constants.StatusAilmentType.Poison:
                     return new Poison(remainingTurn, type, controller);
                 case Constants.StatusAilmentType.Paralysis:

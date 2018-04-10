@@ -58,24 +58,23 @@ namespace GL.Scripts.Battle.CharacterControllers
 
         public Parameter()
         {
-            this.HitPoint = 0;
-            this.Strength = 0;
-            this.Defense = 0;
-            this.Sympathy = 0;
-            this.Nega = 0;
-            this.Speed = 0;
-            this.Luck = 0;
+            this.Reset();
+        }
+
+        public Parameter(Parameter other)
+        {
+            this.HitPoint = other.HitPoint;
+            this.Strength = other.Strength;
+            this.Defense = other.Defense;
+            this.Sympathy = other.Sympathy;
+            this.Nega = other.Nega;
+            this.Speed = other.Speed;
+            this.Luck = other.Luck;
         }
 
         public Parameter(Blueprint blueprint)
+            : this(blueprint.Status.Parameter)
         {
-            this.HitPoint = blueprint.Status.Parameter.HitPoint;
-            this.Strength = blueprint.Status.Parameter.Strength;
-            this.Defense = blueprint.Status.Parameter.Defense;
-            this.Sympathy = blueprint.Status.Parameter.Sympathy;
-            this.Nega = blueprint.Status.Parameter.Nega;
-            this.Speed = blueprint.Status.Parameter.Speed;
-            this.Luck = blueprint.Status.Parameter.Luck;
         }
 
         public void Add(Constants.StatusParameterType type, int value)
@@ -131,6 +130,17 @@ namespace GL.Scripts.Battle.CharacterControllers
                     Assert.IsTrue(false, string.Format("未対応の値です {0}", type));
                     return 0;
             }
+        }
+
+        public void Reset()
+        {
+            this.HitPoint = 0;
+            this.Strength = 0;
+            this.Defense = 0;
+            this.Sympathy = 0;
+            this.Nega = 0;
+            this.Speed = 0;
+            this.Luck = 0;
         }
     }
 }

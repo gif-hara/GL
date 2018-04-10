@@ -29,23 +29,22 @@ namespace GL.Scripts.Battle.CharacterControllers
 
         public Resistance()
         {
-            this.Poison = 0.0f;
-            this.Paralysis = 0.0f;
-            this.Sleep = 0.0f;
-            this.Confuse = 0.0f;
-            this.Berserk = 0.0f;
-            this.Vitals = 0.0f;
+            this.Reset();
+        }
+
+        public Resistance(Resistance other)
+        {
+            this.Poison = other.Poison;
+            this.Paralysis = other.Paralysis;
+            this.Sleep = other.Sleep;
+            this.Confuse = other.Confuse;
+            this.Berserk = other.Berserk;
+            this.Vitals = other.Vitals;
         }
 
         public Resistance(Blueprint blueprint)
+            : this(blueprint.Status.Resistance)
         {
-            var r = blueprint.Status.Resistance;
-            this.Poison = r.Poison;
-            this.Paralysis = r.Paralysis;
-            this.Sleep = r.Sleep;
-            this.Confuse = r.Confuse;
-            this.Berserk = r.Berserk;
-            this.Vitals = r.Vitals;
         }
 
         public void Add(Constants.StatusAilmentType statusAilmentType, float value)
@@ -98,6 +97,16 @@ namespace GL.Scripts.Battle.CharacterControllers
                     Assert.IsTrue(false, string.Format("未対応の値です {0}", statusAilmentType));
                     return 0.0f;
             }
+        }
+
+        public void Reset()
+        {
+            this.Poison = 0.0f;
+            this.Paralysis = 0.0f;
+            this.Sleep = 0.0f;
+            this.Confuse = 0.0f;
+            this.Berserk = 0.0f;
+            this.Vitals = 0.0f;
         }
     }
 }

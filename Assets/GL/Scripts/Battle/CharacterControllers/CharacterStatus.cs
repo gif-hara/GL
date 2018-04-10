@@ -34,5 +34,19 @@ namespace GL.Scripts.Battle.CharacterControllers
             this.Parameter = new Parameter(blueprint);
             this.Resistance = new Resistance(blueprint);
         }
+
+        public void Copy(CharacterStatus other)
+        {
+            this.Name = other.Name;
+            this.Parameter = new Parameter(other.Parameter);
+            this.Resistance = new Resistance(other.Resistance);
+        }
+
+        public void Reset()
+        {
+            this.Name = "";
+            this.Parameter.Reset();
+            this.Resistance.Reset();
+        }
     }
 }

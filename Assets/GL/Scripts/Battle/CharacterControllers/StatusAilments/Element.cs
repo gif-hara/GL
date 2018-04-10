@@ -29,10 +29,16 @@ namespace GL.Scripts.Battle.CharacterControllers.StatusAilments
             this.invokedTurnNumber = BattleManager.Instance.TurnNumber;
         }
 
+        /// <summary>
+        /// ダメージを受けた際の処理
+        /// </summary>
         public virtual void TakeDamage()
         {
         }
 
+        /// <summary>
+        /// ターン終了処理
+        /// </summary>
         public virtual void EndTurn()
         {
             // 発動したターンなら減算しない
@@ -44,13 +50,33 @@ namespace GL.Scripts.Battle.CharacterControllers.StatusAilments
             this.RemainingTurn--;
             if (this.RemainingTurn <= 0)
             {
-                this.controller.Elements.Remove(this);
+                this.controller.Remove(this);
             }
         }
 
+        /// <summary>
+        /// 全体のターン終了処理
+        /// </summary>
+        /// <remarks>
+        /// 全てのキャラクターのターン終了処理時に呼び出されます
+        /// </remarks>
+        public virtual void EndTurnAll()
+        {
+        }
+
+        /// <summary>
+        /// 削除される際の処理
+        /// </summary>
+        public virtual void OnRemove()
+        {
+        }
+
+        /// <summary>
+        /// 強制的に削除する
+        /// </summary>
         protected void ForceRemove()
         {
-            this.controller.Elements.Remove(this);
+            this.controller.Remove(this);
         }
     }
 }

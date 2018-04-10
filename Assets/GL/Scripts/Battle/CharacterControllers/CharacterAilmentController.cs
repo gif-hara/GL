@@ -23,10 +23,13 @@ namespace GL.Scripts.Battle.CharacterControllers
         {
             this.Character = character;
             Broker.Global.Receive<EndTurn>()
-                .Where(x => x.Character == character)
                 .SubscribeWithState(this, (x, _this) =>
                 {
-                    _this.Elements.ForEach(e => e.EndTurn());
+                    if (x.Character == _this.Character)
+                    {
+                        _this.Elements.ForEach(e => e.EndTurn());
+                    }
+                    _this.Elements.ForEach(e => e.EndTurnAll());
                 })
                 .AddTo(this.Character);
         }
@@ -69,6 +72,12 @@ namespace GL.Scripts.Battle.CharacterControllers
         public void TakeDamage()
         {
             this.Elements.ForEach(e => e.TakeDamage());
+        }
+
+        public void Remove(Element item)
+        {
+            this.Elements.Remove(item);
+            item.OnRemove();
         }
     }
 }

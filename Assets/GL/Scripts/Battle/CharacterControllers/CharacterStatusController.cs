@@ -28,6 +28,11 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// アクセサリーによって加算されるステータス
         /// </summary>
         public CharacterStatus Accessory { private set; get; }
+        
+        /// <summary>
+        /// 状態異常の孤軍奮闘によって加算されるステータス
+        /// </summary>
+        public CharacterStatus OnSoldier { private set; get; }
 
         /// <summary>
         /// 使用可能なコマンド
@@ -64,6 +69,7 @@ namespace GL.Scripts.Battle.CharacterControllers
             this.Base = new CharacterStatus(this.Blueprint);
             this.Dynamic = new CharacterStatus();
             this.Accessory = new CharacterStatus();
+            this.OnSoldier = new CharacterStatus();
             this.Commands = this.Blueprint.Commands.Select(x => x.Create()).ToArray();
             this.Wait = 0.0f;
         }
@@ -87,14 +93,16 @@ namespace GL.Scripts.Battle.CharacterControllers
         {
             return this.Base.Parameter.Get(type) +
                    this.Dynamic.Parameter.Get(type) +
-                   this.Accessory.Parameter.Get(type);
+                   this.Accessory.Parameter.Get(type) +
+                   this.OnSoldier.Parameter.Get(type);
         }
 
         public float GetTotalResistance(Constants.StatusAilmentType type)
         {
             return this.Base.Resistance.Get(type) +
                    this.Dynamic.Resistance.Get(type) +
-                   this.Accessory.Resistance.Get(type);
+                   this.Accessory.Resistance.Get(type) +
+                   this.OnSoldier.Resistance.Get(type);
         }
     }
 }
