@@ -1,11 +1,11 @@
 ﻿using System;
-using GL.Scripts.Battle.CharacterControllers.Blueprints;
 using GL.Scripts.Battle.Systems;
 using GL.Scripts.Events.Battle;
 using HK.Framework.EventSystems;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
+using Blueprint = GL.Scripts.Battle.PartyControllers.Blueprint;
 using Random = UnityEngine.Random;
 
 namespace GL.Scripts.Battle.CharacterControllers
@@ -31,9 +31,9 @@ namespace GL.Scripts.Battle.CharacterControllers
 
         private ICharacterAnimation characterAnimation;
 
-        public void Initialize(Blueprint blueprint, Constants.CharacterType characterType)
+        public void Initialize(Blueprint blueprint, int level, Constants.CharacterType characterType)
         {
-            this.StatusController = new CharacterStatusController(blueprint);
+            this.StatusController = new CharacterStatusController(blueprint, level);
             this.AilmentController = new CharacterAilmentController(this);
             this.AccessoryController = new CharacterAccessoryController(blueprint);
             this.CharacterType = characterType;

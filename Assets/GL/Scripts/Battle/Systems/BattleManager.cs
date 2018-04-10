@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using GL.Scripts.Battle.CharacterControllers;
-using GL.Scripts.Battle.CharacterControllers.Party;
 using GL.Scripts.Battle.Commands.Implements;
+using GL.Scripts.Battle.PartyControllers;
 using GL.Scripts.Events.Battle;
 using HK.Framework.EventSystems;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
-using Blueprint = GL.Scripts.Battle.Commands.Blueprints.Blueprint;
 
 namespace GL.Scripts.Battle.Systems
 {
@@ -22,19 +21,19 @@ namespace GL.Scripts.Battle.Systems
         /// 混乱した時のコマンド
         /// </summary>
         [SerializeField]
-        private Blueprint confuseBlueprint;
+        private Commands.Blueprints.Blueprint confuseBlueprint;
 
         /// <summary>
         /// 狂暴した時のコマンド
         /// </summary>
         [SerializeField]
-        private Blueprint berserkBlueprint;
+        private Commands.Blueprints.Blueprint berserkBlueprint;
 
         /// <summary>
         /// 追い打ち時のコマンド
         /// </summary>
         [SerializeField]
-        private Blueprint chaseBlueprint;
+        private Commands.Blueprints.Blueprint chaseBlueprint;
 
         public IImplement ConfuseCommand { get; private set; }
 

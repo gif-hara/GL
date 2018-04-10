@@ -4,7 +4,7 @@ using GL.Scripts.Battle.Weapons;
 using HK.Framework.Text;
 using UnityEngine;
 
-namespace GL.Scripts.Battle.CharacterControllers.Blueprints
+namespace GL.Scripts.Battle.CharacterControllers
 {
     /// <summary>
     /// キャラクターを構成する設計図
@@ -15,9 +15,6 @@ namespace GL.Scripts.Battle.CharacterControllers.Blueprints
         [SerializeField]
         private StringAsset.Finder characterName;
         public string CharacterName { get { return characterName.Get; } }
-        
-        [SerializeField][Range(1.0f, 100.0f)]
-        private int level;
         
         [SerializeField]
         private Job job;
@@ -35,7 +32,10 @@ namespace GL.Scripts.Battle.CharacterControllers.Blueprints
         
         public Commands.Blueprints.Blueprint[] Commands { get { return this.weapon.Commands; } }
 
-        public Parameter Parameter { get { return this.job.EvaluteParameter(this.level); } }
+        public Parameter GetParameter(int level)
+        {
+            return this.job.EvaluteParameter(level);
+        }
 
         public Resistance Resistance { get { return this.job.Resistance; } }
     }

@@ -1,24 +1,25 @@
 ﻿using System.Collections.Generic;
+using GL.Scripts.Battle.CharacterControllers;
 using GL.Scripts.Battle.Systems;
 using UnityEngine.Assertions;
 
-namespace GL.Scripts.Battle.CharacterControllers.Party
+namespace GL.Scripts.Battle.PartyControllers
 {
     /// <summary>
     /// バトルに参加しているパーティ
     /// </summary>
     public sealed class Parties
     {
-        public CharacterControllers.Party.Party Player { private set; get; }
+        public Party Player { private set; get; }
 
-        public CharacterControllers.Party.Party Enemy { private set; get; }
+        public Party Enemy { private set; get; }
 
         /// <summary>
         /// 今回のバトルに参加しているキャラクター全てのリスト
         /// </summary>
         public List<Character> AllMember { private set; get; }
 
-        public Parties(CharacterControllers.Party.Party player, CharacterControllers.Party.Party enemy)
+        public Parties(Party player, Party enemy)
         {
             this.Player = player;
             this.Enemy = enemy;
@@ -30,7 +31,7 @@ namespace GL.Scripts.Battle.CharacterControllers.Party
         /// <summary>
         /// 味方パーティを返す
         /// </summary>
-        public CharacterControllers.Party.Party Ally(Character character)
+        public Party Ally(Character character)
         {
             return character.CharacterType == Constants.CharacterType.Player
                 ? this.Player
@@ -40,7 +41,7 @@ namespace GL.Scripts.Battle.CharacterControllers.Party
         /// <summary>
         /// 敵対しているパーティを返す
         /// </summary>
-        public CharacterControllers.Party.Party Opponent(Character character)
+        public Party Opponent(Character character)
         {
             return character.CharacterType == Constants.CharacterType.Player
                 ? this.Enemy
@@ -50,7 +51,7 @@ namespace GL.Scripts.Battle.CharacterControllers.Party
         /// <summary>
         /// <paramref name="targetPartyType"/>からパーティを返す
         /// </summary>
-        public CharacterControllers.Party.Party GetFromTargetPartyType(Character character, Constants.TargetPartyType targetPartyType)
+        public Party GetFromTargetPartyType(Character character, Constants.TargetPartyType targetPartyType)
         {
             switch (targetPartyType)
             {

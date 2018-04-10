@@ -1,5 +1,5 @@
 ﻿using GL.Scripts.Battle.Accessories;
-using GL.Scripts.Battle.CharacterControllers.Blueprints;
+using Blueprint = GL.Scripts.Battle.PartyControllers.Blueprint;
 
 namespace GL.Scripts.Battle.CharacterControllers
 {

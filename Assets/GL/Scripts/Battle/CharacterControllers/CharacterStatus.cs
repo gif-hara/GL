@@ -1,6 +1,6 @@
 ﻿using System;
-using GL.Scripts.Battle.CharacterControllers.Blueprints;
 using UnityEngine;
+using Blueprint = GL.Scripts.Battle.PartyControllers.Blueprint;
 
 namespace GL.Scripts.Battle.CharacterControllers
 {
@@ -29,10 +29,10 @@ namespace GL.Scripts.Battle.CharacterControllers
             this.Resistance = new Resistance();
         }
 
-        public CharacterStatus(Blueprint blueprint)
+        public CharacterStatus(Blueprint blueprint, int level)
         {
             this.Name = blueprint.CharacterName;
-            this.Parameter = new Parameter(blueprint);
+            this.Parameter = new Parameter(blueprint, level);
             this.Resistance = new Resistance(blueprint);
         }
 

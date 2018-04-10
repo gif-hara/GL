@@ -1545,16 +1545,8 @@ MonoBehaviour:
   enemyParent: {fileID: 62063408}
   playerInterval: {x: 0.2, y: 0, z: -1}
   enemyInterval: {x: -0.2, y: 0, z: -1}
-  players:
-  - {fileID: 11400000, guid: 4a6e30f241289457391019a4f7bdf8e9, type: 2}
-  - {fileID: 11400000, guid: 6f343699e73a04dc98ae79d339dd486b, type: 2}
-  - {fileID: 11400000, guid: 7b68526953b154d83b52b4c4249aa279, type: 2}
-  - {fileID: 11400000, guid: 335880a0c48a4466889186531c41e565, type: 2}
-  enemies:
-  - {fileID: 11400000, guid: 51aa760e2321b414186c19311ff9a376, type: 2}
-  - {fileID: 11400000, guid: 51aa760e2321b414186c19311ff9a376, type: 2}
-  - {fileID: 11400000, guid: 51aa760e2321b414186c19311ff9a376, type: 2}
-  - {fileID: 11400000, guid: 51aa760e2321b414186c19311ff9a376, type: 2}
+  playerParty: {fileID: 11400000, guid: 5c1f1284a4a7f4792a81d565aa170cb7, type: 2}
+  enemyParty: {fileID: 11400000, guid: 4ecdbca0be4b94d2db0b6efeaa383d5c, type: 2}
 --- !u!1 &1856600350
 GameObject:
   m_ObjectHideFlags: 0

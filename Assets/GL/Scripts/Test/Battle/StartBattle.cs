@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
-using System.Collections.Generic;
 using GL.Scripts.Battle.CharacterControllers;
-using GL.Scripts.Battle.CharacterControllers.Blueprints;
-using GL.Scripts.Battle.CharacterControllers.Party;
+using GL.Scripts.Battle.PartyControllers;
 using GL.Scripts.Battle.Systems;
+using Blueprint = GL.Scripts.Battle.PartyControllers.Blueprint;
 
 namespace HK.GL.Test.Battle
 {
@@ -28,56 +27,19 @@ namespace HK.GL.Test.Battle
         private Vector3 enemyInterval;
 
         [SerializeField]
-        private List<Blueprint> players;
+        private Blueprint playerParty;
 
         [SerializeField]
-        private List<Blueprint> enemies;
+        private Blueprint enemyParty;
 
         void Start()
         {
             var parties = new Parties(
-                this.CreateParty(this.players, Constants.CharacterType.Player, this.playerParent, this.playerInterval, -1.0f),
-                this.CreateParty(this.enemies, Constants.CharacterType.Enemy, this.enemyParent, this.enemyInterval, 1.0f)
+                this.playerParty.Create(this.controller, this.playerParent, this.playerInterval, -1.0f),
+                this.enemyParty.Create(this.controller, this.enemyParent, this.enemyInterval, 1.0f)
             );
 
             BattleManager.Instance.Initialize(parties);
-        }
-
-        private Character CreateCharacter(
-            Blueprint blueprint,
-            Constants.CharacterType characterType,
-            Transform parent,
-            Vector3 position,
-            float scaleX
-            )
-        {
-            var result = Instantiate(this.controller, parent);
-            result.transform.localPosition = position;
-            var model = Instantiate(blueprint.Model, result.transform);
-            model.transform.localPosition = Vector3.zero;
-            var scale = model.transform.localScale;
-            scale.x = scaleX;
-            model.transform.localScale = scale;
-            result.Initialize(blueprint, characterType);
-
-            return result;
-        }
-
-        private Party CreateParty(
-            List<Blueprint> blueprint,
-            Constants.CharacterType characterType,
-            Transform parent,
-            Vector3 interval,
-            float scaleX
-            )
-        {
-            var member = new List<Character>();
-            for(int i=0; i<blueprint.Count; i++)
-            {
-                member.Add(this.CreateCharacter(blueprint[i], characterType, parent, interval * i, scaleX));
-            }
-
-            return new Party(member);
         }
     }
 }

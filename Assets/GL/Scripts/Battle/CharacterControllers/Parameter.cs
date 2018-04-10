@@ -1,8 +1,8 @@
 ﻿using System;
-using GL.Scripts.Battle.CharacterControllers.Blueprints;
 using GL.Scripts.Battle.Systems;
 using UnityEngine;
 using UnityEngine.Assertions;
+using Blueprint = GL.Scripts.Battle.PartyControllers.Blueprint;
 
 namespace GL.Scripts.Battle.CharacterControllers
 {
@@ -73,8 +73,8 @@ namespace GL.Scripts.Battle.CharacterControllers
             this.Luck = other.Luck;
         }
 
-        public Parameter(Blueprint blueprint)
-            : this(blueprint.Parameter)
+        public Parameter(Blueprint blueprint, int level)
+            : this(blueprint.GetParameter(level))
         {
         }
 

@@ -1,9 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using GL.Scripts.Battle.CharacterControllers.Blueprints;
+﻿using System.Linq;
 using GL.Scripts.Battle.Commands.Implements;
 using GL.Scripts.Battle.Systems;
-using UnityEngine.Assertions;
 
 namespace GL.Scripts.Battle.CharacterControllers
 {
@@ -55,7 +52,7 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// <summary>
         /// ヒットポイント最大値
         /// </summary>
-        public int HitPointMax { get { return this.Blueprint.Parameter.HitPoint; } }
+        public int HitPointMax { get; private set; }
 
         public int HitPoint { set { this.Base.Parameter.HitPoint = value; } get { return this.Base.Parameter.HitPoint; } }
 
@@ -64,15 +61,16 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// </summary>
         public bool IsDead { get { return this.HitPoint <= 0; } }
 
-        public CharacterStatusController(Blueprint blueprint)
+        public CharacterStatusController(Blueprint blueprint, int level)
         {
             this.Blueprint = blueprint;
-            this.Base = new CharacterStatus(this.Blueprint);
+            this.Base = new CharacterStatus(this.Blueprint, level);
             this.Dynamic = new CharacterStatus();
             this.Accessory = new CharacterStatus();
             this.OnSoldier = new CharacterStatus();
             this.Commands = this.Blueprint.Commands.Select(x => x.Create()).ToArray();
             this.Wait = 0.0f;
+            this.HitPointMax = this.Base.Parameter.HitPoint;
         }
 
         public void AddParameterToDynamic(Constants.StatusParameterType type, int value)

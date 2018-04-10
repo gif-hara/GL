@@ -1,9 +1,9 @@
 ﻿using System;
-using GL.Scripts.Battle.CharacterControllers.Blueprints;
 using GL.Scripts.Battle.Systems;
 using GL.Scripts.Extensions;
 using UnityEngine;
 using UnityEngine.Assertions;
+using Blueprint = GL.Scripts.Battle.PartyControllers.Blueprint;
 
 namespace GL.Scripts.Battle.CharacterControllers
 {
