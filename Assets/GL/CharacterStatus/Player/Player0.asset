@@ -15,9 +15,9 @@ MonoBehaviour:
   status:
     Name: Player0
     Parameter:
-      HitPoint: 100
+      HitPoint: 1000
       Strength: 10
-      Defense: 50
+      Defense: 1
       Sympathy: 10
       Nega: 0
       Speed: 15
@@ -28,9 +28,10 @@ MonoBehaviour:
       Sleep: 0
       Confuse: 0
       Berserk: 0
+      Vitals: 0
   commands:
   - {fileID: 11400000, guid: 9cdf96bed368c40c9afb237d665437d1, type: 2}
   - {fileID: 11400000, guid: c1a29128a524e4b8db163cd5aa262161, type: 2}
   - {fileID: 11400000, guid: d45505cef08c549eda695fde6d2898d1, type: 2}
-  - {fileID: 11400000, guid: 3318a5c5f2c264b868a0200a5cc2ee18, type: 2}
+  - {fileID: 11400000, guid: 7c6c8f41da533429f8f02b20e5165384, type: 2}
   accessories: []
