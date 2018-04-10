@@ -1,0 +1,30 @@
+﻿using UniRx;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace GL.Scripts.Home.UI
+{
+    /// <summary>
+    /// フッターボタンを制御するクラス
+    /// </summary>
+    public sealed class FooterButtonController : MonoBehaviour
+    {
+        [SerializeField]
+        private MainPanelController mainPanelController;
+
+        [SerializeField]
+        private int rootIndex;
+        
+        void Awake()
+        {
+            var button = this.GetComponent<Button>();
+            button.OnClickAsObservable()
+                .Where(_ => button.isActiveAndEnabled)
+                .SubscribeWithState(this, (_, _this) =>
+                {
+                    _this.mainPanelController.ChangeRoot(_this.rootIndex);
+                })
+                .AddTo(this);
+        }
+    }
+}
