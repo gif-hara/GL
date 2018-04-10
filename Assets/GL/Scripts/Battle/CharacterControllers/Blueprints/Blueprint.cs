@@ -4,13 +4,13 @@ using GL.Scripts.Battle.Weapons;
 using HK.Framework.Text;
 using UnityEngine;
 
-namespace GL.Scripts.Battle.CharacterControllers
+namespace GL.Scripts.Battle.CharacterControllers.Blueprints
 {
     /// <summary>
     /// キャラクターを構成する設計図
     /// </summary>
     [CreateAssetMenu(menuName = "GL/CharacterControllers/Blueprint")]
-    public class Blueprint : ScriptableObject
+    public abstract class Blueprint : ScriptableObject
     {
         [SerializeField]
         private StringAsset.Finder characterName;
@@ -23,14 +23,9 @@ namespace GL.Scripts.Battle.CharacterControllers
         private GameObject model;
         public GameObject Model { get { return this.model; } }
 
-        [SerializeField]
-        private Weapon weapon;
+        public abstract Accessory[] Accessories { get; set; }
         
-        [SerializeField]
-        private Accessory[] accessories;
-        public Accessory[] Accessories { get { return accessories; } }
-        
-        public Commands.Blueprints.Blueprint[] Commands { get { return this.weapon.Commands; } }
+        public abstract Commands.Blueprints.Blueprint[] Commands { get; set; }
 
         public Parameter GetParameter(int level)
         {

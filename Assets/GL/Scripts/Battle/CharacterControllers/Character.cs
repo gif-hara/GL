@@ -31,7 +31,7 @@ namespace GL.Scripts.Battle.CharacterControllers
 
         private ICharacterAnimation characterAnimation;
 
-        public void Initialize(Blueprint blueprint, int level, Constants.CharacterType characterType)
+        public void Initialize(Blueprints.Blueprint blueprint, int level, Constants.CharacterType characterType)
         {
             this.StatusController = new CharacterStatusController(blueprint, level);
             this.AilmentController = new CharacterAilmentController(this);

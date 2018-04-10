@@ -8,16 +8,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a6b740a10aeb45eb891f706ac8eaa2b, type: 3}
+  m_Script: {fileID: 11500000, guid: d3c9b6f6af246485f8ed9b049c1573c7, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  characterType: 0
-  elements:
+  parameters:
   - Level: 1
-    Character: {fileID: 11400000, guid: 4a6e30f241289457391019a4f7bdf8e9, type: 2}
+    player: {fileID: 11400000, guid: 8530be6c073d14c658dd63d68982de4c, type: 2}
   - Level: 1
-    Character: {fileID: 11400000, guid: 6f343699e73a04dc98ae79d339dd486b, type: 2}
+    player: {fileID: 11400000, guid: 160bab127a4c24301b0df996b0b01d6e, type: 2}
   - Level: 1
-    Character: {fileID: 11400000, guid: 7b68526953b154d83b52b4c4249aa279, type: 2}
+    player: {fileID: 11400000, guid: 49bc8df8a627449f596f41637fc45cc5, type: 2}
   - Level: 1
-    Character: {fileID: 11400000, guid: 335880a0c48a4466889186531c41e565, type: 2}
+    player: {fileID: 11400000, guid: 13d189e672e224ee1b90c900823e69fb, type: 2}

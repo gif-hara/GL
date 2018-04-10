@@ -73,7 +73,7 @@ namespace GL.Scripts.Battle.CharacterControllers
             this.Luck = other.Luck;
         }
 
-        public Parameter(Blueprint blueprint, int level)
+        public Parameter(Blueprints.Blueprint blueprint, int level)
             : this(blueprint.GetParameter(level))
         {
         }

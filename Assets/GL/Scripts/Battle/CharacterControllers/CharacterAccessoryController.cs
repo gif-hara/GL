@@ -10,7 +10,7 @@ namespace GL.Scripts.Battle.CharacterControllers
     {
         public Accessory[] Accessories { get; private set; }
         
-        public CharacterAccessoryController(Blueprint blueprint)
+        public CharacterAccessoryController(Blueprints.Blueprint blueprint)
         {
             this.Accessories = blueprint.Accessories;
         }

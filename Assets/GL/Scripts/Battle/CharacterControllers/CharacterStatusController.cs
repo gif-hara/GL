@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using GL.Scripts.Battle.CharacterControllers.Blueprints;
 using GL.Scripts.Battle.Commands.Implements;
 using GL.Scripts.Battle.Systems;
 

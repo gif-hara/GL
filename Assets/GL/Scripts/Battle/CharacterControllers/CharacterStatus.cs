@@ -29,7 +29,7 @@ namespace GL.Scripts.Battle.CharacterControllers
             this.Resistance = new Resistance();
         }
 
-        public CharacterStatus(Blueprint blueprint, int level)
+        public CharacterStatus(Blueprints.Blueprint blueprint, int level)
         {
             this.Name = blueprint.CharacterName;
             this.Parameter = new Parameter(blueprint, level);

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using GL.Scripts.Battle.CharacterControllers;
 using GL.Scripts.Battle.Systems;
 using UnityEngine;
@@ -9,23 +8,20 @@ namespace GL.Scripts.Battle.PartyControllers.Blueprints
     /// <summary>
     /// パーティの設計図
     /// </summary>
-    [CreateAssetMenu(menuName = "GL/PartyControllers/Blueprint")]
     public abstract class Blueprint : ScriptableObject
     {
-        [SerializeField]
-        private Constants.CharacterType characterType;
-        
-        [SerializeField]
-        private Element[] elements;
+        protected abstract Constants.CharacterType CharacterType { get; }
+
+        protected abstract BlueprintParameter[] Parameters { get; }
 
         public Party Create(Character controllerPrefab, Transform parent, Vector3 interval, float scaleX)
         {
             var member = new List<Character>();
-            for (int i = 0; i < this.elements.Length; i++)
+            for (int i = 0; i < this.Parameters.Length; i++)
             {
                 var character = this.CreateCharacter(
+                    i,
                     controllerPrefab,
-                    this.elements[i],
                     parent,
                     interval * i,
                     scaleX
@@ -35,20 +31,14 @@ namespace GL.Scripts.Battle.PartyControllers.Blueprints
 
             return new Party(member);
         }
-        
-        private Character CreateCharacter(
+
+        protected abstract Character CreateCharacter(
+            int index,
             Character controllerPrefab,
-            Element element,
             Transform parent,
             Vector3 position,
             float scaleX
-        )
-        {
-            var result = this.InternalCreateCharacter(controllerPrefab, parent, position, element.Character.Model, scaleX);
-            result.Initialize(element.Character, element.Level, characterType);
-
-            return result;
-        }
+        );
 
         protected Character InternalCreateCharacter(Character controllerPrefab, Transform parent, Vector3 position, GameObject modelPrefab, float scaleX)
         {
@@ -61,16 +51,6 @@ namespace GL.Scripts.Battle.PartyControllers.Blueprints
             model.transform.localScale = scale;
 
             return result;
-        }
-        
-        [Serializable]
-        public class Element
-        {
-            [SerializeField][Range(1.0f, 100.0f)]
-            public int Level;
-
-            [SerializeField]
-            public CharacterControllers.Blueprint Character;
         }
     }
 }
