@@ -28,6 +28,8 @@ namespace GL.Scripts.Battle.CharacterControllers.StatusAilments
                     return new Chase(remainingTurn, type, controller);
                 case Constants.StatusAilmentType.Rage:
                     return new Rage(remainingTurn, type, controller);
+                case Constants.StatusAilmentType.Protect:
+                    return new Element(remainingTurn, type, controller);
                 case Constants.StatusAilmentType.Poison:
                     return new Poison(remainingTurn, type, controller);
                 case Constants.StatusAilmentType.Paralysis:

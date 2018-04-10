@@ -30,7 +30,7 @@ namespace GL.Scripts.Battle.Commands.Implements
             
             var targets = BattleManager.Instance.Parties
                 .GetFromTargetPartyType(invoker, this.TargetPartyType)
-                .GetTargets(invoker, this.TargetType, c => c.StatusController.GetTotalParameter(this.parameter.StatusParameterType));
+                .GetTargets(invoker, this.TargetType, c => c.StatusController.GetTotalParameter(this.parameter.StatusParameterType), false);
             
             // 対象全てが死亡していた場合は何もしない
             if (targets.Find(t => !t.StatusController.IsDead) == null)

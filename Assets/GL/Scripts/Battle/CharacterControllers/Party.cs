@@ -44,9 +44,17 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// <param name="invoker">ターゲットを選択するキャラクター</param>
         /// <param name="type">ターゲットしたいタイプ</param>
         /// <param name="selector">ターゲットする際の抽選方法</param>
-        public List<Character> GetTargets(Character invoker, Constants.TargetType type, Func<Character, int> selector)
+        /// <param name="takeDamage">ダメージを伴う行動を行うか</param>
+        public List<Character> GetTargets(Character invoker, Constants.TargetType type, Func<Character, int> selector, bool takeDamage)
         {
             var targets = this.SurvivalMembers;
+            var protectCharacters = targets.FindAll(c => c.AilmentController.Find(Constants.StatusAilmentType.Protect));
+            var canProtect = takeDamage && protectCharacters.Count > 0;
+            Character protectCharacter = null;
+            if (canProtect)
+            {
+                protectCharacter = protectCharacters[UnityEngine.Random.Range(0, protectCharacters.Count)];
+            }
             
             // 鎌鼬化の場合は全体化する
             if (invoker.AilmentController.Find(Constants.StatusAilmentType.Sickle))
@@ -58,16 +66,43 @@ namespace GL.Scripts.Battle.CharacterControllers
             switch(type)
             {
                 case Constants.TargetType.Strong:
-                    result.Add(targets.FindMax(selector));
+                    var findMax = targets.FindMax(selector);
+                    if (canProtect && findMax != protectCharacter)
+                    {
+                        result.Add(protectCharacter);
+                        // TODO: 庇う発動したことを通知する
+                    }
+                    else
+                    {
+                        result.Add(findMax);
+                    }
                     break;
                 case Constants.TargetType.Weak:
-                    result.Add(targets.FindMin(selector));
+                    var findMin = targets.FindMin(selector);
+                    if (canProtect && findMin != protectCharacter)
+                    {
+                        result.Add(protectCharacter);
+                        // TODO: 庇う発動したことを通知する
+                    }
+                    else
+                    {
+                        result.Add(findMin);
+                    }
                     break;
                 case Constants.TargetType.All:
                     result.AddRange(targets);
                     break;
                 case Constants.TargetType.Random:
-                    result.Add(targets[UnityEngine.Random.Range(0, targets.Count)]);
+                    var random = targets[UnityEngine.Random.Range(0, targets.Count)];
+                    if (canProtect && random != protectCharacter)
+                    {
+                        result.Add(protectCharacter);
+                        // TODO: 庇う発動したことを通知する
+                    }
+                    else
+                    {
+                        result.Add(random);
+                    }
                     break;
                 case Constants.TargetType.Myself:
                     result.Add(invoker);
