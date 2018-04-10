@@ -248,5 +248,9 @@
         }
 
         public const int TurnSimulationNumber = 10;
+
+        public const int LevelMin = 1;
+        
+        public const int LevelMax = 100;
     }
 }
