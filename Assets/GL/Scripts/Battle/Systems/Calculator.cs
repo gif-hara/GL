@@ -21,7 +21,7 @@ namespace GL.Scripts.Battle.Systems
             var result = baseStrength - baseDefense;
 
             // クリティカルが発生したら1.5倍
-            if (LotteryCritical(invoker))
+            if (LotteryCritical(invoker, target))
             {
                 result *= 1.5f;
             }
@@ -56,8 +56,14 @@ namespace GL.Scripts.Battle.Systems
         /// <summary>
         /// クリティカルが発生したか返す
         /// </summary>
-        public static bool LotteryCritical(Character invoker)
+        public static bool LotteryCritical(Character invoker, Character target)
         {
+            // 対象が急所持ちなら必ずクリティカルが発生する
+            if (target.AilmentController.Find(Constants.StatusAilmentType.Vitals))
+            {
+                return true;
+            }
+            
             var luck = invoker.StatusController.GetTotalParameter(Constants.StatusParameterType.Luck) / 255.0f;
             return Random.value <= luck;
         }

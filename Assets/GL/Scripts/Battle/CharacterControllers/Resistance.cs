@@ -24,6 +24,9 @@ namespace GL.Scripts.Battle.CharacterControllers
         [SerializeField]
         public float Berserk;
 
+        [SerializeField]
+        public float Vitals;
+
         public Resistance()
         {
             this.Poison = 0.0f;
@@ -31,15 +34,18 @@ namespace GL.Scripts.Battle.CharacterControllers
             this.Sleep = 0.0f;
             this.Confuse = 0.0f;
             this.Berserk = 0.0f;
+            this.Vitals = 0.0f;
         }
 
         public Resistance(Blueprint blueprint)
         {
-            this.Poison = blueprint.Status.Resistance.Poison;
-            this.Paralysis = blueprint.Status.Resistance.Paralysis;
-            this.Sleep = blueprint.Status.Resistance.Sleep;
-            this.Confuse = blueprint.Status.Resistance.Confuse;
-            this.Berserk = blueprint.Status.Resistance.Berserk;
+            var r = blueprint.Status.Resistance;
+            this.Poison = r.Poison;
+            this.Paralysis = r.Paralysis;
+            this.Sleep = r.Sleep;
+            this.Confuse = r.Confuse;
+            this.Berserk = r.Berserk;
+            this.Vitals = r.Vitals;
         }
 
         public void Add(Constants.StatusAilmentType statusAilmentType, float value)
@@ -62,6 +68,9 @@ namespace GL.Scripts.Battle.CharacterControllers
                 case Constants.StatusAilmentType.Berserk:
                     this.Berserk += value;
                     break;
+                case Constants.StatusAilmentType.Vitals:
+                    this.Vitals += value;
+                    break;
                 default:
                     Assert.IsTrue(false, string.Format("未対応の値です {0}", statusAilmentType));
                     break;
@@ -83,6 +92,8 @@ namespace GL.Scripts.Battle.CharacterControllers
                     return this.Confuse;
                 case Constants.StatusAilmentType.Berserk:
                     return this.Berserk;
+                case Constants.StatusAilmentType.Vitals:
+                    return this.Vitals;
                 default:
                     Assert.IsTrue(false, string.Format("未対応の値です {0}", statusAilmentType));
                     return 0.0f;

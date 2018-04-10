@@ -30,6 +30,8 @@ namespace GL.Scripts.Battle.CharacterControllers.StatusAilments
                     return new Element(remainingTurn, type, controller);
                 case Constants.StatusAilmentType.Berserk:
                     return new Element(remainingTurn, type, controller);
+                case Constants.StatusAilmentType.Vitals:
+                    return new Vitals(remainingTurn, type, controller);
                 default:
                     Assert.IsTrue(false, string.Format("未対応の値です {0}", type));
                     return new Element(remainingTurn, type, controller);
