@@ -12,7 +12,5 @@ namespace GL.Scripts.Battle.Commands.Implements
         public Constants.TargetPartyType TargetPartyType;
 
         public Constants.TargetType TargetType;
-
-        public Constants.CommandType CommandType;
     }
 }

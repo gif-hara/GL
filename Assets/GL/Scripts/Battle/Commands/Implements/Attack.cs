@@ -14,6 +14,8 @@ namespace GL.Scripts.Battle.Commands.Implements
         {
         }
 
+        public override Constants.CommandType CommandType { get { return Constants.CommandType.Attack; } }
+
         public override void Invoke(Character invoker)
         {
             invoker.StartAttack(() =>

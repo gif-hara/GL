@@ -14,6 +14,16 @@ namespace GL.Scripts.Battle.Commands.Implements
         {
         }
 
+        public override Constants.CommandType CommandType
+        {
+            get
+            {
+                return this.parameter.Rate > 0.0f
+                    ? Constants.CommandType.ParameterUp
+                    : Constants.CommandType.ParameterDown;
+            }
+        }
+
         public override void Invoke(Character invoker)
         {
             invoker.StartAttack(() =>

@@ -16,7 +16,7 @@ namespace GL.Scripts.Battle.Commands.Implements
         
         public Constants.TargetType TargetType { get { return this.parameter.TargetType; } }
 
-        public Constants.CommandType CommandType { get { return this.parameter.CommandType; } }
+        public abstract Constants.CommandType CommandType { get; }
 
         protected Implement(T parameter)
         {

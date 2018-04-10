@@ -1,6 +1,7 @@
 ﻿using System;
 using GL.Scripts.Battle.CharacterControllers;
 using GL.Scripts.Battle.Systems;
+using GL.Scripts.Extensions;
 using Random = UnityEngine.Random;
 
 namespace GL.Scripts.Battle.Commands.Implements
@@ -13,6 +14,16 @@ namespace GL.Scripts.Battle.Commands.Implements
         public AddStatusAilment(Parameter parameter)
             : base(parameter)
         {
+        }
+
+        public override Constants.CommandType CommandType
+        {
+            get
+            {
+                return this.parameter.StatusAilmentType.IsPositive()
+                        ? Constants.CommandType.Buff
+                        : Constants.CommandType.Debuff;
+            }
         }
 
         public override void Invoke(Character invoker)
