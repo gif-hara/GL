@@ -209,5 +209,13 @@ namespace GL.Scripts.Battle.Systems
             var result = statusController.Base.Parameter.Strength / 10;
             return result < 1 ? 1 : result;
         }
+
+        /// <summary>
+        /// 回復コマンドの回復量を返す
+        /// </summary>
+        public static int GetRecoveryAmount(Character invoker, float rate)
+        {
+            return Mathf.FloorToInt(invoker.StatusController.GetTotalParameter(Constants.StatusParameterType.Sympathy) * rate);
+        }
     }
 }

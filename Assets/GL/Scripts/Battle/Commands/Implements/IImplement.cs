@@ -27,6 +27,11 @@ namespace GL.Scripts.Battle.Commands.Implements
         Constants.TargetType TargetType { get; }
         
         /// <summary>
+        /// 対象の検索対象となるパラメータタイプ
+        /// </summary>
+        Constants.StatusParameterType TargetStatusParameterType { get; }
+
+        /// <summary>
         /// コマンドタイプ
         /// </summary>
         Constants.CommandType CommandType { get; }

@@ -18,6 +18,7 @@ MonoBehaviour:
       guid: 70e1b7b5-5a51-4014-a548-250ec6986494
     TargetPartyType: 0
     TargetType: 0
-    CommandType: 4
+    TargetStatusParameterType: 2
+    Postprocess: 0
     StatusParameterType: 2
     Rate: 1

@@ -13,6 +13,8 @@ namespace GL.Scripts.Battle.Commands.Implements
 
         public Constants.TargetType TargetType;
 
+        public Constants.StatusParameterType TargetStatusParameterType;
+
         public Constants.PostprocessCommand Postprocess;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using GL.Scripts.Battle.CharacterControllers;
 using GL.Scripts.Battle.Systems;
 using GL.Scripts.Events.Battle;
@@ -19,6 +20,8 @@ namespace GL.Scripts.Battle.Commands.Implements
         public Constants.TargetPartyType TargetPartyType { get { return this.parameter.TargetPartyType; } }
         
         public Constants.TargetType TargetType { get { return this.parameter.TargetType; } }
+        
+        public Constants.StatusParameterType TargetStatusParameterType { get { return this.parameter.TargetStatusParameterType; } }
 
         public abstract Constants.CommandType CommandType { get; }
 
@@ -41,6 +44,16 @@ namespace GL.Scripts.Battle.Commands.Implements
         protected bool CanRecord
         {
             get { return this.parameter.Postprocess == Constants.PostprocessCommand.EndTurn; }
+        }
+
+        /// <summary>
+        /// ターゲットリストを返す
+        /// </summary>
+        protected List<Character> GetTargets(Character invoker, bool takeDamage)
+        {
+            return BattleManager.Instance.Parties
+                .GetFromTargetPartyType(invoker, this.TargetPartyType)
+                .GetTargets(invoker, this.TargetType, c => c.StatusController.GetTotalParameter(this.TargetStatusParameterType), takeDamage);
         }
 
         public Action Postprocess(Character invoker)
