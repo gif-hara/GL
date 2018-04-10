@@ -15,7 +15,7 @@ MonoBehaviour:
   status:
     Name: Player3
     Parameter:
-      HitPoint: 1000
+      HitPoint: 1
       Strength: 10
       Defense: 1
       Sympathy: 10

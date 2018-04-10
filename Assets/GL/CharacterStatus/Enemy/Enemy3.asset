@@ -30,5 +30,5 @@ MonoBehaviour:
       Berserk: 0
       Vitals: 0
   commands:
-  - {fileID: 11400000, guid: 9cdf96bed368c40c9afb237d665437d1, type: 2}
+  - {fileID: 11400000, guid: d45505cef08c549eda695fde6d2898d1, type: 2}
   accessories: []

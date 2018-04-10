@@ -120,3 +120,7 @@ MonoBehaviour:
       ja: "\u30CA\u30AB\u30DE\u307F\u3093\u306A\u518D\u751F\u306B\u3059\u308B"
       en: 
     guid: b4c8845a-ee7b-4024-9bf3-05008fdef48d
+  - value:
+      ja: "\u30CA\u30AB\u30DE\u307F\u3093\u306A\u5B64\u8ECD\u596E\u95D8\u306B\u3059\u308B"
+      en: 
+    guid: 6e100737-343e-4f10-884d-ec142b2f8ea9
