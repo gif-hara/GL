@@ -2,7 +2,7 @@
 using GL.Scripts.Battle.CharacterControllers;
 using GL.Scripts.Battle.PartyControllers;
 using GL.Scripts.Battle.Systems;
-using Blueprint = GL.Scripts.Battle.PartyControllers.Blueprint;
+using Blueprint = GL.Scripts.Battle.PartyControllers.Blueprints.Blueprint;
 
 namespace HK.GL.Test.Battle
 {

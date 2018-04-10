@@ -4,13 +4,13 @@ using GL.Scripts.Battle.CharacterControllers;
 using GL.Scripts.Battle.Systems;
 using UnityEngine;
 
-namespace GL.Scripts.Battle.PartyControllers
+namespace GL.Scripts.Battle.PartyControllers.Blueprints
 {
     /// <summary>
     /// パーティの設計図
     /// </summary>
     [CreateAssetMenu(menuName = "GL/PartyControllers/Blueprint")]
-    public sealed class Blueprint : ScriptableObject
+    public abstract class Blueprint : ScriptableObject
     {
         [SerializeField]
         private Constants.CharacterType characterType;
@@ -44,14 +44,21 @@ namespace GL.Scripts.Battle.PartyControllers
             float scaleX
         )
         {
+            var result = this.InternalCreateCharacter(controllerPrefab, parent, position, element.Character.Model, scaleX);
+            result.Initialize(element.Character, element.Level, characterType);
+
+            return result;
+        }
+
+        protected Character InternalCreateCharacter(Character controllerPrefab, Transform parent, Vector3 position, GameObject modelPrefab, float scaleX)
+        {
             var result = Instantiate(controllerPrefab, parent);
             result.transform.localPosition = position;
-            var model = Instantiate(element.Character.Model, result.transform);
+            var model = Instantiate(modelPrefab, result.transform);
             model.transform.localPosition = Vector3.zero;
             var scale = model.transform.localScale;
             scale.x = scaleX;
             model.transform.localScale = scale;
-            result.Initialize(element.Character, element.Level, characterType);
 
             return result;
         }
