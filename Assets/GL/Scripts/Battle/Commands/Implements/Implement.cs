@@ -22,7 +22,10 @@ namespace GL.Scripts.Battle.Commands.Implements
         {
             this.parameter = parameter;
         }
-        
-        public abstract void Invoke(Character invoker);
+
+        public virtual void Invoke(Character invoker)
+        {
+            BattleManager.Instance.InvokedCommandResult.InvokedCommand = this;
+        }
     }
 }

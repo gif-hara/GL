@@ -26,13 +26,18 @@ namespace GL.Scripts.Battle.Commands.Implements
 
         public override void Invoke(Character invoker)
         {
+            base.Invoke(invoker);
             invoker.StartAttack(() =>
             {
                 var targets = BattleManager.Instance.Parties
                     .GetFromTargetPartyType(invoker, this.TargetPartyType)
                     .GetTargets(invoker, this.TargetType, c => c.StatusController.GetTotalParameter(this.parameter.StatusParameterType));
                 var value = Calculator.GetAddStatusParameterValue(this.parameter.StatusParameterType, invoker.StatusController, this.parameter.Rate);
-                targets.ForEach(t => t.StatusController.AddParameterToDynamic(this.parameter.StatusParameterType, value));
+                targets.ForEach(t =>
+                {
+                    t.StatusController.AddParameterToDynamic(this.parameter.StatusParameterType, value);
+                    BattleManager.Instance.InvokedCommandResult.AddParameters.Add(new InvokedCommandResult.AddParameter(t, this.parameter.StatusParameterType, value));
+                });
             });
         }
 

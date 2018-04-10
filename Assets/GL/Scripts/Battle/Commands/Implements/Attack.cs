@@ -18,12 +18,18 @@ namespace GL.Scripts.Battle.Commands.Implements
 
         public override void Invoke(Character invoker)
         {
+            base.Invoke(invoker);
             invoker.StartAttack(() =>
             {
                 var targets = BattleManager.Instance.Parties
                     .GetFromTargetPartyType(invoker, this.TargetPartyType)
                     .GetTargets(invoker, this.TargetType, c => c.StatusController.GetTotalParameter(Constants.StatusParameterType.HitPoint));
-                targets.ForEach(t => t.TakeDamage(Calculator.GetBasicAttackDamage(invoker, t, this.parameter.Rate)));
+                targets.ForEach(t =>
+                {
+                    var damage = Calculator.GetBasicAttackDamage(invoker, t, this.parameter.Rate);
+                    t.TakeDamage(damage);
+                    BattleManager.Instance.InvokedCommandResult.TakeDamages.Add(new InvokedCommandResult.TakeDamage(t, damage));
+                });
             });
         }
 

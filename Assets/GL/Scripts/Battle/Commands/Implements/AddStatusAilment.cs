@@ -28,6 +28,7 @@ namespace GL.Scripts.Battle.Commands.Implements
 
         public override void Invoke(Character invoker)
         {
+            base.Invoke(invoker);
             invoker.StartAttack(() =>
             {
                 var targets = BattleManager.Instance.Parties
@@ -37,7 +38,11 @@ namespace GL.Scripts.Battle.Commands.Implements
                 {
                     if (Calculator.LotteryStatusAilment(t.StatusController, this.parameter.StatusAilmentType, this.parameter.Rate))
                     {
-                        t.AilmentController.Add(this.RemainingTurn, this.parameter.StatusAilmentType);
+                        var success = t.AilmentController.Add(this.RemainingTurn, this.parameter.StatusAilmentType);
+                        if (success)
+                        {
+                            BattleManager.Instance.InvokedCommandResult.AddAilments.Add(new InvokedCommandResult.AddAilment(t, this.parameter.StatusAilmentType));
+                        }
                     }
                 });
             });

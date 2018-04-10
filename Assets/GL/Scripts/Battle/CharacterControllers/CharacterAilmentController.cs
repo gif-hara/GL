@@ -40,14 +40,15 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// <remarks>
         /// すでにかかっている場合は何もしない
         /// </remarks>
-        public void Add(int remainingTurn, Constants.StatusAilmentType type)
+        public bool Add(int remainingTurn, Constants.StatusAilmentType type)
         {
             if (this.Find(type))
             {
-                return;
+                return false;
             }
             
             this.Elements.Add(Factory.Create(remainingTurn, type, this));
+            return true;
         }
         
         /// <summary>

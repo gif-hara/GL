@@ -45,6 +45,8 @@ namespace GL.Scripts.Battle.Systems
 
         public int TurnNumber { get; private set; }
 
+        public readonly InvokedCommandResult InvokedCommandResult = new InvokedCommandResult();
+
         void Awake()
         {
             Assert.IsNull(Instance);
@@ -75,8 +77,19 @@ namespace GL.Scripts.Battle.Systems
                 })
                 .AddTo(this);
 
+            Broker.Global.Receive<EndTurn>()
+                .SubscribeWithState(this, (_, _this) =>
+                {
+                    Debug.Log(_this.InvokedCommandResult.ToString());
+                })
+                .AddTo(this);
+
             Broker.Global.Receive<NextTurn>()
-                .SubscribeWithState(this, (_, _this) => _this.TurnNumber++)
+                .SubscribeWithState(this, (_, _this) =>
+                {
+                    _this.TurnNumber++;
+                    _this.InvokedCommandResult.Reset();
+                })
                 .AddTo(this);
         }
 
