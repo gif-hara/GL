@@ -35,11 +35,9 @@ namespace GL.Scripts.Battle.Systems
         [SerializeField]
         private Blueprint chaseBlueprint;
 
-        private IImplement confuseCommand;
-        public IImplement ConfuseCommand { get { return confuseCommand; } }
+        public IImplement ConfuseCommand { get; private set; }
 
-        private IImplement berserkCommand;
-        public IImplement BerserkCommand { get { return berserkCommand; } }
+        public IImplement BerserkCommand { get; private set; }
 
         public IImplement ChaseCommand { get; private set; }
 
@@ -60,8 +58,8 @@ namespace GL.Scripts.Battle.Systems
             Assert.IsNull(Instance);
             Instance = this;
 
-            this.confuseCommand = this.confuseBlueprint.Create();
-            this.berserkCommand = this.berserkBlueprint.Create();
+            this.ConfuseCommand = this.confuseBlueprint.Create();
+            this.BerserkCommand = this.berserkBlueprint.Create();
             this.ChaseCommand = this.chaseBlueprint.Create();
 
             this.BehavioralOrder = this.GetComponent<BehavioralOrderController>();
