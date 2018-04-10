@@ -1,4 +1,5 @@
 ﻿using System;
+using GL.Scripts.Battle.CharacterControllers.Blueprints;
 using GL.Scripts.Battle.Systems;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -73,7 +74,7 @@ namespace GL.Scripts.Battle.CharacterControllers
         }
 
         public Parameter(Blueprint blueprint)
-            : this(blueprint.Status.Parameter)
+            : this(blueprint.Parameter)
         {
         }
 

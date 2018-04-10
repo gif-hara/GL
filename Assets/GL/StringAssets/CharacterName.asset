@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c932cb5455f464b288e33eb7fa54f213, type: 3}
+  m_Name: CharacterName
+  m_EditorClassIdentifier: 
+  database:
+  - value:
+      ja: Player0
+      en: 
+    guid: 800ed63b-e471-4163-bc5b-746d59193d1c
+  - value:
+      ja: Player1
+      en: 
+    guid: c8237642-929d-448a-9d4c-5bf5b7aaf19c
+  - value:
+      ja: Player2
+      en: 
+    guid: 7c180cee-4395-4e61-9115-ed4d66d53188
+  - value:
+      ja: Player3
+      en: 
+    guid: dcc6b3d3-41e3-49f3-9d71-031de04dddcc
+  - value:
+      ja: Enemy0
+      en: 
+    guid: 6c37b961-43ed-4a2c-97da-e4451d4330b0
+  - value:
+      ja: Enemy1
+      en: 
+    guid: 4983380f-6ee5-4732-8241-d8f2940fb547
+  - value:
+      ja: Enemy2
+      en: 
+    guid: d09db53a-ac9c-4a7a-88dc-da5d57e94569
+  - value:
+      ja: Enemy3
+      en: 
+    guid: d96a6b5c-de9e-4e33-8707-c918b344a5dc

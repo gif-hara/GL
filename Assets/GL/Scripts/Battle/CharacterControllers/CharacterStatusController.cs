@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using GL.Scripts.Battle.CharacterControllers.Blueprints;
 using GL.Scripts.Battle.Commands.Implements;
 using GL.Scripts.Battle.Systems;
 using UnityEngine.Assertions;
@@ -54,7 +55,7 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// <summary>
         /// ヒットポイント最大値
         /// </summary>
-        public int HitPointMax { get { return this.Blueprint.Status.Parameter.HitPoint; } }
+        public int HitPointMax { get { return this.Blueprint.Parameter.HitPoint; } }
 
         public int HitPoint { set { this.Base.Parameter.HitPoint = value; } get { return this.Base.Parameter.HitPoint; } }
 

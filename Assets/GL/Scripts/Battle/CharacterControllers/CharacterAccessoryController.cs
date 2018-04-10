@@ -1,4 +1,5 @@
 ﻿using GL.Scripts.Battle.Accessories;
+using GL.Scripts.Battle.CharacterControllers.Blueprints;
 
 namespace GL.Scripts.Battle.CharacterControllers
 {

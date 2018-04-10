@@ -1,4 +1,5 @@
 ﻿using System;
+using GL.Scripts.Battle.CharacterControllers.Blueprints;
 using GL.Scripts.Battle.Systems;
 using GL.Scripts.Extensions;
 using UnityEngine;
@@ -43,7 +44,7 @@ namespace GL.Scripts.Battle.CharacterControllers
         }
 
         public Resistance(Blueprint blueprint)
-            : this(blueprint.Status.Resistance)
+            : this(blueprint.Resistance)
         {
         }
 
