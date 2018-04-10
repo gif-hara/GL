@@ -2,23 +2,23 @@
 using GL.Scripts.Battle.Systems;
 using UnityEngine.Assertions;
 
-namespace GL.Scripts.Battle.CharacterControllers
+namespace GL.Scripts.Battle.CharacterControllers.Party
 {
     /// <summary>
     /// バトルに参加しているパーティ
     /// </summary>
     public sealed class Parties
     {
-        public Party Player { private set; get; }
+        public CharacterControllers.Party.Party Player { private set; get; }
 
-        public Party Enemy { private set; get; }
+        public CharacterControllers.Party.Party Enemy { private set; get; }
 
         /// <summary>
         /// 今回のバトルに参加しているキャラクター全てのリスト
         /// </summary>
         public List<Character> AllMember { private set; get; }
 
-        public Parties(Party player, Party enemy)
+        public Parties(CharacterControllers.Party.Party player, CharacterControllers.Party.Party enemy)
         {
             this.Player = player;
             this.Enemy = enemy;
@@ -30,7 +30,7 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// <summary>
         /// 味方パーティを返す
         /// </summary>
-        public Party Ally(Character character)
+        public CharacterControllers.Party.Party Ally(Character character)
         {
             return character.CharacterType == Constants.CharacterType.Player
                 ? this.Player
@@ -40,7 +40,7 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// <summary>
         /// 敵対しているパーティを返す
         /// </summary>
-        public Party Opponent(Character character)
+        public CharacterControllers.Party.Party Opponent(Character character)
         {
             return character.CharacterType == Constants.CharacterType.Player
                 ? this.Enemy
@@ -50,7 +50,7 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// <summary>
         /// <paramref name="targetPartyType"/>からパーティを返す
         /// </summary>
-        public Party GetFromTargetPartyType(Character character, Constants.TargetPartyType targetPartyType)
+        public CharacterControllers.Party.Party GetFromTargetPartyType(Character character, Constants.TargetPartyType targetPartyType)
         {
             switch (targetPartyType)
             {

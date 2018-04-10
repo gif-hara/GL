@@ -5,7 +5,7 @@ using GL.Scripts.Battle.Systems;
 using HK.GL.Extensions;
 using UnityEngine.Assertions;
 
-namespace GL.Scripts.Battle.CharacterControllers
+namespace GL.Scripts.Battle.CharacterControllers.Party
 {
     /// <summary>
     /// パーティを管理するヤーツ.

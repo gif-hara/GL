@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using GL.Scripts.Battle.CharacterControllers;
+using GL.Scripts.Battle.CharacterControllers.Party;
 using GL.Scripts.Battle.Commands.Implements;
 using GL.Scripts.Events.Battle;
 using HK.Framework.EventSystems;
