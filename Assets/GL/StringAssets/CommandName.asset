@@ -116,3 +116,7 @@ MonoBehaviour:
       ja: "\u30E4\u30C4\u3089\u307F\u3093\u306A\u6025\u6240\u306B\u3059\u308B"
       en: 
     guid: 8c05396a-fca2-42ad-ad57-f36ca476550e
+  - value:
+      ja: "\u30CA\u30AB\u30DE\u307F\u3093\u306A\u518D\u751F\u306B\u3059\u308B"
+      en: 
+    guid: b4c8845a-ee7b-4024-9bf3-05008fdef48d
