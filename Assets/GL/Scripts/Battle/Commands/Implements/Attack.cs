@@ -30,7 +30,7 @@ namespace GL.Scripts.Battle.Commands.Implements
                     t.TakeDamage(damage);
                     BattleManager.Instance.InvokedCommandResult.TakeDamages.Add(new InvokedCommandResult.TakeDamage(t, damage));
                 });
-            });
+            }, this.parameter.OnEndTurn);
         }
 
         [Serializable]

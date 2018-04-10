@@ -18,4 +18,5 @@ MonoBehaviour:
       guid: 23dcfa59-6a51-4528-ab87-3a27f011158e
     TargetPartyType: 0
     TargetType: 3
+    OnEndTurn: 1
     Rate: 0.9

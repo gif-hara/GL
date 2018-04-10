@@ -38,7 +38,7 @@ namespace GL.Scripts.Battle.Commands.Implements
                     t.StatusController.AddParameterToDynamic(this.parameter.StatusParameterType, value);
                     BattleManager.Instance.InvokedCommandResult.AddParameters.Add(new InvokedCommandResult.AddParameter(t, this.parameter.StatusParameterType, value));
                 });
-            });
+            }, this.parameter.OnEndTurn);
         }
 
         [Serializable]

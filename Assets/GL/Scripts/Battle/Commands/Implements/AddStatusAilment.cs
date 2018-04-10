@@ -45,7 +45,7 @@ namespace GL.Scripts.Battle.Commands.Implements
                         }
                     }
                 });
-            });
+            }, this.parameter.OnEndTurn);
         }
 
         private int RemainingTurn
