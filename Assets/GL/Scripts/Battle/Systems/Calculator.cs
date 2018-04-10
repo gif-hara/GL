@@ -19,6 +19,12 @@ namespace GL.Scripts.Battle.Systems
             var baseStrength = Mathf.Pow(invoker.StatusController.GetTotalParameter(Constants.StatusParameterType.Strength), 2) * rate;
             var baseDefense = Mathf.Pow(target.StatusController.GetTotalParameter(Constants.StatusParameterType.Defense), 2);
             var result = baseStrength - baseDefense;
+
+            // クリティカルが発生したら1.5倍
+            if (LotteryCritical(invoker))
+            {
+                result *= 1.5f;
+            }
             
             // 攻撃者が鬼神化の場合は1.5倍
             if (invoker.AilmentController.Find(Constants.StatusAilmentType.Demonization))
@@ -45,6 +51,15 @@ namespace GL.Scripts.Battle.Systems
             }
             
             return result < 1 ? 1 : Mathf.FloorToInt(result);
+        }
+
+        /// <summary>
+        /// クリティカルが発生したか返す
+        /// </summary>
+        public static bool LotteryCritical(Character invoker)
+        {
+            var luck = invoker.StatusController.GetTotalParameter(Constants.StatusParameterType.Luck) / 255.0f;
+            return Random.value <= luck;
         }
 
         /// <summary>
