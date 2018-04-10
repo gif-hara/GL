@@ -76,9 +76,10 @@ namespace GL.Scripts.Battle.CharacterControllers
                     {
                         if (_this.CharacterType == Constants.CharacterType.Enemy)
                         {
+                            // TODO: AI実装
                             var commands = _this.StatusController.Commands;
                             var command = commands[Random.Range(0, commands.Length)];
-                            command.Invoke(_this);
+                            Broker.Global.Publish(InvokeCommand.Get(_this, command));
                         }
                     }
                 })
