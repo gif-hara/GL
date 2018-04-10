@@ -15,18 +15,20 @@ MonoBehaviour:
   status:
     Name: Enemy0
     Parameter:
-      HitPoint: 100
+      HitPoint: 500
       Strength: 10
       Defense: 5
       Sympathy: 1
       Nega: 0
       Speed: 10
+      Luck: 0
     Resistance:
       Poison: 0
       Paralysis: 0
       Sleep: 0
       Confuse: 0
       Berserk: 0
+      Vitals: 0
   commands:
-  - {fileID: 11400000, guid: c2bb3642f932443da8ec31ad07e8fd35, type: 2}
+  - {fileID: 11400000, guid: 2a443860f418544c98d8f2a418e2dcb2, type: 2}
   accessories: []
