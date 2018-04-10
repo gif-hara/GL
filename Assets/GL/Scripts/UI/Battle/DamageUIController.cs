@@ -19,7 +19,17 @@ namespace HK.GL.UI.Battle
             Destroy(this.gameObject, this.destroyDelay);
         }
 
-        public void SetProperty(Transform target, int value, RectTransform canvasTransform, Camera uiCamera, Camera worldCamera)
+        public void AsDamage(Transform target, int value, RectTransform canvasTransform, Camera uiCamera, Camera worldCamera)
+        {
+            this.text.text = value.ToString();
+
+            Vector2 localPoint;
+            var screenPosition = RectTransformUtility.WorldToScreenPoint(worldCamera, target.position);
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasTransform, screenPosition, uiCamera, out localPoint);
+            this.transform.localPosition = localPoint;
+        }
+        
+        public void AsRecovery(Transform target, int value, RectTransform canvasTransform, Camera uiCamera, Camera worldCamera)
         {
             this.text.text = value.ToString();
 

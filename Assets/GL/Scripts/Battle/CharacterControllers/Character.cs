@@ -121,6 +121,17 @@ namespace GL.Scripts.Battle.CharacterControllers
             }
         }
 
+        /// <summary>
+        /// 回復する
+        /// </summary>
+        public void Recovery(int amount)
+        {
+            var hp = this.StatusController.HitPoint;
+            hp = Mathf.Min(hp + amount, this.StatusController.HitPointMax);
+            this.StatusController.HitPoint = hp;
+            Broker.Global.Publish(RecoveryNotify.Get(this, amount));
+        }
+
         private void InternalEndTurn()
         {
             BattleManager.Instance.EndTurn(this);

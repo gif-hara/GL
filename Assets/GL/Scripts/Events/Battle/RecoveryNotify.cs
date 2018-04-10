@@ -4,17 +4,17 @@ using HK.Framework.EventSystems;
 namespace GL.Scripts.Events.Battle
 {
     /// <summary>
-    /// ダメージを通知するイベント
+    /// 回復を通知するイベント
     /// </summary>
-    public sealed class DamageNotify : Message<DamageNotify, Character, int>
+    public sealed class RecoveryNotify : Message<RecoveryNotify, Character, int>
     {
         /// <summary>
-        /// ダメージを受けたキャラクター
+        /// 回復したキャラクター
         /// </summary>
         public Character Receiver { get { return this.param1; } }
 
         /// <summary>
-        /// ダメージ量
+        /// 回復量
         /// </summary>
         public int Value { get { return this.param2; } }
     }

@@ -185,7 +185,18 @@ namespace GL.Scripts.Battle.Systems
             return Random.value <= (rate - target.GetTotalResistance(statusAilmentType));
         }
 
+        /// <summary>
+        /// 状態異常の毒によるダメージ量を返す
+        /// </summary>
         public static int GetPoisonDamage(CharacterStatusController statusController)
+        {
+            return statusController.HitPointMax / 10;
+        }
+
+        /// <summary>
+        /// 状態異常の再生による回復量を返す
+        /// </summary>
+        public static int GetRegenerationAmount(CharacterStatusController statusController)
         {
             return statusController.HitPointMax / 10;
         }

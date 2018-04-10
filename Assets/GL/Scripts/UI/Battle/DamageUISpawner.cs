@@ -31,14 +31,30 @@ namespace HK.GL.UI.Battle
             Assert.IsNotNull(this.cachedTransform);
 
             Broker.Global.Receive<DamageNotify>()
-                .SubscribeWithState(this, (d, _this) => _this.Create(d.Receiver.transform, d.Value))
+                .SubscribeWithState(this, (x, _this) => _this.CreateAsDamage(x.Receiver.transform, x.Value))
+                .AddTo(this);
+
+            Broker.Global.Receive<RecoveryNotify>()
+                .SubscribeWithState(this, (x, _this) => _this.CreateAsRecovery(x.Receiver.transform, x.Value))
                 .AddTo(this);
         }
 
-        public void Create(Transform receiver, int damage)
+        /// <summary>
+        /// ダメージとしてダメージUIを生成する
+        /// </summary>
+        public void CreateAsDamage(Transform receiver, int damage)
         {
             var instance = Instantiate(this.controller, this.cachedTransform, false);
-            instance.SetProperty(receiver, damage, this.canvasTransform, this.uiCamera, this.worldCamera);
+            instance.AsDamage(receiver, damage, this.canvasTransform, this.uiCamera, this.worldCamera);
+        }
+        
+        /// <summary>
+        /// 回復としてダメージUIを生成する
+        /// </summary>
+        public void CreateAsRecovery(Transform receiver, int damage)
+        {
+            var instance = Instantiate(this.controller, this.cachedTransform, false);
+            instance.AsRecovery(receiver, damage, this.canvasTransform, this.uiCamera, this.worldCamera);
         }
     }
 }
