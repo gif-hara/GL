@@ -4,9 +4,9 @@ using UnityEngine;
 namespace GL.Scripts.Home.UI
 {
     /// <summary>
-    /// メインパネルを制御するクラス
+    /// 移動可能エリアを制御するクラス
     /// </summary>
-    public sealed class MainPanelController : MonoBehaviour
+    public sealed class MovableAreaController : MonoBehaviour
     {
         [SerializeField]
         private int initialIndex;
@@ -42,7 +42,7 @@ namespace GL.Scripts.Home.UI
 
         private Vector2 GetAnchorPosition(int index)
         {
-            return new Vector2(-this.size.x * index, 0.0f);
+            return new Vector2(this.size.x * index, 0.0f);
         }
     }
 }

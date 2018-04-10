@@ -10,7 +10,7 @@ namespace GL.Scripts.Home.UI
     public sealed class FooterButtonController : MonoBehaviour
     {
         [SerializeField]
-        private MainPanelController mainPanelController;
+        private MovableAreaController movableAreaController;
 
         [SerializeField]
         private int rootIndex;
@@ -22,7 +22,7 @@ namespace GL.Scripts.Home.UI
                 .Where(_ => button.isActiveAndEnabled)
                 .SubscribeWithState(this, (_, _this) =>
                 {
-                    _this.mainPanelController.ChangeRoot(_this.rootIndex);
+                    _this.movableAreaController.ChangeRoot(_this.rootIndex);
                 })
                 .AddTo(this);
         }
