@@ -200,5 +200,14 @@ namespace GL.Scripts.Battle.Systems
         {
             return statusController.HitPointMax / 10;
         }
+
+        /// <summary>
+        /// 状態異常の憤怒による攻撃力上昇値を返す
+        /// </summary>
+        public static int GetRageAmount(CharacterStatusController statusController)
+        {
+            var result = statusController.Base.Parameter.Strength / 10;
+            return result < 1 ? 1 : result;
+        }
     }
 }
