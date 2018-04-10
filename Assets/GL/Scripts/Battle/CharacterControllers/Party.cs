@@ -72,6 +72,9 @@ namespace GL.Scripts.Battle.CharacterControllers
                 case Constants.TargetType.Myself:
                     result.Add(invoker);
                     break;
+                case Constants.TargetType.OnChaseTakeDamages:
+                    result.AddRange(BattleManager.Instance.InvokedCommandResult.TakeDamages.Select(x => x.Target));
+                    break;
                 default:
                     Assert.IsTrue(false, string.Format("未対応の値です {0}", type));
                     break;

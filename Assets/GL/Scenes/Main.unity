@@ -226,7 +226,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 164561863}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -959.99994, z: 0}
+  m_LocalPosition: {x: 0, y: -960, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 486404880}
@@ -579,7 +579,7 @@ Prefab:
     - target: {fileID: 224039459191044058, guid: ec7cbfd90e29e425fb9ab1d50897b7d8,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 531.2499
+      value: 310
       objectReference: {fileID: 0}
     - target: {fileID: 224039459191044058, guid: ec7cbfd90e29e425fb9ab1d50897b7d8,
         type: 2}
@@ -874,7 +874,7 @@ Prefab:
     - target: {fileID: 224039459191044058, guid: ec7cbfd90e29e425fb9ab1d50897b7d8,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 236.24994
+      value: 510
       objectReference: {fileID: 0}
     - target: {fileID: 224039459191044058, guid: ec7cbfd90e29e425fb9ab1d50897b7d8,
         type: 2}
@@ -1188,7 +1188,7 @@ Prefab:
     - target: {fileID: 224039459191044058, guid: ec7cbfd90e29e425fb9ab1d50897b7d8,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 88.75
+      value: 510
       objectReference: {fileID: 0}
     - target: {fileID: 224039459191044058, guid: ec7cbfd90e29e425fb9ab1d50897b7d8,
         type: 2}
@@ -1328,6 +1328,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   confuseBlueprint: {fileID: 11400000, guid: 3ad4c830f2cb54a9abeaa9d135c97d88, type: 2}
   berserkBlueprint: {fileID: 11400000, guid: 0c505e02640124322875880efdc7f7f9, type: 2}
+  chaseBlueprint: {fileID: 11400000, guid: 8a378cf6de4374a0280b5ef6310c9dd1, type: 2}
 --- !u!4 &1477821176
 Transform:
   m_ObjectHideFlags: 0
@@ -1379,7 +1380,7 @@ Prefab:
     - target: {fileID: 224039459191044058, guid: ec7cbfd90e29e425fb9ab1d50897b7d8,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 383.74994
+      value: 310
       objectReference: {fileID: 0}
     - target: {fileID: 224039459191044058, guid: ec7cbfd90e29e425fb9ab1d50897b7d8,
         type: 2}

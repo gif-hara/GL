@@ -13,9 +13,6 @@ namespace GL.Scripts.Battle.Commands.Implements
 
         public Constants.TargetType TargetType;
 
-        /// <summary>
-        /// ターンを終了させるか
-        /// </summary>
-        public bool OnEndTurn = true;
+        public Constants.PostprocessCommand Postprocess;
     }
 }

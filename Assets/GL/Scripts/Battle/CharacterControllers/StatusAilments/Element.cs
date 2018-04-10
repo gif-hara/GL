@@ -60,7 +60,7 @@ namespace GL.Scripts.Battle.CharacterControllers.StatusAilments
         /// <remarks>
         /// 全てのキャラクターのターン終了処理時に呼び出されます
         /// </remarks>
-        public virtual void EndTurnAll()
+        public virtual void EndTurnAll(Character invoker)
         {
         }
 

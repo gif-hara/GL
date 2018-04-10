@@ -19,18 +19,30 @@ namespace GL.Scripts.Battle.Commands.Implements
         public override void Invoke(Character invoker)
         {
             base.Invoke(invoker);
+            
+            var targets = BattleManager.Instance.Parties
+                .GetFromTargetPartyType(invoker, this.TargetPartyType)
+                .GetTargets(invoker, this.TargetType, c => c.StatusController.GetTotalParameter(Constants.StatusParameterType.HitPoint));
+            
+            // 対象全てが死亡していた場合は何もしない
+            if (targets.Find(t => !t.StatusController.IsDead) == null)
+            {
+                this.Postprocess(invoker)();
+                return;
+            }
             invoker.StartAttack(() =>
             {
-                var targets = BattleManager.Instance.Parties
-                    .GetFromTargetPartyType(invoker, this.TargetPartyType)
-                    .GetTargets(invoker, this.TargetType, c => c.StatusController.GetTotalParameter(Constants.StatusParameterType.HitPoint));
                 targets.ForEach(t =>
                 {
                     var damage = Calculator.GetBasicAttackDamage(invoker, t, this.parameter.Rate);
                     t.TakeDamage(damage);
-                    BattleManager.Instance.InvokedCommandResult.TakeDamages.Add(new InvokedCommandResult.TakeDamage(t, damage));
+
+                    if (this.CanRecord)
+                    {
+                        BattleManager.Instance.InvokedCommandResult.TakeDamages.Add(new InvokedCommandResult.TakeDamage(t, damage));
+                    }
                 });
-            }, this.parameter.OnEndTurn);
+            }, this.Postprocess(invoker));
         }
 
         [Serializable]

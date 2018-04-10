@@ -29,23 +29,32 @@ namespace GL.Scripts.Battle.Commands.Implements
         public override void Invoke(Character invoker)
         {
             base.Invoke(invoker);
+            
+            var targets = BattleManager.Instance.Parties
+                .GetFromTargetPartyType(invoker, this.TargetPartyType)
+                .GetTargets(invoker, this.TargetType, c => c.StatusController.GetTotalParameter(this.parameter.TargetStatusParameterType));
+
+            // 対象全てが死亡していた場合は何もしない
+            if (targets.Find(t => !t.StatusController.IsDead) == null)
+            {
+                this.Postprocess(invoker);
+                return;
+            }
+
             invoker.StartAttack(() =>
             {
-                var targets = BattleManager.Instance.Parties
-                    .GetFromTargetPartyType(invoker, this.TargetPartyType)
-                    .GetTargets(invoker, this.TargetType, c => c.StatusController.GetTotalParameter(this.parameter.TargetStatusParameterType));
                 targets.ForEach(t =>
                 {
                     if (Calculator.LotteryStatusAilment(t.StatusController, this.parameter.StatusAilmentType, this.parameter.Rate))
                     {
                         var success = t.AilmentController.Add(this.RemainingTurn, this.parameter.StatusAilmentType);
-                        if (success)
+                        if (success && this.CanRecord)
                         {
                             BattleManager.Instance.InvokedCommandResult.AddAilments.Add(new InvokedCommandResult.AddAilment(t, this.parameter.StatusAilmentType));
                         }
                     }
                 });
-            }, this.parameter.OnEndTurn);
+            }, this.Postprocess(invoker));
         }
 
         private int RemainingTurn

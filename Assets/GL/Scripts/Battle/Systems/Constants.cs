@@ -42,6 +42,11 @@
             /// 自分自身
             /// </summary>
             Myself,
+            
+            /// <summary>
+            /// 前回対象となったキャラクター
+            /// </summary>
+            OnChaseTakeDamages,
         }
 
         /// <summary>
@@ -203,6 +208,22 @@
             /// パラメータ減少
             /// </summary>
             ParameterDown,
+        }
+
+        /// <summary>
+        /// コマンド実行後の処理タイプ
+        /// </summary>
+        public enum PostprocessCommand
+        {
+            /// <summary>
+            /// ターンを終了する
+            /// </summary>
+            EndTurn,
+            
+            /// <summary>
+            /// ターン終了イベントを完了する
+            /// </summary>
+            CompleteEndTurnEvent,
         }
 
         /// <summary>

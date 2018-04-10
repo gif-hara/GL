@@ -86,12 +86,9 @@ namespace GL.Scripts.Battle.CharacterControllers
                 .AddTo(this);
         }
         
-        public void StartAttack(Action animationCompleteAction, bool onEndTurn)
+        public void StartAttack(Action animationCompleteAction, Action postprocess)
         {
-            if (onEndTurn)
-            {
-                animationCompleteAction += this.InternalEndTurn;
-            }
+            animationCompleteAction += postprocess;
             this.characterAnimation.StartAttack(animationCompleteAction);
         }
 

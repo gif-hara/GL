@@ -18,9 +18,9 @@ namespace GL.Scripts.Battle.CharacterControllers.StatusAilments
             this.Invoke();
         }
 
-        public override void EndTurnAll()
+        public override void EndTurnAll(Character invoker)
         {
-            base.EndTurnAll();
+            base.EndTurnAll(invoker);
             this.Invoke();
         }
 
