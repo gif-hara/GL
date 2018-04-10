@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using UnityEngine;
 
 namespace GL.Scripts.Home.UI
 {
@@ -7,6 +8,15 @@ namespace GL.Scripts.Home.UI
     /// </summary>
     public sealed class MainPanelController : MonoBehaviour
     {
+        [SerializeField]
+        private int initialIndex;
+        
+        [SerializeField]
+        private float changeDuration;
+
+        [SerializeField]
+        private Ease changeEase;
+        
         private RectTransform rectTransform;
 
         private Vector2 size;
@@ -15,12 +25,24 @@ namespace GL.Scripts.Home.UI
         {
             this.rectTransform = (RectTransform) this.transform;
             this.size = new Vector2(this.rectTransform.rect.width, this.rectTransform.rect.height);
-            Debug.Log(this.rectTransform.anchoredPosition);
+            this.ChangeRootImmediate(this.initialIndex);
         }
 
         public void ChangeRoot(int index)
         {
-            this.rectTransform.anchoredPosition = new Vector2(-this.size.x * index, 0.0f);
+            this.rectTransform
+                .DOAnchorPos(this.GetAnchorPosition(index), this.changeDuration, true)
+                .SetEase(this.changeEase);
+        }
+
+        public void ChangeRootImmediate(int index)
+        {
+            this.rectTransform.anchoredPosition = this.GetAnchorPosition(index);
+        }
+
+        private Vector2 GetAnchorPosition(int index)
+        {
+            return new Vector2(-this.size.x * index, 0.0f);
         }
     }
 }
