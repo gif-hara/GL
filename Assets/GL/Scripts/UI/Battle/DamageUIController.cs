@@ -12,6 +12,15 @@ namespace HK.GL.UI.Battle
         private Text text;
 
         [SerializeField]
+        private Image background;
+
+        [SerializeField]
+        private Color damageColor;
+
+        [SerializeField]
+        private Color recoveryColor;
+
+        [SerializeField]
         private float destroyDelay;
 
         void Start()
@@ -21,15 +30,17 @@ namespace HK.GL.UI.Battle
 
         public void AsDamage(Transform target, int value, RectTransform canvasTransform, Camera uiCamera, Camera worldCamera)
         {
-            this.text.text = value.ToString();
-
-            Vector2 localPoint;
-            var screenPosition = RectTransformUtility.WorldToScreenPoint(worldCamera, target.position);
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasTransform, screenPosition, uiCamera, out localPoint);
-            this.transform.localPosition = localPoint;
+            this.SetProperty(target, value, canvasTransform, uiCamera, worldCamera);
+            this.background.color = this.damageColor;
         }
         
         public void AsRecovery(Transform target, int value, RectTransform canvasTransform, Camera uiCamera, Camera worldCamera)
+        {
+            this.SetProperty(target, value, canvasTransform, uiCamera, worldCamera);
+            this.background.color = this.recoveryColor;
+        }
+
+        private void SetProperty(Transform target, int value, RectTransform canvasTransform, Camera uiCamera, Camera worldCamera)
         {
             this.text.text = value.ToString();
 

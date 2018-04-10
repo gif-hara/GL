@@ -190,6 +190,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 114746389820005374}
+  background: {fileID: 114092064496813926}
+  damageColor: {r: 1, g: 0, b: 0, a: 1}
+  recoveryColor: {r: 0, g: 1, b: 0.08965516, a: 1}
   destroyDelay: 1
 --- !u!222 &222350815208978950
 CanvasRenderer:
