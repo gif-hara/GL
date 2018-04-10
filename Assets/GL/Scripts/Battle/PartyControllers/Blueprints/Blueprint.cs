@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using GL.Scripts.Battle.CharacterControllers;
 using GL.Scripts.Battle.Systems;
+using HK.Framework.Text;
 using UnityEngine;
 
 namespace GL.Scripts.Battle.PartyControllers.Blueprints
@@ -10,6 +11,11 @@ namespace GL.Scripts.Battle.PartyControllers.Blueprints
     /// </summary>
     public abstract class Blueprint : ScriptableObject
     {
+        [SerializeField]
+        private StringAsset.Finder partyName;
+
+        public string PartyName { get { return partyName.Get; } }
+        
         protected abstract Constants.CharacterType CharacterType { get; }
 
         protected abstract BlueprintParameter[] Parameters { get; }
