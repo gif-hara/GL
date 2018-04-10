@@ -9,22 +9,22 @@ namespace GL.Scripts.Battle.CharacterControllers
     [Serializable]
     public class Resistance
     {
-        [SerializeField]
+        [SerializeField][Range(0.0f, 1.0f)]
         public float Poison;
 
-        [SerializeField]
+        [SerializeField][Range(0.0f, 1.0f)]
         public float Paralysis;
 
-        [SerializeField]
+        [SerializeField][Range(0.0f, 1.0f)]
         public float Sleep;
 
-        [SerializeField]
+        [SerializeField][Range(0.0f, 1.0f)]
         public float Confuse;
 
-        [SerializeField]
+        [SerializeField][Range(0.0f, 1.0f)]
         public float Berserk;
 
-        [SerializeField]
+        [SerializeField][Range(0.0f, 1.0f)]
         public float Vitals;
 
         public Resistance()

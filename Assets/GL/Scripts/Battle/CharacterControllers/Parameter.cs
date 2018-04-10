@@ -11,19 +11,19 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// <summary>
         /// ヒットポイント
         /// </summary>
-        [SerializeField]
+        [SerializeField][Range(0.0f, 9999.0f)]
         public int HitPoint;
 
         /// <summary>
         /// 攻撃力
         /// </summary>
-        [SerializeField]
+        [SerializeField][Range(0.0f, 255.0f)]
         public int Strength;
 
         /// <summary>
         /// 防御力
         /// </summary>
-        [SerializeField]
+        [SerializeField][Range(0.0f, 255.0f)]
         public int Defense;
 
         /// <summary>
@@ -32,7 +32,7 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// <remarks>
         /// バフ系の上昇量に影響する
         /// </remarks>
-        [SerializeField]
+        [SerializeField][Range(0.0f, 255.0f)]
         public int Sympathy;
 
         /// <summary>
@@ -41,19 +41,19 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// <remarks>
         /// デバフ系の上昇量に影響する
         /// </remarks>
-        [SerializeField]
+        [SerializeField][Range(0.0f, 255.0f)]
         public int Nega;
 
         /// <summary>
         /// 素早さ
         /// </summary>
-        [SerializeField]
+        [SerializeField][Range(0.0f, 255.0f)]
         public int Speed;
 
         /// <summary>
         /// 運
         /// </summary>
-        [SerializeField]
+        [SerializeField][Range(0.0f, 255.0f)]
         public int Luck;
 
         public Parameter()
