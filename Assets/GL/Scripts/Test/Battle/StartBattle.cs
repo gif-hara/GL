@@ -43,7 +43,7 @@ namespace HK.GL.Test.Battle
         }
 
         private Character CreateCharacter(
-            Blueprint settings,
+            Blueprint blueprint,
             Constants.CharacterType characterType,
             Transform parent,
             Vector3 position,
@@ -52,18 +52,18 @@ namespace HK.GL.Test.Battle
         {
             var result = Instantiate(this.controller, parent);
             result.transform.localPosition = position;
-            var model = Instantiate(settings.Model, result.transform);
+            var model = Instantiate(blueprint.Model, result.transform);
             model.transform.localPosition = Vector3.zero;
             var scale = model.transform.localScale;
             scale.x = scaleX;
             model.transform.localScale = scale;
-            result.Initialize(settings,characterType);
+            result.Initialize(blueprint, characterType);
 
             return result;
         }
 
         private Party CreateParty(
-            List<Blueprint> settings,
+            List<Blueprint> blueprint,
             Constants.CharacterType characterType,
             Transform parent,
             Vector3 interval,
@@ -71,9 +71,9 @@ namespace HK.GL.Test.Battle
             )
         {
             var member = new List<Character>();
-            for(int i=0; i<settings.Count; i++)
+            for(int i=0; i<blueprint.Count; i++)
             {
-                member.Add(this.CreateCharacter(settings[i], characterType, parent, interval * i, scaleX));
+                member.Add(this.CreateCharacter(blueprint[i], characterType, parent, interval * i, scaleX));
             }
 
             return new Party(member);
