@@ -15,7 +15,7 @@ namespace GL.Scripts.Home.UI
         private RectTransform scrollParent;
 
         [SerializeField]
-        private Blueprint[] blueprints;
+        private Enemy[] blueprints;
 
         void Start()
         {

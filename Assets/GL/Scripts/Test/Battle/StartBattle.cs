@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using GL.Scripts.Battle.CharacterControllers;
 using GL.Scripts.Battle.PartyControllers;
+using GL.Scripts.Battle.PartyControllers.Blueprints;
 using GL.Scripts.Battle.Systems;
+using GL.Scripts.Systems;
 using Blueprint = GL.Scripts.Battle.PartyControllers.Blueprints.Blueprint;
 
 namespace HK.GL.Test.Battle
@@ -30,13 +32,15 @@ namespace HK.GL.Test.Battle
         private Blueprint playerParty;
 
         [SerializeField]
-        private Blueprint enemyParty;
+        private Enemy enemyParty;
 
         void Start()
         {
+            var battleEnemyParty = SceneMediator.EnemyParty;
+            battleEnemyParty = battleEnemyParty == null ? this.enemyParty : battleEnemyParty;
             var parties = new Parties(
                 this.playerParty.Create(this.controller, this.playerParent, this.playerInterval, -1.0f),
-                this.enemyParty.Create(this.controller, this.enemyParent, this.enemyInterval, 1.0f)
+                battleEnemyParty.Create(this.controller, this.enemyParent, this.enemyInterval, 1.0f)
             );
 
             BattleManager.Instance.Initialize(parties);

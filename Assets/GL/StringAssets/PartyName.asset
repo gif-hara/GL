@@ -13,6 +13,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   database:
   - value:
-      ja: "0000\u30D1\u30FC\u30C6\u30A3"
+      ja: 0000
       en: 
     guid: 1999759f-b7b1-4f9c-a6e1-c9d2407b26a2
+  - value:
+      ja: 0001
+      en: 
+    guid: 878463c6-d164-440f-85c0-1cb64b89d70a
+  - value:
+      ja: 0002
+      en: 
+    guid: c7f9d3dd-4891-46af-92a1-8b888c0aab5c
+  - value:
+      ja: 0003
+      en: 
+    guid: 3a8be327-4461-4e16-9175-539a41ab93c5

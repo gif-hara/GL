@@ -1,6 +1,8 @@
 ﻿using GL.Scripts.Battle.PartyControllers.Blueprints;
+using GL.Scripts.Systems;
 using UniRx;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace GL.Scripts.Home.UI
@@ -16,14 +18,15 @@ namespace GL.Scripts.Home.UI
         [SerializeField]
         private Text text;
 
-        public void Initialize(Blueprint blueprint)
+        public void Initialize(Enemy enemyParty)
         {
-            this.text.text = blueprint.PartyName;
+            this.text.text = enemyParty.PartyName;
             this.button.OnClickAsObservable()
                 .Where(_ => this.button.isActiveAndEnabled)
-                .SubscribeWithState(this, (_, _this) =>
+                .SubscribeWithState(enemyParty, (_, e) =>
                 {
-                    Debug.Log("Battle! " + _this.text.text);
+                    SceneMediator.EnemyParty = e;
+                    SceneManager.LoadScene("Battle");
                 })
                 .AddTo(this);
         }

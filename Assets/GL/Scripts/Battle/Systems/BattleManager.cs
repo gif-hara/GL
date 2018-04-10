@@ -8,6 +8,7 @@ using HK.Framework.EventSystems;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.SceneManagement;
 
 namespace GL.Scripts.Battle.Systems
 {
@@ -67,7 +68,15 @@ namespace GL.Scripts.Battle.Systems
             // FIXME: リザルト実装したら削除する
             Broker.Global.Receive<EndBattle>()
                 .Take(1)
-                .Subscribe(x => Debug.Log(x.Result))
+                .Subscribe(x =>
+                {
+                    Observable.Timer(TimeSpan.FromSeconds(0.5f))
+                        .Subscribe(_ =>
+                        {
+                            SceneManager.LoadScene("Home");
+                        })
+                        .AddTo(this);
+                })
                 .AddTo(this);
 
             Broker.Global.Receive<CompleteEndTurnEvent>()
