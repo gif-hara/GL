@@ -225,6 +225,33 @@
             /// </summary>
             CompleteEndTurnEvent,
         }
+        
+        /// <summary>
+        /// 武器タイプ
+        /// </summary>
+        public enum WeaponType
+        {
+            /// <summary>全て装備できる</summary>
+            All = 0,
+            
+            /// <summary>剣</summary>
+            Sword = 1 << 1,
+            
+            /// <summary>メイス</summary>
+            Mace = 1 << 2,
+            
+            /// <summary>短剣</summary>
+            Dagger = 1 << 3,
+            
+            /// <summary>棒</summary>
+            Rod = 1 << 4,
+            
+            /// <summary>ホイッスル</summary>
+            Whistle,
+            
+            /// <summary>御札</summary>
+            Amulet,
+        }
 
         /// <summary>
         /// バトル結果

@@ -11,5 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30e5466c3c6114d91915749921a0104b, type: 3}
   m_Name: 0000
   m_EditorClassIdentifier: 
+  weaponType: 0
   commands:
   - {fileID: 11400000, guid: 9cdf96bed368c40c9afb237d665437d1, type: 2}
