@@ -9,17 +9,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 280168a9594344b7d891ad691b5f1cad, type: 3}
-  m_Name: AddVitals_All
+  m_Name: AddParalysis_All
   m_EditorClassIdentifier: 
   parameter:
     Name:
       target: {fileID: 11400000, guid: 3534e70039cc6491cad3f648e57e8b4b, type: 2}
-      value: "\u30E4\u30C4\u3089\u307F\u3093\u306A\u6025\u6240\u306B\u3059\u308B"
-      guid: 8c05396a-fca2-42ad-ad57-f36ca476550e
+      value: "\u30E4\u30C4\u3089\u307F\u3093\u306A\u9EBB\u75FA\u306B\u3059\u308B"
+      guid: e3d4306e-c3a9-4e3d-b214-3159fbd6e74a
     TargetPartyType: 1
     TargetType: 2
-    StatusAilmentType: 106
+    CommandType: 3
+    StatusAilmentType: 102
     TargetStatusParameterType: 0
     Rate: 1
-    RemainingTurnMin: 10
-    RemainingTurnMax: 10
+    RemainingTurnMin: 1
+    RemainingTurnMax: 1

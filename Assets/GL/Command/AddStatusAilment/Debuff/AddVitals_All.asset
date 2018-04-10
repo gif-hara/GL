@@ -9,17 +9,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 280168a9594344b7d891ad691b5f1cad, type: 3}
-  m_Name: AddConfuse_All
+  m_Name: AddVitals_All
   m_EditorClassIdentifier: 
   parameter:
     Name:
       target: {fileID: 11400000, guid: 3534e70039cc6491cad3f648e57e8b4b, type: 2}
-      value: "\u30E4\u30C4\u3089\u307F\u3093\u306A\u6DF7\u4E71\u306B\u3059\u308B"
-      guid: 641c9382-8891-4a1f-a2bf-6d3d4257a5f7
+      value: "\u30E4\u30C4\u3089\u307F\u3093\u306A\u6025\u6240\u306B\u3059\u308B"
+      guid: 8c05396a-fca2-42ad-ad57-f36ca476550e
     TargetPartyType: 1
     TargetType: 2
-    StatusAilmentType: 104
+    CommandType: 3
+    StatusAilmentType: 106
     TargetStatusParameterType: 0
     Rate: 1
-    RemainingTurnMin: 2
-    RemainingTurnMax: 2
+    RemainingTurnMin: 10
+    RemainingTurnMax: 10

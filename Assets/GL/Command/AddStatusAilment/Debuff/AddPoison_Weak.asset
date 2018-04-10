@@ -9,17 +9,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 280168a9594344b7d891ad691b5f1cad, type: 3}
-  m_Name: AddSoldier_All
+  m_Name: AddPoison_Weak
   m_EditorClassIdentifier: 
   parameter:
     Name:
       target: {fileID: 11400000, guid: 3534e70039cc6491cad3f648e57e8b4b, type: 2}
-      value: "\u30CA\u30AB\u30DE\u307F\u3093\u306A\u5B64\u8ECD\u596E\u95D8\u306B\u3059\u308B"
-      guid: 6e100737-343e-4f10-884d-ec142b2f8ea9
-    TargetPartyType: 0
-    TargetType: 2
-    StatusAilmentType: 6
+      value: "\u5F31\u3044\u30E4\u30C4\u6BD2\u306B\u3059\u308B"
+      guid: ea72d6e2-6fd4-4f37-b026-aa889bf9f7a4
+    TargetPartyType: 1
+    TargetType: 1
+    CommandType: 3
+    StatusAilmentType: 101
     TargetStatusParameterType: 0
     Rate: 1
-    RemainingTurnMin: 3
+    RemainingTurnMin: 2
     RemainingTurnMax: 3

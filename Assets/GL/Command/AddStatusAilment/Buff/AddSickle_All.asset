@@ -9,17 +9,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 280168a9594344b7d891ad691b5f1cad, type: 3}
-  m_Name: AddBerserk_All
+  m_Name: AddSickle_All
   m_EditorClassIdentifier: 
   parameter:
     Name:
       target: {fileID: 11400000, guid: 3534e70039cc6491cad3f648e57e8b4b, type: 2}
-      value: "\u30E4\u30C4\u3089\u307F\u3093\u306A\u72C2\u66B4\u306B\u3059\u308B"
-      guid: 46f5f28c-5222-4b1d-b85c-ddddec0ad072
-    TargetPartyType: 1
+      value: "\u30CA\u30AB\u30DE\u307F\u3093\u306A\u938C\u9F2C\u5316\u306B\u3059\u308B"
+      guid: 019fcc6d-dd6e-4179-8467-dec5bae233fb
+    TargetPartyType: 0
     TargetType: 2
-    StatusAilmentType: 105
+    CommandType: 2
+    StatusAilmentType: 3
     TargetStatusParameterType: 0
     Rate: 1
-    RemainingTurnMin: 2
-    RemainingTurnMax: 2
+    RemainingTurnMin: 1
+    RemainingTurnMax: 1

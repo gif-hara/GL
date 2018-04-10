@@ -18,6 +18,7 @@ MonoBehaviour:
       guid: b256579a-98ef-4eb7-8308-1b46520b5d07
     TargetPartyType: 0
     TargetType: 2
+    CommandType: 2
     StatusAilmentType: 2
     TargetStatusParameterType: 0
     Rate: 1

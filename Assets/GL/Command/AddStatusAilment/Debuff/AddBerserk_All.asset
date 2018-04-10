@@ -9,16 +9,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 280168a9594344b7d891ad691b5f1cad, type: 3}
-  m_Name: AddPoison_Weak
+  m_Name: AddBerserk_All
   m_EditorClassIdentifier: 
   parameter:
     Name:
       target: {fileID: 11400000, guid: 3534e70039cc6491cad3f648e57e8b4b, type: 2}
-      value: "\u5F31\u3044\u30E4\u30C4\u6BD2\u306B\u3059\u308B"
-      guid: ea72d6e2-6fd4-4f37-b026-aa889bf9f7a4
+      value: "\u30E4\u30C4\u3089\u307F\u3093\u306A\u72C2\u66B4\u306B\u3059\u308B"
+      guid: 46f5f28c-5222-4b1d-b85c-ddddec0ad072
     TargetPartyType: 1
-    TargetType: 1
-    StatusAilmentType: 101
+    TargetType: 2
+    CommandType: 3
+    StatusAilmentType: 105
+    TargetStatusParameterType: 0
     Rate: 1
     RemainingTurnMin: 2
-    RemainingTurnMax: 3
+    RemainingTurnMax: 2

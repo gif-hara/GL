@@ -25,6 +25,11 @@ namespace GL.Scripts.Battle.Commands.Implements
         /// 誰を狙うかを決めるのに必要
         /// </remarks>
         Constants.TargetType TargetType { get; }
+        
+        /// <summary>
+        /// コマンドタイプ
+        /// </summary>
+        Constants.CommandType CommandType { get; }
 
         /// <summary>
         /// コマンドを実行する

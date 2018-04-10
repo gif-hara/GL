@@ -170,6 +170,42 @@
         }
 
         /// <summary>
+        /// コマンドタイプ
+        /// </summary>
+        public enum CommandType
+        {
+            /// <summary>
+            /// 攻撃
+            /// </summary>
+            Attack,
+            
+            /// <summary>
+            /// 回復
+            /// </summary>
+            Recovery,
+            
+            /// <summary>
+            /// バフ
+            /// </summary>
+            Buff,
+            
+            /// <summary>
+            /// デバフ
+            /// </summary>
+            Debuff,
+            
+            /// <summary>
+            /// パラメータ上昇
+            /// </summary>
+            ParameterUp,
+            
+            /// <summary>
+            /// パラメータ減少
+            /// </summary>
+            ParameterDown,
+        }
+
+        /// <summary>
         /// バトル結果
         /// </summary>
         public enum BattleResult : int
