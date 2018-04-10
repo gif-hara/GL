@@ -50,6 +50,12 @@ namespace GL.Scripts.Battle.CharacterControllers
         [SerializeField]
         public int Speed;
 
+        /// <summary>
+        /// 運
+        /// </summary>
+        [SerializeField]
+        public int Luck;
+
         public Parameter()
         {
             this.HitPoint = 0;
@@ -58,6 +64,7 @@ namespace GL.Scripts.Battle.CharacterControllers
             this.Sympathy = 0;
             this.Nega = 0;
             this.Speed = 0;
+            this.Luck = 0;
         }
 
         public Parameter(Blueprint blueprint)
@@ -68,6 +75,7 @@ namespace GL.Scripts.Battle.CharacterControllers
             this.Sympathy = blueprint.Status.Parameter.Sympathy;
             this.Nega = blueprint.Status.Parameter.Nega;
             this.Speed = blueprint.Status.Parameter.Speed;
+            this.Luck = blueprint.Status.Parameter.Luck;
         }
 
         public void Add(Constants.StatusParameterType type, int value)
@@ -92,6 +100,9 @@ namespace GL.Scripts.Battle.CharacterControllers
                 case Constants.StatusParameterType.Speed:
                     this.Speed += value;
                     break;
+                case Constants.StatusParameterType.Luck:
+                    this.Luck += value;
+                    break;
                 default:
                     Assert.IsTrue(false, string.Format("未対応の値です {0}", type));
                     break;
@@ -114,6 +125,8 @@ namespace GL.Scripts.Battle.CharacterControllers
                     return this.Nega;
                 case Constants.StatusParameterType.Speed:
                     return this.Speed;
+                case Constants.StatusParameterType.Luck:
+                    return this.Luck;
                 default:
                     Assert.IsTrue(false, string.Format("未対応の値です {0}", type));
                     return 0;

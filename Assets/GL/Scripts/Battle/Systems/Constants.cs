@@ -98,6 +98,9 @@
             
             /// <summary>素早さ</summary>
             Speed,
+            
+            /// <summary>運</summary>
+            Luck,
         }
 
         /// <summary>
