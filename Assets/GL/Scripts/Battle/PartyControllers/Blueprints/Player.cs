@@ -39,7 +39,6 @@ namespace GL.Scripts.Battle.PartyControllers.Blueprints
             [SerializeField]
             private CharacterControllers.Blueprints.Player player;
 
-
             public override CharacterControllers.Blueprints.Blueprint Character { get { return this.player; } }
         }
     }
