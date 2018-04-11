@@ -10,7 +10,7 @@ namespace GL.Scripts.User
     public sealed class Player
     {
         [SerializeField]
-        public Guid Id;
+        public string Id = Guid.NewGuid().ToString();
         
         [SerializeField][Range(1.0f, 100.0f)]
         public int Level;
@@ -24,7 +24,7 @@ namespace GL.Scripts.User
 
         public static Player Create(int level, Battle.CharacterControllers.Blueprints.Player blueprint)
         {
-            return new Player(){Id = Guid.NewGuid(), Level = level, Blueprint = blueprint};
+            return new Player(){Id = Guid.NewGuid().ToString(), Level = level, Blueprint = blueprint};
         }
     }
 }
