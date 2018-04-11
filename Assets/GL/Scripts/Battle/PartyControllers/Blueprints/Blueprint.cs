@@ -18,25 +18,7 @@ namespace GL.Scripts.Battle.PartyControllers.Blueprints
         
         protected abstract Constants.CharacterType CharacterType { get; }
 
-        protected abstract BlueprintParameter[] Parameters { get; }
-
-        public Party Create(Character controllerPrefab, Transform parent, Vector3 interval, float scaleX)
-        {
-            var member = new List<Character>();
-            for (int i = 0; i < this.Parameters.Length; i++)
-            {
-                var character = this.CreateCharacter(
-                    i,
-                    controllerPrefab,
-                    parent,
-                    interval * i,
-                    scaleX
-                );
-                member.Add(character);
-            }
-
-            return new Party(member);
-        }
+        public abstract Party Create(Character controllerPrefab, Transform parent, Vector3 interval, float scaleX);
 
         protected abstract Character CreateCharacter(
             int index,

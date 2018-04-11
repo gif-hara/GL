@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using GL.Scripts.Battle.Accessories;
 using GL.Scripts.Battle.CharacterControllers;
 using GL.Scripts.Battle.Systems;
@@ -14,11 +15,28 @@ namespace GL.Scripts.Battle.PartyControllers.Blueprints
     public sealed class Enemy : Blueprint
     {
         [SerializeField]
-        private Parameter[] parameters;
+        private List<Parameter> parameters = new List<Parameter>();
+        public List<Parameter> Parameters { get { return parameters; } }
 
         protected override Constants.CharacterType CharacterType { get { return Constants.CharacterType.Enemy; } }
 
-        protected override BlueprintParameter[] Parameters { get { return this.parameters; } }
+        public override Party Create(Character controllerPrefab, Transform parent, Vector3 interval, float scaleX)
+        {
+            var member = new List<Character>();
+            for (int i = 0; i < this.Parameters.Count; i++)
+            {
+                var character = this.CreateCharacter(
+                    i,
+                    controllerPrefab,
+                    parent,
+                    interval * i,
+                    scaleX
+                );
+                member.Add(character);
+            }
+
+            return new Party(member);
+        }
 
         protected override Character CreateCharacter(
             int index,
