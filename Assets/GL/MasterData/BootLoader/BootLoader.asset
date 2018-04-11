@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c0a7181da5e240979744a2f2b2ba7e1, type: 3}
+  m_Name: BootLoader
+  m_EditorClassIdentifier: 
+  targetFrameRate: 60
+  initialParty:
+    Players:
+    - Level: 1
+      Blueprint: {fileID: 11400000, guid: 8530be6c073d14c658dd63d68982de4c, type: 2}
+    - Level: 1
+      Blueprint: {fileID: 11400000, guid: 160bab127a4c24301b0df996b0b01d6e, type: 2}
+    - Level: 1
+      Blueprint: {fileID: 11400000, guid: 49bc8df8a627449f596f41637fc45cc5, type: 2}
+    - Level: 1
+      Blueprint: {fileID: 11400000, guid: 13d189e672e224ee1b90c900823e69fb, type: 2}
