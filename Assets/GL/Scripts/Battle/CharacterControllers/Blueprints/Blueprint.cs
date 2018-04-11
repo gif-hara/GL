@@ -1,6 +1,5 @@
 ﻿using GL.Scripts.Battle.Accessories;
 using GL.Scripts.Battle.CharacterControllers.JobSystems;
-using GL.Scripts.Battle.Weapons;
 using HK.Framework.Text;
 using UnityEngine;
 
@@ -9,7 +8,6 @@ namespace GL.Scripts.Battle.CharacterControllers.Blueprints
     /// <summary>
     /// キャラクターを構成する設計図
     /// </summary>
-    [CreateAssetMenu(menuName = "GL/CharacterControllers/Blueprint")]
     public abstract class Blueprint : ScriptableObject
     {
         [SerializeField]
