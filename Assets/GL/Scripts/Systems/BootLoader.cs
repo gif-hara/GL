@@ -36,6 +36,7 @@ namespace GL.Scripts.Systems
                 if (userData.IsEmpty)
                 {
                     userData.Initialize(this.initialParty);
+                    userData.Save();
                 }
             }
         }
