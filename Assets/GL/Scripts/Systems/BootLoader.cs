@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using GL.Scripts.User;
 using UnityEngine;
 
@@ -15,6 +16,9 @@ namespace GL.Scripts.Systems
 
         [SerializeField]
         private Party initialParty;
+
+        [SerializeField]
+        private List<Player> initialPlayers;
                 
         void OnEnable()
         {
@@ -35,7 +39,7 @@ namespace GL.Scripts.Systems
                 var userData = UserData.Load();
                 if (userData.IsEmpty)
                 {
-                    userData.Initialize(this.initialParty);
+                    userData.Initialize(this.initialParty.Clone, this.initialPlayers.Select(x => x.Clone));
                     userData.Save();
                 }
             }

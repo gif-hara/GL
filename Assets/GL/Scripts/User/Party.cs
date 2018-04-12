@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace GL.Scripts.User
@@ -12,5 +13,22 @@ namespace GL.Scripts.User
     {
         [SerializeField]
         public List<Player> Players = new List<Player>();
+
+        /// <summary>
+        /// 自分自身のクローンを返す
+        /// </summary>
+        /// <remarks>
+        /// <see cref="Player"/>をクローンしないと<see cref="Player.Id"/>が発行されないので注意
+        /// </remarks>
+        public Party Clone
+        {
+            get
+            {
+                return new Party()
+                {
+                    Players = this.Players.Select(x => x.Clone).ToList()
+                };
+            }
+        }
     }
 }

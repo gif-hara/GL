@@ -36,11 +36,13 @@ namespace GL.Scripts.User
             get { return this.Parties.Count <= 0 && this.Players.Count <= 0; }
         }
         
-        public void Initialize(Party initialParty)
+        public void Initialize(Party initialParty, IEnumerable<Player> initialPlayers)
         {
             Assert.AreEqual(this.Parties.Count + this.Players.Count, 0, "すでにユーザーデータが存在します");
             this.Parties.Add(initialParty);
+            
             initialParty.Players.ForEach(p => this.Players.Add(p));
+            this.Players.AddRange(initialPlayers);
         }
 
         public void Save()
