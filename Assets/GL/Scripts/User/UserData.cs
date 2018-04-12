@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using GL.Scripts.Systems;
 using HK.Framework.Systems;
+using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -11,7 +12,9 @@ namespace GL.Scripts.User
     /// </summary>
     [SerializeField]
     public class UserData
-    {        
+    {
+        public const int PartyCount = 3;
+        
         private static UserData instance;
         public static UserData Instance
         {
@@ -27,6 +30,12 @@ namespace GL.Scripts.User
         [SerializeField]
         public List<Player> Players = new List<Player>();
 
+        [SerializeField]
+        private int currentPartyIndex = 0;
+
+        private readonly ReactiveProperty<int> currentPartyIndexReactiveProperty = new ReactiveProperty<int>();
+        public IReactiveProperty<int> CurrentPartyIndex { get { return this.currentPartyIndexReactiveProperty; } }
+
         public bool IsEmpty
         {
             get { return this.Parties.Count <= 0 && this.Players.Count <= 0; }
@@ -35,7 +44,11 @@ namespace GL.Scripts.User
         public void Initialize(Party initialParty, IEnumerable<Player> initialPlayers)
         {
             Assert.AreEqual(this.Parties.Count + this.Players.Count, 0, "すでにユーザーデータが存在します");
-            this.Parties.Add(initialParty);
+
+            for (var i = 0; i < PartyCount; i++)
+            {
+                this.Parties.Add(initialParty);
+            }
             
             initialParty.Players.ForEach(p => this.Players.Add(p));
             this.Players.AddRange(initialPlayers);
@@ -53,7 +66,22 @@ namespace GL.Scripts.User
                 return instance;
             }
             
-            return instance = SaveData.GetClass<UserData>(SaveDataKey.UserData, null) ?? new UserData();
+            instance = SaveData.GetClass<UserData>(SaveDataKey.UserData, null) ?? new UserData();
+            instance.currentPartyIndexReactiveProperty.Value = instance.currentPartyIndex;
+
+            return instance;
+        }
+
+        public void SetCurrentPartyIndex(int index)
+        {
+            this.currentPartyIndex = index;
+            this.currentPartyIndexReactiveProperty.Value = index;
+            this.Save();
+        }
+
+        public Party CurrentParty
+        {
+            get { return this.Parties[this.currentPartyIndex]; }
         }
     }
 }
