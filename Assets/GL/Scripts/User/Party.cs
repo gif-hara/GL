@@ -11,6 +11,11 @@ namespace GL.Scripts.User
     [Serializable]
     public sealed class Party
     {
+        /// <summary>
+        /// パーティの最大人数
+        /// </summary>
+        public const int PlayerMax = 4;
+        
         [SerializeField]
         public List<Player> Players = new List<Player>();
 

@@ -17,15 +17,12 @@ namespace GL.Scripts.Home.UI
         [SerializeField]
         private Text text;
 
+        public readonly CompositeDisposable OnClickObserver = new CompositeDisposable();
+
         public void SetProperty(Player player)
         {
             this.text.text = player.Blueprint.CharacterName;
-            this.Button.OnClickAsObservable()
-                .SubscribeWithState(player, (_, p) =>
-                {
-                    Debug.Log(string.Format("Player = {0} Id = {1}", p.Blueprint.CharacterName, p.Id));
-                })
-                .AddTo(this);
+            this.OnClickObserver.Clear();
         }
     }
 }
