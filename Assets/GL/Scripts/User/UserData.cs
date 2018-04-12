@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using GL.Scripts.Systems;
 using HK.Framework.Systems;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -10,12 +11,7 @@ namespace GL.Scripts.User
     /// </summary>
     [SerializeField]
     public class UserData
-    {
-        private static class SaveDataKey
-        {
-            public const string UserData = "UserData";
-        }
-        
+    {        
         private static UserData instance;
         public static UserData Instance
         {
