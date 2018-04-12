@@ -13,12 +13,13 @@ namespace GL.Scripts.Battle.CharacterControllers.Blueprints
     {
         [SerializeField]
         private Weapon weapon;
+        public Weapon Weapon { get { return weapon; } set { weapon = value; } }
         
         [SerializeField]
         private Accessory[] accessories;
 
         public override Commands.Blueprints.Blueprint[] Commands { get { return this.weapon.Commands; } set { Assert.IsTrue(false, "想定外の挙動です"); } }
 
-        public override Accessory[] Accessories { get { return this.accessories; } set { Assert.IsTrue(false, "想定外の挙動です"); } }
+        public override Accessory[] Accessories { get { return this.accessories; } set { this.accessories = value; } }
     }
 }
