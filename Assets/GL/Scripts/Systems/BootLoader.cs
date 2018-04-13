@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using GL.Scripts.User;
+using UniRx;
 using UnityEngine;
 
 namespace GL.Scripts.Systems
@@ -19,6 +20,9 @@ namespace GL.Scripts.Systems
 
         [SerializeField]
         private List<Player> initialPlayers;
+
+        [SerializeField]
+        private GameObject[] dontDestroyPrefabs;
                 
         void OnEnable()
         {
@@ -42,6 +46,18 @@ namespace GL.Scripts.Systems
                     userData.Initialize(this.initialParty.Clone, this.initialPlayers.Select(x => x.Clone));
                     userData.Save();
                 }
+            }
+            
+            // DontDestroyなゲームオブジェクトを生成する
+            {
+                Observable.NextFrame()
+                    .Subscribe(_ =>
+                    {
+                        foreach (var prefab in this.dontDestroyPrefabs)
+                        {
+                            DontDestroyOnLoad(Instantiate(prefab));
+                        }
+                    });
             }
         }
     }
