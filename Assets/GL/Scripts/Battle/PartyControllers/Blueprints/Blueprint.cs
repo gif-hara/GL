@@ -9,24 +9,52 @@ namespace GL.Scripts.Battle.PartyControllers.Blueprints
     /// <summary>
     /// パーティの設計図
     /// </summary>
-    public abstract class Blueprint : ScriptableObject
+    [CreateAssetMenu(menuName = "GL/PartyControllers/Blueprint")]
+    public class Blueprint : ScriptableObject
     {
         [SerializeField]
         private StringAsset.Finder partyName;
 
+        [SerializeField]
+        private BlueprintParameter[] parameters;
+
+        [SerializeField]
+        private Constants.CharacterType characterType;
+
         public string PartyName { get { return partyName.Get; } }
-        
-        protected abstract Constants.CharacterType CharacterType { get; }
 
-        public abstract Party Create(Character controllerPrefab, Transform parent, Vector3 interval, float scaleX);
+        public Party Create(Character controllerPrefab, Transform parent, Vector3 interval, float scaleX)
+        {
+            var member = new List<Character>();
+            for (int i = 0; i < this.parameters.Length; i++)
+            {
+                var character = this.CreateCharacter(
+                    i,
+                    controllerPrefab,
+                    parent,
+                    interval * i,
+                    scaleX
+                );
+                member.Add(character);
+            }
 
-        protected abstract Character CreateCharacter(
+            return new Party(member);
+        }
+
+        protected Character CreateCharacter(
             int index,
             Character controllerPrefab,
             Transform parent,
             Vector3 position,
             float scaleX
-        );
+        )
+        {
+            var parameter = parameters[index];
+            var result = this.InternalCreateCharacter(controllerPrefab, parent, position, parameter.Blueprint.Model, scaleX);
+            result.Initialize(parameter.Blueprint, parameter.Level, characterType);
+
+            return result;
+        }
 
         protected Character InternalCreateCharacter(Character controllerPrefab, Transform parent, Vector3 position, GameObject modelPrefab, float scaleX)
         {

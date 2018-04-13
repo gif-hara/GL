@@ -32,7 +32,7 @@ namespace HK.GL.Test.Battle
         private Blueprint playerParty;
 
         [SerializeField]
-        private Enemy enemyParty;
+        private Blueprint enemyParty;
 
         void Start()
         {

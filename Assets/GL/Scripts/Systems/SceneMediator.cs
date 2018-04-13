@@ -10,6 +10,6 @@ namespace GL.Scripts.Systems
         /// <summary>
         /// バトルする敵パーティ
         /// </summary>
-        public static Enemy EnemyParty;
+        public static Blueprint EnemyParty;
     }
 }

@@ -38,6 +38,7 @@ MonoBehaviour:
     Confuse: 0
     Berserk: 0
     Vitals: 0
+  equipable: -1
   growthCurve:
     HitPoint:
       serializedVersion: 2

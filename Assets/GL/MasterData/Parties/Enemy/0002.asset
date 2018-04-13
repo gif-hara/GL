@@ -8,23 +8,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6beac193684ff4e2882fa46064dcfd95, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a6b740a10aeb45eb891f706ac8eaa2b, type: 3}
   m_Name: 0002
   m_EditorClassIdentifier: 
   partyName:
     target: {fileID: 11400000, guid: f8b6937b4695b4cb987a4969fa50c1db, type: 2}
-    value: 0002
-    guid: c7f9d3dd-4891-46af-92a1-8b888c0aab5c
+    value: 0000
+    guid: 1999759f-b7b1-4f9c-a6e1-c9d2407b26a2
   parameters:
   - Level: 1
-    enemy: {fileID: 11400000, guid: 5697bef62633b4f4c8003caf62405c77, type: 2}
+    Blueprint: {fileID: 11400000, guid: 5697bef62633b4f4c8003caf62405c77, type: 2}
     Weapon: {fileID: 11400000, guid: ddb9db169bd8b4768938efc96c40f1a8, type: 2}
     Accessories: []
   - Level: 1
-    enemy: {fileID: 11400000, guid: 5697bef62633b4f4c8003caf62405c77, type: 2}
+    Blueprint: {fileID: 11400000, guid: 5697bef62633b4f4c8003caf62405c77, type: 2}
     Weapon: {fileID: 11400000, guid: ddb9db169bd8b4768938efc96c40f1a8, type: 2}
     Accessories: []
   - Level: 1
-    enemy: {fileID: 11400000, guid: 5697bef62633b4f4c8003caf62405c77, type: 2}
+    Blueprint: {fileID: 11400000, guid: 5697bef62633b4f4c8003caf62405c77, type: 2}
     Weapon: {fileID: 11400000, guid: ddb9db169bd8b4768938efc96c40f1a8, type: 2}
     Accessories: []
+  characterType: 1

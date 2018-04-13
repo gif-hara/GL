@@ -18,7 +18,7 @@ namespace GL.Scripts.Home.UI
         [SerializeField]
         private Text text;
 
-        public void Initialize(Enemy enemyParty)
+        public void Initialize(Blueprint enemyParty)
         {
             this.text.text = enemyParty.PartyName;
             this.button.OnClickAsObservable()

@@ -709,7 +709,7 @@ Prefab:
     - target: {fileID: 224622093978270838, guid: 0a762e306963a41f69d81a605fdb54fa,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.00045776367
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224622093978270838, guid: 0a762e306963a41f69d81a605fdb54fa,
         type: 2}
@@ -984,7 +984,7 @@ Prefab:
     - target: {fileID: 224622093978270838, guid: 0a762e306963a41f69d81a605fdb54fa,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: -774.9015
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224622093978270838, guid: 0a762e306963a41f69d81a605fdb54fa,
         type: 2}
@@ -3720,7 +3720,7 @@ Prefab:
     - target: {fileID: 224622093978270838, guid: 0a762e306963a41f69d81a605fdb54fa,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.00045776367
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224622093978270838, guid: 0a762e306963a41f69d81a605fdb54fa,
         type: 2}
@@ -3915,7 +3915,7 @@ Prefab:
     - target: {fileID: 224622093978270838, guid: 0a762e306963a41f69d81a605fdb54fa,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.00045776367
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224622093978270838, guid: 0a762e306963a41f69d81a605fdb54fa,
         type: 2}
@@ -4407,10 +4407,10 @@ MonoBehaviour:
     type: 2}
   scrollParent: {fileID: 919202217}
   blueprints:
-  - {fileID: 11400000, guid: 6855298f7fc254d718f4b21aab3192d9, type: 2}
-  - {fileID: 11400000, guid: 094e6c01ad13746e39424dbb65ef6427, type: 2}
-  - {fileID: 11400000, guid: e09e08607e0ee46e38dc95bb7424a7dd, type: 2}
-  - {fileID: 11400000, guid: e81e26cb0ecc74222a8cb824a1ffcbc8, type: 2}
+  - {fileID: 11400000, guid: 3dac803ca1d814d86b4c8d3a892b17e5, type: 2}
+  - {fileID: 11400000, guid: fa4e1301ef41f43898ed6cd983c489ee, type: 2}
+  - {fileID: 11400000, guid: 4e610f59b926c470192fca238fb5ac43, type: 2}
+  - {fileID: 11400000, guid: 55c16e67dd88646fda67ab4659f1307b, type: 2}
 --- !u!114 &2050366498 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114520792476886314, guid: 0a762e306963a41f69d81a605fdb54fa,

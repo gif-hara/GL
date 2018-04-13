@@ -13,6 +13,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   database:
   - value:
+      ja: PlayerParty
+      en: 
+    guid: ed6b6d31-e963-4715-9e55-c4fe352d8078
+  - value:
       ja: 0000
       en: 
     guid: 1999759f-b7b1-4f9c-a6e1-c9d2407b26a2
