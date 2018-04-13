@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using GL.Scripts.Battle.Accessories;
+using GL.Scripts.Battle.Weapons;
 using UnityEngine;
 
 namespace GL.Scripts.User
@@ -17,6 +20,12 @@ namespace GL.Scripts.User
         
         [SerializeField]
         public Battle.CharacterControllers.Blueprints.Player Blueprint;
+
+        [SerializeField]
+        public Weapon Weapon;
+
+        [SerializeField]
+        public List<Accessory> Accessories;
 
         private Player()
         {

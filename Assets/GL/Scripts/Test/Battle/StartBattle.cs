@@ -36,10 +36,13 @@ namespace HK.GL.Test.Battle
 
         void Start()
         {
+            var battlePlayerParty = SceneMediator.PlayerParty;
             var battleEnemyParty = SceneMediator.EnemyParty;
+
+            battlePlayerParty = battlePlayerParty == null ? this.playerParty : battlePlayerParty;
             battleEnemyParty = battleEnemyParty == null ? this.enemyParty : battleEnemyParty;
             var parties = new Parties(
-                this.playerParty.Create(this.controller, this.playerParent, this.playerInterval, -1.0f),
+                battlePlayerParty.Create(this.controller, this.playerParent, this.playerInterval, -1.0f),
                 battleEnemyParty.Create(this.controller, this.enemyParent, this.enemyInterval, 1.0f)
             );
 

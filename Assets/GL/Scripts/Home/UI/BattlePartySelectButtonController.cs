@@ -1,5 +1,6 @@
 ﻿using GL.Scripts.Battle.PartyControllers.Blueprints;
 using GL.Scripts.Systems;
+using GL.Scripts.User;
 using UniRx;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -25,6 +26,7 @@ namespace GL.Scripts.Home.UI
                 .Where(_ => this.button.isActiveAndEnabled)
                 .SubscribeWithState(enemyParty, (_, e) =>
                 {
+                    SceneMediator.PlayerParty = UserData.Instance.CurrentParty.AsBlueprint;
                     SceneMediator.EnemyParty = e;
                     SceneManager.LoadScene("Battle");
                 })

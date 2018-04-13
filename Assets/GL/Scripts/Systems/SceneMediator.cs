@@ -8,6 +8,11 @@ namespace GL.Scripts.Systems
     public static class SceneMediator
     {
         /// <summary>
+        /// バトルするプレイヤーパーティ
+        /// </summary>
+        public static Blueprint PlayerParty;
+        
+        /// <summary>
         /// バトルする敵パーティ
         /// </summary>
         public static Blueprint EnemyParty;

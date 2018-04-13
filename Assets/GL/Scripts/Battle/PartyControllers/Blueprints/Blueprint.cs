@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using GL.Scripts.Battle.CharacterControllers;
 using GL.Scripts.Battle.Systems;
 using HK.Framework.Text;
@@ -22,6 +23,15 @@ namespace GL.Scripts.Battle.PartyControllers.Blueprints
         private Constants.CharacterType characterType;
 
         public string PartyName { get { return partyName.Get; } }
+
+        public static Blueprint CloneAsPlayerParty(User.Party party)
+        {
+            var clone = ScriptableObject.CreateInstance<Blueprint>();
+            clone.parameters = party.Players.Select(BlueprintParameter.Create).ToArray();
+            clone.characterType = Constants.CharacterType.Player;
+
+            return clone;
+        }
 
         public Party Create(Character controllerPrefab, Transform parent, Vector3 interval, float scaleX)
         {

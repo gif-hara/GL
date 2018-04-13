@@ -1,6 +1,7 @@
 ﻿using System;
 using GL.Scripts.Battle.Accessories;
 using GL.Scripts.Battle.Weapons;
+using GL.Scripts.User;
 using UnityEngine;
 
 namespace GL.Scripts.Battle.PartyControllers.Blueprints
@@ -19,5 +20,16 @@ namespace GL.Scripts.Battle.PartyControllers.Blueprints
 
         [SerializeField]
         public Accessory[] Accessories;
+
+        public static BlueprintParameter Create(Player player)
+        {
+            return new BlueprintParameter()
+            {
+                Level = player.Level,
+                Blueprint = player.Blueprint,
+                Weapon = player.Weapon,
+                Accessories = player.Accessories.ToArray()
+            };
+        }
     }
 }
