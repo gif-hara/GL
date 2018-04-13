@@ -1,4 +1,5 @@
-﻿using GL.Scripts.User;
+﻿using GL.Scripts.UI.PopupControllers;
+using GL.Scripts.User;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -24,6 +25,9 @@ namespace GL.Scripts.Home.UI
         private PlayerButtonController playerButtonPrefab;
 
         [SerializeField]
+        private PlayerDetailsPopupController playerDetailsPopupPrefab;
+        
+        [SerializeField]
         private Color togglePartyActiveColor;
 
         [SerializeField]
@@ -32,8 +36,15 @@ namespace GL.Scripts.Home.UI
         void Start()
         {
             var userData = UserData.Instance;
+            
+            userData.CurrentPartyIndex
+                .SubscribeWithState2(this, userData, (_, _this, u) =>
+                {
+                    _this.SetupPartyPanel(u);
+                })
+                .AddTo(this);
+        
             this.SetupPlayersPanel(userData);
-            this.SetupPartyPanel(userData);
             this.SetupTogglePartyPanel(userData);
         }
 
@@ -52,20 +63,18 @@ namespace GL.Scripts.Home.UI
         private void SetupPartyPanel(UserData userData)
         {
             Assert.AreEqual(this.parties.Length, Party.PlayerMax, "パーティ最大人数と一致しません");
-            userData.CurrentPartyIndex
-                .SubscribeWithState2(this, userData, (_, _this, u) =>
-                {
-                    var party = u.CurrentParty;
-                    for (var i = 0; i < _this.parties.Length; i++)
+            var party = userData.CurrentParty;
+            for (var i = 0; i < this.parties.Length; i++)
+            {
+                var controller = this.parties[i];
+                controller.SetProperty(party.Players[i]);
+                controller.Button.OnClickAsObservable()
+                    .SubscribeWithState2(this, party.Players[i], (_, _this, p) =>
                     {
-                        var controller = _this.parties[i];
-                        controller.SetProperty(party.Players[i]);
-                        controller.Button.OnClickAsObservable()
-                            .SubscribeWithState(party.Players[i], (__, p) => Debug.Log(p.Blueprint.CharacterName))
-                            .AddTo(controller.OnClickObserver);
-                    }
-                })
-                .AddTo(this);
+                        _this.CreatePlayerDetailsPopup(p);
+                    })
+                    .AddTo(controller.OnClickObserver);
+            }
         }
 
         private void SetupTogglePartyPanel(UserData userData)
@@ -91,6 +100,11 @@ namespace GL.Scripts.Home.UI
                     })
                     .AddTo(this);
             }
+        }
+
+        private void CreatePlayerDetailsPopup(Player player)
+        {
+            PopupController.Instance.Instantiate(this.playerDetailsPopupPrefab);
         }
     }
 }
