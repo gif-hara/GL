@@ -396,6 +396,8 @@ MonoBehaviour:
   - {fileID: 769509765}
   playerButtonPrefab: {fileID: 114520792476886314, guid: 0a762e306963a41f69d81a605fdb54fa,
     type: 2}
+  playerDetailsPopupPrefab: {fileID: 114389765333633200, guid: ce5194db71cec4651b988e5d5eca5b86,
+    type: 2}
   togglePartyActiveColor: {r: 1, g: 0.9724138, b: 0, a: 1}
   togglePartyDeactiveColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &250858543
