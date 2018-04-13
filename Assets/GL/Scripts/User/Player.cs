@@ -16,7 +16,7 @@ namespace GL.Scripts.User
         public string Id = Guid.NewGuid().ToString();
         
         [SerializeField][Range(1.0f, 100.0f)]
-        public int Level;
+        public int Level = 1;
         
         [SerializeField]
         public Battle.CharacterControllers.Blueprints.Player Blueprint;
