@@ -15,27 +15,32 @@ MonoBehaviour:
   initialParty:
     Players:
     - Id: 
+      PlayerName: "\u30C6\u30B9\u30C81"
       Level: 1
       Blueprint: {fileID: 11400000, guid: 8530be6c073d14c658dd63d68982de4c, type: 2}
       Weapon: {fileID: 0}
       Accessories: []
     - Id: 
+      PlayerName: "\u30C6\u30B9\u30C82"
       Level: 1
       Blueprint: {fileID: 11400000, guid: 160bab127a4c24301b0df996b0b01d6e, type: 2}
       Weapon: {fileID: 0}
       Accessories: []
     - Id: 
+      PlayerName: "\u30C6\u30B9\u30C83"
       Level: 1
       Blueprint: {fileID: 11400000, guid: 49bc8df8a627449f596f41637fc45cc5, type: 2}
       Weapon: {fileID: 0}
       Accessories: []
     - Id: 
+      PlayerName: "\u30C6\u30B9\u30C84"
       Level: 1
       Blueprint: {fileID: 11400000, guid: 13d189e672e224ee1b90c900823e69fb, type: 2}
       Weapon: {fileID: 0}
       Accessories: []
   initialPlayers:
   - Id: 
+    PlayerName: "\u30C6\u30B9\u30C85"
     Level: 1
     Blueprint: {fileID: 11400000, guid: 8530be6c073d14c658dd63d68982de4c, type: 2}
     Weapon: {fileID: 0}
