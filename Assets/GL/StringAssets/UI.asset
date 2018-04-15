@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c932cb5455f464b288e33eb7fa54f213, type: 3}
+  m_Name: UI
+  m_EditorClassIdentifier: 
+  database:
+  - value:
+      ja: HP
+      en: 
+    guid: 884fa21a-5dff-4ab9-8496-abeb829a8a25
+  - value:
+      ja: "\u653B\u6483\u529B"
+      en: 
+    guid: c0ddfdb2-de87-4764-bd7d-90a20bed2c5b
+  - value:
+      ja: "\u9632\u5FA1\u529B"
+      en: 
+    guid: 3748e643-19a8-4e4a-a93b-2970bb7d5682
+  - value:
+      ja: "\u601D\u3044\u3084\u308A"
+      en: 
+    guid: e1790c0a-2e24-40a1-b8b6-7f055f25603d
+  - value:
+      ja: "\u30CD\u30AC"
+      en: 
+    guid: 4b336570-d2ba-4ec5-9d04-20efb36671d6
+  - value:
+      ja: "\u7D20\u65E9\u3055"
+      en: 
+    guid: 40bec1e9-f3dc-47ff-8390-0759b44c3015
+  - value:
+      ja: "\u904B"
+      en: 
+    guid: 6ca77a6f-e611-4680-b949-4217d684873e
+  - value:
+      ja: "\u6BD2"
+      en: 
+    guid: 21115b7c-f3df-499b-9591-600d8d74b018
+  - value:
+      ja: "\u9EBB\u75FA"
+      en: 
+    guid: e1cc93dc-fbd0-4cbf-a524-84b263cfa98b
+  - value:
+      ja: "\u7761\u7720"
+      en: 
+    guid: f0eff3b1-80ec-495f-9153-636928599750
+  - value:
+      ja: "\u6DF7\u4E71"
+      en: 
+    guid: 73957172-250f-49d9-a4c3-59a56ec84e3f
+  - value:
+      ja: "\u72C2\u66B4"
+      en: 
+    guid: f5e3d147-477e-4104-b58e-aa08421af549
+  - value:
+      ja: "\u6025\u6240"
+      en: 
+    guid: b16bebf1-4cc7-4822-9676-26f29fbcb314
+  - value:
+      ja: "\u62B5\u6297\u529B"
+      en: 
+    guid: 45adb0f3-b918-458f-9997-45520a8f7fc1
+  - value:
+      ja: "\u30D1\u30E9\u30E1\u30FC\u30BF\u30FC"
+      en: 
+    guid: d8427191-f928-4640-864e-ece8335433ce

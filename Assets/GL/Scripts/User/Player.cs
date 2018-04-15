@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using GL.Scripts.Battle.Accessories;
+using GL.Scripts.Battle.CharacterControllers;
 using GL.Scripts.Battle.Weapons;
 using UnityEngine;
 
@@ -29,6 +30,10 @@ namespace GL.Scripts.User
 
         [SerializeField]
         public List<Accessory> Accessories;
+
+        public Parameter Parameter { get { return this.Blueprint.GetParameter(this.Level); } }
+
+        public Resistance Resistance { get { return this.Blueprint.Resistance; } }
 
         private Player()
         {
