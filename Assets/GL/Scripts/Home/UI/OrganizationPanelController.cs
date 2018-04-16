@@ -25,7 +25,7 @@ namespace GL.Scripts.Home.UI
         private PlayerButtonController playerButtonPrefab;
 
         [SerializeField]
-        private PlayerDetailsPopupController playerDetailsPopupPrefab;
+        private CharacterDetailsPopupController characterDetailsPopupPrefab;
         
         [SerializeField]
         private Color togglePartyActiveColor;
@@ -104,7 +104,7 @@ namespace GL.Scripts.Home.UI
 
         private void CreatePlayerDetailsPopup(Player player)
         {
-            PopupController.Instance.Instantiate(this.playerDetailsPopupPrefab)
+            PopupController.Instance.Instantiate(this.characterDetailsPopupPrefab)
                 .Setup(player);
         }
     }
