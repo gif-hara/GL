@@ -6,12 +6,15 @@ using UnityEngine.UI;
 namespace GL.Scripts.UI.PopupControllers
 {
     /// <summary>
-    /// プレイヤー詳細ポップアップを制御するクラス
+    /// キャラクター詳細ポップアップを制御するクラス
     /// </summary>
-    public sealed class PlayerDetailsPopupController : MonoBehaviour
+    public sealed class CharacterDetailsPopupController : MonoBehaviour
     {
         [SerializeField]
         private Text characterName;
+
+        [SerializeField]
+        private Text jobName;
 
         [SerializeField]
         private Parameter parameter;
@@ -22,6 +25,7 @@ namespace GL.Scripts.UI.PopupControllers
         public void Setup(Player player)
         {
             this.characterName.text = player.PlayerName;
+            this.jobName.text = player.Blueprint.Job.JobName;
             this.parameter.Apply(player.Parameter);
             this.resistance.Apply(player.Resistance);
         }
