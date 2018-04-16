@@ -16,6 +16,7 @@ namespace GL.Scripts.Battle.CharacterControllers.Blueprints
         
         [SerializeField]
         private Job job;
+        public Job Job { get { return job; } }
         
         [SerializeField]
         private GameObject model;
