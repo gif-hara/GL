@@ -11,6 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30e5466c3c6114d91915749921a0104b, type: 3}
   m_Name: 0000
   m_EditorClassIdentifier: 
+  weaponName:
+    target: {fileID: 11400000, guid: 204e77b4c5ef24c0b8502112e7c0270f, type: 2}
+    value: "\u52630000"
+    guid: 971b8b49-6c93-4231-b5f5-cf2aee162b9d
   weaponType: 1
   commands:
   - {fileID: 11400000, guid: 9cdf96bed368c40c9afb237d665437d1, type: 2}
