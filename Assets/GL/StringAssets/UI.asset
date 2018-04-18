@@ -84,3 +84,7 @@ MonoBehaviour:
       ja: "\u4EA4\u4EE3"
       en: 
     guid: 3a18677f-cc7e-4857-904b-99ecdc2ac5f3
+  - value:
+      ja: '---'
+      en: 
+    guid: beb2f51d-6a69-464b-9881-76f098cc8c35

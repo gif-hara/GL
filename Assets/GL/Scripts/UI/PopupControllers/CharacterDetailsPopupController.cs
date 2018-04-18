@@ -1,5 +1,6 @@
 ﻿using System;
 using GL.Scripts.User;
+using HK.Framework.Text;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,23 +12,39 @@ namespace GL.Scripts.UI.PopupControllers
     public sealed class CharacterDetailsPopupController : MonoBehaviour
     {
         [SerializeField]
-        private Text characterName;
-
-        [SerializeField]
-        private Text jobName;
-
+        private Profile profile;
+        
         [SerializeField]
         private Parameter parameter;
 
         [SerializeField]
         private Resistance resistance;
+
+        [SerializeField]
+        private Weapon weapon;
         
         public void Setup(Player player)
         {
-            this.characterName.text = player.PlayerName;
-            this.jobName.text = player.Blueprint.Job.JobName;
+            this.profile.Apply(player);
             this.parameter.Apply(player.Parameter);
             this.resistance.Apply(player.Resistance);
+            this.weapon.Apply(player.Weapon);
+        }
+
+        [Serializable]
+        private class Profile
+        {
+            [SerializeField]
+            private Text characterName;
+
+            [SerializeField]
+            private Text jobName;
+
+            public void Apply(Player player)
+            {
+                this.characterName.text = player.PlayerName;
+                this.jobName.text = player.Blueprint.Job.JobName;
+            }
         }
 
         [Serializable]
@@ -97,6 +114,48 @@ namespace GL.Scripts.UI.PopupControllers
                 this.berserk.text = resistance.Berserk.ToString(format);
                 this.vitals.text = resistance.Vitals.ToString(format);
             }
+        }
+
+        [Serializable]
+        public class Weapon
+        {
+            [SerializeField]
+            private ButtonElement change;
+
+            [SerializeField]
+            private ButtonElement[] commands;
+
+            [SerializeField]
+            private StringAsset.Finder notCommandName;
+
+            public void Apply(Battle.Weapons.Weapon weapon)
+            {
+                this.change.Text.text = weapon.WeaponName;
+                for (var i = 0; i < this.commands.Length; i++)
+                {
+                    var command = this.commands[i];
+                    if (weapon.Commands.Length <= i)
+                    {
+                        command.Text.text = this.notCommandName.Get;
+                        continue;
+                    }
+
+                    var weaponCommand = weapon.Commands[i].Create();
+                    command.Text.text = weaponCommand.Name;
+                }
+            }
+        }
+
+        [Serializable]
+        public class ButtonElement
+        {
+            [SerializeField]
+            private Button button;
+            public Button Button { get { return button; } }
+
+            [SerializeField]
+            private Text text;
+            public Text Text { get { return text; } }
         }
     }
 }
