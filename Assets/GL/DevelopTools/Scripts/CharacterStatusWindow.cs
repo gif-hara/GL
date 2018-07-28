@@ -9,6 +9,7 @@ using HK.Framework.EventSystems;
 using UniRx;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace GL.DevelopTools.Scripts
 {
@@ -40,8 +41,12 @@ namespace GL.DevelopTools.Scripts
         {
             if (state == PlayModeStateChange.EnteredPlayMode)
             {
+                SceneManager.activeSceneChanged += OnActiveSceneChanged;
                 var window = CreateInstance<CharacterStatusWindow>();
-                window.ShowUtility();
+                if(SceneManager.GetActiveScene().name == "Battle")
+                {
+                    window.ShowUtility();
+                }
                 Broker.Global.Receive<BehavioralOrderSimulationed>()
                     .SubscribeWithState(window, (x, w) =>
                     {
@@ -52,6 +57,7 @@ namespace GL.DevelopTools.Scripts
             
             else if (state == PlayModeStateChange.EnteredEditMode)
             {
+                SceneManager.activeSceneChanged -= OnActiveSceneChanged;
                 var window = GetWindow<CharacterStatusWindow>();
                 window.Close();
                 window.disposable.Clear();
@@ -79,6 +85,19 @@ namespace GL.DevelopTools.Scripts
             
             this.DrawCharacterStatus(battleManager.Parties.AllMember);
             this.DrawBehavioralNames();
+        }
+
+        private static void OnActiveSceneChanged(Scene previous, Scene next)
+        {
+            var window = GetWindow<CharacterStatusWindow>();
+            if(next.name == "Battle")
+            {
+                window.ShowUtility();
+            }
+            else
+            {
+                window.Close();
+            }
         }
 
         private void DrawCharacterStatus(IEnumerable<Character> characters)
