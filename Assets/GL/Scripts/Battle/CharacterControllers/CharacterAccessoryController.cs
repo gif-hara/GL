@@ -11,10 +11,9 @@ namespace GL.Scripts.Battle.CharacterControllers
     {
         public Accessory[] Accessories { get; private set; }
         
-        public CharacterAccessoryController()
+        public CharacterAccessoryController(Accessory[] accessories)
         {
-            Debug.LogWarning("アクセサリー設定を実装");
-            this.Accessories = new Accessory[0];
+            this.Accessories = accessories;
         }
 
         public void OnStartBattle(Character equippedCharacter)

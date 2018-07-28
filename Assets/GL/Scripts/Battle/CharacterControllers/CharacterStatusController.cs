@@ -63,16 +63,14 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// </summary>
         public bool IsDead { get { return this.HitPoint <= 0; } }
 
-        public CharacterStatusController(Blueprint blueprint, int level)
+        public CharacterStatusController(Blueprint blueprint, IImplement[] commands, int level)
         {
             this.Blueprint = blueprint;
             this.Base = new CharacterStatus(this.Blueprint, level);
             this.Dynamic = new CharacterStatus();
             this.Accessory = new CharacterStatus();
             this.OnSoldier = new CharacterStatus();
-            Debug.LogWarning("コマンド初期化を実装");
-            this.Commands = new IImplement[0];
-            // this.Commands = this.Blueprint.Commands.Select(x => x.Create()).ToArray();
+            this.Commands = commands;
             this.Wait = 0.0f;
             this.HitPointMax = this.Base.Parameter.HitPoint;
         }

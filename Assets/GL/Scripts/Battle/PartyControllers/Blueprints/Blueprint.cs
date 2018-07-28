@@ -59,9 +59,15 @@ namespace GL.Scripts.Battle.PartyControllers.Blueprints
             float scaleX
         )
         {
-            var parameter = parameters[index];
+            var parameter = this.parameters[index];
             var result = this.InternalCreateCharacter(controllerPrefab, parent, position, parameter.Blueprint.Model, scaleX);
-            result.Initialize(parameter.Blueprint, parameter.Level, characterType);
+            result.Initialize(
+                parameter.Blueprint,
+                parameter.Weapon.Commands.Select(c => c.Create()).ToArray(),
+                parameter.Accessories,
+                parameter.Level,
+                characterType
+                );
 
             return result;
         }

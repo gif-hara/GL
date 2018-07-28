@@ -1,4 +1,6 @@
 ﻿using System;
+using GL.Scripts.Battle.Accessories;
+using GL.Scripts.Battle.Commands.Implements;
 using GL.Scripts.Battle.Systems;
 using GL.Scripts.Events.Battle;
 using HK.Framework.EventSystems;
@@ -31,11 +33,11 @@ namespace GL.Scripts.Battle.CharacterControllers
 
         private ICharacterAnimation characterAnimation;
 
-        public void Initialize(Blueprints.Blueprint blueprint, int level, Constants.CharacterType characterType)
+        public void Initialize(Blueprints.Blueprint blueprint, IImplement[] commands, Accessory[] accessories, int level, Constants.CharacterType characterType)
         {
-            this.StatusController = new CharacterStatusController(blueprint, level);
+            this.StatusController = new CharacterStatusController(blueprint, commands, level);
             this.AilmentController = new CharacterAilmentController(this);
-            this.AccessoryController = new CharacterAccessoryController();
+            this.AccessoryController = new CharacterAccessoryController(accessories);
             this.CharacterType = characterType;
             this.characterAnimation = this.GetComponentInChildren<ICharacterAnimation>();
             Assert.IsNotNull(this.characterAnimation);
@@ -78,8 +80,8 @@ namespace GL.Scripts.Battle.CharacterControllers
                         if (_this.CharacterType == Constants.CharacterType.Enemy)
                         {
                             // TODO: AI実装
-                            var commands = _this.StatusController.Commands;
-                            var command = commands[Random.Range(0, commands.Length)];
+                            var _commands = _this.StatusController.Commands;
+                            var command = _commands[Random.Range(0, _commands.Length)];
                             Broker.Global.Publish(InvokeCommand.Get(_this, command));
                         }
                     }
