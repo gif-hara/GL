@@ -1,4 +1,5 @@
 ﻿using GL.Scripts.Battle.Accessories;
+using UnityEngine;
 using Blueprint = GL.Scripts.Battle.PartyControllers.Blueprints.Blueprint;
 
 namespace GL.Scripts.Battle.CharacterControllers
@@ -10,9 +11,10 @@ namespace GL.Scripts.Battle.CharacterControllers
     {
         public Accessory[] Accessories { get; private set; }
         
-        public CharacterAccessoryController(Blueprints.Blueprint blueprint)
+        public CharacterAccessoryController()
         {
-            this.Accessories = blueprint.Accessories;
+            Debug.LogWarning("アクセサリー設定を実装");
+            this.Accessories = new Accessory[0];
         }
 
         public void OnStartBattle(Character equippedCharacter)

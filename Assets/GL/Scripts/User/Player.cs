@@ -23,7 +23,7 @@ namespace GL.Scripts.User
         public int Level = 1;
         
         [SerializeField]
-        public Battle.CharacterControllers.Blueprints.Player Blueprint;
+        public Battle.CharacterControllers.Blueprints.Blueprint Blueprint;
 
         [SerializeField]
         public Weapon Weapon;
@@ -53,7 +53,7 @@ namespace GL.Scripts.User
             }
         }
 
-        public static Player Create(string playerName, int level, Battle.CharacterControllers.Blueprints.Player blueprint)
+        public static Player Create(string playerName, int level, Battle.CharacterControllers.Blueprints.Blueprint blueprint)
         {
             return new Player()
             {

@@ -35,7 +35,7 @@ namespace GL.Scripts.Battle.CharacterControllers
         {
             this.StatusController = new CharacterStatusController(blueprint, level);
             this.AilmentController = new CharacterAilmentController(this);
-            this.AccessoryController = new CharacterAccessoryController(blueprint);
+            this.AccessoryController = new CharacterAccessoryController();
             this.CharacterType = characterType;
             this.characterAnimation = this.GetComponentInChildren<ICharacterAnimation>();
             Assert.IsNotNull(this.characterAnimation);

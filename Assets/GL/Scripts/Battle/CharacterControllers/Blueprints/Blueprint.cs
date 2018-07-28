@@ -8,7 +8,8 @@ namespace GL.Scripts.Battle.CharacterControllers.Blueprints
     /// <summary>
     /// キャラクターを構成する設計図
     /// </summary>
-    public abstract class Blueprint : ScriptableObject
+    [CreateAssetMenu(menuName = "GL/CharacterControllers/Blueprint")]
+    public class Blueprint : ScriptableObject
     {
         [SerializeField]
         private StringAsset.Finder characterName;
@@ -21,10 +22,6 @@ namespace GL.Scripts.Battle.CharacterControllers.Blueprints
         [SerializeField]
         private GameObject model;
         public GameObject Model { get { return this.model; } }
-
-        public abstract Accessory[] Accessories { get; set; }
-        
-        public abstract Commands.Blueprints.Blueprint[] Commands { get; set; }
 
         public Parameter GetParameter(int level)
         {

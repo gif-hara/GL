@@ -2,6 +2,7 @@
 using GL.Scripts.Battle.CharacterControllers.Blueprints;
 using GL.Scripts.Battle.Commands.Implements;
 using GL.Scripts.Battle.Systems;
+using UnityEngine;
 
 namespace GL.Scripts.Battle.CharacterControllers
 {
@@ -69,7 +70,9 @@ namespace GL.Scripts.Battle.CharacterControllers
             this.Dynamic = new CharacterStatus();
             this.Accessory = new CharacterStatus();
             this.OnSoldier = new CharacterStatus();
-            this.Commands = this.Blueprint.Commands.Select(x => x.Create()).ToArray();
+            Debug.LogWarning("コマンド初期化を実装");
+            this.Commands = new IImplement[0];
+            // this.Commands = this.Blueprint.Commands.Select(x => x.Create()).ToArray();
             this.Wait = 0.0f;
             this.HitPointMax = this.Base.Parameter.HitPoint;
         }
