@@ -3,7 +3,7 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -23,19 +23,19 @@ MonoBehaviour:
     - Id: 
       PlayerName: "\u30C6\u30B9\u30C82"
       Level: 1
-      Blueprint: {fileID: 11400000, guid: 160bab127a4c24301b0df996b0b01d6e, type: 2}
+      Blueprint: {fileID: 11400000, guid: a3c456fef5b334eba96fc6bc9b5234c1, type: 2}
       Weapon: {fileID: 11400000, guid: 57d2b1df6ad8b446a8d82393a62a6ec3, type: 2}
       Accessories: []
     - Id: 
       PlayerName: "\u30C6\u30B9\u30C83"
       Level: 1
-      Blueprint: {fileID: 11400000, guid: 49bc8df8a627449f596f41637fc45cc5, type: 2}
+      Blueprint: {fileID: 11400000, guid: d33f421f53f914ed6994a11c3798dabf, type: 2}
       Weapon: {fileID: 11400000, guid: 57d2b1df6ad8b446a8d82393a62a6ec3, type: 2}
       Accessories: []
     - Id: 
       PlayerName: "\u30C6\u30B9\u30C84"
       Level: 1
-      Blueprint: {fileID: 11400000, guid: 13d189e672e224ee1b90c900823e69fb, type: 2}
+      Blueprint: {fileID: 11400000, guid: 166aac9dcf1da4d76acbe5a1917da73b, type: 2}
       Weapon: {fileID: 11400000, guid: 57d2b1df6ad8b446a8d82393a62a6ec3, type: 2}
       Accessories: []
   initialPlayers:
