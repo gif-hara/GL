@@ -1,6 +1,11 @@
 ﻿using System;
+using System.Linq;
+using GL.Scripts.Battle.CharacterControllers;
 using GL.Scripts.Battle.Systems;
+using GL.Scripts.Events.Battle;
+using HK.Framework.EventSystems;
 using HK.Framework.Text;
+using HK.GL.Extensions;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -13,17 +18,71 @@ namespace GL.Scripts.Battle.Commands.Bundle
     {
         private Parameter parameter;
 
+        private Implements.IImplement[] elements;
+
         public string Name
         {
-            get
-            {
-                return this.parameter.Name.Get;
-            }
+            get { return this.parameter.Name.Get; }
+        }
+
+        public Constants.TargetType TargetType
+        {
+            get { return this.parameter.TargetType; }
         }
 
         public Implement(Parameter parameter)
         {
             this.parameter = parameter;
+            this.elements = parameter.Elements.Select(e => e.Create()).ToArray();
+        }
+
+        public void Invoke(Character invoker, Character[] targets)
+        {
+            invoker.StartAttack(
+            () =>
+            {
+                this.elements.ForEach(e =>
+                {
+                    e.Invoke(invoker, targets);
+                });
+            },
+            () =>
+            {
+                this.Postprocess(invoker)();
+            });
+        }
+
+        public Character[] GetTargets(Character invoker)
+        {
+            switch (this.parameter.TargetType)
+            {
+                case Constants.TargetType.Select:
+                case Constants.TargetType.All:
+                case Constants.TargetType.Random:
+                case Constants.TargetType.Myself:
+                case Constants.TargetType.OnChaseTakeDamages:
+                    var takeDamage = this.elements.Any(e => e.TakeDamage);
+                    return BattleManager.Instance.Parties
+                            .GetFromTargetPartyType(invoker, this.parameter.TargetPartyType)
+                            .GetTargets(invoker, this.parameter.TargetType, takeDamage);
+                default:
+                    Assert.IsTrue(false, $"未対応の値です TargetType = {this.parameter.TargetType}");
+                    return null;
+            }
+        }
+
+        private Action Postprocess(Character invoker)
+        {
+            switch (this.parameter.Postprocess)
+            {
+                case Constants.PostprocessCommand.EndTurn:
+                    return () => BattleManager.Instance.EndTurn(invoker);
+                case Constants.PostprocessCommand.CompleteEndTurnEvent:
+                    return () => Broker.Global.Publish(CompleteEndTurnEvent.Get());
+                default:
+                    Assert.IsTrue(false, string.Format("未対応の値です {0}", this.parameter.Postprocess));
+                    return null;
+            }
         }
 
         [Serializable]
@@ -48,9 +107,14 @@ namespace GL.Scripts.Battle.Commands.Bundle
             public Constants.TargetType TargetType;
 
             /// <summary>
+            /// コマンド実行後の処理タイプ
+            /// </summary>
+            public Constants.PostprocessCommand Postprocess;
+
+            /// <summary>
             /// 実行されるコマンドリスト
             /// </summary>
-            public Blueprints.Blueprint[] elements;
+            public Blueprints.Blueprint[] Elements;
         }
     }
 }

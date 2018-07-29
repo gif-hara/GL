@@ -39,28 +39,17 @@ namespace GL.Scripts.Battle.Commands.Implements
         public override void Invoke(Character invoker, Character[] targets)
         {
             base.Invoke(invoker, targets);
-            
-            // 対象全てが死亡していた場合は何もしない
-            if (!targets.Any())
+            targets.ForEach(t =>
             {
-                this.Postprocess(invoker);
-                return;
-            }
-
-            invoker.StartAttack(() =>
-            {
-                targets.ForEach(t =>
+                if (Calculator.LotteryStatusAilment(t.StatusController, this.parameter.StatusAilmentType, this.parameter.Rate))
                 {
-                    if (Calculator.LotteryStatusAilment(t.StatusController, this.parameter.StatusAilmentType, this.parameter.Rate))
+                    var success = t.AilmentController.Add(this.RemainingTurn, this.parameter.StatusAilmentType);
+                    if (success && this.CanRecord)
                     {
-                        var success = t.AilmentController.Add(this.RemainingTurn, this.parameter.StatusAilmentType);
-                        if (success && this.CanRecord)
-                        {
-                            BattleManager.Instance.InvokedCommandResult.AddAilments.Add(new InvokedCommandResult.AddAilment(t, this.parameter.StatusAilmentType));
-                        }
+                        BattleManager.Instance.InvokedCommandResult.AddAilments.Add(new InvokedCommandResult.AddAilment(t, this.parameter.StatusAilmentType));
                     }
-                });
-            }, this.Postprocess(invoker));
+                }
+            });
         }
 
         private int RemainingTurn

@@ -30,25 +30,16 @@ namespace GL.Scripts.Battle.Commands.Implements
         {
             base.Invoke(invoker, targets);
             
-            // 対象全てが死亡していた場合は何もしない
-            if (!targets.Any())
+            targets.ForEach(t =>
             {
-                this.Postprocess(invoker)();
-                return;
-            }
-            invoker.StartAttack(() =>
-            {
-                targets.ForEach(t =>
-                {
-                    var damage = Calculator.GetBasicAttackDamage(invoker, t, this.parameter.Rate);
-                    t.TakeDamage(damage);
+                var damage = Calculator.GetBasicAttackDamage(invoker, t, this.parameter.Rate);
+                t.TakeDamage(damage);
 
-                    if (this.CanRecord)
-                    {
-                        BattleManager.Instance.InvokedCommandResult.TakeDamages.Add(new InvokedCommandResult.TakeDamage(t, damage));
-                    }
-                });
-            }, this.Postprocess(invoker));
+                if (this.CanRecord)
+                {
+                    BattleManager.Instance.InvokedCommandResult.TakeDamages.Add(new InvokedCommandResult.TakeDamage(t, damage));
+                }
+            });
         }
 
         [Serializable]

@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using GL.Scripts.Battle.CharacterControllers;
-using GL.Scripts.Battle.Commands.Implements;
 using GL.Scripts.Events.Battle;
 using HK.Framework.EventSystems;
 using UniRx;
+using GL.Scripts.Battle.Commands.Bundle;
 
 namespace HK.GL.UI.Battle
 {
@@ -19,7 +19,7 @@ namespace HK.GL.UI.Battle
         [SerializeField]
         private Text text;
 
-        public void SetProperty(Character invoker, IImplement implement)
+        public void SetProperty(Character invoker, Implement implement)
         {
             this.text.text = implement.Name;
 

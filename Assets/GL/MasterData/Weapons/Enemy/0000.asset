@@ -17,4 +17,4 @@ MonoBehaviour:
     guid: 
   weaponType: 0
   commands:
-  - {fileID: 11400000, guid: d45505cef08c549eda695fde6d2898d1, type: 2}
+  - {fileID: 11400000, guid: 4e04044c38cf9404eb38cbcbfa47f425, type: 2}

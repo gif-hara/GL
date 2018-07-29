@@ -66,20 +66,6 @@ namespace GL.Scripts.Battle.Commands.Implements
             get { return this.parameter.Postprocess == Constants.PostprocessCommand.EndTurn; }
         }
 
-        public Action Postprocess(Character invoker)
-        {
-            switch (this.parameter.Postprocess)
-            {
-                case Constants.PostprocessCommand.EndTurn:
-                    return () => this.OnEndTurn(invoker);
-                case Constants.PostprocessCommand.CompleteEndTurnEvent:
-                    return this.OnCompleteEndTurnEvent;
-                default:
-                    Assert.IsTrue(false, string.Format("未対応の値です {0}", this.parameter.Postprocess));
-                    return null;
-            }
-        }
-
         private void OnEndTurn(Character invoker)
         {
             BattleManager.Instance.EndTurn(invoker);

@@ -22,25 +22,25 @@ namespace GL.Scripts.Battle.Systems
         /// 混乱した時のコマンド
         /// </summary>
         [SerializeField]
-        private Commands.Blueprints.Blueprint confuseBlueprint;
+        private Commands.Bundle.Blueprint confuseBlueprint;
 
         /// <summary>
         /// 狂暴した時のコマンド
         /// </summary>
         [SerializeField]
-        private Commands.Blueprints.Blueprint berserkBlueprint;
+        private Commands.Bundle.Blueprint berserkBlueprint;
 
         /// <summary>
         /// 追い打ち時のコマンド
         /// </summary>
         [SerializeField]
-        private Commands.Blueprints.Blueprint chaseBlueprint;
+        private Commands.Bundle.Blueprint chaseBlueprint;
 
-        public IImplement ConfuseCommand { get; private set; }
+        public Commands.Bundle.Implement ConfuseCommand { get; private set; }
 
-        public IImplement BerserkCommand { get; private set; }
+        public Commands.Bundle.Implement BerserkCommand { get; private set; }
 
-        public IImplement ChaseCommand { get; private set; }
+        public Commands.Bundle.Implement ChaseCommand { get; private set; }
 
         public static BattleManager Instance { private set; get; }
 

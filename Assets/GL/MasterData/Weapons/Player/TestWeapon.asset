@@ -17,6 +17,5 @@ MonoBehaviour:
     guid: 971b8b49-6c93-4231-b5f5-cf2aee162b9d
   weaponType: 0
   commands:
-  - {fileID: 11400000, guid: d45505cef08c549eda695fde6d2898d1, type: 2}
-  - {fileID: 11400000, guid: c1a29128a524e4b8db163cd5aa262161, type: 2}
-  - {fileID: 11400000, guid: 231c1c47bd82545b5af986e895e3ea8d, type: 2}
+  - {fileID: 11400000, guid: ddd0901df31a844529d9f118895097ad, type: 2}
+  - {fileID: 11400000, guid: be17b473ff74e46398693a261fa56e93, type: 2}

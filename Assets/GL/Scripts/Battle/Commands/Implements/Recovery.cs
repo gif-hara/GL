@@ -29,21 +29,11 @@ namespace GL.Scripts.Battle.Commands.Implements
         public override void Invoke(Character invoker, Character[] targets)
         {
             base.Invoke(invoker, targets);
-            
-            // 対象全てが死亡していた場合は何もしない
-            if (!targets.Any())
+            targets.ForEach(t =>
             {
-                this.Postprocess(invoker)();
-                return;
-            }
-            invoker.StartAttack(() =>
-            {
-                targets.ForEach(t =>
-                {
-                    var amount = Calculator.GetRecoveryAmount(invoker, this.parameter.Rate);
-                    t.Recovery(amount);
-                });
-            }, this.Postprocess(invoker));
+                var amount = Calculator.GetRecoveryAmount(invoker, this.parameter.Rate);
+                t.Recovery(amount);
+            });
         }
 
         [Serializable]

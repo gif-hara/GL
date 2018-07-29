@@ -1,6 +1,6 @@
 ﻿using System;
 using GL.Scripts.Battle.Accessories;
-using GL.Scripts.Battle.Commands.Implements;
+using GL.Scripts.Battle.Commands.Bundle;
 using GL.Scripts.Battle.Systems;
 using GL.Scripts.Events.Battle;
 using HK.Framework.EventSystems;
@@ -33,7 +33,7 @@ namespace GL.Scripts.Battle.CharacterControllers
 
         private ICharacterAnimation characterAnimation;
 
-        public void Initialize(Blueprints.Blueprint blueprint, IImplement[] commands, Accessory[] accessories, int level, Constants.CharacterType characterType)
+        public void Initialize(Blueprints.Blueprint blueprint, Implement[] commands, Accessory[] accessories, int level, Constants.CharacterType characterType)
         {
             this.StatusController = new CharacterStatusController(blueprint, commands, level);
             this.AilmentController = new CharacterAilmentController(this);

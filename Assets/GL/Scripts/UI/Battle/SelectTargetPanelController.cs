@@ -5,7 +5,7 @@ using GL.Scripts.Battle.Systems;
 using GL.Scripts.Events.Battle;
 using HK.Framework.EventSystems;
 using UniRx;
-using GL.Scripts.Battle.Commands.Implements;
+using GL.Scripts.Battle.Commands.Bundle;
 
 namespace HK.GL.UI.Battle
 {
@@ -47,7 +47,7 @@ namespace HK.GL.UI.Battle
                 .AddTo(this);
         }
 
-        private void OnSelectTargetFromPlayer(Character character, IImplement command, Character[] targets)
+        private void OnSelectTargetFromPlayer(Character character, Implement command, Character[] targets)
         {
             this.SetActive(true);
 

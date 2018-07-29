@@ -1846,9 +1846,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 030eaa02d3e49490fb2ebf0e3846def0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  confuseBlueprint: {fileID: 11400000, guid: 3ad4c830f2cb54a9abeaa9d135c97d88, type: 2}
-  berserkBlueprint: {fileID: 11400000, guid: 0c505e02640124322875880efdc7f7f9, type: 2}
-  chaseBlueprint: {fileID: 11400000, guid: 8a378cf6de4374a0280b5ef6310c9dd1, type: 2}
+  confuseBlueprint: {fileID: 11400000, guid: 27cfa0bcdb0c54767a21cd379c74f9cd, type: 2}
+  berserkBlueprint: {fileID: 11400000, guid: a263d38f9f46e497088a9a6028be05c5, type: 2}
+  chaseBlueprint: {fileID: 11400000, guid: 9e207ed4b0b414463a4171f7d024f5bf, type: 2}
 --- !u!4 &1477821176
 Transform:
   m_ObjectHideFlags: 0

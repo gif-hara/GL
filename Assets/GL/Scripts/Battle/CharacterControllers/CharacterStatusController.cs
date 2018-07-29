@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using GL.Scripts.Battle.CharacterControllers.Blueprints;
-using GL.Scripts.Battle.Commands.Implements;
 using GL.Scripts.Battle.Systems;
 using UnityEngine;
 
@@ -37,7 +36,7 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// <summary>
         /// 使用可能なコマンド
         /// </summary>
-        public IImplement[] Commands { private set; get; }
+        public Commands.Bundle.Implement[] Commands { private set; get; }
 
         /// <summary>
         /// 待機した量
@@ -63,7 +62,7 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// </summary>
         public bool IsDead { get { return this.HitPoint <= 0; } }
 
-        public CharacterStatusController(Blueprint blueprint, IImplement[] commands, int level)
+        public CharacterStatusController(CharacterControllers.Blueprints.Blueprint blueprint, Commands.Bundle.Implement[] commands, int level)
         {
             this.Blueprint = blueprint;
             this.Base = new CharacterStatus(this.Blueprint, level);

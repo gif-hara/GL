@@ -1,5 +1,5 @@
 ﻿using GL.Scripts.Battle.CharacterControllers;
-using GL.Scripts.Battle.Commands.Implements;
+using GL.Scripts.Battle.Commands.Bundle;
 using HK.Framework.EventSystems;
 
 namespace GL.Scripts.Events.Battle
@@ -7,7 +7,7 @@ namespace GL.Scripts.Events.Battle
     /// <summary>
     /// コマンドを選択した事を通知するイベント
     /// </summary>
-    public sealed class SelectedCommand : Message<SelectedCommand, Character, IImplement>
+    public sealed class SelectedCommand : Message<SelectedCommand, Character, Implement>
     {
         /// <summary>
         /// 実行するヤーツ
@@ -17,6 +17,6 @@ namespace GL.Scripts.Events.Battle
         /// <summary>
         /// 実行するコマンド
         /// </summary>
-        public IImplement Command{ get{ return this.param2; } }
+        public Implement Command{ get{ return this.param2; } }
     }
 }

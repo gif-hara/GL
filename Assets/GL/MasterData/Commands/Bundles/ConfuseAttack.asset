@@ -8,16 +8,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85774dbf4bdb04ba9a7c436ee15cd82b, type: 3}
-  m_Name: BasicAttack_Select
+  m_Script: {fileID: 11500000, guid: 221d7d34226dd41a8b8a8ce5033a61a1, type: 3}
+  m_Name: ConfuseAttack
   m_EditorClassIdentifier: 
   parameter:
     Name:
       target: {fileID: 11400000, guid: 3534e70039cc6491cad3f648e57e8b4b, type: 2}
-      value: "\u5F37\u3044\u30E4\u30C4\u653B\u6483"
+      value: "\u653B\u6483"
       guid: 921c1012-ba4b-47d5-8afe-53d421fd2139
-    TargetPartyType: 1
-    TargetType: 0
-    TargetStatusParameterType: 0
-    Postprocess: 0
-    Rate: 1
+    TargetPartyType: 0
+    TargetType: 2
+    Elements:
+    - {fileID: 11400000, guid: 3ad4c830f2cb54a9abeaa9d135c97d88, type: 2}

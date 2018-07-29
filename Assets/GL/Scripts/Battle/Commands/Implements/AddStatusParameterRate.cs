@@ -37,26 +37,15 @@ namespace GL.Scripts.Battle.Commands.Implements
         public override void Invoke(Character invoker, Character[] targets)
         {
             base.Invoke(invoker, targets);
-            
-            // 対象全てが死亡していた場合は何もしない
-            if (!targets.Any())
+            var value = Calculator.GetAddStatusParameterValue(this.TargetStatusParameterType, invoker.StatusController, this.parameter.Rate);
+            targets.ForEach(t =>
             {
-                this.Postprocess(invoker);
-                return;
-            }
-
-            invoker.StartAttack(() =>
-            {
-                var value = Calculator.GetAddStatusParameterValue(this.TargetStatusParameterType, invoker.StatusController, this.parameter.Rate);
-                targets.ForEach(t =>
+                t.StatusController.AddParameterToDynamic(this.TargetStatusParameterType, value);
+                if (this.CanRecord)
                 {
-                    t.StatusController.AddParameterToDynamic(this.TargetStatusParameterType, value);
-                    if (this.CanRecord)
-                    {
-                        BattleManager.Instance.InvokedCommandResult.AddParameters.Add(new InvokedCommandResult.AddParameter(t, this.TargetStatusParameterType, value));
-                    }
-                });
-            }, this.Postprocess(invoker));
+                    BattleManager.Instance.InvokedCommandResult.AddParameters.Add(new InvokedCommandResult.AddParameter(t, this.TargetStatusParameterType, value));
+                }
+            });
         }
 
         [Serializable]
