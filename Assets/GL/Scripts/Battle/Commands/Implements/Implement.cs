@@ -51,8 +51,7 @@ namespace GL.Scripts.Battle.Commands.Implements
                 case Constants.TargetType.OnChaseTakeDamages:
                     return BattleManager.Instance.Parties
                             .GetFromTargetPartyType(invoker, this.TargetPartyType)
-                            .GetTargets(invoker, this.TargetType, this.TakeDamage)
-                            .ToArray();
+                            .GetTargets(invoker, this.TargetType, this.TakeDamage);
                 default:
                     Assert.IsTrue(false, $"未対応の値です TargetType = {this.TargetType}");
                     return null;

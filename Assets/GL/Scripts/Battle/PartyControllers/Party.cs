@@ -49,7 +49,7 @@ namespace GL.Scripts.Battle.PartyControllers
         /// <param name="invoker">ターゲットを選択するキャラクター</param>
         /// <param name="type">ターゲットしたいタイプ</param>
         /// <param name="takeDamage">ダメージを伴う行動を行うか</param>
-        public List<Character> GetTargets(Character invoker, Constants.TargetType type, bool takeDamage)
+        public Character[] GetTargets(Character invoker, Constants.TargetType type, bool takeDamage)
         {
             var targets = this.SurvivalMembers;
             var protectCharacters = targets.FindAll(c => c.AilmentController.Find(Constants.StatusAilmentType.Protect));
@@ -63,7 +63,7 @@ namespace GL.Scripts.Battle.PartyControllers
             // 鎌鼬化の場合は全体化する
             if (invoker.AilmentController.Find(Constants.StatusAilmentType.Sickle))
             {
-                return targets;
+                return targets.ToArray();
             }
             
             var result = new List<Character>();
@@ -96,7 +96,7 @@ namespace GL.Scripts.Battle.PartyControllers
                     break;
             }
 
-            return result;
+            return result.ToArray();
         }
     }
 }
