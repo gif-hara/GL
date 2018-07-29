@@ -25,16 +25,39 @@ namespace GL.Scripts.Battle.Commands.Implements
 
         public abstract Constants.CommandType CommandType { get; }
 
+        public abstract bool TakeDamage { get; }
+
         protected Implement(T parameter)
         {
             this.parameter = parameter;
         }
 
-        public virtual void Invoke(Character invoker)
+        public virtual void Invoke(Character invoker, Character[] targets)
         {
             if (this.CanRecord)
             {
                 BattleManager.Instance.InvokedCommandResult.InvokedCommand = this;
+            }
+        }
+
+        public Character[] GetTargets(Character invoker)
+        {
+            switch(this.TargetType)
+            {
+                case Constants.TargetType.Select:
+                    Assert.IsTrue(false, "Selectは任意にターゲットを選択する必要があります");
+                    return null;
+                case Constants.TargetType.All:
+                case Constants.TargetType.Random:
+                case Constants.TargetType.Myself:
+                case Constants.TargetType.OnChaseTakeDamages:
+                    return BattleManager.Instance.Parties
+                            .GetFromTargetPartyType(invoker, this.TargetPartyType)
+                            .GetTargets(invoker, this.TargetType, this.TakeDamage)
+                            .ToArray();
+                default:
+                    Assert.IsTrue(false, $"未対応の値です TargetType = {this.TargetType}");
+                    return null;
             }
         }
 
@@ -44,16 +67,6 @@ namespace GL.Scripts.Battle.Commands.Implements
         protected bool CanRecord
         {
             get { return this.parameter.Postprocess == Constants.PostprocessCommand.EndTurn; }
-        }
-
-        /// <summary>
-        /// ターゲットリストを返す
-        /// </summary>
-        protected List<Character> GetTargets(Character invoker, bool takeDamage)
-        {
-            return BattleManager.Instance.Parties
-                .GetFromTargetPartyType(invoker, this.TargetPartyType)
-                .GetTargets(invoker, this.TargetType, takeDamage);
         }
 
         public Action Postprocess(Character invoker)

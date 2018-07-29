@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Linq;
 using GL.Scripts.Battle.CharacterControllers;
 using GL.Scripts.Battle.Systems;
 using GL.Scripts.Extensions;
+using HK.GL.Extensions;
 using Random = UnityEngine.Random;
 
 namespace GL.Scripts.Battle.Commands.Implements
@@ -26,14 +28,20 @@ namespace GL.Scripts.Battle.Commands.Implements
             }
         }
 
-        public override void Invoke(Character invoker)
+        public override bool TakeDamage
         {
-            base.Invoke(invoker);
+            get
+            {
+                return false;
+            }
+        }
 
-            var targets = this.GetTargets(invoker, false);
+        public override void Invoke(Character invoker, Character[] targets)
+        {
+            base.Invoke(invoker, targets);
             
             // 対象全てが死亡していた場合は何もしない
-            if (targets.Find(t => !t.StatusController.IsDead) == null)
+            if (!targets.Any())
             {
                 this.Postprocess(invoker);
                 return;

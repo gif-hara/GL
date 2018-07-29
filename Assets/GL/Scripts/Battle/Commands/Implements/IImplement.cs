@@ -37,9 +37,22 @@ namespace GL.Scripts.Battle.Commands.Implements
         Constants.CommandType CommandType { get; }
 
         /// <summary>
+        /// ダメージを伴うコマンドであるか
+        /// </summary>
+        bool TakeDamage { get; }
+
+        /// <summary>
         /// コマンドを実行する
         /// </summary>
         /// <param name="invoker">実行するキャラクター</param>
-        void Invoke(Character invoker);
+        void Invoke(Character invoker, Character[] targets);
+
+        /// <summary>
+        /// ターゲットとなるキャラクターのリストを返す
+        /// </summary>
+        /// <remarks>
+        /// <see cref="TargetType"/>が<c>Select</c>の場合はアサートを吐くので注意
+        /// </remarks>
+        Character[] GetTargets(Character invoker);
     }
 }

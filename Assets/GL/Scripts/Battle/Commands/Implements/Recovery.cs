@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Linq;
 using GL.Scripts.Battle.CharacterControllers;
 using GL.Scripts.Battle.Systems;
+using HK.GL.Extensions;
 
 namespace GL.Scripts.Battle.Commands.Implements
 {
@@ -16,14 +18,20 @@ namespace GL.Scripts.Battle.Commands.Implements
 
         public override Constants.CommandType CommandType { get { return Constants.CommandType.Recovery; } }
 
-        public override void Invoke(Character invoker)
+        public override bool TakeDamage
         {
-            base.Invoke(invoker);
-            
-            var targets = this.GetTargets(invoker, false);
+            get
+            {
+                return false;
+            }
+        }
+
+        public override void Invoke(Character invoker, Character[] targets)
+        {
+            base.Invoke(invoker, targets);
             
             // 対象全てが死亡していた場合は何もしない
-            if (targets.Find(t => !t.StatusController.IsDead) == null)
+            if (!targets.Any())
             {
                 this.Postprocess(invoker)();
                 return;

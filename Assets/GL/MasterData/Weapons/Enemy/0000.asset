@@ -3,7 +3,7 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -11,6 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30e5466c3c6114d91915749921a0104b, type: 3}
   m_Name: 0000
   m_EditorClassIdentifier: 
+  weaponName:
+    target: {fileID: 0}
+    value: 
+    guid: 
   weaponType: 0
   commands:
-  - {fileID: 11400000, guid: 9cdf96bed368c40c9afb237d665437d1, type: 2}
+  - {fileID: 11400000, guid: d45505cef08c549eda695fde6d2898d1, type: 2}

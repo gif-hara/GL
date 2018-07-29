@@ -53,7 +53,7 @@ namespace GL.Scripts.Battle.CharacterControllers
 
             Broker.Global.Receive<StartSelectCommand>()
                 .Where(x => x.Character == this)
-                .SubscribeWithState(this, (_, _this) =>
+                .SubscribeWithState(this, (x, _this) =>
                 {
                     if (_this.AilmentController.Find(Constants.StatusAilmentType.Paralysis))
                     {
@@ -68,12 +68,14 @@ namespace GL.Scripts.Battle.CharacterControllers
                     else if (_this.AilmentController.Find(Constants.StatusAilmentType.Confuse))
                     {
                         Debug.Log("TODO: 混乱を表現する");
-                        BattleManager.Instance.ConfuseCommand.Invoke(_this);
+                        var command = BattleManager.Instance.ConfuseCommand;
+                        command.Invoke(_this, command.GetTargets(x.Character));
                     }
                     else if (_this.AilmentController.Find(Constants.StatusAilmentType.Berserk))
                     {
                         Debug.Log("TODO: 狂暴を表現する");
-                        BattleManager.Instance.BerserkCommand.Invoke(_this);
+                        var command = BattleManager.Instance.BerserkCommand;
+                        command.Invoke(_this, command.GetTargets(x.Character));
                     }
                     else
                     {
