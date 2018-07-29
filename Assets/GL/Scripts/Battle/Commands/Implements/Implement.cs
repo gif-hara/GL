@@ -45,8 +45,6 @@ namespace GL.Scripts.Battle.Commands.Implements
             switch(this.TargetType)
             {
                 case Constants.TargetType.Select:
-                    Assert.IsTrue(false, "Selectは任意にターゲットを選択する必要があります");
-                    return null;
                 case Constants.TargetType.All:
                 case Constants.TargetType.Random:
                 case Constants.TargetType.Myself:

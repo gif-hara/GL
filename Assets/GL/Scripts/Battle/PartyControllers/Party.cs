@@ -42,6 +42,10 @@ namespace GL.Scripts.Battle.PartyControllers
         /// <summary>
         /// ターゲットタイプからターゲットを返す
         /// </summary>
+        /// <remarks>
+        /// <see cref="Constants.TargetType.Select"/>の場合も選択可能なターゲット全てを返します
+        /// その中から任意のターゲットを選択する処理を別個で実装する必要があります
+        /// </remarks>
         /// <param name="invoker">ターゲットを選択するキャラクター</param>
         /// <param name="type">ターゲットしたいタイプ</param>
         /// <param name="takeDamage">ダメージを伴う行動を行うか</param>
@@ -65,6 +69,7 @@ namespace GL.Scripts.Battle.PartyControllers
             var result = new List<Character>();
             switch(type)
             {
+                case Constants.TargetType.Select: // Selectの場合も全てのリストを返す
                 case Constants.TargetType.All:
                     result.AddRange(targets);
                     break;

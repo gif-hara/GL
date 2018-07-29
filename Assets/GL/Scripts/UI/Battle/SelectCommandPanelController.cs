@@ -11,10 +11,10 @@ namespace HK.GL.UI.Battle
     /// <summary>
     /// コマンドパネルを制御するヤーツ
     /// </summary>
-    public sealed class CommandPanelController : MonoBehaviour
+    public sealed class SelectCommandPanelController : MonoBehaviour
     {
         [SerializeField]
-        private List<CommandButtonController> buttons;
+        private List<SelectCommandButtonController> buttons;
 
         void Awake()
         {

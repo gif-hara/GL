@@ -9,9 +9,9 @@ using UniRx;
 namespace HK.GL.UI.Battle
 {
     /// <summary>
-    /// コマンドボタンを制御する
+    /// ターゲットを選択するボタンを制御する
     /// </summary>
-    public sealed class CommandButtonController : MonoBehaviour
+    public sealed class SelectTargetButtonController : MonoBehaviour
     {
         [SerializeField]
         private Button button;
@@ -19,14 +19,14 @@ namespace HK.GL.UI.Battle
         [SerializeField]
         private Text text;
 
-        public void SetProperty(Character invoker, IImplement implement)
+        public void SetProperty(Character invoker, IImplement command, Character target)
         {
-            this.text.text = implement.Name;
+            this.text.text = target.StatusController.Name;
 
             this.button.OnClickAsObservable()
                 .First()
-                .TakeUntil(Broker.Global.Receive<SelectedCommand>())
-                .Subscribe(_ => Broker.Global.Publish(SelectedCommand.Get(invoker, implement)))
+                .TakeUntil(Broker.Global.Receive<SelectedTargets>())
+                .Subscribe(_ => Broker.Global.Publish(SelectedTargets.Get(invoker, command, new Character[]{ target })))
                 .AddTo(this);
         }
     }
