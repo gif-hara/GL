@@ -38,7 +38,7 @@ namespace GL.Scripts.Battle.CharacterControllers.StatusAilments
             
             BattleManager.Instance.EndTurnEvents.Enqueue(() =>
             {
-                Broker.Global.Publish(InvokeCommand.Get(this.controller.Character, BattleManager.Instance.ChaseCommand));
+                Broker.Global.Publish(SelectedCommand.Get(this.controller.Character, BattleManager.Instance.ChaseCommand));
             });
         }
     }

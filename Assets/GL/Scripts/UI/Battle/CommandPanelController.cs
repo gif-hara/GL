@@ -18,7 +18,7 @@ namespace HK.GL.UI.Battle
 
         void Awake()
         {
-            Broker.Global.Receive<SelectCommand>()
+            Broker.Global.Receive<StartSelectCommand>()
                 .SubscribeWithState(this, (x, _this) =>
                 {
                     if (x.Character.CharacterType == Constants.CharacterType.Player)
@@ -32,7 +32,7 @@ namespace HK.GL.UI.Battle
                 })
                 .AddTo(this);
 
-            Broker.Global.Receive<InvokeCommand>()
+            Broker.Global.Receive<SelectedCommand>()
                 .SubscribeWithState(this, (_, _this) => _this.SetDeactiveAllButton())
                 .AddTo(this);
         }

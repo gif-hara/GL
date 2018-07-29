@@ -13,12 +13,12 @@ namespace GL.Scripts.Battle.Systems
     {
         void Awake()
         {
-            Broker.Global.Receive<InvokeCommand>()
-                .Subscribe(this.OnInvokeCommand)
+            Broker.Global.Receive<SelectedCommand>()
+                .Subscribe(this.OnSelectedCommand)
                 .AddTo(this);
         }
 
-        private void OnInvokeCommand(InvokeCommand eventData)
+        private void OnSelectedCommand(SelectedCommand eventData)
         {
             var character = eventData.Invoker;
             eventData.Command.Invoke(character);

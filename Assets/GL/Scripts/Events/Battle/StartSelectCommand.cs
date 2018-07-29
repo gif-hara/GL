@@ -4,9 +4,9 @@ using HK.Framework.EventSystems;
 namespace GL.Scripts.Events.Battle
 {
     /// <summary>
-    /// コマンドを選択するのを通知するイベント
+    /// コマンドを選択開始を通知するイベント
     /// </summary>
-    public sealed class SelectCommand : Message<SelectCommand, Character>
+    public sealed class StartSelectCommand : Message<StartSelectCommand, Character>
     {
         /// <summary>
         /// 次に行動するキャラクターを返す

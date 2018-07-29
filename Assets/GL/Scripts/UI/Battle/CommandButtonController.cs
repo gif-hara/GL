@@ -25,8 +25,8 @@ namespace HK.GL.UI.Battle
 
             this.button.OnClickAsObservable()
                 .First()
-                .TakeUntil(Broker.Global.Receive<InvokeCommand>())
-                .Subscribe(_ => Broker.Global.Publish(InvokeCommand.Get(invoker, implement)))
+                .TakeUntil(Broker.Global.Receive<SelectedCommand>())
+                .Subscribe(_ => Broker.Global.Publish(SelectedCommand.Get(invoker, implement)))
                 .AddTo(this);
         }
     }

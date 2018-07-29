@@ -51,7 +51,7 @@ namespace GL.Scripts.Battle.CharacterControllers
                 .AddTo(this);
 
 
-            Broker.Global.Receive<SelectCommand>()
+            Broker.Global.Receive<StartSelectCommand>()
                 .Where(x => x.Character == this)
                 .SubscribeWithState(this, (_, _this) =>
                 {
@@ -82,7 +82,7 @@ namespace GL.Scripts.Battle.CharacterControllers
                             // TODO: AI実装
                             var _commands = _this.StatusController.Commands;
                             var command = _commands[Random.Range(0, _commands.Length)];
-                            Broker.Global.Publish(InvokeCommand.Get(_this, command));
+                            Broker.Global.Publish(SelectedCommand.Get(_this, command));
                         }
                     }
                 })

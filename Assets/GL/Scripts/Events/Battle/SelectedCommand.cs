@@ -5,9 +5,9 @@ using HK.Framework.EventSystems;
 namespace GL.Scripts.Events.Battle
 {
     /// <summary>
-    /// コマンドを実行する事を通知するイベント
+    /// コマンドを選択した事を通知するイベント
     /// </summary>
-    public sealed class InvokeCommand : Message<InvokeCommand, Character, IImplement>
+    public sealed class SelectedCommand : Message<SelectedCommand, Character, IImplement>
     {
         /// <summary>
         /// 実行するヤーツ
