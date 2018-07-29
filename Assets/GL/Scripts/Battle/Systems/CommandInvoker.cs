@@ -7,7 +7,7 @@ using UnityEngine;
 namespace GL.Scripts.Battle.Systems
 {
     /// <summary>
-    /// 行動するキャラクターのコマンドを実行するヤーツ
+    /// 行動するキャラクターのコマンドを実行する
     /// </summary>
     public sealed class CommandInvoker : MonoBehaviour
     {

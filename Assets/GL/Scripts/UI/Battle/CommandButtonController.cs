@@ -9,7 +9,7 @@ using UniRx;
 namespace HK.GL.UI.Battle
 {
     /// <summary>
-    /// コマンドボタンを制御するヤーツ
+    /// コマンドボタンを制御する
     /// </summary>
     public sealed class CommandButtonController : MonoBehaviour
     {
