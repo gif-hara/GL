@@ -83,13 +83,7 @@ namespace GL.Scripts.Battle.Systems
             
             /// <summary>防御力</summary>
             Defense,
-            
-            /// <summary>思いやり力</summary>
-            Sympathy,
-            
-            /// <summary>ネガキャン力</summary>
-            Nega,
-            
+                        
             /// <summary>素早さ</summary>
             Speed,
             

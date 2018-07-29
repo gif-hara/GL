@@ -79,10 +79,6 @@ namespace GL.Scripts.Battle.Systems
                     return GetAddStrengthValue(invoker, rate);
                 case Constants.StatusParameterType.Defense:
                     return GetAddDefenseValue(invoker, rate);
-                case Constants.StatusParameterType.Sympathy:
-                    return GetAddSympathyValue(invoker, rate);
-                case Constants.StatusParameterType.Nega:
-                    return GetAddNegaValue(invoker, rate);
                 case Constants.StatusParameterType.Speed:
                     return GetAddSpeedValue(invoker, rate);
                 default:
@@ -99,11 +95,11 @@ namespace GL.Scripts.Battle.Systems
             // TODO: 実装
             if (rate >= 0.0f)
             {
-                return Mathf.FloorToInt(invoker.GetTotalParameter(Constants.StatusParameterType.Sympathy) / 2.0f * rate);
+                return Mathf.FloorToInt(rate);
             }
             else
             {
-                return Mathf.FloorToInt(invoker.GetTotalParameter(Constants.StatusParameterType.Nega) / 2.0f * rate);
+                return Mathf.FloorToInt(rate);
             }
         }
 
@@ -115,43 +111,11 @@ namespace GL.Scripts.Battle.Systems
             // TODO: 実装
             if (rate >= 0.0f)
             {
-                return Mathf.FloorToInt(invoker.GetTotalParameter(Constants.StatusParameterType.Sympathy) / 2.0f * rate);
+                return Mathf.FloorToInt(rate);
             }
             else
             {
-                return Mathf.FloorToInt(invoker.GetTotalParameter(Constants.StatusParameterType.Nega) / 2.0f * rate);
-            }
-        }
-
-        /// <summary>
-        /// 思いやり力上昇系コマンドの上昇量を返す
-        /// </summary>
-        private static int GetAddSympathyValue(CharacterStatusController invoker, float rate)
-        {
-            // TODO: 実装
-            if (rate >= 0.0f)
-            {
-                return Mathf.FloorToInt(invoker.GetTotalParameter(Constants.StatusParameterType.Sympathy) / 2.0f * rate);
-            }
-            else
-            {
-                return Mathf.FloorToInt(invoker.GetTotalParameter(Constants.StatusParameterType.Nega) / 2.0f * rate);
-            }
-        }
-        
-        /// <summary>
-        /// ネガキャン力上昇系コマンドの上昇量を返す
-        /// </summary>
-        private static int GetAddNegaValue(CharacterStatusController invoker, float rate)
-        {
-            // TODO: 実装
-            if (rate >= 0.0f)
-            {
-                return Mathf.FloorToInt(invoker.GetTotalParameter(Constants.StatusParameterType.Sympathy) / 2.0f * rate);
-            }
-            else
-            {
-                return Mathf.FloorToInt(invoker.GetTotalParameter(Constants.StatusParameterType.Nega) / 2.0f * rate);
+                return Mathf.FloorToInt(rate);
             }
         }
         
@@ -163,11 +127,11 @@ namespace GL.Scripts.Battle.Systems
             // TODO: 実装
             if (rate >= 0.0f)
             {
-                return Mathf.FloorToInt(invoker.GetTotalParameter(Constants.StatusParameterType.Sympathy) / 2.0f * rate);
+                return Mathf.FloorToInt(rate);
             }
             else
             {
-                return Mathf.FloorToInt(invoker.GetTotalParameter(Constants.StatusParameterType.Nega) / 2.0f * rate);
+                return Mathf.FloorToInt(rate);
             }
         }
 
@@ -215,7 +179,7 @@ namespace GL.Scripts.Battle.Systems
         /// </summary>
         public static int GetRecoveryAmount(Character invoker, float rate)
         {
-            return Mathf.FloorToInt(invoker.StatusController.GetTotalParameter(Constants.StatusParameterType.Sympathy) * rate);
+            return Mathf.FloorToInt(rate);
         }
     }
 }

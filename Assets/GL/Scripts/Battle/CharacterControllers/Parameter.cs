@@ -28,24 +28,6 @@ namespace GL.Scripts.Battle.CharacterControllers
         public int Defense;
 
         /// <summary>
-        /// 思いやり力
-        /// </summary>
-        /// <remarks>
-        /// バフ系の上昇量に影響する
-        /// </remarks>
-        [SerializeField][Range(0.0f, 255.0f)]
-        public int Sympathy;
-
-        /// <summary>
-        /// ネガキャン力
-        /// </summary>
-        /// <remarks>
-        /// デバフ系の上昇量に影響する
-        /// </remarks>
-        [SerializeField][Range(0.0f, 255.0f)]
-        public int Nega;
-
-        /// <summary>
         /// 素早さ
         /// </summary>
         [SerializeField][Range(0.0f, 255.0f)]
@@ -67,8 +49,6 @@ namespace GL.Scripts.Battle.CharacterControllers
             this.HitPoint = other.HitPoint;
             this.Strength = other.Strength;
             this.Defense = other.Defense;
-            this.Sympathy = other.Sympathy;
-            this.Nega = other.Nega;
             this.Speed = other.Speed;
             this.Luck = other.Luck;
         }
@@ -90,12 +70,6 @@ namespace GL.Scripts.Battle.CharacterControllers
                     break;
                 case Constants.StatusParameterType.Defense:
                     this.Defense += value;
-                    break;
-                case Constants.StatusParameterType.Sympathy:
-                    this.Sympathy += value;
-                    break;
-                case Constants.StatusParameterType.Nega:
-                    this.Nega += value;
                     break;
                 case Constants.StatusParameterType.Speed:
                     this.Speed += value;
@@ -119,10 +93,6 @@ namespace GL.Scripts.Battle.CharacterControllers
                     return this.Strength;
                 case Constants.StatusParameterType.Defense:
                     return this.Defense;
-                case Constants.StatusParameterType.Sympathy:
-                    return this.Sympathy;
-                case Constants.StatusParameterType.Nega:
-                    return this.Nega;
                 case Constants.StatusParameterType.Speed:
                     return this.Speed;
                 case Constants.StatusParameterType.Luck:
@@ -138,8 +108,6 @@ namespace GL.Scripts.Battle.CharacterControllers
             this.HitPoint = 0;
             this.Strength = 0;
             this.Defense = 0;
-            this.Sympathy = 0;
-            this.Nega = 0;
             this.Speed = 0;
             this.Luck = 0;
         }

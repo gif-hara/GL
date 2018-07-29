@@ -111,8 +111,6 @@ namespace GL.DevelopTools.Scripts
                 this.DrawStatus(statusControllers, "HP", s => string.Format("{0}/{1}", s.HitPoint, s.HitPointMax));
                 this.DrawStatus(statusControllers, "STR", s => s.GetTotalParameter(Constants.StatusParameterType.Strength).ToString());
                 this.DrawStatus(statusControllers, "DEF", s => s.GetTotalParameter(Constants.StatusParameterType.Defense).ToString());
-                this.DrawStatus(statusControllers, "SYM", s => s.GetTotalParameter(Constants.StatusParameterType.Sympathy).ToString());
-                this.DrawStatus(statusControllers, "NEG", s => s.GetTotalParameter(Constants.StatusParameterType.Nega).ToString());
                 this.DrawStatus(statusControllers, "SPD", s => s.GetTotalParameter(Constants.StatusParameterType.Speed).ToString());
                 this.DrawStatus(statusControllers, "LUC", s => s.GetTotalParameter(Constants.StatusParameterType.Luck).ToString());
                 this.DrawStatus(statusControllers, "WAT", s => s.Wait.ToString());

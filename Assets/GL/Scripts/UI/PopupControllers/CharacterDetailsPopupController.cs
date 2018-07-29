@@ -60,12 +60,6 @@ namespace GL.Scripts.UI.PopupControllers
             private Text defense;
 
             [SerializeField]
-            private Text sympathy;
-
-            [SerializeField]
-            private Text nega;
-
-            [SerializeField]
             private Text speed;
 
             [SerializeField]
@@ -76,8 +70,6 @@ namespace GL.Scripts.UI.PopupControllers
                 this.hitPoint.text = parameter.HitPoint.ToString();
                 this.strength.text = parameter.Strength.ToString();
                 this.defense.text = parameter.Defense.ToString();
-                this.sympathy.text = parameter.Sympathy.ToString();
-                this.nega.text = parameter.Nega.ToString();
                 this.speed.text = parameter.Speed.ToString();
                 this.luck.text = parameter.Luck.ToString();
             }
