@@ -53,7 +53,7 @@ namespace GL.Scripts.Battle.Commands.Implements
         {
             return BattleManager.Instance.Parties
                 .GetFromTargetPartyType(invoker, this.TargetPartyType)
-                .GetTargets(invoker, this.TargetType, c => c.StatusController.GetTotalParameter(this.TargetStatusParameterType), takeDamage);
+                .GetTargets(invoker, this.TargetType, takeDamage);
         }
 
         public Action Postprocess(Character invoker)

@@ -13,22 +13,9 @@ namespace GL.Scripts.Battle.Systems
         public enum TargetType : int
         {
             /// <summary>
-            /// 強いヤツ
+            /// ターゲットを選択可能
             /// </summary>
-            /// <remarks>
-            /// 攻撃の場合はHPが高いキャラクター
-            /// 攻撃力UP系援護なら攻撃力が高いキャラクターと言う具合に扱われる
-            /// </remarks>
-            Strong,
-
-            /// <summary>
-            /// 弱いヤツ
-            /// </summary>
-            /// <remarks>
-            /// 攻撃の場合はHPが低いキャラクター
-            /// 攻撃力UP系援護なら攻撃力が低いキャラクターと言う具合に扱われる
-            /// </remarks>
-            Weak,
+            Select,
 
             /// <summary>
             /// 対象のパーティ全て

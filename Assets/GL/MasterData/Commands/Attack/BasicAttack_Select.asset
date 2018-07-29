@@ -3,20 +3,21 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 85774dbf4bdb04ba9a7c436ee15cd82b, type: 3}
-  m_Name: BasicAttack_Weak
+  m_Name: BasicAttack_Select
   m_EditorClassIdentifier: 
   parameter:
     Name:
       target: {fileID: 11400000, guid: 3534e70039cc6491cad3f648e57e8b4b, type: 2}
-      value: "\u5F31\u3044\u30E4\u30C4\u653B\u6483"
-      guid: b8851885-c9e5-4228-af2c-bd647dc91b87
+      value: "\u5F37\u3044\u30E4\u30C4\u653B\u6483"
+      guid: 921c1012-ba4b-47d5-8afe-53d421fd2139
     TargetPartyType: 1
-    TargetType: 1
-    OnEndTurn: 1
+    TargetType: 0
+    TargetStatusParameterType: 0
+    Postprocess: 0
     Rate: 1

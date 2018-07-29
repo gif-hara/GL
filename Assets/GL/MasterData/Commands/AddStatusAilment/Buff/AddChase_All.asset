@@ -3,7 +3,7 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -17,10 +17,10 @@ MonoBehaviour:
       value: "\u30CA\u30AB\u30DE\u307F\u3093\u306A\u8FFD\u3044\u6253\u3061\u306B\u3059\u308B"
       guid: e8579763-a327-497f-beca-448f466b5304
     TargetPartyType: 0
-    TargetType: 2
+    TargetType: 1
+    TargetStatusParameterType: 0
     Postprocess: 0
     StatusAilmentType: 7
-    TargetStatusParameterType: 0
     Rate: 1
     RemainingTurnMin: 3
     RemainingTurnMax: 3
