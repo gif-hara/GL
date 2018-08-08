@@ -16,16 +16,6 @@ namespace GL.Scripts.Battle.Commands.Implements
         {
         }
 
-        public override Constants.CommandType CommandType
-        {
-            get
-            {
-                return this.parameter.Rate > 0.0f
-                    ? Constants.CommandType.ParameterUp
-                    : Constants.CommandType.ParameterDown;
-            }
-        }
-
         public override bool TakeDamage
         {
             get
@@ -34,16 +24,15 @@ namespace GL.Scripts.Battle.Commands.Implements
             }
         }
 
-        public override void Invoke(Character invoker, Character[] targets)
+        public override void Invoke(Character invoker, Commands.Bundle.Implement bundle, Character[] targets)
         {
-            base.Invoke(invoker, targets);
-            var value = Calculator.GetAddStatusParameterValue(this.TargetStatusParameterType, invoker.StatusController, this.parameter.Rate);
+            var value = Calculator.GetAddStatusParameterValue(this.parameter.ParameterType, invoker.StatusController, this.parameter.Rate);
             targets.ForEach(t =>
             {
-                t.StatusController.AddParameterToDynamic(this.TargetStatusParameterType, value);
-                if (this.CanRecord)
+                t.StatusController.AddParameterToDynamic(this.parameter.ParameterType, value);
+                if (bundle.CanRecord)
                 {
-                    BattleManager.Instance.InvokedCommandResult.AddParameters.Add(new InvokedCommandResult.AddParameter(t, this.TargetStatusParameterType, value));
+                    BattleManager.Instance.InvokedCommandResult.AddParameters.Add(new InvokedCommandResult.AddParameter(t, this.parameter.ParameterType, value));
                 }
             });
         }
@@ -51,6 +40,11 @@ namespace GL.Scripts.Battle.Commands.Implements
         [Serializable]
         public class Parameter : CommandParameter
         {
+            /// <summary>
+            /// 加算するパラメータのタイプ
+            /// </summary>
+            public Constants.StatusParameterType ParameterType;
+
             /// <summary>
             /// 倍率
             /// </summary>

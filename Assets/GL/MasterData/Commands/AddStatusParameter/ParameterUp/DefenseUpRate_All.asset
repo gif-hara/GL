@@ -12,12 +12,5 @@ MonoBehaviour:
   m_Name: DefenseUpRate_All
   m_EditorClassIdentifier: 
   parameter:
-    Name:
-      target: {fileID: 11400000, guid: 3534e70039cc6491cad3f648e57e8b4b, type: 2}
-      value: "\u30CA\u30AB\u30DE\u307F\u3093\u306A\u5B88\u308B"
-      guid: dfda0df1-293a-41c6-a19b-3fecd06a7b95
-    TargetPartyType: 0
-    TargetType: 1
-    TargetStatusParameterType: 2
-    Postprocess: 0
+    ParameterType: 2
     Rate: 0.5

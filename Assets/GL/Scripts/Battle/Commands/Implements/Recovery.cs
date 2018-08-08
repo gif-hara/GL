@@ -16,8 +16,6 @@ namespace GL.Scripts.Battle.Commands.Implements
         {
         }
 
-        public override Constants.CommandType CommandType { get { return Constants.CommandType.Recovery; } }
-
         public override bool TakeDamage
         {
             get
@@ -26,9 +24,8 @@ namespace GL.Scripts.Battle.Commands.Implements
             }
         }
 
-        public override void Invoke(Character invoker, Character[] targets)
+        public override void Invoke(Character invoker, Commands.Bundle.Implement bundle, Character[] targets)
         {
-            base.Invoke(invoker, targets);
             targets.ForEach(t =>
             {
                 var amount = Calculator.GetRecoveryAmount(invoker, this.parameter.Rate);

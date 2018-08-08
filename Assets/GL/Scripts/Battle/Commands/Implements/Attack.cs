@@ -16,8 +16,6 @@ namespace GL.Scripts.Battle.Commands.Implements
         {
         }
 
-        public override Constants.CommandType CommandType { get { return Constants.CommandType.Attack; } }
-
         public override bool TakeDamage
         {
             get
@@ -26,16 +24,14 @@ namespace GL.Scripts.Battle.Commands.Implements
             }
         }
 
-        public override void Invoke(Character invoker, Character[] targets)
+        public override void Invoke(Character invoker, Commands.Bundle.Implement bundle, Character[] targets)
         {
-            base.Invoke(invoker, targets);
-            
             targets.ForEach(t =>
             {
                 var damage = Calculator.GetBasicAttackDamage(invoker, t, this.parameter.Rate);
                 t.TakeDamage(damage);
 
-                if (this.CanRecord)
+                if (bundle.CanRecord)
                 {
                     BattleManager.Instance.InvokedCommandResult.TakeDamages.Add(new InvokedCommandResult.TakeDamage(t, damage));
                 }

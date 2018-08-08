@@ -10,7 +10,7 @@ namespace GL.Scripts.Battle.Systems
     /// </summary>
     public sealed class InvokedCommandResult
     {
-        public IImplement InvokedCommand;
+        public Battle.Commands.Bundle.Implement InvokedCommand;
         
         public readonly List<TakeDamage> TakeDamages = new List<TakeDamage>();
         

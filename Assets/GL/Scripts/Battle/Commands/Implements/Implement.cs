@@ -13,18 +13,8 @@ namespace GL.Scripts.Battle.Commands.Implements
     /// </summary>
     public abstract class Implement<T> : IImplement where T : CommandParameter
     {
-        protected T parameter;
+        protected T parameter;        
         
-        public string Name { get { return this.parameter.Name.Get; } }
-
-        public Constants.TargetPartyType TargetPartyType { get { return this.parameter.TargetPartyType; } }
-        
-        public Constants.TargetType TargetType { get { return this.parameter.TargetType; } }
-        
-        public Constants.StatusParameterType TargetStatusParameterType { get { return this.parameter.TargetStatusParameterType; } }
-
-        public abstract Constants.CommandType CommandType { get; }
-
         public abstract bool TakeDamage { get; }
 
         protected Implement(T parameter)
@@ -32,39 +22,7 @@ namespace GL.Scripts.Battle.Commands.Implements
             this.parameter = parameter;
         }
 
-        public virtual void Invoke(Character invoker, Character[] targets)
-        {
-            if (this.CanRecord)
-            {
-                BattleManager.Instance.InvokedCommandResult.InvokedCommand = this;
-            }
-        }
-
-        public Character[] GetTargets(Character invoker)
-        {
-            switch(this.TargetType)
-            {
-                case Constants.TargetType.Select:
-                case Constants.TargetType.All:
-                case Constants.TargetType.Random:
-                case Constants.TargetType.Myself:
-                case Constants.TargetType.OnChaseTakeDamages:
-                    return BattleManager.Instance.Parties
-                            .GetFromTargetPartyType(invoker, this.TargetPartyType)
-                            .GetTargets(invoker, this.TargetType, this.TakeDamage);
-                default:
-                    Assert.IsTrue(false, $"未対応の値です TargetType = {this.TargetType}");
-                    return null;
-            }
-        }
-
-        /// <summary>
-        /// <see cref="InvokedCommandResult"/>に登録可能か返す
-        /// </summary>
-        protected bool CanRecord
-        {
-            get { return this.parameter.Postprocess == Constants.PostprocessCommand.EndTurn; }
-        }
+        public abstract void Invoke(Character invoker, Commands.Bundle.Implement bundle, Character[] targets);
 
         private void OnEndTurn(Character invoker)
         {
@@ -74,6 +32,11 @@ namespace GL.Scripts.Battle.Commands.Implements
         private void OnCompleteEndTurnEvent()
         {
             Broker.Global.Publish(CompleteEndTurnEvent.Get());
+        }
+
+        public Character[] GetTargets(Character invoker)
+        {
+            throw new NotImplementedException();
         }
     }
 }

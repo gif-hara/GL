@@ -38,12 +38,17 @@ namespace GL.Scripts.Battle.Commands.Bundle
 
         public void Invoke(Character invoker, Character[] targets)
         {
+            if(this.CanRecord)
+            {
+                BattleManager.Instance.InvokedCommandResult.InvokedCommand = this;
+            }
+
             invoker.StartAttack(
             () =>
             {
                 this.elements.ForEach(e =>
                 {
-                    e.Invoke(invoker, targets);
+                    e.Invoke(invoker, this, targets);
                 });
             },
             () =>
@@ -69,6 +74,14 @@ namespace GL.Scripts.Battle.Commands.Bundle
                     Assert.IsTrue(false, $"未対応の値です TargetType = {this.parameter.TargetType}");
                     return null;
             }
+        }
+
+        /// <summary>
+        /// <see cref="InvokedCommandResult"/>に登録可能か返す
+        /// </summary>
+        public bool CanRecord
+        {
+            get { return this.parameter.Postprocess == Constants.PostprocessCommand.EndTurn; }
         }
 
         private Action Postprocess(Character invoker)

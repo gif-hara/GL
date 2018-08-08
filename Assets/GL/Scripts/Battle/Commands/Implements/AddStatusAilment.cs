@@ -18,16 +18,6 @@ namespace GL.Scripts.Battle.Commands.Implements
         {
         }
 
-        public override Constants.CommandType CommandType
-        {
-            get
-            {
-                return this.parameter.StatusAilmentType.IsPositive()
-                        ? Constants.CommandType.Buff
-                        : Constants.CommandType.Debuff;
-            }
-        }
-
         public override bool TakeDamage
         {
             get
@@ -36,15 +26,14 @@ namespace GL.Scripts.Battle.Commands.Implements
             }
         }
 
-        public override void Invoke(Character invoker, Character[] targets)
+        public override void Invoke(Character invoker, Commands.Bundle.Implement bundle, Character[] targets)
         {
-            base.Invoke(invoker, targets);
             targets.ForEach(t =>
             {
                 if (Calculator.LotteryStatusAilment(t.StatusController, this.parameter.StatusAilmentType, this.parameter.Rate))
                 {
                     var success = t.AilmentController.Add(this.RemainingTurn, this.parameter.StatusAilmentType);
-                    if (success && this.CanRecord)
+                    if (success && bundle.CanRecord)
                     {
                         BattleManager.Instance.InvokedCommandResult.AddAilments.Add(new InvokedCommandResult.AddAilment(t, this.parameter.StatusAilmentType));
                     }

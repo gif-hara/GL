@@ -18,5 +18,7 @@ MonoBehaviour:
       guid: 921c1012-ba4b-47d5-8afe-53d421fd2139
     TargetPartyType: 1
     TargetType: 0
+    Postprocess: 0
     Elements:
     - {fileID: 11400000, guid: c1a29128a524e4b8db163cd5aa262161, type: 2}
+    - {fileID: 11400000, guid: c17ce7fa8284e4200a804494def84ac6, type: 2}
