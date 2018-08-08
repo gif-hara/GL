@@ -11,7 +11,7 @@ namespace GL.Scripts.Battle.Commands.Element
     /// <summary>
     /// 実際にゲームで使用するコマンドの抽象クラス
     /// </summary>
-    public abstract class Implement<T> : IImplement where T : CommandParameter
+    public abstract class Implement<T> : IImplement where T : IParameter
     {
         protected T parameter;        
         

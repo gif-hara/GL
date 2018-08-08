@@ -47,7 +47,7 @@ namespace GL.Scripts.Battle.Commands.Element.Implements
         }
 
         [Serializable]
-        public class Parameter : CommandParameter
+        public class Parameter : IParameter
         {
             /// <summary>
             /// かける状態異常タイプ

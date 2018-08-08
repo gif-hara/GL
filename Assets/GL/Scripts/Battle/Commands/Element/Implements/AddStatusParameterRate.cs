@@ -38,7 +38,7 @@ namespace GL.Scripts.Battle.Commands.Element.Implements
         }
 
         [Serializable]
-        public class Parameter : CommandParameter
+        public class Parameter : IParameter
         {
             /// <summary>
             /// 加算するパラメータのタイプ

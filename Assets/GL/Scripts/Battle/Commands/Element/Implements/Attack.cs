@@ -7,11 +7,11 @@ using HK.GL.Extensions;
 namespace GL.Scripts.Battle.Commands.Element.Implements
 {
     /// <summary>
-    /// 回復を行うコマンド.
+    /// 攻撃を行うコマンド.
     /// </summary>
-    public sealed class Recovery : Implement<Recovery.Parameter>
+    public sealed class Attack : Implement<Attack.Parameter>
     {
-        public Recovery(Parameter parameter)
+        public Attack(Parameter parameter)
             : base(parameter)
         {
         }
@@ -20,7 +20,7 @@ namespace GL.Scripts.Battle.Commands.Element.Implements
         {
             get
             {
-                return false;
+                return true;
             }
         }
 
@@ -28,16 +28,21 @@ namespace GL.Scripts.Battle.Commands.Element.Implements
         {
             targets.ForEach(t =>
             {
-                var amount = Calculator.GetRecoveryAmount(invoker, this.parameter.Rate);
-                t.Recovery(amount);
+                var damage = Calculator.GetBasicAttackDamage(invoker, t, this.parameter.Rate);
+                t.TakeDamage(damage);
+
+                if (bundle.CanRecord)
+                {
+                    BattleManager.Instance.InvokedCommandResult.TakeDamages.Add(new InvokedCommandResult.TakeDamage(t, damage));
+                }
             });
         }
 
         [Serializable]
-        public class Parameter : CommandParameter
+        public class Parameter : IParameter
         {
             /// <summary>
-            /// 倍率
+            /// ダメージ倍率
             /// </summary>
             public float Rate;
         }
