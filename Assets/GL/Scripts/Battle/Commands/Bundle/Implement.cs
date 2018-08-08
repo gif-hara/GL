@@ -6,7 +6,6 @@ using GL.Scripts.Events.Battle;
 using HK.Framework.EventSystems;
 using HK.Framework.Text;
 using HK.GL.Extensions;
-using UnityEngine;
 using UnityEngine.Assertions;
 
 namespace GL.Scripts.Battle.Commands.Bundle
@@ -18,7 +17,7 @@ namespace GL.Scripts.Battle.Commands.Bundle
     {
         private Parameter parameter;
 
-        private Implements.IImplement[] elements;
+        private Element.IImplement[] elements;
 
         public string Name
         {
@@ -127,7 +126,7 @@ namespace GL.Scripts.Battle.Commands.Bundle
             /// <summary>
             /// 実行されるコマンドリスト
             /// </summary>
-            public Blueprints.Blueprint[] Elements;
+            public Element.Blueprint[] Elements;
         }
     }
 }

@@ -6,7 +6,7 @@ using GL.Scripts.Extensions;
 using HK.GL.Extensions;
 using Random = UnityEngine.Random;
 
-namespace GL.Scripts.Battle.Commands.Implements
+namespace GL.Scripts.Battle.Commands.Element.Implements
 {
     /// <summary>
     /// 状態異常を追加するコマンド.

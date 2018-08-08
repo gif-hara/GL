@@ -1,5 +1,4 @@
-﻿using GL.Scripts.Battle.Commands.Implements;
-using GL.Scripts.Events.Battle;
+﻿using GL.Scripts.Events.Battle;
 using HK.Framework.EventSystems;
 using UniRx;
 using UnityEngine;

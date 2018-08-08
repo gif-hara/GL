@@ -6,7 +6,7 @@ using GL.Scripts.Events.Battle;
 using HK.Framework.EventSystems;
 using UnityEngine.Assertions;
 
-namespace GL.Scripts.Battle.Commands.Implements
+namespace GL.Scripts.Battle.Commands.Element
 {
     /// <summary>
     /// 実際にゲームで使用するコマンドの抽象クラス

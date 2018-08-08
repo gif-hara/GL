@@ -1,8 +1,7 @@
 ﻿using System;
 using GL.Scripts.Battle.CharacterControllers;
-using GL.Scripts.Battle.Systems;
 
-namespace GL.Scripts.Battle.Commands.Implements
+namespace GL.Scripts.Battle.Commands.Element
 {
     /// <summary>
     /// 実際にゲームで使用するコマンドのインターフェイス
