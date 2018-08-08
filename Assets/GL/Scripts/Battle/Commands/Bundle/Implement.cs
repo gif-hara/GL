@@ -35,6 +35,9 @@ namespace GL.Scripts.Battle.Commands.Bundle
             this.elements = parameter.Elements.Select(e => e.Create()).ToArray();
         }
 
+        /// <summary>
+        /// コマンド実行
+        /// </summary>
         public void Invoke(Character invoker, Character[] targets)
         {
             if(this.CanRecord)
@@ -56,6 +59,9 @@ namespace GL.Scripts.Battle.Commands.Bundle
             });
         }
 
+        /// <summary>
+        /// コマンドを実行する対象を返す
+        /// </summary>
         public Character[] GetTargets(Character invoker)
         {
             switch (this.parameter.TargetType)
@@ -83,6 +89,9 @@ namespace GL.Scripts.Battle.Commands.Bundle
             get { return this.parameter.Postprocess == Constants.PostprocessCommand.EndTurn; }
         }
 
+        /// <summary>
+        /// コマンド実行後の後始末
+        /// </summary>
         private Action Postprocess(Character invoker)
         {
             switch (this.parameter.Postprocess)
