@@ -61,6 +61,7 @@ namespace HK.GL.UI.Battle
 
         private void DestroyButtons()
         {
+            // TODO: ObjectPool使う？
             for (var i = 0; i < this.transform.childCount; i++)
             {
                 Destroy(this.transform.GetChild(i).gameObject);
