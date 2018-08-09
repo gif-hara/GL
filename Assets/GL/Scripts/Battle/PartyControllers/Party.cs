@@ -9,7 +9,7 @@ using UnityEngine.Assertions;
 namespace GL.Scripts.Battle.PartyControllers
 {
     /// <summary>
-    /// パーティを管理するヤーツ.
+    /// パーティを管理するクラス
     /// </summary>
     public sealed class Party
     {
