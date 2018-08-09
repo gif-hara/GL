@@ -9,12 +9,12 @@ using UniRx;
 namespace HK.GL.UI.Battle
 {
     /// <summary>
-    /// コマンドパネルを制御するヤーツ
+    /// コマンドパネルを制御するクラス
     /// </summary>
     public sealed class SelectCommandPanelController : MonoBehaviour
     {
         [SerializeField]
-        private List<SelectCommandButtonController> buttons;
+        private SelectCommandButtonController buttonPrefab;
 
         void Awake()
         {
@@ -33,42 +33,37 @@ namespace HK.GL.UI.Battle
                 .AddTo(this);
 
             Broker.Global.Receive<SelectedCommand>()
-                .SubscribeWithState(this, (_, _this) => _this.SetDeactiveAllButton())
+                .SubscribeWithState(this, (_, _this) => _this.DestroyButtons())
                 .AddTo(this);
         }
 
         private void OnSelectCommandFromPlayer(Character character)
         {
+            this.DestroyButtons();
             if (!character.CanMove)
             {
-                this.SetDeactiveAllButton();
                 return;
             }
             
             var commands = character.StatusController.Commands;
             for (int i = 0; i < commands.Length; i++)
             {
-                var button = this.buttons[i];
+                var button = Instantiate(this.buttonPrefab, this.transform);
                 var command = commands[i];
-                button.gameObject.SetActive(true);
                 button.SetProperty(character, command);
-            }
-            for (int i = commands.Length; i < this.buttons.Count; i++)
-            {
-                this.buttons[i].gameObject.SetActive(false);
             }
         }
 
         private void OnSelectCommandFromEnemy()
         {
-            this.SetDeactiveAllButton();
+            this.DestroyButtons();
         }
 
-        private void SetDeactiveAllButton()
+        private void DestroyButtons()
         {
-            foreach(var b in this.buttons)
+            for (var i = 0; i < this.transform.childCount; i++)
             {
-                b.gameObject.SetActive(false);
+                Destroy(this.transform.GetChild(i).gameObject);
             }
         }
     }
