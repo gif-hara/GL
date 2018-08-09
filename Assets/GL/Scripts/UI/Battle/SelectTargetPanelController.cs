@@ -18,7 +18,7 @@ namespace HK.GL.UI.Battle
         private CanvasGroup canvasGroup;
 
         [SerializeField]
-        private List<SelectTargetButtonController> buttons;
+        private SelectTargetButtonController buttonPrefab;
 
         void Awake()
         {
@@ -50,23 +50,20 @@ namespace HK.GL.UI.Battle
         private void OnSelectTargetFromPlayer(Character character, Implement command, Character[] targets)
         {
             this.SetActive(true);
+            this.DestroyButtons();
 
             for (int i = 0; i < targets.Length; i++)
             {
-                var button = this.buttons[i];
+                var button = Instantiate(this.buttonPrefab, this.transform);
                 var target = targets[i];
-                button.gameObject.SetActive(true);
                 button.SetProperty(character, command, target);
-            }
-            for (int i = targets.Length; i < this.buttons.Count; i++)
-            {
-                this.buttons[i].gameObject.SetActive(false);
             }
         }
 
         private void OnSelectTargetFromEnemy()
         {
             this.SetActive(false);
+            this.DestroyButtons();
         }
 
         private void SetActive(bool isActive)
@@ -74,6 +71,14 @@ namespace HK.GL.UI.Battle
             this.canvasGroup.alpha = isActive ? 1.0f : 0.0f;
             this.canvasGroup.interactable = isActive;
             this.canvasGroup.blocksRaycasts = isActive;
+        }
+
+        private void DestroyButtons()
+        {
+            for (var i = 0; i < this.transform.childCount; i++)
+            {
+                Destroy(this.transform.GetChild(i).gameObject);
+            }
         }
     }
 }

@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114189160280630852}
   - component: {fileID: 114519709797409100}
   - component: {fileID: 114289785111000176}
+  - component: {fileID: 114119180713154234}
   m_Layer: 5
   m_Name: SelectTargetButton
   m_TagString: Untagged
@@ -48,6 +49,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &114119180713154234
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1359762121071082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1679637790, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: 140
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114189160280630852
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -127,14 +147,14 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 5
-    m_MaxSize: 57
+    m_MaxSize: 56
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: "\u30BF\u30FC\u30B2\u30C3\u30C8\u540D"
 --- !u!114 &114519709797409100
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -211,8 +231,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 275, y: -310}
-  m_SizeDelta: {x: 510, y: 180}
+  m_AnchoredPosition: {x: 540.97, y: -90}
+  m_SizeDelta: {x: 1041.94, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224929301594048252
 RectTransform:
@@ -230,5 +250,5 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -24, y: -24}
+  m_SizeDelta: {x: -16, y: -16}
   m_Pivot: {x: 0.5, y: 0.5}
