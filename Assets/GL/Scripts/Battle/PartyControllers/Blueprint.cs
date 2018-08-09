@@ -5,7 +5,7 @@ using GL.Scripts.Battle.Systems;
 using HK.Framework.Text;
 using UnityEngine;
 
-namespace GL.Scripts.Battle.PartyControllers.Blueprints
+namespace GL.Scripts.Battle.PartyControllers
 {
     /// <summary>
     /// パーティの設計図
@@ -17,7 +17,7 @@ namespace GL.Scripts.Battle.PartyControllers.Blueprints
         private StringAsset.Finder partyName;
 
         [SerializeField]
-        private BlueprintParameter[] parameters;
+        private Parameter[] parameters;
 
         [SerializeField]
         private Constants.CharacterType characterType;
@@ -27,7 +27,7 @@ namespace GL.Scripts.Battle.PartyControllers.Blueprints
         public static Blueprint CloneAsPlayerParty(User.Party party)
         {
             var clone = ScriptableObject.CreateInstance<Blueprint>();
-            clone.parameters = party.Players.Select(BlueprintParameter.Create).ToArray();
+            clone.parameters = party.Players.Select(Parameter.Create).ToArray();
             clone.characterType = Constants.CharacterType.Player;
 
             return clone;

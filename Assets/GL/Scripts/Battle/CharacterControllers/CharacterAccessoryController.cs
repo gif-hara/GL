@@ -1,6 +1,5 @@
 ﻿using GL.Scripts.Battle.Accessories;
 using UnityEngine;
-using Blueprint = GL.Scripts.Battle.PartyControllers.Blueprints.Blueprint;
 
 namespace GL.Scripts.Battle.CharacterControllers
 {

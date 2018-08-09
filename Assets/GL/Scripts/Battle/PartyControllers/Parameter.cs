@@ -4,10 +4,13 @@ using GL.Scripts.Battle.Weapons;
 using GL.Scripts.User;
 using UnityEngine;
 
-namespace GL.Scripts.Battle.PartyControllers.Blueprints
+namespace GL.Scripts.Battle.PartyControllers
 {
+    /// <summary>
+    /// パーティに必要なパラメータ
+    /// </summary>
     [Serializable]
-    public class BlueprintParameter
+    public class Parameter
     {
         [SerializeField][Range(1.0f, 100.0f)]
         public int Level;
@@ -21,9 +24,9 @@ namespace GL.Scripts.Battle.PartyControllers.Blueprints
         [SerializeField]
         public Accessory[] Accessories;
 
-        public static BlueprintParameter Create(Player player)
+        public static Parameter Create(Player player)
         {
-            return new BlueprintParameter()
+            return new Parameter()
             {
                 Level = player.Level,
                 Blueprint = player.Blueprint,

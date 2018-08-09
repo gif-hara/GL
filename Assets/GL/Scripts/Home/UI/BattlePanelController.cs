@@ -1,5 +1,4 @@
-﻿using GL.Scripts.Battle.PartyControllers.Blueprints;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace GL.Scripts.Home.UI
 {
@@ -15,7 +14,7 @@ namespace GL.Scripts.Home.UI
         private RectTransform scrollParent;
 
         [SerializeField]
-        private Blueprint[] blueprints;
+        private Battle.PartyControllers.Blueprint[] blueprints;
 
         void Start()
         {

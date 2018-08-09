@@ -3,7 +3,6 @@ using GL.Scripts.Battle.Systems;
 using GL.Scripts.Extensions;
 using UnityEngine;
 using UnityEngine.Assertions;
-using Blueprint = GL.Scripts.Battle.PartyControllers.Blueprints.Blueprint;
 
 namespace GL.Scripts.Battle.CharacterControllers
 {

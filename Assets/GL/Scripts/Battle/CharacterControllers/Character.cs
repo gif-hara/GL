@@ -7,7 +7,6 @@ using HK.Framework.EventSystems;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
-using Blueprint = GL.Scripts.Battle.PartyControllers.Blueprints.Blueprint;
 using Random = UnityEngine.Random;
 
 namespace GL.Scripts.Battle.CharacterControllers

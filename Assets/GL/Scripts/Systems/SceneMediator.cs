@@ -1,6 +1,4 @@
-﻿using GL.Scripts.Battle.PartyControllers.Blueprints;
-
-namespace GL.Scripts.Systems
+﻿namespace GL.Scripts.Systems
 {
     /// <summary>
     /// シーンを仲介するクラス
@@ -10,11 +8,11 @@ namespace GL.Scripts.Systems
         /// <summary>
         /// バトルするプレイヤーパーティ
         /// </summary>
-        public static Blueprint PlayerParty;
+        public static Battle.PartyControllers.Blueprint PlayerParty;
         
         /// <summary>
         /// バトルする敵パーティ
         /// </summary>
-        public static Blueprint EnemyParty;
+        public static Battle.PartyControllers.Blueprint EnemyParty;
     }
 }

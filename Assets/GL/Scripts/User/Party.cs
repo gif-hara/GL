@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using GL.Scripts.Battle.PartyControllers.Blueprints;
 using UnityEngine;
 
 namespace GL.Scripts.User
@@ -37,11 +36,11 @@ namespace GL.Scripts.User
             }
         }
 
-        public Blueprint AsBlueprint
+        public Battle.PartyControllers.Blueprint AsBlueprint
         {
             get
             {
-                return Blueprint.CloneAsPlayerParty(this);
+                return Battle.PartyControllers.Blueprint.CloneAsPlayerParty(this);
             }
         }
     }

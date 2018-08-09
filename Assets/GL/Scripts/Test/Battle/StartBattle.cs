@@ -1,10 +1,8 @@
 ﻿using UnityEngine;
 using GL.Scripts.Battle.CharacterControllers;
 using GL.Scripts.Battle.PartyControllers;
-using GL.Scripts.Battle.PartyControllers.Blueprints;
 using GL.Scripts.Battle.Systems;
 using GL.Scripts.Systems;
-using Blueprint = GL.Scripts.Battle.PartyControllers.Blueprints.Blueprint;
 
 namespace HK.GL.Test.Battle
 {
