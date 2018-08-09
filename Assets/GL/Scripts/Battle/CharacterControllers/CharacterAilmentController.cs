@@ -29,6 +29,7 @@ namespace GL.Scripts.Battle.CharacterControllers
                     if (x.Character == _this.Character)
                     {
                         _this.Elements.ForEach(e => e.EndTurn());
+                        _this.Elements.RemoveAll(e => e.CanRemove);
                     }
                     _this.Elements.ForEach(e => e.EndTurnAll(x.Character));
                 })

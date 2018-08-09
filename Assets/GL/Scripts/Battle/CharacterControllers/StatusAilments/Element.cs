@@ -48,10 +48,6 @@ namespace GL.Scripts.Battle.CharacterControllers.StatusAilments
             }
             
             this.RemainingTurn--;
-            if (this.RemainingTurn <= 0)
-            {
-                this.controller.Remove(this);
-            }
         }
 
         /// <summary>
@@ -77,6 +73,17 @@ namespace GL.Scripts.Battle.CharacterControllers.StatusAilments
         protected void ForceRemove()
         {
             this.controller.Remove(this);
+        }
+
+        /// <summary>
+        /// 削除が可能か返す
+        /// </summary>
+        public virtual bool CanRemove
+        {
+            get
+            {
+                return this.RemainingTurn <= 0;
+            }
         }
     }
 }
