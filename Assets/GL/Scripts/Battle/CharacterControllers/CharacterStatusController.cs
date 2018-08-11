@@ -1,7 +1,4 @@
-﻿using System.Linq;
-using GL.Scripts.Battle.CharacterControllers.Blueprints;
-using GL.Scripts.Battle.Systems;
-using UnityEngine;
+﻿using GL.Scripts.Battle.Systems;
 
 namespace GL.Scripts.Battle.CharacterControllers
 {
@@ -62,7 +59,7 @@ namespace GL.Scripts.Battle.CharacterControllers
         /// </summary>
         public bool IsDead { get { return this.HitPoint <= 0; } }
 
-        public CharacterStatusController(CharacterControllers.Blueprints.Blueprint blueprint, Commands.Bundle.Implement[] commands, int level)
+        public CharacterStatusController(Blueprint blueprint, Commands.Bundle.Implement[] commands, int level)
         {
             this.Blueprint = blueprint;
             this.Base = new CharacterStatus(this.Blueprint, level);

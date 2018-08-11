@@ -15,7 +15,7 @@ namespace GL.Scripts.Battle.PartyControllers
         public int Level;
 
         [SerializeField]
-        public CharacterControllers.Blueprints.Blueprint Blueprint;
+        public CharacterControllers.Blueprint Blueprint;
 
         [SerializeField]
         public Weapon Weapon;

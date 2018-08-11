@@ -3,13 +3,13 @@ using GL.Scripts.Battle.CharacterControllers.JobSystems;
 using HK.Framework.Text;
 using UnityEngine;
 
-namespace GL.Scripts.Battle.CharacterControllers.Blueprints
+namespace GL.Scripts.Battle.CharacterControllers
 {
     /// <summary>
     /// キャラクターを構成する設計図
     /// </summary>
     [CreateAssetMenu(menuName = "GL/CharacterControllers/Blueprint")]
-    public class Blueprint : ScriptableObject
+    public sealed class Blueprint : ScriptableObject
     {
         [SerializeField]
         private StringAsset.Finder characterName;

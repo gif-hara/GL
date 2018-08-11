@@ -42,7 +42,7 @@ namespace GL.Scripts.Battle.CharacterControllers
             this.Vitals = other.Vitals;
         }
 
-        public Resistance(Blueprints.Blueprint blueprint)
+        public Resistance(Blueprint blueprint)
             : this(blueprint.Resistance)
         {
         }

@@ -4,7 +4,7 @@ using GL.Scripts.Battle.PartyControllers;
 using GL.Scripts.Battle.Systems;
 using GL.Scripts.Systems;
 
-namespace HK.GL.Test.Battle
+namespace GL.Test
 {
     /// <summary>
     /// バトルを開始するテストクラス.
@@ -27,10 +27,10 @@ namespace HK.GL.Test.Battle
         private Vector3 enemyInterval;
 
         [SerializeField]
-        private Blueprint playerParty;
+        private GL.Scripts.Battle.PartyControllers.Blueprint playerParty;
 
         [SerializeField]
-        private Blueprint enemyParty;
+        private GL.Scripts.Battle.PartyControllers.Blueprint enemyParty;
 
         void Start()
         {
