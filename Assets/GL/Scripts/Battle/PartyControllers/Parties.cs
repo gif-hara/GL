@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using GL.Battle.CharacterControllers;
-using GL.Battle.Systems;
+using GL.Battle;
 using UnityEngine.Assertions;
 
 namespace GL.Battle.PartyControllers

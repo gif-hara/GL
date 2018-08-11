@@ -3,7 +3,7 @@ using GL.Extensions;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace GL.Battle.Systems
+namespace GL.Battle
 {
     /// <summary>
     /// バトルで必要な計算を行う

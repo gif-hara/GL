@@ -1,4 +1,4 @@
-﻿using GL.Battle.Systems;
+﻿using GL.Battle;
 
 namespace GL.Battle.CharacterControllers
 {

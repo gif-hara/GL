@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using GL.Battle.CharacterControllers;
-using GL.Battle.Systems;
+using GL.Battle;
 using HK.Framework.Text;
 using UnityEngine;
 

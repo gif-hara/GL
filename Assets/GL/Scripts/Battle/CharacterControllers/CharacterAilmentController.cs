@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using GL.Battle.CharacterControllers.StatusAilments;
-using GL.Battle.Systems;
+using GL.Battle;
 using GL.Events.Battle;
 using HK.Framework.EventSystems;
 using UniRx;

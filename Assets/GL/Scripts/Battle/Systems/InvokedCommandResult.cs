@@ -2,7 +2,7 @@
 using System.Linq;
 using GL.Battle.CharacterControllers;
 
-namespace GL.Battle.Systems
+namespace GL.Battle
 {
     /// <summary>
     /// コマンドを実行した際の結果

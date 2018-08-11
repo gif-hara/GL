@@ -8,7 +8,7 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace GL.Battle.Systems
+namespace GL.Battle
 {
     /// <summary>
     /// バトルの行動順を制御するクラス.

@@ -9,7 +9,7 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.SceneManagement;
 
-namespace GL.Battle.Systems
+namespace GL.Battle
 {
     /// <summary>
     /// バトルを管理するヤーツ.

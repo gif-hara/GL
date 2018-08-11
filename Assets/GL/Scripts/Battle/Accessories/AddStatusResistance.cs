@@ -1,5 +1,5 @@
 ﻿using GL.Battle.CharacterControllers;
-using GL.Battle.Systems;
+using GL.Battle;
 using UnityEngine;
 
 namespace GL.Battle.Accessories

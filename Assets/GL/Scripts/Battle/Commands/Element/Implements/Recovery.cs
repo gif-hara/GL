@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using GL.Battle.CharacterControllers;
-using GL.Battle.Systems;
+using GL.Battle;
 using HK.GL.Extensions;
 
 namespace GL.Battle.Commands.Element.Implements

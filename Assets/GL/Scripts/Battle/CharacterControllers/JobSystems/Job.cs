@@ -1,5 +1,5 @@
 ﻿using System;
-using GL.Battle.Systems;
+using GL.Battle;
 using HK.Framework.Text;
 using UnityEngine;
 

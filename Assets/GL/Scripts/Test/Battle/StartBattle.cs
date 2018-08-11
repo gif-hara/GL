@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using GL.Battle.CharacterControllers;
 using GL.Battle.PartyControllers;
-using GL.Battle.Systems;
+using GL.Battle;
 using GL.Systems;
 
 namespace GL.Test

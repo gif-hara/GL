@@ -3,7 +3,7 @@ using HK.Framework.EventSystems;
 using UniRx;
 using UnityEngine;
 
-namespace GL.Battle.Systems
+namespace GL.Battle
 {
     /// <summary>
     /// 行動するキャラクターのコマンドを実行する
