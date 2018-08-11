@@ -1,11 +1,11 @@
-﻿using GL.Scripts.Systems;
+﻿using GL.Systems;
 using GL.User;
 using UniRx;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace GL.Scripts.Home.UI
+namespace GL.Home.UI
 {
     /// <summary>
     /// バトルする敵パーティを選択するボタンを制御するクラス

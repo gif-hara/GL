@@ -1,6 +1,6 @@
 ﻿using System;
 using GL.Battle.Systems;
-using GL.Scripts.Extensions;
+using GL.Extensions;
 using UnityEngine;
 using UnityEngine.Assertions;
 

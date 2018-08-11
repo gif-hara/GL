@@ -4,7 +4,7 @@ using GL.User;
 using UniRx;
 using UnityEngine;
 
-namespace GL.Scripts.Systems
+namespace GL.Systems
 {
     /// <summary>
     /// 一番最初に処理するクラス

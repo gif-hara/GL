@@ -2,7 +2,7 @@
 using GL.Battle.CharacterControllers;
 using GL.Battle.PartyControllers;
 using GL.Battle.Systems;
-using GL.Scripts.Systems;
+using GL.Systems;
 
 namespace GL.Test
 {

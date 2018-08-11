@@ -1,11 +1,11 @@
-﻿using GL.Scripts.UI.PopupControllers;
+﻿using GL.UI.PopupControllers;
 using GL.User;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
 
-namespace GL.Scripts.Home.UI
+namespace GL.Home.UI
 {
     /// <summary>
     /// 編成パネルを制御するクラス

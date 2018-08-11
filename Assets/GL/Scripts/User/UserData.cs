@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using GL.Scripts.Systems;
+using GL.Systems;
 using HK.Framework.Systems;
 using UniRx;
 using UnityEngine;

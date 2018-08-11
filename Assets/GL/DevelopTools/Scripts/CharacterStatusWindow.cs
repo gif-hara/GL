@@ -4,7 +4,7 @@ using System.Linq;
 using GL.Battle.CharacterControllers;
 using GL.Battle.Systems;
 using GL.Events.Battle;
-using GL.Scripts.Extensions;
+using GL.Extensions;
 using HK.Framework.EventSystems;
 using UniRx;
 using UnityEditor;

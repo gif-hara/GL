@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace GL.Scripts.Database
+namespace GL.Database
 {
     /// <summary>
     /// データベース

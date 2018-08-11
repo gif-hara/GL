@@ -1,4 +1,4 @@
-﻿namespace GL.Scripts.Systems
+﻿namespace GL.Systems
 {
     /// <summary>
     /// シーンを仲介するクラス

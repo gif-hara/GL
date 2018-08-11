@@ -2,7 +2,7 @@
 using System.Linq;
 using GL.Battle.CharacterControllers;
 using GL.Battle.Systems;
-using GL.Scripts.Extensions;
+using GL.Extensions;
 using HK.GL.Extensions;
 using Random = UnityEngine.Random;
 

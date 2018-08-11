@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace GL.Scripts.Home.UI
+namespace GL.Home.UI
 {
     /// <summary>
     /// フッターボタンを制御するクラス

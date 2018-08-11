@@ -1,6 +1,6 @@
 ﻿using HK.Framework.Systems;
 
-namespace GL.Scripts.Systems
+namespace GL.Systems
 {
     /// <summary>
     /// <see cref="SaveData"/>で利用するキー

@@ -1,5 +1,5 @@
 ﻿using GL.Battle.CharacterControllers;
-using GL.Scripts.Extensions;
+using GL.Extensions;
 using UnityEngine;
 using UnityEngine.Assertions;
 

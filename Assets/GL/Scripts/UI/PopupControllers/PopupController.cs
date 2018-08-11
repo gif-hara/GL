@@ -2,7 +2,7 @@
 using UnityEngine.Assertions;
 using UnityEngine.UI;
 
-namespace GL.Scripts.UI.PopupControllers
+namespace GL.UI.PopupControllers
 {
     /// <summary>
     /// ポップアップを制御するクラス

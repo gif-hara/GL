@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace GL.Scripts.Database
+namespace GL.Database
 {
     /// <summary>
     /// 武器データベース

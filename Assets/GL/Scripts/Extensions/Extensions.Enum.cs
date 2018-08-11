@@ -1,7 +1,7 @@
 ﻿using System;
 using GL.Battle.Systems;
 
-namespace GL.Scripts.Extensions
+namespace GL.Extensions
 {
     /// <summary>
     /// <see cref="Enum"/>の拡張クラス

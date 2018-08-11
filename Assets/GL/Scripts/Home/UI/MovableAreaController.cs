@@ -1,7 +1,7 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 
-namespace GL.Scripts.Home.UI
+namespace GL.Home.UI
 {
     /// <summary>
     /// 移動可能エリアを制御するクラス

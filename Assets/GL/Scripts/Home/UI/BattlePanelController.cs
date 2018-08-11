@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace GL.Scripts.Home.UI
+namespace GL.Home.UI
 {
     /// <summary>
     /// バトルのパネルを制御するクラス

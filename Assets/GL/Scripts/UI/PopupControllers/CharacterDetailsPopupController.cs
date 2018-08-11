@@ -4,7 +4,7 @@ using HK.Framework.Text;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace GL.Scripts.UI.PopupControllers
+namespace GL.UI.PopupControllers
 {
     /// <summary>
     /// キャラクター詳細ポップアップを制御するクラス
