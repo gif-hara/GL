@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using GL.Scripts.Battle.CharacterControllers;
-using GL.Scripts.Battle.PartyControllers;
+using GL.Battle.CharacterControllers;
+using GL.Battle.PartyControllers;
 using GL.Scripts.Events.Battle;
 using HK.Framework.EventSystems;
 using UniRx;
@@ -9,7 +9,7 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.SceneManagement;
 
-namespace GL.Scripts.Battle.Systems
+namespace GL.Battle.Systems
 {
     /// <summary>
     /// バトルを管理するヤーツ.
@@ -124,14 +124,14 @@ namespace GL.Scripts.Battle.Systems
         {
             this.BehavioralOrder.Elapse(this.Parties);
             var order = this.BehavioralOrder.Simulation(this.Parties, Constants.TurnSimulationNumber);
-            Broker.Global.Publish(Events.Battle.NextTurn.Get(order));
+            Broker.Global.Publish(GL.Scripts.Events.Battle.NextTurn.Get(order));
             Broker.Global.Publish(StartSelectCommand.Get(order[0]));
         }
 
         public void EndTurn(Character character)
         {
             this.BehavioralOrder.EndTurn(this.Parties);
-            Broker.Global.Publish(Events.Battle.EndTurn.Get(character));
+            Broker.Global.Publish(GL.Scripts.Events.Battle.EndTurn.Get(character));
 
             // 何かしらイベントが登録された場合は実行開始
             if (this.EndTurnEvents.Count > 0)

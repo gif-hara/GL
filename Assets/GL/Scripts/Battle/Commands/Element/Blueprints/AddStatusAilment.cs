@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace GL.Scripts.Battle.Commands.Element.Blueprints
+namespace GL.Battle.Commands.Element.Blueprints
 {
     /// <summary>
     /// 状態異常を付与するコマンドの設定データ.

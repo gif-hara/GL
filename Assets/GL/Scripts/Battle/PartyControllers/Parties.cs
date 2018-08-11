@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using GL.Scripts.Battle.CharacterControllers;
-using GL.Scripts.Battle.Systems;
+using GL.Battle.CharacterControllers;
+using GL.Battle.Systems;
 using UnityEngine.Assertions;
 
-namespace GL.Scripts.Battle.PartyControllers
+namespace GL.Battle.PartyControllers
 {
     /// <summary>
     /// バトルに参加しているパーティ

@@ -1,9 +1,9 @@
 ﻿using System;
-using GL.Scripts.Battle.Accessories;
+using GL.Battle.Accessories;
 using GL.User;
 using UnityEngine;
 
-namespace GL.Scripts.Battle.PartyControllers
+namespace GL.Battle.PartyControllers
 {
     /// <summary>
     /// パーティに必要なパラメータ

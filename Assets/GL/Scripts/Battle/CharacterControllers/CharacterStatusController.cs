@@ -1,6 +1,6 @@
-﻿using GL.Scripts.Battle.Systems;
+﻿using GL.Battle.Systems;
 
-namespace GL.Scripts.Battle.CharacterControllers
+namespace GL.Battle.CharacterControllers
 {
     /// <summary>
     /// キャラクターのステータスを制御するクラス.

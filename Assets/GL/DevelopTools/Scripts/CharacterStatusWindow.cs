@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using GL.Scripts.Battle.CharacterControllers;
-using GL.Scripts.Battle.Systems;
+using GL.Battle.CharacterControllers;
+using GL.Battle.Systems;
 using GL.Scripts.Events.Battle;
 using GL.Scripts.Extensions;
 using HK.Framework.EventSystems;

@@ -1,5 +1,5 @@
 ﻿using System;
-using GL.Scripts.Battle.Systems;
+using GL.Battle.Systems;
 
 namespace GL.Scripts.Extensions
 {

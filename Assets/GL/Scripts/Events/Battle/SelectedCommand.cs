@@ -1,5 +1,5 @@
-﻿using GL.Scripts.Battle.CharacterControllers;
-using GL.Scripts.Battle.Commands.Bundle;
+﻿using GL.Battle.CharacterControllers;
+using GL.Battle.Commands.Bundle;
 using HK.Framework.EventSystems;
 
 namespace GL.Scripts.Events.Battle

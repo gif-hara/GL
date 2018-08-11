@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace GL.Scripts.Battle.Commands.Element.Blueprints
+namespace GL.Battle.Commands.Element.Blueprints
 {
     /// <summary>
     /// 攻撃コマンドの設定データ.

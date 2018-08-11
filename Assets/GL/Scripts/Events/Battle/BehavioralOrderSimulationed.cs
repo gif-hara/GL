@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using GL.Scripts.Battle.CharacterControllers;
+using GL.Battle.CharacterControllers;
 using HK.Framework.EventSystems;
 
 namespace GL.Scripts.Events.Battle

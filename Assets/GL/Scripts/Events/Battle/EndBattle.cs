@@ -1,4 +1,4 @@
-﻿using GL.Scripts.Battle.Systems;
+﻿using GL.Battle.Systems;
 using HK.Framework.EventSystems;
 
 namespace GL.Scripts.Events.Battle

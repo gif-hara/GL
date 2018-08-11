@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using GL.Scripts.Battle.CharacterControllers;
-using GL.Scripts.Battle.Systems;
+using GL.Battle.CharacterControllers;
+using GL.Battle.Systems;
 using HK.Framework.Text;
 using UnityEngine;
 
-namespace GL.Scripts.Battle.PartyControllers
+namespace GL.Battle.PartyControllers
 {
     /// <summary>
     /// パーティの設計図

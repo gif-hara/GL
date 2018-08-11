@@ -1,9 +1,9 @@
 ﻿using System;
-using GL.Scripts.Battle.Systems;
+using GL.Battle.Systems;
 using HK.Framework.Text;
 using UnityEngine;
 
-namespace GL.Scripts.Battle.CharacterControllers.JobSystems
+namespace GL.Battle.CharacterControllers.JobSystems
 {
     /// <summary>
     /// 職業

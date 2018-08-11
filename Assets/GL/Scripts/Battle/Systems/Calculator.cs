@@ -1,9 +1,9 @@
-﻿using GL.Scripts.Battle.CharacterControllers;
+﻿using GL.Battle.CharacterControllers;
 using GL.Scripts.Extensions;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace GL.Scripts.Battle.Systems
+namespace GL.Battle.Systems
 {
     /// <summary>
     /// バトルで必要な計算を行う

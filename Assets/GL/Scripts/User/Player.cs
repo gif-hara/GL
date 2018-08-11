@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using GL.Scripts.Battle;
-using GL.Scripts.Battle.Accessories;
-using GL.Scripts.Battle.CharacterControllers;
+using GL.Battle;
+using GL.Battle.Accessories;
+using GL.Battle.CharacterControllers;
 using UnityEngine;
 
 namespace GL.User

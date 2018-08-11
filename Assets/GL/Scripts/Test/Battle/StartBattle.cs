@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
-using GL.Scripts.Battle.CharacterControllers;
-using GL.Scripts.Battle.PartyControllers;
-using GL.Scripts.Battle.Systems;
+using GL.Battle.CharacterControllers;
+using GL.Battle.PartyControllers;
+using GL.Battle.Systems;
 using GL.Scripts.Systems;
 
 namespace GL.Test
@@ -27,10 +27,10 @@ namespace GL.Test
         private Vector3 enemyInterval;
 
         [SerializeField]
-        private GL.Scripts.Battle.PartyControllers.Blueprint playerParty;
+        private GL.Battle.PartyControllers.Blueprint playerParty;
 
         [SerializeField]
-        private GL.Scripts.Battle.PartyControllers.Blueprint enemyParty;
+        private GL.Battle.PartyControllers.Blueprint enemyParty;
 
         void Start()
         {

@@ -1,6 +1,6 @@
-﻿using GL.Scripts.Battle.Systems;
+﻿using GL.Battle.Systems;
 
-namespace GL.Scripts.Battle.CharacterControllers.StatusAilments
+namespace GL.Battle.CharacterControllers.StatusAilments
 {
     /// <summary>
     /// 状態異常を制御するクラス

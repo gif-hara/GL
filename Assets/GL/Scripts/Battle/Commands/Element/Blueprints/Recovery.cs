@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace GL.Scripts.Battle.Commands.Element.Blueprints
+namespace GL.Battle.Commands.Element.Blueprints
 {
     /// <summary>
     /// 回復コマンドの設定データ.

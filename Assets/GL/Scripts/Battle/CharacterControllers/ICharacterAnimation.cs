@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GL.Scripts.Battle.CharacterControllers
+namespace GL.Battle.CharacterControllers
 {
     /// <summary>
     /// キャラクターのアニメーションを制御する

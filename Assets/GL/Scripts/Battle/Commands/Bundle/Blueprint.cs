@@ -1,8 +1,8 @@
-﻿using GL.Scripts.Battle.Systems;
+﻿using GL.Battle.Systems;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace GL.Scripts.Battle.Commands.Bundle
+namespace GL.Battle.Commands.Bundle
 {
     /// <summary>
     /// <see cref="Commands.Blueprints"/>をまとめている実際に実行されるコマンドの設計図

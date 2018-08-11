@@ -4,7 +4,7 @@ using UniRx.Triggers;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace GL.Scripts.Battle.CharacterControllers
+namespace GL.Battle.CharacterControllers
 {
     /// <summary>
     /// 

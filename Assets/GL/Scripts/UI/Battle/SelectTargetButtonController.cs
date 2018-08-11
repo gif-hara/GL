@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using GL.Scripts.Battle.CharacterControllers;
+using GL.Battle.CharacterControllers;
 using GL.Scripts.Events.Battle;
 using HK.Framework.EventSystems;
 using UniRx;
-using GL.Scripts.Battle.Commands.Bundle;
+using GL.Battle.Commands.Bundle;
 
 namespace HK.GL.UI.Battle
 {

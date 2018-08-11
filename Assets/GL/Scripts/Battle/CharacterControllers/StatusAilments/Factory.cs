@@ -1,7 +1,7 @@
-﻿using GL.Scripts.Battle.Systems;
+﻿using GL.Battle.Systems;
 using UnityEngine.Assertions;
 
-namespace GL.Scripts.Battle.CharacterControllers.StatusAilments
+namespace GL.Battle.CharacterControllers.StatusAilments
 {
     /// <summary>
     /// <see cref="Element"/>を生成するクラス

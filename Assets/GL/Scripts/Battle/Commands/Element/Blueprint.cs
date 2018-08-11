@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace GL.Scripts.Battle.Commands.Element
+namespace GL.Battle.Commands.Element
 {
     /// <summary>
     /// コマンド1個単位の挙動の設計図の抽象クラス

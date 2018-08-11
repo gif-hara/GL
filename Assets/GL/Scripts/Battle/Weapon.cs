@@ -1,9 +1,9 @@
-﻿using GL.Scripts.Battle.Commands.Bundle;
-using GL.Scripts.Battle.Systems;
+﻿using GL.Battle.Commands.Bundle;
+using GL.Battle.Systems;
 using HK.Framework.Text;
 using UnityEngine;
 
-namespace GL.Scripts.Battle
+namespace GL.Battle
 {
     /// <summary>
     /// 武器クラス

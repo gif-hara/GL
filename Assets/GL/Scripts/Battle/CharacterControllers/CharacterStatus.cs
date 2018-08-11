@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace GL.Scripts.Battle.CharacterControllers
+namespace GL.Battle.CharacterControllers
 {
     /// <summary>
     /// キャラクターのステータス

@@ -1,7 +1,7 @@
 ﻿using System;
-using GL.Scripts.Battle.Accessories;
-using GL.Scripts.Battle.Commands.Bundle;
-using GL.Scripts.Battle.Systems;
+using GL.Battle.Accessories;
+using GL.Battle.Commands.Bundle;
+using GL.Battle.Systems;
 using GL.Scripts.Events.Battle;
 using HK.Framework.EventSystems;
 using UniRx;
@@ -9,7 +9,7 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using Random = UnityEngine.Random;
 
-namespace GL.Scripts.Battle.CharacterControllers
+namespace GL.Battle.CharacterControllers
 {
     /// <summary>
     /// キャラクター.

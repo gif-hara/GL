@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using GL.Scripts.Battle.CharacterControllers;
+using GL.Battle.CharacterControllers;
 
-namespace GL.Scripts.Battle.Systems
+namespace GL.Battle.Systems
 {
     /// <summary>
     /// コマンドを実行した際の結果

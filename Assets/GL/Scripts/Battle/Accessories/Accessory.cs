@@ -1,7 +1,7 @@
-﻿using GL.Scripts.Battle.CharacterControllers;
+﻿using GL.Battle.CharacterControllers;
 using UnityEngine;
 
-namespace GL.Scripts.Battle.Accessories
+namespace GL.Battle.Accessories
 {
     /// <summary>
     /// キャラクターが装備できるアクセサリーの抽象クラス

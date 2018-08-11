@@ -1,8 +1,8 @@
-﻿using GL.Scripts.Battle.CharacterControllers;
-using GL.Scripts.Battle.Systems;
+﻿using GL.Battle.CharacterControllers;
+using GL.Battle.Systems;
 using UnityEngine;
 
-namespace GL.Scripts.Battle.Accessories
+namespace GL.Battle.Accessories
 {
     /// <summary>
     /// 状態異常の耐性を上昇させるアクセサリー

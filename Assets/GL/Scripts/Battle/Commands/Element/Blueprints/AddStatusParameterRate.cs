@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace GL.Scripts.Battle.Commands.Element.Blueprints
+namespace GL.Battle.Commands.Element.Blueprints
 {
     /// <summary>
     /// パラメータ倍率上昇コマンドの設定データ.

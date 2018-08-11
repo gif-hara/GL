@@ -1,9 +1,9 @@
-﻿using GL.Scripts.Battle.Accessories;
-using GL.Scripts.Battle.CharacterControllers.JobSystems;
+﻿using GL.Battle.Accessories;
+using GL.Battle.CharacterControllers.JobSystems;
 using HK.Framework.Text;
 using UnityEngine;
 
-namespace GL.Scripts.Battle.CharacterControllers
+namespace GL.Battle.CharacterControllers
 {
     /// <summary>
     /// キャラクターを構成する設計図

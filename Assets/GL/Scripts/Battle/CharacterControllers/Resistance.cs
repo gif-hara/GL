@@ -1,10 +1,10 @@
 ﻿using System;
-using GL.Scripts.Battle.Systems;
+using GL.Battle.Systems;
 using GL.Scripts.Extensions;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace GL.Scripts.Battle.CharacterControllers
+namespace GL.Battle.CharacterControllers
 {
     [Serializable]
     public class Resistance

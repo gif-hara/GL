@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Linq;
-using GL.Scripts.Battle.CharacterControllers;
-using GL.Scripts.Battle.Systems;
+using GL.Battle.CharacterControllers;
+using GL.Battle.Systems;
 using GL.Scripts.Events.Battle;
 using HK.Framework.EventSystems;
 using HK.Framework.Text;
 using HK.GL.Extensions;
 using UnityEngine.Assertions;
 
-namespace GL.Scripts.Battle.Commands.Bundle
+namespace GL.Battle.Commands.Bundle
 {
     /// <summary>
     /// <see cref="Commands.Blueprints"/>をまとめている実際に実行されるコマンドの実体

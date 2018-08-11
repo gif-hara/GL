@@ -36,11 +36,11 @@ namespace GL.User
             }
         }
 
-        public GL.Scripts.Battle.PartyControllers.Blueprint AsBlueprint
+        public GL.Battle.PartyControllers.Blueprint AsBlueprint
         {
             get
             {
-                return GL.Scripts.Battle.PartyControllers.Blueprint.CloneAsPlayerParty(this);
+                return GL.Battle.PartyControllers.Blueprint.CloneAsPlayerParty(this);
             }
         }
     }

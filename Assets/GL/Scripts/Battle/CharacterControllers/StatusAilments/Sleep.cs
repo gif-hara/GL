@@ -1,10 +1,10 @@
 ﻿using System;
-using GL.Scripts.Battle.Systems;
+using GL.Battle.Systems;
 using GL.Scripts.Events.Battle;
 using HK.Framework.EventSystems;
 using UniRx;
 
-namespace GL.Scripts.Battle.CharacterControllers.StatusAilments
+namespace GL.Battle.CharacterControllers.StatusAilments
 {
     /// <summary>
     /// 

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
-using GL.Scripts.Battle.CharacterControllers;
-using GL.Scripts.Battle.Systems;
+using GL.Battle.CharacterControllers;
+using GL.Battle.Systems;
 using HK.GL.Extensions;
 
-namespace GL.Scripts.Battle.Commands.Element.Implements
+namespace GL.Battle.Commands.Element.Implements
 {
     /// <summary>
     /// 回復を行うコマンド.

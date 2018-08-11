@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using GL.Scripts.Battle.CharacterControllers;
-using GL.Scripts.Battle.PartyControllers;
+using GL.Battle.CharacterControllers;
+using GL.Battle.PartyControllers;
 using GL.Scripts.Events.Battle;
 using HK.Framework.EventSystems;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace GL.Scripts.Battle.Systems
+namespace GL.Battle.Systems
 {
     /// <summary>
     /// バトルの行動順を制御するクラス.

@@ -1,8 +1,8 @@
-﻿using GL.Scripts.Battle.Systems;
+﻿using GL.Battle.Systems;
 using GL.Scripts.Events.Battle;
 using HK.Framework.EventSystems;
 
-namespace GL.Scripts.Battle.CharacterControllers.StatusAilments
+namespace GL.Battle.CharacterControllers.StatusAilments
 {
     /// <summary>
     /// 状態異常の追い打ちを制御するクラス

@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using GL.Scripts.Battle.CharacterControllers.StatusAilments;
-using GL.Scripts.Battle.Systems;
+using GL.Battle.CharacterControllers.StatusAilments;
+using GL.Battle.Systems;
 using GL.Scripts.Events.Battle;
 using HK.Framework.EventSystems;
 using UniRx;
 
-namespace GL.Scripts.Battle.CharacterControllers
+namespace GL.Battle.CharacterControllers
 {
     /// <summary>
     /// キャラクターの状態異常を制御するクラス
