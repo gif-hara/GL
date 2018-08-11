@@ -2,7 +2,7 @@
 using System.Linq;
 using GL.Battle.CharacterControllers;
 using GL.Battle.Systems;
-using GL.Scripts.Events.Battle;
+using GL.Events.Battle;
 using HK.Framework.EventSystems;
 using HK.Framework.Text;
 using HK.GL.Extensions;

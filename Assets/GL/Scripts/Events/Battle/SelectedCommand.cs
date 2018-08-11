@@ -2,7 +2,7 @@
 using GL.Battle.Commands.Bundle;
 using HK.Framework.EventSystems;
 
-namespace GL.Scripts.Events.Battle
+namespace GL.Events.Battle
 {
     /// <summary>
     /// コマンドを選択した事を通知するイベント

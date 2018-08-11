@@ -2,7 +2,7 @@
 using GL.Battle.Accessories;
 using GL.Battle.Commands.Bundle;
 using GL.Battle.Systems;
-using GL.Scripts.Events.Battle;
+using GL.Events.Battle;
 using HK.Framework.EventSystems;
 using UniRx;
 using UnityEngine;

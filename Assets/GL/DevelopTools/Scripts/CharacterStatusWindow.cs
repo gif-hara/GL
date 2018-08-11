@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using GL.Battle.CharacterControllers;
 using GL.Battle.Systems;
-using GL.Scripts.Events.Battle;
+using GL.Events.Battle;
 using GL.Scripts.Extensions;
 using HK.Framework.EventSystems;
 using UniRx;

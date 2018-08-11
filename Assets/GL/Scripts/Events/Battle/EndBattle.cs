@@ -1,7 +1,7 @@
 ﻿using GL.Battle.Systems;
 using HK.Framework.EventSystems;
 
-namespace GL.Scripts.Events.Battle
+namespace GL.Events.Battle
 {
     /// <summary>
     /// バトル終了を通知するイベント

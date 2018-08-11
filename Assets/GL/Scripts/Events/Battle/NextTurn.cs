@@ -2,7 +2,7 @@
 using GL.Battle.CharacterControllers;
 using HK.Framework.EventSystems;
 
-namespace GL.Scripts.Events.Battle
+namespace GL.Events.Battle
 {
     /// <summary>
     /// 次のターンに進んだことを通知するイベント

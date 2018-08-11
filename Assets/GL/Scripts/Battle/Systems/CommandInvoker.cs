@@ -1,4 +1,4 @@
-﻿using GL.Scripts.Events.Battle;
+﻿using GL.Events.Battle;
 using HK.Framework.EventSystems;
 using UniRx;
 using UnityEngine;
