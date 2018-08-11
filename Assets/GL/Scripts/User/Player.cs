@@ -53,7 +53,7 @@ namespace GL.Scripts.User
             }
         }
 
-        public static Player Create(string playerName, int level, Battle.CharacterControllers.Blueprints.Blueprint blueprint)
+        private static Player Create(string playerName, int level, Battle.CharacterControllers.Blueprints.Blueprint blueprint)
         {
             return new Player()
             {
