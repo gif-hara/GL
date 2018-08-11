@@ -1,5 +1,5 @@
 ﻿using GL.Scripts.Systems;
-using GL.Scripts.User;
+using GL.User;
 using UniRx;
 using UnityEngine;
 using UnityEngine.SceneManagement;

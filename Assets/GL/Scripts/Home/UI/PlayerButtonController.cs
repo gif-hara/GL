@@ -1,4 +1,4 @@
-﻿using GL.Scripts.User;
+﻿using GL.User;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;

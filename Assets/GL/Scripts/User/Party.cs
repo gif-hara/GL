@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace GL.Scripts.User
+namespace GL.User
 {
     /// <summary>
     /// ユーザーデータのパーティクラス
@@ -36,11 +36,11 @@ namespace GL.Scripts.User
             }
         }
 
-        public Battle.PartyControllers.Blueprint AsBlueprint
+        public GL.Scripts.Battle.PartyControllers.Blueprint AsBlueprint
         {
             get
             {
-                return Battle.PartyControllers.Blueprint.CloneAsPlayerParty(this);
+                return GL.Scripts.Battle.PartyControllers.Blueprint.CloneAsPlayerParty(this);
             }
         }
     }

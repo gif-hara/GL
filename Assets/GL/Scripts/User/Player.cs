@@ -5,7 +5,7 @@ using GL.Scripts.Battle.Accessories;
 using GL.Scripts.Battle.CharacterControllers;
 using UnityEngine;
 
-namespace GL.Scripts.User
+namespace GL.User
 {
     /// <summary>
     /// ユーザーデータのプレイヤークラス
@@ -23,7 +23,7 @@ namespace GL.Scripts.User
         public int Level = 1;
         
         [SerializeField]
-        public Battle.CharacterControllers.Blueprint Blueprint;
+        public Blueprint Blueprint;
 
         [SerializeField]
         public Weapon Weapon;
@@ -53,7 +53,7 @@ namespace GL.Scripts.User
             }
         }
 
-        private static Player Create(string playerName, int level, Battle.CharacterControllers.Blueprint blueprint)
+        private static Player Create(string playerName, int level, Blueprint blueprint)
         {
             return new Player()
             {

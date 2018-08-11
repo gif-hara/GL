@@ -1,6 +1,6 @@
 ﻿using System;
 using GL.Scripts.Battle.Accessories;
-using GL.Scripts.User;
+using GL.User;
 using UnityEngine;
 
 namespace GL.Scripts.Battle.PartyControllers

@@ -1,5 +1,5 @@
 ﻿using System;
-using GL.Scripts.User;
+using GL.User;
 using HK.Framework.Text;
 using UnityEngine;
 using UnityEngine.UI;

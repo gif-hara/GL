@@ -5,7 +5,7 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace GL.Scripts.User
+namespace GL.User
 {
     /// <summary>
     /// ユーザーデータ
