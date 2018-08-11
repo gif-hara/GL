@@ -11,13 +11,13 @@ namespace GL.Scripts.Database
     public class Weapon : ScriptableObject
     {
         [SerializeField]
-        private Battle.Weapons.Weapon[] list;
+        private Battle.Weapon[] list;
 
         void Reset()
         {
             this.list = AssetDatabase.FindAssets("t:Weapon", new[] {"Assets/GL/MasterData/Weapons/Player"})
                 .Select(AssetDatabase.GUIDToAssetPath)
-                .Select(AssetDatabase.LoadAssetAtPath<Battle.Weapons.Weapon>)
+                .Select(AssetDatabase.LoadAssetAtPath<Battle.Weapon>)
                 .ToArray();
         }
     }

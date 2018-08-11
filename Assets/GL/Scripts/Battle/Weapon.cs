@@ -3,7 +3,7 @@ using GL.Scripts.Battle.Systems;
 using HK.Framework.Text;
 using UnityEngine;
 
-namespace GL.Scripts.Battle.Weapons
+namespace GL.Scripts.Battle
 {
     /// <summary>
     /// 武器クラス

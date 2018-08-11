@@ -1,6 +1,5 @@
 ﻿using System;
 using GL.Scripts.Battle.Accessories;
-using GL.Scripts.Battle.Weapons;
 using GL.Scripts.User;
 using UnityEngine;
 

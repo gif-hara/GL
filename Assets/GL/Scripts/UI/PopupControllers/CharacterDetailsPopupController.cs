@@ -120,7 +120,7 @@ namespace GL.Scripts.UI.PopupControllers
             [SerializeField]
             private StringAsset.Finder notCommandName;
 
-            public void Apply(Battle.Weapons.Weapon weapon)
+            public void Apply(Battle.Weapon weapon)
             {
                 this.change.Text.text = weapon.WeaponName;
                 for (var i = 0; i < this.commands.Length; i++)
