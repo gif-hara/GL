@@ -27,11 +27,11 @@ namespace GL.User
         }
 
         [SerializeField]
-        public List<Party> Parties = new List<Party>();
-        
-        [SerializeField]
         public List<Player> Players = new List<Player>();
 
+        [SerializeField]
+        public List<Party> Parties = new List<Party>();
+        
         [SerializeField]
         public List<Weapon> Weapons = new List<Weapon>();
 
