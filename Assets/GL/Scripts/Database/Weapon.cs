@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using UnityEditor;
 using UnityEngine;
 
 namespace GL.MasterData
@@ -7,19 +6,11 @@ namespace GL.MasterData
     /// <summary>
     /// 武器データベース
     /// </summary>
-    [CreateAssetMenu(menuName = "GL/Database/Weapon")]
-    public class Weapon : ScriptableObject
+    [CreateAssetMenu(menuName = "GL/MasterData/Weapon")]
+    public class Weapon : DatabaseList<Battle.Weapon>
     {
-        [SerializeField]
-        private Battle.Weapon[] list;
-        public Battle.Weapon[] List { get { return this.list; } }
+        protected override string FindAssetsFilter => "t:Weapon";
 
-        void Reset()
-        {
-            this.list = AssetDatabase.FindAssets("t:Weapon", new[] {"Assets/GL/MasterData/Weapons"})
-                .Select(AssetDatabase.GUIDToAssetPath)
-                .Select(AssetDatabase.LoadAssetAtPath<Battle.Weapon>)
-                .ToArray();
-        }
+        protected override string[] FindAssetsPaths => new[] { "Assets/GL/MasterData/Weapons" };
     }
 }
