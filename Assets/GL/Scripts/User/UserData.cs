@@ -56,6 +56,7 @@ namespace GL.User
                 party.Players.ForEach(player => this.Players.Add(player));
             });
             this.Players.AddRange(other.Players.Select(p => p.Clone));
+            this.Weapons.AddRange(other.Weapons);
         }
 
         public void Save()
