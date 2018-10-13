@@ -12,6 +12,10 @@ namespace GL.MasterData
         private static Database instance;
 
         [SerializeField]
+        private Character character;
+        public static Character Character { get { return instance.character; } }
+
+        [SerializeField]
         private Weapon weapon;
         public static Weapon Weapon { get { return instance.weapon; } }
 

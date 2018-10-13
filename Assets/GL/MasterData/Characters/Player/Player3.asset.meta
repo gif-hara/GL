@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: 166aac9dcf1da4d76acbe5a1917da73b
+labels:
+- GK.Battle.CharacterControllers.Blueprint
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 11400000

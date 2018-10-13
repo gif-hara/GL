@@ -3,7 +3,7 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -11,4 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4ea00987a6ed420f81ca950167a0180, type: 3}
   m_Name: Database
   m_EditorClassIdentifier: 
+  character: {fileID: 11400000, guid: b5ae84a9b26f8455fa4618f4725c571e, type: 2}
   weapon: {fileID: 11400000, guid: baad0c2263499483caabe73d7473091e, type: 2}
