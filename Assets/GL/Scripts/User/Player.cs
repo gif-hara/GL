@@ -29,7 +29,7 @@ namespace GL.User
         public int WeaponId;
 
         [SerializeField]
-        public List<Accessory> Accessories;
+        public List<Accessory> Accessories = new List<Accessory>();
 
         public Parameter Parameter { get { return this.Blueprint.GetParameter(this.Level); } }
 
