@@ -13,6 +13,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetFrameRate: 60
   userData:
+    Players:
+    - Id: 
+      PlayerName: "\u30C6\u30B9\u30C85"
+      Level: 1
+      Blueprint: {fileID: 11400000, guid: 8530be6c073d14c658dd63d68982de4c, type: 2}
+      WeaponId: 0
+      Accessories: []
     Parties:
     - Players:
       - Id: 
@@ -39,15 +46,8 @@ MonoBehaviour:
         Blueprint: {fileID: 11400000, guid: 166aac9dcf1da4d76acbe5a1917da73b, type: 2}
         WeaponId: 0
         Accessories: []
-    Players:
-    - Id: 
-      PlayerName: "\u30C6\u30B9\u30C85"
-      Level: 1
-      Blueprint: {fileID: 11400000, guid: 8530be6c073d14c658dd63d68982de4c, type: 2}
-      WeaponId: 0
-      Accessories: []
     Weapons:
-    - id: 0000
+    - id: 10000
     currentPartyIndex: 0
   database: {fileID: 11400000, guid: 0a79933d2e00d4e8da66c79e07650958, type: 2}
   dontDestroyPrefabs:
