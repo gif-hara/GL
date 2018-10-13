@@ -16,7 +16,7 @@ namespace GL.MasterData
 
         void Reset()
         {
-            this.list = AssetDatabase.FindAssets("t:Weapon", new[] {"Assets/GL/MasterData/Weapons/Player"})
+            this.list = AssetDatabase.FindAssets("t:Weapon", new[] {"Assets/GL/MasterData/Weapons"})
                 .Select(AssetDatabase.GUIDToAssetPath)
                 .Select(AssetDatabase.LoadAssetAtPath<Battle.Weapon>)
                 .ToArray();
