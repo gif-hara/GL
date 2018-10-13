@@ -14,9 +14,13 @@ namespace GL.Battle
     [CreateAssetMenu(menuName = "GL/Weapon")]
     public sealed class Weapon : ScriptableObject
     {
-        [SerializeField]
-        private string id;
-        public string Id { get { return this.id; } }
+        /// <summary>
+        /// ID
+        /// </summary>
+        /// <remarks>
+        /// ファイル名そのものをIDとしています
+        /// </remarks>
+        public string Id { get { return this.name; } }
 
         [SerializeField]
         private StringAsset.Finder weaponName;
