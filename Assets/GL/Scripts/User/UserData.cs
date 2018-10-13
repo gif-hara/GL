@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using GL.Systems;
 using HK.Framework.Systems;
 using UniRx;
@@ -10,7 +12,7 @@ namespace GL.User
     /// <summary>
     /// ユーザーデータ
     /// </summary>
-    [SerializeField]
+    [Serializable]
     public class UserData
     {
         public const int PartyCount = 3;
@@ -31,6 +33,9 @@ namespace GL.User
         public List<Player> Players = new List<Player>();
 
         [SerializeField]
+        public List<Weapon> Weapons = new List<Weapon>();
+
+        [SerializeField]
         private int currentPartyIndex = 0;
 
         private readonly ReactiveProperty<int> currentPartyIndexReactiveProperty = new ReactiveProperty<int>();
@@ -41,17 +46,16 @@ namespace GL.User
             get { return this.Parties.Count <= 0 && this.Players.Count <= 0; }
         }
         
-        public void Initialize(Party initialParty, IEnumerable<Player> initialPlayers)
+        public void Initialize(UserData other)
         {
             Assert.AreEqual(this.Parties.Count + this.Players.Count, 0, "すでにユーザーデータが存在します");
 
-            for (var i = 0; i < PartyCount; i++)
+            this.Parties.AddRange(other.Parties.Select(p => p.Clone));
+            this.Parties.ForEach(party =>
             {
-                this.Parties.Add(initialParty);
-            }
-            
-            initialParty.Players.ForEach(p => this.Players.Add(p));
-            this.Players.AddRange(initialPlayers);
+                party.Players.ForEach(player => this.Players.Add(player));
+            });
+            this.Players.AddRange(other.Players.Select(p => p.Clone));
         }
 
         public void Save()

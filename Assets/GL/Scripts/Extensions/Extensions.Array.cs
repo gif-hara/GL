@@ -13,5 +13,10 @@ namespace HK.GL.Extensions
         {
             Array.ForEach(self, action);
         }
+
+        public static T Find<T>(this T[] self, Predicate<T> match)
+        {
+            return Array.Find(self, match);
+        }
     }
 }

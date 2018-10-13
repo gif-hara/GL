@@ -26,7 +26,7 @@ namespace GL.User
         public Blueprint Blueprint;
 
         [SerializeField]
-        public Weapon Weapon;
+        public int WeaponId;
 
         [SerializeField]
         public List<Accessory> Accessories;
@@ -62,6 +62,14 @@ namespace GL.User
                 Level = level,
                 Blueprint = blueprint
             };
+        }
+
+        public User.Weapon Weapon
+        {
+            get
+            {
+                return UserData.Load().Weapons[this.WeaponId];
+            }
         }
     }
 }

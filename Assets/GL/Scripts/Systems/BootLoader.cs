@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using GL.MasterData;
 using GL.User;
 using UniRx;
 using UnityEngine;
@@ -16,14 +17,14 @@ namespace GL.Systems
         private int targetFrameRate;
 
         [SerializeField]
-        private Party initialParty;
+        private UserData userData;
 
         [SerializeField]
-        private List<Player> initialPlayers;
+        private Database database;
 
         [SerializeField]
         private GameObject[] dontDestroyPrefabs;
-                
+
         void OnEnable()
         {
 #if UNITY_EDITOR
@@ -43,9 +44,14 @@ namespace GL.Systems
                 var userData = UserData.Load();
                 if (userData.IsEmpty)
                 {
-                    userData.Initialize(this.initialParty.Clone, this.initialPlayers.Select(x => x.Clone));
+                    userData.Initialize(this.userData);
                     userData.Save();
                 }
+            }
+
+            // データベース登録
+            {
+                this.database.Setup();
             }
             
             // DontDestroyなゲームオブジェクトを生成する

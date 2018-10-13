@@ -120,21 +120,22 @@ namespace GL.UI.PopupControllers
             [SerializeField]
             private StringAsset.Finder notCommandName;
 
-            public void Apply(Battle.Weapon weapon)
+            public void Apply(User.Weapon weapon)
             {
-                this.change.Text.text = weapon.WeaponName;
-                for (var i = 0; i < this.commands.Length; i++)
-                {
-                    var command = this.commands[i];
-                    if (weapon.Commands.Length <= i)
-                    {
-                        command.Text.text = this.notCommandName.Get;
-                        continue;
-                    }
+                // TODO: 武器ステータスを表示
+                // this.change.Text.text = weapon.WeaponName;
+                // for (var i = 0; i < this.commands.Length; i++)
+                // {
+                //     var command = this.commands[i];
+                //     if (weapon.Commands.Length <= i)
+                //     {
+                //         command.Text.text = this.notCommandName.Get;
+                //         continue;
+                //     }
 
-                    var weaponCommand = weapon.Commands[i].Create();
-                    command.Text.text = weaponCommand.Name;
-                }
+                //     var weaponCommand = weapon.Commands[i].Create();
+                //     command.Text.text = weaponCommand.Name;
+                // }
             }
         }
 

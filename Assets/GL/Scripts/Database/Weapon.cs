@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace GL.Database
+namespace GL.MasterData
 {
     /// <summary>
     /// 武器データベース
@@ -12,6 +12,7 @@ namespace GL.Database
     {
         [SerializeField]
         private Battle.Weapon[] list;
+        public Battle.Weapon[] List { get { return this.list; } }
 
         void Reset()
         {

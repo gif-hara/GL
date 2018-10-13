@@ -12,38 +12,43 @@ MonoBehaviour:
   m_Name: BootLoader
   m_EditorClassIdentifier: 
   targetFrameRate: 60
-  initialParty:
+  userData:
+    Parties:
+    - Players:
+      - Id: 
+        PlayerName: "\u30C6\u30B9\u30C81"
+        Level: 1
+        Blueprint: {fileID: 11400000, guid: 8530be6c073d14c658dd63d68982de4c, type: 2}
+        WeaponId: 0
+        Accessories: []
+      - Id: 
+        PlayerName: "\u30C6\u30B9\u30C82"
+        Level: 1
+        Blueprint: {fileID: 11400000, guid: a3c456fef5b334eba96fc6bc9b5234c1, type: 2}
+        WeaponId: 0
+        Accessories: []
+      - Id: 
+        PlayerName: "\u30C6\u30B9\u30C83"
+        Level: 1
+        Blueprint: {fileID: 11400000, guid: d33f421f53f914ed6994a11c3798dabf, type: 2}
+        WeaponId: 0
+        Accessories: []
+      - Id: 
+        PlayerName: "\u30C6\u30B9\u30C84"
+        Level: 1
+        Blueprint: {fileID: 11400000, guid: 166aac9dcf1da4d76acbe5a1917da73b, type: 2}
+        WeaponId: 0
+        Accessories: []
     Players:
     - Id: 
-      PlayerName: "\u30C6\u30B9\u30C81"
+      PlayerName: "\u30C6\u30B9\u30C85"
       Level: 1
       Blueprint: {fileID: 11400000, guid: 8530be6c073d14c658dd63d68982de4c, type: 2}
-      Weapon: {fileID: 11400000, guid: 57d2b1df6ad8b446a8d82393a62a6ec3, type: 2}
+      WeaponId: 0
       Accessories: []
-    - Id: 
-      PlayerName: "\u30C6\u30B9\u30C82"
-      Level: 1
-      Blueprint: {fileID: 11400000, guid: a3c456fef5b334eba96fc6bc9b5234c1, type: 2}
-      Weapon: {fileID: 11400000, guid: 57d2b1df6ad8b446a8d82393a62a6ec3, type: 2}
-      Accessories: []
-    - Id: 
-      PlayerName: "\u30C6\u30B9\u30C83"
-      Level: 1
-      Blueprint: {fileID: 11400000, guid: d33f421f53f914ed6994a11c3798dabf, type: 2}
-      Weapon: {fileID: 11400000, guid: 57d2b1df6ad8b446a8d82393a62a6ec3, type: 2}
-      Accessories: []
-    - Id: 
-      PlayerName: "\u30C6\u30B9\u30C84"
-      Level: 1
-      Blueprint: {fileID: 11400000, guid: 166aac9dcf1da4d76acbe5a1917da73b, type: 2}
-      Weapon: {fileID: 11400000, guid: 57d2b1df6ad8b446a8d82393a62a6ec3, type: 2}
-      Accessories: []
-  initialPlayers:
-  - Id: 
-    PlayerName: "\u30C6\u30B9\u30C85"
-    Level: 1
-    Blueprint: {fileID: 11400000, guid: 8530be6c073d14c658dd63d68982de4c, type: 2}
-    Weapon: {fileID: 11400000, guid: 57d2b1df6ad8b446a8d82393a62a6ec3, type: 2}
-    Accessories: []
+    Weapons:
+    - id: 0000
+    currentPartyIndex: 0
+  database: {fileID: 11400000, guid: 0a79933d2e00d4e8da66c79e07650958, type: 2}
   dontDestroyPrefabs:
   - {fileID: 1625060425433294, guid: a71784f94acac4c59a1c8fd2f7ef0dd3, type: 2}

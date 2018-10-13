@@ -4,6 +4,7 @@ using GL.Battle.CharacterControllers;
 using GL.Battle;
 using HK.Framework.Text;
 using UnityEngine;
+using GL.User;
 
 namespace GL.Battle.PartyControllers
 {
@@ -26,8 +27,9 @@ namespace GL.Battle.PartyControllers
 
         public static Blueprint CloneAsPlayerParty(User.Party party)
         {
+            var userData = UserData.Load();
             var clone = ScriptableObject.CreateInstance<Blueprint>();
-            clone.parameters = party.Players.Select(Parameter.Create).ToArray();
+            clone.parameters = party.Players.Select(p => Parameter.Create(userData, p)).ToArray();
             clone.characterType = Constants.CharacterType.Player;
 
             return clone;

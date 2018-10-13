@@ -15,13 +15,16 @@ namespace GL.Battle
     public sealed class Weapon : ScriptableObject
     {
         [SerializeField]
+        private string id;
+        public string Id { get { return this.id; } }
+
+        [SerializeField]
         private StringAsset.Finder weaponName;
         public string WeaponName { get { return weaponName.Get; } }
         
         [SerializeField]
         private Constants.WeaponType weaponType;
         public Constants.WeaponType WeaponType { get { return weaponType; } }
-
         
         [SerializeField]
         private Blueprint[] commands;

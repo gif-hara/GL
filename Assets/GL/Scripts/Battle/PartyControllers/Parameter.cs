@@ -1,6 +1,8 @@
 ﻿using System;
 using GL.Battle.Accessories;
+using GL.MasterData;
 using GL.User;
+using HK.GL.Extensions;
 using UnityEngine;
 
 namespace GL.Battle.PartyControllers
@@ -18,18 +20,18 @@ namespace GL.Battle.PartyControllers
         public CharacterControllers.Blueprint Blueprint;
 
         [SerializeField]
-        public Weapon Weapon;
+        public Battle.Weapon Weapon;
 
         [SerializeField]
         public Accessory[] Accessories;
 
-        public static Parameter Create(Player player)
+        public static Parameter Create(UserData userData, Player player)
         {
             return new Parameter()
             {
                 Level = player.Level,
                 Blueprint = player.Blueprint,
-                Weapon = player.Weapon,
+                Weapon = Database.Weapon.List.Find(w => w.Id == userData.Weapons[player.WeaponId].Id),
                 Accessories = player.Accessories.ToArray()
             };
         }
