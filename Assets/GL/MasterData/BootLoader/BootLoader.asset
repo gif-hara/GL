@@ -13,6 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetFrameRate: 60
   userData:
+    wallet:
+      gold: 1000
     Players:
       List:
       - instanceId: 0

@@ -35,6 +35,10 @@ namespace GL.User
         }
 
         [SerializeField]
+        private Wallet wallet;
+        public Wallet Wallet => this.wallet;
+
+        [SerializeField]
         public InstanceData.Player Players = new InstanceData.Player();
 
         [SerializeField]
