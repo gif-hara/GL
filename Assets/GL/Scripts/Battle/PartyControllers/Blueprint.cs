@@ -29,7 +29,7 @@ namespace GL.Battle.PartyControllers
         {
             var userData = UserData.Load();
             var clone = ScriptableObject.CreateInstance<Blueprint>();
-            clone.parameters = party.Players.Select(p => Parameter.Create(userData, p)).ToArray();
+            clone.parameters = party.PlayerIds.Select(id => Parameter.Create(userData, userData.Players[id])).ToArray();
             clone.characterType = Constants.CharacterType.Player;
 
             return clone;

@@ -16,8 +16,11 @@ namespace GL.User
         /// </summary>
         public const int PlayerMax = 4;
         
+        /// <summary>
+        /// このパーティーに所属しているプレイヤーのインデックス
+        /// </summary>
         [SerializeField]
-        public List<Player> Players = new List<Player>();
+        public List<int> PlayerIds = new List<int>();
 
         /// <summary>
         /// 自分自身のクローンを返す
@@ -31,7 +34,7 @@ namespace GL.User
             {
                 return new Party()
                 {
-                    Players = this.Players.Select(x => x.Clone).ToList()
+                    PlayerIds = new List<int>(this.PlayerIds)
                 };
             }
         }

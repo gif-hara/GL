@@ -15,37 +15,33 @@ MonoBehaviour:
   userData:
     Players:
     - Id: 
-      PlayerName: "\u30C6\u30B9\u30C85"
+      PlayerName: "\u30C6\u30B9\u30C81"
       Level: 1
       BlueprintId: 11000
       WeaponId: 0
       Accessories: []
+    - Id: 
+      PlayerName: "\u30C6\u30B9\u30C82"
+      Level: 1
+      BlueprintId: 12000
+      WeaponId: 0
+      Accessories: []
+    - Id: 
+      PlayerName: "\u30C6\u30B9\u30C83"
+      Level: 1
+      BlueprintId: 13000
+      WeaponId: 0
+      Accessories: []
+    - Id: 
+      PlayerName: "\u30C6\u30B9\u30C84"
+      Level: 1
+      BlueprintId: 14000
+      WeaponId: 0
+      Accessories: []
     Parties:
-    - Players:
-      - Id: 
-        PlayerName: "\u30C6\u30B9\u30C81"
-        Level: 1
-        BlueprintId: 11000
-        WeaponId: 0
-        Accessories: []
-      - Id: 
-        PlayerName: "\u30C6\u30B9\u30C82"
-        Level: 1
-        BlueprintId: 12000
-        WeaponId: 0
-        Accessories: []
-      - Id: 
-        PlayerName: "\u30C6\u30B9\u30C83"
-        Level: 1
-        BlueprintId: 13000
-        WeaponId: 0
-        Accessories: []
-      - Id: 
-        PlayerName: "\u30C6\u30B9\u30C84"
-        Level: 1
-        BlueprintId: 14000
-        WeaponId: 0
-        Accessories: []
+    - PlayerIds: 00000000010000000200000003000000
+    - PlayerIds: 00000000010000000200000003000000
+    - PlayerIds: 00000000010000000200000003000000
     Weapons:
     - id: 10000
     currentPartyIndex: 0

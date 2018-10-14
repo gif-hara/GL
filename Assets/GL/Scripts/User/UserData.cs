@@ -51,10 +51,6 @@ namespace GL.User
             Assert.AreEqual(this.Parties.Count + this.Players.Count, 0, "すでにユーザーデータが存在します");
 
             this.Parties.AddRange(other.Parties.Select(p => p.Clone));
-            this.Parties.ForEach(party =>
-            {
-                party.Players.ForEach(player => this.Players.Add(player));
-            });
             this.Players.AddRange(other.Players.Select(p => p.Clone));
             this.Weapons.AddRange(other.Weapons);
         }

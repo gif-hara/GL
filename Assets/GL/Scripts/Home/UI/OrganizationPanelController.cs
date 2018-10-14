@@ -67,9 +67,10 @@ namespace GL.Home.UI
             for (var i = 0; i < this.parties.Length; i++)
             {
                 var controller = this.parties[i];
-                controller.SetProperty(party.Players[i]);
+                var player = userData.Players[party.PlayerIds[i]];
+                controller.SetProperty(player);
                 controller.Button.OnClickAsObservable()
-                    .SubscribeWithState2(this, party.Players[i], (_, _this, p) =>
+                    .SubscribeWithState2(this, player, (_, _this, p) =>
                     {
                         _this.CreatePlayerDetailsPopup(p);
                     })
