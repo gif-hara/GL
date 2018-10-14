@@ -1,5 +1,5 @@
 ﻿using System;
-using GL.Battle.Accessories;
+using GL.Battle;
 using GL.MasterData;
 using GL.User;
 using HK.GL.Extensions;
@@ -23,7 +23,7 @@ namespace GL.Battle.PartyControllers
         public Battle.Weapon Weapon;
 
         [SerializeField]
-        public Battle.Accessories.Accessory[] Accessories;
+        public Battle.Accessory[] Accessories;
 
         public static Parameter Create(UserData userData, Player player)
         {

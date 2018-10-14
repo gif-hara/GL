@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using GL.Battle;
-using GL.Battle.Accessories;
 using GL.Battle.CharacterControllers;
 using GL.MasterData;
 using HK.GL.Extensions;
@@ -32,7 +30,7 @@ namespace GL.User
         public int WeaponId;
 
         [SerializeField]
-        public List<Battle.Accessories.Accessory> Accessories = new List<Battle.Accessories.Accessory>();
+        public List<Battle.Accessory> Accessories = new List<Battle.Accessory>();
 
         public Parameter Parameter { get { return this.Blueprint.GetParameter(this.Level); } }
 

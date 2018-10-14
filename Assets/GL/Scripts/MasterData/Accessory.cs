@@ -7,7 +7,7 @@ namespace GL.MasterData
     /// アクセサリーデータベース
     /// </summary>
     [CreateAssetMenu(menuName = "GL/MasterData/Accessory")]
-    public sealed class Accessory : DatabaseList<Battle.Accessories.Accessory>
+    public sealed class Accessory : DatabaseList<Battle.Accessory>
     {
         protected override string FindAssetsFilter => "t:Accessory";
 

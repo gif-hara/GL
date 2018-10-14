@@ -2,7 +2,7 @@
 using HK.GL.Extensions;
 using UnityEngine;
 
-namespace GL.Battle.Accessories
+namespace GL.Battle
 {
     /// <summary>
     /// キャラクターが装備できるアクセサリー
@@ -11,7 +11,7 @@ namespace GL.Battle.Accessories
     public sealed class Accessory : ScriptableObject
     {
         [SerializeField]
-        private Element[] elements = new Element[0];
+        private AccessoryElement[] elements = new AccessoryElement[0];
 
         public void OnStartBattle(Character equippedCharacter)
         {

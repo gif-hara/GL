@@ -2,12 +2,12 @@
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace GL.Battle.Accessories
+namespace GL.Battle
 {
     /// <summary>
     /// アクセサリーの効果を構成するクラス
     /// </summary>
-    public abstract class Element : ScriptableObject
+    public abstract class AccessoryElement : ScriptableObject
     {
         /// <summary>
         /// バトル開始時に行う処理

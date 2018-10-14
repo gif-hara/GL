@@ -1,4 +1,4 @@
-﻿using GL.Battle.Accessories;
+﻿using GL.Battle;
 using GL.Battle.CharacterControllers.JobSystems;
 using HK.Framework.Text;
 using UnityEngine;

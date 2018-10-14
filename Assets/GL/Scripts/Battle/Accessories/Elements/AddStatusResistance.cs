@@ -2,13 +2,13 @@
 using GL.Battle;
 using UnityEngine;
 
-namespace GL.Battle.Accessories
+namespace GL.Battle
 {
     /// <summary>
     /// 状態異常の耐性を上昇させるアクセサリー
     /// </summary>
     [CreateAssetMenu(menuName = "GL/Accessories/AddStatusResistance")]
-    public sealed class AddStatusResistance : Element
+    public sealed class AddStatusResistance : AccessoryElement
     {
         [SerializeField]
         private Constants.StatusAilmentType statusAilmentType;

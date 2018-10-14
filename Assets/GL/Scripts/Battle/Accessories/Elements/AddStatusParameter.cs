@@ -2,13 +2,13 @@
 using GL.Battle;
 using UnityEngine;
 
-namespace GL.Battle.Accessories
+namespace GL.Battle
 {
     /// <summary>
     /// ステータスを上昇させるアクセサリー
     /// </summary>
     [CreateAssetMenu(menuName = "GL/Accessories/AddStatusParameter")]
-    public sealed class AddStatusParameter : Element
+    public sealed class AddStatusParameter : AccessoryElement
     {
         [SerializeField]
         private Constants.StatusParameterType statusParameterType;

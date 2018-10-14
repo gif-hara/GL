@@ -1,4 +1,4 @@
-﻿using GL.Battle.Accessories;
+﻿using GL.Battle;
 using UnityEngine;
 
 namespace GL.Battle.CharacterControllers
