@@ -57,6 +57,9 @@ namespace GL.Systems
             // DontDestroyなゲームオブジェクトを生成する
             {
                 Observable.NextFrame()
+#if UNITY_EDITOR
+                    .Where(_ => Application.isPlaying)
+#endif
                     .Subscribe(_ =>
                     {
                         foreach (var prefab in this.dontDestroyPrefabs)
