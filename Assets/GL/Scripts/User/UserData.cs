@@ -87,5 +87,16 @@ namespace GL.User
         {
             get { return this.Parties.List[this.currentPartyIndex]; }
         }
+
+        /// <summary>
+        /// 武器を追加する
+        /// </summary>
+        /// <remarks>
+        /// セーブはしていないので個別でセーブしてください
+        /// </remarks>
+        public void AddWeapon(Battle.Weapon weapon)
+        {
+            this.Weapons.List.Add(new User.Weapon(this.Weapons.InstanceId, weapon.Id));
+        }
     }
 }

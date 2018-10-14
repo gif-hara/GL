@@ -23,13 +23,15 @@ namespace GL.User
         /// </summary>
         public string Id => this.id;
 
+        public Weapon(InstanceId instanceId, string id)
+        {
+            this.instanceId = instanceId.Issue;
+            this.id = id;
+        }
+
         public Weapon Clone(InstanceId instanceId)
         {
-            return new Weapon()
-            {
-                instanceId = instanceId.Issue,
-                id = this.id
-            };
+            return new Weapon(instanceId, this.id);
         }
     }
 }

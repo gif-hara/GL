@@ -52,6 +52,7 @@ namespace GL.UI.PopupControllers
             Assert.IsNotNull(this.currentPopup, "ポップアップが存在しません");
             this.background.enabled = false;
             Destroy(this.currentPopup);
+            this.currentPopup = null;
         }
     }
 }

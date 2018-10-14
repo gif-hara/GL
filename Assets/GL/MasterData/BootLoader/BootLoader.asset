@@ -52,7 +52,7 @@ MonoBehaviour:
     Weapons:
       List:
       - instanceId: 0
-        id: 10000
+        id: 101001
     Accessories:
       List: []
     currentPartyIndex: 0

@@ -9,9 +9,12 @@ namespace HK.GL.Extensions
     /// </summary>
     public static partial class Extensions
     {
-        public static void ForEach<T>(this T[] self, Action<T> action)
+        public static void ForEach<T>(this IEnumerable<T> self, Action<T> action)
         {
-            Array.ForEach(self, action);
+            foreach(var t in self)
+            {
+                action(t);
+            }
         }
 
         public static T Find<T>(this T[] self, Predicate<T> match)
