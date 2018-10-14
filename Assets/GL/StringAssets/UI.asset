@@ -3,7 +3,7 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -88,3 +88,67 @@ MonoBehaviour:
       ja: '---'
       en: 
     guid: beb2f51d-6a69-464b-9881-76f098cc8c35
+  - value:
+      ja: "\u77ED\u5263"
+      en: 
+    guid: 3aff1939-b69a-4a0c-9463-9bc3426a614f
+  - value:
+      ja: "\u9577\u5263"
+      en: 
+    guid: e9009db0-b13f-4070-a11e-33b6609c331b
+  - value:
+      ja: "\u76FE"
+      en: 
+    guid: 13ce06d7-d58d-4b65-b1fb-91dde6634e52
+  - value:
+      ja: "\u5200"
+      en: 
+    guid: f9aa19f1-fe31-43ad-a794-2a97531ab62a
+  - value:
+      ja: "\u6756"
+      en: 
+    guid: a2085961-bad6-470e-9200-886852778cba
+  - value:
+      ja: "\u30ED\u30C3\u30C9"
+      en: 
+    guid: af2f37cd-dc74-445e-8d1d-d4252f3a0cbd
+  - value:
+      ja: "\u5F13"
+      en: 
+    guid: 65e426d3-fc3d-4fc0-ad02-1ee6f616b9fb
+  - value:
+      ja: "\u30CA\u30C3\u30AF\u30EB"
+      en: 
+    guid: b2fba971-1707-4d94-ade5-6fe20ec89d83
+  - value:
+      ja: "\u672C"
+      en: 
+    guid: 2a59af5c-1c62-4d9d-9ea2-2b203cd3b12e
+  - value:
+      ja: "\u5927\u5263"
+      en: 
+    guid: bd2f11f8-04dd-4042-a005-321230d58088
+  - value:
+      ja: "\u69CD"
+      en: 
+    guid: b183a8bb-1496-4133-b1e5-e65fc08afb54
+  - value:
+      ja: "\u30CF\u30F3\u30DE\u30FC"
+      en: 
+    guid: 09cd2dee-cba7-4d19-89b6-d4bb73d237d2
+  - value:
+      ja: '-'
+      en: 
+    guid: 206cccd9-6abc-49f1-8754-bed45730763e
+  - value:
+      ja: "\u88C5\u98FE\u54C1"
+      en: 
+    guid: e405e44d-afeb-4eff-b366-1f1e07e47e1d
+  - value:
+      ja: '---'
+      en: 
+    guid: c4159f17-600c-4290-87a1-ce4c4cf79554
+  - value:
+      ja: "\u30C0\u30A4\u30E4"
+      en: 
+    guid: 580fd17f-c18f-4ccc-8cd4-981eaa80226a

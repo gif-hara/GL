@@ -208,7 +208,7 @@ namespace GL.Battle
             /// </summary>
             CompleteEndTurnEvent,
         }
-        
+
         /// <summary>
         /// 武器タイプ
         /// </summary>
@@ -217,19 +217,19 @@ namespace GL.Battle
         {
             /// <summary>短剣</summary>
             Dagger = 1 << 0,
-            
+
             /// <summary>長剣</summary>
             LongSword = 1 << 1,
-            
+
             /// <summary>盾</summary>
             Shield = 1 << 2,
-            
+
             /// <summary>刀</summary>
             Katana = 1 << 3,
-            
+
             /// <summary>杖</summary>
             Staff = 1 << 4,
-            
+
             /// <summary>ロッド</summary>
             Rod = 1 << 5,
 
@@ -250,6 +250,9 @@ namespace GL.Battle
 
             /// <summary>ハンマー</summary>
             Hammer = 1 << 11,
+
+            /// <summary>全て装備出来る</summary>
+            All = int.MaxValue,
         }
 
         /// <summary>
