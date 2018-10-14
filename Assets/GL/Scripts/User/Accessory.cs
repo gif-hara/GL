@@ -8,8 +8,12 @@ namespace GL.User
     /// <see cref="UserData"/>が持つアクセサリークラス
     /// </summary>
     [Serializable]
-    public sealed class Accessory
+    public sealed class Accessory : IInstanceId
     {
+        [SerializeField][HideInInspector]
+        private int instanceId;
+        public int InstanceId => this.instanceId;
+
         [SerializeField]
         private string id;
 
@@ -17,5 +21,14 @@ namespace GL.User
         /// <see cref="Battle.Accessory"/>に紐づくID
         /// </summary>
         public string Id => this.id;
+
+        public Accessory Clone(InstanceId instanceId)
+        {
+            return new Accessory
+            {
+                instanceId = instanceId.Issue,
+                id = this.id
+            };
+        }
     }
 }

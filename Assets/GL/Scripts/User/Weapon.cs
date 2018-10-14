@@ -9,8 +9,12 @@ namespace GL.User
     /// <see cref="UserData"/>が持つ武器クラス
     /// </summary>
     [Serializable]
-    public sealed class Weapon
+    public sealed class Weapon : IInstanceId
     {
+        [SerializeField][HideInInspector]
+        private int instanceId;
+        public int InstanceId => this.instanceId;
+
         [SerializeField]
         private string id;
 
@@ -18,5 +22,14 @@ namespace GL.User
         /// <see cref="Battle.Weapon"/>に紐づくID
         /// </summary>
         public string Id => this.id;
+
+        public Weapon Clone(InstanceId instanceId)
+        {
+            return new Weapon()
+            {
+                instanceId = instanceId.Issue,
+                id = this.id
+            };
+        }
     }
 }

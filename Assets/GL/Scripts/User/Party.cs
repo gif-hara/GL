@@ -9,42 +9,44 @@ namespace GL.User
     /// ユーザーデータのパーティクラス
     /// </summary>
     [Serializable]
-    public sealed class Party
+    public sealed class Party : IInstanceId
     {
         /// <summary>
         /// パーティの最大人数
         /// </summary>
         public const int PlayerMax = 4;
-        
+
+        [SerializeField][HideInInspector]
+        private int instanceId;
+        public int InstanceId => this.instanceId;
+
         /// <summary>
-        /// このパーティーに所属しているプレイヤーのインデックス
+        /// このパーティーに所属しているプレイヤーのインスタンスIDリスト
         /// </summary>
         [SerializeField]
-        public List<int> PlayerIds = new List<int>();
+        public List<int> PlayerInstanceIds = new List<int>();
 
         /// <summary>
         /// 自分自身のクローンを返す
         /// </summary>
-        /// <remarks>
-        /// <see cref="Player"/>をクローンしないと<see cref="Player.Id"/>が発行されないので注意
-        /// </remarks>
-        public Party Clone
+        public Party Clone(InstanceId instanceId)
         {
-            get
+            return new Party()
             {
-                return new Party()
-                {
-                    PlayerIds = new List<int>(this.PlayerIds)
-                };
-            }
+                instanceId = instanceId.Issue,
+                PlayerInstanceIds = new List<int>(this.PlayerInstanceIds)
+            };
         }
 
-        public GL.Battle.PartyControllers.Blueprint AsBlueprint
-        {
-            get
-            {
-                return GL.Battle.PartyControllers.Blueprint.CloneAsPlayerParty(this);
-            }
-        }
+        /// <summary>
+        /// バトル用にデータを変換する
+        /// </summary>
+        /// <returns></returns>
+        public GL.Battle.PartyControllers.Blueprint AsBlueprint => GL.Battle.PartyControllers.Blueprint.CloneAsPlayerParty(this);
+
+        /// <summary>
+        /// プレイヤーリストを返す
+        /// </summary>
+        public Player[] AsPlayers => this.PlayerInstanceIds.Select(instanceId => UserData.Instance.Players.GetByInstanceId(instanceId)).ToArray();
     }
 }

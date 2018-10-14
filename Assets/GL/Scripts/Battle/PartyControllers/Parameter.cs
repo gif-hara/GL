@@ -31,7 +31,7 @@ namespace GL.Battle.PartyControllers
             {
                 Level = player.Level,
                 Blueprint = player.Blueprint,
-                Weapon = Database.Weapon.List.Find(w => w.Id == userData.Weapons[player.WeaponId].Id),
+                Weapon = Database.Weapon.List.Find(w => w.Id == userData.Weapons.List[player.WeaponInstanceId].Id),
                 Accessories = player.Accessories
             };
         }

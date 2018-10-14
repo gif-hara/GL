@@ -35,16 +35,16 @@ namespace GL.User
         }
 
         [SerializeField]
-        public List<Player> Players = new List<Player>();
+        public InstanceData.Player Players = new InstanceData.Player();
 
         [SerializeField]
-        public List<Party> Parties = new List<Party>();
+        public InstanceData.Party Parties = new InstanceData.Party();
         
         [SerializeField]
-        public List<Weapon> Weapons = new List<Weapon>();
+        public InstanceData.Weapon Weapons = new InstanceData.Weapon();
 
         [SerializeField]
-        public List<Accessory> Accessories = new List<Accessory>();
+        public InstanceData.Accessory Accessories = new InstanceData.Accessory();
 
         [SerializeField]
         private int currentPartyIndex = 0;
@@ -54,17 +54,17 @@ namespace GL.User
 
         public bool IsEmpty
         {
-            get { return this.Parties.Count <= 0 && this.Players.Count <= 0; }
+            get { return this.Parties.List.Count <= 0 && this.Players.List.Count <= 0; }
         }
         
         public void Initialize(UserData other)
         {
-            Assert.AreEqual(this.Parties.Count + this.Players.Count, 0, "すでにユーザーデータが存在します");
+            Assert.AreEqual(this.Parties.List.Count + this.Players.List.Count, 0, "すでにユーザーデータが存在します");
 
-            this.Parties.AddRange(other.Parties.Select(p => p.Clone));
-            this.Players.AddRange(other.Players.Select(p => p.Clone));
-            this.Weapons.AddRange(other.Weapons);
-            this.Accessories.AddRange(other.Accessories);
+            this.Players.List.AddRange(other.Players.List.Select(p => p.Clone(this.Players.InstanceId)));
+            this.Parties.List.AddRange(other.Parties.List.Select(p => p.Clone(this.Parties.InstanceId)));
+            this.Weapons.List.AddRange(other.Weapons.List.Select(w => w.Clone(this.Weapons.InstanceId)));
+            this.Accessories.List.AddRange(other.Accessories.List.Select(a => a.Clone(this.Accessories.InstanceId)));
         }
 
         public void Save()
@@ -81,7 +81,7 @@ namespace GL.User
 
         public Party CurrentParty
         {
-            get { return this.Parties[this.currentPartyIndex]; }
+            get { return this.Parties.List[this.currentPartyIndex]; }
         }
     }
 }

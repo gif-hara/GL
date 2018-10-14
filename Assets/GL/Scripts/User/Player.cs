@@ -13,10 +13,11 @@ namespace GL.User
     /// ユーザーデータのプレイヤークラス
     /// </summary>
     [Serializable]
-    public sealed class Player
+    public sealed class Player : IInstanceId
     {
         [SerializeField][HideInInspector]
-        public string Id = Guid.NewGuid().ToString();
+        private int instanceId;
+        public int InstanceId => this.instanceId;
 
         [SerializeField]
         public string PlayerName;
@@ -28,10 +29,10 @@ namespace GL.User
         public string BlueprintId;
 
         [SerializeField]
-        public int WeaponId;
+        public int WeaponInstanceId;
 
         [SerializeField]
-        public List<int> AccessoryIds = new List<int>();
+        public List<int> AccessoryInstanceIds = new List<int>();
 
         public Parameter Parameter { get { return this.Blueprint.GetParameter(this.Level); } }
 
@@ -44,26 +45,15 @@ namespace GL.User
         /// <summary>
         /// 自分自身のクローンを返す
         /// </summary>
-        /// <remarks>
-        /// 動的に生成しないと<see cref="Id"/>が発行されないので基本的にクローンする
-        /// </remarks>
-        public Player Clone
-        {
-            get
-            {
-                return Create(this.PlayerName, this.Level, this.BlueprintId, this.WeaponId);
-            }
-        }
-
-        private static Player Create(string playerName, int level, string blueprintId, int weaponId)
+        public Player Clone(InstanceId instanceId)
         {
             return new Player()
             {
-                Id = Guid.NewGuid().ToString(),
-                PlayerName = playerName,
-                Level = level,
-                BlueprintId = blueprintId,
-                WeaponId = weaponId
+                instanceId = instanceId.Issue,
+                PlayerName = this.PlayerName,
+                Level = this.Level,
+                BlueprintId = this.BlueprintId,
+                WeaponInstanceId = this.WeaponInstanceId
             };
         }
 
@@ -71,7 +61,7 @@ namespace GL.User
         {
             get
             {
-                return UserData.Instance.Weapons[this.WeaponId];
+                return UserData.Instance.Weapons.GetByInstanceId(this.WeaponInstanceId);
             }
         }
 
@@ -91,7 +81,7 @@ namespace GL.User
             get
             {
                 var userData = UserData.Instance;
-                return this.AccessoryIds.Select(id => Database.Accessory.List.Find(a => a.Id == userData.Accessories[id].Id)).ToArray();
+                return this.AccessoryInstanceIds.Select(instanceId => Database.Accessory.List.Find(a => a.Id == userData.Accessories.GetByInstanceId(instanceId).Id)).ToArray();
             }
         }
     }

@@ -50,7 +50,7 @@ namespace GL.Home.UI
 
         private void SetupPlayersPanel(UserData userData)
         {
-            foreach (var player in userData.Players)
+            foreach (var player in userData.Players.List)
             {
                 var controller = Instantiate(this.playerButtonPrefab, this.playersParent, false);
                 controller.SetProperty(player);
@@ -67,7 +67,7 @@ namespace GL.Home.UI
             for (var i = 0; i < this.parties.Length; i++)
             {
                 var controller = this.parties[i];
-                var player = userData.Players[party.PlayerIds[i]];
+                var player = userData.Players.GetByInstanceId(party.PlayerInstanceIds[i]);
                 controller.SetProperty(player);
                 controller.Button.OnClickAsObservable()
                     .SubscribeWithState2(this, player, (_, _this, p) =>

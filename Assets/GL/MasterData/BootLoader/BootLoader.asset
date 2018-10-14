@@ -14,36 +14,41 @@ MonoBehaviour:
   targetFrameRate: 60
   userData:
     Players:
-    - Id: 
-      PlayerName: "\u30C6\u30B9\u30C81"
-      Level: 1
-      BlueprintId: 11000
-      WeaponId: 0
-      Accessories: []
-    - Id: 
-      PlayerName: "\u30C6\u30B9\u30C82"
-      Level: 1
-      BlueprintId: 12000
-      WeaponId: 0
-      Accessories: []
-    - Id: 
-      PlayerName: "\u30C6\u30B9\u30C83"
-      Level: 1
-      BlueprintId: 13000
-      WeaponId: 0
-      Accessories: []
-    - Id: 
-      PlayerName: "\u30C6\u30B9\u30C84"
-      Level: 1
-      BlueprintId: 14000
-      WeaponId: 0
-      Accessories: []
+      List:
+      - instanceId: 0
+        PlayerName: "\u30C6\u30B9\u30C81"
+        Level: 1
+        BlueprintId: 10000
+        WeaponInstanceId: 1
+        AccessoryInstanceIds: 
+      - instanceId: 0
+        PlayerName: "\u30C6\u30B9\u30C81"
+        Level: 1
+        BlueprintId: 10000
+        WeaponInstanceId: 1
+        AccessoryInstanceIds: 
+      - instanceId: 0
+        PlayerName: "\u30C6\u30B9\u30C81"
+        Level: 1
+        BlueprintId: 10000
+        WeaponInstanceId: 1
+        AccessoryInstanceIds: 
+      - instanceId: 0
+        PlayerName: "\u30C6\u30B9\u30C81"
+        Level: 1
+        BlueprintId: 10000
+        WeaponInstanceId: 1
+        AccessoryInstanceIds: 
     Parties:
-    - PlayerIds: 00000000010000000200000003000000
-    - PlayerIds: 00000000010000000200000003000000
-    - PlayerIds: 00000000010000000200000003000000
+      List:
+      - instanceId: 0
+        PlayerInstanceIds: 
     Weapons:
-    - id: 10000
+      List:
+      - instanceId: 0
+        id: 1000
+    Accessories:
+      List: []
     currentPartyIndex: 0
   database: {fileID: 11400000, guid: 0a79933d2e00d4e8da66c79e07650958, type: 2}
   dontDestroyPrefabs:
