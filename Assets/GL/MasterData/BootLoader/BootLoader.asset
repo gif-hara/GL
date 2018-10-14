@@ -17,7 +17,7 @@ MonoBehaviour:
     - Id: 
       PlayerName: "\u30C6\u30B9\u30C85"
       Level: 1
-      Blueprint: {fileID: 11400000, guid: 8530be6c073d14c658dd63d68982de4c, type: 2}
+      BlueprintId: 11000
       WeaponId: 0
       Accessories: []
     Parties:
@@ -25,25 +25,25 @@ MonoBehaviour:
       - Id: 
         PlayerName: "\u30C6\u30B9\u30C81"
         Level: 1
-        Blueprint: {fileID: 11400000, guid: 8530be6c073d14c658dd63d68982de4c, type: 2}
+        BlueprintId: 11000
         WeaponId: 0
         Accessories: []
       - Id: 
         PlayerName: "\u30C6\u30B9\u30C82"
         Level: 1
-        Blueprint: {fileID: 11400000, guid: a3c456fef5b334eba96fc6bc9b5234c1, type: 2}
+        BlueprintId: 12000
         WeaponId: 0
         Accessories: []
       - Id: 
         PlayerName: "\u30C6\u30B9\u30C83"
         Level: 1
-        Blueprint: {fileID: 11400000, guid: d33f421f53f914ed6994a11c3798dabf, type: 2}
+        BlueprintId: 13000
         WeaponId: 0
         Accessories: []
       - Id: 
         PlayerName: "\u30C6\u30B9\u30C84"
         Level: 1
-        Blueprint: {fileID: 11400000, guid: 166aac9dcf1da4d76acbe5a1917da73b, type: 2}
+        BlueprintId: 14000
         WeaponId: 0
         Accessories: []
     Weapons:

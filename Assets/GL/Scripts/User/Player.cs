@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using GL.Battle;
 using GL.Battle.Accessories;
 using GL.Battle.CharacterControllers;
+using GL.MasterData;
+using HK.GL.Extensions;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 namespace GL.User
 {
@@ -23,7 +26,7 @@ namespace GL.User
         public int Level = 1;
         
         [SerializeField]
-        public Blueprint Blueprint;
+        public string BlueprintId;
 
         [SerializeField]
         public int WeaponId;
@@ -49,18 +52,19 @@ namespace GL.User
         {
             get
             {
-                return Create(this.PlayerName, this.Level, this.Blueprint);
+                return Create(this.PlayerName, this.Level, this.BlueprintId, this.WeaponId);
             }
         }
 
-        private static Player Create(string playerName, int level, Blueprint blueprint)
+        private static Player Create(string playerName, int level, string blueprintId, int weaponId)
         {
             return new Player()
             {
                 Id = Guid.NewGuid().ToString(),
                 PlayerName = playerName,
                 Level = level,
-                Blueprint = blueprint
+                BlueprintId = blueprintId,
+                WeaponId = weaponId
             };
         }
 
@@ -69,6 +73,17 @@ namespace GL.User
             get
             {
                 return UserData.Load().Weapons[this.WeaponId];
+            }
+        }
+
+        public Battle.CharacterControllers.Blueprint Blueprint
+        {
+            get
+            {
+                var result = Database.Character.List.Find(b => b.Id == this.BlueprintId);
+                Assert.IsNotNull(result, string.Format("Id = {0}の{1}が存在しません", this.BlueprintId, typeof(Battle.CharacterControllers.Blueprint).Name));
+
+                return result;
             }
         }
     }

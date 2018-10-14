@@ -11,6 +11,8 @@ namespace GL.Battle.CharacterControllers
     [CreateAssetMenu(menuName = "GL/CharacterControllers/Blueprint")]
     public sealed class Blueprint : ScriptableObject
     {
+        public string Id { get { return this.name; } }
+        
         [SerializeField]
         private StringAsset.Finder characterName;
         public string CharacterName { get { return characterName.Get; } }
