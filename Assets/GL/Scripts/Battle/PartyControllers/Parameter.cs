@@ -23,7 +23,7 @@ namespace GL.Battle.PartyControllers
         public Battle.Weapon Weapon;
 
         [SerializeField]
-        public Accessory[] Accessories;
+        public Battle.Accessories.Accessory[] Accessories;
 
         public static Parameter Create(UserData userData, Player player)
         {
