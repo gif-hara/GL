@@ -215,26 +215,41 @@ namespace GL.Battle
         [Flags]
         public enum WeaponType
         {
-            /// <summary>全て装備できる</summary>
-            All = 0,
-            
-            /// <summary>剣</summary>
-            Sword = 1 << 0,
-            
-            /// <summary>メイス</summary>
-            Mace = 1 << 1,
-            
             /// <summary>短剣</summary>
-            Dagger = 1 << 2,
+            Dagger = 1 << 0,
             
-            /// <summary>棒</summary>
-            Rod = 1 << 3,
+            /// <summary>長剣</summary>
+            LongSword = 1 << 1,
             
-            /// <summary>ホイッスル</summary>
-            Whistle = 1 << 4,
+            /// <summary>盾</summary>
+            Shield = 1 << 2,
             
-            /// <summary>御札</summary>
-            Amulet = 1 << 5,
+            /// <summary>刀</summary>
+            Katana = 1 << 3,
+            
+            /// <summary>杖</summary>
+            Staff = 1 << 4,
+            
+            /// <summary>ロッド</summary>
+            Rod = 1 << 5,
+
+            /// <summary>弓</summary>
+            Bow = 1 << 6,
+
+            /// <summary>ナックル</summary>
+            Knuckle = 1 << 7,
+
+            /// <summary>本</summary>
+            Book = 1 << 8,
+
+            /// <summary>大剣</summary>
+            LargeSword = 1 << 9,
+
+            /// <summary>槍</summary>
+            Spear = 1 << 10,
+
+            /// <summary>ハンマー</summary>
+            Hammer = 1 << 11,
         }
 
         /// <summary>
