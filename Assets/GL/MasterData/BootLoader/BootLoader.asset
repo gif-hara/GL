@@ -18,31 +18,31 @@ MonoBehaviour:
       - instanceId: 0
         PlayerName: "\u30C6\u30B9\u30C81"
         Level: 1
-        BlueprintId: 10000
+        BlueprintId: 11000
         WeaponInstanceId: 1
         AccessoryInstanceIds: 
       - instanceId: 0
         PlayerName: "\u30C6\u30B9\u30C81"
         Level: 1
-        BlueprintId: 10000
+        BlueprintId: 12000
         WeaponInstanceId: 1
         AccessoryInstanceIds: 
       - instanceId: 0
         PlayerName: "\u30C6\u30B9\u30C81"
         Level: 1
-        BlueprintId: 10000
+        BlueprintId: 13000
         WeaponInstanceId: 1
         AccessoryInstanceIds: 
       - instanceId: 0
         PlayerName: "\u30C6\u30B9\u30C81"
         Level: 1
-        BlueprintId: 10000
+        BlueprintId: 14000
         WeaponInstanceId: 1
         AccessoryInstanceIds: 
     Parties:
       List:
       - instanceId: 0
-        PlayerInstanceIds: 
+        PlayerInstanceIds: 01000000020000000300000004000000
     Weapons:
       List:
       - instanceId: 0
