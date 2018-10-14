@@ -32,7 +32,7 @@ namespace GL.Battle.PartyControllers
                 Level = player.Level,
                 Blueprint = player.Blueprint,
                 Weapon = Database.Weapon.List.Find(w => w.Id == userData.Weapons[player.WeaponId].Id),
-                Accessories = player.Accessories.ToArray()
+                Accessories = player.Accessories
             };
         }
     }

@@ -41,7 +41,7 @@ namespace GL.Systems
             
             // ユーザーデータを読み込む
             {
-                var userData = UserData.Load();
+                var userData = UserData.Instance;
                 if (userData.IsEmpty)
                 {
                     userData.Initialize(this.userData);

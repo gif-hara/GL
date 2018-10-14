@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using GL.Battle.CharacterControllers;
 using GL.MasterData;
 using HK.GL.Extensions;
@@ -30,7 +31,7 @@ namespace GL.User
         public int WeaponId;
 
         [SerializeField]
-        public List<Battle.Accessory> Accessories = new List<Battle.Accessory>();
+        public List<int> AccessoryIds = new List<int>();
 
         public Parameter Parameter { get { return this.Blueprint.GetParameter(this.Level); } }
 
@@ -70,7 +71,7 @@ namespace GL.User
         {
             get
             {
-                return UserData.Load().Weapons[this.WeaponId];
+                return UserData.Instance.Weapons[this.WeaponId];
             }
         }
 
@@ -82,6 +83,15 @@ namespace GL.User
                 Assert.IsNotNull(result, string.Format("Id = {0}の{1}が存在しません", this.BlueprintId, typeof(Battle.CharacterControllers.Blueprint).Name));
 
                 return result;
+            }
+        }
+
+        public Battle.Accessory[] Accessories
+        {
+            get
+            {
+                var userData = UserData.Instance;
+                return this.AccessoryIds.Select(id => Database.Accessory.List.Find(a => a.Id == userData.Accessories[id].Id)).ToArray();
             }
         }
     }

@@ -10,6 +10,8 @@ namespace GL.Battle
     [CreateAssetMenu(menuName = "GL/Accessories/Accessory")]
     public sealed class Accessory : ScriptableObject
     {
+        public string Id => this.name;
+        
         [SerializeField]
         private AccessoryElement[] elements = new AccessoryElement[0];
 

@@ -22,7 +22,15 @@ namespace GL.User
         {
             get
             {
-                return Load();
+                if (instance != null)
+                {
+                    return instance;
+                }
+
+                instance = SaveData.GetClass<UserData>(SaveDataKey.UserData, null) ?? new UserData();
+                instance.currentPartyIndexReactiveProperty.Value = instance.currentPartyIndex;
+
+                return instance;
             }
         }
 
@@ -34,6 +42,9 @@ namespace GL.User
         
         [SerializeField]
         public List<Weapon> Weapons = new List<Weapon>();
+
+        [SerializeField]
+        public List<Accessory> Accessories = new List<Accessory>();
 
         [SerializeField]
         private int currentPartyIndex = 0;
@@ -53,24 +64,12 @@ namespace GL.User
             this.Parties.AddRange(other.Parties.Select(p => p.Clone));
             this.Players.AddRange(other.Players.Select(p => p.Clone));
             this.Weapons.AddRange(other.Weapons);
+            this.Accessories.AddRange(other.Accessories);
         }
 
         public void Save()
         {
             SaveData.SetClass(SaveDataKey.UserData, this);
-        }
-
-        public static UserData Load()
-        {
-            if (instance != null)
-            {
-                return instance;
-            }
-            
-            instance = SaveData.GetClass<UserData>(SaveDataKey.UserData, null) ?? new UserData();
-            instance.currentPartyIndexReactiveProperty.Value = instance.currentPartyIndex;
-
-            return instance;
         }
 
         public void SetCurrentPartyIndex(int index)
