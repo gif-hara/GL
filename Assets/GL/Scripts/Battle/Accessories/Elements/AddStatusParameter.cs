@@ -8,7 +8,7 @@ namespace GL.Battle.Accessories
     /// ステータスを上昇させるアクセサリー
     /// </summary>
     [CreateAssetMenu(menuName = "GL/Accessories/AddStatusParameter")]
-    public sealed class AddStatusParameter : Accessory
+    public sealed class AddStatusParameter : Element
     {
         [SerializeField]
         private Constants.StatusParameterType statusParameterType;
