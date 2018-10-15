@@ -29,7 +29,14 @@ namespace GL.Battle
         [SerializeField]
         private Constants.WeaponType weaponType;
         public Constants.WeaponType WeaponType { get { return weaponType; } }
-        
+
+        [SerializeField]
+        private int price;
+        /// <summary>
+        /// 値段
+        /// </summary>
+        public int Price => this.price;
+
         [SerializeField]
         private Blueprint[] commands;
         public Blueprint[] Commands { get { return commands; } }

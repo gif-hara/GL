@@ -16,5 +16,6 @@ MonoBehaviour:
     value: "\u52630000"
     guid: 971b8b49-6c93-4231-b5f5-cf2aee162b9d
   weaponType: 1
+  price: 800
   commands:
   - {fileID: 11400000, guid: ddd0901df31a844529d9f118895097ad, type: 2}

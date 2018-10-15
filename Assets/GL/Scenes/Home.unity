@@ -3897,12 +3897,25 @@ MonoBehaviour:
   buyPopup:
     Title:
       target: {fileID: 11400000, guid: 4f29c1d3e047745e58f6327b7d25bbc9, type: 2}
-      value: "\u6B66\u5668\u8CFC\u5165"
-      guid: 0c105f8e-52f7-4318-9b92-1aa800ec5ceb
+      value: "\u30B7\u30E7\u30C3\u30D7"
+      guid: c1ad2a9e-a3ba-4c72-9d6a-9ce212bd0994
     Message:
       target: {fileID: 11400000, guid: 4f29c1d3e047745e58f6327b7d25bbc9, type: 2}
       value: "\u8CFC\u5165\u3057\u305F\u3088"
       guid: 79729511-138d-414e-b7b2-9afa167acba8
+    ButtonNames:
+    - target: {fileID: 11400000, guid: 4f29c1d3e047745e58f6327b7d25bbc9, type: 2}
+      value: OK
+      guid: e886c7f9-8e8e-49db-84ba-57f49af20587
+  notBuyFromGoldPopup:
+    Title:
+      target: {fileID: 11400000, guid: 4f29c1d3e047745e58f6327b7d25bbc9, type: 2}
+      value: "\u30B7\u30E7\u30C3\u30D7"
+      guid: c1ad2a9e-a3ba-4c72-9d6a-9ce212bd0994
+    Message:
+      target: {fileID: 11400000, guid: 4f29c1d3e047745e58f6327b7d25bbc9, type: 2}
+      value: "\u30B4\u30FC\u30EB\u30C9\u304C\u8DB3\u308A\u306A\u3044\u3088\uFF01"
+      guid: bcce9290-68ee-4df2-b720-ffc4a98b990d
     ButtonNames:
     - target: {fileID: 11400000, guid: 4f29c1d3e047745e58f6327b7d25bbc9, type: 2}
       value: OK

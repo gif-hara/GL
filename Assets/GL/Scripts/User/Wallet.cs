@@ -42,5 +42,14 @@ namespace GL.User
         {
             this.gold += value;
         }
+
+        /// <summary>
+        /// お金が足りているか返す
+        /// </summary>
+        public bool IsEnoughGold(int value)
+        {
+            Debug.Log($"gold = {this.gold}, value = {value}");
+            return this.gold >= value;
+        }
     }
 }

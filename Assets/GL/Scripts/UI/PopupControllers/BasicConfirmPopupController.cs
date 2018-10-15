@@ -24,6 +24,11 @@ namespace GL.UI.PopupControllers
 
         public Subject<int> Submit { get; private set; } = new Subject<int>();
 
+        void OnDestroy()
+        {
+            this.Submit.OnCompleted();
+        }
+
         public void Setup(string title, string message, params string[] buttonNames)
         {
             this.title.text = title;
