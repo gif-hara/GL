@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
 
-namespace GL.Home.UI
+namespace GL.UI.PopupControllers
 {
     /// <summary>
     /// シンプルなポップアップを制御するクラス
