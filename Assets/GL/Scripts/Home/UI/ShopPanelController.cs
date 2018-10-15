@@ -32,13 +32,7 @@ namespace GL.Home.UI
         private ConfirmShopPopupController confirmShopPopupController;
 
         [SerializeField]
-        private StringAsset.Finder buyPopupTitle;
-
-        [SerializeField]
-        private StringAsset.Finder buyPopupMessage;
-
-        [SerializeField]
-        private StringAsset.Finder buyPopupButtonName;
+        private BasicConfirmPopupStrings buyPopup;
 
         /// <summary>
         /// <paramref name="weaponType"/>に対応した武器リストを表示する
@@ -94,8 +88,7 @@ namespace GL.Home.UI
             UserData.Instance.Save();
 
             PopupController.Close();
-            PopupController.ShowBasicPopup(this.buyPopupTitle.Get, this.buyPopupMessage.Get, this.buyPopupButtonName.Get)
-                .Submit
+            this.buyPopup.Show().Submit
                 .Subscribe(_ => PopupController.Close());
         }
     }

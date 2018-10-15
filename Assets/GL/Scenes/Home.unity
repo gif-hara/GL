@@ -3894,18 +3894,19 @@ MonoBehaviour:
     type: 2}
   confirmShopPopupController: {fileID: 114768616328123254, guid: 85467bc29def54c83a26cd5869b15f65,
     type: 2}
-  buyPopupTitle:
-    target: {fileID: 11400000, guid: 4f29c1d3e047745e58f6327b7d25bbc9, type: 2}
-    value: "\u6B66\u5668\u8CFC\u5165"
-    guid: 0c105f8e-52f7-4318-9b92-1aa800ec5ceb
-  buyPopupMessage:
-    target: {fileID: 11400000, guid: 4f29c1d3e047745e58f6327b7d25bbc9, type: 2}
-    value: "\u8CFC\u5165\u3057\u305F\u3088"
-    guid: 79729511-138d-414e-b7b2-9afa167acba8
-  buyPopupButtonName:
-    target: {fileID: 11400000, guid: 4f29c1d3e047745e58f6327b7d25bbc9, type: 2}
-    value: OK
-    guid: e886c7f9-8e8e-49db-84ba-57f49af20587
+  buyPopup:
+    Title:
+      target: {fileID: 11400000, guid: 4f29c1d3e047745e58f6327b7d25bbc9, type: 2}
+      value: "\u6B66\u5668\u8CFC\u5165"
+      guid: 0c105f8e-52f7-4318-9b92-1aa800ec5ceb
+    Message:
+      target: {fileID: 11400000, guid: 4f29c1d3e047745e58f6327b7d25bbc9, type: 2}
+      value: "\u8CFC\u5165\u3057\u305F\u3088"
+      guid: 79729511-138d-414e-b7b2-9afa167acba8
+    ButtonNames:
+    - target: {fileID: 11400000, guid: 4f29c1d3e047745e58f6327b7d25bbc9, type: 2}
+      value: OK
+      guid: e886c7f9-8e8e-49db-84ba-57f49af20587
 --- !u!1 &993326947
 GameObject:
   m_ObjectHideFlags: 0
