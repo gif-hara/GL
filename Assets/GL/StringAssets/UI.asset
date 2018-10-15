@@ -13,6 +13,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   database:
   - value:
+      ja: OK
+      en: 
+    guid: e886c7f9-8e8e-49db-84ba-57f49af20587
+  - value:
       ja: HP
       en: 
     guid: 884fa21a-5dff-4ab9-8496-abeb829a8a25
@@ -137,7 +141,7 @@ MonoBehaviour:
       en: 
     guid: 09cd2dee-cba7-4d19-89b6-d4bb73d237d2
   - value:
-      ja: '-'
+      ja: '---'
       en: 
     guid: 206cccd9-6abc-49f1-8754-bed45730763e
   - value:
@@ -152,3 +156,15 @@ MonoBehaviour:
       ja: "\u30C0\u30A4\u30E4"
       en: 
     guid: 580fd17f-c18f-4ccc-8cd4-981eaa80226a
+  - value:
+      ja: '---'
+      en: 
+    guid: cd61b64f-390e-49ef-b6db-31bf8fab54cc
+  - value:
+      ja: "\u6B66\u5668\u8CFC\u5165"
+      en: 
+    guid: 0c105f8e-52f7-4318-9b92-1aa800ec5ceb
+  - value:
+      ja: "\u8CFC\u5165\u3057\u305F\u3088"
+      en: 
+    guid: 79729511-138d-414e-b7b2-9afa167acba8

@@ -2,6 +2,7 @@
 using GL.MasterData;
 using GL.UI.PopupControllers;
 using GL.User;
+using HK.Framework.Text;
 using HK.GL.Extensions;
 using UniRx;
 using UnityEngine;
@@ -29,6 +30,15 @@ namespace GL.Home.UI
 
         [SerializeField]
         private ConfirmShopPopupController confirmShopPopupController;
+
+        [SerializeField]
+        private StringAsset.Finder buyPopupTitle;
+
+        [SerializeField]
+        private StringAsset.Finder buyPopupMessage;
+
+        [SerializeField]
+        private StringAsset.Finder buyPopupButtonName;
 
         /// <summary>
         /// <paramref name="weaponType"/>に対応した武器リストを表示する
@@ -84,7 +94,7 @@ namespace GL.Home.UI
             UserData.Instance.Save();
 
             PopupController.Close();
-            PopupController.ShowBasicPopup("武器購入", "購入したよ", "OK")
+            PopupController.ShowBasicPopup(this.buyPopupTitle.Get, this.buyPopupMessage.Get, this.buyPopupButtonName.Get)
                 .Submit
                 .Subscribe(_ => PopupController.Close());
         }
