@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
-using static GL.Battle.Constants;
 using UniRx;
 using UnityEngine.UI;
+using static GL.Constants;
 
 namespace GL.Home.UI
 {

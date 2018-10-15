@@ -105,7 +105,7 @@ namespace GL.Home.UI
 
         private void CreatePlayerDetailsPopup(Player player)
         {
-            PopupController.Instance.Instantiate(this.characterDetailsPopupPrefab)
+            PopupController.Show(this.characterDetailsPopupPrefab)
                 .Setup(player);
         }
     }

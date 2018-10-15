@@ -6,6 +6,7 @@ using GL.Events.Battle;
 using HK.Framework.EventSystems;
 using UniRx;
 using GL.Battle.Commands.Bundle;
+using GL;
 
 namespace HK.GL.UI.Battle
 {

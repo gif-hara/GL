@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using GL.Home.UI;
+using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
 
@@ -10,6 +11,9 @@ namespace GL.UI.PopupControllers
     [RequireComponent(typeof(Image))]
     public sealed class PopupController : MonoBehaviour
     {
+        [SerializeField]
+        private BasicConfirmPopupController basicPopupPrefab;
+
         public static PopupController Instance { get; private set; }
 
         private RectTransform cachedTransform;
@@ -35,24 +39,32 @@ namespace GL.UI.PopupControllers
         }
 
         /// <summary>
-        /// ポップアップを生成する
+        /// ポップアップを表示する
         /// </summary>
-        public new T Instantiate<T>(T prefab) where T : Component
+        public static T Show<T>(T prefab) where T : Component
         {
-            Assert.IsNull(this.currentPopup, "すでにポップアップが存在します");
-            this.background.enabled = true;
-            var result = Instantiate(prefab, this.cachedTransform, false);
-            this.currentPopup = result.gameObject;
+            Assert.IsNull(Instance.currentPopup, "すでにポップアップが存在します");
+            Instance.background.enabled = true;
+            var result = Instantiate(prefab, Instance.cachedTransform, false);
+            Instance.currentPopup = result.gameObject;
 
             return result;
         }
 
-        public void Close()
+        public static void Close()
         {
-            Assert.IsNotNull(this.currentPopup, "ポップアップが存在しません");
-            this.background.enabled = false;
-            Destroy(this.currentPopup);
-            this.currentPopup = null;
+            Assert.IsNotNull(Instance.currentPopup, "ポップアップが存在しません");
+            Instance.background.enabled = false;
+            Destroy(Instance.currentPopup);
+            Instance.currentPopup = null;
+        }
+
+        public static BasicConfirmPopupController ShowBasicPopup(string title, string message, params string[] buttonNames)
+        {
+            var result = Show(Instance.basicPopupPrefab);
+            result.Setup(title, message, buttonNames);
+
+            return result;
         }
     }
 }

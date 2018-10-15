@@ -6,7 +6,7 @@ using HK.GL.Extensions;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
-using static GL.Battle.Constants;
+using static GL.Constants;
 
 namespace GL.Home.UI
 {
@@ -61,19 +61,32 @@ namespace GL.Home.UI
 
         public void ShowConfirmPopup(Battle.Weapon weapon)
         {
-            var popup = PopupController.Instance.Instantiate(this.confirmShopPopupController);
+            var popup = PopupController.Show(this.confirmShopPopupController);
             popup.Submit
                 .SubscribeWithState2(this, weapon, (isDecide, _this, _weapon) =>
                 {
                     // TODO: お金消費処理
                     if(isDecide)
                     {
-                        UserData.Instance.AddWeapon(_weapon);
-                        UserData.Instance.Save();
+                        _this.BuyWeapon(_weapon);
                     }
-                    PopupController.Instance.Close();
+                    else
+                    {
+                        PopupController.Close();
+                    }
                 })
                 .AddTo(this);
+        }
+
+        private void BuyWeapon(Battle.Weapon weapon)
+        {
+            UserData.Instance.AddWeapon(weapon);
+            UserData.Instance.Save();
+
+            PopupController.Close();
+            PopupController.ShowBasicPopup("武器購入", "購入したよ", "OK")
+                .Submit
+                .Subscribe(_ => PopupController.Close());
         }
     }
 }

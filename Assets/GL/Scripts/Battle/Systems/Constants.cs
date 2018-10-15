@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GL.Battle
+namespace GL
 {
     /// <summary>
     /// バトルで使用する定数.

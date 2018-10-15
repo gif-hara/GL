@@ -16,7 +16,7 @@ namespace GL.UI.PopupControllers
         {
             this.button.OnClickAsObservable()
                 .Where(_ => this.button.isActiveAndEnabled)
-                .Subscribe(_ => PopupController.Instance.Close())
+                .Subscribe(_ => PopupController.Close())
                 .AddTo(this);
         }
     }
