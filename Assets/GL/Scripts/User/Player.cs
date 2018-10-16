@@ -29,7 +29,10 @@ namespace GL.User
         public string BlueprintId;
 
         [SerializeField]
-        public int WeaponInstanceId;
+        public int RightWeaponInstanceId;
+
+        [SerializeField]
+        public int LeftWeaponInstanceId;
 
         [SerializeField]
         public List<int> AccessoryInstanceIds = new List<int>();
@@ -53,13 +56,42 @@ namespace GL.User
                 PlayerName = this.PlayerName,
                 Level = this.Level,
                 BlueprintId = this.BlueprintId,
-                WeaponInstanceId = this.WeaponInstanceId
+                RightWeaponInstanceId = this.RightWeaponInstanceId,
+                LeftWeaponInstanceId = this.LeftWeaponInstanceId
             };
         }
 
-        public User.Weapon UserWeapon => UserData.Instance.Weapons.GetByInstanceId(this.WeaponInstanceId);
+        public User.Weapon RightUserWeapon => UserData.Instance.Weapons.GetByInstanceId(this.RightWeaponInstanceId);
 
-        public Battle.Weapon BattleWeapon => this.UserWeapon.BattleWeapon;
+        public Battle.Weapon RightBattleWeapon
+        {
+            get
+            {
+                var userRightWeapon = this.RightUserWeapon;
+                if (userRightWeapon == null)
+                {
+                    return null;
+                }
+
+                return userRightWeapon.BattleWeapon;
+            }
+        }
+
+        public User.Weapon LeftUserWeapon => UserData.Instance.Weapons.GetByInstanceId(this.LeftWeaponInstanceId);
+
+        public Battle.Weapon LeftBattleWeapon
+        {
+            get
+            {
+                var userLeftWeapon = this.LeftUserWeapon;
+                if (userLeftWeapon == null)
+                {
+                    return null;
+                }
+
+                return userLeftWeapon.BattleWeapon;
+            }
+        }
 
         public Battle.CharacterControllers.Blueprint Blueprint
         {

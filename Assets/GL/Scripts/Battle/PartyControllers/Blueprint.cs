@@ -65,7 +65,7 @@ namespace GL.Battle.PartyControllers
             var result = this.InternalCreateCharacter(controllerPrefab, parent, position, parameter.Blueprint.Model, scaleX);
             result.Initialize(
                 parameter.Blueprint,
-                parameter.Weapon.Commands.Select(c => c.Create()).ToArray(),
+                parameter.Commands,
                 parameter.Accessories,
                 parameter.Level,
                 characterType

@@ -15,6 +15,9 @@ namespace GL.UI.PopupControllers
         private StringAsset.Finder weaponNameFormat;
 
         [SerializeField]
+        private StringAsset.Finder noneWeaponName;
+
+        [SerializeField]
         private Text weaponName;
 
         [SerializeField]
@@ -22,12 +25,19 @@ namespace GL.UI.PopupControllers
 
         public void Setup(Battle.Weapon weapon)
         {
-            this.weaponName.text = this.weaponNameFormat.Format(weapon.WeaponName);
-            weapon.Commands.ForEach(c =>
+            if(weapon == null)
             {
-                var commandUI = Instantiate(this.commandPrefab, this.transform, false);
-                commandUI.Setup(c);
-            });
+                this.weaponName.text = this.weaponNameFormat.Format(this.noneWeaponName.Get);
+            }
+            else
+            {
+                this.weaponName.text = this.weaponNameFormat.Format(weapon.WeaponName);
+                weapon.Commands.ForEach(c =>
+                {
+                    var commandUI = Instantiate(this.commandPrefab, this.transform, false);
+                    commandUI.Setup(c);
+                });
+            }
         }
     }
 }

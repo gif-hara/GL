@@ -22,13 +22,17 @@ namespace GL.UI.PopupControllers
 
         [SerializeField]
         private CharacterDetailsPopupWeaponController rightWeapon;
-        
+
+        [SerializeField]
+        private CharacterDetailsPopupWeaponController leftWeapon;
+
         public void Setup(Player player)
         {
             this.profile.Apply(player);
             this.parameter.Apply(player.Parameter);
             this.resistance.Apply(player.Resistance);
-            this.rightWeapon.Setup(player.BattleWeapon);
+            this.rightWeapon.Setup(player.RightBattleWeapon);
+            this.leftWeapon.Setup(player.LeftBattleWeapon);
         }
 
         [Serializable]

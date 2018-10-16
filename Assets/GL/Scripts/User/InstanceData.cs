@@ -19,8 +19,13 @@ namespace GL.User
 
         public T GetByInstanceId(int instanceId)
         {
+            if(instanceId == 0)
+            {
+                return default(T);
+            }
+            
             var result = this.List.Find(t => t.InstanceId == instanceId);
-            Assert.IsNotNull(result, @"{instanceId}に紐づくデータの取得に失敗しました");
+            Assert.IsNotNull(result, $"{instanceId}に紐づくデータの取得に失敗しました");
 
             return result;
         }
