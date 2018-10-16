@@ -9,7 +9,7 @@ namespace GL.UI.PopupControllers
     /// <summary>
     /// キャラクター詳細ポップアップを制御するクラス
     /// </summary>
-    public sealed class CharacterDetailsPopupController : MonoBehaviour
+    public sealed class CharacterDetailsPopupController : PopupBase
     {
         [SerializeField]
         private Profile profile;

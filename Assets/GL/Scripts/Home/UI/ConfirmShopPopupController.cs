@@ -1,4 +1,5 @@
-﻿using UniRx;
+﻿using GL.UI.PopupControllers;
+using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
@@ -8,10 +9,8 @@ namespace GL.Home.UI
     /// <summary>
     /// ショップのアイテム購入確認ポップアップを制御するクラス
     /// </summary>
-    public sealed class ConfirmShopPopupController : MonoBehaviour
+    public sealed class ConfirmShopPopupController : PopupBase
     {
-        public Subject<bool> Submit { get; private set; } = new Subject<bool>();
-
         [SerializeField]
         private Button decide;
 
@@ -21,22 +20,12 @@ namespace GL.Home.UI
         void Start()
         {
             this.decide.OnClickAsObservable()
-                .SubscribeWithState(this, (_, _this) => _this.InvokeSubmit(true))
+                .SubscribeWithState(this, (_, _this) => _this.submit.OnNext(1))
                 .AddTo(this);
                 
             this.cancel.OnClickAsObservable()
-                .SubscribeWithState(this, (_, _this) => _this.InvokeSubmit(false))
+                .SubscribeWithState(this, (_, _this) => _this.submit.OnNext(0))
                 .AddTo(this);
-        }
-
-        void OnDestroy()
-        {
-            this.Submit.OnCompleted();
-        }
-
-        private void InvokeSubmit(bool isDecide)
-        {
-            this.Submit.OnNext(isDecide);
         }
     }
 }

@@ -8,7 +8,7 @@ namespace GL.UI.PopupControllers
     /// <summary>
     /// シンプルなポップアップを制御するクラス
     /// </summary>
-    public sealed class SimplePopupController : MonoBehaviour
+    public sealed class SimplePopupController : PopupBase
     {
         [SerializeField]
         private SimplePopupButtonController buttonPrefab;
@@ -22,13 +22,6 @@ namespace GL.UI.PopupControllers
         [SerializeField]
         private Text message;
 
-        public Subject<int> Submit { get; private set; } = new Subject<int>();
-
-        void OnDestroy()
-        {
-            this.Submit.OnCompleted();
-        }
-
         public void Setup(string title, string message, params string[] buttonNames)
         {
             this.title.text = title;
@@ -40,7 +33,7 @@ namespace GL.UI.PopupControllers
                 button.Button.OnClickAsObservable()
                     .SubscribeWithState(this, (_, _this) =>
                     {
-                        _this.Submit.OnNext(i);
+                        _this.submit.OnNext(i);
                     });
                 button.Text.text = buttonNames[i];
             }

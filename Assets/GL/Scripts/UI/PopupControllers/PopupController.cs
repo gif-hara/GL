@@ -21,7 +21,7 @@ namespace GL.UI.PopupControllers
 
         private Image background;
 
-        private List<GameObject> popups = new List<GameObject>();
+        private List<IPopup> popups = new List<IPopup>();
 
         void Awake()
         {
@@ -42,15 +42,18 @@ namespace GL.UI.PopupControllers
         /// <summary>
         /// ポップアップを表示する
         /// </summary>
-        public static T Show<T>(T prefab) where T : Component
+        public static T Show<T>(T prefab) where T : PopupBase
         {
             Instance.background.enabled = true;
             var result = Instantiate(prefab, Instance.cachedTransform, false);
-            Instance.popups.Add(result.gameObject);
+            Instance.popups.Add(result);
 
             return result;
         }
 
+        /// <summary>
+        /// 最も手前に存在するポップアップを閉じる
+        /// </summary>
         public static void Close()
         {
             Assert.IsTrue(Instance.popups.Count > 0, "ポップアップが存在しません");
@@ -58,18 +61,25 @@ namespace GL.UI.PopupControllers
             var popup = Instance.popups[index];
             Instance.popups.RemoveAt(index);
             Instance.background.enabled = Instance.popups.Count != 0;
-            Destroy(popup);
+            popup.Close();
         }
 
-        public static void Close(GameObject target)
+        /// <summary>
+        /// 指定したポップアップを閉じる
+        /// </summary>
+        public static void Close(IPopup target)
         {
             Assert.IsTrue(Instance.popups.Count > 0, "ポップアップが存在しません");
             var popup = Instance.popups.Find(p => p == target);
             Assert.IsNotNull(popup);
+            Instance.popups.Remove(popup);
             Instance.background.enabled = Instance.popups.Count != 0;
-            Destroy(popup);
+            popup.Close();
         }
 
+        /// <summary>
+        /// シンプルなポップアップを表示する
+        /// </summary>
         public static SimplePopupController ShowSimplePopup(string title, string message, params string[] buttonNames)
         {
             var result = Show(Instance.basicPopupPrefab);
