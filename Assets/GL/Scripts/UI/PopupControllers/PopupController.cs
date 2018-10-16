@@ -1,4 +1,5 @@
-﻿using GL.Home.UI;
+﻿using System.Collections.Generic;
+using GL.Home.UI;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
@@ -20,7 +21,7 @@ namespace GL.UI.PopupControllers
 
         private Image background;
 
-        private GameObject currentPopup;
+        private List<GameObject> popups = new List<GameObject>();
 
         void Awake()
         {
@@ -43,20 +44,30 @@ namespace GL.UI.PopupControllers
         /// </summary>
         public static T Show<T>(T prefab) where T : Component
         {
-            Assert.IsNull(Instance.currentPopup, "すでにポップアップが存在します");
             Instance.background.enabled = true;
             var result = Instantiate(prefab, Instance.cachedTransform, false);
-            Instance.currentPopup = result.gameObject;
+            Instance.popups.Add(result.gameObject);
 
             return result;
         }
 
         public static void Close()
         {
-            Assert.IsNotNull(Instance.currentPopup, "ポップアップが存在しません");
-            Instance.background.enabled = false;
-            Destroy(Instance.currentPopup);
-            Instance.currentPopup = null;
+            Assert.IsTrue(Instance.popups.Count > 0, "ポップアップが存在しません");
+            var index = Instance.popups.Count - 1;
+            var popup = Instance.popups[index];
+            Instance.popups.RemoveAt(index);
+            Instance.background.enabled = Instance.popups.Count != 0;
+            Destroy(popup);
+        }
+
+        public static void Close(GameObject target)
+        {
+            Assert.IsTrue(Instance.popups.Count > 0, "ポップアップが存在しません");
+            var popup = Instance.popups.Find(p => p == target);
+            Assert.IsNotNull(popup);
+            Instance.background.enabled = Instance.popups.Count != 0;
+            Destroy(popup);
         }
 
         public static SimplePopupController ShowSimplePopup(string title, string message, params string[] buttonNames)

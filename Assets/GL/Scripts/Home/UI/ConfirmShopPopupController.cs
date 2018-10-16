@@ -29,10 +29,14 @@ namespace GL.Home.UI
                 .AddTo(this);
         }
 
+        void OnDestroy()
+        {
+            this.Submit.OnCompleted();
+        }
+
         private void InvokeSubmit(bool isDecide)
         {
             this.Submit.OnNext(isDecide);
-            this.Submit.OnCompleted();
         }
     }
 }

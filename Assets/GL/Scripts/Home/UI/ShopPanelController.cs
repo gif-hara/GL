@@ -72,7 +72,6 @@ namespace GL.Home.UI
             popup.Submit
                 .SubscribeWithState2(this, weapon, (isDecide, _this, _weapon) =>
                 {
-                    // TODO: お金消費処理
                     if(isDecide)
                     {
                         _this.BuyWeapon(_weapon);
@@ -82,7 +81,7 @@ namespace GL.Home.UI
                         PopupController.Close();
                     }
                 })
-                .AddTo(this);
+                .AddTo(popup);
         }
 
         private void BuyWeapon(Battle.Weapon weapon)
