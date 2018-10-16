@@ -23,7 +23,7 @@ namespace GL.UI.PopupControllers
         /// </summary>
         public SimplePopupController Show()
         {
-            return PopupController.ShowSimplePopup(this.Title.Get, this.Message.Get, this.ButtonNames.Select(b => b.Get).ToArray());
+            return PopupManager.ShowSimplePopup(this.Title.Get, this.Message.Get, this.ButtonNames.Select(b => b.Get).ToArray());
         }
 
         /// <summary>
@@ -38,7 +38,7 @@ namespace GL.UI.PopupControllers
             var title = titleSelector == null ? this.Title.Get : titleSelector(this.Title);
             var message = messageSelector == null ? this.Message.Get : messageSelector(this.Message);
             var buttonNames = buttonNamesSelector == null ? this.ButtonNames.Select(b => b.Get).ToArray() : buttonNamesSelector(this.ButtonNames);
-            return PopupController.ShowSimplePopup(title, message, buttonNames);
+            return PopupManager.ShowSimplePopup(title, message, buttonNames);
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using GL.Home.UI;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
@@ -7,15 +6,15 @@ using UnityEngine.UI;
 namespace GL.UI.PopupControllers
 {
     /// <summary>
-    /// ポップアップを制御するクラス
+    /// ポップアップを管理するクラス
     /// </summary>
     [RequireComponent(typeof(Image))]
-    public sealed class PopupController : MonoBehaviour
+    public sealed class PopupManager : MonoBehaviour
     {
         [SerializeField]
         private SimplePopupController basicPopupPrefab;
 
-        public static PopupController Instance { get; private set; }
+        public static PopupManager Instance { get; private set; }
 
         private RectTransform cachedTransform;
 

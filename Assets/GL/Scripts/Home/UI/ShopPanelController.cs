@@ -68,7 +68,7 @@ namespace GL.Home.UI
 
         public void ShowConfirmPopup(Battle.Weapon weapon)
         {
-            var popup = PopupController.Show(this.confirmShopPopupController);
+            var popup = PopupManager.Show(this.confirmShopPopupController);
             popup.SubmitAsObservable()
                 .SubscribeWithState2(this, weapon, (index, _this, _weapon) =>
                 {
@@ -79,7 +79,7 @@ namespace GL.Home.UI
                     }
                     else
                     {
-                        PopupController.Close();
+                        PopupManager.Close();
                     }
                 })
                 .AddTo(popup);
@@ -87,12 +87,12 @@ namespace GL.Home.UI
 
         private void BuyWeapon(Battle.Weapon weapon)
         {
-            PopupController.Close();
+            PopupManager.Close();
             var userData = UserData.Instance;
             if(!userData.Wallet.IsEnoughGold(weapon.Price))
             {
                 this.notBuyFromGoldPopup.Show().SubmitAsObservable()
-                    .Subscribe(_ => PopupController.Close());
+                    .Subscribe(_ => PopupManager.Close());
                 return;
             }
 
@@ -101,7 +101,7 @@ namespace GL.Home.UI
             userData.Save();
 
             this.buyPopup.Show().SubmitAsObservable()
-                .Subscribe(_ => PopupController.Close());
+                .Subscribe(_ => PopupManager.Close());
         }
     }
 }
