@@ -1,5 +1,7 @@
 ﻿using System;
+using GL.MasterData;
 using HK.Framework.Text;
+using HK.GL.Extensions;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -33,5 +35,7 @@ namespace GL.User
         {
             return new Weapon(instanceId, this.id);
         }
+
+        public Battle.Weapon BattleWeapon => Database.Weapon.List.Find(w => w.Id == this.Id);
     }
 }

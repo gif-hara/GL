@@ -12,6 +12,7 @@ namespace GL.Battle.Commands.Bundle
     {
         [SerializeField]
         private Implement.Parameter parameter;
+        public Implement.Parameter Parameter => this.parameter;
 
         public Implement Create()
         {

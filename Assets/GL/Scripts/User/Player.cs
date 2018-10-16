@@ -57,13 +57,9 @@ namespace GL.User
             };
         }
 
-        public User.Weapon Weapon
-        {
-            get
-            {
-                return UserData.Instance.Weapons.GetByInstanceId(this.WeaponInstanceId);
-            }
-        }
+        public User.Weapon UserWeapon => UserData.Instance.Weapons.GetByInstanceId(this.WeaponInstanceId);
+
+        public Battle.Weapon BattleWeapon => this.UserWeapon.BattleWeapon;
 
         public Battle.CharacterControllers.Blueprint Blueprint
         {

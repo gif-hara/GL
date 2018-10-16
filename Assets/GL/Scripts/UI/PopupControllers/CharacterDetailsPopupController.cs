@@ -21,14 +21,14 @@ namespace GL.UI.PopupControllers
         private Resistance resistance;
 
         [SerializeField]
-        private Weapon weapon;
+        private CharacterDetailsPopupWeaponController rightWeapon;
         
         public void Setup(Player player)
         {
             this.profile.Apply(player);
             this.parameter.Apply(player.Parameter);
             this.resistance.Apply(player.Resistance);
-            this.weapon.Apply(player.Weapon);
+            this.rightWeapon.Setup(player.BattleWeapon);
         }
 
         [Serializable]
@@ -105,37 +105,6 @@ namespace GL.UI.PopupControllers
                 this.confuse.text = resistance.Confuse.ToString(format);
                 this.berserk.text = resistance.Berserk.ToString(format);
                 this.vitals.text = resistance.Vitals.ToString(format);
-            }
-        }
-
-        [Serializable]
-        public class Weapon
-        {
-            [SerializeField]
-            private ButtonElement change;
-
-            [SerializeField]
-            private ButtonElement[] commands;
-
-            [SerializeField]
-            private StringAsset.Finder notCommandName;
-
-            public void Apply(User.Weapon weapon)
-            {
-                // TODO: 武器ステータスを表示
-                // this.change.Text.text = weapon.WeaponName;
-                // for (var i = 0; i < this.commands.Length; i++)
-                // {
-                //     var command = this.commands[i];
-                //     if (weapon.Commands.Length <= i)
-                //     {
-                //         command.Text.text = this.notCommandName.Get;
-                //         continue;
-                //     }
-
-                //     var weaponCommand = weapon.Commands[i].Create();
-                //     command.Text.text = weaponCommand.Name;
-                // }
             }
         }
 

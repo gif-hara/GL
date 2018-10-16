@@ -115,6 +115,11 @@ namespace GL.Battle.Commands.Bundle
             public StringAsset.Finder Name;
 
             /// <summary>
+            /// 説明
+            /// </summary>
+            public StringAsset.Finder Description;
+
+            /// <summary>
             /// 対象となるパーティタイプ
             /// </summary>
             public Constants.TargetPartyType TargetPartyType;
