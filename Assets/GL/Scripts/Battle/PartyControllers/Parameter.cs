@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using GL.Battle;
 using GL.MasterData;
@@ -36,8 +37,8 @@ namespace GL.Battle.PartyControllers
             {
                 Level = player.Level,
                 Blueprint = player.Blueprint,
-                RightWeapon = Database.Weapon.List.Find(w => w.Id == userData.Weapons.GetByInstanceId(player.RightWeaponInstanceId).Id),
-                LeftWeapon = Database.Weapon.List.Find(w => w.Id == userData.Weapons.GetByInstanceId(player.LeftWeaponInstanceId).Id),
+                RightWeapon = player.RightBattleWeapon,
+                LeftWeapon = player.LeftBattleWeapon,
                 Accessories = player.Accessories
             };
         }
@@ -46,7 +47,17 @@ namespace GL.Battle.PartyControllers
         {
             get
             {
-                return this.RightWeapon.Commands.Concat(this.LeftWeapon.Commands).Select(c => c.Create()).ToArray();
+                var result = new List<Commands.Bundle.Implement>();
+                if(this.RightWeapon != null)
+                {
+                    result.AddRange(this.RightWeapon.Commands.Select(c => c.Create()));
+                }
+                if(this.LeftWeapon != null)
+                {
+                    result.AddRange(this.LeftWeapon.Commands.Select(c => c.Create()));
+                }
+
+                return result.ToArray();
             }
         }
     }
