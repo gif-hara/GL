@@ -32,10 +32,10 @@ namespace GL.Home.UI
         private ConfirmShopPopupController confirmShopPopupController;
 
         [SerializeField]
-        private BasicConfirmPopupStrings buyPopup;
+        private SimplePopupStrings buyPopup;
 
         [SerializeField]
-        private BasicConfirmPopupStrings notBuyFromGoldPopup;
+        private SimplePopupStrings notBuyFromGoldPopup;
 
         /// <summary>
         /// <paramref name="weaponType"/>に対応した武器リストを表示する

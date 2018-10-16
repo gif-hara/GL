@@ -12,7 +12,7 @@ namespace GL.UI.PopupControllers
     public sealed class PopupController : MonoBehaviour
     {
         [SerializeField]
-        private BasicConfirmPopupController basicPopupPrefab;
+        private SimplePopupController basicPopupPrefab;
 
         public static PopupController Instance { get; private set; }
 
@@ -59,7 +59,7 @@ namespace GL.UI.PopupControllers
             Instance.currentPopup = null;
         }
 
-        public static BasicConfirmPopupController ShowBasicPopup(string title, string message, params string[] buttonNames)
+        public static SimplePopupController ShowSimplePopup(string title, string message, params string[] buttonNames)
         {
             var result = Show(Instance.basicPopupPrefab);
             result.Setup(title, message, buttonNames);

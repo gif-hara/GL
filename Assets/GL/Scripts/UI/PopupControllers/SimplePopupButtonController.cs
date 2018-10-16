@@ -7,7 +7,7 @@ namespace GL.UI.PopupControllers
     /// <summary>
     /// シンプルなポップアップのボタンを制御するクラス
     /// </summary>
-    public sealed class BasicConfirmPopupButtonController : MonoBehaviour
+    public sealed class SimplePopupButtonController : MonoBehaviour
     {
         [SerializeField]
         private Button button;
