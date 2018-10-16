@@ -181,10 +181,10 @@ MonoBehaviour:
       en: 
     guid: bcce9290-68ee-4df2-b720-ffc4a98b990d
   - value:
-      ja: "\u53F3\u624B\uFF1A{0}"
+      ja: "\u53F3\u624B {0}"
       en: 
     guid: 1f4c5816-cf0a-49f1-9d67-f8ef32374b1c
   - value:
-      ja: "\u5DE6\u624B\uFF1A{0}"
+      ja: "\u5DE6\u624B {0}"
       en: 
     guid: 184fb324-81ba-4db3-8089-ee6acdf4f38c
