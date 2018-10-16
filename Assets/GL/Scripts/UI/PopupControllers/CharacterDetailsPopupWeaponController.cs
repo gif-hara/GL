@@ -12,31 +12,20 @@ namespace GL.UI.PopupControllers
     public sealed class CharacterDetailsPopupWeaponController : MonoBehaviour
     {
         [SerializeField]
-        private StringAsset.Finder weaponNameFormat;
-
-        [SerializeField]
         private StringAsset.Finder noneWeaponName;
 
         [SerializeField]
         private Text weaponName;
 
-        [SerializeField]
-        CommandController commandPrefab;
-
         public void Setup(Battle.Weapon weapon)
         {
             if(weapon == null)
             {
-                this.weaponName.text = this.weaponNameFormat.Format(this.noneWeaponName.Get);
+                this.weaponName.text = this.noneWeaponName.Get;
             }
             else
             {
-                this.weaponName.text = this.weaponNameFormat.Format(weapon.WeaponName);
-                weapon.Commands.ForEach(c =>
-                {
-                    var commandUI = Instantiate(this.commandPrefab, this.transform, false);
-                    commandUI.Setup(c);
-                });
+                this.weaponName.text = weapon.WeaponName;
             }
         }
     }

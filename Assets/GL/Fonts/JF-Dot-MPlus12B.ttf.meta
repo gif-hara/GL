@@ -1,21 +1,22 @@
 fileFormatVersion: 2
-guid: 137d80a99cae4414dab907f30658dff5
-timeCreated: 1493128631
-licenseType: Free
+guid: 39135e9a6a5694ac99f8e8329feaea91
 TrueTypeFontImporter:
+  externalObjects: {}
   serializedVersion: 4
   fontSize: 16
   forceTextureCase: -2
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: PixelMplus12
+  fontName: JF Dot M+ 12
   fontNames:
-  - PixelMplus12
+  - JF Dot M+ 12
   fallbackFontReferences: []
   customCharacters: 
-  fontRenderingMode: 2
+  fontRenderingMode: 0
   ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 
