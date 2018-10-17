@@ -9,10 +9,10 @@ using UnityEngine;
 namespace GL.Systems
 {
     /// <summary>
-    /// 一番最初に処理するクラス
+    /// アプリケーション起動時に実行されるクラス
     /// </summary>
-    [CreateAssetMenu(menuName = "GL/Systems/BootLoader")]
-    public sealed class BootLoader : ScriptableObject
+    [CreateAssetMenu(menuName = "GL/Systems/BootController")]
+    public sealed class BootController : ScriptableObject
     {
         [SerializeField]
         private int targetFrameRate;
@@ -29,7 +29,7 @@ namespace GL.Systems
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void Initialize()
         {
-            var instance = Resources.Load<BootLoader>("BootLoader");
+            var instance = Resources.Load<BootController>("BootController");
 
             // FPS設定
             {
