@@ -2,6 +2,7 @@
 using System.Linq;
 using GL.MasterData;
 using GL.User;
+using HK.Framework.Systems;
 using UniRx;
 using UnityEngine;
 
@@ -25,18 +26,14 @@ namespace GL.Systems
         [SerializeField]
         private GameObject[] dontDestroyPrefabs;
 
-        void OnEnable()
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        private static void Initialize()
         {
-#if UNITY_EDITOR
-            if (UnityEditor.EditorApplication.isPlayingOrWillChangePlaymode == false)
-            {
-                return;
-            }
-#endif
+            var instance = Resources.Load<BootLoader>("BootLoader");
 
             // FPS設定
             {
-                Application.targetFrameRate = this.targetFrameRate;
+                Application.targetFrameRate = instance.targetFrameRate;
             }
             
             // ユーザーデータを読み込む
@@ -44,14 +41,14 @@ namespace GL.Systems
                 var userData = UserData.Instance;
                 if (userData.IsEmpty)
                 {
-                    userData.Initialize(this.userData);
+                    userData.Initialize(instance.userData);
                     userData.Save();
                 }
             }
 
             // データベース登録
             {
-                this.database.Setup();
+                instance.database.Setup();
             }
             
             // DontDestroyなゲームオブジェクトを生成する
@@ -62,7 +59,7 @@ namespace GL.Systems
 #endif
                     .Subscribe(_ =>
                     {
-                        foreach (var prefab in this.dontDestroyPrefabs)
+                        foreach (var prefab in instance.dontDestroyPrefabs)
                         {
                             DontDestroyOnLoad(Instantiate(prefab));
                         }
