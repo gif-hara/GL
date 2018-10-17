@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 49995a3d05a5041aba5f7af7b34b05a9, type: 3}
-  m_Name: 
+  m_Name: Weapon
   m_EditorClassIdentifier: 
   list:
   - {fileID: 11400000, guid: ddb9db169bd8b4768938efc96c40f1a8, type: 2}
