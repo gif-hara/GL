@@ -280,7 +280,6 @@ namespace HK.Framework.Systems
 			/// </summary>
 			~SaveDataBase ()
 			{
-				Save();
 			}
 
 #endregion
