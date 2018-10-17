@@ -28,7 +28,6 @@ namespace GL.User
                 }
 
                 instance = SaveData.GetClass<UserData>(SaveDataKey.UserData, null) ?? new UserData();
-                instance.currentPartyIndexReactiveProperty.Value = instance.currentPartyIndex;
 
                 return instance;
             }
@@ -70,11 +69,13 @@ namespace GL.User
             this.Parties.List.AddRange(other.Parties.List.Select(p => p.Clone(this.Parties.InstanceId)));
             this.Weapons.List.AddRange(other.Weapons.List.Select(w => w.Clone(this.Weapons.InstanceId)));
             this.Accessories.List.AddRange(other.Accessories.List.Select(a => a.Clone(this.Accessories.InstanceId)));
+            this.currentPartyIndexReactiveProperty.Value = other.currentPartyIndexReactiveProperty.Value;
         }
 
         public void Save()
         {
             SaveData.SetClass(SaveDataKey.UserData, this);
+            SaveData.Save();
         }
 
         public void SetCurrentPartyIndex(int index)
