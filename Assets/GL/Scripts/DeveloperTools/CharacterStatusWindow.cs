@@ -11,7 +11,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace GL.DevelopTools.Scripts
+namespace GL.DeveloperTools
 {
     /// <summary>
     /// バトルに参加しているキャラクターのステータスを表示する<see cref="EditorWindow"/>
