@@ -9,10 +9,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c932cb5455f464b288e33eb7fa54f213, type: 3}
-  m_Name: Dagger
+  m_Name: 02_LongSword
   m_EditorClassIdentifier: 
   database:
   - value:
-      ja: "\u77ED\u52630000"
+      ja: "\u9577\u52630000"
       en: 
-    guid: 971b8b49-6c93-4231-b5f5-cf2aee162b9d
+    guid: ce729882-6e97-4467-beec-a1523fd07be8
