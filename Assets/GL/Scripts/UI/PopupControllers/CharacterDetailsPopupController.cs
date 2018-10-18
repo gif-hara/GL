@@ -65,6 +65,7 @@ namespace GL.UI.PopupControllers
                         {
                             _this.leftWeapon.Setup(_this.editPlayer.LeftBattleWeapon);
                         }
+                        _this.commandListController.Setup(_this.editPlayer.UsingCommands);
                     }
 
                     PopupManager.Close(_popup);

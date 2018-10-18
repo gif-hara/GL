@@ -24,6 +24,7 @@ namespace GL.UI
             {
                 var command = Instantiate(this.commandPrefab, this.parent, false);
                 command.Setup(c);
+                this.commands.Add(command);
             }
         }
 
@@ -33,6 +34,7 @@ namespace GL.UI
             {
                 Destroy(this.commands[i].gameObject);
             }
+            this.commands.Clear();
         }
     }
 }
