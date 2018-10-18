@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using GL.DeveloperTools;
 using GL.MasterData;
 using GL.User;
 using HK.Framework.Systems;
@@ -64,6 +65,12 @@ namespace GL.Systems
                             DontDestroyOnLoad(Instantiate(prefab));
                         }
                     });
+            }
+
+            // SRDebuggerのSystemにGLの情報を登録する
+            {
+                var systemInformationService = new SystemInformationService();
+                systemInformationService.Setup();
             }
         }
     }
