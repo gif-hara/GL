@@ -44,7 +44,7 @@ namespace GL.UI.PopupControllers
             });
 
             this.closeButton.OnClickAsObservable()
-                .SubscribeWithState(this, (_, _this) => _this.submit.OnNext(0))
+                .SubscribeWithState(this, (_, _this) => _this.submit.OnNext(-1))
                 .AddTo(this);
 
             return this;
