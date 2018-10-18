@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if UNITY_EDITOR
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using GL.Battle.CharacterControllers;
@@ -196,3 +197,4 @@ namespace GL.DeveloperTools
         }
     }
 }
+#endif

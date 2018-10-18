@@ -21,6 +21,7 @@ namespace GL.MasterData
 
         protected abstract string[] FindAssetsPaths { get; }
 
+#if UNITY_EDITOR
         void Reset()
         {
             this.list = AssetDatabase.FindAssets(this.FindAssetsFilter, this.FindAssetsPaths)
@@ -28,5 +29,6 @@ namespace GL.MasterData
                 .Select(AssetDatabase.LoadAssetAtPath<T>)
                 .ToArray();
         }
+#endif
     }
 }
