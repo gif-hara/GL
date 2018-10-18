@@ -57,6 +57,7 @@ namespace GL.UI.PopupControllers
                     if(instanceId != -1)
                     {
                         _this.editPlayer.ChangeWeapon(_handType, instanceId);
+                        UserData.Instance.Save();
                         if(_handType == Constants.HandType.Right)
                         {
                             _this.rightWeapon.Setup(_this.editPlayer.RightBattleWeapon);
