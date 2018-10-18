@@ -13,7 +13,7 @@ public partial class SROptions
     public void AddGold()
     {
         const int value = 1000000;
-        UserData.Instance.Wallet.AddFromGold(value);
+        UserData.Instance.Wallet.Gold.Add(value);
         UserData.Instance.Save();
         Debug.Log($"Added Gold {value}");
     }
@@ -23,7 +23,7 @@ public partial class SROptions
     public void ZeroGold()
     {
         var u = UserData.Instance;
-        u.Wallet.AddFromGold(-u.Wallet.Gold);
+        u.Wallet.Gold.Add(-u.Wallet.Gold.Value);
         u.Save();
         Debug.Log($"Gold is Zero!");
     }

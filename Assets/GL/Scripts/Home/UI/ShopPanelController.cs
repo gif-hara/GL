@@ -89,7 +89,7 @@ namespace GL.Home.UI
         {
             PopupManager.Close();
             var userData = UserData.Instance;
-            if(!userData.Wallet.IsEnoughGold(weapon.Price))
+            if(!userData.Wallet.Gold.IsEnough(weapon.Price))
             {
                 this.notBuyFromGoldPopup.Show().SubmitAsObservable()
                     .Subscribe(_ => PopupManager.Close());
@@ -97,7 +97,7 @@ namespace GL.Home.UI
             }
 
             userData.AddWeapon(weapon);
-            userData.Wallet.PayFromGold(weapon.Price);
+            userData.Wallet.Gold.Pay(weapon.Price);
             userData.Save();
 
             this.buyPopup.Show().SubmitAsObservable()
