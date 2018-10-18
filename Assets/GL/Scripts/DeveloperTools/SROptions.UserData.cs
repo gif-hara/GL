@@ -27,4 +27,11 @@ public partial class SROptions
         u.Save();
         Debug.Log($"Gold is Zero!");
     }
+
+    [Category(Category.UserData)]
+    [Sort(200)]
+    public void PrintAllWeapon()
+    {
+        UserData.Instance.Weapons.List.ForEach(w => Debug.Log($"[{w.InstanceId}] {w.BattleWeapon.WeaponName}"));
+    }
 }
