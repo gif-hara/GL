@@ -281,5 +281,11 @@ namespace GL
         public const int LevelMin = 1;
         
         public const int LevelMax = 100;
+
+        public enum HandType
+        {
+            Right,
+            Left,
+        }
     }
 }

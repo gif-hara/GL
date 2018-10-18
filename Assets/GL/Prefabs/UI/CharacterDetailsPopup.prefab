@@ -256,6 +256,7 @@ GameObject:
   - component: {fileID: 114818460890532160}
   - component: {fileID: 114192027521493972}
   - component: {fileID: 114599486739307516}
+  - component: {fileID: 114807473054035600}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -939,6 +940,7 @@ GameObject:
   - component: {fileID: 114754941352012476}
   - component: {fileID: 114247613522960638}
   - component: {fileID: 114337029219491894}
+  - component: {fileID: 114196616393583442}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -2162,6 +2164,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u5909\u66F4"
+--- !u!114 &114196616393583442
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1621508854215370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c6ecee4671bf4ea08caac20063d2200, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handType: 1
+  popupController: {fileID: 114389765333633200}
+  button: {fileID: 114247613522960638}
 --- !u!114 &114198621005789698
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3008,6 +3024,8 @@ MonoBehaviour:
   rightWeapon: {fileID: 114459188547436440}
   leftWeapon: {fileID: 114185295502748966}
   commandListController: {fileID: 114115475725335824}
+  equippedWeaponPopupController: {fileID: 114263292963512742, guid: a1b6031fd5b9341b4ac159c268869634,
+    type: 2}
 --- !u!114 &114392259205634876
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4712,6 +4730,20 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114807473054035600
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1161556226507856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c6ecee4671bf4ea08caac20063d2200, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handType: 0
+  popupController: {fileID: 114389765333633200}
+  button: {fileID: 114192027521493972}
 --- !u!114 &114813574973896792
 MonoBehaviour:
   m_ObjectHideFlags: 1

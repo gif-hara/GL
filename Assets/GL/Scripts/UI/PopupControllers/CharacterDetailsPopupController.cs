@@ -1,6 +1,7 @@
 ﻿using System;
 using GL.User;
 using HK.Framework.Text;
+using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,6 +30,11 @@ namespace GL.UI.PopupControllers
         [SerializeField]
         private CommandListController commandListController;
 
+        [SerializeField]
+        private EquippedWeaponPopupController equippedWeaponPopupController;
+
+        private Player editPlayer;
+
         public void Setup(Player player)
         {
             this.profile.Apply(player);
@@ -37,6 +43,21 @@ namespace GL.UI.PopupControllers
             this.rightWeapon.Setup(player.RightBattleWeapon);
             this.leftWeapon.Setup(player.LeftBattleWeapon);
             this.commandListController.Setup(player.UsingCommands);
+            this.editPlayer = player;
+        }
+
+        public void ShowEquippedWeaponPopup(Constants.HandType handType)
+        {
+            PopupManager.Show(this.equippedWeaponPopupController)
+                .Setup(this.editPlayer, handType)
+                .SubmitAsObservable()
+                .SubscribeWithState(this, (instanceId, _this) =>
+                {
+                    if(instanceId == 0)
+                    {
+                        PopupManager.Close();
+                    }
+                });
         }
 
         [Serializable]
