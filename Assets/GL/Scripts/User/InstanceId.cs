@@ -11,11 +11,12 @@ namespace GL.User
     public sealed class InstanceId
     {
         [SerializeField]
-        public int Count { get; private set; } = 0;
+        private int count = 0;
+        public int Count => this.count;
 
         /// <summary>
         /// 新規IDを発行する
         /// </summary>
-        public int Issue => ++this.Count;
+        public int Issue => ++this.count;
     }
 }
