@@ -9,10 +9,6 @@ using UnityEngine.Assertions;
 public partial class SROptions
 {
     [Category(Category.UserData)]
-    [Sort(100)]
-    public int Gold => UserData.Instance.Wallet.Gold;
-
-    [Category(Category.UserData)]
     [Sort(200)]
     public void AddGold()
     {
@@ -20,5 +16,15 @@ public partial class SROptions
         UserData.Instance.Wallet.AddFromGold(value);
         UserData.Instance.Save();
         Debug.Log($"Added Gold {value}");
+    }
+
+    [Category(Category.UserData)]
+    [Sort(200)]
+    public void ZeroGold()
+    {
+        var u = UserData.Instance;
+        u.Wallet.AddFromGold(-u.Wallet.Gold);
+        u.Save();
+        Debug.Log($"Gold is Zero!");
     }
 }
