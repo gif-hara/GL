@@ -26,6 +26,9 @@ namespace GL.UI.PopupControllers
         [SerializeField]
         private CharacterDetailsPopupWeaponController leftWeapon;
 
+        [SerializeField]
+        private CommandListController commandListController;
+
         public void Setup(Player player)
         {
             this.profile.Apply(player);
@@ -33,6 +36,7 @@ namespace GL.UI.PopupControllers
             this.resistance.Apply(player.Resistance);
             this.rightWeapon.Setup(player.RightBattleWeapon);
             this.leftWeapon.Setup(player.LeftBattleWeapon);
+            this.commandListController.Setup(player.UsingCommands);
         }
 
         [Serializable]

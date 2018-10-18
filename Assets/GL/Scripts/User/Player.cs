@@ -61,37 +61,17 @@ namespace GL.User
             };
         }
 
+        public bool IsPossessionRightWeapon => this.RightWeaponInstanceId != 0;
+
         public User.Weapon RightUserWeapon => UserData.Instance.Weapons.GetByInstanceId(this.RightWeaponInstanceId);
 
-        public Battle.Weapon RightBattleWeapon
-        {
-            get
-            {
-                var userRightWeapon = this.RightUserWeapon;
-                if (userRightWeapon == null)
-                {
-                    return null;
-                }
+        public Battle.Weapon RightBattleWeapon => this.IsPossessionRightWeapon ? this.RightUserWeapon.BattleWeapon : null;
 
-                return userRightWeapon.BattleWeapon;
-            }
-        }
+        public bool IsPossessionLeftWeapon => this.LeftWeaponInstanceId != 0;
 
         public User.Weapon LeftUserWeapon => UserData.Instance.Weapons.GetByInstanceId(this.LeftWeaponInstanceId);
 
-        public Battle.Weapon LeftBattleWeapon
-        {
-            get
-            {
-                var userLeftWeapon = this.LeftUserWeapon;
-                if (userLeftWeapon == null)
-                {
-                    return null;
-                }
-
-                return userLeftWeapon.BattleWeapon;
-            }
-        }
+        public Battle.Weapon LeftBattleWeapon => this.IsPossessionLeftWeapon ? this.LeftUserWeapon.BattleWeapon : null;
 
         public Battle.CharacterControllers.Blueprint Blueprint
         {
@@ -110,6 +90,27 @@ namespace GL.User
             {
                 var userData = UserData.Instance;
                 return this.AccessoryInstanceIds.Select(instanceId => Database.Accessory.List.Find(a => a.Id == userData.Accessories.GetByInstanceId(instanceId).Id)).ToArray();
+            }
+        }
+
+        /// <summary>
+        /// バトルで利用するコマンドを返す
+        /// </summary>
+        public Battle.Commands.Bundle.Blueprint[] UsingCommands
+        {
+            get
+            {
+                var result = new List<Battle.Commands.Bundle.Blueprint>();
+                if(IsPossessionRightWeapon)
+                {
+                    result.AddRange(this.RightBattleWeapon.Commands);
+                }
+                if(IsPossessionLeftWeapon)
+                {
+                    result.AddRange(this.LeftBattleWeapon.Commands);
+                }
+
+                return result.ToArray();
             }
         }
     }
