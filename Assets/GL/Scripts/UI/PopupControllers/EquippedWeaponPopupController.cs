@@ -25,6 +25,9 @@ namespace GL.UI.PopupControllers
         private Transform listParent;
 
         [SerializeField]
+        private Button unequipButton;
+
+        [SerializeField]
         private Button closeButton;
 
         public EquippedWeaponPopupController Setup(Player player, Constants.HandType handType)
@@ -42,6 +45,10 @@ namespace GL.UI.PopupControllers
                     .SubscribeWithState2(this, w, (_, _this, _w) => _this.submit.OnNext(_w.InstanceId))
                     .AddTo(this);
             });
+
+            this.unequipButton.OnClickAsObservable()
+                .SubscribeWithState(this, (_, _this) => _this.submit.OnNext(0))
+                .AddTo(this);
 
             this.closeButton.OnClickAsObservable()
                 .SubscribeWithState(this, (_, _this) => _this.submit.OnNext(-1))
