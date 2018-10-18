@@ -1,6 +1,8 @@
-﻿using GL.UI;
+﻿using System.Linq;
+using GL.UI;
 using GL.UI.PopupControllers;
 using GL.User;
+using HK.GL.Extensions;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -29,9 +31,16 @@ namespace GL.UI.PopupControllers
         {
             // TODO: プレイヤーが装備可能な武器種類を抽出する
             var u = UserData.Instance;
-            u.Weapons.List.ForEach(w =>
+            u.Weapons.List
+                .Where(w => !u.IsEquipedWeapon(w))
+                .ForEach(w =>
             {
-                Instantiate(this.weaponPrefab, this.listParent, false).Setup(w.BattleWeapon);
+                Instantiate(this.weaponPrefab, this.listParent, false)
+                    .Setup(w.BattleWeapon)
+                    .Button
+                    .OnClickAsObservable()
+                    .SubscribeWithState2(this, w, (_, _this, _w) => _this.submit.OnNext(_w.InstanceId))
+                    .AddTo(this);
             });
 
             this.closeButton.OnClickAsObservable()

@@ -100,5 +100,10 @@ namespace GL.User
         {
             this.Weapons.List.Add(new User.Weapon(this.Weapons.InstanceId, weapon.Id));
         }
+
+        /// <summary>
+        /// <paramref name="weapon"/>は誰かが装備しているか返す
+        /// </summary>
+        public bool IsEquipedWeapon(User.Weapon weapon) => this.Players.List.FindIndex(p => p.IsEquipedWeapon(weapon.InstanceId)) >= 0;
     }
 }

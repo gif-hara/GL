@@ -73,6 +73,26 @@ namespace GL.User
 
         public Battle.Weapon LeftBattleWeapon => this.IsPossessionLeftWeapon ? this.LeftUserWeapon.BattleWeapon : null;
 
+        /// <summary>
+        /// <paramref name="instanceId"/>の武器を装備しているか返す
+        /// </summary>
+        public bool IsEquipedWeapon(int instanceId) => this.RightWeaponInstanceId == instanceId || this.LeftWeaponInstanceId == instanceId;
+
+        /// <summary>
+        /// 武器を切り替える
+        /// </summary>
+        public void ChangeWeapon(Constants.HandType handType, int instanceId)
+        {
+            if(handType == Constants.HandType.Right)
+            {
+                this.RightWeaponInstanceId = instanceId;
+            }
+            else
+            {
+                this.LeftWeaponInstanceId = instanceId;
+            }
+        }
+
         public Battle.CharacterControllers.Blueprint Blueprint
         {
             get

@@ -19,13 +19,15 @@ namespace GL.UI
         [SerializeField]
         private CommandController commandPrefab;
 
-        public void Setup(Battle.Weapon weapon)
+        public WeaponController Setup(Battle.Weapon weapon)
         {
             this.weaponName.text = weapon.WeaponName;
             foreach(var c in weapon.Commands)
             {
                 Instantiate(this.commandPrefab, this.transform).Setup(c);
             }
+
+            return this;
         }
     }
 }

@@ -48,15 +48,26 @@ namespace GL.UI.PopupControllers
 
         public void ShowEquippedWeaponPopup(Constants.HandType handType)
         {
-            PopupManager.Show(this.equippedWeaponPopupController)
+            var popup = PopupManager.Show(this.equippedWeaponPopupController);
+            popup
                 .Setup(this.editPlayer, handType)
                 .SubmitAsObservable()
-                .SubscribeWithState(this, (instanceId, _this) =>
+                .SubscribeWithState3(this, popup, handType, (instanceId, _this, _popup, _handType) =>
                 {
-                    if(instanceId == 0)
+                    if(instanceId != -1)
                     {
-                        PopupManager.Close();
+                        _this.editPlayer.ChangeWeapon(_handType, instanceId);
+                        if(_handType == Constants.HandType.Right)
+                        {
+                            _this.rightWeapon.Setup(_this.editPlayer.RightBattleWeapon);
+                        }
+                        else
+                        {
+                            _this.leftWeapon.Setup(_this.editPlayer.LeftBattleWeapon);
+                        }
                     }
+
+                    PopupManager.Close(_popup);
                 });
         }
 
