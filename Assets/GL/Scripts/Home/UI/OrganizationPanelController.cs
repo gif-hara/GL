@@ -1,5 +1,6 @@
 ﻿using GL.UI.PopupControllers;
 using GL.User;
+using HK.GL.Extensions;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -146,6 +147,7 @@ namespace GL.Home.UI
                             PopupManager.Close(_popup);
                             _this.currentMode = OrganizationMode.Change;
                             _this.changeTargetPlayer = _player;
+                            _this.SetTogglePartyInteractable(false);
                             break;
                         case CharacterDetailsPopupController.SubmitType.Training:
                             PopupManager.Close(_popup);
@@ -157,6 +159,7 @@ namespace GL.Home.UI
                             _this.SetupPartyPanel(UserData.Instance);
                             _this.currentMode = OrganizationMode.Default;
                             _this.changeTargetPlayer = null;
+                            _this.SetTogglePartyInteractable(true);
                             UserData.Instance.Save();
                             break;
                         case CharacterDetailsPopupController.SubmitType.ChangeCancel:
@@ -168,6 +171,11 @@ namespace GL.Home.UI
                     }
                 })
                 .AddTo(this);
+        }
+
+        private void SetTogglePartyInteractable(bool interactable)
+        {
+            this.togglePartyButtons.ForEach(b => b.interactable = interactable);
         }
 
         private CharacterDetailsPopupController.Mode ConvertToMode
