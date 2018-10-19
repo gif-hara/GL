@@ -1,5 +1,7 @@
-﻿using GL.UI.PopupControllers;
+﻿using GL.Events.Home;
+using GL.UI.PopupControllers;
 using GL.User;
+using HK.Framework.EventSystems;
 using HK.GL.Extensions;
 using UniRx;
 using UnityEngine;
@@ -141,29 +143,19 @@ namespace GL.Home.UI
                     switch(x)
                     {
                         case CharacterDetailsPopupController.SubmitType.Close:
-                            PopupManager.Close(_popup);
+                            _this.OnClose(_popup);
                             break;
                         case CharacterDetailsPopupController.SubmitType.Change:
-                            PopupManager.Close(_popup);
-                            _this.currentMode = OrganizationMode.Change;
-                            _this.changeTargetPlayer = _player;
-                            _this.SetTogglePartyInteractable(false);
+                            _this.OnChange(_popup, _player);
                             break;
                         case CharacterDetailsPopupController.SubmitType.Training:
-                            PopupManager.Close(_popup);
+                            _this.OnTraining(_popup);
                             break;
                         case CharacterDetailsPopupController.SubmitType.ChangeDecide:
-                            PopupManager.Close(_popup);
-                            Assert.IsNotNull(_this.changeTargetPlayer);
-                            UserData.Instance.CurrentParty.Change(_this.changeTargetPlayer.InstanceId, _player.InstanceId);
-                            _this.SetupPartyPanel(UserData.Instance);
-                            _this.currentMode = OrganizationMode.Default;
-                            _this.changeTargetPlayer = null;
-                            _this.SetTogglePartyInteractable(true);
-                            UserData.Instance.Save();
+                            _this.OnChangeDecide(_popup, _player);
                             break;
                         case CharacterDetailsPopupController.SubmitType.ChangeCancel:
-                            PopupManager.Close(_popup);
+                            _this.OnChangeCancel(_popup);
                             break;
                         default:
                             Assert.IsTrue(false, $"{x}は未対応の値です");
@@ -171,6 +163,54 @@ namespace GL.Home.UI
                     }
                 })
                 .AddTo(this);
+        }
+
+        private void OnClose(CharacterDetailsPopupController popup)
+        {
+            PopupManager.Close(popup);
+        }
+
+        private void OnChange(CharacterDetailsPopupController popup, Player player)
+        {
+            PopupManager.Close(popup);
+            this.currentMode = OrganizationMode.Change;
+            this.changeTargetPlayer = player;
+            this.SetTogglePartyInteractable(false);
+            Broker.Global.Publish(ChangeFooter.Get(FooterController.Mode.Cancel));
+            Broker.Global.Receive<ClickedFooterCancelButton>()
+                .Take(1)
+                .SubscribeWithState(this, (_, _this) =>
+                {
+                    _this.currentMode = OrganizationMode.Default;
+                    _this.changeTargetPlayer = null;
+                    _this.SetTogglePartyInteractable(true);
+                    Broker.Global.Publish(ChangeFooter.Get(FooterController.Mode.Default));
+                })
+                .AddTo(this);
+        }
+
+        private void OnTraining(CharacterDetailsPopupController popup)
+        {
+            PopupManager.Close(popup);
+            Debug.Log("TODO");
+        }
+
+        private void OnChangeDecide(CharacterDetailsPopupController popup, Player player)
+        {
+            PopupManager.Close(popup);
+            Assert.IsNotNull(this.changeTargetPlayer);
+            UserData.Instance.CurrentParty.Change(this.changeTargetPlayer.InstanceId, player.InstanceId);
+            this.SetupPartyPanel(UserData.Instance);
+            this.currentMode = OrganizationMode.Default;
+            this.changeTargetPlayer = null;
+            this.SetTogglePartyInteractable(true);
+            Broker.Global.Publish(ChangeFooter.Get(FooterController.Mode.Default));
+            UserData.Instance.Save();
+        }
+
+        private void OnChangeCancel(CharacterDetailsPopupController popup)
+        {
+            PopupManager.Close(popup);
         }
 
         private void SetTogglePartyInteractable(bool interactable)
