@@ -1955,7 +1955,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialIndex: 2
   changeDuration: 0.5
-  changeEase: 28
+  changeEase: 18
 --- !u!224 &505950086 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224622093978270838, guid: 0a762e306963a41f69d81a605fdb54fa,
@@ -5773,6 +5773,8 @@ MonoBehaviour:
   DefaultRoot: {fileID: 586312408}
   CancelRoot: {fileID: 771665853}
   initialMode: 0
+  duration: 0.5
+  ease: 18
 --- !u!222 &1321450876
 CanvasRenderer:
   m_ObjectHideFlags: 0

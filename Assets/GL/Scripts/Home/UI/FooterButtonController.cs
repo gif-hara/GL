@@ -1,4 +1,6 @@
-﻿using UniRx;
+﻿using GL.Events.Home;
+using HK.Framework.EventSystems;
+using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,6 +26,9 @@ namespace GL.Home.UI
                 {
                     _this.movableAreaController.ChangeRoot(_this.rootIndex);
                 })
+                .AddTo(this);
+            Broker.Global.Receive<ChangeFooter>()
+                .SubscribeWithState(button, (x, _button) => _button.interactable = x.Mode == FooterController.Mode.Default)
                 .AddTo(this);
         }
     }

@@ -3,6 +3,7 @@ using HK.Framework.EventSystems;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
+using DG.Tweening;
 
 namespace GL.Home.UI
 {
@@ -33,6 +34,12 @@ namespace GL.Home.UI
         [SerializeField]
         private Mode initialMode;
 
+        [SerializeField]
+        private float duration;
+
+        [SerializeField]
+        private Ease ease;
+
         private RectTransform cachedTransform;
 
         private Mode currentMode;
@@ -49,8 +56,13 @@ namespace GL.Home.UI
 
         private void Change(FooterController.Mode mode)
         {
+            if(this.currentMode == mode)
+            {
+                return;
+            }
+            this.CurrentRoot.DOLocalMoveY(-this.cachedTransform.rect.height, this.duration, true).SetEase(this.ease);
             this.currentMode = mode;
-            this.ChangeImmediate(mode);
+            this.CurrentRoot.DOLocalMoveY(0.0f, this.duration, true).SetEase(this.ease);
         }
 
         private void ChangeImmediate(FooterController.Mode mode)
@@ -65,6 +77,23 @@ namespace GL.Home.UI
             var pos = root.localPosition;
             pos.y = isEnable ? 0.0f : -this.cachedTransform.rect.height;
             root.localPosition = pos;
+        }
+
+        private Transform CurrentRoot
+        {
+            get
+            {
+                switch(this.currentMode)
+                {
+                    case Mode.Default:
+                        return this.DefaultRoot;
+                    case Mode.Cancel:
+                        return this.CancelRoot;
+                    default:
+                        Assert.IsTrue(false, $"{this.currentMode}は未対応の値です");
+                        return null;
+                }
+            }
         }
     }
 }
