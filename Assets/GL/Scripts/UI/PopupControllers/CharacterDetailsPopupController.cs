@@ -19,7 +19,7 @@ namespace GL.Home.UI
         {
             Close,
             Training,
-            Change,
+            StartChange,
             ChangeDecide,
             ChangeCancel,
         }
@@ -112,7 +112,7 @@ namespace GL.Home.UI
             {
                 case Mode.Default:
                     this.OnClickSubmit(this.defaultModeElement.TrainingButton, SubmitType.Training);
-                    this.OnClickSubmit(this.defaultModeElement.ChangeButton, SubmitType.Change);
+                    this.OnClickSubmit(this.defaultModeElement.ChangeButton, SubmitType.StartChange);
                     this.OnClickSubmit(this.defaultModeElement.CloseButton, SubmitType.Close);
                     break;
                 case Mode.Change:

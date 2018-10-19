@@ -122,13 +122,24 @@ namespace GL.Home.UI
 
         private void ApplyPlayerButtonController(PlayerButtonController controller, Player player)
         {
-            controller.SetProperty(player);
+            controller.Setup(player);
             controller.Button.OnClickAsObservable()
+                .Where(_ => this.CanShowPlayerDitailsPopup(player))
                 .SubscribeWithState2(this, player, (_, _this, p) =>
                 {
                     _this.ShowPlayerDetailsPopup(p);
                 })
-                .AddTo(controller.OnClickObserver);
+                .AddTo(controller.Disposable);
+        }
+
+        private bool CanShowPlayerDitailsPopup(Player player)
+        {
+            if(this.currentMode == OrganizationMode.Default)
+            {
+                return true;
+            }
+
+            return this.currentMode == OrganizationMode.Change && this.changeTargetPlayer != player;
         }
 
         private void ShowPlayerDetailsPopup(Player player)
@@ -145,8 +156,8 @@ namespace GL.Home.UI
                         case CharacterDetailsPopupController.SubmitType.Close:
                             _this.OnClose(_popup);
                             break;
-                        case CharacterDetailsPopupController.SubmitType.Change:
-                            _this.OnChange(_popup, _player);
+                        case CharacterDetailsPopupController.SubmitType.StartChange:
+                            _this.OnStartChange(_popup, _player);
                             break;
                         case CharacterDetailsPopupController.SubmitType.Training:
                             _this.OnTraining(_popup);
@@ -170,12 +181,13 @@ namespace GL.Home.UI
             PopupManager.Close(popup);
         }
 
-        private void OnChange(CharacterDetailsPopupController popup, Player player)
+        private void OnStartChange(CharacterDetailsPopupController popup, Player player)
         {
             PopupManager.Close(popup);
             this.currentMode = OrganizationMode.Change;
             this.changeTargetPlayer = player;
             this.SetTogglePartyInteractable(false);
+            Broker.Global.Publish(StartPlayerChange.Get(player));
             Broker.Global.Publish(ChangeFooter.Get(FooterController.Mode.Cancel));
             Broker.Global.Receive<ClickedFooterCancelButton>()
                 .Take(1)
@@ -185,6 +197,7 @@ namespace GL.Home.UI
                     _this.changeTargetPlayer = null;
                     _this.SetTogglePartyInteractable(true);
                     Broker.Global.Publish(ChangeFooter.Get(FooterController.Mode.Default));
+                    Broker.Global.Publish(CompletePlayerChange.Get(null));
                 })
                 .AddTo(this);
         }
@@ -205,6 +218,7 @@ namespace GL.Home.UI
             this.changeTargetPlayer = null;
             this.SetTogglePartyInteractable(true);
             Broker.Global.Publish(ChangeFooter.Get(FooterController.Mode.Default));
+            Broker.Global.Publish(CompletePlayerChange.Get(player));
             UserData.Instance.Save();
         }
 
