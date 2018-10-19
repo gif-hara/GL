@@ -12,6 +12,22 @@ namespace GL.Home.UI
     /// </summary>
     public sealed class OrganizationPanelController : MonoBehaviour
     {
+        /// <summary>
+        /// 編成モード
+        /// </summary>
+        public enum OrganizationMode
+        {
+            /// <summary>
+            /// 通常モード
+            /// </summary>
+            Default,
+
+            /// <summary>
+            /// 交換モード
+            /// </summary>
+            Change,
+        }
+
         [SerializeField]
         private RectTransform playersParent;
 
@@ -32,7 +48,14 @@ namespace GL.Home.UI
 
         [SerializeField]
         private Color togglePartyDeactiveColor;
-        
+
+        private OrganizationMode currentMode;
+
+        /// <summary>
+        /// 交代中のプレイヤー
+        /// </summary>
+        private Player changeTargetPlayer;
+
         void Start()
         {
             var userData = UserData.Instance;
@@ -53,10 +76,7 @@ namespace GL.Home.UI
             foreach (var player in userData.Players.List)
             {
                 var controller = Instantiate(this.playerButtonPrefab, this.playersParent, false);
-                controller.SetProperty(player);
-                controller.Button.OnClickAsObservable()
-                    .SubscribeWithState(player, (_, p) => Debug.Log(p.Blueprint.CharacterName))
-                    .AddTo(controller.OnClickObserver);
+                this.ApplyPlayerButtonController(controller, player);
             }
         }
 
@@ -68,13 +88,7 @@ namespace GL.Home.UI
             {
                 var controller = this.parties[i];
                 var player = userData.Players.GetByInstanceId(party.PlayerInstanceIds[i]);
-                controller.SetProperty(player);
-                controller.Button.OnClickAsObservable()
-                    .SubscribeWithState2(this, player, (_, _this, p) =>
-                    {
-                        _this.CreatePlayerDetailsPopup(p);
-                    })
-                    .AddTo(controller.OnClickObserver);
+                this.ApplyPlayerButtonController(controller, player);
             }
         }
 
@@ -103,10 +117,74 @@ namespace GL.Home.UI
             }
         }
 
-        private void CreatePlayerDetailsPopup(Player player)
+        private void ApplyPlayerButtonController(PlayerButtonController controller, Player player)
         {
-            PopupManager.Show(this.characterDetailsPopupPrefab)
-                .Setup(player);
+            controller.SetProperty(player);
+            controller.Button.OnClickAsObservable()
+                .SubscribeWithState2(this, player, (_, _this, p) =>
+                {
+                    _this.ShowPlayerDetailsPopup(p);
+                })
+                .AddTo(controller.OnClickObserver);
+        }
+
+        private void ShowPlayerDetailsPopup(Player player)
+        {
+            var popup = PopupManager.Show(this.characterDetailsPopupPrefab);
+            popup
+                .Setup(player, this.ConvertToMode)
+                .SubmitAsObservable()
+                .Select(x => (CharacterDetailsPopupController.SubmitType)x)
+                .SubscribeWithState3(this, popup, player, (x, _this, _popup, _player) =>
+                {
+                    switch(x)
+                    {
+                        case CharacterDetailsPopupController.SubmitType.Close:
+                            PopupManager.Close(_popup);
+                            break;
+                        case CharacterDetailsPopupController.SubmitType.Change:
+                            PopupManager.Close(_popup);
+                            _this.currentMode = OrganizationMode.Change;
+                            _this.changeTargetPlayer = _player;
+                            break;
+                        case CharacterDetailsPopupController.SubmitType.Training:
+                            PopupManager.Close(_popup);
+                            break;
+                        case CharacterDetailsPopupController.SubmitType.ChangeDecide:
+                            PopupManager.Close(_popup);
+                            Assert.IsNotNull(_this.changeTargetPlayer);
+                            UserData.Instance.CurrentParty.Change(_this.changeTargetPlayer.InstanceId, _player.InstanceId);
+                            _this.SetupPartyPanel(UserData.Instance);
+                            _this.currentMode = OrganizationMode.Default;
+                            _this.changeTargetPlayer = null;
+                            UserData.Instance.Save();
+                            break;
+                        case CharacterDetailsPopupController.SubmitType.ChangeCancel:
+                            PopupManager.Close(_popup);
+                            break;
+                        default:
+                            Assert.IsTrue(false, $"{x}は未対応の値です");
+                            break;
+                    }
+                })
+                .AddTo(this);
+        }
+
+        private CharacterDetailsPopupController.Mode ConvertToMode
+        {
+            get
+            {
+                switch(this.currentMode)
+                {
+                    case OrganizationMode.Default:
+                        return CharacterDetailsPopupController.Mode.Default;
+                    case OrganizationMode.Change:
+                        return CharacterDetailsPopupController.Mode.Change;
+                    default:
+                        Assert.IsTrue(false, $"{this.currentMode}は未対応の値です");
+                        return CharacterDetailsPopupController.Mode.Default;
+                }
+            }
         }
     }
 }

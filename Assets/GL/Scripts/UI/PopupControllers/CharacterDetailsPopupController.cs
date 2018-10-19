@@ -1,17 +1,71 @@
 ﻿using System;
+using GL.UI;
+using GL.UI.PopupControllers;
 using GL.User;
 using HK.Framework.Text;
 using UniRx;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.UI;
 
-namespace GL.UI.PopupControllers
+namespace GL.Home.UI
 {
     /// <summary>
     /// キャラクター詳細ポップアップを制御するクラス
     /// </summary>
     public sealed class CharacterDetailsPopupController : PopupBase
     {
+        public enum SubmitType
+        {
+            Close,
+            Training,
+            Change,
+            ChangeDecide,
+            ChangeCancel,
+        }
+
+        public enum Mode
+        {
+            Default,
+            Change,
+        }
+
+        [Serializable]
+        public class DefaultModeElement
+        {
+            [SerializeField]
+            private GameObject root;
+            public GameObject Root => this.root;
+
+            [SerializeField]
+            private Button trainingButton;
+            public Button TrainingButton => this.trainingButton;
+
+            [SerializeField]
+            private Button changeButton;
+            public Button ChangeButton => this.changeButton;
+
+            [SerializeField]
+            private Button closeButton;
+            public Button CloseButton => this.closeButton;
+        }
+
+        [Serializable]
+        public class ChangeModeElement
+        {
+            [SerializeField]
+            private GameObject root;
+            public GameObject Root => this.root;
+
+            [SerializeField]
+            private Button decideButton;
+            public Button DecideButton => this.decideButton;
+
+            [SerializeField]
+            private Button cancelButton;
+            public Button CancelButton => this.cancelButton;
+        }
+
         [SerializeField]
         private Profile profile;
         
@@ -33,17 +87,45 @@ namespace GL.UI.PopupControllers
         [SerializeField]
         private EquippedWeaponPopupController equippedWeaponPopupController;
 
+        [SerializeField]
+        private DefaultModeElement defaultModeElement;
+
+        [SerializeField]
+        private ChangeModeElement changeModeElement;
+
         private Player editPlayer;
 
-        public void Setup(Player player)
+        public CharacterDetailsPopupController Setup(Player player, Mode mode)
         {
             this.profile.Apply(player);
             this.parameter.Apply(player.Parameter);
             this.resistance.Apply(player.Resistance);
-            this.rightWeapon.Setup(player.RightBattleWeapon);
-            this.leftWeapon.Setup(player.LeftBattleWeapon);
+            this.rightWeapon.Setup(this, player.RightBattleWeapon);
+            this.leftWeapon.Setup(this, player.LeftBattleWeapon);
             this.commandListController.Setup(player.UsingCommands);
             this.editPlayer = player;
+
+            this.defaultModeElement.Root.SetActive(mode == Mode.Default);
+            this.changeModeElement.Root.SetActive(mode == Mode.Change);
+
+            switch(mode)
+            {
+                case Mode.Default:
+                    this.OnClickSubmit(this.defaultModeElement.TrainingButton, SubmitType.Training);
+                    this.OnClickSubmit(this.defaultModeElement.ChangeButton, SubmitType.Change);
+                    this.OnClickSubmit(this.defaultModeElement.CloseButton, SubmitType.Close);
+                    break;
+                case Mode.Change:
+                    this.OnClickSubmit(this.changeModeElement.DecideButton, SubmitType.ChangeDecide);
+                    this.OnClickSubmit(this.changeModeElement.CancelButton, SubmitType.ChangeCancel);
+                    break;
+                default:
+                    Assert.IsTrue(false, $"{mode}は未対応の値です");
+                    break;
+            }
+
+
+            return this;
         }
 
         public void ShowEquippedWeaponPopup(Constants.HandType handType)
@@ -60,17 +142,24 @@ namespace GL.UI.PopupControllers
                         UserData.Instance.Save();
                         if(_handType == Constants.HandType.Right)
                         {
-                            _this.rightWeapon.Setup(_this.editPlayer.RightBattleWeapon);
+                            _this.rightWeapon.Setup(_this, _this.editPlayer.RightBattleWeapon);
                         }
                         else
                         {
-                            _this.leftWeapon.Setup(_this.editPlayer.LeftBattleWeapon);
+                            _this.leftWeapon.Setup(_this, _this.editPlayer.LeftBattleWeapon);
                         }
                         _this.commandListController.Setup(_this.editPlayer.UsingCommands);
                     }
 
                     PopupManager.Close(_popup);
                 });
+        }
+
+        private void OnClickSubmit(Button button, SubmitType type)
+        {
+            button.OnClickAsObservable()
+                .SubscribeWithState(this, (_, _this) => _this.submit.OnNext((int)type))
+                .AddTo(this);
         }
 
         [Serializable]

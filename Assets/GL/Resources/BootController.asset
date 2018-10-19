@@ -14,7 +14,8 @@ MonoBehaviour:
   targetFrameRate: 60
   userData:
     wallet:
-      gold: 1000
+      gold:
+        value: 1000
     Players:
       List:
       - instanceId: 0
@@ -45,6 +46,15 @@ MonoBehaviour:
         RightWeaponInstanceId: 7
         LeftWeaponInstanceId: 8
         AccessoryInstanceIds: 
+      - instanceId: 0
+        PlayerName: "\u30C6\u30B9\u30C85"
+        Level: 1
+        BlueprintId: 14000
+        RightWeaponInstanceId: 0
+        LeftWeaponInstanceId: 0
+        AccessoryInstanceIds: 
+      InstanceId:
+        count: 0
     Parties:
       List:
       - instanceId: 0
@@ -53,6 +63,8 @@ MonoBehaviour:
         PlayerInstanceIds: 01000000020000000300000004000000
       - instanceId: 0
         PlayerInstanceIds: 01000000020000000300000004000000
+      InstanceId:
+        count: 0
     Weapons:
       List:
       - instanceId: 0
@@ -71,8 +83,12 @@ MonoBehaviour:
         id: 101001
       - instanceId: 0
         id: 101001
+      InstanceId:
+        count: 0
     Accessories:
       List: []
+      InstanceId:
+        count: 0
     currentPartyIndex: 0
   database: {fileID: 11400000, guid: 0a79933d2e00d4e8da66c79e07650958, type: 2}
   dontDestroyPrefabs:
