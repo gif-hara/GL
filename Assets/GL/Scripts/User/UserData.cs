@@ -28,6 +28,10 @@ namespace GL.User
                 }
 
                 instance = SaveData.GetClass<UserData>(SaveDataKey.UserData, null) ?? new UserData();
+                if(instance != null)
+                {
+                    instance.currentPartyIndexReactiveProperty.Value = instance.currentPartyIndex;
+                }
 
                 return instance;
             }
