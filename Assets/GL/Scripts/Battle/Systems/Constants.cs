@@ -76,19 +76,19 @@ namespace GL
         public enum StatusParameterType
         {
             /// <summary>ヒットポイント</summary>
-            HitPoint,
+            HitPoint = 1,
             
             /// <summary>攻撃力</summary>
-            Strength,
+            Strength = 2,
             
             /// <summary>防御力</summary>
-            Defense,
+            Defense = 3,
                         
             /// <summary>素早さ</summary>
-            Speed,
+            Speed = 4,
             
             /// <summary>運</summary>
-            Luck,
+            Luck = 5,
         }
 
         /// <summary>
