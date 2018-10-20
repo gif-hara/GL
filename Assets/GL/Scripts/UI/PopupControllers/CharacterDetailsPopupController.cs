@@ -22,12 +22,15 @@ namespace GL.Home.UI
             StartChange,
             ChangeDecide,
             ChangeCancel,
+            EmployDecide,
+            EmployCancel,
         }
 
         public enum Mode
         {
             Default,
             Change,
+            Employ,
         }
 
         [Serializable]
@@ -52,6 +55,22 @@ namespace GL.Home.UI
 
         [Serializable]
         public class ChangeModeElement
+        {
+            [SerializeField]
+            private GameObject root;
+            public GameObject Root => this.root;
+
+            [SerializeField]
+            private Button decideButton;
+            public Button DecideButton => this.decideButton;
+
+            [SerializeField]
+            private Button cancelButton;
+            public Button CancelButton => this.cancelButton;
+        }
+
+        [Serializable]
+        public class EmployModeElement
         {
             [SerializeField]
             private GameObject root;
@@ -93,8 +112,20 @@ namespace GL.Home.UI
         [SerializeField]
         private ChangeModeElement changeModeElement;
 
+        [SerializeField]
+        private EmployModeElement employModeElement;
+
+        [SerializeField]
+        private GameObject equipmentsRoot;
+
+        [SerializeField]
+        private GameObject commandsRoot;
+
         private Player editPlayer;
 
+        /// <summary>
+        /// <paramref name="player"/>をもとに表示するための設定を行う
+        /// </summary>
         public CharacterDetailsPopupController Setup(Player player, Mode mode)
         {
             this.profile.Apply(player);
@@ -105,8 +136,10 @@ namespace GL.Home.UI
             this.commandListController.Setup(player.UsingCommands);
             this.editPlayer = player;
 
-            this.defaultModeElement.Root.SetActive(mode == Mode.Default);
-            this.changeModeElement.Root.SetActive(mode == Mode.Change);
+            this.equipmentsRoot.SetActive(true);
+            this.commandsRoot.SetActive(true);
+
+            this.SetActiveModeElement(mode);
 
             switch(mode)
             {
@@ -124,6 +157,31 @@ namespace GL.Home.UI
                     break;
             }
 
+
+            return this;
+        }
+
+        public CharacterDetailsPopupController Setup(Battle.CharacterControllers.Blueprint blueprint, Mode mode)
+        {
+            this.profile.Apply(blueprint);
+            this.parameter.Apply(blueprint.Min);
+            this.resistance.Apply(blueprint.Resistance);
+
+            this.equipmentsRoot.SetActive(false);
+            this.commandsRoot.SetActive(false);
+
+            this.SetActiveModeElement(mode);
+
+            switch(mode)
+            {
+                case Mode.Employ:
+                    this.OnClickSubmit(this.employModeElement.DecideButton, SubmitType.EmployDecide);
+                    this.OnClickSubmit(this.employModeElement.CancelButton, SubmitType.EmployCancel);
+                    break;
+                default:
+                    Assert.IsTrue(false, $"{mode}は未対応の値です");
+                    break;
+            }
 
             return this;
         }
@@ -162,6 +220,13 @@ namespace GL.Home.UI
                 .AddTo(this);
         }
 
+        private void SetActiveModeElement(Mode mode)
+        {
+            this.defaultModeElement.Root.SetActive(mode == Mode.Default);
+            this.changeModeElement.Root.SetActive(mode == Mode.Change);
+            this.employModeElement.Root.SetActive(mode == Mode.Employ);
+        }
+
         [Serializable]
         private class Profile
         {
@@ -175,6 +240,12 @@ namespace GL.Home.UI
             {
                 this.characterName.text = player.PlayerName;
                 this.jobName.text = player.Blueprint.Job.JobName;
+            }
+
+            public void Apply(Battle.CharacterControllers.Blueprint blueprint)
+            {
+                this.characterName.text = blueprint.CharacterName;
+                this.jobName.text = blueprint.Job.JobName;
             }
         }
 
@@ -241,18 +312,6 @@ namespace GL.Home.UI
                 this.berserk.text = resistance.Berserk.ToString(format);
                 this.vitals.text = resistance.Vitals.ToString(format);
             }
-        }
-
-        [Serializable]
-        public class ButtonElement
-        {
-            [SerializeField]
-            private Button button;
-            public Button Button { get { return button; } }
-
-            [SerializeField]
-            private Text text;
-            public Text Text { get { return text; } }
         }
     }
 }

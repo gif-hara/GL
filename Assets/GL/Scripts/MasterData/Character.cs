@@ -11,6 +11,6 @@ namespace GL.MasterData
     {
         protected override string FindAssetsFilter => "l:GK.Battle.CharacterControllers.Blueprint";
 
-        protected override string[] FindAssetsPaths => new[] { "Assets/GL/MasterData/Characters" };
+        protected override string[] FindAssetsPaths => new[] { "Assets/GL/MasterData/Characters/Player" };
     }
 }

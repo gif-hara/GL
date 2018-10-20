@@ -45,6 +45,19 @@ namespace GL.User
         {
         }
 
+        public static Player Create(InstanceId instanceId, int level, string blueprintId, int rightWeaponInstanceId, int leftWeaponInstanceId)
+        {
+            return new Player()
+            {
+                instanceId = instanceId.Issue,
+                PlayerName = "",
+                Level = level,
+                BlueprintId = blueprintId,
+                RightWeaponInstanceId = rightWeaponInstanceId,
+                LeftWeaponInstanceId = leftWeaponInstanceId
+            };
+        }
+
         /// <summary>
         /// 自分自身のクローンを返す
         /// </summary>

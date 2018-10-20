@@ -109,5 +109,13 @@ namespace GL.User
         /// <paramref name="weapon"/>は誰かが装備しているか返す
         /// </summary>
         public bool IsEquipedWeapon(User.Weapon weapon) => this.Players.List.FindIndex(p => p.IsEquipedWeapon(weapon.InstanceId)) >= 0;
+
+        /// <summary>
+        /// プレイヤーを追加する
+        /// </summary>
+        public void AddPlayer(Battle.CharacterControllers.Blueprint blueprint)
+        {
+            this.Players.List.Add(Player.Create(this.Players.InstanceId, 1, blueprint.Id, 0, 0));
+        }
     }
 }

@@ -28,9 +28,11 @@ namespace GL.Battle.CharacterControllers
 
         [SerializeField]
         private Parameter min;
+        public Parameter Min => this.min;
 
         [SerializeField]
         private Parameter max;
+        public Parameter Max => this.max;
 
         [SerializeField]
         private Resistance resistance;
@@ -38,6 +40,10 @@ namespace GL.Battle.CharacterControllers
 
         [SerializeField]
         private GrowthCurve growthCurve;
+
+        [SerializeField]
+        private int price;
+        public int Price => this.price;
 
         public Parameter GetParameter(int level)
         {
