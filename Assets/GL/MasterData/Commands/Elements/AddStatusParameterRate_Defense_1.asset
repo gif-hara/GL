@@ -8,8 +8,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85774dbf4bdb04ba9a7c436ee15cd82b, type: 3}
-  m_Name: 1001050000
+  m_Script: {fileID: 11500000, guid: 7434511f6bc7449eebf1a2f5b9187790, type: 3}
+  m_Name: AddStatusParameterRate_Defense_1
   m_EditorClassIdentifier: 
   parameter:
-    Rate: 0.5
+    ParameterType: 3
+    Rate: 1

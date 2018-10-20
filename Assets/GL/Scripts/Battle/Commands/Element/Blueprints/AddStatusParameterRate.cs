@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace GL.Battle.Commands.Element.Blueprints
 {
@@ -15,5 +16,9 @@ namespace GL.Battle.Commands.Element.Blueprints
         {
             return new Implements.AddStatusParameterRate(this.parameter);
         }
+
+#if UNITY_EDITOR
+        public override string FileName => $"AddStatusParameterRate_{Enum.GetName(typeof(Constants.StatusParameterType), this.parameter.ParameterType)}_{this.parameter.Rate}";
+#endif
     }
 }

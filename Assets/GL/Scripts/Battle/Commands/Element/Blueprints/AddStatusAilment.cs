@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace GL.Battle.Commands.Element.Blueprints
 {
@@ -15,5 +16,9 @@ namespace GL.Battle.Commands.Element.Blueprints
         {
             return new Implements.AddStatusAilment(this.parameter);
         }
+
+#if UNITY_EDITOR
+        public override string FileName => $"AddStatusAilment_{Enum.GetName(typeof(Constants.StatusAilmentType), this.parameter.StatusAilmentType)}_{this.parameter.Rate}_{this.parameter.RemainingTurn}";
+#endif
     }
 }

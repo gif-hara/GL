@@ -15,5 +15,9 @@ namespace GL.Battle.Commands.Element.Blueprints
         {
             return new Implements.Recovery(this.parameter);
         }
+
+#if UNITY_EDITOR
+        public override string FileName => $"Recovery_{this.parameter.Rate}";
+#endif
     }
 }

@@ -15,5 +15,9 @@ namespace GL.Battle.Commands.Element.Blueprints
         {
             return new Implements.Attack(this.parameter);
         }
+
+#if UNITY_EDITOR
+        public override string FileName => $"Attack_{this.parameter.Rate}";
+#endif
     }
 }
