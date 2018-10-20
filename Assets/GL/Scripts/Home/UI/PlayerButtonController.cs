@@ -47,11 +47,12 @@ namespace GL.Home.UI
             Broker.Global.Receive<StartPlayerChange>()
                 .SubscribeWithState2(this, player, (x, _this, _player) =>
                 {
+                    var u = UserData.Instance;
                     if (x.Target == _player)
                     {
                         _this.changeTween = _this.CreateChangeTargetTweener();
                     }
-                    else
+                    else if(u.CurrentParty.Contains(_player) || u.CurrentParty.Contains(x.Target))
                     {
                         _this.changeTween = _this.CreateChangePlayerTweener();
                     }

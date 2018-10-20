@@ -45,19 +45,30 @@ namespace GL.User
         public void Change(int targetInstanceId, int changeInstanceId)
         {
             var targetInstanceIdIndex = this.PlayerInstanceIds.FindIndex(p => p == targetInstanceId);
-            Assert.IsTrue(targetInstanceIdIndex >= 0, $"{targetInstanceId}はパーティに存在しません");
+            var changeInstanceIdIndex = this.PlayerInstanceIds.FindIndex(p => p == changeInstanceId);
 
             // 交代するプレイヤーがパーティに存在する場合は順番を入れ替える
-            var changeInstanceIdIndex = this.PlayerInstanceIds.FindIndex(p => p == changeInstanceId);
-            if(changeInstanceIdIndex >= 0)
+            if(targetInstanceIdIndex >= 0 && changeInstanceIdIndex >= 0)
             {
                 this.PlayerInstanceIds[targetInstanceIdIndex] = changeInstanceId;
+                this.PlayerInstanceIds[changeInstanceIdIndex] = targetInstanceId;
+            }
+            else if(changeInstanceIdIndex >= 0)
+            {
                 this.PlayerInstanceIds[changeInstanceIdIndex] = targetInstanceId;
             }
             else
             {
                 this.PlayerInstanceIds[targetInstanceIdIndex] = changeInstanceId;
             }
+        }
+
+        /// <summary>
+        /// <paramref name="player"/>がパーティに参加しているか返す
+        /// </summary>
+        public bool Contains(Player player)
+        {
+            return this.PlayerInstanceIds.FindIndex(i => i == player.InstanceId) >= 0;
         }
 
         /// <summary>

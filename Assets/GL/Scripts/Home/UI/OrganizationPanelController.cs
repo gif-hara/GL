@@ -1,4 +1,5 @@
-﻿using GL.Events.Home;
+﻿using System.Linq;
+using GL.Events.Home;
 using GL.UI.PopupControllers;
 using GL.User;
 using HK.Framework.EventSystems;
@@ -76,7 +77,12 @@ namespace GL.Home.UI
 
         private void SetupPlayersPanel(UserData userData)
         {
-            foreach (var player in userData.Players.List)
+            for (var i = 0; i < this.playersParent.childCount; i++)
+            {
+                Destroy(this.playersParent.GetChild(i).gameObject);
+            }
+
+            foreach (var player in userData.Players.List.Where(p => !userData.CurrentParty.Contains(p)))
             {
                 var controller = Instantiate(this.playerButtonPrefab, this.playersParent, false);
                 this.ApplyPlayerButtonController(controller, player);
@@ -214,6 +220,7 @@ namespace GL.Home.UI
             Assert.IsNotNull(this.changeTargetPlayer);
             UserData.Instance.CurrentParty.Change(this.changeTargetPlayer.InstanceId, player.InstanceId);
             this.SetupPartyPanel(UserData.Instance);
+            this.SetupPlayersPanel(UserData.Instance);
             this.currentMode = OrganizationMode.Default;
             this.changeTargetPlayer = null;
             this.SetTogglePartyInteractable(true);

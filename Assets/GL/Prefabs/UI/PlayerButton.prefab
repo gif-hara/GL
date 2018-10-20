@@ -130,8 +130,9 @@ MonoBehaviour:
   text: {fileID: 114550650337115670}
   changeTargetScaleEndValue: 1.15
   changeTargetScaleDuration: 0.25
-  changePlayerRotateZEndValue: 5
-  changePlayerRotateZDuration: 0.1
+  changePlayerRotateZEndValue: 2
+  changePlayerRotateZDurationMin: 0.1
+  changePlayerRotateZDurationMax: 0.15
 --- !u!114 &114550650337115670
 MonoBehaviour:
   m_ObjectHideFlags: 1
