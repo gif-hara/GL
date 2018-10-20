@@ -32,7 +32,7 @@ namespace GL.Battle.Commands.Element.Implements
             {
                 if (Calculator.LotteryStatusAilment(t.StatusController, this.parameter.StatusAilmentType, this.parameter.Rate))
                 {
-                    var success = t.AilmentController.Add(this.RemainingTurn, this.parameter.StatusAilmentType);
+                    var success = t.AilmentController.Add(this.parameter.RemainingTurn, this.parameter.StatusAilmentType);
                     if (success && bundle.CanRecord)
                     {
                         BattleManager.Instance.InvokedCommandResult.AddAilments.Add(new InvokedCommandResult.AddAilment(t, this.parameter.StatusAilmentType));
@@ -41,27 +41,20 @@ namespace GL.Battle.Commands.Element.Implements
             });
         }
 
-        private int RemainingTurn
-        {
-            get { return Random.Range(this.parameter.RemainingTurnMin, this.parameter.RemainingTurnMax + 1); }
-        }
-
         [Serializable]
         public class Parameter : IParameter
         {
             /// <summary>
-            /// かける状態異常タイプ
+            /// 付与する状態異常タイプ
             /// </summary>
             public Constants.StatusAilmentType StatusAilmentType;
 
             /// <summary>
-            /// 状態異常にかかる確率
+            /// 状態異常を付与する確率
             /// </summary>
             public float Rate;
         
-            public int RemainingTurnMin;
-
-            public int RemainingTurnMax;
+            public int RemainingTurn;
         }
     }
 }
