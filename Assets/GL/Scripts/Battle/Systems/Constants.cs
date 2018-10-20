@@ -218,6 +218,9 @@ namespace GL
             /// <summary>ハンマー</summary>
             Hammer = 1 << 11,
 
+            /// <summary>腕輪</summary>
+            Bangle = 1 << 12,
+
             /// <summary>全て装備出来る</summary>
             All = int.MaxValue,
         }

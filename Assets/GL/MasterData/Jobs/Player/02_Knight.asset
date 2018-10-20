@@ -9,10 +9,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 820038976e14646bebb135cc4ea93802, type: 3}
-  m_Name: Medical
+  m_Name: 02_Knight
   m_EditorClassIdentifier: 
   jobName:
     target: {fileID: 11400000, guid: 40ebd9076c77e4f07bc62c508c9ea824, type: 2}
-    value: "\u533B\u7642\u5E2B"
-    guid: d8ba2888-923f-46fc-b376-72c9862982a1
-  equipable: 24
+    value: "\u9A0E\u58EB"
+    guid: 84cce08e-8c33-4e0d-87d0-59235093e753
+  equipable: 30

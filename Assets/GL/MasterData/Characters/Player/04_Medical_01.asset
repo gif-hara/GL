@@ -9,34 +9,34 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4c05a5979337d4f278b5096f8db1513d, type: 3}
-  m_Name: 11000
+  m_Name: 04_Medical_01
   m_EditorClassIdentifier: 
   characterName:
     target: {fileID: 11400000, guid: 32e84551b1b7440a7a9af4e163bb7859, type: 2}
-    value: Player0
-    guid: 800ed63b-e471-4163-bc5b-746d59193d1c
-  job: {fileID: 11400000, guid: 5201b6841102647388d994f2869ad9c5, type: 2}
+    value: "\u898B\u7FD2\u3044\u533B\u7642\u5E2B"
+    guid: 7c180cee-4395-4e61-9115-ed4d66d53188
+  job: {fileID: 11400000, guid: 23c3dea3f072d419eb6fbc5e4d86ddc9, type: 2}
   model: {fileID: 1194736803251712, guid: 2eb06565129524566a10b82954786740, type: 2}
   min:
-    HitPoint: 830
-    Strength: 5
-    StrengthMagic: 2
-    Defense: 9
-    DefenseMagic: 3
-    Speed: 7
+    HitPoint: 340
+    Strength: 4
+    StrengthMagic: 7
+    Defense: 5
+    DefenseMagic: 9
+    Speed: 6
   max:
-    HitPoint: 8540
-    Strength: 190
-    StrengthMagic: 80
-    Defense: 248
-    DefenseMagic: 112
-    Speed: 110
+    HitPoint: 4010
+    Strength: 76
+    StrengthMagic: 176
+    Defense: 98
+    DefenseMagic: 198
+    Speed: 177
   resistance:
-    Poison: 0
-    Paralysis: 0.3
-    Sleep: 0.3
-    Confuse: 0.3
-    Berserk: 0
+    Poison: 0.2
+    Paralysis: 0.2
+    Sleep: 0.2
+    Confuse: 0.2
+    Berserk: 0.2
     Vitals: 0
   growthCurve:
     HitPoint:
