@@ -1,4 +1,5 @@
-﻿using GL.Battle;
+﻿using System;
+using GL.Battle;
 using GL.Battle.CharacterControllers.JobSystems;
 using HK.Framework.Text;
 using UnityEngine;
@@ -25,11 +26,45 @@ namespace GL.Battle.CharacterControllers
         private GameObject model;
         public GameObject Model { get { return this.model; } }
 
+        [SerializeField]
+        private Parameter min;
+
+        [SerializeField]
+        private Parameter max;
+
+        [SerializeField]
+        private Resistance resistance;
+        public Resistance Resistance => this.resistance;
+
+        [SerializeField]
+        private GrowthCurve growthCurve;
+
         public Parameter GetParameter(int level)
         {
-            return this.job.EvaluteParameter(level);
+            return this.EvaluteParameter(level);
         }
 
-        public Resistance Resistance { get { return this.job.Resistance; } }
+        private Parameter EvaluteParameter(int level)
+        {
+            var t = (float)level / (Constants.LevelMax - Constants.LevelMin);
+            return new Parameter
+            {
+                HitPoint = Mathf.FloorToInt(Mathf.Lerp(this.min.HitPoint, this.max.HitPoint, this.growthCurve.HitPoint.Evaluate(t))),
+                Strength = Mathf.FloorToInt(Mathf.Lerp(this.min.Strength, this.max.Strength, this.growthCurve.Strength.Evaluate(t))),
+                Defense = Mathf.FloorToInt(Mathf.Lerp(this.min.Defense, this.max.Defense, this.growthCurve.Defense.Evaluate(t))),
+                Speed = Mathf.FloorToInt(Mathf.Lerp(this.min.Speed, this.max.Speed, this.growthCurve.Speed.Evaluate(t))),
+            };
+        }
+
+        [Serializable]
+        public class GrowthCurve
+        {
+            public AnimationCurve HitPoint;
+            public AnimationCurve Strength;
+            public AnimationCurve StrengthMagic;
+            public AnimationCurve Defense;
+            public AnimationCurve DefenseMagic;
+            public AnimationCurve Speed;
+        }
     }
 }
