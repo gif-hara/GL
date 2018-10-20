@@ -158,42 +158,6 @@ namespace GL
         }
 
         /// <summary>
-        /// コマンドタイプ
-        /// </summary>
-        public enum CommandType
-        {
-            /// <summary>
-            /// 攻撃
-            /// </summary>
-            Attack,
-            
-            /// <summary>
-            /// 回復
-            /// </summary>
-            Recovery,
-            
-            /// <summary>
-            /// バフ
-            /// </summary>
-            Buff,
-            
-            /// <summary>
-            /// デバフ
-            /// </summary>
-            Debuff,
-            
-            /// <summary>
-            /// パラメータ上昇
-            /// </summary>
-            ParameterUp,
-            
-            /// <summary>
-            /// パラメータ減少
-            /// </summary>
-            ParameterDown,
-        }
-
-        /// <summary>
         /// コマンド実行後の処理タイプ
         /// </summary>
         public enum PostprocessCommand
