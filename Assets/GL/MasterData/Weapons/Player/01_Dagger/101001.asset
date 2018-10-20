@@ -19,3 +19,6 @@ MonoBehaviour:
   price: 800
   commands:
   - {fileID: 11400000, guid: ddd0901df31a844529d9f118895097ad, type: 2}
+  - {fileID: 11400000, guid: ef7e587a55b3f400d95c7b23429ac44f, type: 2}
+  - {fileID: 11400000, guid: a2ec90fcc5fd646c580dbe39ef563cdf, type: 2}
+  - {fileID: 11400000, guid: 86deb143606884f73ad9d11cb2a1a092, type: 2}

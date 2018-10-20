@@ -9,15 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: abc58c33cd5004abc8d9cbca4afeb142, type: 3}
-  m_Name: Recovery_All
+  m_Name: 2001000075
   m_EditorClassIdentifier: 
   parameter:
-    Name:
-      target: {fileID: 11400000, guid: 3534e70039cc6491cad3f648e57e8b4b, type: 2}
-      value: "\u30CA\u30AB\u30DE\u307F\u3093\u306A\u56DE\u5FA9"
-      guid: 8cc5863d-2ed3-4885-851e-67db4a52dd1f
-    TargetPartyType: 0
-    TargetType: 1
-    TargetStatusParameterType: 0
-    Postprocess: 0
     Rate: 0.75

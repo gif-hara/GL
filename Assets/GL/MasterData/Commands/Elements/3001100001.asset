@@ -9,18 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 280168a9594344b7d891ad691b5f1cad, type: 3}
-  m_Name: AddDemonization_All
+  m_Name: 3001100001
   m_EditorClassIdentifier: 
   parameter:
-    Name:
-      target: {fileID: 11400000, guid: 3534e70039cc6491cad3f648e57e8b4b, type: 2}
-      value: "\u30CA\u30AB\u30DE\u307F\u3093\u306A\u9B3C\u795E\u5316\u306B\u3059\u308B"
-      guid: 54924953-35f1-4336-b443-010e0426d323
-    TargetPartyType: 0
-    TargetType: 1
-    TargetStatusParameterType: 0
-    Postprocess: 0
     StatusAilmentType: 1
     Rate: 1
-    RemainingTurnMin: 1
-    RemainingTurnMax: 1
+    RemainingTurn: 1

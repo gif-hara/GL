@@ -9,18 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 280168a9594344b7d891ad691b5f1cad, type: 3}
-  m_Name: AddProtect_Myself
+  m_Name: 3009100003
   m_EditorClassIdentifier: 
   parameter:
-    Name:
-      target: {fileID: 11400000, guid: 3534e70039cc6491cad3f648e57e8b4b, type: 2}
-      value: "\u81EA\u5206\u3092\u5E87\u3046\u306B\u3059\u308B"
-      guid: 504976d5-6c48-472b-93f4-ee05ed921e49
-    TargetPartyType: 0
-    TargetType: 3
-    TargetStatusParameterType: 0
-    Postprocess: 0
     StatusAilmentType: 9
     Rate: 1
-    RemainingTurnMin: 3
-    RemainingTurnMax: 3
+    RemainingTurn: 3

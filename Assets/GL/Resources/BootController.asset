@@ -23,34 +23,34 @@ MonoBehaviour:
         Level: 1
         BlueprintId: 11000
         RightWeaponInstanceId: 1
-        LeftWeaponInstanceId: 2
+        LeftWeaponInstanceId: 0
         AccessoryInstanceIds: 
       - instanceId: 0
         PlayerName: "\u30C6\u30B9\u30C82"
         Level: 1
         BlueprintId: 12000
-        RightWeaponInstanceId: 3
-        LeftWeaponInstanceId: 4
+        RightWeaponInstanceId: 2
+        LeftWeaponInstanceId: 0
         AccessoryInstanceIds: 
       - instanceId: 0
         PlayerName: "\u30C6\u30B9\u30C83"
         Level: 1
         BlueprintId: 13000
-        RightWeaponInstanceId: 5
-        LeftWeaponInstanceId: 6
+        RightWeaponInstanceId: 3
+        LeftWeaponInstanceId: 0
         AccessoryInstanceIds: 
       - instanceId: 0
         PlayerName: "\u30C6\u30B9\u30C84"
         Level: 1
         BlueprintId: 14000
-        RightWeaponInstanceId: 7
-        LeftWeaponInstanceId: 8
+        RightWeaponInstanceId: 4
+        LeftWeaponInstanceId: 0
         AccessoryInstanceIds: 
       - instanceId: 0
         PlayerName: "\u30C6\u30B9\u30C85"
         Level: 1
         BlueprintId: 14000
-        RightWeaponInstanceId: 0
+        RightWeaponInstanceId: 5
         LeftWeaponInstanceId: 0
         AccessoryInstanceIds: 
       InstanceId:
@@ -67,12 +67,6 @@ MonoBehaviour:
         count: 0
     Weapons:
       List:
-      - instanceId: 0
-        id: 101001
-      - instanceId: 0
-        id: 101001
-      - instanceId: 0
-        id: 101001
       - instanceId: 0
         id: 101001
       - instanceId: 0
