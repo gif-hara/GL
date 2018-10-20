@@ -77,18 +77,21 @@ namespace GL
         {
             /// <summary>ヒットポイント</summary>
             HitPoint = 1,
-            
+
             /// <summary>攻撃力</summary>
             Strength = 2,
-            
+
+            /// <summary>魔法攻撃力</summary>
+            StrengthMagic = 3,
+
             /// <summary>防御力</summary>
-            Defense = 3,
-                        
+            Defense = 4,
+
+            /// <summary>魔法防御力</summary>
+            DefenseMagic = 5,
+
             /// <summary>素早さ</summary>
-            Speed = 4,
-            
-            /// <summary>運</summary>
-            Luck = 5,
+            Speed = 6,
         }
 
         /// <summary>

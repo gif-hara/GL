@@ -17,26 +17,32 @@ namespace GL.Battle.CharacterControllers
         /// <summary>
         /// 攻撃力
         /// </summary>
-        [SerializeField][Range(0.0f, 255.0f)]
+        [SerializeField][Range(0.0f, 1000.0f)]
         public int Strength;
+
+        /// <summary>
+        /// 魔法攻撃力
+        /// </summary>
+        [SerializeField][Range(0.0f, 1000.0f)]
+        public int StrengthMagic;
 
         /// <summary>
         /// 防御力
         /// </summary>
-        [SerializeField][Range(0.0f, 255.0f)]
+        [SerializeField][Range(0.0f, 1000.0f)]
         public int Defense;
+
+        /// <summary>
+        /// 魔法防御力
+        /// </summary>
+        [SerializeField][Range(0.0f, 1000.0f)]
+        public int DefenseMagic;
 
         /// <summary>
         /// 素早さ
         /// </summary>
-        [SerializeField][Range(0.0f, 255.0f)]
+        [SerializeField][Range(0.0f, 1000.0f)]
         public int Speed;
-
-        /// <summary>
-        /// 運
-        /// </summary>
-        [SerializeField][Range(0.0f, 255.0f)]
-        public int Luck;
 
         public Parameter()
         {
@@ -49,7 +55,6 @@ namespace GL.Battle.CharacterControllers
             this.Strength = other.Strength;
             this.Defense = other.Defense;
             this.Speed = other.Speed;
-            this.Luck = other.Luck;
         }
 
         public Parameter(Blueprint blueprint, int level)
@@ -67,17 +72,20 @@ namespace GL.Battle.CharacterControllers
                 case Constants.StatusParameterType.Strength:
                     this.Strength += value;
                     break;
+                case Constants.StatusParameterType.StrengthMagic:
+                    this.StrengthMagic += value;
+                    break;
                 case Constants.StatusParameterType.Defense:
                     this.Defense += value;
+                    break;
+                case Constants.StatusParameterType.DefenseMagic:
+                    this.DefenseMagic += value;
                     break;
                 case Constants.StatusParameterType.Speed:
                     this.Speed += value;
                     break;
-                case Constants.StatusParameterType.Luck:
-                    this.Luck += value;
-                    break;
                 default:
-                    Assert.IsTrue(false, string.Format("未対応の値です {0}", type));
+                    Assert.IsTrue(false, $"{type}は未対応の値です");
                     break;
             }
         }
@@ -90,14 +98,16 @@ namespace GL.Battle.CharacterControllers
                     return this.HitPoint;
                 case Constants.StatusParameterType.Strength:
                     return this.Strength;
+                case Constants.StatusParameterType.StrengthMagic:
+                    return this.StrengthMagic;
                 case Constants.StatusParameterType.Defense:
                     return this.Defense;
+                case Constants.StatusParameterType.DefenseMagic:
+                    return this.DefenseMagic;
                 case Constants.StatusParameterType.Speed:
                     return this.Speed;
-                case Constants.StatusParameterType.Luck:
-                    return this.Luck;
                 default:
-                    Assert.IsTrue(false, string.Format("未対応の値です {0}", type));
+                    Assert.IsTrue(false, $"{type}は未対応の値です");
                     return 0;
             }
         }
@@ -106,9 +116,10 @@ namespace GL.Battle.CharacterControllers
         {
             this.HitPoint = 0;
             this.Strength = 0;
+            this.StrengthMagic = 0;
             this.Defense = 0;
+            this.DefenseMagic = 0;
             this.Speed = 0;
-            this.Luck = 0;
         }
     }
 }

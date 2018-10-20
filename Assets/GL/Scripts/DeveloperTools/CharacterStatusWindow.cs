@@ -111,9 +111,10 @@ namespace GL.DeveloperTools
                 this.DrawStatus(statusControllers, "Name", s => s.Name);
                 this.DrawStatus(statusControllers, "HP", s => string.Format("{0}/{1}", s.HitPoint, s.HitPointMax));
                 this.DrawStatus(statusControllers, "STR", s => s.GetTotalParameter(Constants.StatusParameterType.Strength).ToString());
+                this.DrawStatus(statusControllers, "STRM", s => s.GetTotalParameter(Constants.StatusParameterType.StrengthMagic).ToString());
                 this.DrawStatus(statusControllers, "DEF", s => s.GetTotalParameter(Constants.StatusParameterType.Defense).ToString());
+                this.DrawStatus(statusControllers, "DEFM", s => s.GetTotalParameter(Constants.StatusParameterType.DefenseMagic).ToString());
                 this.DrawStatus(statusControllers, "SPD", s => s.GetTotalParameter(Constants.StatusParameterType.Speed).ToString());
-                this.DrawStatus(statusControllers, "LUC", s => s.GetTotalParameter(Constants.StatusParameterType.Luck).ToString());
                 this.DrawStatus(statusControllers, "WAT", s => s.Wait.ToString());
                 this.DrawStatusAilment(ailmentControllers, "状態異常");
             }

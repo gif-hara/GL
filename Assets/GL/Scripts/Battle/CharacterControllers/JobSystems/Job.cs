@@ -40,7 +40,6 @@ namespace GL.Battle.CharacterControllers.JobSystems
                 Strength = Mathf.FloorToInt(Mathf.Lerp(this.min.Strength, this.max.Strength, this.growthCurve.Strength.Evaluate(t))),
                 Defense = Mathf.FloorToInt(Mathf.Lerp(this.min.Defense, this.max.Defense, this.growthCurve.Defense.Evaluate(t))),
                 Speed = Mathf.FloorToInt(Mathf.Lerp(this.min.Speed, this.max.Speed, this.growthCurve.Speed.Evaluate(t))),
-                Luck = Mathf.FloorToInt(Mathf.Lerp(this.min.Luck, this.max.Luck, this.growthCurve.Luck.Evaluate(t)))
             };
 
             return result;
@@ -53,9 +52,10 @@ namespace GL.Battle.CharacterControllers.JobSystems
         {
             public AnimationCurve HitPoint;
             public AnimationCurve Strength;
+            public AnimationCurve StrengthMagic;
             public AnimationCurve Defense;
+            public AnimationCurve DefenseMagic;
             public AnimationCurve Speed;
-            public AnimationCurve Luck;
         }
     }
 }

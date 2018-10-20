@@ -64,8 +64,7 @@ namespace GL.Battle
                 return true;
             }
             
-            var luck = invoker.StatusController.GetTotalParameter(Constants.StatusParameterType.Luck) / 255.0f;
-            return Random.value <= luck;
+            return Random.value <= 0.5f;
         }
 
         /// <summary>

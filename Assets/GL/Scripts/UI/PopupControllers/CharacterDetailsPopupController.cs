@@ -188,21 +188,25 @@ namespace GL.Home.UI
             private Text strength;
 
             [SerializeField]
+            private Text strengthMagic;
+
+            [SerializeField]
             private Text defense;
 
             [SerializeField]
-            private Text speed;
+            private Text defenseMagic;
 
             [SerializeField]
-            private Text luck;
+            private Text speed;
 
             public void Apply(Battle.CharacterControllers.Parameter parameter)
             {
                 this.hitPoint.text = parameter.HitPoint.ToString();
                 this.strength.text = parameter.Strength.ToString();
+                this.strengthMagic.text = parameter.StrengthMagic.ToString();
                 this.defense.text = parameter.Defense.ToString();
+                this.defenseMagic.text = parameter.DefenseMagic.ToString();
                 this.speed.text = parameter.Speed.ToString();
-                this.luck.text = parameter.Luck.ToString();
             }
         }
 
