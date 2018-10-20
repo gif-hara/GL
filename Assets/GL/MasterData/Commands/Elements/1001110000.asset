@@ -9,15 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 85774dbf4bdb04ba9a7c436ee15cd82b, type: 3}
-  m_Name: BerserkAttack
+  m_Name: 10010110
   m_EditorClassIdentifier: 
   parameter:
-    Name:
-      target: {fileID: 11400000, guid: 3534e70039cc6491cad3f648e57e8b4b, type: 2}
-      value: "\u72C2\u66B4\u653B\u6483"
-      guid: 66759bac-5930-4ad1-bdc7-dd2d9cfdcf82
-    TargetPartyType: 1
-    TargetType: 2
-    TargetStatusParameterType: 0
-    Postprocess: 0
     Rate: 1.1

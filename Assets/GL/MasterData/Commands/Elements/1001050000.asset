@@ -9,15 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 85774dbf4bdb04ba9a7c436ee15cd82b, type: 3}
-  m_Name: ChaseAttack
+  m_Name: 10010050
   m_EditorClassIdentifier: 
   parameter:
-    Name:
-      target: {fileID: 11400000, guid: 3534e70039cc6491cad3f648e57e8b4b, type: 2}
-      value: "\u8FFD\u3044\u6253\u3061\u653B\u6483"
-      guid: 6e62fcf6-4391-4426-87b7-bd9709ade442
-    TargetPartyType: 1
-    TargetType: 4
-    TargetStatusParameterType: 0
-    Postprocess: 1
-    Rate: 1
+    Rate: 0.5
