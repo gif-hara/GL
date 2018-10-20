@@ -9,13 +9,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4c05a5979337d4f278b5096f8db1513d, type: 3}
-  m_Name: 07_BlackMagician_01
+  m_Name: 109001
   m_EditorClassIdentifier: 
   characterName:
     target: {fileID: 11400000, guid: 32e84551b1b7440a7a9af4e163bb7859, type: 2}
-    value: "\u898B\u7FD2\u3044\u9ED2\u9B54\u8853\u5E2B"
-    guid: 887fa2fc-d64f-4b8e-8280-ac50af3d8962
-  job: {fileID: 11400000, guid: af6c79c63b21a49cfbf31a197387459e, type: 2}
+    value: "\u898B\u7FD2\u3044\u30DC\u30AF\u30B5\u30FC"
+    guid: 564617c4-fef0-409e-aa9b-a84084f6fbc7
+  job: {fileID: 11400000, guid: cadd4ef61c4de43d3b2f2125cfdb68b0, type: 2}
   model: {fileID: 1194736803251712, guid: 2eb06565129524566a10b82954786740, type: 2}
   min:
     HitPoint: 340

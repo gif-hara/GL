@@ -9,34 +9,34 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4c05a5979337d4f278b5096f8db1513d, type: 3}
-  m_Name: 11_EmpireKnight_01
+  m_Name: 103001
   m_EditorClassIdentifier: 
   characterName:
     target: {fileID: 11400000, guid: 32e84551b1b7440a7a9af4e163bb7859, type: 2}
-    value: "\u898B\u7FD2\u3044\u5E1D\u9A0E\u58EB"
-    guid: 64690884-44a6-494f-82f3-a5955cb02bb7
-  job: {fileID: 11400000, guid: 417bbe3362a0847aa828b7031e73807b, type: 2}
+    value: Player1
+    guid: c8237642-929d-448a-9d4c-5bf5b7aaf19c
+  job: {fileID: 11400000, guid: f6a003aef81384563a5e2e30cdf8a852, type: 2}
   model: {fileID: 1194736803251712, guid: 2eb06565129524566a10b82954786740, type: 2}
   min:
-    HitPoint: 340
-    Strength: 4
-    StrengthMagic: 7
-    Defense: 5
-    DefenseMagic: 9
-    Speed: 6
+    HitPoint: 360
+    Strength: 5
+    StrengthMagic: 1
+    Defense: 6
+    DefenseMagic: 2
+    Speed: 11
   max:
-    HitPoint: 4010
-    Strength: 76
-    StrengthMagic: 176
-    Defense: 98
-    DefenseMagic: 198
-    Speed: 177
+    HitPoint: 3940
+    Strength: 140
+    StrengthMagic: 80
+    Defense: 178
+    DefenseMagic: 90
+    Speed: 222
   resistance:
-    Poison: 0.2
-    Paralysis: 0.2
-    Sleep: 0.2
-    Confuse: 0.2
-    Berserk: 0.2
+    Poison: 0.3
+    Paralysis: 0
+    Sleep: 0.1
+    Confuse: 0
+    Berserk: 0
     Vitals: 0
   growthCurve:
     HitPoint:

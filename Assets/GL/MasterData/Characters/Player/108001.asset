@@ -9,13 +9,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4c05a5979337d4f278b5096f8db1513d, type: 3}
-  m_Name: 10_Priest_01
+  m_Name: 108001
   m_EditorClassIdentifier: 
   characterName:
     target: {fileID: 11400000, guid: 32e84551b1b7440a7a9af4e163bb7859, type: 2}
-    value: "\u898B\u7FD2\u3044\u53F8\u796D"
-    guid: bdc346be-384b-4266-ac5e-73dba13d4f7d
-  job: {fileID: 11400000, guid: 21f2801b065034568b300ce45e4cfd96, type: 2}
+    value: "\u898B\u7FD2\u3044\u5F13\u8853\u58EB"
+    guid: e2d8a982-4c9f-49c3-bf3d-1804363fe4f5
+  job: {fileID: 11400000, guid: 278428f5e73da49bc893a0e94d787ca5, type: 2}
   model: {fileID: 1194736803251712, guid: 2eb06565129524566a10b82954786740, type: 2}
   min:
     HitPoint: 340

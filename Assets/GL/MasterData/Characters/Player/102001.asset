@@ -9,33 +9,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4c05a5979337d4f278b5096f8db1513d, type: 3}
-  m_Name: 03_LightManly_01
+  m_Name: 102001
   m_EditorClassIdentifier: 
   characterName:
     target: {fileID: 11400000, guid: 32e84551b1b7440a7a9af4e163bb7859, type: 2}
-    value: Player1
-    guid: c8237642-929d-448a-9d4c-5bf5b7aaf19c
-  job: {fileID: 11400000, guid: f6a003aef81384563a5e2e30cdf8a852, type: 2}
+    value: "\u898B\u7FD2\u3044\u9A0E\u58EB"
+    guid: 800ed63b-e471-4163-bc5b-746d59193d1c
+  job: {fileID: 11400000, guid: 5201b6841102647388d994f2869ad9c5, type: 2}
   model: {fileID: 1194736803251712, guid: 2eb06565129524566a10b82954786740, type: 2}
   min:
-    HitPoint: 360
+    HitPoint: 830
     Strength: 5
-    StrengthMagic: 1
-    Defense: 6
-    DefenseMagic: 2
-    Speed: 11
+    StrengthMagic: 2
+    Defense: 9
+    DefenseMagic: 3
+    Speed: 7
   max:
-    HitPoint: 3940
-    Strength: 140
+    HitPoint: 8540
+    Strength: 190
     StrengthMagic: 80
-    Defense: 178
-    DefenseMagic: 90
-    Speed: 222
+    Defense: 248
+    DefenseMagic: 112
+    Speed: 110
   resistance:
-    Poison: 0.3
-    Paralysis: 0
-    Sleep: 0.1
-    Confuse: 0
+    Poison: 0
+    Paralysis: 0.3
+    Sleep: 0.3
+    Confuse: 0.3
     Berserk: 0
     Vitals: 0
   growthCurve:
