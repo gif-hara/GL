@@ -23,8 +23,8 @@ namespace GL.Battle
                 .SubscribeWithState(this, (x, _this) =>
                 {
                     var b = x.Character.StatusController.Blueprint;
-                    _this.Experience = b.AcquireExperience;
-                    _this.Gold = b.Price;
+                    _this.Experience += b.AcquireExperience;
+                    _this.Gold += b.Price;
                 })
                 .AddTo(owner);
             Broker.Global.Receive<EndBattle>()
