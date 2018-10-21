@@ -81,7 +81,8 @@ namespace GL.Home.UI
             this.SetupTogglePartyPanel(userData);
 
             Broker.Global.Receive<AddPlayer>()
-                .SubscribeWithState(this, (_, _this) => _this.SetupPlayersPanel(UserData.Instance));
+                .SubscribeWithState(this, (_, _this) => _this.SetupPlayersPanel(UserData.Instance))
+                .AddTo(this);
         }
 
         private void SetupPlayersPanel(UserData userData)
