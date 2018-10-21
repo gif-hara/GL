@@ -23,6 +23,10 @@ namespace GL.MasterData
         private Accessory accessory;
         public static Accessory Accessory => instance.accessory;
 
+        [SerializeField]
+        private Material material;
+        public static Material Material => instance.material;
+
         public void Setup()
         {
             Assert.IsNull(instance);
