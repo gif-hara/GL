@@ -42,15 +42,19 @@ namespace GL.Home.UI
 
             [SerializeField]
             private Button trainingButton;
-            public Button TrainingButton => this.trainingButton;
 
             [SerializeField]
             private Button changeButton;
-            public Button ChangeButton => this.changeButton;
 
             [SerializeField]
             private Button closeButton;
-            public Button CloseButton => this.closeButton;
+
+            public void Apply(CharacterDetailsPopupController controller)
+            {
+                controller.OnClickSubmit(this.trainingButton, SubmitType.Training);
+                controller.OnClickSubmit(this.changeButton, SubmitType.StartChange);
+                controller.OnClickSubmit(this.closeButton, SubmitType.Close);
+            }
         }
 
         [Serializable]
@@ -62,11 +66,15 @@ namespace GL.Home.UI
 
             [SerializeField]
             private Button decideButton;
-            public Button DecideButton => this.decideButton;
 
             [SerializeField]
             private Button cancelButton;
-            public Button CancelButton => this.cancelButton;
+
+            public void Apply(CharacterDetailsPopupController controller)
+            {
+                controller.OnClickSubmit(this.decideButton, SubmitType.ChangeDecide);
+                controller.OnClickSubmit(this.cancelButton, SubmitType.ChangeCancel);
+            }
         }
 
         [Serializable]
@@ -78,11 +86,22 @@ namespace GL.Home.UI
 
             [SerializeField]
             private Button decideButton;
-            public Button DecideButton => this.decideButton;
 
             [SerializeField]
             private Button cancelButton;
-            public Button CancelButton => this.cancelButton;
+
+            [SerializeField]
+            private Text decideText;
+
+            [SerializeField]
+            private StringAsset.Finder decideFormat;
+
+            public void Apply(CharacterDetailsPopupController controller, Battle.CharacterControllers.Blueprint blueprint)
+            {
+                controller.OnClickSubmit(this.decideButton, SubmitType.EmployDecide);
+                controller.OnClickSubmit(this.cancelButton, SubmitType.EmployCancel);
+                this.decideText.text = this.decideFormat.Format(blueprint.Price.ToString());
+            }
         }
 
         [SerializeField]
@@ -144,13 +163,10 @@ namespace GL.Home.UI
             switch(mode)
             {
                 case Mode.Default:
-                    this.OnClickSubmit(this.defaultModeElement.TrainingButton, SubmitType.Training);
-                    this.OnClickSubmit(this.defaultModeElement.ChangeButton, SubmitType.StartChange);
-                    this.OnClickSubmit(this.defaultModeElement.CloseButton, SubmitType.Close);
+                    this.defaultModeElement.Apply(this);
                     break;
                 case Mode.Change:
-                    this.OnClickSubmit(this.changeModeElement.DecideButton, SubmitType.ChangeDecide);
-                    this.OnClickSubmit(this.changeModeElement.CancelButton, SubmitType.ChangeCancel);
+                    this.changeModeElement.Apply(this);
                     break;
                 default:
                     Assert.IsTrue(false, $"{mode}は未対応の値です");
@@ -175,8 +191,7 @@ namespace GL.Home.UI
             switch(mode)
             {
                 case Mode.Employ:
-                    this.OnClickSubmit(this.employModeElement.DecideButton, SubmitType.EmployDecide);
-                    this.OnClickSubmit(this.employModeElement.CancelButton, SubmitType.EmployCancel);
+                    this.employModeElement.Apply(this, blueprint);
                     break;
                 default:
                     Assert.IsTrue(false, $"{mode}は未対応の値です");
