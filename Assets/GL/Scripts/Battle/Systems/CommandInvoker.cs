@@ -8,17 +8,17 @@ namespace GL.Battle
     /// <summary>
     /// 行動するキャラクターのコマンドを実行する
     /// </summary>
-    public sealed class CommandInvoker : MonoBehaviour
+    public sealed class CommandInvoker
     {
-        void Awake()
+        public CommandInvoker(GameObject owner)
         {
             Broker.Global.Receive<SelectedCommand>()
                 .Subscribe(this.OnSelectedCommand)
-                .AddTo(this);
+                .AddTo(owner);
 
             Broker.Global.Receive<SelectedTargets>()
                 .Subscribe(this.OnSelectedTargets)
-                .AddTo(this);
+                .AddTo(owner);
         }
 
         private void OnSelectedCommand(SelectedCommand eventData)

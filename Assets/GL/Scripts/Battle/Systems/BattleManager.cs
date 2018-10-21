@@ -53,6 +53,8 @@ namespace GL.Battle
 
         public readonly InvokedCommandResult InvokedCommandResult = new InvokedCommandResult();
 
+        private CommandInvoker commandInvoker;
+
         void Awake()
         {
             Assert.IsNull(Instance);
@@ -63,7 +65,8 @@ namespace GL.Battle
             this.ChaseCommand = this.chaseBlueprint.Create();
 
             this.BehavioralOrder = this.GetComponent<BehavioralOrderController>();
-            
+            this.commandInvoker = new CommandInvoker(this.gameObject);
+
             // FIXME: リザルト実装したら削除する
             Broker.Global.Receive<EndBattle>()
                 .Take(1)
