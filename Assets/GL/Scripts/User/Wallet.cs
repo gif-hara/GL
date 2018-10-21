@@ -15,7 +15,6 @@ namespace GL.User
     {
         [SerializeField]
         private WalletElement gold;
-
         /// <summary>
         /// お金
         /// </summary>
@@ -23,5 +22,12 @@ namespace GL.User
         /// ゲーム内で取得できる通貨
         /// </remarks>
         public WalletElement Gold => this.gold;
+
+        [SerializeField]
+        private WalletElement experience;
+        /// <summary>
+        /// 経験値
+        /// </summary>
+        public WalletElement Experience => this.experience;
     }
 }

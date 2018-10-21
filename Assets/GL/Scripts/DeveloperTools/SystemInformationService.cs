@@ -16,6 +16,7 @@ namespace GL.DeveloperTools
         {
             var systemInformation = SRServiceManager.GetService<ISystemInformationService>();
             systemInformation.Add(InfoEntry.Create("Wallet.Gold", () => UserData.Instance.Wallet.Gold.Value), "GL.UserData");
+            systemInformation.Add(InfoEntry.Create("Wallet.Experience", () => UserData.Instance.Wallet.Experience.Value), "GL.UserData");
         }
     }
 }

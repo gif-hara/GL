@@ -30,6 +30,26 @@ public partial class SROptions
 
     [Category(Category.UserData)]
     [Sort(200)]
+    public void AddExperience()
+    {
+        const int value = 1000000;
+        UserData.Instance.Wallet.Experience.Add(value);
+        UserData.Instance.Save();
+        Debug.Log($"Added Experience {value}");
+    }
+
+    [Category(Category.UserData)]
+    [Sort(200)]
+    public void ZeroExperience()
+    {
+        var u = UserData.Instance;
+        u.Wallet.Experience.Add(-u.Wallet.Experience.Value);
+        u.Save();
+        Debug.Log($"Experience is Zero!");
+    }
+
+    [Category(Category.UserData)]
+    [Sort(200)]
     public void PrintAllWeapon()
     {
         UserData.Instance.Weapons.List.ForEach(w => Debug.Log($"[{w.InstanceId}] {w.BattleWeapon.WeaponName}"));
