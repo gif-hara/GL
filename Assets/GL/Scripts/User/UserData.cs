@@ -38,6 +38,10 @@ namespace GL.User
         }
 
         [SerializeField]
+        private string userName;
+        public string UserName => this.userName;
+
+        [SerializeField]
         private Wallet wallet;
         public Wallet Wallet => this.wallet;
 
@@ -71,11 +75,13 @@ namespace GL.User
         {
             Assert.AreEqual(this.Parties.List.Count + this.Players.List.Count, 0, "すでにユーザーデータが存在します");
 
+            this.userName = other.userName;
             this.wallet = other.Wallet;
             this.Players.List.AddRange(other.Players.List.Select(p => p.Clone(this.Players.InstanceId)));
             this.Parties.List.AddRange(other.Parties.List.Select(p => p.Clone(this.Parties.InstanceId)));
             this.Weapons.List.AddRange(other.Weapons.List.Select(w => w.Clone(this.Weapons.InstanceId)));
             this.Accessories.List.AddRange(other.Accessories.List.Select(a => a.Clone(this.Accessories.InstanceId)));
+            this.Materials = other.Materials;
             this.currentPartyIndexReactiveProperty.Value = other.currentPartyIndexReactiveProperty.Value;
         }
 

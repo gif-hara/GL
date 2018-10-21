@@ -13,6 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetFrameRate: 60
   userData:
+    userName: "\u30B2\u30B9\u8089"
     wallet:
       gold:
         value: 1000
