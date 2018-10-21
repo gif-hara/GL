@@ -1,6 +1,9 @@
-﻿using GL.Events.Battle;
+﻿using System.Collections.Generic;
+using System.Linq;
+using GL.Events.Battle;
 using GL.User;
 using HK.Framework.EventSystems;
+using HK.GL.Extensions;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -16,6 +19,8 @@ namespace GL.Battle
 
         public int Gold { get; private set; }
 
+        public Dictionary<Materials.Material, int> Materials { get; private set; } = new Dictionary<Materials.Material, int>();
+
         public BattleAcquireElementController(GameObject owner)
         {
             Broker.Global.Receive<DeadNotify>()
@@ -25,6 +30,20 @@ namespace GL.Battle
                     var b = x.Character.StatusController.Blueprint;
                     _this.Experience += b.AcquireExperience;
                     _this.Gold += b.Price;
+                    b.MaterialLotteries
+                        .Where(m => m.IsAcquire)
+                        .Select(m => m.Material)
+                        .ForEach(m =>
+                        {
+                            if (this.Materials.ContainsKey(m))
+                            {
+                                this.Materials[m]++;
+                            }
+                            else
+                            {
+                                this.Materials.Add(m, 1);
+                            }
+                        });
                 })
                 .AddTo(owner);
             Broker.Global.Receive<EndBattle>()
@@ -41,6 +60,7 @@ namespace GL.Battle
             var u = UserData.Instance;
             u.Wallet.Experience.Add(this.Experience);
             u.Wallet.Gold.Add(this.Gold);
+            this.Materials.ForEach(m => u.AddMaterial(m.Key, m.Value));
             u.Save();
         }
     }

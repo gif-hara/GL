@@ -59,6 +59,10 @@ namespace GL.Battle.CharacterControllers
         /// </remarks>
         public int AcquireExperience => this.acquireExperience;
 
+        [SerializeField]
+        private MaterialLottery[] materialLotteries;
+        public MaterialLottery[] MaterialLotteries => this.materialLotteries;
+
         public Parameter GetParameter(int level)
         {
             return this.EvaluteParameter(level);
@@ -101,6 +105,22 @@ namespace GL.Battle.CharacterControllers
                 var t = (float)level / (Constants.LevelMax - Constants.LevelMin);
                 return Mathf.FloorToInt(Mathf.Lerp(0, this.max, this.curve.Evaluate(t)));
             }
+        }
+
+        [Serializable]
+        public class MaterialLottery
+        {
+            [SerializeField]
+            private Materials.Material material;
+            public Materials.Material Material => this.material;
+
+            [SerializeField][Range(0.0f, 1.0f)]
+            private float lottery;
+
+            /// <summary>
+            /// 獲得可能か返す
+            /// </summary>
+            public bool IsAcquire => UnityEngine.Random.value <= this.lottery;
         }
     }
 }

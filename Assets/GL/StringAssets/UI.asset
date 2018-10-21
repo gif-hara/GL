@@ -264,3 +264,7 @@ MonoBehaviour:
       ja: "\u30A2\u30A4\u30C6\u30E0"
       en: 
     guid: f7a98efa-88ea-4f3a-b45d-ef2fdf79d669
+  - value:
+      ja: "\xD7{0}"
+      en: 
+    guid: bd737469-0354-4258-b781-d34f9e693731

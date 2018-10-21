@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using HK.GL.Extensions;
+using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
 
@@ -23,10 +25,17 @@ namespace GL.UI.PopupControllers
         [SerializeField]
         private Button toHomeButton;
 
-        public ResultWinPopupController Setup(int experience, int gold)
+        [SerializeField]
+        private Transform materialListParent;
+
+        [SerializeField]
+        private MaterialElement materialElement;
+
+        public ResultWinPopupController Setup(int experience, int gold, Dictionary<Materials.Material, int> materials)
         {
             this.experience.text = experience.ToString();
             this.gold.text = gold.ToString();
+            materials.ForEach(p => Instantiate(this.materialElement, this.materialListParent, false).Setup(p.Key, p.Value));
             this.OnClickSubmit(this.toHomeButton, (int)SubmitType.ToHome);
             return this;
         }

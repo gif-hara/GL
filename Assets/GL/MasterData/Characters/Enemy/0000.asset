@@ -193,3 +193,6 @@ MonoBehaviour:
       m_RotationOrder: 4
   price: 120
   acquireExperience: 180
+  materialLotteries:
+  - material: {fileID: 11400000, guid: 4cf9b0a912efc4057ac5e9536dc528d1, type: 2}
+    lottery: 1

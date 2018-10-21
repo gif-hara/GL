@@ -54,6 +54,9 @@ namespace GL.User
         public InstanceData.Accessory Accessories = new InstanceData.Accessory();
 
         [SerializeField]
+        public List<Material> Materials = new List<Material>();
+
+        [SerializeField]
         private int currentPartyIndex = 0;
 
         private readonly ReactiveProperty<int> currentPartyIndexReactiveProperty = new ReactiveProperty<int>();
@@ -116,6 +119,21 @@ namespace GL.User
         public void AddPlayer(Battle.CharacterControllers.Blueprint blueprint)
         {
             this.Players.List.Add(Player.Create(this.Players.InstanceId, 1, blueprint.Id, 0, 0));
+        }
+
+        /// <summary>
+        /// 素材を取得する　
+        /// </summary>
+        public void AddMaterial(Materials.Material material, int value = 1)
+        {
+            var m = this.Materials.Find(x => x.Id == material.Id);
+            if(m == null)
+            {
+                m = new Material(material.Id);
+                this.Materials.Add(m);
+            }
+
+            m.Count += value;
         }
     }
 }

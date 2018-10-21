@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel;
+using GL.MasterData;
 using GL.User;
+using HK.GL.Extensions;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -53,5 +55,11 @@ public partial class SROptions
     public void PrintAllWeapon()
     {
         UserData.Instance.Weapons.List.ForEach(w => Debug.Log($"[{w.InstanceId}] {w.BattleWeapon.WeaponName}"));
+    }
+    [Category(Category.UserData)]
+    [Sort(200)]
+    public void PrintAllMaterial()
+    {
+        UserData.Instance.Materials.ForEach(m => Debug.Log($"[{Database.Material.List.Find(d => d.Id == m.Id).MaterialName}] *{m.Count}"));
     }
 }

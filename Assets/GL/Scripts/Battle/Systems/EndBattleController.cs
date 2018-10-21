@@ -38,7 +38,7 @@ namespace GL.Battle
         private void CreateResultWinPopup()
         {
             var acquireElement = this.battleManager.AcquireElementController;
-            var popup = PopupManager.Show(this.resultWinPopupController).Setup(acquireElement.Experience, acquireElement.Gold);
+            var popup = PopupManager.Show(this.resultWinPopupController).Setup(acquireElement.Experience, acquireElement.Gold, acquireElement.Materials);
             popup.SubmitAsObservable()
                 .Select(x => (ResultWinPopupController.SubmitType)x)
                 .SubscribeWithState2(this, popup, (x, _this, _popup) =>
