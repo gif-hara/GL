@@ -3,6 +3,7 @@ using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.UI;
 
 namespace GL.UI.PopupControllers
 {
@@ -26,6 +27,13 @@ namespace GL.UI.PopupControllers
         public virtual void Close()
         {
             Destroy(this.gameObject);
+        }
+
+        protected void OnClickSubmit(Button button, int value)
+        {
+            button.OnClickAsObservable()
+                .SubscribeWithState(this, (_, _this) => _this.submit.OnNext(value))
+                .AddTo(this);
         }
     }
 }

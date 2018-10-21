@@ -18,6 +18,7 @@ MonoBehaviour:
   parameters:
   - Level: 1
     Blueprint: {fileID: 11400000, guid: 8530be6c073d14c658dd63d68982de4c, type: 2}
-    Weapon: {fileID: 11400000, guid: 891dd3a278348452ea93031c21fad657, type: 2}
+    RightWeapon: {fileID: 11400000, guid: 57d2b1df6ad8b446a8d82393a62a6ec3, type: 2}
+    LeftWeapon: {fileID: 0}
     Accessories: []
   characterType: 0

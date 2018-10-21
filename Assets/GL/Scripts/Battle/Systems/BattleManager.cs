@@ -53,8 +53,6 @@ namespace GL.Battle
 
         public readonly InvokedCommandResult InvokedCommandResult = new InvokedCommandResult();
 
-        private CommandInvoker commandInvoker;
-
         void Awake()
         {
             Assert.IsNull(Instance);
@@ -65,21 +63,7 @@ namespace GL.Battle
             this.ChaseCommand = this.chaseBlueprint.Create();
 
             this.BehavioralOrder = this.GetComponent<BehavioralOrderController>();
-            this.commandInvoker = new CommandInvoker(this.gameObject);
-
-            // FIXME: リザルト実装したら削除する
-            Broker.Global.Receive<EndBattle>()
-                .Take(1)
-                .Subscribe(x =>
-                {
-                    Observable.Timer(TimeSpan.FromSeconds(0.5f))
-                        .Subscribe(_ =>
-                        {
-                            SceneManager.LoadScene("Home");
-                        })
-                        .AddTo(this);
-                })
-                .AddTo(this);
+            new CommandInvoker(this.gameObject);
 
             Broker.Global.Receive<CompleteEndTurnEvent>()
                 .SubscribeWithState(this, (_, _this) =>
@@ -165,6 +149,11 @@ namespace GL.Battle
             {
                 Broker.Global.Publish(EndBattle.Get(battleResult));
             }
+        }
+
+        public void ToHomeScene()
+        {
+            SceneManager.LoadScene("Home");
         }
     }
 }
