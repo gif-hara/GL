@@ -530,6 +530,10 @@ MonoBehaviour:
   needExperience: {fileID: 114152750849513056}
   decideButton: {fileID: 114601182350503842}
   cancelButton: {fileID: 114454235440641544}
+  levelMax:
+    target: {fileID: 11400000, guid: 4f29c1d3e047745e58f6327b7d25bbc9, type: 2}
+    value: '---'
+    guid: 1dd1ec7b-81e5-4058-9a6e-0565de404c44
 --- !u!114 &114454235440641544
 MonoBehaviour:
   m_ObjectHideFlags: 1

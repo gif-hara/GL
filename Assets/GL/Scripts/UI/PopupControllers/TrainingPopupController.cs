@@ -1,6 +1,7 @@
 ﻿using GL.Events.Home;
 using GL.User;
 using HK.Framework.EventSystems;
+using HK.Framework.Text;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -31,6 +32,9 @@ namespace GL.UI.PopupControllers
         [SerializeField]
         private Button cancelButton;
 
+        [SerializeField]
+        private StringAsset.Finder levelMax;
+
         public TrainingPopupController Setup(Player player)
         {
             this.SetupInternal(player);
@@ -46,9 +50,10 @@ namespace GL.UI.PopupControllers
 
         private void SetupInternal(Player player)
         {
+            var isLevelMax = player.IsLevelMax;
             this.possessionExperience.text = UserData.Instance.Wallet.Experience.Value.ToString();
-            this.needExperience.text = player.Blueprint.Experience.GetNeedValue(player.Level + 1).ToString();
-            this.decideButton.interactable = player.Level < Constants.LevelMax;
+            this.needExperience.text = isLevelMax ? this.levelMax.Get : player.Blueprint.Experience.GetNeedValue(player.Level + 1).ToString();
+            this.decideButton.interactable = !isLevelMax;
         }
     }
 }

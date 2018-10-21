@@ -111,6 +111,8 @@ namespace GL.User
             this.Level++;
         }
 
+        public bool IsLevelMax => this.Level >= Constants.LevelMax;
+
         public Battle.CharacterControllers.Blueprint Blueprint
         {
             get
