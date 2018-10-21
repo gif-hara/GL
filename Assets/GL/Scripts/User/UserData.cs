@@ -15,7 +15,7 @@ namespace GL.User
     [Serializable]
     public class UserData
     {
-        public const int PartyCount = 3;
+        public const int PartyCount = 4;
         
         private static UserData instance;
         public static UserData Instance

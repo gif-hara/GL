@@ -66,6 +66,8 @@ MonoBehaviour:
         PlayerInstanceIds: 01000000020000000300000004000000
       - instanceId: 0
         PlayerInstanceIds: 01000000020000000300000004000000
+      - instanceId: 0
+        PlayerInstanceIds: 01000000020000000300000004000000
       InstanceId:
         count: 0
     Weapons:
