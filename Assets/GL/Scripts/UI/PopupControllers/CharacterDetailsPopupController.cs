@@ -1,7 +1,9 @@
 ﻿using System;
+using GL.Events.Home;
 using GL.UI;
 using GL.UI.PopupControllers;
 using GL.User;
+using HK.Framework.EventSystems;
 using HK.Framework.Text;
 using UniRx;
 using UnityEngine;
@@ -173,6 +175,15 @@ namespace GL.Home.UI
                     break;
             }
 
+            Broker.Global.Receive<LevelUppedPlayer>()
+                .Where(x => x.Player == player)
+                .SubscribeWithState(this, (x, _this) =>
+                {
+                    _this.profile.Apply(x.Player);
+                    _this.parameter.Apply(x.Player.Parameter);
+                })
+                .AddTo(this);
+
 
             return this;
         }
@@ -246,6 +257,12 @@ namespace GL.Home.UI
         private class Profile
         {
             [SerializeField]
+            private Text level;
+
+            [SerializeField]
+            private StringAsset.Finder levelFormat;
+
+            [SerializeField]
             private Text characterName;
 
             [SerializeField]
@@ -253,12 +270,14 @@ namespace GL.Home.UI
 
             public void Apply(Player player)
             {
-                this.characterName.text = player.PlayerName;
+                this.level.text = this.levelFormat.Format(player.Level.ToString());
+                this.characterName.text = player.Blueprint.CharacterName;
                 this.jobName.text = player.Blueprint.Job.JobName;
             }
 
             public void Apply(Battle.CharacterControllers.Blueprint blueprint)
             {
+                this.level.text = this.levelFormat.Format(1.ToString());
                 this.characterName.text = blueprint.CharacterName;
                 this.jobName.text = blueprint.Job.JobName;
             }

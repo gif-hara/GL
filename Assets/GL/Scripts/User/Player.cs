@@ -106,6 +106,11 @@ namespace GL.User
             }
         }
 
+        public void LevelUp()
+        {
+            this.Level++;
+        }
+
         public Battle.CharacterControllers.Blueprint Blueprint
         {
             get

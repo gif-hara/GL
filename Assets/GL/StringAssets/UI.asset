@@ -224,3 +224,27 @@ MonoBehaviour:
       ja: "\u96C7\u7528"
       en: 
     guid: bcaabf0c-9d7d-4274-9798-68142950d1e4
+  - value:
+      ja: LV.{0}
+      en: 
+    guid: af5fbff9-167b-4326-a4bd-509d48793c54
+  - value:
+      ja: "\u6240\u6301\u7D4C\u9A13\u5024"
+      en: 
+    guid: 26a25ac1-f059-4f06-bc4f-c8d463553ff8
+  - value:
+      ja: "\u5FC5\u8981\u7D4C\u9A13\u5024"
+      en: 
+    guid: 053113d2-d25d-46cd-822b-e34dc453a69d
+  - value:
+      ja: "\u30EC\u30D9\u30EB\u30A2\u30C3\u30D7"
+      en: 
+    guid: 0ab65ade-cdff-467c-ad4f-eb3812e59a48
+  - value:
+      ja: "\u7DE8\u6210"
+      en: 
+    guid: 756206a8-19d3-433c-bf14-612cba29d431
+  - value:
+      ja: "\u7D4C\u9A13\u5024\u304C\u8DB3\u308A\u306A\u3044\u3088\uFF01"
+      en: 
+    guid: 459f5e2d-43f0-49e6-a694-dff8142e79c4

@@ -53,6 +53,12 @@ namespace GL.Home.UI
         [SerializeField]
         private Color togglePartyDeactiveColor;
 
+        [SerializeField]
+        private TrainingPopupController trainingPopupController;
+
+        [SerializeField]
+        private SimplePopupStrings failedLevelUp;
+
         private OrganizationMode currentMode;
 
         /// <summary>
@@ -169,7 +175,7 @@ namespace GL.Home.UI
                             _this.OnStartChange(_popup, _player);
                             break;
                         case CharacterDetailsPopupController.SubmitType.Training:
-                            _this.OnTraining(_popup);
+                            _this.OnTraining(_popup, _player);
                             break;
                         case CharacterDetailsPopupController.SubmitType.ChangeDecide:
                             _this.OnChangeDecide(_popup, _player);
@@ -211,10 +217,23 @@ namespace GL.Home.UI
                 .AddTo(this);
         }
 
-        private void OnTraining(CharacterDetailsPopupController popup)
+        private void OnTraining(CharacterDetailsPopupController popup, Player player)
         {
-            PopupManager.Close(popup);
-            Debug.Log("TODO");
+            var trainingPopup = PopupManager.Show(this.trainingPopupController).Setup(player);
+            trainingPopup.SubmitAsObservable()
+                .SubscribeWithState2(this, trainingPopup, (x, _this, _trainingPopup) =>
+                {
+                    switch((TrainingPopupController.SubmitType)x)
+                    {
+                        case TrainingPopupController.SubmitType.LevelUp:
+                            this.LevelUp(player);
+                            break;
+                        case TrainingPopupController.SubmitType.Cancel:
+                            PopupManager.Close(_trainingPopup);
+                            break;
+                    }
+                })
+                .AddTo(this);
         }
 
         private void OnChangeDecide(CharacterDetailsPopupController popup, Player player)
@@ -235,6 +254,24 @@ namespace GL.Home.UI
         private void OnChangeCancel(CharacterDetailsPopupController popup)
         {
             PopupManager.Close(popup);
+        }
+
+        private void LevelUp(Player player)
+        {
+            Assert.AreNotEqual(player.Level, Constants.LevelMax);
+            var u = UserData.Instance;
+            var needExperience = player.Blueprint.Experience.GetNeedValue(player.Level + 1);
+            if(u.Wallet.Experience.IsEnough(needExperience))
+            {
+                player.LevelUp();
+                u.Wallet.Experience.Pay(needExperience);
+                u.Save();
+                Broker.Global.Publish(LevelUppedPlayer.Get(player));
+            }
+            else
+            {
+                this.failedLevelUp.Show().SubmitAsObservable().Subscribe(_ => PopupManager.Close());
+            }
         }
 
         private void SetTogglePartyInteractable(bool interactable)

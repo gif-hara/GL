@@ -42,6 +42,10 @@ namespace GL.Battle.CharacterControllers
         private GrowthCurve growthCurve;
 
         [SerializeField]
+        private ExperienceData experience;
+        public ExperienceData Experience => this.experience;
+
+        [SerializeField]
         private int price;
         public int Price => this.price;
 
@@ -71,6 +75,22 @@ namespace GL.Battle.CharacterControllers
             public AnimationCurve Defense;
             public AnimationCurve DefenseMagic;
             public AnimationCurve Speed;
+        }
+
+        [Serializable]
+        public class ExperienceData
+        {
+            [SerializeField]
+            private int max;
+
+            [SerializeField]
+            private AnimationCurve curve;
+
+            public int GetNeedValue(int level)
+            {
+                var t = (float)level / (Constants.LevelMax - Constants.LevelMin);
+                return Mathf.FloorToInt(Mathf.Lerp(0, this.max, this.curve.Evaluate(t)));
+            }
         }
     }
 }

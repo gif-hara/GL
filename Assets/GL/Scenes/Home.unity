@@ -1134,6 +1134,21 @@ MonoBehaviour:
     type: 2}
   togglePartyActiveColor: {r: 1, g: 0.9724138, b: 0, a: 1}
   togglePartyDeactiveColor: {r: 1, g: 1, b: 1, a: 1}
+  trainingPopupController: {fileID: 114453499688785890, guid: 0d8181d9f2997415dafd6bc791afad74,
+    type: 2}
+  failedLevelUp:
+    Title:
+      target: {fileID: 11400000, guid: 4f29c1d3e047745e58f6327b7d25bbc9, type: 2}
+      value: "\u7DE8\u6210"
+      guid: 756206a8-19d3-433c-bf14-612cba29d431
+    Message:
+      target: {fileID: 11400000, guid: 4f29c1d3e047745e58f6327b7d25bbc9, type: 2}
+      value: "\u7D4C\u9A13\u5024\u304C\u8DB3\u308A\u306A\u3044\u3088\uFF01"
+      guid: 459f5e2d-43f0-49e6-a694-dff8142e79c4
+    ButtonNames:
+    - target: {fileID: 11400000, guid: 4f29c1d3e047745e58f6327b7d25bbc9, type: 2}
+      value: OK
+      guid: e886c7f9-8e8e-49db-84ba-57f49af20587
 --- !u!1 &250858543
 GameObject:
   m_ObjectHideFlags: 0
