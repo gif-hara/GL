@@ -49,6 +49,16 @@ namespace GL.Battle.CharacterControllers
         private int price;
         public int Price => this.price;
 
+        [SerializeField]
+        private int acquireExperience;
+        /// <summary>
+        /// 獲得できる経験値
+        /// </summary>
+        /// <remarks>
+        /// 敵を倒した際に加算するのに利用しています
+        /// </remarks>
+        public int AcquireExperience => this.acquireExperience;
+
         public Parameter GetParameter(int level)
         {
             return this.EvaluteParameter(level);

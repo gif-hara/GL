@@ -64,6 +64,7 @@ namespace GL.Battle
 
             this.BehavioralOrder = this.GetComponent<BehavioralOrderController>();
             new CommandInvoker(this.gameObject);
+            new BattleAcquireElementController(this.gameObject);
 
             Broker.Global.Receive<CompleteEndTurnEvent>()
                 .SubscribeWithState(this, (_, _this) =>

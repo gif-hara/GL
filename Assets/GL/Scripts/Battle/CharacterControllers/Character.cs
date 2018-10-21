@@ -121,6 +121,7 @@ namespace GL.Battle.CharacterControllers
             if(this.StatusController.IsDead)
             {
                 this.gameObject.SetActive(false);
+                Broker.Global.Publish(DeadNotify.Get(this));
             }
         }
 
