@@ -15,10 +15,18 @@ namespace GL.UI.PopupControllers
         }
 
         [SerializeField]
+        private Text experience;
+
+        [SerializeField]
+        private Text gold;
+
+        [SerializeField]
         private Button toHomeButton;
 
-        public ResultWinPopupController Setup()
+        public ResultWinPopupController Setup(int experience, int gold)
         {
+            this.experience.text = experience.ToString();
+            this.gold.text = gold.ToString();
             this.OnClickSubmit(this.toHomeButton, (int)SubmitType.ToHome);
             return this;
         }

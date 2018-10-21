@@ -524,7 +524,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 224966198319930184}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.99999994
+  m_Size: 0.9999996
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -877,6 +877,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46d146d223d8d4162b42afb7be25adf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  experience: {fileID: 114868620158045690}
+  gold: {fileID: 114968887639072440}
   toHomeButton: {fileID: 114932048820580290}
 --- !u!114 &114560562302285540
 MonoBehaviour:
@@ -1447,7 +1449,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000025363435, y: -0.0000053139315}
+  m_AnchoredPosition: {x: -0.000025363435, y: 0.00005943223}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &224365804155900834

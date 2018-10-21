@@ -53,6 +53,8 @@ namespace GL.Battle
 
         public readonly InvokedCommandResult InvokedCommandResult = new InvokedCommandResult();
 
+        public BattleAcquireElementController AcquireElementController { get; private set; }
+
         void Awake()
         {
             Assert.IsNull(Instance);
@@ -64,7 +66,7 @@ namespace GL.Battle
 
             this.BehavioralOrder = this.GetComponent<BehavioralOrderController>();
             new CommandInvoker(this.gameObject);
-            new BattleAcquireElementController(this.gameObject);
+            this.AcquireElementController = new BattleAcquireElementController(this.gameObject);
 
             Broker.Global.Receive<CompleteEndTurnEvent>()
                 .SubscribeWithState(this, (_, _this) =>
