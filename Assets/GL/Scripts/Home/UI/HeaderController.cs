@@ -24,8 +24,12 @@ namespace GL.Home.UI
         {
             var u = UserData.Instance;
             this.userName.text = u.UserName;
-            u.Wallet.Gold.ReactiveProperty.SubscribeWithState(this, (x, _this) => _this.gold.text = x.ToString());
-            u.Wallet.Experience.ReactiveProperty.SubscribeWithState(this, (x, _this) => _this.experience.text = x.ToString());
+            u.Wallet.Gold.ReactiveProperty
+                .SubscribeWithState(this, (x, _this) => _this.gold.text = x.ToString())
+                .AddTo(this);
+            u.Wallet.Experience.ReactiveProperty
+                .SubscribeWithState(this, (x, _this) => _this.experience.text = x.ToString())
+                .AddTo(this);
         }
     }
 }

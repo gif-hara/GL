@@ -20,6 +20,14 @@ namespace GL.User
         {
             get
             {
+                return this.GetReactiveProperty;
+            }
+        }
+
+        private ReactiveProperty<int> GetReactiveProperty
+        {
+            get
+            {
                 this.reactiveProperty = this.reactiveProperty ?? new ReactiveProperty<int>(this.value);
                 return this.reactiveProperty;
             }
@@ -27,18 +35,20 @@ namespace GL.User
 
         public void Pay(int value)
         {
-            Assert.IsTrue((this.value - value) > 0, $"足りないのに減算処理が実行されました this.value = {this.value}, value = {value}");
-            this.reactiveProperty.Value -= value;
+            Assert.IsTrue((this.Value - value) > 0, $"足りないのに減算処理が実行されました this.value = {this.value}, value = {value}");
+            this.GetReactiveProperty.Value -= value;
+            this.value = this.Value;
         }
 
         public void Add(int value)
         {
-            this.reactiveProperty.Value += value;
+            this.GetReactiveProperty.Value += value;
+            this.value = this.Value;
         }
 
         public bool IsEnough(int value)
         {
-            return this.reactiveProperty.Value >= value;
+            return this.GetReactiveProperty.Value >= value;
         }
     }
 }
