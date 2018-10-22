@@ -17,7 +17,13 @@ namespace GL.UI
         public Button Button => this.button;
 
         [SerializeField]
+        private Transform rankParent;
+
+        [SerializeField]
         private CommandController commandPrefab;
+
+        [SerializeField]
+        private GameObject rankPrefab;
 
         public WeaponController Setup(Battle.Weapon weapon)
         {
@@ -25,6 +31,11 @@ namespace GL.UI
             foreach(var c in weapon.Commands)
             {
                 Instantiate(this.commandPrefab, this.transform).Setup(c);
+            }
+
+            for (var i = 0; i < weapon.Rank; i++)
+            {
+                Instantiate(this.rankPrefab, this.rankParent, false);
             }
 
             return this;

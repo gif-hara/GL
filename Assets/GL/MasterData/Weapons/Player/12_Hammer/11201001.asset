@@ -9,13 +9,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30e5466c3c6114d91915749921a0104b, type: 3}
-  m_Name: 106001
+  m_Name: 11201001
   m_EditorClassIdentifier: 
+  rank: 1
   weaponName:
-    target: {fileID: 11400000, guid: f11e07eaab0514105b42db881a97bf4d, type: 2}
-    value: "\u30ED\u30C3\u30C90000"
-    guid: 03fad283-4161-4e09-b3e7-c4fcc1a9098d
-  weaponType: 32
+    target: {fileID: 11400000, guid: 1f8f51acb752944b2885f7231f145b08, type: 2}
+    value: "\u30CF\u30F3\u30DE\u30FC0000"
+    guid: a0724be5-f4d7-47ad-bb02-559ffff1c0c5
+  weaponType: 2048
   price: 800
   commands:
   - {fileID: 11400000, guid: ddd0901df31a844529d9f118895097ad, type: 2}

@@ -73,15 +73,15 @@ MonoBehaviour:
     Weapons:
       List:
       - instanceId: 0
-        id: 101001
+        id: 10101001
       - instanceId: 0
-        id: 101001
+        id: 10101001
       - instanceId: 0
-        id: 101001
+        id: 10101001
       - instanceId: 0
-        id: 101001
+        id: 10101001
       - instanceId: 0
-        id: 101001
+        id: 10101001
       InstanceId:
         count: 0
     Accessories:

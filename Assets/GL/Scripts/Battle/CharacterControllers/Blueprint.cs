@@ -13,7 +13,17 @@ namespace GL.Battle.CharacterControllers
     public sealed class Blueprint : ScriptableObject
     {
         public string Id { get { return this.name; } }
-        
+
+        [SerializeField]
+        private int rank;
+        /// <summary>
+        /// ランク
+        /// </summary>
+        /// <remarks>
+        /// 装備出来る武器の条件になる
+        /// </remarks>
+        public int Rank => this.rank;
+
         [SerializeField]
         private StringAsset.Finder characterName;
         public string CharacterName { get { return characterName.Get; } }

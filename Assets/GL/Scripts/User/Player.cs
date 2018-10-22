@@ -41,6 +41,8 @@ namespace GL.User
 
         public Resistance Resistance { get { return this.Blueprint.Resistance; } }
 
+        private Blueprint cachedBlueprint = null;
+
         private Player()
         {
         }
@@ -117,10 +119,10 @@ namespace GL.User
         {
             get
             {
-                var result = Database.Character.List.Find(b => b.Id == this.BlueprintId);
-                Assert.IsNotNull(result, string.Format("Id = {0}の{1}が存在しません", this.BlueprintId, typeof(Battle.CharacterControllers.Blueprint).Name));
+                this.cachedBlueprint = this.cachedBlueprint ?? Database.Character.List.Find(b => b.Id == this.BlueprintId);
+                Assert.IsNotNull(this.cachedBlueprint, $"Id = {this.BlueprintId}の{typeof(Battle.CharacterControllers.Blueprint).Name}が存在しません");
 
-                return result;
+                return this.cachedBlueprint;
             }
         }
 

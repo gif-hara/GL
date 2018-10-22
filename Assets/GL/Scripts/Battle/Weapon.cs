@@ -23,6 +23,10 @@ namespace GL.Battle
         public string Id { get { return this.name; } }
 
         [SerializeField]
+        private int rank;
+        public int Rank => this.rank;
+
+        [SerializeField]
         private StringAsset.Finder weaponName;
         public string WeaponName { get { return weaponName.Get; } }
         

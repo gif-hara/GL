@@ -107,6 +107,9 @@ namespace GL.Home.UI
         }
 
         [SerializeField]
+        private Rank rank;
+
+        [SerializeField]
         private Profile profile;
         
         [SerializeField]
@@ -149,6 +152,7 @@ namespace GL.Home.UI
         /// </summary>
         public CharacterDetailsPopupController Setup(Player player, Mode mode)
         {
+            this.rank.Apply(player.Blueprint);
             this.profile.Apply(player);
             this.parameter.Apply(player.Parameter);
             this.resistance.Apply(player.Resistance);
@@ -190,6 +194,7 @@ namespace GL.Home.UI
 
         public CharacterDetailsPopupController Setup(Battle.CharacterControllers.Blueprint blueprint, Mode mode)
         {
+            this.rank.Apply(blueprint);
             this.profile.Apply(blueprint);
             this.parameter.Apply(blueprint.Min);
             this.resistance.Apply(blueprint.Resistance);
@@ -251,6 +256,24 @@ namespace GL.Home.UI
             this.defaultModeElement.Root.SetActive(mode == Mode.Default);
             this.changeModeElement.Root.SetActive(mode == Mode.Change);
             this.employModeElement.Root.SetActive(mode == Mode.Employ);
+        }
+
+        [Serializable]
+        private class Rank
+        {
+            [SerializeField]
+            private Transform parent;
+
+            [SerializeField]
+            private GameObject rankImage;
+
+            public void Apply(Battle.CharacterControllers.Blueprint blueprint)
+            {
+                for (var i = 0; i < blueprint.Rank; i++)
+                {
+                    Instantiate(this.rankImage, this.parent, false);
+                }
+            }
         }
 
         [Serializable]

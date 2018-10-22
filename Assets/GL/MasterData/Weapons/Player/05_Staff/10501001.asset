@@ -9,8 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30e5466c3c6114d91915749921a0104b, type: 3}
-  m_Name: 105001
+  m_Name: 10501001
   m_EditorClassIdentifier: 
+  rank: 1
   weaponName:
     target: {fileID: 11400000, guid: 74b3a0c2eacc34fd181535ea0948dab4, type: 2}
     value: "\u67560000"
