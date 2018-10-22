@@ -45,7 +45,9 @@ namespace GL.Home.UI
             this.topRoot.SetActive(false);
             this.listRoot.SetActive(true);
 
-            var targetWeapons = Database.Weapon.List.Where(w => w.WeaponType == weaponType);
+            var targetWeapons = UserData.Instance.UnlockElements.Weapons
+                .Select(w => Database.Weapon.List.Find(x => x.Id == w))
+                .Where(w => w.WeaponType == weaponType);
             targetWeapons.ForEach(w =>
             {
                 var element = Instantiate(this.shopElementControllerPrefab, this.listContents, false);

@@ -151,9 +151,6 @@ namespace GL.User
         /// <summary>
         /// アンロック要素を追加する
         /// </summary>
-        /// <remarks>
-        /// アンロック出来た要素を返す
-        /// </remarks>
         public void AddUnlockElements(UnlockElements elements)
         {
             elements.EnemyParties.ForEach(e =>
@@ -165,6 +162,11 @@ namespace GL.User
             {
                 Assert.IsTrue(this.unlockElements.Characters.FindIndex(x => c == x) < 0, $"{0}のキャラクターはすでにアンロックしています");
                 this.unlockElements.Characters.Add(c);
+            });
+            elements.Weapons.ForEach(w =>
+            {
+                Assert.IsTrue(this.unlockElements.Weapons.FindIndex(x => w == x) < 0, $"{0}の武器はすでにアンロックしています");
+                this.unlockElements.Weapons.Add(w);
             });
         }
     }

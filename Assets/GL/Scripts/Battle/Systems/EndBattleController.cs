@@ -24,6 +24,9 @@ namespace GL.Battle
         [SerializeField]
         private SimplePopupStrings unlockCharacterPopup;
 
+        [SerializeField]
+        private SimplePopupStrings unlockWeaponPopup;
+
         void Awake()
         {
             Broker.Global.Receive<EndBattle>()
@@ -36,6 +39,7 @@ namespace GL.Battle
                             _this.CreateResultWinPopup()
                                 .SelectMany(__ => this.CreateUnlockEnemyPartyPopup())
                                 .SelectMany(__ => this.CreateUnlockCharacterPopup())
+                                .SelectMany(__ => this.CreateUnlockWeaponPopup())
                                 .Subscribe(__ => BattleManager.Instance.ToHomeScene())
                                 .AddTo(_this);
                         })
@@ -85,6 +89,23 @@ namespace GL.Battle
                 i => characters.Count <= i,
                 () => this.unlockCharacterPopup.Show(null, f => f.Format(Database.Character.List.Find(c => c.Id == characters[index]).CharacterName), null),
                 (i, c) => this.CreateUnlockCharacterPopup(i, c)
+            );
+        }
+
+        private IObservable<Unit> CreateUnlockWeaponPopup()
+        {
+            return Observable.Create<Unit>(observer => this.CreateUnlockWeaponPopup(0, observer));
+        }
+
+        private IDisposable CreateUnlockWeaponPopup(int index, IObserver<Unit> completeStream)
+        {
+            var weapons = BattleManager.Instance.AcquireElementController.UnlockElements.Weapons;
+            return this.CreateNotifyPopup(
+                index,
+                completeStream,
+                i => weapons.Count <= i,
+                () => this.unlockWeaponPopup.Show(null, f => f.Format(Database.Weapon.List.Find(c => c.Id == weapons[index]).WeaponName), null),
+                (i, c) => this.CreateUnlockWeaponPopup(i, c)
             );
         }
 

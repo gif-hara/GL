@@ -97,4 +97,14 @@ public partial class SROptions
         c.RemoveAll(x => true);
         UserData.Instance.Save();
     }
+
+    [Category(Category.UserData_UnlockElements)]
+    [Sort(100)]
+    [DisplayName("RemoveWeapon")]
+    public void RemoveUnlockWeapon()
+    {
+        var w = UserData.Instance.UnlockElements.Weapons;
+        w.RemoveAll(x => true);
+        UserData.Instance.Save();
+    }
 }
