@@ -268,3 +268,11 @@ MonoBehaviour:
       ja: "\xD7{0}"
       en: 
     guid: bd737469-0354-4258-b781-d34f9e693731
+  - value:
+      ja: "\u6311\u6226\u8005\u73FE\u308B\uFF01"
+      en: 
+    guid: 4ba66184-cf5f-4fe1-af39-dacc4370d678
+  - value:
+      ja: "{0}\u3068\u6226\u3048\u308B\u3088\u3046\u306B\u306A\u308A\u307E\u3057\u305F\uFF01"
+      en: 
+    guid: 9d1b8f60-fac2-4af5-917f-5ba8a0d6ff2a

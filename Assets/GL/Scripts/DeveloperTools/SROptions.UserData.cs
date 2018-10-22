@@ -77,4 +77,14 @@ public partial class SROptions
     {
         UserData.Instance.UnlockElements.EnemyParties.ForEach(m => Debug.Log($"{m}"));
     }
+
+    [Category(Category.UserData_UnlockElements)]
+    [Sort(100)]
+    [DisplayName("RemoveEnemyParty")]
+    public void RemoveEnemyParty()
+    {
+        var e = UserData.Instance.UnlockElements.EnemyParties;
+        e.RemoveRange(1, e.Count - 1);
+        UserData.Instance.Save();
+    }
 }

@@ -29,6 +29,18 @@ namespace GL.UI.PopupControllers
             Destroy(this.gameObject);
         }
 
+        /// <summary>
+        /// サブミットされたら閉じるイベントを仕込む
+        /// </summary>
+        public PopupBase CloseOnSubmit()
+        {
+            this.submit
+                .SubscribeWithState(this, (_, _this) => PopupManager.Close(_this))
+                .AddTo(this);
+
+            return this;
+        }
+
         protected void OnClickSubmit(Button button, int value)
         {
             button.OnClickAsObservable()

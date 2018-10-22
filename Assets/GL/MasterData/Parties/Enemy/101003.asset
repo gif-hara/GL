@@ -13,8 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partyName:
     target: {fileID: 11400000, guid: f8b6937b4695b4cb987a4969fa50c1db, type: 2}
-    value: 0000
-    guid: 1999759f-b7b1-4f9c-a6e1-c9d2407b26a2
+    value: "Enemy0\u3044\u3063\u3071\u3044"
+    guid: c7f9d3dd-4891-46af-92a1-8b888c0aab5c
   parameters:
   - Level: 1
     Blueprint: {fileID: 11400000, guid: 5697bef62633b4f4c8003caf62405c77, type: 2}

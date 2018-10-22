@@ -1014,9 +1014,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a587a8f2c6a284ed19c93f1c26dd709c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  battleManager: {fileID: 1477821175}
   resultWinPopupController: {fileID: 114515193044546866, guid: 13336237de276437bb8a46bffbd24f7a,
     type: 2}
+  unlockEnemyPartyPopup:
+    Title:
+      target: {fileID: 11400000, guid: 4f29c1d3e047745e58f6327b7d25bbc9, type: 2}
+      value: "\u6311\u6226\u8005\u73FE\u308B\uFF01"
+      guid: 4ba66184-cf5f-4fe1-af39-dacc4370d678
+    Message:
+      target: {fileID: 11400000, guid: 4f29c1d3e047745e58f6327b7d25bbc9, type: 2}
+      value: "\u4EE5\u4E0B\u306E\u6575\u30D1\u30FC\u30C6\u30A3\u3068\u6226\u95D8\u51FA\u6765\u308B\u3088\u3046\u306B\u306A\u308A\u307E\u3057\u305F\uFF01\n{0}"
+      guid: 9d1b8f60-fac2-4af5-917f-5ba8a0d6ff2a
+    ButtonNames:
+    - target: {fileID: 11400000, guid: 4f29c1d3e047745e58f6327b7d25bbc9, type: 2}
+      value: OK
+      guid: e886c7f9-8e8e-49db-84ba-57f49af20587
 --- !u!1 &1614139426
 GameObject:
   m_ObjectHideFlags: 0

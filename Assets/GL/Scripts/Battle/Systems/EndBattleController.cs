@@ -1,7 +1,9 @@
 ﻿using System;
 using GL.Events.Battle;
+using GL.MasterData;
 using GL.UI.PopupControllers;
 using HK.Framework.EventSystems;
+using HK.GL.Extensions;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -14,10 +16,10 @@ namespace GL.Battle
     public sealed class EndBattleController : MonoBehaviour
     {
         [SerializeField]
-        private BattleManager battleManager;
+        private ResultWinPopupController resultWinPopupController;
 
         [SerializeField]
-        private ResultWinPopupController resultWinPopupController;
+        private SimplePopupStrings unlockEnemyPartyPopup;
 
         void Awake()
         {
@@ -25,36 +27,57 @@ namespace GL.Battle
                 .Take(1)
                 .Subscribe(x =>
                 {
-                    Observable.Timer(TimeSpan.FromSeconds(0.2f))
+                    Observable.Timer(TimeSpan.FromSeconds(0.5f))
                         .SubscribeWithState(this, (_, _this) =>
                         {
-                            _this.CreateResultWinPopup();
+                            _this.CreateResultWinPopup()
+                                .SelectMany(__ => this.CreateUnlockEnemyPartyPopup())
+                                .Subscribe(__ => BattleManager.Instance.ToHomeScene())
+                                .AddTo(_this);
                         })
                         .AddTo(this);
                 })
                 .AddTo(this);
         }
 
-        private void CreateResultWinPopup()
+        private IObservable<int> CreateResultWinPopup()
         {
-            var acquireElement = this.battleManager.AcquireElementController;
-            var popup = PopupManager.Show(this.resultWinPopupController).Setup(acquireElement.Experience, acquireElement.Gold, acquireElement.Materials);
-            popup.SubmitAsObservable()
-                .Select(x => (ResultWinPopupController.SubmitType)x)
-                .SubscribeWithState2(this, popup, (x, _this, _popup) =>
-                {
-                    switch (x)
+            var acquireElement = BattleManager.Instance.AcquireElementController;
+            return PopupManager
+                .Show(this.resultWinPopupController)
+                .Setup(acquireElement.Experience, acquireElement.Gold, acquireElement.Materials)
+                .CloseOnSubmit()
+                .SubmitAsObservable();
+        }
+
+        private IObservable<Unit> CreateUnlockEnemyPartyPopup()
+        {
+            return Observable.Create<Unit>(observer => this.CreateUnlockEnemyPartyPopup(0, observer));
+        }
+
+        private IDisposable CreateUnlockEnemyPartyPopup(int index, IObserver<Unit> completeStream)
+        {
+            var acquireElement = BattleManager.Instance.AcquireElementController;
+
+            // 全て表示した場合は完了したことを通知する
+            if(acquireElement.UnlockElements.EnemyParties.Count <= index)
+            {
+                completeStream.OnNext(Unit.Default);
+                completeStream.OnCompleted();
+                return Disposable.Empty;
+            }
+            else
+            {
+                var blueprint = Database.EnemyParty.List.Find(e => e.Id == acquireElement.UnlockElements.EnemyParties[index]);
+                return this.unlockEnemyPartyPopup.Show(null, f => f.Format(blueprint.PartyName), null)
+                    .CloseOnSubmit()
+                    .SubmitAsObservable()
+                    .SubscribeWithState3(this, index, completeStream, (_, _this, i, c) =>
                     {
-                        case ResultWinPopupController.SubmitType.ToHome:
-                            PopupManager.Close(_popup);
-                            _this.battleManager.ToHomeScene();
-                            break;
-                        default:
-                            Assert.IsTrue(false, $"{x}は未対応の値です");
-                            break;
-                    }
-                })
-                .AddTo(this);
+                        _this.CreateUnlockEnemyPartyPopup(i + 1, c);
+                    })
+                    .AddTo(this);
+            }
         }
     }
 }
