@@ -17,6 +17,8 @@ namespace GL.Battle
     [RequireComponent(typeof(BehavioralOrderController))]
     public sealed class BattleManager : MonoBehaviour
     {
+        public static BattleManager Instance { private set; get; }
+
         /// <summary>
         /// 混乱した時のコマンド
         /// </summary>
@@ -40,8 +42,6 @@ namespace GL.Battle
         public Commands.Bundle.Implement BerserkCommand { get; private set; }
 
         public Commands.Bundle.Implement ChaseCommand { get; private set; }
-
-        public static BattleManager Instance { private set; get; }
 
         public Parties Parties { private set; get; }
 

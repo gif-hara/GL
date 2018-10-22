@@ -15,6 +15,8 @@ namespace GL.Battle.PartyControllers
     {
         public List<Character> Members { private set; get; }
 
+        public Blueprint Blueprint { get; private set; }
+
         /// <summary>
         /// 生き残っているメンバーを返す
         /// </summary>
@@ -26,9 +28,10 @@ namespace GL.Battle.PartyControllers
             }
         }
 
-        public Party(List<Character> members)
+        public Party(List<Character> members, Blueprint blueprint)
         {
             this.Members = members;
+            this.Blueprint = blueprint;
         }
 
         /// <summary>

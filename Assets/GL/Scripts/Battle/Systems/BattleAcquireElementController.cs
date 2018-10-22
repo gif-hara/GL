@@ -21,6 +21,8 @@ namespace GL.Battle
 
         public Dictionary<Materials.Material, int> Materials { get; private set; } = new Dictionary<Materials.Material, int>();
 
+        public UnlockElements UnlockElements { get; private set; }
+
         public BattleAcquireElementController(GameObject owner)
         {
             Broker.Global.Receive<DeadNotify>()
@@ -50,6 +52,7 @@ namespace GL.Battle
                 .Where(x => x.Result == Constants.BattleResult.PlayerWin)
                 .SubscribeWithState(this, (_, _this) =>
                 {
+                    _this.UnlockElements = UserData.Instance.UnlockElements.GetNotDuplicate(BattleManager.Instance.Parties.Enemy.Blueprint.UnlockElements);
                     _this.ApplyUserData();
                 })
                 .AddTo(owner);
@@ -61,6 +64,7 @@ namespace GL.Battle
             u.Wallet.Experience.Add(this.Experience);
             u.Wallet.Gold.Add(this.Gold);
             this.Materials.ForEach(m => u.AddMaterial(m.Key, m.Value));
+            u.AddUnlockElements(this.UnlockElements);
             u.Save();
         }
     }

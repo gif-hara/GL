@@ -23,6 +23,10 @@ namespace GL.Battle.PartyControllers
         [SerializeField]
         private Constants.CharacterType characterType;
 
+        [SerializeField]
+        private User.UnlockElements unlockElements;
+        public User.UnlockElements UnlockElements => this.unlockElements;
+
         public string PartyName { get { return partyName.Get; } }
 
         public static Blueprint CloneAsPlayerParty(User.Party party)
@@ -50,7 +54,7 @@ namespace GL.Battle.PartyControllers
                 member.Add(character);
             }
 
-            return new Party(member);
+            return new Party(member, this);
         }
 
         protected Character CreateCharacter(

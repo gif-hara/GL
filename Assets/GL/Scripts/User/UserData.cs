@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using GL.Systems;
 using HK.Framework.Systems;
+using HK.GL.Extensions;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -59,6 +60,10 @@ namespace GL.User
 
         [SerializeField]
         public List<Material> Materials = new List<Material>();
+
+        [SerializeField]
+        private UnlockElements unlockElements = new UnlockElements();
+        public UnlockElements UnlockElements => this.unlockElements;
 
         [SerializeField]
         private int currentPartyIndex = 0;
@@ -140,6 +145,21 @@ namespace GL.User
             }
 
             m.Count += value;
+        }
+
+        /// <summary>
+        /// アンロック要素を追加する
+        /// </summary>
+        /// <remarks>
+        /// アンロック出来た要素を返す
+        /// </remarks>
+        public void AddUnlockElements(UnlockElements elements)
+        {
+            elements.EnemyParties.ForEach(e =>
+            {
+                Assert.IsTrue(this.unlockElements.EnemyParties.FindIndex(x => e == x) < 0, $"{0}はすでにアンロックしています");
+                this.unlockElements.EnemyParties.Add(e);
+            });
         }
     }
 }
