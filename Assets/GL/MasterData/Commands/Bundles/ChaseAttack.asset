@@ -22,6 +22,6 @@ MonoBehaviour:
       guid: 
     TargetPartyType: 1
     TargetType: 4
-    Postprocess: 0
+    Postprocess: 1
     Elements:
     - {fileID: 11400000, guid: c1a29128a524e4b8db163cd5aa262161, type: 2}
