@@ -158,8 +158,13 @@ namespace GL.User
         {
             elements.EnemyParties.ForEach(e =>
             {
-                Assert.IsTrue(this.unlockElements.EnemyParties.FindIndex(x => e == x) < 0, $"{0}はすでにアンロックしています");
+                Assert.IsTrue(this.unlockElements.EnemyParties.FindIndex(x => e == x) < 0, $"{0}の敵パーティはすでにアンロックしています");
                 this.unlockElements.EnemyParties.Add(e);
+            });
+            elements.Characters.ForEach(c =>
+            {
+                Assert.IsTrue(this.unlockElements.Characters.FindIndex(x => c == x) < 0, $"{0}のキャラクターはすでにアンロックしています");
+                this.unlockElements.Characters.Add(c);
             });
         }
     }

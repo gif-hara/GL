@@ -21,6 +21,9 @@ namespace GL.Battle
         [SerializeField]
         private SimplePopupStrings unlockEnemyPartyPopup;
 
+        [SerializeField]
+        private SimplePopupStrings unlockCharacterPopup;
+
         void Awake()
         {
             Broker.Global.Receive<EndBattle>()
@@ -32,6 +35,7 @@ namespace GL.Battle
                         {
                             _this.CreateResultWinPopup()
                                 .SelectMany(__ => this.CreateUnlockEnemyPartyPopup())
+                                .SelectMany(__ => this.CreateUnlockCharacterPopup())
                                 .Subscribe(__ => BattleManager.Instance.ToHomeScene())
                                 .AddTo(_this);
                         })
@@ -57,10 +61,39 @@ namespace GL.Battle
 
         private IDisposable CreateUnlockEnemyPartyPopup(int index, IObserver<Unit> completeStream)
         {
+            var enemyParties = BattleManager.Instance.AcquireElementController.UnlockElements.EnemyParties;
+            return this.CreateNotifyPopup(
+                index,
+                completeStream,
+                i => enemyParties.Count <= i,
+                () => this.unlockEnemyPartyPopup.Show(null, f => f.Format(Database.EnemyParty.List.Find(e => e.Id == enemyParties[index]).PartyName), null),
+                (i, c) => this.CreateUnlockEnemyPartyPopup(i, c)
+            );
+        }
+
+        private IObservable<Unit> CreateUnlockCharacterPopup()
+        {
+            return Observable.Create<Unit>(observer => this.CreateUnlockCharacterPopup(0, observer));
+        }
+
+        private IDisposable CreateUnlockCharacterPopup(int index, IObserver<Unit> completeStream)
+        {
+            var characters = BattleManager.Instance.AcquireElementController.UnlockElements.Characters;
+            return this.CreateNotifyPopup(
+                index,
+                completeStream,
+                i => characters.Count <= i,
+                () => this.unlockCharacterPopup.Show(null, f => f.Format(Database.Character.List.Find(c => c.Id == characters[index]).CharacterName), null),
+                (i, c) => this.CreateUnlockCharacterPopup(i, c)
+            );
+        }
+
+        private IDisposable CreateNotifyPopup(int index, IObserver<Unit> completeStream, Func<int, bool> isCompleteSelector, Func<PopupBase> popupSelector, Action<int, IObserver<Unit>> submitAction)
+        {
             var acquireElement = BattleManager.Instance.AcquireElementController;
 
             // 全て表示した場合は完了したことを通知する
-            if(acquireElement.UnlockElements.EnemyParties.Count <= index)
+            if (isCompleteSelector(index))
             {
                 completeStream.OnNext(Unit.Default);
                 completeStream.OnCompleted();
@@ -68,13 +101,12 @@ namespace GL.Battle
             }
             else
             {
-                var blueprint = Database.EnemyParty.List.Find(e => e.Id == acquireElement.UnlockElements.EnemyParties[index]);
-                return this.unlockEnemyPartyPopup.Show(null, f => f.Format(blueprint.PartyName), null)
+                return popupSelector()
                     .CloseOnSubmit()
                     .SubmitAsObservable()
-                    .SubscribeWithState3(this, index, completeStream, (_, _this, i, c) =>
+                    .SubscribeWithState3(submitAction, index, completeStream, (_, s, i, c) =>
                     {
-                        _this.CreateUnlockEnemyPartyPopup(i + 1, c);
+                        s(i + 1, c);
                     })
                     .AddTo(this);
             }

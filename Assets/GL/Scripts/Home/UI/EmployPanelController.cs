@@ -3,6 +3,7 @@ using GL.MasterData;
 using GL.UI.PopupControllers;
 using GL.User;
 using HK.Framework.EventSystems;
+using HK.GL.Extensions;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -31,11 +32,13 @@ namespace GL.Home.UI
 
         void Start()
         {
-            foreach(var c in Database.Character.List)
+            foreach(var c in UserData.Instance.UnlockElements.Characters)
             {
-                var element = Instantiate(this.elementPrefab, this.listParent, false).Setup(c);
+                var blueprint = Database.Character.List.Find(x => x.Id == c);
+                var element = Instantiate(this.elementPrefab, this.listParent, false).Setup(blueprint);
                 element.Button.OnClickAsObservable()
-                    .SubscribeWithState2(this, c, (_, _this, _c) => _this.ShowCharacterDetailsPopup(_c));
+                    .SubscribeWithState2(this, blueprint, (_, _this, b) => _this.ShowCharacterDetailsPopup(b))
+                    .AddTo(this);
             }
         }
 

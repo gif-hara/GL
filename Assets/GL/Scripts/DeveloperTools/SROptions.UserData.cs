@@ -81,10 +81,20 @@ public partial class SROptions
     [Category(Category.UserData_UnlockElements)]
     [Sort(100)]
     [DisplayName("RemoveEnemyParty")]
-    public void RemoveEnemyParty()
+    public void RemoveUnlockEnemyParty()
     {
         var e = UserData.Instance.UnlockElements.EnemyParties;
         e.RemoveRange(1, e.Count - 1);
+        UserData.Instance.Save();
+    }
+
+    [Category(Category.UserData_UnlockElements)]
+    [Sort(100)]
+    [DisplayName("RemoveCharacter")]
+    public void RemoveUnlockCharacter()
+    {
+        var c = UserData.Instance.UnlockElements.Characters;
+        c.RemoveAll(x => true);
         UserData.Instance.Save();
     }
 }

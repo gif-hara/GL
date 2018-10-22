@@ -276,3 +276,11 @@ MonoBehaviour:
       ja: "{0}\u3068\u6226\u3048\u308B\u3088\u3046\u306B\u306A\u308A\u307E\u3057\u305F\uFF01"
       en: 
     guid: 9d1b8f60-fac2-4af5-917f-5ba8a0d6ff2a
+  - value:
+      ja: "\u6C42\u4EBA\u60C5\u5831\uFF01"
+      en: 
+    guid: 3bb866bd-fb40-453e-8a28-bf2d8e3ae744
+  - value:
+      ja: "{0}\u3092\u96C7\u3048\u308B\u3088\u3046\u306B\u306A\u308A\u307E\u3057\u305F\uFF01"
+      en: 
+    guid: 056d136e-6ab5-4c43-a4bd-5520026d469e

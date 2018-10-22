@@ -1029,6 +1029,19 @@ MonoBehaviour:
     - target: {fileID: 11400000, guid: 4f29c1d3e047745e58f6327b7d25bbc9, type: 2}
       value: OK
       guid: e886c7f9-8e8e-49db-84ba-57f49af20587
+  unlockCharacterPopup:
+    Title:
+      target: {fileID: 11400000, guid: 4f29c1d3e047745e58f6327b7d25bbc9, type: 2}
+      value: "\u6C42\u4EBA\u60C5\u5831\uFF01"
+      guid: 3bb866bd-fb40-453e-8a28-bf2d8e3ae744
+    Message:
+      target: {fileID: 11400000, guid: 4f29c1d3e047745e58f6327b7d25bbc9, type: 2}
+      value: "{0}\u3092\u96C7\u3048\u308B\u3088\u3046\u306B\u306A\u308A\u307E\u3057\u305F\uFF01"
+      guid: 056d136e-6ab5-4c43-a4bd-5520026d469e
+    ButtonNames:
+    - target: {fileID: 11400000, guid: 4f29c1d3e047745e58f6327b7d25bbc9, type: 2}
+      value: OK
+      guid: e886c7f9-8e8e-49db-84ba-57f49af20587
 --- !u!1 &1614139426
 GameObject:
   m_ObjectHideFlags: 0
