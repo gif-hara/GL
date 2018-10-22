@@ -112,8 +112,12 @@ namespace GL.Battle.CharacterControllers
 
             public int GetNeedValue(int level)
             {
-                var t = (float)level / (Constants.LevelMax - Constants.LevelMin);
-                return Mathf.FloorToInt(Mathf.Lerp(0, this.max, this.curve.Evaluate(t)));
+                var n = (float)level / (Constants.LevelMax - Constants.LevelMin);
+                var o = (float)(level - 1) / (Constants.LevelMax - Constants.LevelMin);
+                var next = Mathf.FloorToInt(Mathf.Lerp(0, this.max, this.curve.Evaluate(n)));
+                var old = Mathf.FloorToInt(Mathf.Lerp(0, this.max, this.curve.Evaluate(o)));
+
+                return next - old;
             }
         }
 
