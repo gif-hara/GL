@@ -87,6 +87,7 @@ namespace GL.User
             this.Weapons.List.AddRange(other.Weapons.List.Select(w => w.Clone(this.Weapons.InstanceId)));
             this.Accessories.List.AddRange(other.Accessories.List.Select(a => a.Clone(this.Accessories.InstanceId)));
             this.Materials = other.Materials;
+            this.unlockElements = other.unlockElements;
             this.currentPartyIndexReactiveProperty.Value = other.currentPartyIndexReactiveProperty.Value;
         }
 

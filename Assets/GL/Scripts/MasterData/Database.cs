@@ -27,6 +27,10 @@ namespace GL.MasterData
         private Material material;
         public static Material Material => instance.material;
 
+        [SerializeField]
+        private EnemyParty enemyParty;
+        public static EnemyParty EnemyParty => instance.enemyParty;
+
         public void Setup()
         {
             Assert.IsNull(instance);

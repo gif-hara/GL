@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using GL.MasterData;
+using GL.User;
+using HK.GL.Extensions;
+using UnityEngine;
 
 namespace GL.Home.UI
 {
@@ -13,13 +16,11 @@ namespace GL.Home.UI
         [SerializeField]
         private RectTransform scrollParent;
 
-        [SerializeField]
-        private Battle.PartyControllers.Blueprint[] blueprints;
-
         void Start()
         {
-            foreach (var blueprint in this.blueprints)
+            foreach (var id in UserData.Instance.UnlockElements.EnemyParties)
             {
+                var blueprint = Database.EnemyParty.List.Find(e => e.Id == id);
                 var controller = Instantiate(this.controllerPrefab, this.scrollParent, false);
                 controller.Initialize(blueprint);
             }

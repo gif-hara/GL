@@ -14,6 +14,8 @@ namespace GL.Battle.PartyControllers
     [CreateAssetMenu(menuName = "GL/PartyControllers/Blueprint")]
     public class Blueprint : ScriptableObject
     {
+        public string Id => this.name;
+        
         [SerializeField]
         private StringAsset.Finder partyName;
 

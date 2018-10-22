@@ -10,8 +10,9 @@ using UnityEngine.Assertions;
 /// </summary>
 public partial class SROptions
 {
-    [Category(Category.UserData)]
-    [Sort(200)]
+    [Category(Category.UserData_Gold)]
+    [Sort(100)]
+    [DisplayName("Add")]
     public void AddGold()
     {
         const int value = 1000000;
@@ -20,8 +21,9 @@ public partial class SROptions
         Debug.Log($"Added Gold {value}");
     }
 
-    [Category(Category.UserData)]
-    [Sort(200)]
+    [Category(Category.UserData_Gold)]
+    [Sort(100)]
+    [DisplayName("Zero")]
     public void ZeroGold()
     {
         var u = UserData.Instance;
@@ -30,8 +32,9 @@ public partial class SROptions
         Debug.Log($"Gold is Zero!");
     }
 
-    [Category(Category.UserData)]
-    [Sort(200)]
+    [Category(Category.UserData_Experience)]
+    [Sort(100)]
+    [DisplayName("Add")]
     public void AddExperience()
     {
         const int value = 1000000;
@@ -40,8 +43,9 @@ public partial class SROptions
         Debug.Log($"Added Experience {value}");
     }
 
-    [Category(Category.UserData)]
-    [Sort(200)]
+    [Category(Category.UserData_Experience)]
+    [Sort(100)]
+    [DisplayName("Zero")]
     public void ZeroExperience()
     {
         var u = UserData.Instance;
@@ -50,16 +54,27 @@ public partial class SROptions
         Debug.Log($"Experience is Zero!");
     }
 
-    [Category(Category.UserData)]
-    [Sort(200)]
+    [Category(Category.UserData_Weapon)]
+    [Sort(100)]
+    [DisplayName("Print")]
     public void PrintAllWeapon()
     {
         UserData.Instance.Weapons.List.ForEach(w => Debug.Log($"[{w.InstanceId}] {w.BattleWeapon.WeaponName}"));
     }
-    [Category(Category.UserData)]
-    [Sort(200)]
+
+    [Category(Category.UserData_Material)]
+    [Sort(100)]
+    [DisplayName("Print")]
     public void PrintAllMaterial()
     {
         UserData.Instance.Materials.ForEach(m => Debug.Log($"[{Database.Material.List.Find(d => d.Id == m.Id).MaterialName}] *{m.Count}"));
+    }
+
+    [Category(Category.UserData_UnlockElements)]
+    [Sort(100)]
+    [DisplayName("PrintEnemyParties")]
+    public void PrintAllEnemyParties()
+    {
+        UserData.Instance.UnlockElements.EnemyParties.ForEach(m => Debug.Log($"{m}"));
     }
 }

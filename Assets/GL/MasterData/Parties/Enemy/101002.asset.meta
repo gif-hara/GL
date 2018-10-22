@@ -1,7 +1,7 @@
 fileFormatVersion: 2
-guid: 55c16e67dd88646fda67ab4659f1307b
-timeCreated: 1523632951
-licenseType: Free
+guid: fa4e1301ef41f43898ed6cd983c489ee
+labels:
+- GK.Battle.PartyControllers.Blueprint
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 11400000

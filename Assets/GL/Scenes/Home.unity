@@ -9963,11 +9963,6 @@ MonoBehaviour:
   controllerPrefab: {fileID: 114240866522865510, guid: da33ca29e2a2045babe93644aebce466,
     type: 2}
   scrollParent: {fileID: 919202217}
-  blueprints:
-  - {fileID: 11400000, guid: 3dac803ca1d814d86b4c8d3a892b17e5, type: 2}
-  - {fileID: 11400000, guid: fa4e1301ef41f43898ed6cd983c489ee, type: 2}
-  - {fileID: 11400000, guid: 4e610f59b926c470192fca238fb5ac43, type: 2}
-  - {fileID: 11400000, guid: 55c16e67dd88646fda67ab4659f1307b, type: 2}
 --- !u!1 &2009995523
 GameObject:
   m_ObjectHideFlags: 0

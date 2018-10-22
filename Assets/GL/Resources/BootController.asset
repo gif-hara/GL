@@ -91,6 +91,9 @@ MonoBehaviour:
     Materials:
     - id: 1000
       count: 1
+    unlockElements:
+      enemyParties:
+      - 101001
     currentPartyIndex: 0
   database: {fileID: 11400000, guid: 0a79933d2e00d4e8da66c79e07650958, type: 2}
   dontDestroyPrefabs:
