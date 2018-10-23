@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using GL.MasterData;
+using GL.Database;
 using GL.UI.PopupControllers;
 using GL.User;
 using HK.Framework.Text;
@@ -46,7 +46,7 @@ namespace GL.Home.UI
             this.listRoot.SetActive(true);
 
             var targetWeapons = UserData.Instance.UnlockElements.Weapons
-                .Select(w => Database.Weapon.List.Find(x => x.Id == w))
+                .Select(w => MasterData.Weapon.List.Find(x => x.Id == w))
                 .Where(w => w.WeaponType == weaponType);
             targetWeapons.ForEach(w =>
             {

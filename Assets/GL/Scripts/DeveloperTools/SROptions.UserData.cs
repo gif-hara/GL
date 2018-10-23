@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel;
-using GL.MasterData;
+using GL.Database;
 using GL.User;
 using HK.GL.Extensions;
 using UnityEngine;
@@ -67,7 +67,7 @@ public partial class SROptions
     [DisplayName("Print")]
     public void PrintAllMaterial()
     {
-        UserData.Instance.Materials.ForEach(m => Debug.Log($"[{Database.Material.List.Find(d => d.Id == m.Id).MaterialName}] *{m.Count}"));
+        UserData.Instance.Materials.ForEach(m => Debug.Log($"[{MasterData.Material.List.Find(d => d.Id == m.Id).MaterialName}] *{m.Count}"));
     }
 
     [Category(Category.UserData_UnlockElements)]

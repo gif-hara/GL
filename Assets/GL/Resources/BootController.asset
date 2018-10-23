@@ -107,6 +107,6 @@ MonoBehaviour:
       characters: []
       weapons: []
     currentPartyIndex: 0
-  database: {fileID: 11400000, guid: 0a79933d2e00d4e8da66c79e07650958, type: 2}
+  masterData: {fileID: 11400000, guid: 0a79933d2e00d4e8da66c79e07650958, type: 2}
   dontDestroyPrefabs:
   - {fileID: 1625060425433294, guid: a71784f94acac4c59a1c8fd2f7ef0dd3, type: 2}

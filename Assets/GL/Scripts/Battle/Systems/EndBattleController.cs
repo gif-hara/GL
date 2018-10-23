@@ -1,6 +1,6 @@
 ﻿using System;
 using GL.Events.Battle;
-using GL.MasterData;
+using GL.Database;
 using GL.UI.PopupControllers;
 using HK.Framework.EventSystems;
 using HK.GL.Extensions;
@@ -70,7 +70,7 @@ namespace GL.Battle
                 index,
                 completeStream,
                 i => enemyParties.Count <= i,
-                () => this.unlockEnemyPartyPopup.Show(null, f => f.Format(Database.EnemyParty.List.Find(e => e.Id == enemyParties[index]).PartyName), null),
+                () => this.unlockEnemyPartyPopup.Show(null, f => f.Format(MasterData.EnemyParty.List.Find(e => e.Id == enemyParties[index]).PartyName), null),
                 (i, c) => this.CreateUnlockEnemyPartyPopup(i, c)
             );
         }
@@ -87,7 +87,7 @@ namespace GL.Battle
                 index,
                 completeStream,
                 i => characters.Count <= i,
-                () => this.unlockCharacterPopup.Show(null, f => f.Format(Database.Character.List.Find(c => c.Id == characters[index]).CharacterName), null),
+                () => this.unlockCharacterPopup.Show(null, f => f.Format(MasterData.Character.List.Find(c => c.Id == characters[index]).CharacterName), null),
                 (i, c) => this.CreateUnlockCharacterPopup(i, c)
             );
         }
@@ -104,7 +104,7 @@ namespace GL.Battle
                 index,
                 completeStream,
                 i => weapons.Count <= i,
-                () => this.unlockWeaponPopup.Show(null, f => f.Format(Database.Weapon.List.Find(c => c.Id == weapons[index]).WeaponName), null),
+                () => this.unlockWeaponPopup.Show(null, f => f.Format(MasterData.Weapon.List.Find(c => c.Id == weapons[index]).WeaponName), null),
                 (i, c) => this.CreateUnlockWeaponPopup(i, c)
             );
         }

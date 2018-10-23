@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using GL.Battle;
-using GL.MasterData;
+using GL.Database;
 using GL.User;
 using HK.GL.Extensions;
 using UnityEngine;

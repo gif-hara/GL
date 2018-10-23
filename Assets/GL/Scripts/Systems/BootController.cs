@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using GL.DeveloperTools;
-using GL.MasterData;
+using GL.Database;
 using GL.User;
 using HK.Framework.Systems;
 using UniRx;
@@ -22,7 +22,7 @@ namespace GL.Systems
         private UserData userData;
 
         [SerializeField]
-        private Database database;
+        private MasterData masterData;
 
         [SerializeField]
         private GameObject[] dontDestroyPrefabs;
@@ -49,7 +49,7 @@ namespace GL.Systems
 
             // データベース登録
             {
-                instance.database.Setup();
+                instance.masterData.Setup();
             }
             
             // DontDestroyなゲームオブジェクトを生成する

@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace GL.MasterData
+namespace GL.Database
 {
     /// <summary>
     /// データベース
     /// </summary>
     [CreateAssetMenu(menuName = "GL/MasterData/Database")]
-    public class Database : ScriptableObject
+    public class MasterData : ScriptableObject
     {
-        private static Database instance;
+        private static MasterData instance;
 
         [SerializeField]
         private Character character;

@@ -6,7 +6,7 @@ using UnityEngine.Assertions;
 using UnityEditor;
 #endif
 
-namespace GL.MasterData
+namespace GL.Database
 {
     /// <summary>
     /// リスト形式で保持するデータベースの抽象クラス

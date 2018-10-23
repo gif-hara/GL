@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace GL.MasterData
+namespace GL.Database
 {
     /// <summary>
     /// アクセサリーデータベース
