@@ -10,7 +10,7 @@ namespace GL.Database
     /// <summary>
     /// キャラクターレコード
     /// </summary>
-    [CreateAssetMenu(menuName = "GL/CharacterControllers/Blueprint")]
+    [CreateAssetMenu(menuName = "GL/MasterData/Record/Character")]
     public sealed class CharacterRecord : ScriptableObject, IMasterDataRecord
     {
         public string Id { get { return this.name; } }
@@ -130,8 +130,8 @@ namespace GL.Database
         public class MaterialLottery
         {
             [SerializeField]
-            private Materials.Material material;
-            public Materials.Material Material => this.material;
+            private MaterialRecord material;
+            public MaterialRecord Material => this.material;
 
             [SerializeField][Range(0.0f, 1.0f)]
             private float lottery;

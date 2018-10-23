@@ -6,7 +6,7 @@ namespace GL.Database
     /// <summary>
     /// 武器データベース
     /// </summary>
-    [CreateAssetMenu(menuName = "GL/MasterData/Weapon")]
+    [CreateAssetMenu(menuName = "GL/MasterData/List/Weapon")]
     public sealed class WeaponList : MasterDataRecordList<WeaponRecord>
     {
         protected override string FindAssetsFilter => "t:Weapon";

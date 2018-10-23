@@ -136,7 +136,7 @@ namespace GL.User
         /// <summary>
         /// 素材を取得する　
         /// </summary>
-        public void AddMaterial(Materials.Material material, int value = 1)
+        public void AddMaterial(MaterialRecord material, int value = 1)
         {
             var m = this.Materials.Find(x => x.Id == material.Id);
             if(m == null)

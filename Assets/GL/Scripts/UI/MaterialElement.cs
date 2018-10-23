@@ -1,4 +1,5 @@
-﻿using HK.Framework.Text;
+﻿using GL.Database;
+using HK.Framework.Text;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
@@ -19,7 +20,7 @@ namespace GL.UI
         [SerializeField]
         private StringAsset.Finder valueFormat;
 
-        public MaterialElement Setup(Materials.Material material, int value)
+        public MaterialElement Setup(MaterialRecord material, int value)
         {
             this.materialName.text = material.MaterialName;
             this.value.text = this.valueFormat.Format(value.ToString());

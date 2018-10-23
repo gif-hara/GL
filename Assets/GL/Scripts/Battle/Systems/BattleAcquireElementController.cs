@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using GL.Database;
 using GL.Events.Battle;
 using GL.User;
 using HK.Framework.EventSystems;
@@ -19,7 +20,7 @@ namespace GL.Battle
 
         public int Gold { get; private set; }
 
-        public Dictionary<Materials.Material, int> Materials { get; private set; } = new Dictionary<Materials.Material, int>();
+        public Dictionary<MaterialRecord, int> Materials { get; private set; } = new Dictionary<MaterialRecord, int>();
 
         public UnlockElements UnlockElements { get; private set; }
 

@@ -3,13 +3,13 @@ using HK.Framework.Text;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace GL.Materials
+namespace GL.Database
 {
     /// <summary>
-    /// 
+    /// 素材レコード
     /// </summary>
-    [CreateAssetMenu(menuName = "GL/Material")]
-    public sealed class Material : ScriptableObject, IMasterDataRecord
+    [CreateAssetMenu(menuName = "GL/MasterData/Record/Material")]
+    public sealed class MaterialRecord : ScriptableObject, IMasterDataRecord
     {
         public string Id => this.name;
 
