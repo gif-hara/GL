@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
+using HK.GL.Extensions;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -11,11 +12,13 @@ namespace GL.Database
     /// <summary>
     /// リスト形式で保持するマスターデータの抽象クラス
     /// </summary>
-    public abstract class MasterDataList<T> : ScriptableObject, IMasterDataList<T> where T : ScriptableObject
+    public abstract class MasterDataList<T> : ScriptableObject, IMasterDataList<T> where T : ScriptableObject, IMasterDataRecord
     {
         [SerializeField]
         protected T[] list;
-        public T[] List { get { return this.list; } }
+        public T[] List => this.list;
+
+        public T GetById(string id) => this.list.Find(t => t.Id == id);
 
         protected abstract string FindAssetsFilter { get; }
 

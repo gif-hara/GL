@@ -1,4 +1,5 @@
-﻿using HK.Framework.Text;
+﻿using GL.Database;
+using HK.Framework.Text;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -8,7 +9,7 @@ namespace GL.Materials
     /// 
     /// </summary>
     [CreateAssetMenu(menuName = "GL/Material")]
-    public sealed class Material : ScriptableObject
+    public sealed class Material : ScriptableObject, IMasterDataRecord
     {
         public string Id => this.name;
 

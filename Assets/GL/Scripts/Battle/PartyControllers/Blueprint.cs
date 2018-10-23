@@ -5,6 +5,7 @@ using GL.Battle;
 using HK.Framework.Text;
 using UnityEngine;
 using GL.User;
+using GL.Database;
 
 namespace GL.Battle.PartyControllers
 {
@@ -12,7 +13,7 @@ namespace GL.Battle.PartyControllers
     /// パーティの設計図
     /// </summary>
     [CreateAssetMenu(menuName = "GL/PartyControllers/Blueprint")]
-    public class Blueprint : ScriptableObject
+    public class Blueprint : ScriptableObject, IMasterDataRecord
     {
         public string Id => this.name;
         
@@ -41,9 +42,9 @@ namespace GL.Battle.PartyControllers
             return clone;
         }
 
-        public Party Create(Character controllerPrefab, Transform parent, Vector3 interval, float scaleX)
+        public Party Create(CharacterControllers.Character controllerPrefab, Transform parent, Vector3 interval, float scaleX)
         {
-            var member = new List<Character>();
+            var member = new List<CharacterControllers.Character>();
             for (int i = 0; i < this.parameters.Length; i++)
             {
                 var character = this.CreateCharacter(
@@ -59,9 +60,9 @@ namespace GL.Battle.PartyControllers
             return new Party(member, this);
         }
 
-        protected Character CreateCharacter(
+        protected CharacterControllers.Character CreateCharacter(
             int index,
-            Character controllerPrefab,
+            CharacterControllers.Character controllerPrefab,
             Transform parent,
             Vector3 position,
             float scaleX
@@ -80,7 +81,7 @@ namespace GL.Battle.PartyControllers
             return result;
         }
 
-        protected Character InternalCreateCharacter(Character controllerPrefab, Transform parent, Vector3 position, GameObject modelPrefab, float scaleX)
+        protected CharacterControllers.Character InternalCreateCharacter(CharacterControllers.Character controllerPrefab, Transform parent, Vector3 position, GameObject modelPrefab, float scaleX)
         {
             var result = Instantiate(controllerPrefab, parent);
             result.transform.localPosition = position;

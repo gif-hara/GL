@@ -2,6 +2,7 @@
 using GL.Battle;
 using HK.Framework.Text;
 using UnityEngine;
+using GL.Database;
 
 namespace GL.Battle
 {
@@ -12,7 +13,7 @@ namespace GL.Battle
     /// コマンドリストを担う
     /// </remarks>
     [CreateAssetMenu(menuName = "GL/Weapon")]
-    public sealed class Weapon : ScriptableObject
+    public sealed class Weapon : ScriptableObject, IMasterDataRecord
     {
         /// <summary>
         /// ID
