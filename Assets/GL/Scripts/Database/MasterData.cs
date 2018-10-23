@@ -12,8 +12,8 @@ namespace GL.Database
         private static MasterData instance;
 
         [SerializeField]
-        private Character character;
-        public static Character Character => instance.character;
+        private CharacterList character;
+        public static CharacterList Character => instance.character;
 
         [SerializeField]
         private WeaponList weapon;

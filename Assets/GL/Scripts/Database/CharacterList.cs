@@ -7,7 +7,7 @@ namespace GL.Database
     /// キャラクターデータベース
     /// </summary>
     [CreateAssetMenu(menuName = "GL/MasterData/Character")]
-    public class Character : MasterDataList<Battle.CharacterControllers.Blueprint>
+    public class CharacterList : MasterDataList<Battle.CharacterControllers.Blueprint>
     {
         protected override string FindAssetsFilter => "l:GK.Battle.CharacterControllers.Blueprint";
 
