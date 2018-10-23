@@ -29,10 +29,12 @@ namespace GL.User
         public string BlueprintId;
 
         [SerializeField]
-        public int RightWeaponInstanceId;
+        private Hand rightHand;
+        public Hand RightHand => this.rightHand;
 
         [SerializeField]
-        public int LeftWeaponInstanceId;
+        private Hand leftHand;
+        public Hand LeftHand => this.leftHand;
 
         [SerializeField]
         public List<int> AccessoryInstanceIds = new List<int>();
@@ -55,8 +57,8 @@ namespace GL.User
                 PlayerName = "",
                 Level = level,
                 BlueprintId = blueprintId,
-                RightWeaponInstanceId = rightWeaponInstanceId,
-                LeftWeaponInstanceId = leftWeaponInstanceId
+                rightHand = new Hand(rightWeaponInstanceId),
+                leftHand = new Hand(leftWeaponInstanceId)
             };
         }
 
@@ -71,27 +73,15 @@ namespace GL.User
                 PlayerName = this.PlayerName,
                 Level = this.Level,
                 BlueprintId = this.BlueprintId,
-                RightWeaponInstanceId = this.RightWeaponInstanceId,
-                LeftWeaponInstanceId = this.LeftWeaponInstanceId
+                rightHand = this.rightHand,
+                leftHand = this.leftHand
             };
         }
-
-        public bool IsPossessionRightWeapon => this.RightWeaponInstanceId != 0;
-
-        public User.Weapon RightUserWeapon => UserData.Instance.Weapons.GetByInstanceId(this.RightWeaponInstanceId);
-
-        public Battle.Weapon RightBattleWeapon => this.IsPossessionRightWeapon ? this.RightUserWeapon.BattleWeapon : null;
-
-        public bool IsPossessionLeftWeapon => this.LeftWeaponInstanceId != 0;
-
-        public User.Weapon LeftUserWeapon => UserData.Instance.Weapons.GetByInstanceId(this.LeftWeaponInstanceId);
-
-        public Battle.Weapon LeftBattleWeapon => this.IsPossessionLeftWeapon ? this.LeftUserWeapon.BattleWeapon : null;
 
         /// <summary>
         /// <paramref name="instanceId"/>の武器を装備しているか返す
         /// </summary>
-        public bool IsEquipedWeapon(int instanceId) => this.RightWeaponInstanceId == instanceId || this.LeftWeaponInstanceId == instanceId;
+        public bool IsEquipedWeapon(int instanceId) => this.RightHand.WeaponInstanceId == instanceId || this.LeftHand.WeaponInstanceId == instanceId;
 
         /// <summary>
         /// 武器を切り替える
@@ -100,11 +90,11 @@ namespace GL.User
         {
             if(handType == Constants.HandType.Right)
             {
-                this.RightWeaponInstanceId = instanceId;
+                this.RightHand.WeaponInstanceId = instanceId;
             }
             else
             {
-                this.LeftWeaponInstanceId = instanceId;
+                this.LeftHand.WeaponInstanceId = instanceId;
             }
         }
 
@@ -143,13 +133,13 @@ namespace GL.User
             get
             {
                 var result = new List<Battle.Commands.Bundle.Blueprint>();
-                if(IsPossessionRightWeapon)
+                if(this.RightHand.IsPossession)
                 {
-                    result.AddRange(this.RightBattleWeapon.Commands);
+                    result.AddRange(this.RightHand.BattleWeapon.Commands);
                 }
-                if(IsPossessionLeftWeapon)
+                if(this.LeftHand.IsPossession)
                 {
-                    result.AddRange(this.LeftBattleWeapon.Commands);
+                    result.AddRange(this.LeftHand.BattleWeapon.Commands);
                 }
 
                 return result.ToArray();

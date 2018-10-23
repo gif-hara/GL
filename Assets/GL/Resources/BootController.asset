@@ -25,36 +25,46 @@ MonoBehaviour:
         PlayerName: "\u30C6\u30B9\u30C81"
         Level: 1
         BlueprintId: 101001
-        RightWeaponInstanceId: 1
-        LeftWeaponInstanceId: 0
+        rightHand:
+          weaponInstanceId: 1
+        leftHand:
+          weaponInstanceId: 0
         AccessoryInstanceIds: 
       - instanceId: 0
         PlayerName: "\u30C6\u30B9\u30C82"
         Level: 1
         BlueprintId: 102001
-        RightWeaponInstanceId: 2
-        LeftWeaponInstanceId: 0
+        rightHand:
+          weaponInstanceId: 2
+        leftHand:
+          weaponInstanceId: 0
         AccessoryInstanceIds: 
       - instanceId: 0
         PlayerName: "\u30C6\u30B9\u30C83"
         Level: 1
         BlueprintId: 103001
-        RightWeaponInstanceId: 3
-        LeftWeaponInstanceId: 0
+        rightHand:
+          weaponInstanceId: 3
+        leftHand:
+          weaponInstanceId: 0
         AccessoryInstanceIds: 
       - instanceId: 0
         PlayerName: "\u30C6\u30B9\u30C84"
         Level: 1
         BlueprintId: 104001
-        RightWeaponInstanceId: 4
-        LeftWeaponInstanceId: 0
+        rightHand:
+          weaponInstanceId: 4
+        leftHand:
+          weaponInstanceId: 0
         AccessoryInstanceIds: 
       - instanceId: 0
         PlayerName: "\u30C6\u30B9\u30C85"
         Level: 1
         BlueprintId: 105001
-        RightWeaponInstanceId: 5
-        LeftWeaponInstanceId: 0
+        rightHand:
+          weaponInstanceId: 5
+        leftHand:
+          weaponInstanceId: 0
         AccessoryInstanceIds: 
       InstanceId:
         count: 0
@@ -94,6 +104,8 @@ MonoBehaviour:
     unlockElements:
       enemyParties:
       - 101001
+      characters: []
+      weapons: []
     currentPartyIndex: 0
   database: {fileID: 11400000, guid: 0a79933d2e00d4e8da66c79e07650958, type: 2}
   dontDestroyPrefabs:

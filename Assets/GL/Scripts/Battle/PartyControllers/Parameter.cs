@@ -37,8 +37,8 @@ namespace GL.Battle.PartyControllers
             {
                 Level = player.Level,
                 Blueprint = player.Blueprint,
-                RightWeapon = player.RightBattleWeapon,
-                LeftWeapon = player.LeftBattleWeapon,
+                RightWeapon = player.RightHand.BattleWeapon,
+                LeftWeapon = player.LeftHand.BattleWeapon,
                 Accessories = player.Accessories
             };
         }

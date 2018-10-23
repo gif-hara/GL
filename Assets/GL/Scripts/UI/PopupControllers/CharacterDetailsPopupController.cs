@@ -156,8 +156,8 @@ namespace GL.Home.UI
             this.profile.Apply(player);
             this.parameter.Apply(player.Parameter);
             this.resistance.Apply(player.Resistance);
-            this.rightWeapon.Setup(this, player.RightBattleWeapon);
-            this.leftWeapon.Setup(this, player.LeftBattleWeapon);
+            this.rightWeapon.Setup(this, player.RightHand.BattleWeapon);
+            this.leftWeapon.Setup(this, player.LeftHand.BattleWeapon);
             this.commandListController.Setup(player.UsingCommands);
             this.editPlayer = player;
 
@@ -231,11 +231,11 @@ namespace GL.Home.UI
                         UserData.Instance.Save();
                         if(_handType == Constants.HandType.Right)
                         {
-                            _this.rightWeapon.Setup(_this, _this.editPlayer.RightBattleWeapon);
+                            _this.rightWeapon.Setup(_this, _this.editPlayer.RightHand.BattleWeapon);
                         }
                         else
                         {
-                            _this.leftWeapon.Setup(_this, _this.editPlayer.LeftBattleWeapon);
+                            _this.leftWeapon.Setup(_this, _this.editPlayer.LeftHand.BattleWeapon);
                         }
                         _this.commandListController.Setup(_this.editPlayer.UsingCommands);
                     }
