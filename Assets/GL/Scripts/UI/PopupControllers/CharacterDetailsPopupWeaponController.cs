@@ -24,6 +24,18 @@ namespace GL.Home.UI
         [SerializeField]
         private Button button;
 
+        private CharacterDetailsPopupController controller;
+
+        void Start()
+        {
+            this.button.OnClickAsObservable()
+                .SubscribeWithState(this, (_, _this) =>
+                {
+                    _this.controller.ShowEquippedWeaponPopup(_this.handType);
+                })
+                .AddTo(this);
+        }
+
         public void Setup(CharacterDetailsPopupController controller, Battle.Weapon weapon)
         {
             if (weapon == null)
@@ -35,12 +47,7 @@ namespace GL.Home.UI
                 this.weaponName.text = weapon.WeaponName;
             }
 
-            this.button.OnClickAsObservable()
-                .SubscribeWithState2(this, controller, (_, _this, _controller) =>
-                {
-                    _controller.ShowEquippedWeaponPopup(_this.handType);
-                })
-                .AddTo(this);
+            this.controller = controller;
         }
     }
 }

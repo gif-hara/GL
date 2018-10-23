@@ -145,6 +145,12 @@ namespace GL.Home.UI
         [SerializeField]
         private GameObject commandsRoot;
 
+        /// <summary>
+        /// 同じ武器を装備しようとした時のポップアップ
+        /// </summary>
+        [SerializeField]
+        private SimplePopupStrings failedChangeWeaponFromSame;
+
         private Player editPlayer;
 
         /// <summary>
@@ -225,21 +231,36 @@ namespace GL.Home.UI
                 .SubmitAsObservable()
                 .SubscribeWithState3(this, popup, handType, (instanceId, _this, _popup, _handType) =>
                 {
-                    if(instanceId != -1)
+                    // 戻るボタンが押されたら何もしない
+                    if(instanceId == -1)
                     {
-                        _this.editPlayer.ChangeWeapon(_handType, instanceId);
-                        UserData.Instance.Save();
-                        if(_handType == Constants.HandType.Right)
-                        {
-                            _this.rightWeapon.Setup(_this, _this.editPlayer.RightHand.BattleWeapon);
-                        }
-                        else
-                        {
-                            _this.leftWeapon.Setup(_this, _this.editPlayer.LeftHand.BattleWeapon);
-                        }
-                        _this.commandListController.Setup(_this.editPlayer.UsingCommands);
+                        PopupManager.Close(_popup);
+                        return;
                     }
 
+                    // 同じ武器は装備出来ない
+                    if(instanceId != 0)
+                    {
+                        var userWeapon = UserData.Instance.Weapons.GetByInstanceId(instanceId);
+                        if (_this.editPlayer.IsEquipedSameWeapon(userWeapon.Id))
+                        {
+                            _this.failedChangeWeaponFromSame.Show()
+                                .CloseOnSubmit();
+                            return;
+                        }
+                    }
+
+                    _this.editPlayer.ChangeWeapon(_handType, instanceId);
+                    UserData.Instance.Save();
+                    if(_handType == Constants.HandType.Right)
+                    {
+                        _this.rightWeapon.Setup(_this, _this.editPlayer.RightHand.BattleWeapon);
+                    }
+                    else
+                    {
+                        _this.leftWeapon.Setup(_this, _this.editPlayer.LeftHand.BattleWeapon);
+                    }
+                    _this.commandListController.Setup(_this.editPlayer.UsingCommands);
                     PopupManager.Close(_popup);
                 });
         }

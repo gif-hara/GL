@@ -84,6 +84,11 @@ namespace GL.User
         public bool IsEquipedWeapon(int instanceId) => this.RightHand.WeaponInstanceId == instanceId || this.LeftHand.WeaponInstanceId == instanceId;
 
         /// <summary>
+        /// <paramref name="weaponId"/>と同じ武器を既に装備しているか返す
+        /// </summary>
+        public bool IsEquipedSameWeapon(string weaponId) => (this.RightHand.IsPossession && this.RightHand.UserWeapon.Id == weaponId) || (this.LeftHand.IsPossession && this.LeftHand.UserWeapon.Id == weaponId);
+
+        /// <summary>
         /// 武器を切り替える
         /// </summary>
         public void ChangeWeapon(Constants.HandType handType, int instanceId)
