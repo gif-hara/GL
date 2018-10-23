@@ -20,8 +20,8 @@ namespace GL.Database
         public static WeaponList Weapon => instance.weapon;
 
         [SerializeField]
-        private Accessory accessory;
-        public static Accessory Accessory => instance.accessory;
+        private AccessoryList accessory;
+        public static AccessoryList Accessory => instance.accessory;
 
         [SerializeField]
         private MaterialList material;
