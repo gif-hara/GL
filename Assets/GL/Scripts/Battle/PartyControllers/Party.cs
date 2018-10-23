@@ -5,6 +5,7 @@ using GL.Battle.CharacterControllers;
 using GL.Battle;
 using HK.GL.Extensions;
 using UnityEngine.Assertions;
+using GL.Database;
 
 namespace GL.Battle.PartyControllers
 {
@@ -15,7 +16,7 @@ namespace GL.Battle.PartyControllers
     {
         public List<Character> Members { private set; get; }
 
-        public Blueprint Blueprint { get; private set; }
+        public PartyRecord PartyRecord { get; private set; }
 
         /// <summary>
         /// 生き残っているメンバーを返す
@@ -28,10 +29,10 @@ namespace GL.Battle.PartyControllers
             }
         }
 
-        public Party(List<Character> members, Blueprint blueprint)
+        public Party(List<Character> members, PartyRecord blueprint)
         {
             this.Members = members;
-            this.Blueprint = blueprint;
+            this.PartyRecord = blueprint;
         }
 
         /// <summary>

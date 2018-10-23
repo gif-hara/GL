@@ -1,4 +1,6 @@
-﻿namespace GL.Systems
+﻿using GL.Database;
+
+namespace GL.Systems
 {
     /// <summary>
     /// シーンを仲介するクラス
@@ -8,11 +10,11 @@
         /// <summary>
         /// バトルするプレイヤーパーティ
         /// </summary>
-        public static Battle.PartyControllers.Blueprint PlayerParty;
+        public static PartyRecord PlayerParty;
         
         /// <summary>
         /// バトルする敵パーティ
         /// </summary>
-        public static Battle.PartyControllers.Blueprint EnemyParty;
+        public static PartyRecord EnemyParty;
     }
 }

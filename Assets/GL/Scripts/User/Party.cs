@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using GL.Database;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -75,7 +76,7 @@ namespace GL.User
         /// バトル用にデータを変換する
         /// </summary>
         /// <returns></returns>
-        public GL.Battle.PartyControllers.Blueprint AsBlueprint => GL.Battle.PartyControllers.Blueprint.CloneAsPlayerParty(this);
+        public PartyRecord AsBlueprint => PartyRecord.CloneAsPlayerParty(this);
 
         /// <summary>
         /// プレイヤーリストを返す

@@ -7,13 +7,13 @@ using UnityEngine;
 using GL.User;
 using GL.Database;
 
-namespace GL.Battle.PartyControllers
+namespace GL.Database
 {
     /// <summary>
-    /// パーティの設計図
+    /// パーティレコード
     /// </summary>
-    [CreateAssetMenu(menuName = "GL/PartyControllers/Blueprint")]
-    public class Blueprint : ScriptableObject, IMasterDataRecord
+    [CreateAssetMenu(menuName = "GL/MasterData/Record/Party")]
+    public class PartyRecord : ScriptableObject, IMasterDataRecord
     {
         public string Id => this.name;
         
@@ -21,7 +21,7 @@ namespace GL.Battle.PartyControllers
         private StringAsset.Finder partyName;
 
         [SerializeField]
-        private Parameter[] parameters;
+        private Battle.PartyControllers.Parameter[] parameters;
 
         [SerializeField]
         private Constants.CharacterType characterType;
@@ -32,19 +32,19 @@ namespace GL.Battle.PartyControllers
 
         public string PartyName { get { return partyName.Get; } }
 
-        public static Blueprint CloneAsPlayerParty(User.Party party)
+        public static PartyRecord CloneAsPlayerParty(User.Party party)
         {
             var userData = UserData.Instance;
-            var clone = ScriptableObject.CreateInstance<Blueprint>();
-            clone.parameters = party.AsPlayers.Select(p => Parameter.Create(userData, p)).ToArray();
+            var clone = ScriptableObject.CreateInstance<PartyRecord>();
+            clone.parameters = party.AsPlayers.Select(p => Battle.PartyControllers.Parameter.Create(userData, p)).ToArray();
             clone.characterType = Constants.CharacterType.Player;
 
             return clone;
         }
 
-        public Party Create(CharacterControllers.Character controllerPrefab, Transform parent, Vector3 interval, float scaleX)
+        public Battle.PartyControllers.Party Create(Character controllerPrefab, Transform parent, Vector3 interval, float scaleX)
         {
-            var member = new List<CharacterControllers.Character>();
+            var member = new List<Character>();
             for (int i = 0; i < this.parameters.Length; i++)
             {
                 var character = this.CreateCharacter(
@@ -57,12 +57,12 @@ namespace GL.Battle.PartyControllers
                 member.Add(character);
             }
 
-            return new Party(member, this);
+            return new Battle.PartyControllers.Party(member, this);
         }
 
-        protected CharacterControllers.Character CreateCharacter(
+        protected Character CreateCharacter(
             int index,
-            CharacterControllers.Character controllerPrefab,
+            Character controllerPrefab,
             Transform parent,
             Vector3 position,
             float scaleX
@@ -81,7 +81,7 @@ namespace GL.Battle.PartyControllers
             return result;
         }
 
-        protected CharacterControllers.Character InternalCreateCharacter(CharacterControllers.Character controllerPrefab, Transform parent, Vector3 position, GameObject modelPrefab, float scaleX)
+        protected Character InternalCreateCharacter(Character controllerPrefab, Transform parent, Vector3 position, GameObject modelPrefab, float scaleX)
         {
             var result = Instantiate(controllerPrefab, parent);
             result.transform.localPosition = position;

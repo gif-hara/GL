@@ -1,4 +1,5 @@
-﻿using GL.Systems;
+﻿using GL.Database;
+using GL.Systems;
 using GL.User;
 using UniRx;
 using UnityEngine;
@@ -18,7 +19,7 @@ namespace GL.Home.UI
         [SerializeField]
         private Text text;
 
-        public void Initialize(Battle.PartyControllers.Blueprint enemyParty)
+        public void Initialize(PartyRecord enemyParty)
         {
             this.text.text = enemyParty.PartyName;
             this.button.OnClickAsObservable()

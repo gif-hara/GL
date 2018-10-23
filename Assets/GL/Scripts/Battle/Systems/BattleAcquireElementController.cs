@@ -52,7 +52,7 @@ namespace GL.Battle
                 .Where(x => x.Result == Constants.BattleResult.PlayerWin)
                 .SubscribeWithState(this, (_, _this) =>
                 {
-                    _this.UnlockElements = UserData.Instance.UnlockElements.GetNotDuplicate(BattleManager.Instance.Parties.Enemy.Blueprint.UnlockElements);
+                    _this.UnlockElements = UserData.Instance.UnlockElements.GetNotDuplicate(BattleManager.Instance.Parties.Enemy.PartyRecord.UnlockElements);
                     _this.ApplyUserData();
                 })
                 .AddTo(owner);

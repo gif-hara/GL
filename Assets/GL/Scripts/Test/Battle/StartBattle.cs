@@ -3,6 +3,7 @@ using GL.Battle.CharacterControllers;
 using GL.Battle.PartyControllers;
 using GL.Battle;
 using GL.Systems;
+using GL.Database;
 
 namespace GL.Test
 {
@@ -27,10 +28,10 @@ namespace GL.Test
         private Vector3 enemyInterval;
 
         [SerializeField]
-        private GL.Battle.PartyControllers.Blueprint playerParty;
+        private PartyRecord playerParty;
 
         [SerializeField]
-        private GL.Battle.PartyControllers.Blueprint enemyParty;
+        private PartyRecord enemyParty;
 
         void Start()
         {
