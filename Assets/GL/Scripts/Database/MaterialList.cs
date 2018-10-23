@@ -7,7 +7,7 @@ namespace GL.Database
     /// 素材データベース
     /// </summary>
     [CreateAssetMenu(menuName = "GL/MasterData/Material")]
-    public sealed class Material : MasterDataList<Materials.Material>
+    public sealed class MaterialList : MasterDataList<Materials.Material>
     {
         protected override string FindAssetsFilter => "l:GK.Material";
 

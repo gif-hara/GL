@@ -24,8 +24,8 @@ namespace GL.Database
         public static Accessory Accessory => instance.accessory;
 
         [SerializeField]
-        private Material material;
-        public static Material Material => instance.material;
+        private MaterialList material;
+        public static MaterialList Material => instance.material;
 
         [SerializeField]
         private EnemyParty enemyParty;
