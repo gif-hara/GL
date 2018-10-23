@@ -8,7 +8,7 @@ using UnityEngine;
 namespace GL.Database
 {
     /// <summary>
-    /// キャラクターを構成する設計図
+    /// キャラクターレコード
     /// </summary>
     [CreateAssetMenu(menuName = "GL/CharacterControllers/Blueprint")]
     public sealed class CharacterRecord : ScriptableObject, IMasterDataRecord
