@@ -76,12 +76,16 @@ namespace GL.Battle
             {
                 case Constants.StatusParameterType.Strength:
                     return GetAddStrengthValue(invoker, rate);
+                case Constants.StatusParameterType.StrengthMagic:
+                    return GetAddStrengthMagicValue(invoker, rate);
                 case Constants.StatusParameterType.Defense:
                     return GetAddDefenseValue(invoker, rate);
+                case Constants.StatusParameterType.DefenseMagic:
+                    return GetAddDefenseMagicValue(invoker, rate);
                 case Constants.StatusParameterType.Speed:
                     return GetAddSpeedValue(invoker, rate);
                 default:
-                    Assert.IsTrue(false, string.Format("未対応の値です {0}", type));
+                    Assert.IsTrue(false, $"{type}は未対応の値です");
                     return 0;
             }
         }
@@ -90,6 +94,22 @@ namespace GL.Battle
         /// 攻撃力上昇系コマンドの上昇量を返す
         /// </summary>
         private static int GetAddStrengthValue(CharacterStatusController invoker, float rate)
+        {
+            // TODO: 実装
+            if (rate >= 0.0f)
+            {
+                return Mathf.FloorToInt(rate);
+            }
+            else
+            {
+                return Mathf.FloorToInt(rate);
+            }
+        }
+
+        /// <summary>
+        /// 魔法攻撃力上昇系コマンドの上昇量を返す
+        /// </summary>
+        private static int GetAddStrengthMagicValue(CharacterStatusController invoker, float rate)
         {
             // TODO: 実装
             if (rate >= 0.0f)
@@ -117,7 +137,23 @@ namespace GL.Battle
                 return Mathf.FloorToInt(rate);
             }
         }
-        
+
+        /// <summary>
+        /// 魔法防御力上昇系コマンドの上昇量を返す
+        /// </summary>
+        private static int GetAddDefenseMagicValue(CharacterStatusController invoker, float rate)
+        {
+            // TODO: 実装
+            if (rate >= 0.0f)
+            {
+                return Mathf.FloorToInt(rate);
+            }
+            else
+            {
+                return Mathf.FloorToInt(rate);
+            }
+        }
+
         /// <summary>
         /// 素早さ上昇系コマンドの上昇量を返す
         /// </summary>
