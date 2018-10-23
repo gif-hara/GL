@@ -1,4 +1,8 @@
 ﻿using GL.Battle;
+using GL.Events.Battle;
+using HK.Framework.EventSystems;
+using HK.GL.Extensions;
+using UniRx;
 
 namespace GL.Battle.CharacterControllers
 {
@@ -100,6 +104,11 @@ namespace GL.Battle.CharacterControllers
                    this.Dynamic.Resistance.Get(type) +
                    this.Accessory.Resistance.Get(type) +
                    this.OnSoldier.Resistance.Get(type);
+        }
+
+        public void AddChargeTurn(int value)
+        {
+            this.Commands.ForEach(c => c.AddChargeTurn(value));
         }
     }
 }

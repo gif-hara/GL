@@ -17,6 +17,9 @@ namespace GL.Battle.Commands.Bundle
     {
         private Parameter parameter;
 
+        private int currentChargeTurn;
+        public int CurrentChargeTurn => this.currentChargeTurn;
+
         private Element.IImplement[] elements;
 
         public string Name
@@ -32,6 +35,7 @@ namespace GL.Battle.Commands.Bundle
         public Implement(Parameter parameter)
         {
             this.parameter = parameter;
+            this.currentChargeTurn = this.parameter.InitialChargeTurn;
             this.elements = parameter.Elements.Select(e => e.Create()).ToArray();
         }
 
@@ -40,6 +44,7 @@ namespace GL.Battle.Commands.Bundle
         /// </summary>
         public void Invoke(Character invoker, Character[] targets)
         {
+            Assert.IsTrue(this.currentChargeTurn >= this.parameter.ChargeTurn, $"{this.parameter.Name.Get}がチャージターン数を満たしていないのにコマンドが実行されました");
             if(this.CanRecord)
             {
                 BattleManager.Instance.InvokedCommandResult.InvokedCommand = this;
@@ -52,6 +57,7 @@ namespace GL.Battle.Commands.Bundle
                 {
                     e.Invoke(invoker, this, targets);
                 });
+                this.currentChargeTurn = -1;
             },
             () =>
             {
@@ -88,6 +94,21 @@ namespace GL.Battle.Commands.Bundle
         {
             get { return this.parameter.Postprocess == Constants.PostprocessCommand.EndTurn; }
         }
+
+        /// <summary>
+        /// チャージターン数を加算する
+        /// </summary>
+        public void AddChargeTurn(int value)
+        {
+            this.currentChargeTurn += value;
+        }
+
+        /// <summary>
+        /// コマンドを実行可能か返す
+        /// </summary>
+        public bool CanInvoke => this.currentChargeTurn >= this.parameter.ChargeTurn;
+
+        public int ChargeTurn => this.parameter.ChargeTurn;
 
         /// <summary>
         /// コマンド実行後の後始末
@@ -136,6 +157,16 @@ namespace GL.Battle.Commands.Bundle
             /// コマンド実行後の処理タイプ
             /// </summary>
             public Constants.PostprocessCommand Postprocess;
+
+            /// <summary>
+            /// 実行後に必要なチャージターン数
+            /// </summary>
+            public int ChargeTurn;
+
+            /// <summary>
+            /// チャージターン数の初期値
+            /// </summary>
+            public int InitialChargeTurn;
 
             /// <summary>
             /// 実行されるコマンドリスト

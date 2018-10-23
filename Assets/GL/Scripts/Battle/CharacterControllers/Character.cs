@@ -52,6 +52,8 @@ namespace GL.Battle.CharacterControllers
                 .Where(x => x.Character == this)
                 .SubscribeWithState(this, (x, _this) =>
                 {
+                    this.StatusController.AddChargeTurn(1);
+
                     if (_this.AilmentController.Find(Constants.StatusAilmentType.Paralysis))
                     {
                         Debug.Log("TODO: 麻痺を表現する");
@@ -84,6 +86,8 @@ namespace GL.Battle.CharacterControllers
                             Broker.Global.Publish(SelectedCommand.Get(_this, command));
                         }
                     }
+
+                    Broker.Global.Publish(VisibleRequestSelectCommandPanel.Get(this));
                 })
                 .AddTo(this);
         }

@@ -292,3 +292,7 @@ MonoBehaviour:
       ja: "{0}\u304C\u5165\u8377\u3057\u307E\u3057\u305F\uFF01"
       en: 
     guid: f0b5003c-9104-48a8-aba5-cce18942c22f
+  - value:
+      ja: '{0}/{1}'
+      en: 
+    guid: 6b48648f-1271-4bc1-9962-2160e1daef5c

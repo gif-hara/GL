@@ -19,7 +19,7 @@ namespace HK.GL.UI.Battle
 
         void Awake()
         {
-            Broker.Global.Receive<StartSelectCommand>()
+            Broker.Global.Receive<VisibleRequestSelectCommandPanel>()
                 .SubscribeWithState(this, (x, _this) =>
                 {
                     if (x.Character.CharacterType == Constants.CharacterType.Player)

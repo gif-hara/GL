@@ -5,6 +5,7 @@ using GL.Events.Battle;
 using HK.Framework.EventSystems;
 using UniRx;
 using GL.Battle.Commands.Bundle;
+using HK.Framework.Text;
 
 namespace HK.GL.UI.Battle
 {
@@ -19,9 +20,24 @@ namespace HK.GL.UI.Battle
         [SerializeField]
         private Text text;
 
+        [SerializeField]
+        private Image lockImage;
+
+        [SerializeField]
+        private Text remainingTurn;
+
+        [SerializeField]
+        private StringAsset.Finder remainingTurnFormat;
+
         public void SetProperty(Character invoker, Implement implement)
         {
             this.text.text = implement.Name;
+
+            var canInvoke = implement.CanInvoke;
+            this.button.interactable = canInvoke;
+            this.lockImage.enabled = !canInvoke;
+            this.remainingTurn.enabled = !canInvoke;
+            this.remainingTurn.text = this.remainingTurnFormat.Format(implement.CurrentChargeTurn.ToString(), implement.ChargeTurn.ToString());
 
             this.button.OnClickAsObservable()
                 .First()
