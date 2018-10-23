@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4c05a5979337d4f278b5096f8db1513d, type: 3}
-  m_Name: 0000
+  m_Name: 201001
   m_EditorClassIdentifier: 
   rank: 0
   characterName:
@@ -197,3 +197,4 @@ MonoBehaviour:
   materialLotteries:
   - material: {fileID: 11400000, guid: 4cf9b0a912efc4057ac5e9536dc528d1, type: 2}
     lottery: 1
+  aiController: {fileID: 11400000, guid: 410d0b18cb279473f82844786b3f456b, type: 2}

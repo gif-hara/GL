@@ -1,5 +1,6 @@
 ﻿using System;
 using GL.Battle;
+using GL.Battle.AI;
 using GL.Battle.CharacterControllers.JobSystems;
 using HK.Framework.Text;
 using UnityEngine;
@@ -72,6 +73,10 @@ namespace GL.Battle.CharacterControllers
         [SerializeField]
         private MaterialLottery[] materialLotteries;
         public MaterialLottery[] MaterialLotteries => this.materialLotteries;
+
+        [SerializeField]
+        private AIController aiController;
+        public AIController AIController => this.aiController;
 
         public Parameter GetParameter(int level)
         {

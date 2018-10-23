@@ -80,10 +80,7 @@ namespace GL.Battle.CharacterControllers
                     {
                         if (_this.CharacterType == Constants.CharacterType.Enemy)
                         {
-                            // TODO: AI実装
-                            var _commands = _this.StatusController.Commands;
-                            var command = _commands[Random.Range(0, _commands.Length)];
-                            Broker.Global.Publish(SelectedCommand.Get(_this, command));
+                            _this.StatusController.Blueprint.AIController.Invoke(_this);
                         }
                     }
 
