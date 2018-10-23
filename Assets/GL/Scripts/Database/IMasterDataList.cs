@@ -4,9 +4,9 @@ using UnityEngine.Assertions;
 namespace GL.Database
 {
     /// <summary>
-    /// リスト形式で保持するデータベースのインターフェイス
+    /// リスト形式で保持するマスターデータのインターフェイス
     /// </summary>
-    public interface IDataBaseList<T> where T : ScriptableObject
+    public interface IMasterDataList<T> where T : ScriptableObject
     {
         T[] List { get; }
     }

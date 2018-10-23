@@ -7,7 +7,7 @@ namespace GL.Database
     /// 敵パーティデータベース
     /// </summary>
     [CreateAssetMenu(menuName = "GL/MasterData/EnemyParty")]
-    public sealed class EnemyParty : DatabaseList<Battle.PartyControllers.Blueprint>
+    public sealed class EnemyParty : MasterDataList<Battle.PartyControllers.Blueprint>
     {
         protected override string FindAssetsFilter => "l:GK.Battle.PartyControllers.Blueprint";
 
