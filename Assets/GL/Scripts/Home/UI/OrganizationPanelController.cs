@@ -261,7 +261,7 @@ namespace GL.Home.UI
         {
             Assert.AreNotEqual(player.Level, Constants.LevelMax);
             var u = UserData.Instance;
-            var needExperience = player.Blueprint.Experience.GetNeedValue(player.Level + 1);
+            var needExperience = player.CharacterRecord.Experience.GetNeedValue(player.Level + 1);
             if(u.Wallet.Experience.IsEnough(needExperience))
             {
                 player.LevelUp();

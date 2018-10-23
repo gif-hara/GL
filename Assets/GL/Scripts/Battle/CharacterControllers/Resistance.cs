@@ -1,5 +1,6 @@
 ﻿using System;
 using GL.Battle;
+using GL.Database;
 using GL.Extensions;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -42,7 +43,7 @@ namespace GL.Battle.CharacterControllers
             this.Vitals = other.Vitals;
         }
 
-        public Resistance(Blueprint blueprint)
+        public Resistance(CharacterRecord blueprint)
             : this(blueprint.Resistance)
         {
         }

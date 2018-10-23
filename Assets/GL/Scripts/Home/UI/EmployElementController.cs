@@ -1,4 +1,5 @@
-﻿using GL.User;
+﻿using GL.Database;
+using GL.User;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
@@ -20,7 +21,7 @@ namespace GL.Home.UI
         private Button button;
         public Button Button => this.button;
 
-        public EmployElementController Setup(Battle.CharacterControllers.Blueprint blueprint)
+        public EmployElementController Setup(CharacterRecord blueprint)
         {
             this.playerName.text = blueprint.CharacterName;
             this.jobName.text = blueprint.Job.JobName;

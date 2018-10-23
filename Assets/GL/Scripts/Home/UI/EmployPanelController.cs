@@ -42,7 +42,7 @@ namespace GL.Home.UI
             }
         }
 
-        private void ShowCharacterDetailsPopup(Battle.CharacterControllers.Blueprint blueprint)
+        private void ShowCharacterDetailsPopup(CharacterRecord blueprint)
         {
             var popup = PopupManager.Show(this.characterDetailsPopupController).Setup(blueprint, CharacterDetailsPopupController.Mode.Employ);
             popup

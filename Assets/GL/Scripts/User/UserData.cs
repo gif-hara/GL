@@ -128,7 +128,7 @@ namespace GL.User
         /// <summary>
         /// プレイヤーを追加する
         /// </summary>
-        public void AddPlayer(Battle.CharacterControllers.Blueprint blueprint)
+        public void AddPlayer(CharacterRecord blueprint)
         {
             this.Players.List.Add(Player.Create(this.Players.InstanceId, 1, blueprint.Id, 0, 0));
         }

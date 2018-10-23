@@ -1,18 +1,17 @@
 ﻿using System;
-using GL.Battle;
 using GL.Battle.AI;
+using GL.Battle.CharacterControllers;
 using GL.Battle.CharacterControllers.JobSystems;
-using GL.Database;
 using HK.Framework.Text;
 using UnityEngine;
 
-namespace GL.Battle.CharacterControllers
+namespace GL.Database
 {
     /// <summary>
     /// キャラクターを構成する設計図
     /// </summary>
     [CreateAssetMenu(menuName = "GL/CharacterControllers/Blueprint")]
-    public sealed class Blueprint : ScriptableObject, IMasterDataRecord
+    public sealed class CharacterRecord : ScriptableObject, IMasterDataRecord
     {
         public string Id { get { return this.name; } }
 

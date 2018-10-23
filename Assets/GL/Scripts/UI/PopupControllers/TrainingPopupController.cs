@@ -52,7 +52,7 @@ namespace GL.UI.PopupControllers
         {
             var isLevelMax = player.IsLevelMax;
             this.possessionExperience.text = UserData.Instance.Wallet.Experience.Value.ToString();
-            this.needExperience.text = isLevelMax ? this.levelMax.Get : player.Blueprint.Experience.GetNeedValue(player.Level + 1).ToString();
+            this.needExperience.text = isLevelMax ? this.levelMax.Get : player.CharacterRecord.Experience.GetNeedValue(player.Level + 1).ToString();
             this.decideButton.interactable = !isLevelMax;
         }
     }

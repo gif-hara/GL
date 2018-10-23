@@ -20,7 +20,7 @@ namespace GL.Battle.PartyControllers
         public int Level;
 
         [SerializeField]
-        public CharacterControllers.Blueprint Blueprint;
+        public CharacterRecord Blueprint;
 
         [SerializeField]
         public WeaponRecord RightWeapon;
@@ -36,7 +36,7 @@ namespace GL.Battle.PartyControllers
             return new Parameter()
             {
                 Level = player.Level,
-                Blueprint = player.Blueprint,
+                Blueprint = player.CharacterRecord,
                 RightWeapon = player.RightHand.BattleWeapon,
                 LeftWeapon = player.LeftHand.BattleWeapon,
                 Accessories = player.Accessories

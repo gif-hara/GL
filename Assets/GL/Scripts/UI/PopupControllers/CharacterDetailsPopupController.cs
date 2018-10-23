@@ -1,4 +1,5 @@
 ﻿using System;
+using GL.Database;
 using GL.Events.Home;
 using GL.UI;
 using GL.UI.PopupControllers;
@@ -98,7 +99,7 @@ namespace GL.Home.UI
             [SerializeField]
             private StringAsset.Finder decideFormat;
 
-            public void Apply(CharacterDetailsPopupController controller, Battle.CharacterControllers.Blueprint blueprint)
+            public void Apply(CharacterDetailsPopupController controller, CharacterRecord blueprint)
             {
                 controller.OnClickSubmit(this.decideButton, SubmitType.EmployDecide);
                 controller.OnClickSubmit(this.cancelButton, SubmitType.EmployCancel);
@@ -158,7 +159,7 @@ namespace GL.Home.UI
         /// </summary>
         public CharacterDetailsPopupController Setup(Player player, Mode mode)
         {
-            this.rank.Apply(player.Blueprint);
+            this.rank.Apply(player.CharacterRecord);
             this.profile.Apply(player);
             this.parameter.Apply(player.Parameter);
             this.resistance.Apply(player.Resistance);
@@ -198,7 +199,7 @@ namespace GL.Home.UI
             return this;
         }
 
-        public CharacterDetailsPopupController Setup(Battle.CharacterControllers.Blueprint blueprint, Mode mode)
+        public CharacterDetailsPopupController Setup(CharacterRecord blueprint, Mode mode)
         {
             this.rank.Apply(blueprint);
             this.profile.Apply(blueprint);
@@ -288,7 +289,7 @@ namespace GL.Home.UI
             [SerializeField]
             private GameObject rankImage;
 
-            public void Apply(Battle.CharacterControllers.Blueprint blueprint)
+            public void Apply(CharacterRecord blueprint)
             {
                 for (var i = 0; i < blueprint.Rank; i++)
                 {
@@ -315,11 +316,11 @@ namespace GL.Home.UI
             public void Apply(Player player)
             {
                 this.level.text = this.levelFormat.Format(player.Level.ToString());
-                this.characterName.text = player.Blueprint.CharacterName;
-                this.jobName.text = player.Blueprint.Job.JobName;
+                this.characterName.text = player.CharacterRecord.CharacterName;
+                this.jobName.text = player.CharacterRecord.Job.JobName;
             }
 
-            public void Apply(Battle.CharacterControllers.Blueprint blueprint)
+            public void Apply(CharacterRecord blueprint)
             {
                 this.level.text = this.levelFormat.Format(1.ToString());
                 this.characterName.text = blueprint.CharacterName;

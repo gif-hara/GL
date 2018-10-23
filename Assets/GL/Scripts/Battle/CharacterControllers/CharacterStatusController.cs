@@ -1,4 +1,5 @@
 ﻿using GL.Battle;
+using GL.Database;
 using GL.Events.Battle;
 using HK.Framework.EventSystems;
 using HK.GL.Extensions;
@@ -47,7 +48,7 @@ namespace GL.Battle.CharacterControllers
         /// <summary>
         /// 元となる設計図
         /// </summary>
-        public Blueprint Blueprint{ private set; get; }
+        public CharacterRecord CharacterRecord{ private set; get; }
 
         public string Name { get { return this.Base.Name; } }
 
@@ -63,10 +64,10 @@ namespace GL.Battle.CharacterControllers
         /// </summary>
         public bool IsDead { get { return this.HitPoint <= 0; } }
 
-        public CharacterStatusController(Blueprint blueprint, Commands.Bundle.Implement[] commands, int level)
+        public CharacterStatusController(CharacterRecord blueprint, Commands.Bundle.Implement[] commands, int level)
         {
-            this.Blueprint = blueprint;
-            this.Base = new CharacterStatus(this.Blueprint, level);
+            this.CharacterRecord = blueprint;
+            this.Base = new CharacterStatus(this.CharacterRecord, level);
             this.Dynamic = new CharacterStatus();
             this.Accessory = new CharacterStatus();
             this.OnSoldier = new CharacterStatus();

@@ -1,5 +1,6 @@
 ﻿using System;
 using GL.Battle;
+using GL.Database;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -57,7 +58,7 @@ namespace GL.Battle.CharacterControllers
             this.Speed = other.Speed;
         }
 
-        public Parameter(Blueprint blueprint, int level)
+        public Parameter(CharacterRecord blueprint, int level)
             : this(blueprint.GetParameter(level))
         {
         }

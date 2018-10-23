@@ -29,7 +29,7 @@ namespace GL.Battle
                 .Where(x => x.Character.CharacterType == Constants.CharacterType.Enemy)
                 .SubscribeWithState(this, (x, _this) =>
                 {
-                    var b = x.Character.StatusController.Blueprint;
+                    var b = x.Character.StatusController.CharacterRecord;
                     _this.Experience += b.AcquireExperience;
                     _this.Gold += b.Price;
                     b.MaterialLotteries

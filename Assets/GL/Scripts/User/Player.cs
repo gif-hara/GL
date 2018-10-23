@@ -39,11 +39,11 @@ namespace GL.User
         [SerializeField]
         public List<int> AccessoryInstanceIds = new List<int>();
 
-        public Parameter Parameter { get { return this.Blueprint.GetParameter(this.Level); } }
+        public Parameter Parameter { get { return this.CharacterRecord.GetParameter(this.Level); } }
 
-        public Resistance Resistance { get { return this.Blueprint.Resistance; } }
+        public Resistance Resistance { get { return this.CharacterRecord.Resistance; } }
 
-        private Blueprint cachedBlueprint = null;
+        private CharacterRecord cachedBlueprint = null;
 
         private Player()
         {
@@ -110,12 +110,12 @@ namespace GL.User
 
         public bool IsLevelMax => this.Level >= Constants.LevelMax;
 
-        public Battle.CharacterControllers.Blueprint Blueprint
+        public CharacterRecord CharacterRecord
         {
             get
             {
                 this.cachedBlueprint = this.cachedBlueprint ?? MasterData.Character.GetById(this.BlueprintId);
-                Assert.IsNotNull(this.cachedBlueprint, $"Id = {this.BlueprintId}の{typeof(Battle.CharacterControllers.Blueprint).Name}が存在しません");
+                Assert.IsNotNull(this.cachedBlueprint, $"Id = {this.BlueprintId}の{typeof(CharacterRecord).Name}が存在しません");
 
                 return this.cachedBlueprint;
             }

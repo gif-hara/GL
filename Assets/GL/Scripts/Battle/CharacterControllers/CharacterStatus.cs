@@ -1,4 +1,5 @@
 ﻿using System;
+using GL.Database;
 using UnityEngine;
 
 namespace GL.Battle.CharacterControllers
@@ -28,7 +29,7 @@ namespace GL.Battle.CharacterControllers
             this.Resistance = new Resistance();
         }
 
-        public CharacterStatus(Blueprint blueprint, int level)
+        public CharacterStatus(CharacterRecord blueprint, int level)
         {
             this.Name = blueprint.CharacterName;
             this.Parameter = new Parameter(blueprint, level);

@@ -41,7 +41,7 @@ namespace GL.Home.UI
 
         public void Setup(Player player)
         {
-            this.text.text = player.Blueprint.CharacterName;
+            this.text.text = player.CharacterRecord.CharacterName;
             this.Disposable.Clear();
 
             Broker.Global.Receive<StartPlayerChange>()

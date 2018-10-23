@@ -31,7 +31,7 @@ namespace GL.Battle.CharacterControllers
 
         private ICharacterAnimation characterAnimation;
 
-        public void Initialize(Blueprint blueprint, Implement[] commands, AccessoryRecord[] accessories, int level, Constants.CharacterType characterType)
+        public void Initialize(CharacterRecord blueprint, Implement[] commands, AccessoryRecord[] accessories, int level, Constants.CharacterType characterType)
         {
             this.StatusController = new CharacterStatusController(blueprint, commands, level);
             this.AilmentController = new CharacterAilmentController(this);
@@ -81,7 +81,7 @@ namespace GL.Battle.CharacterControllers
                     {
                         if (_this.CharacterType == Constants.CharacterType.Enemy)
                         {
-                            _this.StatusController.Blueprint.AIController.Invoke(_this);
+                            _this.StatusController.CharacterRecord.AIController.Invoke(_this);
                         }
                     }
 
