@@ -114,7 +114,7 @@ namespace GL.User
         {
             get
             {
-                this.cachedBlueprint = this.cachedBlueprint ?? MasterData.Character.List.Find(b => b.Id == this.BlueprintId);
+                this.cachedBlueprint = this.cachedBlueprint ?? MasterData.Character.GetById(this.BlueprintId);
                 Assert.IsNotNull(this.cachedBlueprint, $"Id = {this.BlueprintId}の{typeof(Battle.CharacterControllers.Blueprint).Name}が存在しません");
 
                 return this.cachedBlueprint;
@@ -126,7 +126,7 @@ namespace GL.User
             get
             {
                 var userData = UserData.Instance;
-                return this.AccessoryInstanceIds.Select(instanceId => MasterData.Accessory.List.Find(a => a.Id == userData.Accessories.GetByInstanceId(instanceId).Id)).ToArray();
+                return this.AccessoryInstanceIds.Select(instanceId => MasterData.Accessory.GetById(userData.Accessories.GetByInstanceId(instanceId).Id)).ToArray();
             }
         }
 

@@ -20,7 +20,7 @@ namespace GL.Home.UI
         {
             foreach (var id in UserData.Instance.UnlockElements.EnemyParties)
             {
-                var blueprint = MasterData.EnemyParty.List.Find(e => e.Id == id);
+                var blueprint = MasterData.EnemyParty.GetById(id);
                 var controller = Instantiate(this.controllerPrefab, this.scrollParent, false);
                 controller.Initialize(blueprint);
             }

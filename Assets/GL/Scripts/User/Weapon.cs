@@ -36,6 +36,6 @@ namespace GL.User
             return new Weapon(instanceId, this.id);
         }
 
-        public Battle.Weapon BattleWeapon => MasterData.Weapon.List.Find(w => w.Id == this.Id);
+        public Battle.Weapon BattleWeapon => MasterData.Weapon.GetById(this.Id);
     }
 }

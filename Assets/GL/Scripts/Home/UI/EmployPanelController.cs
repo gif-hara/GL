@@ -34,7 +34,7 @@ namespace GL.Home.UI
         {
             foreach(var c in UserData.Instance.UnlockElements.Characters)
             {
-                var blueprint = MasterData.Character.List.Find(x => x.Id == c);
+                var blueprint = MasterData.Character.GetById(c);
                 var element = Instantiate(this.elementPrefab, this.listParent, false).Setup(blueprint);
                 element.Button.OnClickAsObservable()
                     .SubscribeWithState2(this, blueprint, (_, _this, b) => _this.ShowCharacterDetailsPopup(b))

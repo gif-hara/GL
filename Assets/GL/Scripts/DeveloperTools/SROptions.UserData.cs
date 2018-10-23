@@ -67,7 +67,7 @@ public partial class SROptions
     [DisplayName("Print")]
     public void PrintAllMaterial()
     {
-        UserData.Instance.Materials.ForEach(m => Debug.Log($"[{MasterData.Material.List.Find(d => d.Id == m.Id).MaterialName}] *{m.Count}"));
+        UserData.Instance.Materials.ForEach(m => Debug.Log($"[{MasterData.Material.GetById(m.Id).MaterialName}] *{m.Count}"));
     }
 
     [Category(Category.UserData_UnlockElements)]
