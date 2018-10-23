@@ -10,9 +10,9 @@ using UnityEditor;
 namespace GL.Database
 {
     /// <summary>
-    /// リスト形式で保持するマスターデータの抽象クラス
+    /// レコードを保持する抽象クラス
     /// </summary>
-    public abstract class MasterDataList<T> : ScriptableObject, IMasterDataList<T> where T : ScriptableObject, IMasterDataRecord
+    public abstract class MasterDataRecordList<T> : ScriptableObject, IMasterDataRecordList<T> where T : ScriptableObject, IMasterDataRecord
     {
         [SerializeField]
         protected T[] list;
