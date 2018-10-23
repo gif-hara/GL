@@ -43,7 +43,7 @@ namespace GL.Database
         public int Price => this.price;
 
         [SerializeField]
-        private Blueprint[] commands;
-        public Blueprint[] Commands { get { return commands; } }
+        private CommandRecord[] commands;
+        public CommandRecord[] Commands { get { return commands; } }
     }
 }

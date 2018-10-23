@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using GL.Battle.CharacterControllers;
 using GL.Battle.PartyControllers;
+using GL.Database;
 using GL.Events.Battle;
 using HK.Framework.EventSystems;
 using UniRx;
@@ -23,19 +24,19 @@ namespace GL.Battle
         /// 混乱した時のコマンド
         /// </summary>
         [SerializeField]
-        private Commands.Bundle.Blueprint confuseBlueprint;
+        private CommandRecord confuseBlueprint;
 
         /// <summary>
         /// 狂暴した時のコマンド
         /// </summary>
         [SerializeField]
-        private Commands.Bundle.Blueprint berserkBlueprint;
+        private CommandRecord berserkBlueprint;
 
         /// <summary>
         /// 追い打ち時のコマンド
         /// </summary>
         [SerializeField]
-        private Commands.Bundle.Blueprint chaseBlueprint;
+        private CommandRecord chaseBlueprint;
 
         public Commands.Bundle.Implement ConfuseCommand { get; private set; }
 

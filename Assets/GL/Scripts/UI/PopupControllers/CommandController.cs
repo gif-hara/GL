@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using GL.Database;
+using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
 
@@ -15,7 +16,7 @@ namespace GL.UI
         [SerializeField]
         private Text description;
 
-        public void Setup(Battle.Commands.Bundle.Blueprint command)
+        public void Setup(CommandRecord command)
         {
             this.commandName.text = command.Parameter.Name.Get;
             this.description.text = command.Parameter.Description.Get;

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using GL.Database;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -17,7 +18,7 @@ namespace GL.UI
 
         private readonly List<CommandController> commands = new List<CommandController>();
 
-        public void Setup(IEnumerable<Battle.Commands.Bundle.Blueprint> commands)
+        public void Setup(IEnumerable<CommandRecord> commands)
         {
             this.Clear();
             foreach(var c in commands)
