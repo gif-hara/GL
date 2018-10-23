@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using GL.Database;
 using GL.Systems;
 using HK.Framework.Systems;
-using HK.GL.Extensions;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -115,7 +115,7 @@ namespace GL.User
         /// <remarks>
         /// セーブはしていないので個別でセーブしてください
         /// </remarks>
-        public void AddWeapon(Battle.Weapon weapon)
+        public void AddWeapon(WeaponRecord weapon)
         {
             this.Weapons.List.Add(new User.Weapon(this.Weapons.InstanceId, weapon.Id));
         }

@@ -21,7 +21,7 @@ namespace GL.User
         private string id;
 
         /// <summary>
-        /// <see cref="Battle.Weapon"/>に紐づくID
+        /// <see cref="Battle.WeaponRecord"/>に紐づくID
         /// </summary>
         public string Id => this.id;
 
@@ -36,6 +36,6 @@ namespace GL.User
             return new Weapon(instanceId, this.id);
         }
 
-        public Battle.Weapon BattleWeapon => MasterData.Weapon.GetById(this.Id);
+        public WeaponRecord BattleWeapon => MasterData.Weapon.GetById(this.Id);
     }
 }

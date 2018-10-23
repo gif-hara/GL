@@ -1,4 +1,5 @@
-﻿using UniRx;
+﻿using GL.Database;
+using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
@@ -24,7 +25,7 @@ namespace GL.Home.UI
 
         private ShopPanelController shopPanelController;
 
-        public void Setup(ShopPanelController shopPanelController, Battle.Weapon weapon)
+        public void Setup(ShopPanelController shopPanelController, WeaponRecord weapon)
         {
             this.title.text = weapon.WeaponName;
             this.description.text = "";

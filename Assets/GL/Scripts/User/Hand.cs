@@ -1,6 +1,6 @@
 ﻿using System;
+using GL.Database;
 using UnityEngine;
-using UnityEngine.Assertions;
 
 namespace GL.User
 {
@@ -24,7 +24,7 @@ namespace GL.User
 
         public User.Weapon UserWeapon => UserData.Instance.Weapons.GetByInstanceId(this.weaponInstanceId);
 
-        public Battle.Weapon BattleWeapon => this.IsPossession ? this.UserWeapon.BattleWeapon : null;
+        public WeaponRecord BattleWeapon => this.IsPossession ? this.UserWeapon.BattleWeapon : null;
 
         public Hand(int weaponInstanceId)
         {

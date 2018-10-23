@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using GL.Database;
+using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
 
@@ -25,7 +26,7 @@ namespace GL.UI
         [SerializeField]
         private GameObject rankPrefab;
 
-        public WeaponController Setup(Battle.Weapon weapon)
+        public WeaponController Setup(WeaponRecord weapon)
         {
             this.weaponName.text = weapon.WeaponName;
             foreach(var c in weapon.Commands)

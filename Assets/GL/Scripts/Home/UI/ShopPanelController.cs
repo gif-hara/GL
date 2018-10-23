@@ -68,7 +68,7 @@ namespace GL.Home.UI
             }
         }
 
-        public void ShowConfirmPopup(Battle.Weapon weapon)
+        public void ShowConfirmPopup(WeaponRecord weapon)
         {
             var popup = PopupManager.Show(this.confirmShopPopupController);
             popup.SubmitAsObservable()
@@ -87,7 +87,7 @@ namespace GL.Home.UI
                 .AddTo(popup);
         }
 
-        private void BuyWeapon(Battle.Weapon weapon)
+        private void BuyWeapon(WeaponRecord weapon)
         {
             PopupManager.Close();
             var userData = UserData.Instance;

@@ -1,4 +1,5 @@
-﻿using HK.Framework.Text;
+﻿using GL.Database;
+using HK.Framework.Text;
 using HK.GL.Extensions;
 using UniRx;
 using UnityEngine;
@@ -36,7 +37,7 @@ namespace GL.Home.UI
                 .AddTo(this);
         }
 
-        public void Setup(CharacterDetailsPopupController controller, Battle.Weapon weapon)
+        public void Setup(CharacterDetailsPopupController controller, WeaponRecord weapon)
         {
             if (weapon == null)
             {

@@ -4,16 +4,16 @@ using HK.Framework.Text;
 using UnityEngine;
 using GL.Database;
 
-namespace GL.Battle
+namespace GL.Database
 {
     /// <summary>
-    /// 武器クラス
+    /// 武器レコード
     /// </summary>
     /// <remarks>
     /// コマンドリストを担う
     /// </remarks>
-    [CreateAssetMenu(menuName = "GL/Weapon")]
-    public sealed class Weapon : ScriptableObject, IMasterDataRecord
+    [CreateAssetMenu(menuName = "GL/MasterData/Record/Weapon")]
+    public sealed class WeaponRecord : ScriptableObject, IMasterDataRecord
     {
         /// <summary>
         /// ID

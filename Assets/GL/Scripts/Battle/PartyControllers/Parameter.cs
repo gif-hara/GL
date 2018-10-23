@@ -23,10 +23,10 @@ namespace GL.Battle.PartyControllers
         public CharacterControllers.Blueprint Blueprint;
 
         [SerializeField]
-        public Battle.Weapon RightWeapon;
+        public WeaponRecord RightWeapon;
 
         [SerializeField]
-        public Battle.Weapon LeftWeapon;
+        public WeaponRecord LeftWeapon;
 
         [SerializeField]
         public Battle.Accessory[] Accessories;
