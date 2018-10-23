@@ -1,5 +1,6 @@
 ﻿using System;
 using GL.Battle.Commands.Bundle;
+using GL.Database;
 using GL.Events.Battle;
 using HK.Framework.EventSystems;
 using UniRx;
@@ -30,7 +31,7 @@ namespace GL.Battle.CharacterControllers
 
         private ICharacterAnimation characterAnimation;
 
-        public void Initialize(Blueprint blueprint, Implement[] commands, Accessory[] accessories, int level, Constants.CharacterType characterType)
+        public void Initialize(Blueprint blueprint, Implement[] commands, AccessoryRecord[] accessories, int level, Constants.CharacterType characterType)
         {
             this.StatusController = new CharacterStatusController(blueprint, commands, level);
             this.AilmentController = new CharacterAilmentController(this);

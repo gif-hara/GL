@@ -2,7 +2,7 @@
 using GL.Battle;
 using UnityEngine;
 
-namespace GL.Battle
+namespace GL.Database
 {
     /// <summary>
     /// 状態異常の耐性を上昇させるアクセサリー

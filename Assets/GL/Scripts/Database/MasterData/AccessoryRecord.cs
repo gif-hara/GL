@@ -3,20 +3,20 @@ using GL.Database;
 using HK.GL.Extensions;
 using UnityEngine;
 
-namespace GL.Battle
+namespace GL.Database
 {
     /// <summary>
     /// キャラクターが装備できるアクセサリー
     /// </summary>
-    [CreateAssetMenu(menuName = "GL/Accessories/Accessory")]
-    public sealed class Accessory : ScriptableObject, IMasterDataRecord
+    [CreateAssetMenu(menuName = "GL/MasterData/Record/Accessory")]
+    public sealed class AccessoryRecord : ScriptableObject, IMasterDataRecord
     {
         public string Id => this.name;
         
         [SerializeField]
         private AccessoryElement[] elements = new AccessoryElement[0];
 
-        public void OnStartBattle(CharacterControllers.Character equippedCharacter)
+        public void OnStartBattle(Battle.CharacterControllers.Character equippedCharacter)
         {
             this.elements.ForEach(e => e.OnStartBattle(equippedCharacter));
         }

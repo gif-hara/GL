@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace GL.Battle
+namespace GL.Database
 {
     /// <summary>
     /// アクセサリーの効果を構成するクラス

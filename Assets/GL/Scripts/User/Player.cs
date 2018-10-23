@@ -121,7 +121,7 @@ namespace GL.User
             }
         }
 
-        public Battle.Accessory[] Accessories
+        public AccessoryRecord[] Accessories
         {
             get
             {

@@ -2,7 +2,7 @@
 using GL.Battle;
 using UnityEngine;
 
-namespace GL.Battle
+namespace GL.Database
 {
     /// <summary>
     /// ステータスを上昇させるアクセサリー

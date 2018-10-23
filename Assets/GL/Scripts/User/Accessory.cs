@@ -18,7 +18,7 @@ namespace GL.User
         private string id;
 
         /// <summary>
-        /// <see cref="Battle.Accessory"/>に紐づくID
+        /// <see cref="Battle.AccessoryRecord"/>に紐づくID
         /// </summary>
         public string Id => this.id;
 

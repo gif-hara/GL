@@ -1,4 +1,5 @@
 ﻿using GL.Battle;
+using GL.Database;
 using UnityEngine;
 
 namespace GL.Battle.CharacterControllers
@@ -8,9 +9,9 @@ namespace GL.Battle.CharacterControllers
     /// </summary>
     public sealed class CharacterAccessoryController
     {
-        public Accessory[] Accessories { get; private set; }
+        public AccessoryRecord[] Accessories { get; private set; }
         
-        public CharacterAccessoryController(Accessory[] accessories)
+        public CharacterAccessoryController(AccessoryRecord[] accessories)
         {
             this.Accessories = accessories;
         }
