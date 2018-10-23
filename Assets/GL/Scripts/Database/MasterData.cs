@@ -28,8 +28,8 @@ namespace GL.Database
         public static MaterialList Material => instance.material;
 
         [SerializeField]
-        private EnemyParty enemyParty;
-        public static EnemyParty EnemyParty => instance.enemyParty;
+        private EnemyPartyList enemyParty;
+        public static EnemyPartyList EnemyParty => instance.enemyParty;
 
         public void Setup()
         {
