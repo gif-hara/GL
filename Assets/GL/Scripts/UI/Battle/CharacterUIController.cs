@@ -1,7 +1,9 @@
 ﻿using System;
 using GL.Battle.CharacterControllers;
+using GL.Battle.Commands.Bundle;
 using GL.Events.Battle;
 using HK.Framework.EventSystems;
+using HK.GL.Extensions;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -24,6 +26,9 @@ namespace GL.Battle.UI
         private Image icon;
 
         [SerializeField]
+        private Button iconButton;
+
+        [SerializeField]
         private Image background;
 
         [SerializeField]
@@ -42,7 +47,15 @@ namespace GL.Battle.UI
             var isOpponent = this.character.CharacterType == Constants.CharacterType.Enemy;
 
             this.background.color = isOpponent ? this.enemyColor : this.playerColor;
+            this.iconButton.enabled = false;
             this.Apply();
+
+            Broker.Global.Receive<StartSelectTarget>()
+                .Where(x => x.Targets.Find(t => t == this.character) != null)
+                .SubscribeWithState(this, (x, _this) =>
+                {
+                    _this.OnClickSelectTarget(x.Character, x.Command);
+                });
 
             Broker.Global.Receive<ModifiedStatus>()
                 .Where(x => x.Character == this.character)
@@ -69,6 +82,20 @@ namespace GL.Battle.UI
         {
             this.hitPoint.Apply(this.character);
             this.status.Apply(this.character);
+        }
+
+        private void OnClickSelectTarget(Character invoker, Implement command)
+        {
+            this.iconButton.enabled = true;
+            this.iconButton.OnClickAsObservable()
+                .First()
+                .TakeUntil(Broker.Global.Receive<SelectedTargets>())
+                .SubscribeWithState3(this, invoker, command, (_, t, i, c) =>
+                {
+                    t.iconButton.enabled = false;
+                    Broker.Global.Publish(SelectedTargets.Get(i, c, new Character[] { t.character }));
+                })
+                .AddTo(this);
         }
 
         [Serializable]
