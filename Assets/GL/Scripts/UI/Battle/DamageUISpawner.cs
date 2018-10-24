@@ -14,15 +14,6 @@ namespace GL.Battle.UI
         [SerializeField]
         private DamageUIController controller;
 
-        [SerializeField]
-        private RectTransform canvasTransform;
-
-        [SerializeField]
-        private Camera uiCamera;
-
-        [SerializeField]
-        private Camera worldCamera;
-
         private Transform cachedTransform;
 
         void Awake()
@@ -31,11 +22,11 @@ namespace GL.Battle.UI
             Assert.IsNotNull(this.cachedTransform);
 
             Broker.Global.Receive<DamageNotify>()
-                .SubscribeWithState(this, (x, _this) => _this.CreateAsDamage(x.Receiver.transform, x.Value))
+                .SubscribeWithState(this, (x, _this) => _this.CreateAsDamage(x.Receiver.UIController.Icon.transform, x.Value))
                 .AddTo(this);
 
             Broker.Global.Receive<RecoveryNotify>()
-                .SubscribeWithState(this, (x, _this) => _this.CreateAsRecovery(x.Receiver.transform, x.Value))
+                .SubscribeWithState(this, (x, _this) => _this.CreateAsRecovery(x.Receiver.UIController.Icon.transform, x.Value))
                 .AddTo(this);
         }
 
@@ -44,8 +35,8 @@ namespace GL.Battle.UI
         /// </summary>
         public void CreateAsDamage(Transform receiver, int damage)
         {
-            var instance = Instantiate(this.controller, this.cachedTransform, false);
-            instance.AsDamage(receiver, damage, this.canvasTransform, this.uiCamera, this.worldCamera);
+            var instance = Instantiate(this.controller, receiver, false);
+            instance.AsDamage(receiver, damage);
         }
         
         /// <summary>
@@ -53,8 +44,8 @@ namespace GL.Battle.UI
         /// </summary>
         public void CreateAsRecovery(Transform receiver, int damage)
         {
-            var instance = Instantiate(this.controller, this.cachedTransform, false);
-            instance.AsRecovery(receiver, damage, this.canvasTransform, this.uiCamera, this.worldCamera);
+            var instance = Instantiate(this.controller, receiver, false);
+            instance.AsRecovery(receiver, damage);
         }
     }
 }

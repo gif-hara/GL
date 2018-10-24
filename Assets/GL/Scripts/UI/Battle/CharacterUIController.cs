@@ -24,6 +24,7 @@ namespace GL.Battle.UI
 
         [SerializeField]
         private Image icon;
+        public Image Icon => this.icon;
 
         [SerializeField]
         private Button iconButton;
@@ -44,6 +45,7 @@ namespace GL.Battle.UI
             this.character = character;
             Assert.IsNotNull(this.character);
 
+            this.character.UIController = this;
             var isOpponent = this.character.CharacterType == Constants.CharacterType.Enemy;
 
             this.background.color = isOpponent ? this.enemyColor : this.playerColor;

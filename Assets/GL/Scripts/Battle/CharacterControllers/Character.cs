@@ -1,5 +1,6 @@
 ﻿using System;
 using GL.Battle.Commands.Bundle;
+using GL.Battle.UI;
 using GL.Database;
 using GL.Events.Battle;
 using HK.Framework.EventSystems;
@@ -28,6 +29,9 @@ namespace GL.Battle.CharacterControllers
         public CharacterAccessoryController AccessoryController { get; private set; }
 
         public Constants.CharacterType CharacterType { get; private set; }
+
+        // FIXME: そもそもCharacterの扱い自体考え直したほうが良さそう
+        public CharacterUIController UIController { get; set; }
 
         private ICharacterAnimation characterAnimation;
 

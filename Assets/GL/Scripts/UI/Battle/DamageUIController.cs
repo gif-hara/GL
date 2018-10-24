@@ -28,26 +28,22 @@ namespace GL.Battle.UI
             Destroy(this.gameObject, this.destroyDelay);
         }
 
-        public void AsDamage(Transform target, int value, RectTransform canvasTransform, Camera uiCamera, Camera worldCamera)
+        public void AsDamage(Transform target, int value)
         {
-            this.SetProperty(target, value, canvasTransform, uiCamera, worldCamera);
+            this.SetProperty(target, value);
             this.background.color = this.damageColor;
         }
         
-        public void AsRecovery(Transform target, int value, RectTransform canvasTransform, Camera uiCamera, Camera worldCamera)
+        public void AsRecovery(Transform target, int value)
         {
-            this.SetProperty(target, value, canvasTransform, uiCamera, worldCamera);
+            this.SetProperty(target, value);
             this.background.color = this.recoveryColor;
         }
 
-        private void SetProperty(Transform target, int value, RectTransform canvasTransform, Camera uiCamera, Camera worldCamera)
+        private void SetProperty(Transform target, int value)
         {
             this.text.text = value.ToString();
-
-            Vector2 localPoint;
-            var screenPosition = RectTransformUtility.WorldToScreenPoint(worldCamera, target.position);
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasTransform, screenPosition, uiCamera, out localPoint);
-            this.transform.localPosition = localPoint;
+            this.transform.localPosition = Vector3.zero;
         }
     }
 }
