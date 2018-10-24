@@ -55,6 +55,18 @@ MonoBehaviour:
   - value:
       ja: 
       en: 
+    guid: 41e7327f-9445-4ddb-8615-8e03b308bfb5
+  - value:
+      ja: "\u9B54\u653B"
+      en: 
+    guid: 90fc4539-1f4c-4b7b-bae7-26b0a829254a
+  - value:
+      ja: "\u9B54\u9632"
+      en: 
+    guid: 439bf9f8-59e2-4842-bd4f-6392ca9f7f21
+  - value:
+      ja: 
+      en: 
     guid: 34729a33-80c2-4224-b36e-8ad4f12848fe
   - value:
       ja: "\u6BD2"

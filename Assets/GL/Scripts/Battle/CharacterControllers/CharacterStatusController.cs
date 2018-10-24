@@ -49,7 +49,7 @@ namespace GL.Battle.CharacterControllers
         /// <summary>
         /// 元となる設計図
         /// </summary>
-        public CharacterRecord CharacterRecord{ private set; get; }
+        public CharacterRecord CharacterRecord { private set; get; }
 
         public Character Character { get; private set; }
 
