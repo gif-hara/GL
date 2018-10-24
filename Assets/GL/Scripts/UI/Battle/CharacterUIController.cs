@@ -95,6 +95,7 @@ namespace GL.Battle.UI
                 // 相手側の場合は子要素を逆転させる
                 this.transform.ReversalChildren();
                 this.status.Root.transform.ReversalChildren();
+                this.resistance.Root.transform.ReversalChildren();
             }
         }
 
