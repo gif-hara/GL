@@ -64,17 +64,8 @@ namespace GL.Battle.UI
             if(isOpponent)
             {
                 // 相手側の場合は子要素を逆転させる
-                var count = this.transform.childCount;
-                var children = new Transform[count];
-                for (var i = 0; i < count; ++i)
-                {
-                    children[i] = this.transform.GetChild(i);
-                }
-
-                for (var i = 0; i < count; ++i)
-                {
-                    children[count - 1 - i].SetAsLastSibling();
-                }
+                this.transform.ReversalChildren();
+                this.status.Root.transform.ReversalChildren();
             }
         }
 
