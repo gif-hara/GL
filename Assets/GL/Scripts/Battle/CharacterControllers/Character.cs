@@ -33,7 +33,7 @@ namespace GL.Battle.CharacterControllers
 
         public void Initialize(CharacterRecord blueprint, Implement[] commands, AccessoryRecord[] accessories, int level, Constants.CharacterType characterType)
         {
-            this.StatusController = new CharacterStatusController(blueprint, commands, level);
+            this.StatusController = new CharacterStatusController(this, blueprint, commands, level);
             this.AilmentController = new CharacterAilmentController(this);
             this.AccessoryController = new CharacterAccessoryController(accessories);
             this.CharacterType = characterType;

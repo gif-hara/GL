@@ -1,5 +1,8 @@
 ﻿using System;
 using GL.Battle.CharacterControllers;
+using GL.Events.Battle;
+using HK.Framework.EventSystems;
+using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
@@ -39,8 +42,11 @@ namespace GL.Battle.UI
             var isOpponent = this.character.CharacterType == Constants.CharacterType.Enemy;
 
             this.background.color = isOpponent ? this.enemyColor : this.playerColor;
-            this.hitPoint.Apply(this.character);
-            this.status.Apply(this.character);
+            this.Apply();
+
+            Broker.Global.Receive<ModifiedStatus>()
+                .Where(x => x.Character == this.character)
+                .SubscribeWithState(this, (_, _this) => _this.Apply());
 
             if(isOpponent)
             {
@@ -57,6 +63,12 @@ namespace GL.Battle.UI
                     children[count - 1 - i].SetAsLastSibling();
                 }
             }
+        }
+
+        private void Apply()
+        {
+            this.hitPoint.Apply(this.character);
+            this.status.Apply(this.character);
         }
 
         [Serializable]

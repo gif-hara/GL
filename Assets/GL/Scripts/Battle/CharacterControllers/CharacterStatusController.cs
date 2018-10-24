@@ -4,6 +4,7 @@ using GL.Events.Battle;
 using HK.Framework.EventSystems;
 using HK.GL.Extensions;
 using UniRx;
+using UnityEngine;
 
 namespace GL.Battle.CharacterControllers
 {
@@ -50,6 +51,8 @@ namespace GL.Battle.CharacterControllers
         /// </summary>
         public CharacterRecord CharacterRecord{ private set; get; }
 
+        public Character Character { get; private set; }
+
         public string Name { get { return this.Base.Name; } }
 
         /// <summary>
@@ -57,7 +60,18 @@ namespace GL.Battle.CharacterControllers
         /// </summary>
         public int HitPointMax { get; private set; }
 
-        public int HitPoint { set { this.Base.Parameter.HitPoint = value; } get { return this.Base.Parameter.HitPoint; } }
+        public int HitPoint
+        {
+            set
+            {
+                this.Base.Parameter.HitPoint = Mathf.Max(value, 0);
+                this.PublishModifiedStatus();
+            }
+            get
+            {
+                return this.Base.Parameter.HitPoint;
+            }
+        }
 
         public float HitPointRate => (float)this.HitPoint / this.HitPointMax;
 
@@ -66,8 +80,9 @@ namespace GL.Battle.CharacterControllers
         /// </summary>
         public bool IsDead { get { return this.HitPoint <= 0; } }
 
-        public CharacterStatusController(CharacterRecord blueprint, Commands.Bundle.Implement[] commands, int level)
+        public CharacterStatusController(Character character, CharacterRecord blueprint, Commands.Bundle.Implement[] commands, int level)
         {
+            this.Character = character;
             this.CharacterRecord = blueprint;
             this.Base = new CharacterStatus(this.CharacterRecord, level);
             this.Dynamic = new CharacterStatus();
@@ -81,16 +96,19 @@ namespace GL.Battle.CharacterControllers
         public void AddParameterToDynamic(Constants.StatusParameterType type, int value)
         {
             this.Dynamic.Parameter.Add(type, value);
+            this.PublishModifiedStatus();
         }
 
         public void AddParameterToAccessory(Constants.StatusParameterType type, int value)
         {
             this.Accessory.Parameter.Add(type, value);
+            this.PublishModifiedStatus();
         }
 
         public void AddResistanceToAccessory(Constants.StatusAilmentType type, float value)
         {
             this.Accessory.Resistance.Add(type, value);
+            this.PublishModifiedStatus();
         }
 
         public int GetTotalParameter(Constants.StatusParameterType type)
@@ -112,6 +130,11 @@ namespace GL.Battle.CharacterControllers
         public void AddChargeTurn(int value)
         {
             this.Commands.ForEach(c => c.AddChargeTurn(value));
+        }
+
+        private void PublishModifiedStatus()
+        {
+            Broker.Global.Publish(ModifiedStatus.Get(this.Character));
         }
     }
 }
