@@ -90,7 +90,9 @@ namespace GL.Database
             {
                 HitPoint = Mathf.FloorToInt(Mathf.Lerp(this.min.HitPoint, this.max.HitPoint, this.growthCurve.HitPoint.Evaluate(t))),
                 Strength = Mathf.FloorToInt(Mathf.Lerp(this.min.Strength, this.max.Strength, this.growthCurve.Strength.Evaluate(t))),
+                StrengthMagic = Mathf.FloorToInt(Mathf.Lerp(this.min.StrengthMagic, this.max.StrengthMagic, this.growthCurve.StrengthMagic.Evaluate(t))),
                 Defense = Mathf.FloorToInt(Mathf.Lerp(this.min.Defense, this.max.Defense, this.growthCurve.Defense.Evaluate(t))),
+                DefenseMagic = Mathf.FloorToInt(Mathf.Lerp(this.min.DefenseMagic, this.max.DefenseMagic, this.growthCurve.DefenseMagic.Evaluate(t))),
                 Speed = Mathf.FloorToInt(Mathf.Lerp(this.min.Speed, this.max.Speed, this.growthCurve.Speed.Evaluate(t))),
             };
         }

@@ -54,7 +54,9 @@ namespace GL.Battle.CharacterControllers
         {
             this.HitPoint = other.HitPoint;
             this.Strength = other.Strength;
+            this.StrengthMagic = other.StrengthMagic;
             this.Defense = other.Defense;
+            this.DefenseMagic = other.DefenseMagic;
             this.Speed = other.Speed;
         }
 
