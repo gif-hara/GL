@@ -4,7 +4,7 @@ using UnityEngine.Assertions;
 using HK.Framework.EventSystems;
 using UniRx;
 
-namespace HK.GL.UI.Battle
+namespace GL.Battle.UI
 {
     /// <summary>
     /// ダメージUIを生成するヤーツ

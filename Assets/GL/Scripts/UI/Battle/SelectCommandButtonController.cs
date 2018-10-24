@@ -7,7 +7,7 @@ using UniRx;
 using GL.Battle.Commands.Bundle;
 using HK.Framework.Text;
 
-namespace HK.GL.UI.Battle
+namespace GL.Battle.UI
 {
     /// <summary>
     /// コマンドを選択するボタンを制御する

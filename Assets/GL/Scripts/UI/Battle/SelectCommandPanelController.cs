@@ -7,7 +7,7 @@ using HK.Framework.EventSystems;
 using UniRx;
 using GL;
 
-namespace HK.GL.UI.Battle
+namespace GL.Battle.UI
 {
     /// <summary>
     /// コマンドパネルを制御するクラス

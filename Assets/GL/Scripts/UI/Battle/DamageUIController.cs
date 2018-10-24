@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace HK.GL.UI.Battle
+namespace GL.Battle.UI
 {
     /// <summary>
     /// ダメージUIを制御するクラス
