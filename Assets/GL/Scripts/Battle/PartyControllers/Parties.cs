@@ -2,6 +2,8 @@
 using GL.Battle.CharacterControllers;
 using GL.Battle;
 using UnityEngine.Assertions;
+using HK.Framework.EventSystems;
+using GL.Events.Battle;
 
 namespace GL.Battle.PartyControllers
 {
@@ -26,6 +28,7 @@ namespace GL.Battle.PartyControllers
             this.AllMember = new List<Character>();
             this.AllMember.AddRange(this.Player.Members);
             this.AllMember.AddRange(this.Enemy.Members);
+            Broker.Global.Publish(CreatedParties.Get(this));
         }
 
         /// <summary>

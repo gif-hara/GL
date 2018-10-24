@@ -26,7 +26,7 @@ namespace GL.Home.UI
                 .Where(_ => this.button.isActiveAndEnabled)
                 .SubscribeWithState(enemyParty, (_, e) =>
                 {
-                    SceneMediator.PlayerParty = UserData.Instance.CurrentParty.AsBlueprint;
+                    SceneMediator.PlayerParty = UserData.Instance.CurrentParty.AsPartyRecord;
                     SceneMediator.EnemyParty = e;
                     SceneManager.LoadScene("Battle");
                 })

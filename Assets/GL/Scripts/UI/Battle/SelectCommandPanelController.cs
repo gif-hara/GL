@@ -15,6 +15,9 @@ namespace HK.GL.UI.Battle
     public sealed class SelectCommandPanelController : MonoBehaviour
     {
         [SerializeField]
+        private Transform buttonParent;
+
+        [SerializeField]
         private SelectCommandButtonController buttonPrefab;
 
         void Awake()
@@ -49,7 +52,7 @@ namespace HK.GL.UI.Battle
             var commands = character.StatusController.Commands;
             for (int i = 0; i < commands.Length; i++)
             {
-                var button = Instantiate(this.buttonPrefab, this.transform);
+                var button = Instantiate(this.buttonPrefab, this.buttonParent);
                 var command = commands[i];
                 button.SetProperty(character, command);
             }
@@ -63,9 +66,9 @@ namespace HK.GL.UI.Battle
         private void DestroyButtons()
         {
             // TODO: ObjectPool使う？
-            for (var i = 0; i < this.transform.childCount; i++)
+            for (var i = 0; i < this.buttonParent.childCount; i++)
             {
-                Destroy(this.transform.GetChild(i).gameObject);
+                Destroy(this.buttonParent.GetChild(i).gameObject);
             }
         }
     }

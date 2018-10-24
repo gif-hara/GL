@@ -59,6 +59,8 @@ namespace GL.Battle.CharacterControllers
 
         public int HitPoint { set { this.Base.Parameter.HitPoint = value; } get { return this.Base.Parameter.HitPoint; } }
 
+        public float HitPointRate => (float)this.HitPoint / this.HitPointMax;
+
         /// <summary>
         /// 死亡しているか返す
         /// </summary>

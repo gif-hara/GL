@@ -76,7 +76,7 @@ namespace GL.User
         /// バトル用にデータを変換する
         /// </summary>
         /// <returns></returns>
-        public PartyRecord AsBlueprint => PartyRecord.CloneAsPlayerParty(this);
+        public PartyRecord AsPartyRecord => PartyRecord.CloneAsPlayerParty(this);
 
         /// <summary>
         /// プレイヤーリストを返す
