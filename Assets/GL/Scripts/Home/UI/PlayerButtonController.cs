@@ -1,5 +1,6 @@
 ﻿using DG.Tweening;
 using GL.Events.Home;
+using GL.Tweens;
 using GL.User;
 using HK.Framework.EventSystems;
 using UniRx;
@@ -27,13 +28,7 @@ namespace GL.Home.UI
         private float changeTargetScaleDuration;
 
         [SerializeField]
-        private float changePlayerRotateZEndValue;
-
-        [SerializeField]
-        private float changePlayerRotateZDurationMin;
-
-        [SerializeField]
-        private float changePlayerRotateZDurationMax;
+        private TargetableTween changePlayerTween;
 
         public readonly CompositeDisposable Disposable = new CompositeDisposable();
 
@@ -80,11 +75,7 @@ namespace GL.Home.UI
         /// </summary>
         private Tween CreateChangePlayerTweener()
         {
-            var duration = Random.Range(this.changePlayerRotateZDurationMin, this.changePlayerRotateZDurationMax);
-            return DOTween.Sequence()
-                .Append(this.transform.DOLocalRotate(Vector3.forward * this.changePlayerRotateZEndValue, duration))
-                .Append(this.transform.DOLocalRotate(Vector3.forward * -this.changePlayerRotateZEndValue, duration))
-                .SetLoops(-1, LoopType.Yoyo);
+            return this.changePlayerTween.Apply(this.transform);
         }
 
         private void EndTween()
