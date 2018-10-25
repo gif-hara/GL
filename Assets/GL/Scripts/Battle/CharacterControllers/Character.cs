@@ -16,6 +16,7 @@ namespace GL.Battle.CharacterControllers
     /// </summary>
     public sealed class Character : MonoBehaviour
     {
+        public CharacterRecord Record { get; private set; }
         /// <summary>
         /// ステータスコントローラー
         /// </summary>
@@ -34,9 +35,10 @@ namespace GL.Battle.CharacterControllers
 
         //private ICharacterAnimation characterAnimation;
 
-        public void Initialize(CharacterRecord blueprint, Implement[] commands, AccessoryRecord[] accessories, int level, Constants.CharacterType characterType)
+        public void Initialize(CharacterRecord characterRecord, Implement[] commands, AccessoryRecord[] accessories, int level, Constants.CharacterType characterType)
         {
-            this.StatusController = new CharacterStatusController(this, blueprint, commands, level);
+            this.Record = characterRecord;
+            this.StatusController = new CharacterStatusController(this, characterRecord, commands, level);
             this.AilmentController = new CharacterAilmentController(this);
             this.AccessoryController = new CharacterAccessoryController(accessories);
             this.CharacterType = characterType;

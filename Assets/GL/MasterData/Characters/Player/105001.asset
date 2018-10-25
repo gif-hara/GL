@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c05a5979337d4f278b5096f8db1513d, type: 3}
   m_Name: 105001
   m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: aecb7a8af0a4c46e8885a35d74d502bd, type: 3}
   rank: 1
   characterName:
     target: {fileID: 11400000, guid: 32e84551b1b7440a7a9af4e163bb7859, type: 2}
@@ -213,3 +214,4 @@ MonoBehaviour:
   price: 400
   acquireExperience: 0
   materialLotteries: []
+  aiController: {fileID: 0}

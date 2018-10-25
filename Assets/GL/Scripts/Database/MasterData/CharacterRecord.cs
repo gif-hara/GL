@@ -16,6 +16,10 @@ namespace GL.Database
         public string Id { get { return this.name; } }
 
         [SerializeField]
+        private Sprite icon;
+        public Sprite Icon => this.icon;
+
+        [SerializeField]
         private int rank;
         /// <summary>
         /// ランク

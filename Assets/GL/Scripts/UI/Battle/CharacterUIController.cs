@@ -63,6 +63,7 @@ namespace GL.Battle.UI
 
             var isOpponent = this.character.CharacterType == Constants.CharacterType.Enemy;
 
+            this.icon.sprite = this.character.Record.Icon;
             this.background.color = isOpponent ? this.enemyColor : this.playerColor;
             this.iconButton.enabled = false;
             this.Apply();
