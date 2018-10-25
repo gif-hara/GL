@@ -4,6 +4,7 @@ using GL.Battle.CharacterControllers;
 using GL.Battle.CharacterControllers.JobSystems;
 using HK.Framework.Text;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace GL.Database
 {
@@ -18,6 +19,10 @@ namespace GL.Database
         [SerializeField]
         private Sprite icon;
         public Sprite Icon => this.icon;
+
+        [SerializeField]
+        private Color iconColor;
+        public Color IconColor => this.iconColor;
 
         [SerializeField]
         private int rank;
@@ -81,6 +86,12 @@ namespace GL.Database
         [SerializeField]
         private AIController aiController;
         public AIController AIController => this.aiController;
+
+        public void ApplyIcon(Image image)
+        {
+            image.sprite = this.icon;
+            image.color = this.iconColor;
+        }
 
         public Parameter GetParameter(int level)
         {
