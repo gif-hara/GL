@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 222121799980485048}
   - component: {fileID: 114289459587842782}
   - component: {fileID: 114640925144547258}
+  - component: {fileID: 114226508176844992}
   - component: {fileID: 114309732197385402}
   m_Layer: 5
   m_Name: CharacterUI
@@ -188,7 +189,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1240924966600712
 GameObject:
   m_ObjectHideFlags: 1
@@ -619,6 +620,7 @@ GameObject:
   - component: {fileID: 114734531336878648}
   - component: {fileID: 114698078876910756}
   - component: {fileID: 114747024753879960}
+  - component: {fileID: 114406732824008424}
   m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
@@ -1131,6 +1133,17 @@ MonoBehaviour:
     target: {fileID: 11400000, guid: 4f29c1d3e047745e58f6327b7d25bbc9, type: 2}
     value: "\u7761\u7720"
     guid: f0eff3b1-80ec-495f-9153-636928599750
+--- !u!114 &114226508176844992
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1140880888669412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a97eb43c2795b45f4accb1a64f20b15a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114229547649938224
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1430,27 +1443,14 @@ MonoBehaviour:
   enemyColor: {r: 0.6431373, g: 0.21176472, b: 0.2509804, a: 1}
   icon: {fileID: 114734531336878648}
   iconButton: {fileID: 114698078876910756}
-  parameterButton: {fileID: 114181926846554984}
+  iconLongPointerDownTrigger: {fileID: 114406732824008424}
   background: {fileID: 114289459587842782}
   hitPoint:
     root: {fileID: 1491825096765256}
     text: {fileID: 114332248085687840}
     gauge: {fileID: 114552349378621280}
-  status:
-    root: {fileID: 1949661278165826}
-    strength: {fileID: 114510587357567292}
-    strengthMagic: {fileID: 114996979201889126}
-    defense: {fileID: 114091113301768792}
-    defenseMagic: {fileID: 114265768643800360}
-    speed: {fileID: 114897154903135944}
-  resistance:
-    root: {fileID: 1487604048626658}
-    poison: {fileID: 114716530218971672}
-    paralysis: {fileID: 114694548449630142}
-    sleep: {fileID: 114553238326510624}
-    confuse: {fileID: 114694371931869408}
-    berserk: {fileID: 114535289683728878}
-    vitals: {fileID: 114936241050364612}
+  characterDetailsPopupController: {fileID: 114389765333633200, guid: ce5194db71cec4651b988e5d5eca5b86,
+    type: 2}
 --- !u!114 &114320130584856222
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1599,6 +1599,18 @@ MonoBehaviour:
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
   m_ChildControlHeight: 1
+--- !u!114 &114406732824008424
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1846005327692782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4ab2e85b084f40728f944a5f859d09d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IntervalSecond: 0.3
 --- !u!114 &114422398848972822
 MonoBehaviour:
   m_ObjectHideFlags: 1

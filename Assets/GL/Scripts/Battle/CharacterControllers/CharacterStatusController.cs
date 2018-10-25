@@ -42,6 +42,11 @@ namespace GL.Battle.CharacterControllers
         public Commands.Bundle.Implement[] Commands { private set; get; }
 
         /// <summary>
+        /// レベル
+        /// </summary>
+        public int Level { get; private set; }
+
+        /// <summary>
         /// 待機した量
         /// </summary>
         public float Wait { set; get; }
@@ -80,10 +85,11 @@ namespace GL.Battle.CharacterControllers
         /// </summary>
         public bool IsDead { get { return this.HitPoint <= 0; } }
 
-        public CharacterStatusController(Character character, CharacterRecord blueprint, Commands.Bundle.Implement[] commands, int level)
+        public CharacterStatusController(Character character, CharacterRecord characterRecord, Commands.Bundle.Implement[] commands, int level)
         {
             this.Character = character;
-            this.CharacterRecord = blueprint;
+            this.CharacterRecord = characterRecord;
+            this.Level = level;
             this.Base = new CharacterStatus(this.CharacterRecord, level);
             this.Dynamic = new CharacterStatus();
             this.Accessory = new CharacterStatus();

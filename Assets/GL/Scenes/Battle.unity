@@ -355,6 +355,7 @@ GameObject:
   - component: {fileID: 191502612}
   - component: {fileID: 191502613}
   - component: {fileID: 191502614}
+  - component: {fileID: 191502615}
   m_Layer: 5
   m_Name: Battle
   m_TagString: Untagged
@@ -379,8 +380,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 235}
-  m_SizeDelta: {x: 0, y: -470}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &191502613
 MonoBehaviour:
@@ -402,7 +403,7 @@ MonoBehaviour:
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 0
-  m_ChildControlWidth: 0
+  m_ChildControlWidth: 1
   m_ChildControlHeight: 0
 --- !u!114 &191502614
 MonoBehaviour:
@@ -419,6 +420,19 @@ MonoBehaviour:
   playerParent: {fileID: 1681858771}
   characterUIPrefab: {fileID: 114309732197385402, guid: 06b67f79b11294d889adf6edb7b21e23,
     type: 2}
+--- !u!114 &191502615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 191502611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1741964061, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
 --- !u!1 &465061213
 GameObject:
   m_ObjectHideFlags: 0
@@ -616,7 +630,7 @@ RectTransform:
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &513034362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -883,7 +897,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1080, y: 725.12}
+  m_SizeDelta: {x: 0, y: 310}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &998883775
 MonoBehaviour:
@@ -1252,14 +1266,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dac781e5adfe488cab6ee45eec4d7fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 114174076919456544, guid: 3cccffab6df324046b82171b40eaf2a7,
-    type: 2}
-  playerParent: {fileID: 931263994}
-  enemyParent: {fileID: 62063408}
-  playerInterval: {x: 0.2, y: 0, z: -1}
-  enemyInterval: {x: -0.2, y: 0, z: -1}
   playerParty: {fileID: 11400000, guid: 3826380811d7249f7afe6bb30fd4ffce, type: 2}
   enemyParty: {fileID: 11400000, guid: 3dac803ca1d814d86b4c8d3a892b17e5, type: 2}
+  characterPrefab: {fileID: 114226508176844992, guid: 06b67f79b11294d889adf6edb7b21e23,
+    type: 2}
+  playerParent: {fileID: 1681858771}
+  enemyParent: {fileID: 998883774}
 --- !u!1 &1681858770
 GameObject:
   m_ObjectHideFlags: 0
@@ -1294,7 +1306,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1080, y: 725.12}
+  m_SizeDelta: {x: 0, y: 310}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1681858772
 MonoBehaviour:
@@ -1462,6 +1474,7 @@ GameObject:
   - component: {fileID: 1897441971}
   - component: {fileID: 1897441970}
   - component: {fileID: 1897441969}
+  - component: {fileID: 1897441972}
   m_Layer: 5
   m_Name: Footer
   m_TagString: Untagged
@@ -1486,7 +1499,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 540, y: -1920.2432}
-  m_SizeDelta: {x: 1080, y: 470}
+  m_SizeDelta: {x: 1080, y: 0}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1897441969
 MonoBehaviour:
@@ -1544,6 +1557,19 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1897441967}
   m_CullTransparentMesh: 0
+--- !u!114 &1897441972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1897441967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1741964061, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
 --- !u!1 &2025855398
 GameObject:
   m_ObjectHideFlags: 0

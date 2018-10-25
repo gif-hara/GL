@@ -2,6 +2,9 @@
 using GL.Battle.CharacterControllers;
 using GL.Battle.Commands.Bundle;
 using GL.Events.Battle;
+using GL.Home.UI;
+using GL.UI;
+using GL.UI.PopupControllers;
 using HK.Framework.EventSystems;
 using HK.GL.Extensions;
 using UniRx;
@@ -38,7 +41,7 @@ namespace GL.Battle.UI
         private Button iconButton;
 
         [SerializeField]
-        private Button parameterButton;
+        private ObservableLongPointerDownTrigger iconLongPointerDownTrigger;
 
         [SerializeField]
         private Image background;
@@ -47,27 +50,22 @@ namespace GL.Battle.UI
         private HitPoint hitPoint;
 
         [SerializeField]
-        private Status status;
-
-        [SerializeField]
-        private Resistance resistance;
+        private CharacterDetailsPopupController characterDetailsPopupController;
 
         private Character character;
 
         private ParameterType parameterType = ParameterType.Status;
 
-        public void Setup(Character character)
+        void Start()
         {
-            this.character = character;
+            this.character = this.GetComponent<Character>();
             Assert.IsNotNull(this.character);
 
-            this.character.UIController = this;
             var isOpponent = this.character.CharacterType == Constants.CharacterType.Enemy;
 
             this.background.color = isOpponent ? this.enemyColor : this.playerColor;
             this.iconButton.enabled = false;
             this.Apply();
-            this.SetActiveParameter(this.parameterType);
 
             Broker.Global.Receive<StartSelectTarget>()
                 .Where(x => x.Targets.Find(t => t == this.character) != null)
@@ -82,11 +80,10 @@ namespace GL.Battle.UI
                 .SubscribeWithState(this, (_, _this) => _this.Apply())
                 .AddTo(this);
 
-            this.parameterButton.OnClickAsObservable()
+            this.iconLongPointerDownTrigger.OnLongPointerDownAsObservable()
                 .SubscribeWithState(this, (_, _this) =>
                 {
-                    _this.parameterType = (ParameterType)(((int)_this.parameterType + 1) % ((int)ParameterType.Max));
-                    _this.SetActiveParameter(_this.parameterType);
+                    PopupManager.Show(_this.characterDetailsPopupController).Setup(_this.character).CloseOnSubmit();
                 })
                 .AddTo(this);
 
@@ -94,22 +91,12 @@ namespace GL.Battle.UI
             {
                 // 相手側の場合は子要素を逆転させる
                 this.transform.ReversalChildren();
-                this.status.Root.transform.ReversalChildren();
-                this.resistance.Root.transform.ReversalChildren();
             }
         }
 
         private void Apply()
         {
             this.hitPoint.Apply(this.character);
-            this.status.Apply(this.character);
-            this.resistance.Apply(this.character.StatusController);
-        }
-
-        private void SetActiveParameter(ParameterType parameterType)
-        {
-            this.status.Root.SetActive(parameterType == ParameterType.Status);
-            this.resistance.Root.SetActive(parameterType == ParameterType.Resistance);
         }
 
         private void OnClickSelectTarget(Character invoker, Implement command)
@@ -143,75 +130,6 @@ namespace GL.Battle.UI
             {
                 this.text.text = character.StatusController.HitPoint.ToString();
                 this.gauge.size = character.StatusController.HitPointRate;
-            }
-        }
-
-        [Serializable]
-        public class Status
-        {
-            [SerializeField]
-            private GameObject root;
-            public GameObject Root => this.root;
-
-            [SerializeField]
-            private Text strength;
-
-            [SerializeField]
-            private Text strengthMagic;
-
-            [SerializeField]
-            private Text defense;
-
-            [SerializeField]
-            private Text defenseMagic;
-
-            [SerializeField]
-            private Text speed;
-
-            public void Apply(Character character)
-            {
-                this.strength.text = character.StatusController.GetTotalParameter(Constants.StatusParameterType.Strength).ToString();
-                this.strengthMagic.text = character.StatusController.GetTotalParameter(Constants.StatusParameterType.StrengthMagic).ToString();
-                this.defense.text = character.StatusController.GetTotalParameter(Constants.StatusParameterType.Defense).ToString();
-                this.defenseMagic.text = character.StatusController.GetTotalParameter(Constants.StatusParameterType.DefenseMagic).ToString();
-                this.speed.text = character.StatusController.GetTotalParameter(Constants.StatusParameterType.Speed).ToString();
-            }
-        }
-
-        [Serializable]
-        public class Resistance
-        {
-            [SerializeField]
-            private GameObject root;
-            public GameObject Root => this.root;
-
-            [SerializeField]
-            private Text poison;
-
-            [SerializeField]
-            private Text paralysis;
-
-            [SerializeField]
-            private Text sleep;
-
-            [SerializeField]
-            private Text confuse;
-
-            [SerializeField]
-            private Text berserk;
-
-            [SerializeField]
-            private Text vitals;
-
-            public void Apply(CharacterStatusController statusController)
-            {
-                const string format = "P0";
-                this.poison.text = statusController.GetTotalResistance(Constants.StatusAilmentType.Poison).ToString(format);
-                this.paralysis.text = statusController.GetTotalResistance(Constants.StatusAilmentType.Paralysis).ToString(format);
-                this.sleep.text = statusController.GetTotalResistance(Constants.StatusAilmentType.Sleep).ToString(format);
-                this.confuse.text = statusController.GetTotalResistance(Constants.StatusAilmentType.Confuse).ToString(format);
-                this.berserk.text = statusController.GetTotalResistance(Constants.StatusAilmentType.Berserk).ToString(format);
-                this.vitals.text = statusController.GetTotalResistance(Constants.StatusAilmentType.Vitals).ToString(format);
             }
         }
     }

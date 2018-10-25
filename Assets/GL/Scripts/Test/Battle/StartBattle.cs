@@ -13,25 +13,19 @@ namespace GL.Test
     public sealed class StartBattle : MonoBehaviour
     {
         [SerializeField]
-        private Character controller;
+        private PartyRecord playerParty;
+
+        [SerializeField]
+        private PartyRecord enemyParty;
+
+        [SerializeField]
+        private Character characterPrefab;
 
         [SerializeField]
         private Transform playerParent;
 
         [SerializeField]
         private Transform enemyParent;
-
-        [SerializeField]
-        private Vector3 playerInterval;
-
-        [SerializeField]
-        private Vector3 enemyInterval;
-
-        [SerializeField]
-        private PartyRecord playerParty;
-
-        [SerializeField]
-        private PartyRecord enemyParty;
 
         void Start()
         {
@@ -41,8 +35,8 @@ namespace GL.Test
             battlePlayerParty = battlePlayerParty == null ? this.playerParty : battlePlayerParty;
             battleEnemyParty = battleEnemyParty == null ? this.enemyParty : battleEnemyParty;
             var parties = new Parties(
-                battlePlayerParty.Create(this.controller, this.playerParent, this.playerInterval, -1.0f),
-                battleEnemyParty.Create(this.controller, this.enemyParent, this.enemyInterval, 1.0f)
+                battlePlayerParty.Create(this.characterPrefab, this.playerParent),
+                battleEnemyParty.Create(this.characterPrefab, this.enemyParent)
             );
 
             BattleManager.Instance.Initialize(parties);

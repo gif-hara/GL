@@ -30,10 +30,9 @@ namespace GL.Battle.CharacterControllers
 
         public Constants.CharacterType CharacterType { get; private set; }
 
-        // FIXME: そもそもCharacterの扱い自体考え直したほうが良さそう
-        public CharacterUIController UIController { get; set; }
+        public CharacterUIController UIController { get; private set; }
 
-        private ICharacterAnimation characterAnimation;
+        //private ICharacterAnimation characterAnimation;
 
         public void Initialize(CharacterRecord blueprint, Implement[] commands, AccessoryRecord[] accessories, int level, Constants.CharacterType characterType)
         {
@@ -41,8 +40,10 @@ namespace GL.Battle.CharacterControllers
             this.AilmentController = new CharacterAilmentController(this);
             this.AccessoryController = new CharacterAccessoryController(accessories);
             this.CharacterType = characterType;
-            this.characterAnimation = this.GetComponentInChildren<ICharacterAnimation>();
-            Assert.IsNotNull(this.characterAnimation);
+            // this.characterAnimation = this.GetComponentInChildren<ICharacterAnimation>();
+            // Assert.IsNotNull(this.characterAnimation);
+
+            this.UIController = this.GetComponent<CharacterUIController>();
 
             Broker.Global.Receive<StartBattle>()
                 .Take(1)
@@ -97,7 +98,8 @@ namespace GL.Battle.CharacterControllers
         public void StartAttack(Action animationCompleteAction, Action postprocess)
         {
             animationCompleteAction += postprocess;
-            this.characterAnimation.StartAttack(animationCompleteAction);
+            animationCompleteAction();
+            //this.characterAnimation.StartAttack(animationCompleteAction);
         }
 
         /// <summary>
@@ -126,7 +128,7 @@ namespace GL.Battle.CharacterControllers
 
             if(this.StatusController.IsDead)
             {
-                this.gameObject.SetActive(false);
+                //this.gameObject.SetActive(false);
                 Broker.Global.Publish(DeadNotify.Get(this));
             }
         }

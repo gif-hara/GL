@@ -1,4 +1,5 @@
 ﻿using System;
+using GL.Battle.CharacterControllers;
 using GL.Database;
 using GL.Events.Home;
 using GL.UI;
@@ -27,6 +28,7 @@ namespace GL.Home.UI
             ChangeCancel,
             EmployDecide,
             EmployCancel,
+            BattleClose,
         }
 
         public enum Mode
@@ -34,6 +36,7 @@ namespace GL.Home.UI
             Default,
             Change,
             Employ,
+            Battle,
         }
 
         [Serializable]
@@ -107,6 +110,22 @@ namespace GL.Home.UI
             }
         }
 
+        [Serializable]
+        public class BattleModeElement
+        {
+            [SerializeField]
+            private GameObject root;
+            public GameObject Root => this.root;
+
+            [SerializeField]
+            private Button closeButton;
+
+            public void Apply(CharacterDetailsPopupController controller)
+            {
+                controller.OnClickSubmit(this.closeButton, SubmitType.BattleClose);
+            }
+        }
+
         [SerializeField]
         private Rank rank;
 
@@ -139,6 +158,9 @@ namespace GL.Home.UI
 
         [SerializeField]
         private EmployModeElement employModeElement;
+
+        [SerializeField]
+        private BattleModeElement battleModeElement;
 
         [SerializeField]
         private GameObject equipmentsRoot;
@@ -199,12 +221,12 @@ namespace GL.Home.UI
             return this;
         }
 
-        public CharacterDetailsPopupController Setup(CharacterRecord blueprint, Mode mode)
+        public CharacterDetailsPopupController Setup(CharacterRecord characterRecord, Mode mode)
         {
-            this.rank.Apply(blueprint);
-            this.profile.Apply(blueprint);
-            this.parameter.Apply(blueprint.Min);
-            this.resistance.Apply(blueprint.Resistance);
+            this.rank.Apply(characterRecord);
+            this.profile.Apply(characterRecord);
+            this.parameter.Apply(characterRecord.Min);
+            this.resistance.Apply(characterRecord.Resistance);
 
             this.equipmentsRoot.SetActive(false);
             this.commandsRoot.SetActive(false);
@@ -214,12 +236,28 @@ namespace GL.Home.UI
             switch(mode)
             {
                 case Mode.Employ:
-                    this.employModeElement.Apply(this, blueprint);
+                    this.employModeElement.Apply(this, characterRecord);
                     break;
                 default:
                     Assert.IsTrue(false, $"{mode}は未対応の値です");
                     break;
             }
+
+            return this;
+        }
+
+        public CharacterDetailsPopupController Setup(Character character)
+        {
+            this.rank.Apply(character.StatusController.CharacterRecord);
+            this.profile.Apply(character);
+            this.parameter.Apply(character);
+            this.resistance.Apply(character);
+
+            this.equipmentsRoot.SetActive(false);
+            this.commandsRoot.SetActive(false);
+            this.SetActiveModeElement(Mode.Battle);
+
+            this.battleModeElement.Apply(this);
 
             return this;
         }
@@ -278,6 +316,7 @@ namespace GL.Home.UI
             this.defaultModeElement.Root.SetActive(mode == Mode.Default);
             this.changeModeElement.Root.SetActive(mode == Mode.Change);
             this.employModeElement.Root.SetActive(mode == Mode.Employ);
+            this.battleModeElement.Root.SetActive(mode == Mode.Battle);
         }
 
         [Serializable]
@@ -289,11 +328,16 @@ namespace GL.Home.UI
             [SerializeField]
             private GameObject rankImage;
 
-            public void Apply(CharacterRecord blueprint)
+            public void Apply(CharacterRecord characterRecord)
             {
-                for (var i = 0; i < blueprint.Rank; i++)
+                this.Instantiate(characterRecord.Rank);
+            }
+
+            private void Instantiate(int count)
+            {
+                for (var i = 0; i < count; i++)
                 {
-                    Instantiate(this.rankImage, this.parent, false);
+                    UnityEngine.Object.Instantiate(this.rankImage, this.parent, false);
                 }
             }
         }
@@ -325,6 +369,14 @@ namespace GL.Home.UI
                 this.level.text = this.levelFormat.Format(1.ToString());
                 this.characterName.text = blueprint.CharacterName;
                 this.jobName.text = blueprint.Job.JobName;
+            }
+
+            public void Apply(Character character)
+            {
+                var s = character.StatusController;
+                this.level.text = this.levelFormat.Format(s.Level.ToString());
+                this.characterName.text = s.CharacterRecord.CharacterName;
+                this.jobName.text = s.CharacterRecord.Job.JobName;
             }
         }
 
@@ -358,6 +410,17 @@ namespace GL.Home.UI
                 this.defenseMagic.text = parameter.DefenseMagic.ToString();
                 this.speed.text = parameter.Speed.ToString();
             }
+
+            public void Apply(Character character)
+            {
+                var s = character.StatusController;
+                this.hitPoint.text = s.HitPoint.ToString();
+                this.strength.text = s.GetTotalParameter(Constants.StatusParameterType.Strength).ToString();
+                this.strengthMagic.text = s.GetTotalParameter(Constants.StatusParameterType.StrengthMagic).ToString();
+                this.defense.text = s.GetTotalParameter(Constants.StatusParameterType.Defense).ToString();
+                this.defenseMagic.text = s.GetTotalParameter(Constants.StatusParameterType.DefenseMagic).ToString();
+                this.speed.text = s.GetTotalParameter(Constants.StatusParameterType.Speed).ToString();
+            }
         }
 
         [Serializable]
@@ -390,6 +453,18 @@ namespace GL.Home.UI
                 this.confuse.text = resistance.Confuse.ToString(format);
                 this.berserk.text = resistance.Berserk.ToString(format);
                 this.vitals.text = resistance.Vitals.ToString(format);
+            }
+
+            public void Apply(Character character)
+            {
+                const string format = "P0";
+                var s = character.StatusController;
+                this.poison.text = s.GetTotalResistance(Constants.StatusAilmentType.Poison).ToString(format);
+                this.paralysis.text = s.GetTotalResistance(Constants.StatusAilmentType.Paralysis).ToString(format);
+                this.sleep.text = s.GetTotalResistance(Constants.StatusAilmentType.Sleep).ToString(format);
+                this.confuse.text = s.GetTotalResistance(Constants.StatusAilmentType.Confuse).ToString(format);
+                this.berserk.text = s.GetTotalResistance(Constants.StatusAilmentType.Berserk).ToString(format);
+                this.vitals.text = s.GetTotalResistance(Constants.StatusAilmentType.Vitals).ToString(format);
             }
         }
     }

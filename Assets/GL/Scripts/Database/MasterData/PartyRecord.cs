@@ -42,56 +42,23 @@ namespace GL.Database
             return clone;
         }
 
-        public Battle.PartyControllers.Party Create(Character controllerPrefab, Transform parent, Vector3 interval, float scaleX)
+        public Battle.PartyControllers.Party Create(Character prefab, Transform parent)
         {
             var member = new List<Character>();
-            for (int i = 0; i < this.parameters.Length; i++)
+            foreach(var p in this.parameters)
             {
-                var character = this.CreateCharacter(
-                    i,
-                    controllerPrefab,
-                    parent,
-                    interval * i,
-                    scaleX
+                var character = Instantiate(prefab, parent);
+                character.Initialize(
+                    p.Blueprint,
+                    p.Commands,
+                    p.Accessories,
+                    p.Level,
+                    characterType
                 );
                 member.Add(character);
             }
 
             return new Battle.PartyControllers.Party(member, this);
-        }
-
-        protected Character CreateCharacter(
-            int index,
-            Character controllerPrefab,
-            Transform parent,
-            Vector3 position,
-            float scaleX
-        )
-        {
-            var parameter = this.parameters[index];
-            var result = this.InternalCreateCharacter(controllerPrefab, parent, position, parameter.Blueprint.Model, scaleX);
-            result.Initialize(
-                parameter.Blueprint,
-                parameter.Commands,
-                parameter.Accessories,
-                parameter.Level,
-                characterType
-                );
-
-            return result;
-        }
-
-        protected Character InternalCreateCharacter(Character controllerPrefab, Transform parent, Vector3 position, GameObject modelPrefab, float scaleX)
-        {
-            var result = Instantiate(controllerPrefab, parent);
-            result.transform.localPosition = position;
-            var model = Instantiate(modelPrefab, result.transform);
-            model.transform.localPosition = Vector3.zero;
-            var scale = model.transform.localScale;
-            scale.x = scaleX;
-            model.transform.localScale = scale;
-
-            return result;
         }
     }
 }

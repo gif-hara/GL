@@ -4,6 +4,7 @@ using GL.Battle;
 using GL.Events.Battle;
 using HK.Framework.EventSystems;
 using UniRx;
+using UnityEngine;
 
 namespace GL.Battle.CharacterControllers
 {

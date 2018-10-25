@@ -22,12 +22,12 @@ namespace GL.Battle.UI
 
         void Awake()
         {
-            Broker.Global.Receive<CreatedParties>()
-                .SubscribeWithState(this, (x, _this) =>
-                {
-                    x.Parties.Player.Members.ForEach(m => Object.Instantiate(_this.characterUIPrefab, _this.playerParent).Setup(m));
-                    x.Parties.Enemy.Members.ForEach(m => Object.Instantiate(_this.characterUIPrefab, _this.enemyParent).Setup(m));
-                });
+            // Broker.Global.Receive<CreatedParties>()
+            //     .SubscribeWithState(this, (x, _this) =>
+            //     {
+            //         x.Parties.Player.Members.ForEach(m => Object.Instantiate(_this.characterUIPrefab, _this.playerParent).Setup(m));
+            //         x.Parties.Enemy.Members.ForEach(m => Object.Instantiate(_this.characterUIPrefab, _this.enemyParent).Setup(m));
+            //     });
         }
     }
 }
