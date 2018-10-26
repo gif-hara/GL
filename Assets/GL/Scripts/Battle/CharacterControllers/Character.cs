@@ -97,11 +97,11 @@ namespace GL.Battle.CharacterControllers
                 .AddTo(this);
         }
         
-        public void StartAttack(Action animationCompleteAction, Action postprocess)
+        public void StartAttack(Action onAttack, Action postprocess)
         {
-            animationCompleteAction += postprocess;
-            animationCompleteAction();
-            //this.characterAnimation.StartAttack(animationCompleteAction);
+            onAttack += postprocess;
+            this.UIController.StartAttack(onAttack);
+            // animationCompleteAction();
         }
 
         /// <summary>

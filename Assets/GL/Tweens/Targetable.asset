@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aca8d3e4580ce46cfb2c731a23469d6b, type: 3}
   m_Name: Targetable
   m_EditorClassIdentifier: 
-  rotationZ: 2
+  rotationZ: 3
   durationMin: 0.15
   durationMax: 0.2
+  ease: 7

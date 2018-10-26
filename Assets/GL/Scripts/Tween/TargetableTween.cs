@@ -7,7 +7,7 @@ namespace GL.Tweens
     /// <summary>
     /// ターゲット可能なことを表現するアニメーション
     /// </summary>
-    [CreateAssetMenu(menuName = "GL/Tween/Targetable")]
+    [CreateAssetMenu(menuName = "GL/Tweens/Targetable")]
     public sealed class TargetableTween : ScriptableObject
     {
         [SerializeField]

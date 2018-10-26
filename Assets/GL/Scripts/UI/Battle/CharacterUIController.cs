@@ -1,8 +1,10 @@
 ﻿using System;
+using DG.Tweening;
 using GL.Battle.CharacterControllers;
 using GL.Battle.Commands.Bundle;
 using GL.Events.Battle;
 using GL.Home.UI;
+using GL.Tweens;
 using GL.UI;
 using GL.UI.PopupControllers;
 using HK.Framework.EventSystems;
@@ -19,14 +21,6 @@ namespace GL.Battle.UI
     /// </summary>
     public sealed class CharacterUIController : MonoBehaviour
     {
-        public enum ParameterType
-        {
-            Status,
-            Resistance,
-
-            Max,
-        }
-
         [SerializeField]
         private Color playerColor;
 
@@ -52,9 +46,15 @@ namespace GL.Battle.UI
         [SerializeField]
         private CharacterDetailsPopupController characterDetailsPopupController;
 
+        [SerializeField]
+        private TargetableTween targetableTween;
+
+        [SerializeField]
+        private AttackTween attackTween;
+
         private Character character;
 
-        private ParameterType parameterType = ParameterType.Status;
+        private Tween currentTween;
 
         void Start()
         {
@@ -73,6 +73,8 @@ namespace GL.Battle.UI
                 .SubscribeWithState(this, (x, _this) =>
                 {
                     _this.OnClickSelectTarget(x.Character, x.Command);
+                    _this.ChangeTween(_this.targetableTween.Apply(_this.icon.transform));
+                    _this.ClearTweenOnSelectedTargets();
                 })
                 .AddTo(this);
 
@@ -95,6 +97,11 @@ namespace GL.Battle.UI
             }
         }
 
+        public void StartAttack(Action onAttack)
+        {
+            this.attackTween.Apply(this.icon.transform, onAttack, this.character.CharacterType == Constants.CharacterType.Enemy);
+        }
+
         private void Apply()
         {
             this.hitPoint.Apply(this.character);
@@ -111,6 +118,35 @@ namespace GL.Battle.UI
                     t.iconButton.enabled = false;
                     Broker.Global.Publish(SelectedTargets.Get(i, c, new Character[] { t.character }));
                 })
+                .AddTo(this);
+        }
+
+        private void ChangeTween(Tween tween)
+        {
+            if(this.currentTween != null)
+            {
+                this.currentTween.Kill();
+            }
+
+            this.currentTween = tween;
+        }
+
+        private void ClearTween()
+        {
+            if(this.currentTween == null)
+            {
+                return;
+            }
+
+            this.currentTween.Kill();
+            this.currentTween = null;
+        }
+
+        private void ClearTweenOnSelectedTargets()
+        {
+            Broker.Global.Receive<SelectedTargets>()
+                .Take(1)
+                .SubscribeWithState(this, (_, _this) => _this.ClearTween())
                 .AddTo(this);
         }
 
