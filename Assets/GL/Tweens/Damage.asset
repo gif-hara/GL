@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: Damage
   m_EditorClassIdentifier: 
   duration: 1
-  strength: 1
+  strength: 30
   vibrato: 30
-  randomness: 0
+  randomness: 90
   snapping: 1
   fadeOut: 1
