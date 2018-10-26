@@ -63,11 +63,17 @@ namespace GL.Battle.UI
             this.currentTween = null;
         }
 
+        public bool IsPlay => this.currentTween != null;
+
         private void ChangeTween(Tween tween, AnimationType type)
         {
             this.ClearTween();
             this.currentTween = tween;
-            this.currentTween.OnKill(() => this.completeStream.OnNext(type));
+            this.currentTween.OnKill(() =>
+            {
+                this.completeStream.OnNext(type);
+                this.currentTween = null;
+            });
         }
     }
 }

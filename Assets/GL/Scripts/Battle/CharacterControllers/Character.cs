@@ -88,7 +88,7 @@ namespace GL.Battle.CharacterControllers
                     {
                         if (_this.CharacterType == Constants.CharacterType.Enemy)
                         {
-                            _this.StatusController.CharacterRecord.AIController.Invoke(_this);
+                            _this.InvokeCommandFromAI();
                         }
                     }
 
@@ -149,6 +149,22 @@ namespace GL.Battle.CharacterControllers
         private void InternalEndTurn()
         {
             BattleManager.Instance.EndTurn(this);
+        }
+
+        private void InvokeCommandFromAI()
+        {
+            var animationController = this.UIController.AnimationController;
+            if (!animationController.IsPlay)
+            {
+                this.StatusController.CharacterRecord.AIController.Invoke(this);
+            }
+            else
+            {
+                animationController.OnCompleteAsObservable()
+                    .Take(1)
+                    .SubscribeWithState(this, (_, _this) => _this.StatusController.CharacterRecord.AIController.Invoke(_this))
+                    .AddTo(this);
+            }
         }
     }
 }
