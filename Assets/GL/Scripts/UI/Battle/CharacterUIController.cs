@@ -44,17 +44,12 @@ namespace GL.Battle.UI
         private HitPoint hitPoint;
 
         [SerializeField]
+        private CharacterUIAnimation animationController;
+
+        [SerializeField]
         private CharacterDetailsPopupController characterDetailsPopupController;
 
-        [SerializeField]
-        private TargetableTween targetableTween;
-
-        [SerializeField]
-        private AttackTween attackTween;
-
         private Character character;
-
-        private Tween currentTween;
 
         void Start()
         {
@@ -73,7 +68,7 @@ namespace GL.Battle.UI
                 .SubscribeWithState(this, (x, _this) =>
                 {
                     _this.OnClickSelectTarget(x.Character, x.Command);
-                    _this.ChangeTween(_this.targetableTween.Apply(_this.icon.transform));
+                    _this.animationController.StartTargetableAnimation();
                     _this.ClearTweenOnSelectedTargets();
                 })
                 .AddTo(this);
@@ -99,7 +94,7 @@ namespace GL.Battle.UI
 
         public void StartAttack(Action onAttack)
         {
-            this.attackTween.Apply(this.icon.transform, onAttack, this.character.CharacterType == Constants.CharacterType.Enemy);
+            this.animationController.StartAttackAnimation(onAttack, this.character.CharacterType == Constants.CharacterType.Enemy);
         }
 
         private void Apply()
@@ -121,32 +116,11 @@ namespace GL.Battle.UI
                 .AddTo(this);
         }
 
-        private void ChangeTween(Tween tween)
-        {
-            if(this.currentTween != null)
-            {
-                this.currentTween.Kill();
-            }
-
-            this.currentTween = tween;
-        }
-
-        private void ClearTween()
-        {
-            if(this.currentTween == null)
-            {
-                return;
-            }
-
-            this.currentTween.Kill();
-            this.currentTween = null;
-        }
-
         private void ClearTweenOnSelectedTargets()
         {
             Broker.Global.Receive<SelectedTargets>()
                 .Take(1)
-                .SubscribeWithState(this, (_, _this) => _this.ClearTween())
+                .SubscribeWithState(this, (_, _this) => _this.animationController.ClearTween())
                 .AddTo(this);
         }
 
