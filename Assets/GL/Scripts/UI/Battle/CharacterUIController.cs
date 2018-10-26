@@ -1,10 +1,9 @@
 ﻿using System;
-using DG.Tweening;
 using GL.Battle.CharacterControllers;
 using GL.Battle.Commands.Bundle;
 using GL.Events.Battle;
 using GL.Home.UI;
-using GL.Tweens;
+using GL.Test;
 using GL.UI;
 using GL.UI.PopupControllers;
 using HK.Framework.EventSystems;
