@@ -29,8 +29,7 @@ namespace GL.Tweens
             return DOTween.Sequence()
                 .Append(transform.DOLocalRotate(Vector3.forward * this.rotationZ, duration).SetEase(this.ease))
                 .Append(transform.DOLocalRotate(Vector3.forward * -this.rotationZ, duration).SetEase(this.ease))
-                .SetLoops(-1, LoopType.Yoyo)
-                .OnKill(() => transform.localRotation = rotation);
+                .SetLoops(-1, LoopType.Yoyo);
         }
     }
 }

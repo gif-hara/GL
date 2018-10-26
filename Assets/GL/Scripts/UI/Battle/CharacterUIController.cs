@@ -45,6 +45,7 @@ namespace GL.Battle.UI
 
         [SerializeField]
         private CharacterUIAnimation animationController;
+        public CharacterUIAnimation AnimationController => this.animationController;
 
         [SerializeField]
         private CharacterDetailsPopupController characterDetailsPopupController;
@@ -76,6 +77,11 @@ namespace GL.Battle.UI
             Broker.Global.Receive<ModifiedStatus>()
                 .Where(x => x.Character == this.character)
                 .SubscribeWithState(this, (_, _this) => _this.Apply())
+                .AddTo(this);
+
+            Broker.Global.Receive<DamageNotify>()
+                .Where(x => x.Receiver == this.character)
+                .SubscribeWithState(this, (_, _this) => _this.animationController.StartDamageAnimation())
                 .AddTo(this);
 
             this.iconLongPointerDownTrigger.OnLongPointerDownAsObservable()

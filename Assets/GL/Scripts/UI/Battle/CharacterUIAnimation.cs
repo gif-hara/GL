@@ -1,6 +1,7 @@
 ﻿using System;
 using DG.Tweening;
 using GL.Tweens;
+using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -11,6 +12,13 @@ namespace GL.Battle.UI
     /// </summary>
     public sealed class CharacterUIAnimation : MonoBehaviour
     {
+        public enum AnimationType
+        {
+            Targetable,
+            Attack,
+            Damage,
+        }
+
         [SerializeField]
         private Transform target;
 
@@ -20,18 +28,27 @@ namespace GL.Battle.UI
         [SerializeField]
         private AttackTween attackTween;
 
+        [SerializeField]
+        private DamageTween damageTween;
+
         private Tween currentTween;
+
+        private Subject<AnimationType> completeStream = new Subject<AnimationType>();
+        public IObservable<AnimationType> OnCompleteAsObservable() => this.completeStream;
 
         public void StartTargetableAnimation()
         {
-            this.ClearTween();
-            this.currentTween = this.targetableTween.Apply(this.target);
+            this.ChangeTween(this.targetableTween.Apply(this.target), AnimationType.Targetable);
         }
 
         public void StartAttackAnimation(Action onAttack, bool isReverse)
         {
-            this.ClearTween();
-            this.attackTween.Apply(this.target, onAttack, isReverse);
+            this.ChangeTween(this.attackTween.Apply(this.target, onAttack, isReverse), AnimationType.Attack);
+        }
+
+        public void StartDamageAnimation()
+        {
+            this.ChangeTween(this.damageTween.Apply(this.target), AnimationType.Damage);
         }
 
         public void ClearTween()
@@ -41,8 +58,16 @@ namespace GL.Battle.UI
                 return;
             }
 
+            this.target.localRotation = Quaternion.identity;
             this.currentTween.Kill();
             this.currentTween = null;
+        }
+
+        private void ChangeTween(Tween tween, AnimationType type)
+        {
+            this.ClearTween();
+            this.currentTween = tween;
+            this.currentTween.OnKill(() => this.completeStream.OnNext(type));
         }
     }
 }

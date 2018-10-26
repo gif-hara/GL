@@ -637,6 +637,7 @@ MonoBehaviour:
   target: {fileID: 224228263116555070}
   targetableTween: {fileID: 11400000, guid: 4ac835941075f4c69a4fd0c3a4a8d977, type: 2}
   attackTween: {fileID: 11400000, guid: acf70dbbfbcc74fb7b12982cd6b15897, type: 2}
+  damageTween: {fileID: 11400000, guid: 04f3be73bd9eb4ad493741f4e1bd0f70, type: 2}
 --- !u!222 &222028077957636352
 CanvasRenderer:
   m_ObjectHideFlags: 1
