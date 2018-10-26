@@ -1,5 +1,6 @@
 ﻿using System;
 using DG.Tweening;
+using GL.Battle.CharacterControllers;
 using GL.Tweens;
 using UniRx;
 using UnityEngine;
@@ -14,6 +15,7 @@ namespace GL.Battle.UI
     {
         public enum AnimationType
         {
+            None,
             Targetable,
             Attack,
             Damage,
@@ -36,6 +38,8 @@ namespace GL.Battle.UI
         private Subject<AnimationType> completeStream = new Subject<AnimationType>();
         public IObservable<AnimationType> OnCompleteAsObservable() => this.completeStream;
 
+        private AnimationType currentType = AnimationType.None;
+
         public void StartTargetableAnimation()
         {
             this.ChangeTween(this.targetableTween.Apply(this.target), AnimationType.Targetable);
@@ -53,26 +57,35 @@ namespace GL.Battle.UI
 
         public void ClearTween()
         {
-            if(this.currentTween == null)
+            if(this.currentTween == null || this.currentType == AnimationType.Attack)
             {
                 return;
             }
 
-            this.target.localRotation = Quaternion.identity;
             this.currentTween.Kill();
+            this.target.localRotation = Quaternion.identity;
             this.currentTween = null;
+            this.currentType = AnimationType.None;
         }
 
         public bool IsPlay => this.currentTween != null;
 
         private void ChangeTween(Tween tween, AnimationType type)
         {
+            // 攻撃アニメーション中は切り替えられない
+            if(this.currentType == AnimationType.Attack)
+            {
+                return;
+            }
             this.ClearTween();
+            this.currentType = type;
             this.currentTween = tween;
             this.currentTween.OnKill(() =>
             {
                 this.completeStream.OnNext(type);
                 this.currentTween = null;
+                this.currentType = AnimationType.None;
+                this.target.localPosition = Vector3.zero;
             });
         }
     }
