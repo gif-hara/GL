@@ -100,6 +100,14 @@ namespace GL.Battle.CharacterControllers
             }
         }
 
+        /// <summary>
+        /// 指定したタイプの蓄積値が満たされたか返す
+        /// </summary>
+        public bool IsFull(Constants.StatusAilmentType statusAilmentType)
+        {
+            return this.Get(statusAilmentType) >= 1.0f;
+        }
+
         public void Reset()
         {
             this.Poison = 0.0f;

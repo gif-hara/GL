@@ -16,6 +16,11 @@ namespace GL.Battle.CharacterControllers
         public Character Character { get; private set; }
 
         /// <summary>
+        /// 蓄積値
+        /// </summary>
+        public Resistance Accumulate { get; private set; } = new Resistance();
+
+        /// <summary>
         /// 現在かかっている状態異常
         /// </summary>
         public readonly List<Element> Elements = new List<Element>();
@@ -35,6 +40,25 @@ namespace GL.Battle.CharacterControllers
                     _this.Elements.ForEach(e => e.EndTurnAll(x.Character));
                 })
                 .AddTo(this.Character);
+        }
+
+        /// <summary>
+        /// 指定したタイプの蓄積値を加算する
+        /// </summary>
+        public void AddAccumulateResistance(Constants.StatusAilmentType type, float value)
+        {
+            // 既に状態異常にかかっている場合は蓄積しない
+            if(this.Find(type))
+            {
+                return;
+            }
+
+            this.Accumulate.Add(type, Calculator.GetStatusAilmentAccumulate(this.Character.StatusController, type, value));
+            if (Accumulate.IsFull(type))
+            {
+                this.Add(5, type);
+            }
+            this.PublishModifiedStatus();
         }
 
         /// <summary>
@@ -82,6 +106,11 @@ namespace GL.Battle.CharacterControllers
         {
             this.Elements.Remove(item);
             item.OnRemove();
+        }
+
+        private void PublishModifiedStatus()
+        {
+            Broker.Global.Publish(ModifiedStatus.Get(this.Character));
         }
     }
 }

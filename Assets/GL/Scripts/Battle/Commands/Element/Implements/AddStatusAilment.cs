@@ -30,14 +30,8 @@ namespace GL.Battle.Commands.Element.Implements
         {
             targets.ForEach(t =>
             {
-                if (Calculator.LotteryStatusAilment(t.StatusController, this.parameter.StatusAilmentType, this.parameter.Rate))
-                {
-                    var success = t.AilmentController.Add(this.parameter.RemainingTurn, this.parameter.StatusAilmentType);
-                    if (success && bundle.CanRecord)
-                    {
-                        BattleManager.Instance.InvokedCommandResult.AddAilments.Add(new InvokedCommandResult.AddAilment(t, this.parameter.StatusAilmentType));
-                    }
-                }
+                t.AilmentController.AddAccumulateResistance(this.parameter.StatusAilmentType, this.parameter.Rate);
+                BattleManager.Instance.InvokedCommandResult.AddAilments.Add(new InvokedCommandResult.AddAilment(t, this.parameter.StatusAilmentType));
             });
         }
 

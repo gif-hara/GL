@@ -171,17 +171,15 @@ namespace GL.Battle
         }
 
         /// <summary>
-        /// 状態異常をかけられるか抽選する
+        /// 状態異常の蓄積値を返す
         /// </summary>
-        public static bool LotteryStatusAilment(CharacterStatusController target, Constants.StatusAilmentType statusAilmentType, float rate)
+        public static float GetStatusAilmentAccumulate(CharacterStatusController statusController, Constants.StatusAilmentType type, float value)
         {
-            // 有利な状態異常は必ずかかる
-            if (statusAilmentType.IsPositive())
-            {
-                return true;
-            }
-            
-            return Random.value <= (rate - target.GetTotalResistance(statusAilmentType));
+            Assert.IsTrue(type.IsNegative());
+            var resistance = statusController.GetTotalResistance(type);
+            var result = Mathf.Max(value * (1.0f - resistance), 0.0f);
+
+            return result;
         }
 
         /// <summary>
