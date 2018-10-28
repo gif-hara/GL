@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 221d7d34226dd41a8b8a8ce5033a61a1, type: 3}
-  m_Name: BasicAttack_Select
+  m_Name: Attack_Select_Brow
   m_EditorClassIdentifier: 
   parameter:
     Name:
@@ -23,5 +23,7 @@ MonoBehaviour:
     TargetPartyType: 1
     TargetType: 0
     Postprocess: 0
+    ChargeTurn: 0
+    InitialChargeTurn: 0
     Elements:
     - {fileID: 11400000, guid: c1a29128a524e4b8db163cd5aa262161, type: 2}

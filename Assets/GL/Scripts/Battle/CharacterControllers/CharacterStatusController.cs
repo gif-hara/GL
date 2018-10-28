@@ -133,6 +133,14 @@ namespace GL.Battle.CharacterControllers
                    this.OnSoldier.Resistance.Get(type);
         }
 
+        public float GetTotalAttribute(Constants.AttributeType type)
+        {
+            return this.Base.Attribute.Get(type) +
+                   this.Dynamic.Attribute.Get(type) +
+                   this.Accessory.Attribute.Get(type) +
+                   this.OnSoldier.Attribute.Get(type);
+        }
+
         public void AddChargeTurn(int value)
         {
             this.Commands.ForEach(c => c.AddChargeTurn(value));

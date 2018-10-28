@@ -13,7 +13,7 @@ namespace GL.Battle
         /// <summary>
         /// 通常攻撃でのダメージ計算を行う
         /// </summary>
-        public static int GetBasicAttackDamage(Character invoker, Character target, float rate)
+        public static int GetBasicAttackDamage(Character invoker, Character target, float rate, Constants.AttributeType attributeType)
         {
             // TODO: 実装
             var baseStrength = Mathf.Pow(invoker.StatusController.GetTotalParameter(Constants.StatusParameterType.Strength), 2) * rate;
@@ -49,7 +49,17 @@ namespace GL.Battle
             {
                 result *= 0.5f;
             }
-            
+
+            // 属性の倍率を適用する
+            var attributeRate = target.StatusController.GetTotalAttribute(attributeType);
+            result *= attributeRate;
+
+            // 属性値がマイナスの場合はダメージを吸収する
+            if(attributeRate < 0.0f)
+            {
+                return Mathf.FloorToInt(result);
+            }
+
             return result < 1 ? 1 : Mathf.FloorToInt(result);
         }
 

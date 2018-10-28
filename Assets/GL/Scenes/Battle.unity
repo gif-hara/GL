@@ -1267,7 +1267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerParty: {fileID: 11400000, guid: 3826380811d7249f7afe6bb30fd4ffce, type: 2}
-  enemyParty: {fileID: 11400000, guid: 4e610f59b926c470192fca238fb5ac43, type: 2}
+  enemyParty: {fileID: 11400000, guid: 3dac803ca1d814d86b4c8d3a892b17e5, type: 2}
   characterPrefab: {fileID: 114226508176844992, guid: 06b67f79b11294d889adf6edb7b21e23,
     type: 2}
   playerParent: {fileID: 1681858771}

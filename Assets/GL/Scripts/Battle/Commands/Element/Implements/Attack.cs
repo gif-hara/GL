@@ -28,8 +28,17 @@ namespace GL.Battle.Commands.Element.Implements
         {
             targets.ForEach(t =>
             {
-                var damage = Calculator.GetBasicAttackDamage(invoker, t, this.parameter.Rate);
-                t.TakeDamage(damage);
+                var damage = Calculator.GetBasicAttackDamage(invoker, t, this.parameter.Rate, this.parameter.AttributeType);
+
+                // ダメージがマイナスの場合は回復扱いになる
+                if(damage < 0)
+                {
+                    t.Recovery(-damage);
+                }
+                else
+                {
+                    t.TakeDamage(damage);
+                }
 
                 if (bundle.CanRecord)
                 {
@@ -45,6 +54,8 @@ namespace GL.Battle.Commands.Element.Implements
             /// ダメージ倍率
             /// </summary>
             public float Rate;
+
+            public Constants.AttributeType AttributeType;
         }
     }
 }

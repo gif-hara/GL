@@ -41,6 +41,14 @@ MonoBehaviour:
     Confuse: 0
     Berserk: 0
     Vitals: 0
+  attribute:
+    brow: 1
+    slash: 1
+    poke: 1
+    no: 1
+    fire: 1
+    water: 1
+    thunder: 1
   growthCurve:
     HitPoint:
       serializedVersion: 2

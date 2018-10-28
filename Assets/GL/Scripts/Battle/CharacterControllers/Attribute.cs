@@ -14,49 +14,49 @@ namespace GL.Battle.CharacterControllers
         /// <summary>
         /// 打撃
         /// </summary>
-        [SerializeField]
+        [SerializeField][Range(-1.0f, 3.0f)]
         private float brow;
         public float Brow => this.brow;
 
         /// <summary>
         /// 斬撃
         /// </summary>
-        [SerializeField]
+        [SerializeField][Range(-1.0f, 3.0f)]
         private float slash;
         public float Slash => this.slash;
 
         /// <summary>
         /// 突
         /// </summary>
-        [SerializeField]
+        [SerializeField][Range(-1.0f, 3.0f)]
         private float poke;
         public float Poke => this.poke;
 
         /// <summary>
         /// 無属性
         /// </summary>
-        [SerializeField]
+        [SerializeField][Range(-1.0f, 3.0f)]
         private float no;
         public float No => this.no;
 
         /// <summary>
         /// 炎
         /// </summary>
-        [SerializeField]
+        [SerializeField][Range(-1.0f, 3.0f)]
         private float fire;
         public float Fire => this.fire;
 
         /// <summary>
         /// 水
         /// </summary>
-        [SerializeField]
+        [SerializeField][Range(-1.0f, 3.0f)]
         private float water;
         public float Water => this.water;
 
         /// <summary>
         /// 雷
         /// </summary>
-        [SerializeField]
+        [SerializeField][Range(-1.0f, 3.0f)]
         private float thunder;
         public float Thunder => this.thunder;
 

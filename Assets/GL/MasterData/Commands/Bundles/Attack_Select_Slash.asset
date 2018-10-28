@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 221d7d34226dd41a8b8a8ce5033a61a1, type: 3}
+  m_Name: Attack_Select_Slash
+  m_EditorClassIdentifier: 
+  parameter:
+    Name:
+      target: {fileID: 11400000, guid: 3534e70039cc6491cad3f648e57e8b4b, type: 2}
+      value: "\u653B\u6483"
+      guid: 921c1012-ba4b-47d5-8afe-53d421fd2139
+    Description:
+      target: {fileID: 11400000, guid: 64540f3636eab4a58b159c78cd0cb228, type: 2}
+      value: "\u30BF\u30FC\u30B2\u30C3\u30C81\u4F53\u306B\u901A\u5E38\u653B\u6483"
+      guid: af319c5d-9620-49ec-abe3-4e128ef73931
+    TargetPartyType: 1
+    TargetType: 0
+    Postprocess: 0
+    ChargeTurn: 0
+    InitialChargeTurn: 0
+    Elements:
+    - {fileID: 11400000, guid: 57bca5971686e4eda9c86c7ff9700ee1, type: 2}
