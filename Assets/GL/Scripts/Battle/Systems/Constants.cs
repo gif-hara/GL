@@ -161,6 +161,27 @@ namespace GL
         }
 
         /// <summary>
+        /// 属性
+        /// </summary>
+        public enum AttributeType
+        {
+            /// <summary>打撃</summary>
+            Brow,
+            /// <summary>斬撃</summary>
+            Slash,
+            /// <summary>突</summary>
+            Poke,
+            /// <summary>無属性</summary>
+            No,
+            /// <summary>炎</summary>
+            Fire,
+            /// <summary>水</summary>
+            Water,
+            /// <summary>雷</summary>
+            Thunder,
+        }
+
+        /// <summary>
         /// コマンド実行後の処理タイプ
         /// </summary>
         public enum PostprocessCommand

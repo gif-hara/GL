@@ -59,6 +59,10 @@ namespace GL.Database
         public Resistance Resistance => this.resistance;
 
         [SerializeField]
+        private Battle.CharacterControllers.Attribute attribute;
+        public Battle.CharacterControllers.Attribute Attribute => this.attribute;
+
+        [SerializeField]
         private GrowthCurve growthCurve;
 
         [SerializeField]

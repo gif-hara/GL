@@ -22,18 +22,23 @@ namespace GL.Battle.CharacterControllers
         [SerializeField]
         public Resistance Resistance;
 
+        [SerializeField]
+        public Attribute Attribute;
+
         public CharacterStatus()
         {
             this.Name = "";
             this.Parameter = new Parameter();
             this.Resistance = new Resistance();
+            this.Attribute = new Attribute();
         }
 
-        public CharacterStatus(CharacterRecord blueprint, int level)
+        public CharacterStatus(CharacterRecord characterRecord, int level)
         {
-            this.Name = blueprint.CharacterName;
-            this.Parameter = new Parameter(blueprint, level);
-            this.Resistance = new Resistance(blueprint);
+            this.Name = characterRecord.CharacterName;
+            this.Parameter = new Parameter(characterRecord, level);
+            this.Resistance = new Resistance(characterRecord);
+            this.Attribute = new Attribute(characterRecord);
         }
 
         public void Copy(CharacterStatus other)
@@ -41,6 +46,7 @@ namespace GL.Battle.CharacterControllers
             this.Name = other.Name;
             this.Parameter = new Parameter(other.Parameter);
             this.Resistance = new Resistance(other.Resistance);
+            this.Attribute = new Attribute(other.Attribute);
         }
 
         public void Reset()
@@ -48,6 +54,7 @@ namespace GL.Battle.CharacterControllers
             this.Name = "";
             this.Parameter.Reset();
             this.Resistance.Reset();
+            this.Attribute.Reset();
         }
     }
 }
