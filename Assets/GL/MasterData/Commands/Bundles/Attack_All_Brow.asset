@@ -9,14 +9,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 221d7d34226dd41a8b8a8ce5033a61a1, type: 3}
-  m_Name: BasicAttack_All
+  m_Name: Attack_All_Brow
   m_EditorClassIdentifier: 
   parameter:
     Name:
       target: {fileID: 11400000, guid: 3534e70039cc6491cad3f648e57e8b4b, type: 2}
       value: "\u5168\u4F53\u653B\u6483"
       guid: c9b56039-4171-47a7-96ca-3383a1cfcad2
+    Description:
+      target: {fileID: 0}
+      value: 
+      guid: 
     TargetPartyType: 1
     TargetType: 1
+    Postprocess: 0
+    ChargeTurn: 0
+    InitialChargeTurn: 0
     Elements:
-    - {fileID: 11400000, guid: d45505cef08c549eda695fde6d2898d1, type: 2}
+    - element: {fileID: 11400000, guid: c1a29128a524e4b8db163cd5aa262161, type: 2}
+      condition: {fileID: 11400000, guid: 5e616f6c5005f49c6b39ca4db09a447d, type: 2}

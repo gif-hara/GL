@@ -7,6 +7,7 @@ using HK.Framework.EventSystems;
 using HK.Framework.Text;
 using HK.GL.Extensions;
 using UnityEngine.Assertions;
+using UnityEngine;
 
 namespace GL.Battle.Commands.Bundle
 {
@@ -36,7 +37,7 @@ namespace GL.Battle.Commands.Bundle
         {
             this.parameter = parameter;
             this.currentChargeTurn = this.parameter.InitialChargeTurn;
-            this.elements = parameter.Elements.Select(e => e.Create()).ToArray();
+            this.elements = parameter.Elements.Select(e => e.Element.Create()).ToArray();
         }
 
         /// <summary>
@@ -171,7 +172,22 @@ namespace GL.Battle.Commands.Bundle
             /// <summary>
             /// 実行されるコマンドリスト
             /// </summary>
-            public Element.Blueprint[] Elements;
+            public ConditionalCommand[] Elements;
+        }
+
+        /// <summary>
+        /// 条件付きのコマンド
+        /// </summary>
+        [Serializable]
+        public class ConditionalCommand
+        {
+            [SerializeField]
+            private Element.Blueprint element;
+            public Element.Blueprint Element => this.element;
+
+            [SerializeField]
+            private CommandElementCondition condition;
+            public CommandElementCondition Condition => this.condition;
         }
     }
 }
