@@ -23,16 +23,16 @@ MonoBehaviour:
   min:
     HitPoint: 540
     Strength: 10
-    StrengthMagic: 0
+    StrengthMagic: 3
     Defense: 4
-    DefenseMagic: 0
+    DefenseMagic: 2
     Speed: 5
   max:
     HitPoint: 5895
     Strength: 255
-    StrengthMagic: 0
+    StrengthMagic: 75
     Defense: 140
-    DefenseMagic: 0
+    DefenseMagic: 56
     Speed: 88
   resistance:
     Poison: 0

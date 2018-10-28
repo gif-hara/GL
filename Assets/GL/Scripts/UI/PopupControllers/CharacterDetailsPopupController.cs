@@ -136,6 +136,9 @@ namespace GL.Home.UI
         private Parameter parameter;
 
         [SerializeField]
+        private Attribute attribute;
+
+        [SerializeField]
         private Resistance resistance;
 
         [SerializeField]
@@ -184,6 +187,7 @@ namespace GL.Home.UI
             this.rank.Apply(player.CharacterRecord);
             this.profile.Apply(player);
             this.parameter.Apply(player.Parameter);
+            this.attribute.Apply(player.CharacterRecord);
             this.resistance.Apply(player.Resistance);
             this.rightWeapon.Setup(this, player.RightHand.BattleWeapon);
             this.leftWeapon.Setup(this, player.LeftHand.BattleWeapon);
@@ -226,6 +230,7 @@ namespace GL.Home.UI
             this.rank.Apply(characterRecord);
             this.profile.Apply(characterRecord);
             this.parameter.Apply(characterRecord.Min);
+            this.attribute.Apply(characterRecord);
             this.resistance.Apply(characterRecord.Resistance);
 
             this.equipmentsRoot.SetActive(false);
@@ -251,6 +256,7 @@ namespace GL.Home.UI
             this.rank.Apply(character.StatusController.CharacterRecord);
             this.profile.Apply(character);
             this.parameter.Apply(character);
+            this.attribute.Apply(character.Record);
             this.resistance.Apply(character);
 
             this.equipmentsRoot.SetActive(false);
@@ -334,6 +340,9 @@ namespace GL.Home.UI
         private class Profile
         {
             [SerializeField]
+            private Image icon;
+
+            [SerializeField]
             private Text level;
 
             [SerializeField]
@@ -347,21 +356,24 @@ namespace GL.Home.UI
 
             public void Apply(Player player)
             {
+                this.icon.sprite = player.CharacterRecord.Icon;
                 this.level.text = this.levelFormat.Format(player.Level.ToString());
                 this.characterName.text = player.CharacterRecord.CharacterName;
                 this.jobName.text = player.CharacterRecord.Job.JobName;
             }
 
-            public void Apply(CharacterRecord blueprint)
+            public void Apply(CharacterRecord characterRecord)
             {
+                this.icon.sprite = characterRecord.Icon;
                 this.level.text = this.levelFormat.Format(1.ToString());
-                this.characterName.text = blueprint.CharacterName;
-                this.jobName.text = blueprint.Job.JobName;
+                this.characterName.text = characterRecord.CharacterName;
+                this.jobName.text = characterRecord.Job.JobName;
             }
 
             public void Apply(Character character)
             {
                 var s = character.StatusController;
+                this.icon.sprite = character.Record.Icon;
                 this.level.text = this.levelFormat.Format(s.Level.ToString());
                 this.characterName.text = s.CharacterRecord.CharacterName;
                 this.jobName.text = s.CharacterRecord.Job.JobName;
@@ -408,6 +420,58 @@ namespace GL.Home.UI
                 this.defense.text = s.GetTotalParameter(Constants.StatusParameterType.Defense).ToString();
                 this.defenseMagic.text = s.GetTotalParameter(Constants.StatusParameterType.DefenseMagic).ToString();
                 this.speed.text = s.GetTotalParameter(Constants.StatusParameterType.Speed).ToString();
+            }
+        }
+
+        [Serializable]
+        public class Attribute
+        {
+            [SerializeField]
+            private Text brow;
+
+            [SerializeField]
+            private Text slash;
+
+            [SerializeField]
+            private Text poke;
+
+            [SerializeField]
+            private Text no;
+
+            [SerializeField]
+            private Text fire;
+
+            [SerializeField]
+            private Text water;
+
+            [SerializeField]
+            private Text thunder;
+
+            [SerializeField]
+            private Color normalColor;
+
+            [SerializeField]
+            private Color weaklyColor;
+
+            [SerializeField]
+            private Color oppositionColor;
+
+            public void Apply(CharacterRecord characterRecord)
+            {
+                var a = characterRecord.Attribute;
+                this.Apply(this.brow, a.Brow);
+                this.Apply(this.slash, a.Slash);
+                this.Apply(this.poke, a.Poke);
+                this.Apply(this.no, a.No);
+                this.Apply(this.fire, a.Fire);
+                this.Apply(this.water, a.Water);
+                this.Apply(this.thunder, a.Thunder);
+            }
+
+            private void Apply(Text text, float value)
+            {
+                text.text = value.ToString("P0");
+                text.color = value > 1.0f ? this.weaklyColor : value < 1.0f ? this.oppositionColor : this.normalColor;
             }
         }
 
