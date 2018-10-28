@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using GL.Battle.CharacterControllers;
+using GL.User;
+using UnityEngine;
 using UnityEngine.Assertions;
 
 namespace GL.Battle.Commands
@@ -11,6 +13,6 @@ namespace GL.Battle.Commands
         /// <summary>
         /// 条件を満たしているか返す
         /// </summary>
-        public abstract bool Suitable { get; }
+        public abstract bool Suitable(Player player);
     }
 }

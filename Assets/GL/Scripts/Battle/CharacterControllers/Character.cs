@@ -17,6 +17,7 @@ namespace GL.Battle.CharacterControllers
     public sealed class Character : MonoBehaviour
     {
         public CharacterRecord Record { get; private set; }
+
         /// <summary>
         /// ステータスコントローラー
         /// </summary>
@@ -33,8 +34,6 @@ namespace GL.Battle.CharacterControllers
 
         public CharacterUIController UIController { get; private set; }
 
-        //private ICharacterAnimation characterAnimation;
-
         public void Initialize(CharacterRecord characterRecord, Implement[] commands, AccessoryRecord[] accessories, int level, Constants.CharacterType characterType)
         {
             this.Record = characterRecord;
@@ -42,9 +41,6 @@ namespace GL.Battle.CharacterControllers
             this.AilmentController = new CharacterAilmentController(this);
             this.AccessoryController = new CharacterAccessoryController(accessories);
             this.CharacterType = characterType;
-            // this.characterAnimation = this.GetComponentInChildren<ICharacterAnimation>();
-            // Assert.IsNotNull(this.characterAnimation);
-
             this.UIController = this.GetComponent<CharacterUIController>();
 
             Broker.Global.Receive<StartBattle>()

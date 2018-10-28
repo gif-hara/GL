@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using GL.Battle.CharacterControllers;
+using GL.User;
+using UnityEngine;
 using UnityEngine.Assertions;
 
 namespace GL.Battle.Commands
@@ -9,6 +11,9 @@ namespace GL.Battle.Commands
     [CreateAssetMenu(menuName = "GL/Commands/Condition/Unconditional")]
     public sealed class Unconditional : CommandElementCondition
     {
-        public override bool Suitable => true;
+        public override bool Suitable(Player player)
+        {
+            return true;
+        }
     }
 }
