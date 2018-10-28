@@ -37,7 +37,7 @@ namespace GL.Battle.Commands.Bundle
         {
             this.parameter = parameter;
             this.currentChargeTurn = this.parameter.InitialChargeTurn;
-            this.elements = parameter.Elements.Select(e => e.Element.Create()).ToArray();
+            this.elements = parameter.Elements.Select(e => e.Create()).ToArray();
         }
 
         /// <summary>
@@ -172,7 +172,7 @@ namespace GL.Battle.Commands.Bundle
             /// <summary>
             /// 実行されるコマンドリスト
             /// </summary>
-            public ConditionalCommand[] Elements;
+            public Element.Blueprint[] Elements;
         }
 
         /// <summary>

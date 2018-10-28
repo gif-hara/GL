@@ -133,11 +133,11 @@ namespace GL.User
         /// <summary>
         /// バトルで利用するコマンドを返す
         /// </summary>
-        public CommandRecord[] UsingCommands
+        public ConditionalCommandRecord[] UsingCommands
         {
             get
             {
-                var result = new List<CommandRecord>();
+                var result = new List<ConditionalCommandRecord>();
                 if(this.RightHand.IsPossession)
                 {
                     result.AddRange(this.RightHand.BattleWeapon.Commands);

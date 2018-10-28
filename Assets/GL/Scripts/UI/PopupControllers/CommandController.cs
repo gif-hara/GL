@@ -16,10 +16,10 @@ namespace GL.UI
         [SerializeField]
         private Text description;
 
-        public void Setup(CommandRecord command)
+        public void Setup(ConditionalCommandRecord command)
         {
-            this.commandName.text = command.Parameter.Name.Get;
-            this.description.text = command.Parameter.Description.Get;
+            this.commandName.text = command.CommandRecord.Parameter.Name.Get;
+            this.description.text = command.CommandRecord.Parameter.Description.Get;
         }
     }
 }

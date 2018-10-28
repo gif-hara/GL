@@ -3,6 +3,8 @@ using GL.Battle;
 using HK.Framework.Text;
 using UnityEngine;
 using GL.Database;
+using GL.Battle.Commands;
+using System;
 
 namespace GL.Database
 {
@@ -43,7 +45,7 @@ namespace GL.Database
         public int Price => this.price;
 
         [SerializeField]
-        private CommandRecord[] commands;
-        public CommandRecord[] Commands { get { return commands; } }
+        private ConditionalCommandRecord[] commands;
+        public ConditionalCommandRecord[] Commands { get { return commands; } }
     }
 }

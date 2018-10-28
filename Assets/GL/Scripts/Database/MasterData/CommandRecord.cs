@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using GL.User;
+using UnityEngine;
 
 namespace GL.Database
 {
@@ -11,6 +12,11 @@ namespace GL.Database
         [SerializeField]
         private Battle.Commands.Bundle.Implement.Parameter parameter;
         public Battle.Commands.Bundle.Implement.Parameter Parameter => this.parameter;
+
+        public bool CanCreate(Player player)
+        {
+            return false;
+        }
 
         public Battle.Commands.Bundle.Implement Create()
         {

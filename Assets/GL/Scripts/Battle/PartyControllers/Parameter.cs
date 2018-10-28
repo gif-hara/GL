@@ -31,7 +31,7 @@ namespace GL.Battle.PartyControllers
         [SerializeField]
         public AccessoryRecord[] Accessories;
 
-        public static Parameter Create(UserData userData, Player player)
+        public static Parameter Create(Player player)
         {
             return new Parameter()
             {
@@ -47,14 +47,22 @@ namespace GL.Battle.PartyControllers
         {
             get
             {
+                var constantCommand = MasterData.ConstantCommand;
                 var result = new List<Commands.Bundle.Implement>();
+
+                // 何も装備していないときは素手コマンドを追加
+                if(this.RightWeapon == null && this.LeftWeapon == null)
+                {
+                    result.Add(constantCommand.Unequipment.Create());
+                }
+
                 if(this.RightWeapon != null)
                 {
-                    result.AddRange(this.RightWeapon.Commands.Select(c => c.Create()));
+                    result.AddRange(this.RightWeapon.Commands.Select(c => c.CommandRecord.Create()));
                 }
                 if(this.LeftWeapon != null)
                 {
-                    result.AddRange(this.LeftWeapon.Commands.Select(c => c.Create()));
+                    result.AddRange(this.LeftWeapon.Commands.Select(c => c.CommandRecord.Create()));
                 }
 
                 return result.ToArray();

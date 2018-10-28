@@ -18,7 +18,7 @@ namespace GL.UI
 
         private readonly List<CommandController> commands = new List<CommandController>();
 
-        public void Setup(IEnumerable<CommandRecord> commands)
+        public void Setup(IEnumerable<ConditionalCommandRecord> commands)
         {
             this.Clear();
             foreach(var c in commands)

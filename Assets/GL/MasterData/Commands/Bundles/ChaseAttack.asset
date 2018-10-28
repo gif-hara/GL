@@ -26,5 +26,4 @@ MonoBehaviour:
     ChargeTurn: 0
     InitialChargeTurn: 0
     Elements:
-    - element: {fileID: 11400000, guid: c1a29128a524e4b8db163cd5aa262161, type: 2}
-      condition: {fileID: 11400000, guid: 5e616f6c5005f49c6b39ca4db09a447d, type: 2}
+    - {fileID: 11400000, guid: 3ad4c830f2cb54a9abeaa9d135c97d88, type: 2}

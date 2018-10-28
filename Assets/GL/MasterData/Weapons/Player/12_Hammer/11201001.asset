@@ -19,4 +19,5 @@ MonoBehaviour:
   weaponType: 2048
   price: 800
   commands:
-  - {fileID: 11400000, guid: ddd0901df31a844529d9f118895097ad, type: 2}
+  - commandRecord: {fileID: 11400000, guid: b5a74c3bef8f34e939f18d600621ead3, type: 2}
+    condition: {fileID: 11400000, guid: 5e616f6c5005f49c6b39ca4db09a447d, type: 2}

@@ -31,6 +31,10 @@ namespace GL.Database
         private EnemyPartyList enemyParty;
         public static EnemyPartyList EnemyParty => instance.enemyParty;
 
+        [SerializeField]
+        private ConstantCommand constantCommand;
+        public static ConstantCommand ConstantCommand => instance.constantCommand;
+
         public void Setup()
         {
             Assert.IsNull(instance);

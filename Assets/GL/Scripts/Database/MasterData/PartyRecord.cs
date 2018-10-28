@@ -36,7 +36,7 @@ namespace GL.Database
         {
             var userData = UserData.Instance;
             var clone = ScriptableObject.CreateInstance<PartyRecord>();
-            clone.parameters = party.AsPlayers.Select(p => Battle.PartyControllers.Parameter.Create(userData, p)).ToArray();
+            clone.parameters = party.AsPlayers.Select(p => Battle.PartyControllers.Parameter.Create(p)).ToArray();
             clone.characterType = Constants.CharacterType.Player;
 
             return clone;
