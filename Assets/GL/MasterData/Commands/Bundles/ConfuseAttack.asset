@@ -23,7 +23,7 @@ MonoBehaviour:
     TargetPartyType: 0
     TargetType: 2
     Postprocess: 0
-    ChargeTurn: 0
+    ChargeTurn: -1
     InitialChargeTurn: 0
     Elements:
     - {fileID: 11400000, guid: 3ad4c830f2cb54a9abeaa9d135c97d88, type: 2}
