@@ -9,21 +9,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 221d7d34226dd41a8b8a8ce5033a61a1, type: 3}
-  m_Name: Attack_Select_Slash
+  m_Name: Attack_All_Brow_00
   m_EditorClassIdentifier: 
   parameter:
     Name:
       target: {fileID: 11400000, guid: 3534e70039cc6491cad3f648e57e8b4b, type: 2}
-      value: "\u653B\u6483"
-      guid: 921c1012-ba4b-47d5-8afe-53d421fd2139
+      value: "\u5168\u4F53\u653B\u6483"
+      guid: c9b56039-4171-47a7-96ca-3383a1cfcad2
     Description:
       target: {fileID: 11400000, guid: 64540f3636eab4a58b159c78cd0cb228, type: 2}
-      value: "\u30BF\u30FC\u30B2\u30C3\u30C81\u4F53\u306B\u901A\u5E38\u653B\u6483"
-      guid: af319c5d-9620-49ec-abe3-4e128ef73931
+      value: "\u30D1\u30FC\u30C6\u30A3\u5168\u4F53\u306B\u901A\u5E38\u653B\u6483"
+      guid: b46f1a4d-4f99-4a59-aee8-0b576abc35dc
     TargetPartyType: 1
-    TargetType: 0
+    TargetType: 1
     Postprocess: 0
     ChargeTurn: 0
     InitialChargeTurn: 0
     Elements:
-    - {fileID: 11400000, guid: 57bca5971686e4eda9c86c7ff9700ee1, type: 2}
+    - {fileID: 11400000, guid: d45505cef08c549eda695fde6d2898d1, type: 2}

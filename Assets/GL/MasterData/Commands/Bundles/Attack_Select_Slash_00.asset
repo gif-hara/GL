@@ -9,21 +9,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 221d7d34226dd41a8b8a8ce5033a61a1, type: 3}
-  m_Name: BerserkAttack
+  m_Name: Attack_Select_Slash_00
   m_EditorClassIdentifier: 
   parameter:
     Name:
       target: {fileID: 11400000, guid: 3534e70039cc6491cad3f648e57e8b4b, type: 2}
-      value: "\u72C2\u66B4\u653B\u6483"
-      guid: 66759bac-5930-4ad1-bdc7-dd2d9cfdcf82
+      value: "\u653B\u6483\uFF08\u65AC\u6483\uFF09"
+      guid: 99a7a6c7-a7e9-4888-8977-04af3b390909
     Description:
       target: {fileID: 11400000, guid: 64540f3636eab4a58b159c78cd0cb228, type: 2}
-      value: "\u72C2\u66B4\u653B\u6483"
-      guid: 4c321138-538d-4a00-8099-2b8f332eeb46
+      value: "\u30BF\u30FC\u30B2\u30C3\u30C81\u4F53\u306B\u65AC\u6483\u5C5E\u6027\u306E\u653B\u6483\u3092\u3059\u308B"
+      guid: 506a46eb-8e70-4c82-883e-9411c782546d
     TargetPartyType: 1
-    TargetType: 2
+    TargetType: 0
     Postprocess: 0
-    ChargeTurn: -1
+    ChargeTurn: 0
     InitialChargeTurn: 0
     Elements:
-    - {fileID: 11400000, guid: 0c505e02640124322875880efdc7f7f9, type: 2}
+    - {fileID: 11400000, guid: 57bca5971686e4eda9c86c7ff9700ee1, type: 2}

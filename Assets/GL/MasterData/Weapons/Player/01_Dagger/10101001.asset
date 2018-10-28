@@ -23,5 +23,5 @@ MonoBehaviour:
     condition: {fileID: 11400000, guid: 5e616f6c5005f49c6b39ca4db09a447d, type: 2}
   - commandRecord: {fileID: 11400000, guid: a2ec90fcc5fd646c580dbe39ef563cdf, type: 2}
     condition: {fileID: 11400000, guid: 5e616f6c5005f49c6b39ca4db09a447d, type: 2}
-  - commandRecord: {fileID: 11400000, guid: ef7e587a55b3f400d95c7b23429ac44f, type: 2}
-    condition: {fileID: 11400000, guid: 905632838d0234e898c803db970eb82a, type: 2}
+  - commandRecord: {fileID: 11400000, guid: 6573310e3fcc341bf8b981b8ac96703f, type: 2}
+    condition: {fileID: 11400000, guid: 5e616f6c5005f49c6b39ca4db09a447d, type: 2}
