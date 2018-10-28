@@ -30,8 +30,11 @@ namespace GL.Battle.Commands.Element.Implements
         {
             targets.ForEach(t =>
             {
-                t.AilmentController.Add(this.parameter.RemainingTurn, this.parameter.StatusAilmentType);
-                BattleManager.Instance.InvokedCommandResult.AddAilments.Add(new InvokedCommandResult.AddAilment(t, this.parameter.StatusAilmentType));
+                var result = t.AilmentController.Add(this.parameter.RemainingTurn, this.parameter.StatusAilmentType, this.parameter.Rate);
+                if(result && bundle.CanRecord)
+                {
+                    BattleManager.Instance.InvokedCommandResult.AddAilments.Add(new InvokedCommandResult.AddAilment(t, this.parameter.StatusAilmentType));
+                }
             });
         }
 

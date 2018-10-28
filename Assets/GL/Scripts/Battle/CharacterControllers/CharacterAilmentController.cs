@@ -43,33 +43,14 @@ namespace GL.Battle.CharacterControllers
         }
 
         /// <summary>
-        /// 指定したタイプの蓄積値を加算する
-        /// </summary>
-        public void AddAccumulateResistance(Constants.StatusAilmentType type, float value)
-        {
-            // 既に状態異常にかかっている場合は蓄積しない
-            if(this.Find(type))
-            {
-                return;
-            }
-
-            this.Accumulate.Add(type, Calculator.GetStatusAilmentAccumulate(this.Character.StatusController, type, value));
-            if (Accumulate.IsFull(type))
-            {
-                this.Add(5, type);
-            }
-            this.PublishModifiedStatus();
-        }
-
-        /// <summary>
         /// 状態異常を追加する
         /// </summary>
         /// <remarks>
         /// すでにかかっている場合は何もしない
         /// </remarks>
-        public bool Add(int remainingTurn, Constants.StatusAilmentType type)
+        public bool Add(int remainingTurn, Constants.StatusAilmentType type, float rate)
         {
-            if (this.Find(type))
+            if (this.Find(type) || !Calculator.LotteryStatusAilment(this.Character.StatusController, type, rate))
             {
                 return false;
             }
