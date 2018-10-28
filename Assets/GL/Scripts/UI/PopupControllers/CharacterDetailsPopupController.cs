@@ -356,7 +356,7 @@ namespace GL.Home.UI
 
             public void Apply(Player player)
             {
-                this.icon.sprite = player.CharacterRecord.Icon;
+                player.CharacterRecord.ApplyIcon(this.icon);
                 this.level.text = this.levelFormat.Format(player.Level.ToString());
                 this.characterName.text = player.CharacterRecord.CharacterName;
                 this.jobName.text = player.CharacterRecord.Job.JobName;
@@ -364,7 +364,7 @@ namespace GL.Home.UI
 
             public void Apply(CharacterRecord characterRecord)
             {
-                this.icon.sprite = characterRecord.Icon;
+                characterRecord.ApplyIcon(this.icon);
                 this.level.text = this.levelFormat.Format(1.ToString());
                 this.characterName.text = characterRecord.CharacterName;
                 this.jobName.text = characterRecord.Job.JobName;
@@ -373,7 +373,7 @@ namespace GL.Home.UI
             public void Apply(Character character)
             {
                 var s = character.StatusController;
-                this.icon.sprite = character.Record.Icon;
+                character.Record.ApplyIcon(this.icon);
                 this.level.text = this.levelFormat.Format(s.Level.ToString());
                 this.characterName.text = s.CharacterRecord.CharacterName;
                 this.jobName.text = s.CharacterRecord.Job.JobName;
