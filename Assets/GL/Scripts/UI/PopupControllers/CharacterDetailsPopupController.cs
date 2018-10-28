@@ -277,18 +277,6 @@ namespace GL.Home.UI
                         return;
                     }
 
-                    // 同じ武器は装備出来ない
-                    if(instanceId != 0)
-                    {
-                        var userWeapon = UserData.Instance.Weapons.GetByInstanceId(instanceId);
-                        if (_this.editPlayer.IsEquipedSameWeapon(userWeapon.Id))
-                        {
-                            _this.failedChangeWeaponFromSame.Show()
-                                .CloseOnSubmit();
-                            return;
-                        }
-                    }
-
                     _this.editPlayer.ChangeWeapon(_handType, instanceId);
                     UserData.Instance.Save();
                     if(_handType == Constants.HandType.Right)
