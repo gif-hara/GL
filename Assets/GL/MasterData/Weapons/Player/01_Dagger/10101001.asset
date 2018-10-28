@@ -21,3 +21,5 @@ MonoBehaviour:
   commands:
   - commandRecord: {fileID: 11400000, guid: b5a74c3bef8f34e939f18d600621ead3, type: 2}
     condition: {fileID: 11400000, guid: 5e616f6c5005f49c6b39ca4db09a447d, type: 2}
+  - commandRecord: {fileID: 11400000, guid: ef7e587a55b3f400d95c7b23429ac44f, type: 2}
+    condition: {fileID: 11400000, guid: 905632838d0234e898c803db970eb82a, type: 2}

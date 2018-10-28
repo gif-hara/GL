@@ -1,7 +1,5 @@
-﻿using GL.Battle.CharacterControllers;
-using GL.User;
+﻿using GL.Database;
 using UnityEngine;
-using UnityEngine.Assertions;
 
 namespace GL.Battle.Commands
 {
@@ -11,7 +9,7 @@ namespace GL.Battle.Commands
     [CreateAssetMenu(menuName = "GL/Commands/Condition/Unconditional")]
     public sealed class Unconditional : CommandElementCondition
     {
-        public override bool Suitable(Player player)
+        public override bool Suitable(WeaponRecord rightWeapon, WeaponRecord leftWeapon, AccessoryRecord[] accessories)
         {
             return true;
         }

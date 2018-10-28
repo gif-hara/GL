@@ -1,4 +1,5 @@
 ﻿using GL.Battle.CharacterControllers;
+using GL.Database;
 using GL.User;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -13,6 +14,6 @@ namespace GL.Battle.Commands
         /// <summary>
         /// 条件を満たしているか返す
         /// </summary>
-        public abstract bool Suitable(Player player);
+        public abstract bool Suitable(WeaponRecord rightWeapon, WeaponRecord leftWeapon, AccessoryRecord[] accessories);
     }
 }

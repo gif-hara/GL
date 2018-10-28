@@ -9,6 +9,8 @@ namespace GL.Database
     [CreateAssetMenu(menuName = "GL/Commands/Bundle")]
     public sealed class CommandRecord : ScriptableObject
     {
+        public string Id => this.name;
+        
         [SerializeField]
         private Battle.Commands.Bundle.Implement.Parameter parameter;
         public Battle.Commands.Bundle.Implement.Parameter Parameter => this.parameter;

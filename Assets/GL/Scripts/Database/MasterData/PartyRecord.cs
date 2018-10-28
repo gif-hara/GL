@@ -34,7 +34,6 @@ namespace GL.Database
 
         public static PartyRecord CloneAsPlayerParty(User.Party party)
         {
-            var userData = UserData.Instance;
             var clone = ScriptableObject.CreateInstance<PartyRecord>();
             clone.parameters = party.AsPlayers.Select(p => Battle.PartyControllers.Parameter.Create(p)).ToArray();
             clone.characterType = Constants.CharacterType.Player;

@@ -39,7 +39,7 @@ namespace GL.Battle.PartyControllers
                 Blueprint = player.CharacterRecord,
                 RightWeapon = player.RightHand.BattleWeapon,
                 LeftWeapon = player.LeftHand.BattleWeapon,
-                Accessories = player.Accessories
+                Accessories = player.Accessories,
             };
         }
 
@@ -48,24 +48,36 @@ namespace GL.Battle.PartyControllers
             get
             {
                 var constantCommand = MasterData.ConstantCommand;
-                var result = new List<Commands.Bundle.Implement>();
+                var result = new List<CommandRecord>();
 
                 // 何も装備していないときは素手コマンドを追加
-                if(this.RightWeapon == null && this.LeftWeapon == null)
+                if (this.RightWeapon == null && this.LeftWeapon == null)
                 {
-                    result.Add(constantCommand.Unequipment.Create());
+                    result.Add(constantCommand.Unequipment);
                 }
 
-                if(this.RightWeapon != null)
+                if (this.RightWeapon != null)
                 {
-                    result.AddRange(this.RightWeapon.Commands.Select(c => c.CommandRecord.Create()));
+                    foreach (var c in this.RightWeapon.Commands)
+                    {
+                        if (!result.Contains(c.CommandRecord) && c.Condition.Suitable(this.RightWeapon, this.LeftWeapon, this.Accessories))
+                        {
+                            result.Add(c.CommandRecord);
+                        }
+                    }
                 }
-                if(this.LeftWeapon != null)
+                if (this.LeftWeapon != null)
                 {
-                    result.AddRange(this.LeftWeapon.Commands.Select(c => c.CommandRecord.Create()));
+                    foreach (var c in this.LeftWeapon.Commands)
+                    {
+                        if (!result.Contains(c.CommandRecord) && c.Condition.Suitable(this.RightWeapon, this.LeftWeapon, this.Accessories))
+                        {
+                            result.Add(c.CommandRecord);
+                        }
+                    }
                 }
 
-                return result.ToArray();
+                return result.Select(r => r.Create()).ToArray();
             }
         }
     }

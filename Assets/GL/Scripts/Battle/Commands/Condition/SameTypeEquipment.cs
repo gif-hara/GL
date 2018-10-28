@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using UnityEngine.Assertions;
+﻿using GL.Database;
+using UnityEngine;
 
 namespace GL.Battle.Commands
 {
@@ -9,9 +9,14 @@ namespace GL.Battle.Commands
     [CreateAssetMenu(menuName = "GL/Commands/Condition/SameTypeEquipment")]
     public sealed class SameTypeEquipment : CommandElementCondition
     {
-        public override bool Suitable(User.Player player)
+        public override bool Suitable(WeaponRecord rightWeapon, WeaponRecord leftWeapon, AccessoryRecord[] accessories)
         {
-            return player.LeftHand.BattleWeapon.WeaponType == player.RightHand.BattleWeapon.WeaponType;
+            if(rightWeapon == null || leftWeapon == null)
+            {
+                return false;
+            }
+            
+            return rightWeapon.WeaponType == leftWeapon.WeaponType;
         }
     }
 }
