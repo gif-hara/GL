@@ -15,10 +15,11 @@ namespace GL.Battle
         /// </summary>
         public static int GetBasicAttackDamage(Character invoker, Character target, float rate, Constants.AttributeType attributeType)
         {
-            // TODO: 実装
-            var baseStrength = Mathf.Pow(invoker.StatusController.GetTotalParameter(Constants.StatusParameterType.Strength), 2) * rate;
-            var baseDefense = Mathf.Pow(target.StatusController.GetTotalParameter(Constants.StatusParameterType.Defense), 2);
+            var baseStrength = Mathf.Pow(invoker.StatusController.GetTotalParameter(Constants.StatusParameterType.Strength), 1.48f) * rate;
+            var baseDefense = Mathf.Pow(target.StatusController.GetTotalParameter(Constants.StatusParameterType.Defense), 1.39f);
             var result = baseStrength - baseDefense;
+            var random = result / (10 + (invoker.StatusController.Level * 2));
+            result += Random.Range(-random, random);
 
             // クリティカルが発生したら1.5倍
             if (LotteryCritical(invoker, target))
