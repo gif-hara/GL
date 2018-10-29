@@ -81,6 +81,17 @@ namespace GL.Battle.CharacterControllers
         {
         }
 
+        public Attribute(float brow, float slash, float poke, float no, float fire, float water, float thunder)
+        {
+            this.brow = brow;
+            this.slash = slash;
+            this.poke = poke;
+            this.no = no;
+            this.fire = fire;
+            this.water = water;
+            this.thunder = thunder;
+        }
+
         public float Get(Constants.AttributeType type)
         {
             switch(type)

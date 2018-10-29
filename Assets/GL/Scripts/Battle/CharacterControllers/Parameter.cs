@@ -60,9 +60,19 @@ namespace GL.Battle.CharacterControllers
             this.Speed = other.Speed;
         }
 
-        public Parameter(CharacterRecord blueprint, int level)
-            : this(blueprint.GetParameter(level))
+        public Parameter(CharacterRecord characterRecord, int level)
+            : this(characterRecord.GetParameter(level))
         {
+        }
+
+        public Parameter(int hitPoint, int strength, int strengthMagic, int defense, int defenseMagic, int speed)
+        {
+            this.HitPoint = hitPoint;
+            this.Strength = strength;
+            this.StrengthMagic = strengthMagic;
+            this.Defense = defense;
+            this.DefenseMagic = defenseMagic;
+            this.Speed = speed;
         }
 
         public void Add(Constants.StatusParameterType type, int value)

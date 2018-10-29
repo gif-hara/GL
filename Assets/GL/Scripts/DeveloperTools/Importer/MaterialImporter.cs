@@ -3,11 +3,11 @@ using System.IO;
 using GL.Database;
 using HK.Framework.Text;
 using HK.GL.Extensions;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Assertions;
 
 #if UNITY_EDITOR
+using UnityEditor;
 namespace GL.DeveloperTools
 {
     /// <summary>
@@ -26,8 +26,8 @@ namespace GL.DeveloperTools
             var index = 1;
             data.ForEach(d =>
             {
-                var split = d.Split(',');
-                
+                var split = d.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+
                 // 空白の場合はID類をリセットする
                 if(string.IsNullOrWhiteSpace(split[0]))
                 {
@@ -36,26 +36,14 @@ namespace GL.DeveloperTools
                     return;
                 }
 
-                var materialName = split[0];
+                var materialName = d.Replace("¥r", "").Replace("¥n", "").Replace("\r", "").Replace("\n", "");
                 var fileName = $"1{typeId:00}{index:00}";
-                var extension = ".asset";
                 index++;
 
+                var path = "Assets/GL/MasterData/Materials/";
+                var materialAsset = ImporterUtility.GetOrCreate<MaterialRecord>(path, fileName);
 
-                var path = $"Assets/GL/MasterData/Materials/{fileName}{extension}";
-                MaterialRecord materialAsset;
-                if(File.Exists(path))
-                {
-                    materialAsset = AssetDatabase.LoadAssetAtPath<MaterialRecord>(path);
-                }
-                else
-                {
-                    materialAsset = ScriptableObject.CreateInstance<MaterialRecord>();
-                    materialAsset.name = fileName;
-                    AssetDatabase.CreateAsset(materialAsset, path);
-                    AssetDatabase.SetLabels(materialAsset, new string[] { "GL.Material" });
-                }
-
+                AssetDatabase.SetLabels(materialAsset, new string[] { "GL.Material" });
                 var materialNameFinder = materialNameAsset.CreateOrGetFinder(materialName);
                 materialAsset.Set(materialNameFinder);
             });

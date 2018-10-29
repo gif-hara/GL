@@ -125,6 +125,40 @@ namespace GL.Database
 
             return parameters;
         }
+
+        public void Set(
+            Sprite icon,
+            Color iconColor,
+            int rank,
+            StringAsset.Finder characterName,
+            Job job,
+            Parameter min,
+            Parameter max,
+            Resistance resistance,
+            Battle.CharacterControllers.Attribute attribute,
+            GrowthCurve growthCurve,
+            ExperienceData experience,
+            int price,
+            int acquireExperience,
+            MaterialLottery[] materialLotteries
+        )
+        {
+            this.icon = icon;
+            this.iconColor = iconColor;
+            this.rank = rank;
+            this.characterName = characterName;
+            this.job = job;
+            this.min = min;
+            this.max = max;
+            this.resistance = resistance;
+            this.attribute = attribute;
+            this.growthCurve = growthCurve;
+            this.experience = experience;
+            this.price = price;
+            this.acquireExperience = acquireExperience;
+            this.materialLotteries = materialLotteries;
+            // AIControllerは手動で付ける予定
+        }
 #endif
 
         public void ApplyIcon(Image image)
@@ -155,12 +189,12 @@ namespace GL.Database
         [Serializable]
         public class GrowthCurve
         {
-            public AnimationCurve HitPoint;
-            public AnimationCurve Strength;
-            public AnimationCurve StrengthMagic;
-            public AnimationCurve Defense;
-            public AnimationCurve DefenseMagic;
-            public AnimationCurve Speed;
+            public AnimationCurve HitPoint = new AnimationCurve();
+            public AnimationCurve Strength = new AnimationCurve();
+            public AnimationCurve StrengthMagic = new AnimationCurve();
+            public AnimationCurve Defense = new AnimationCurve();
+            public AnimationCurve DefenseMagic = new AnimationCurve();
+            public AnimationCurve Speed = new AnimationCurve();
         }
 
         [Serializable]
@@ -170,7 +204,7 @@ namespace GL.Database
             private int max;
 
             [SerializeField]
-            private AnimationCurve curve;
+            private AnimationCurve curve = new AnimationCurve();
 
             public int GetNeedValue(int level)
             {
@@ -197,6 +231,12 @@ namespace GL.Database
             /// 獲得可能か返す
             /// </summary>
             public bool IsAcquire => UnityEngine.Random.value <= this.lottery;
+
+            public MaterialLottery(MaterialRecord material, float lottery)
+            {
+                this.material = material;
+                this.lottery = lottery;
+            }
         }
     }
 }

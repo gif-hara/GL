@@ -43,8 +43,18 @@ namespace GL.Battle.CharacterControllers
             this.Vitals = other.Vitals;
         }
 
-        public Resistance(CharacterRecord blueprint)
-            : this(blueprint.Resistance)
+        public Resistance(float poison, float paralysis, float sleep, float confuse, float berserk, float vitals)
+        {
+            this.Poison = poison;
+            this.Paralysis = paralysis;
+            this.Sleep = sleep;
+            this.Confuse = confuse;
+            this.Berserk = berserk;
+            this.Vitals = vitals;
+        }
+
+        public Resistance(CharacterRecord characterRecord)
+            : this(characterRecord.Resistance)
         {
         }
 
