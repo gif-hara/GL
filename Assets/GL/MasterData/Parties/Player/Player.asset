@@ -17,7 +17,7 @@ MonoBehaviour:
     guid: ed6b6d31-e963-4715-9e55-c4fe352d8078
   parameters:
   - Level: 1
-    Blueprint: {fileID: 11400000, guid: 8530be6c073d14c658dd63d68982de4c, type: 2}
+    Blueprint: {fileID: 11400000, guid: 166aac9dcf1da4d76acbe5a1917da73b, type: 2}
     RightWeapon: {fileID: 11400000, guid: 57d2b1df6ad8b446a8d82393a62a6ec3, type: 2}
     LeftWeapon: {fileID: 11400000, guid: 57d2b1df6ad8b446a8d82393a62a6ec3, type: 2}
     Accessories: []
