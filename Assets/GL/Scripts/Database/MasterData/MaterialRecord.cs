@@ -16,5 +16,12 @@ namespace GL.Database
         [SerializeField]
         private StringAsset.Finder materialName;
         public string MaterialName => this.materialName.Get;
+
+#if UNITY_EDITOR
+        public void Set(StringAsset.Finder materialName)
+        {
+            this.materialName = materialName;
+        }
+#endif
     }
 }
