@@ -16,3 +16,59 @@ MonoBehaviour:
       ja: Enemy0
       en: 
     guid: 185c251b-4d3f-4b3c-91a1-d15346844b1b
+  - value:
+      ja: "\u30B4\u30D6\u30EA\u30F3"
+      en: 
+    guid: b6f01f69-553f-44cf-86b3-65eff01dfb3f
+  - value:
+      ja: "\u30B9\u30E9\u30A4\u30E0"
+      en: 
+    guid: b2ef78e2-acc6-4d0a-9747-d98e8e3248bf
+  - value:
+      ja: "\u30DE\u30DF\u30A3"
+      en: 
+    guid: cbc5a50f-48ab-403f-917c-0a26a904dc15
+  - value:
+      ja: "\u30D0\u30C3\u30C8"
+      en: 
+    guid: 3d26a251-8cb6-42b2-9e26-95152a38c4f1
+  - value:
+      ja: "\u30DF\u30C3\u30C9\u30A2\u30A4"
+      en: 
+    guid: ba89903e-39de-401d-9cc8-ef24e61dfc8d
+  - value:
+      ja: "\u30D5\u30ED\u30C3\u30B0"
+      en: 
+    guid: 2abb6092-604b-48e6-85e1-009ae050fb2e
+  - value:
+      ja: "\u30C1\u30E3\u30FC\u30E0\u30AD\u30C3\u30B9"
+      en: 
+    guid: c003103a-7ccb-4f82-8452-b75af3f853b0
+  - value:
+      ja: "\u30A4\u30D5\u30EA\u30FC\u30C8"
+      en: 
+    guid: dd6cb575-7923-424b-83e9-6ae4aa5c7f51
+  - value:
+      ja: "\u30B4\u30FC\u30EC\u30E0"
+      en: 
+    guid: 1a83212a-e39e-4124-9798-a2830478d226
+  - value:
+      ja: "\u30B5\u30CF\u30AE\u30F3"
+      en: 
+    guid: be5bdc48-8561-4c70-bf4c-a3daf1f07d81
+  - value:
+      ja: "\u30DE\u30C3\u30C9\u30B7\u30FC\u30D7"
+      en: 
+    guid: 261a15db-8d02-47a4-8011-e670ac5afc9f
+  - value:
+      ja: "\u30D6\u30EB\u30FC\u30C8"
+      en: 
+    guid: 29de4703-c698-421d-8bc1-78860dcebc27
+  - value:
+      ja: "\u30B5\u30EB\u30D5\u30A7\u30FC\u30C8"
+      en: 
+    guid: 4af7c18a-8d4f-406f-8710-1d908246e5a5
+  - value:
+      ja: "\u30A2\u30B5\u30B7\u30F3\u30DE\u30F3\u30C6\u30A3\u30B9"
+      en: 
+    guid: 79458390-0327-453b-955d-39e4ba45001c
