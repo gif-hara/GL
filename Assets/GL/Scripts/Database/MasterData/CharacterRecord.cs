@@ -1,10 +1,16 @@
 ﻿using System;
+using System.Linq;
+using System.Text;
 using GL.Battle.AI;
 using GL.Battle.CharacterControllers;
 using GL.Battle.CharacterControllers.JobSystems;
 using HK.Framework.Text;
+using HK.GL.Extensions;
 using UnityEngine;
 using UnityEngine.UI;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace GL.Database
 {
@@ -91,6 +97,31 @@ namespace GL.Database
         private AIController aiController;
         public AIController AIController => this.aiController;
 
+#if UNITY_EDITOR
+        [ContextMenu("OutputGrowth All")]
+        private void OutputGrowthAll()
+        {
+            var parameter = string.Join(
+                System.Environment.NewLine,
+                this.GetLevelAllParameter().Select(p => p.ToCSV())
+                );
+            EditorGUIUtility.systemCopyBuffer = parameter;
+        }
+
+        private Parameter[] GetLevelAllParameter()
+        {
+            const int min = Constants.LevelMin;
+            const int max = Constants.LevelMax;
+            var parameters = new Parameter[max];
+            for (int i = min; i <= max; i++)
+            {
+                parameters[i - 1] = this.GetParameter(i);
+            }
+
+            return parameters;
+        }
+#endif
+
         public void ApplyIcon(Image image)
         {
             image.sprite = this.icon;
@@ -104,7 +135,7 @@ namespace GL.Database
 
         private Parameter EvaluteParameter(int level)
         {
-            var t = (float)level / (Constants.LevelMax - Constants.LevelMin);
+            var t = (float)(level - 1) / (Constants.LevelMax - 1);
             return new Parameter
             {
                 HitPoint = Mathf.FloorToInt(Mathf.Lerp(this.min.HitPoint, this.max.HitPoint, this.growthCurve.HitPoint.Evaluate(t))),

@@ -124,5 +124,20 @@ namespace GL.Battle.CharacterControllers
             this.DefenseMagic = 0;
             this.Speed = 0;
         }
+
+#if UNITY_EDITOR
+        public string ToCSV()
+        {
+            return string.Join(
+                ",",
+                this.HitPoint.ToString(),
+                this.Strength.ToString(),
+                this.StrengthMagic.ToString(),
+                this.Defense.ToString(),
+                this.DefenseMagic.ToString(),
+                this.Speed.ToString()
+                );
+        }
+#endif
     }
 }
