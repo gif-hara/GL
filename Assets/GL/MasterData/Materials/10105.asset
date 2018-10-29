@@ -8,7 +8,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f86d874290864e559432f6c9df36ffc, type: 3}
-  m_Name: Material
+  m_Script: {fileID: 11500000, guid: eecbc0a186b374826aed61140b654ace, type: 3}
+  m_Name: 10105
   m_EditorClassIdentifier: 
-  list: []
+  materialName:
+    target: {fileID: 0}
+    value: 
+    guid: 

@@ -25,7 +25,7 @@ namespace GL.Database
         protected abstract string[] FindAssetsPaths { get; }
 
 #if UNITY_EDITOR
-        void Reset()
+        public void Reset()
         {
             this.list = AssetDatabase.FindAssets(this.FindAssetsFilter, this.FindAssetsPaths)
                 .Select(AssetDatabase.GUIDToAssetPath)

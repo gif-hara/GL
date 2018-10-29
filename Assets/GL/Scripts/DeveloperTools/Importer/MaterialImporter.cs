@@ -53,12 +53,15 @@ namespace GL.DeveloperTools
                     materialAsset = ScriptableObject.CreateInstance<MaterialRecord>();
                     materialAsset.name = fileName;
                     AssetDatabase.CreateAsset(materialAsset, path);
+                    AssetDatabase.SetLabels(materialAsset, new string[] { "GL.Material" });
                 }
 
                 var materialNameFinder = materialNameAsset.CreateOrGetFinder(materialName);
                 materialAsset.Set(materialNameFinder);
             });
 
+            var materialDatabase = AssetDatabase.LoadAssetAtPath<MaterialList>("Assets/GL/MasterData/Database/Material.asset");
+            materialDatabase.Reset();
             AssetDatabase.SaveAssets();
         }
     }

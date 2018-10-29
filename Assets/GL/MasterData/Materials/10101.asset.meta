@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 4cf9b0a912efc4057ac5e9536dc528d1
 labels:
-- GK.Material
+- GL.Material
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 11400000
