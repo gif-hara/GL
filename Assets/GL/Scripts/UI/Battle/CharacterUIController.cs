@@ -51,11 +51,14 @@ namespace GL.Battle.UI
 
         private Character character;
 
-        void Start()
+        void Awake()
         {
             this.character = this.GetComponent<Character>();
             Assert.IsNotNull(this.character);
+        }
 
+        void Start()
+        {
             var isOpponent = this.character.CharacterType == Constants.CharacterType.Enemy;
 
             this.character.Record.ApplyIcon(this.icon);
