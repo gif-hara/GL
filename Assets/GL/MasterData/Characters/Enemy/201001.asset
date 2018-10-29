@@ -15,25 +15,24 @@ MonoBehaviour:
   iconColor: {r: 0, g: 0.7264151, b: 0.14408232, a: 1}
   rank: 0
   characterName:
-    target: {fileID: 11400000, guid: 32e84551b1b7440a7a9af4e163bb7859, type: 2}
+    target: {fileID: 11400000, guid: ffe09b92347884a60b1eb29eb0878fcd, type: 2}
     value: Enemy0
-    guid: 6c37b961-43ed-4a2c-97da-e4451d4330b0
+    guid: 185c251b-4d3f-4b3c-91a1-d15346844b1b
   job: {fileID: 11400000, guid: 133729d3c180341fa9cb25500d6c4b8e, type: 2}
-  model: {fileID: 1335689840358778, guid: fa79dadbb5fd747d1b2a7072cf11a857, type: 2}
   min:
     HitPoint: 100
     Strength: 3
     StrengthMagic: 0
     Defense: 3
     DefenseMagic: 0
-    Speed: 5
+    Speed: 11
   max:
     HitPoint: 210
     Strength: 4
     StrengthMagic: 4
     Defense: 3
     DefenseMagic: 1
-    Speed: 5
+    Speed: 11
   resistance:
     Poison: 0
     Paralysis: 0

@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c932cb5455f464b288e33eb7fa54f213, type: 3}
-  m_Name: CharacterName
+  m_Name: PlayerName
   m_EditorClassIdentifier: 
   database:
   - value:
