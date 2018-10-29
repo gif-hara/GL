@@ -138,6 +138,19 @@ namespace GL.Battle.CharacterControllers
                 this.Speed.ToString()
                 );
         }
+
+        public int[] ToArray()
+        {
+            return new int[]
+            {
+                this.HitPoint,
+                this.Strength,
+                this.StrengthMagic,
+                this.Defense,
+                this.DefenseMagic,
+                this.Speed
+            };
+        }
 #endif
     }
 }

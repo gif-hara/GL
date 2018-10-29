@@ -8,6 +8,7 @@ using HK.Framework.Text;
 using HK.GL.Extensions;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -97,11 +98,19 @@ namespace GL.Database
         [ContextMenu("OutputGrowth All")]
         private void OutputGrowthAll()
         {
-            var parameter = string.Join(
-                System.Environment.NewLine,
-                this.GetLevelAllParameter().Select(p => p.ToCSV())
-                );
-            EditorGUIUtility.systemCopyBuffer = parameter;
+            var parameters = this.GetLevelAllParameter();
+            var result = new StringBuilder();
+            for (var i = 1; i <= Constants.LevelMax; i++)
+            {
+                var l = new List<int>();
+                var p = parameters[i - 1];
+                l.Add(i);
+                l.Add(this.Experience.GetNeedValue(i));
+                l.AddRange(p.ToArray());
+
+                result.AppendLine(string.Join(",", l));
+            }
+            EditorGUIUtility.systemCopyBuffer = result.ToString();
         }
 
         private Parameter[] GetLevelAllParameter()
