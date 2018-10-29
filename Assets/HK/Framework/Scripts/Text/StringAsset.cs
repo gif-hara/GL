@@ -228,6 +228,22 @@ namespace HK.Framework.Text
 			Debug.AssertFormat(data != null, "{0}がありません.", defaultString);
 			return new Finder(this, data);
 		}
+
+        public Finder CreateOrGetFinder(string defaultString)
+        {
+            var index = this.FindIndex(defaultString);
+            if(index >= 0)
+            {
+                return new Finder(this, this.database[index]);
+            }
+            else
+            {
+                var data = new Data();
+                data.value.ja = defaultString;
+                this.database.Add(data);
+                return new Finder(this, data);
+            }
+        }
 #endif
 		/// <summary>
 		/// string.Formatのラッピング.
@@ -244,5 +260,17 @@ namespace HK.Framework.Text
 		{
 			this.database.Add(new Data());
 		}
-	}
+
+#if UNITY_EDITOR
+        public bool Find(string defaultString)
+        {
+            return this.FindIndex(defaultString) >= 0;
+        }
+
+        public int FindIndex(string defaultString)
+        {
+            return this.database.FindIndex(d => d.value.ja == defaultString);
+        }
+#endif
+    }
 }
