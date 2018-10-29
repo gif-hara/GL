@@ -20,6 +20,8 @@ namespace GL.Battle
 
         private Character currentCharacter;
 
+        private const float WaitMax = 1.0f;
+
         void Awake()
         {
             Broker.Global.Receive<NextTurn>()
@@ -37,10 +39,9 @@ namespace GL.Battle
         {
             var allMember = parties.AllMember;
             var waits = allMember.Select(m => m.StatusController.Wait).ToList();
-            var waitMax = allMember.Count;
             var speedMax = allMember.Max(c => c.StatusController.GetTotalParameter(Constants.StatusParameterType.Speed));
             var usedPreEmpts = allMember.Select(m => 0).ToList();
-            var elapseTurn = GetElapseTurn(allMember, waits, waitMax, speedMax, usedPreEmpts);
+            var elapseTurn = GetElapseTurn(allMember, waits, WaitMax, speedMax, usedPreEmpts);
             for(int i=0; i<allMember.Count; i++)
             {
                 allMember[i].StatusController.Wait += ((float)allMember[i].StatusController.GetTotalParameter(Constants.StatusParameterType.Speed) / speedMax) * elapseTurn.TurnNumber;
@@ -52,9 +53,8 @@ namespace GL.Battle
         /// </summary>
         public void EndTurn(Parties parties)
         {
-            var waitMax = parties.AllMember.Count;
             var wait = this.currentCharacter.StatusController.Wait;
-            this.currentCharacter.StatusController.Wait = Mathf.Max(wait - waitMax, 0.0f);
+            this.currentCharacter.StatusController.Wait = Mathf.Max(wait - WaitMax, 0.0f);
         }
 
         public List<Character> Simulation(Parties paties, int length)
@@ -62,7 +62,6 @@ namespace GL.Battle
             var result = new List<Character>();
             var allMember = paties.AllMember;
             var waits = new List<float>();
-            var waitMax = allMember.Count;
             var speedMax = allMember.Max(c => c.StatusController.GetTotalParameter(Constants.StatusParameterType.Speed));
             var usedPreEmpts = new List<int>();
 
@@ -74,14 +73,14 @@ namespace GL.Battle
 
             while(result.Count <= length)
             {
-                var elapseTurn = GetElapseTurn(allMember, waits, waitMax, speedMax, usedPreEmpts);
+                var elapseTurn = GetElapseTurn(allMember, waits, WaitMax, speedMax, usedPreEmpts);
                 result.Add(allMember[elapseTurn.BehaviourCharacterIndex]);
                 for(int i=0; i<allMember.Count; i++)
                 {
                     waits[i] += ((float)allMember[i].StatusController.GetTotalParameter(Constants.StatusParameterType.Speed) / speedMax) * elapseTurn.TurnNumber;
                     if(elapseTurn.BehaviourCharacterIndex == i)
                     {
-                        waits[i] = Mathf.Max(waits[i] - waitMax, 0.0f);
+                        waits[i] = Mathf.Max(waits[i] - WaitMax, 0.0f);
                     }
                 }
             }
