@@ -49,10 +49,6 @@ namespace GL.Database
         public Job Job { get { return job; } }
         
         [SerializeField]
-        private GameObject model;
-        public GameObject Model { get { return this.model; } }
-
-        [SerializeField]
         private Parameter min;
         public Parameter Min => this.min;
 
