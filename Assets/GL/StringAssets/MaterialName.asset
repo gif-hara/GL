@@ -11,4 +11,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c932cb5455f464b288e33eb7fa54f213, type: 3}
   m_Name: MaterialName
   m_EditorClassIdentifier: 
-  database: []
+  database:
+  - value:
+      ja: "\u9244\u9271\u77F3"
+      en: 
+    guid: c0504387-f4b3-4ef2-bf09-af544d553ddd
+  - value:
+      ja: "\u9280\u9271\u77F3"
+      en: 
+    guid: 1b8acc54-6627-47b3-9705-ca62418fbf8e
+  - value:
+      ja: "\u91D1\u9271\u77F3"
+      en: 
+    guid: 481c279d-a4dd-46f5-bc92-f86aa3f96b04
+  - value:
+      ja: "\u30DF\u30B9\u30EA\u30EB\u9271\u77F3"
+      en: 
+    guid: c0bb7405-a438-4811-a5b9-924f606cf184
+  - value:
+      ja: "\u30DB\u30B2\u9271\u77F3"
+      en: 
+    guid: 86ed7f4d-1fe6-48f4-bdb9-8fd7bcf7db82
+  - value:
+      ja: "\u30B4\u30D6\u30EA\u30F3\u306E\u7259"
+      en: 
+    guid: f3a0e130-c9bf-4cca-8c02-6df6e6b155d5
+  - value:
+      ja: "\u30B4\u30D6\u30EA\u30F3\u306E\u89D2"
+      en: 
+    guid: af31567e-34ca-46a3-b5a7-de94872e00bd
+  - value:
+      ja: "\u30B4\u30D6\u30EA\u30F3\u306E\u9769"
+      en: 
+    guid: 18849c70-8647-4aee-af3e-0ca6f348a075
