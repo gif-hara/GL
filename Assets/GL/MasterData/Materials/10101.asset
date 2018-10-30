@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Name: 10101
   m_EditorClassIdentifier: 
   materialName:
-    target: {fileID: 0}
-    value: 
-    guid: 
+    target: {fileID: 11400000, guid: a20e4e8b0011146d590d38d4914a1479, type: 2}
+    value: "\u9244\u9271\u77F3"
+    guid: c0504387-f4b3-4ef2-bf09-af544d553ddd

@@ -47,6 +47,7 @@ namespace GL.DeveloperTools
                 AssetDatabase.SetLabels(materialAsset, new string[] { "GL.Material" });
                 var materialNameFinder = materialNameAsset.CreateOrGetFinder(materialName);
                 materialAsset.Set(materialNameFinder);
+                EditorUtility.SetDirty(materialAsset);
             });
 
             var materialDatabase = AssetDatabase.LoadAssetAtPath<MaterialList>("Assets/GL/MasterData/Database/Material.asset");
