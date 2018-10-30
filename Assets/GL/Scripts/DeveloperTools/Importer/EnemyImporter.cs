@@ -9,6 +9,7 @@ using HK.Framework.Text;
 using GL.Battle.CharacterControllers.JobSystems;
 using static GL.Database.CharacterRecord;
 using System.Collections.Generic;
+using GL.Extensions;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -54,7 +55,7 @@ namespace GL.DeveloperTools
                 var iconId = int.Parse(splitEnemyData[1]);
                 var colorId = int.Parse(splitEnemyData[2]);
                 var path = "Assets/GL/MasterData/Characters/Enemy/";
-                var fileName = $"2{typeId:00}{level:000}";
+                var fileName = splitEnemyData[21].RemoveNewLine();
                 var enemyAsset = ImporterUtility.GetOrCreate<CharacterRecord>(path, fileName);
                 var parameter = new Parameter(
                     int.Parse(splitEnemyData[5]),
