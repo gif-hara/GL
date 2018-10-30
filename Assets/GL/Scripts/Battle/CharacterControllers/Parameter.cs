@@ -12,7 +12,7 @@ namespace GL.Battle.CharacterControllers
         /// <summary>
         /// ヒットポイント
         /// </summary>
-        [SerializeField][Range(0.0f, 9999.0f)]
+        [SerializeField][Range(0.0f, 99999.0f)]
         public int HitPoint;
 
         /// <summary>
