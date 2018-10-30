@@ -5,6 +5,7 @@ using HK.Framework.Text;
 using HK.GL.Extensions;
 using UnityEngine;
 using UnityEngine.Assertions;
+using GL.Extensions;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -36,7 +37,7 @@ namespace GL.DeveloperTools
                     return;
                 }
 
-                var materialName = d.Replace("¥r", "").Replace("¥n", "").Replace("\r", "").Replace("\n", "");
+                var materialName = d.RemoveNewLine();
                 var fileName = $"1{typeId:00}{index:00}";
                 index++;
 
