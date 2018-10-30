@@ -11,28 +11,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c05a5979337d4f278b5096f8db1513d, type: 3}
   m_Name: 206002
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
-  iconColor: {r: 0, g: 0, b: 0, a: 0}
-  rank: 0
+  icon: {fileID: 21300000, guid: 74a86572913b04a3d9ae8ebe8aec5502, type: 3}
+  iconColor: {r: 1, g: 0.78339946, b: 0.033018887, a: 1}
+  rank: 1
   characterName:
-    target: {fileID: 0}
-    value: 
-    guid: 
-  job: {fileID: 0}
+    target: {fileID: 11400000, guid: ffe09b92347884a60b1eb29eb0878fcd, type: 2}
+    value: "\u30D5\u30ED\u30C3\u30B0"
+    guid: 2abb6092-604b-48e6-85e1-009ae050fb2e
+  job: {fileID: 11400000, guid: 133729d3c180341fa9cb25500d6c4b8e, type: 2}
   min:
-    HitPoint: 0
-    Strength: 0
-    StrengthMagic: 0
-    Defense: 0
-    DefenseMagic: 0
-    Speed: 0
+    HitPoint: 207
+    Strength: 31
+    StrengthMagic: 43
+    Defense: 11
+    DefenseMagic: 13
+    Speed: 10
   max:
-    HitPoint: 0
-    Strength: 0
-    StrengthMagic: 0
-    Defense: 0
-    DefenseMagic: 0
-    Speed: 0
+    HitPoint: 207
+    Strength: 31
+    StrengthMagic: 43
+    Defense: 11
+    DefenseMagic: 13
+    Speed: 10
   resistance:
     Poison: 0
     Paralysis: 0
@@ -41,13 +41,13 @@ MonoBehaviour:
     Berserk: 0
     Vitals: 0
   attribute:
-    brow: 0
-    slash: 0
-    poke: 0
-    no: 0
-    fire: 0
-    water: 0
-    thunder: 0
+    brow: 1
+    slash: 1
+    poke: 1
+    no: 1
+    fire: 1
+    water: 1
+    thunder: 1
   growthCurve:
     HitPoint:
       serializedVersion: 2
@@ -93,7 +93,8 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  price: 0
-  acquireExperience: 0
+  price: 329
+  acquireExperience: 435
   materialLotteries: []
   aiController: {fileID: 0}
+  level: 17

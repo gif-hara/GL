@@ -12,27 +12,27 @@ MonoBehaviour:
   m_Name: 201001
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 78197aae63b62432fa66d466afb8094c, type: 3}
-  iconColor: {r: 0, g: 0.7264151, b: 0.14408232, a: 1}
-  rank: 0
+  iconColor: {r: 0.19339621, g: 1, b: 0.23768044, a: 1}
+  rank: 1
   characterName:
     target: {fileID: 11400000, guid: ffe09b92347884a60b1eb29eb0878fcd, type: 2}
-    value: Enemy0
-    guid: 185c251b-4d3f-4b3c-91a1-d15346844b1b
+    value: "\u30B4\u30D6\u30EA\u30F3"
+    guid: b6f01f69-553f-44cf-86b3-65eff01dfb3f
   job: {fileID: 11400000, guid: 133729d3c180341fa9cb25500d6c4b8e, type: 2}
   min:
-    HitPoint: 100
-    Strength: 3
-    StrengthMagic: 0
-    Defense: 3
-    DefenseMagic: 0
-    Speed: 11
+    HitPoint: 91
+    Strength: 18
+    StrengthMagic: 5
+    Defense: 5
+    DefenseMagic: 3
+    Speed: 8
   max:
-    HitPoint: 210
-    Strength: 4
-    StrengthMagic: 4
-    Defense: 3
-    DefenseMagic: 1
-    Speed: 11
+    HitPoint: 91
+    Strength: 18
+    StrengthMagic: 5
+    Defense: 5
+    DefenseMagic: 3
+    Speed: 8
   resistance:
     Poison: 0
     Paralysis: 0
@@ -41,7 +41,7 @@ MonoBehaviour:
     Berserk: 0
     Vitals: 0
   attribute:
-    brow: -0.5
+    brow: 1
     slash: 1
     poke: 1
     no: 1
@@ -51,145 +51,37 @@ MonoBehaviour:
   growthCurve:
     HitPoint:
       serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 34
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 34
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+      m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     Strength:
       serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 34
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 34
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+      m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     StrengthMagic:
       serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 34
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 34
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+      m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     Defense:
       serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 34
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 34
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+      m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     DefenseMagic:
       serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 34
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 34
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+      m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     Speed:
       serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 34
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 34
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+      m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -201,9 +93,10 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  price: 120
-  acquireExperience: 180
+  price: 30
+  acquireExperience: 45
   materialLotteries:
-  - material: {fileID: 11400000, guid: 4cf9b0a912efc4057ac5e9536dc528d1, type: 2}
+  - material: {fileID: 0}
     lottery: 1
   aiController: {fileID: 11400000, guid: 410d0b18cb279473f82844786b3f456b, type: 2}
+  level: 1

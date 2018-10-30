@@ -65,7 +65,7 @@ namespace GL.DeveloperTools
                     int.Parse(splitEnemyData[9]),
                     int.Parse(splitEnemyData[10])
                 );
-                enemyAsset.Set(
+                enemyAsset.SetAsEnemy(
                     AssetDatabase.LoadAssetAtPath<Sprite>($"Assets/GL/Textures/Enemy/Enemy{iconId}.png"),
                     colorAsset.Colors[colorId - 1],
                     int.Parse(splitEnemyData[4]),
@@ -79,9 +79,14 @@ namespace GL.DeveloperTools
                     new CharacterRecord.ExperienceData(),
                     int.Parse(splitEnemyData[11]),
                     int.Parse(splitEnemyData[12]),
-                    materialLotteries
+                    materialLotteries,
+                    level
                 );
+
+                EditorUtility.SetDirty(enemyAsset);
             }
+
+            AssetDatabase.SaveAssets();
         }
 
         private static MaterialLottery[] GetMaterialLotteries(string[] materialData, string enemyName, int level)

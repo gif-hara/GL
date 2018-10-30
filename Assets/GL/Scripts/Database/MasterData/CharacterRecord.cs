@@ -94,6 +94,16 @@ namespace GL.Database
         private AIController aiController;
         public AIController AIController => this.aiController;
 
+        /// <summary>
+        /// レベル
+        /// </summary>
+        /// <remarks>
+        /// 敵のみ利用しています
+        /// </remarks>
+        [SerializeField]
+        private int level;
+        public int Level => this.level;
+
 #if UNITY_EDITOR
         [ContextMenu("OutputGrowth All")]
         private void OutputGrowthAll()
@@ -126,7 +136,7 @@ namespace GL.Database
             return parameters;
         }
 
-        public void Set(
+        public void SetAsEnemy(
             Sprite icon,
             Color iconColor,
             int rank,
@@ -140,7 +150,8 @@ namespace GL.Database
             ExperienceData experience,
             int price,
             int acquireExperience,
-            MaterialLottery[] materialLotteries
+            MaterialLottery[] materialLotteries,
+            int level
         )
         {
             this.icon = icon;
@@ -158,6 +169,7 @@ namespace GL.Database
             this.acquireExperience = acquireExperience;
             this.materialLotteries = materialLotteries;
             // AIControllerは手動で付ける予定
+            this.level = level;
         }
 #endif
 
