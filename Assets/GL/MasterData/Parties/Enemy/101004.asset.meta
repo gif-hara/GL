@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 55c16e67dd88646fda67ab4659f1307b
 labels:
-- GK.Battle.PartyControllers.Blueprint
+- GL.PartyRecord
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 11400000
