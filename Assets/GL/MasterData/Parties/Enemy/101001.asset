@@ -21,17 +21,17 @@ MonoBehaviour:
     RightWeapon: {fileID: 11400000, guid: ddb9db169bd8b4768938efc96c40f1a8, type: 2}
     LeftWeapon: {fileID: 0}
     Accessories: []
+  - Level: 1
+    Blueprint: {fileID: 11400000, guid: 5697bef62633b4f4c8003caf62405c77, type: 2}
+    RightWeapon: {fileID: 11400000, guid: ddb9db169bd8b4768938efc96c40f1a8, type: 2}
+    LeftWeapon: {fileID: 0}
+    Accessories: []
   characterType: 1
   unlockElements:
     enemyParties:
     - 101002
-    - 101003
-    - 101004
     characters:
     - 101001
-    - 102001
-    - 103001
-    - 104001
     weapons:
     - 10101001
     - 10201001

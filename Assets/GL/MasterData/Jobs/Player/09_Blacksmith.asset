@@ -9,10 +9,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 820038976e14646bebb135cc4ea93802, type: 3}
-  m_Name: 08_Archer
+  m_Name: 09_Blacksmith
   m_EditorClassIdentifier: 
   jobName:
     target: {fileID: 11400000, guid: 40ebd9076c77e4f07bc62c508c9ea824, type: 2}
-    value: "\u5F13\u8853\u58EB"
-    guid: 2dae2f4a-5cf0-4603-9000-30b354ab61c4
-  equipable: 69
+    value: "\u935B\u51B6\u5E2B"
+    guid: b702eb8e-0564-443d-ac2e-7ebc954178fd
+  equipable: 2052

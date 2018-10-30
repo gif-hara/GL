@@ -16,10 +16,9 @@ MonoBehaviour:
   rank: 1
   characterName:
     target: {fileID: 11400000, guid: 32e84551b1b7440a7a9af4e163bb7859, type: 2}
-    value: "\u898B\u7FD2\u3044\u30DC\u30AF\u30B5\u30FC"
-    guid: 564617c4-fef0-409e-aa9b-a84084f6fbc7
-  job: {fileID: 11400000, guid: cadd4ef61c4de43d3b2f2125cfdb68b0, type: 2}
-  model: {fileID: 1194736803251712, guid: 2eb06565129524566a10b82954786740, type: 2}
+    value: "\u898B\u7FD2\u3044\u935B\u51B6\u5E2B"
+    guid: 33b68869-408e-4ed9-a5c7-36e56b8aa4da
+  job: {fileID: 11400000, guid: 79747694a3b9b4ee3b8ac28c62fb8957, type: 2}
   min:
     HitPoint: 340
     Strength: 4
@@ -224,3 +223,4 @@ MonoBehaviour:
   acquireExperience: 0
   materialLotteries: []
   aiController: {fileID: 0}
+  level: 0

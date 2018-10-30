@@ -30,3 +30,6 @@ MonoBehaviour:
   unlockElements:
     enemyParties:
     - 101003
+    characters:
+    - 102001
+    weapons: []

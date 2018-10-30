@@ -23,7 +23,7 @@ MonoBehaviour:
     HitPoint: 228
     Strength: 15
     StrengthMagic: 7
-    Defense: 8
+    Defense: 7
     DefenseMagic: 6
     Speed: 10
   max:
@@ -277,3 +277,4 @@ MonoBehaviour:
   acquireExperience: 0
   materialLotteries: []
   aiController: {fileID: 0}
+  level: 0

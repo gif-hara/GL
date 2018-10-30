@@ -9,10 +9,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 820038976e14646bebb135cc4ea93802, type: 3}
-  m_Name: 10_Priest
+  m_Name: 08_Boxer
   m_EditorClassIdentifier: 
   jobName:
     target: {fileID: 11400000, guid: 40ebd9076c77e4f07bc62c508c9ea824, type: 2}
-    value: "\u53F8\u796D"
-    guid: 04165c76-c147-4f70-a88d-692a2bcbf2db
-  equipable: 4352
+    value: "\u30DC\u30AF\u30B5\u30FC"
+    guid: bb4613df-e6b8-44a6-a897-863e0828d76a
+  equipable: 128

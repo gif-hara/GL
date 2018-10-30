@@ -96,7 +96,7 @@ MonoBehaviour:
   price: 273
   acquireExperience: 409
   materialLotteries:
-  - material: {fileID: 0}
+  - material: {fileID: 11400000, guid: 4cf9b0a912efc4057ac5e9536dc528d1, type: 2}
     lottery: 1
   aiController: {fileID: 0}
   level: 13

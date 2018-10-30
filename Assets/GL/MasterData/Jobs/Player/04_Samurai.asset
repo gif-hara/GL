@@ -9,10 +9,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 820038976e14646bebb135cc4ea93802, type: 3}
-  m_Name: 06_WhiteMagician
+  m_Name: 04_Samurai
   m_EditorClassIdentifier: 
   jobName:
     target: {fileID: 11400000, guid: 40ebd9076c77e4f07bc62c508c9ea824, type: 2}
-    value: "\u767D\u9B54\u8853\u5E2B"
-    guid: 296d7838-0c82-466d-a2a6-81d4d7379133
-  equipable: 4112
+    value: "\u4F8D"
+    guid: 7c1665a0-b293-473d-be2e-25dc75fafa8e
+  equipable: 12

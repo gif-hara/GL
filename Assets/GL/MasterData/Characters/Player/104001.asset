@@ -16,24 +16,23 @@ MonoBehaviour:
   rank: 1
   characterName:
     target: {fileID: 11400000, guid: 32e84551b1b7440a7a9af4e163bb7859, type: 2}
-    value: "\u898B\u7FD2\u3044\u533B\u7642\u5E2B"
-    guid: 7c180cee-4395-4e61-9115-ed4d66d53188
-  job: {fileID: 11400000, guid: 23c3dea3f072d419eb6fbc5e4d86ddc9, type: 2}
-  model: {fileID: 1194736803251712, guid: 2eb06565129524566a10b82954786740, type: 2}
+    value: "\u898B\u7FD2\u3044"
+    guid: b79d0ea8-155c-4c47-a341-62be5d55b2fc
+  job: {fileID: 11400000, guid: 53d94528d9e044d648cde575cb6310bc, type: 2}
   min:
-    HitPoint: 340
-    Strength: 4
-    StrengthMagic: 7
-    Defense: 5
-    DefenseMagic: 9
-    Speed: 6
+    HitPoint: 210
+    Strength: 12
+    StrengthMagic: 1
+    Defense: 6
+    DefenseMagic: 3
+    Speed: 11
   max:
-    HitPoint: 4010
-    Strength: 76
-    StrengthMagic: 176
-    Defense: 98
-    DefenseMagic: 198
-    Speed: 177
+    HitPoint: 4298
+    Strength: 294
+    StrengthMagic: 1
+    Defense: 145
+    DefenseMagic: 72
+    Speed: 99
   resistance:
     Poison: 0.2
     Paralysis: 0.2
@@ -56,18 +55,27 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 0
         value: 0
-        inSlope: 1
-        outSlope: 1
-        tangentMode: 34
+        inSlope: 0
+        outSlope: 0.249967
+        tangentMode: 65
         weightedMode: 0
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
+        time: 0.2
+        value: 0.0499934
+        inSlope: 0.249967
+        outSlope: 0.1592232
+        tangentMode: 5
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
         time: 1
         value: 1
-        inSlope: 1
-        outSlope: 1
-        tangentMode: 34
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
         weightedMode: 0
         inWeight: 0
         outWeight: 0
@@ -80,18 +88,27 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 0
         value: 0
-        inSlope: 1
-        outSlope: 1
-        tangentMode: 34
+        inSlope: 0
+        outSlope: 0.249967
+        tangentMode: 65
         weightedMode: 0
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
+        time: 0.2
+        value: 0.0499934
+        inSlope: 0.249967
+        outSlope: 0.1592232
+        tangentMode: 5
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
         time: 1
         value: 1
-        inSlope: 1
-        outSlope: 1
-        tangentMode: 34
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
         weightedMode: 0
         inWeight: 0
         outWeight: 0
@@ -104,18 +121,27 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 0
         value: 0
-        inSlope: 1
-        outSlope: 1
-        tangentMode: 34
+        inSlope: 0
+        outSlope: 0.249967
+        tangentMode: 65
         weightedMode: 0
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
+        time: 0.2
+        value: 0.0499934
+        inSlope: 0.249967
+        outSlope: 0.1592232
+        tangentMode: 5
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
         time: 1
         value: 1
-        inSlope: 1
-        outSlope: 1
-        tangentMode: 34
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
         weightedMode: 0
         inWeight: 0
         outWeight: 0
@@ -128,18 +154,27 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 0
         value: 0
-        inSlope: 1
-        outSlope: 1
-        tangentMode: 34
+        inSlope: 0
+        outSlope: 0.249967
+        tangentMode: 65
         weightedMode: 0
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
+        time: 0.2
+        value: 0.0499934
+        inSlope: 0.249967
+        outSlope: 0.1592232
+        tangentMode: 5
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
         time: 1
         value: 1
-        inSlope: 1
-        outSlope: 1
-        tangentMode: 34
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
         weightedMode: 0
         inWeight: 0
         outWeight: 0
@@ -152,18 +187,27 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 0
         value: 0
-        inSlope: 1
-        outSlope: 1
-        tangentMode: 34
+        inSlope: 0
+        outSlope: 0.249967
+        tangentMode: 65
         weightedMode: 0
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
+        time: 0.2
+        value: 0.0499934
+        inSlope: 0.249967
+        outSlope: 0.1592232
+        tangentMode: 5
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
         time: 1
         value: 1
-        inSlope: 1
-        outSlope: 1
-        tangentMode: 34
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
         weightedMode: 0
         inWeight: 0
         outWeight: 0
@@ -176,18 +220,27 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 0
         value: 0
-        inSlope: 1
-        outSlope: 1
-        tangentMode: 34
+        inSlope: 0
+        outSlope: 0.249967
+        tangentMode: 65
         weightedMode: 0
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
+        time: 0.2
+        value: 0.0499934
+        inSlope: 0.249967
+        outSlope: 0.1592232
+        tangentMode: 5
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
         time: 1
         value: 1
-        inSlope: 1
-        outSlope: 1
-        tangentMode: 34
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
         weightedMode: 0
         inWeight: 0
         outWeight: 0
@@ -195,7 +248,7 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   experience:
-    max: 112000
+    max: 121500
     curve:
       serializedVersion: 2
       m_Curve:
@@ -224,3 +277,4 @@ MonoBehaviour:
   acquireExperience: 0
   materialLotteries: []
   aiController: {fileID: 0}
+  level: 0
