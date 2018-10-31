@@ -107,6 +107,8 @@ namespace GL.Battle
                     return GetAddSpeedValue(invoker, rate);
                 case Constants.StatusParameterType.Critical:
                     return GetAddCriticalValue(invoker, rate);
+                case Constants.StatusParameterType.Avoidance:
+                    return GetAddAvoidanceValue(invoker, rate);
                 default:
                     Assert.IsTrue(false, $"{type}は未対応の値です");
                     return 0;
@@ -197,6 +199,14 @@ namespace GL.Battle
         /// クリティカル率上昇系コマンドの上昇量を返す
         /// </summary>
         private static int GetAddCriticalValue(CharacterStatusController invoker, float rate)
+        {
+            return rate.ToPercentage();
+        }
+
+        /// <summary>
+        /// 回避率上昇系コマンドの上昇量を返す
+        /// </summary>
+        private static int GetAddAvoidanceValue(CharacterStatusController invoker, float rate)
         {
             return rate.ToPercentage();
         }
