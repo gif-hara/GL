@@ -34,8 +34,8 @@ namespace GL.DeveloperTools
         [InitializeOnLoadMethod]
         private static void InitializeOnLoad()
         {
-            EditorApplication.playModeStateChanged -= OnPlayModeStateChanged;
-            EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
+            // EditorApplication.playModeStateChanged -= OnPlayModeStateChanged;
+            // EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
         }
 
         private static void OnPlayModeStateChanged(PlayModeStateChange state)
