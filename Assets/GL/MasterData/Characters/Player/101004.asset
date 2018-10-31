@@ -264,7 +264,7 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   experience:
-    max: 112000
+    max: 804384
     curve:
       serializedVersion: 2
       m_Curve:
