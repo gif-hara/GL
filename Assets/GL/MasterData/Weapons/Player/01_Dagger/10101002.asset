@@ -9,19 +9,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30e5466c3c6114d91915749921a0104b, type: 3}
-  m_Name: 10101001
+  m_Name: 10101002
   m_EditorClassIdentifier: 
   rank: 1
   weaponName:
     target: {fileID: 11400000, guid: 204e77b4c5ef24c0b8502112e7c0270f, type: 2}
-    value: "\u52630000"
-    guid: 971b8b49-6c93-4231-b5f5-cf2aee162b9d
+    value: "\u30AF\u30AF\u30EA"
+    guid: db6637f7-2f45-413b-8be6-bcc15ac1e592
   weaponType: 1
-  price: 320
+  price: 450
   commands:
   - commandRecord: {fileID: 11400000, guid: b5a74c3bef8f34e939f18d600621ead3, type: 2}
     condition: {fileID: 11400000, guid: 5e616f6c5005f49c6b39ca4db09a447d, type: 2}
   - commandRecord: {fileID: 11400000, guid: 495edb5d8f72d400480b43ad4e975700, type: 2}
     condition: {fileID: 11400000, guid: 5e616f6c5005f49c6b39ca4db09a447d, type: 2}
-  - commandRecord: {fileID: 11400000, guid: ef7e587a55b3f400d95c7b23429ac44f, type: 2}
+  - commandRecord: {fileID: 11400000, guid: b8422ca2238db49d089267bc98ff9001, type: 2}
     condition: {fileID: 11400000, guid: 905632838d0234e898c803db970eb82a, type: 2}

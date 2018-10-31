@@ -99,8 +99,6 @@ MonoBehaviour:
       m_RotationOrder: 4
   price: 413
   acquireExperience: 620
-  materialLotteries:
-  - material: {fileID: 0}
-    lottery: 1
+  materialLotteries: []
   aiController: {fileID: 0}
   level: 20

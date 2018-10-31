@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 221d7d34226dd41a8b8a8ce5033a61a1, type: 3}
+  m_Name: RecoveryFixed_100
+  m_EditorClassIdentifier: 
+  parameter:
+    Name:
+      target: {fileID: 11400000, guid: 3534e70039cc6491cad3f648e57e8b4b, type: 2}
+      value: "\u30DF\u30CB\u30DD\u30FC\u30B7\u30E7\u30F3"
+      guid: f4e613dc-533a-4519-a00b-dd8d6be4f3b5
+    Description:
+      target: {fileID: 11400000, guid: 64540f3636eab4a58b159c78cd0cb228, type: 2}
+      value: "\u5BFE\u8C61\u306EHP\u3092\u3061\u3087\u3063\u3068\u56DE\u5FA9\u3059\u308B"
+      guid: cb6b89ef-b9a9-482c-8aee-5257a510ee60
+    TargetPartyType: 0
+    TargetType: 0
+    Postprocess: 0
+    ChargeTurn: 1
+    InitialChargeTurn: 1
+    Elements:
+    - {fileID: 11400000, guid: e4ae92a4aacc143dcbd393deaa4e1ecf, type: 2}
