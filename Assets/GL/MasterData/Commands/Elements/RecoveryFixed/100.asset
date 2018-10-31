@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e9889405554c42808663506a4ce8356, type: 3}
-  m_Name: RecoveryFixed_100
+  m_Name: 100
   m_EditorClassIdentifier: 
   parameter:
     Value: 100

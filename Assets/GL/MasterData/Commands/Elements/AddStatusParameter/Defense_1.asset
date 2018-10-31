@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7434511f6bc7449eebf1a2f5b9187790, type: 3}
-  m_Name: AddStatusParameterRate_Defense_1
+  m_Name: Defense_1
   m_EditorClassIdentifier: 
   parameter:
     ParameterType: 4

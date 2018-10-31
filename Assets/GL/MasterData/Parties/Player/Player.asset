@@ -19,7 +19,7 @@ MonoBehaviour:
   - Level: 1
     Blueprint: {fileID: 11400000, guid: 166aac9dcf1da4d76acbe5a1917da73b, type: 2}
     RightWeapon: {fileID: 11400000, guid: dac0e42f0d8a448218081bd81c8b3682, type: 2}
-    LeftWeapon: {fileID: 11400000, guid: 1f6c0136fa176442f819b0a60add9748, type: 2}
+    LeftWeapon: {fileID: 11400000, guid: 364ee933ca77d42e5a32ecad55f8cc91, type: 2}
     Accessories: []
   characterType: 0
   unlockElements:
