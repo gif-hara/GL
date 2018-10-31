@@ -55,16 +55,14 @@ namespace GL.Battle.UI
         {
             this.character = this.GetComponent<Character>();
             Assert.IsNotNull(this.character);
-        }
 
-        void Start()
-        {
-            var isOpponent = this.character.CharacterType == Constants.CharacterType.Enemy;
-
-            this.character.Record.ApplyIcon(this.icon);
-            this.background.color = isOpponent ? this.enemyColor : this.playerColor;
-            this.iconButton.enabled = false;
-            this.Apply();
+            Broker.Global.Receive<StartSelectCommand>()
+                .Where(x => x.Character == this.character)
+                .SubscribeWithState(this, (_, _this) =>
+                {
+                    _this.animationController.StartEmphasisScaleAnimation();
+                })
+                .AddTo(this);
 
             Broker.Global.Receive<StartSelectTarget>()
                 .Where(x => x.Targets.Find(t => t == this.character) != null)
@@ -92,6 +90,16 @@ namespace GL.Battle.UI
                     PopupManager.Show(_this.characterDetailsPopupController).Setup(_this.character).CloseOnSubmit();
                 })
                 .AddTo(this);
+        }
+
+        void Start()
+        {
+            var isOpponent = this.character.CharacterType == Constants.CharacterType.Enemy;
+
+            this.character.Record.ApplyIcon(this.icon);
+            this.background.color = isOpponent ? this.enemyColor : this.playerColor;
+            this.iconButton.enabled = false;
+            this.Apply();
 
             if(isOpponent)
             {

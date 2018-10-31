@@ -19,10 +19,14 @@ namespace GL.Battle.UI
             Targetable,
             Attack,
             Damage,
+            EmphasisScale,
         }
 
         [SerializeField]
         private Transform target;
+
+        [SerializeField]
+        private EmphasisScaleTween emphasisScaleTween;
 
         [SerializeField]
         private TargetableTween targetableTween;
@@ -39,6 +43,11 @@ namespace GL.Battle.UI
         public IObservable<AnimationType> OnCompleteAsObservable() => this.completeStream;
 
         private AnimationType currentType = AnimationType.None;
+
+        public void StartEmphasisScaleAnimation()
+        {
+            this.ChangeTween(this.emphasisScaleTween.Apply(this.target), AnimationType.EmphasisScale);
+        }
 
         public void StartTargetableAnimation()
         {
@@ -63,6 +72,7 @@ namespace GL.Battle.UI
             }
 
             this.currentTween.Kill();
+            this.target.localScale = Vector3.one;
             this.target.localRotation = Quaternion.identity;
             this.currentTween = null;
             this.currentType = AnimationType.None;
