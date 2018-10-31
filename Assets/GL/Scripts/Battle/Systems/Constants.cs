@@ -36,6 +36,11 @@ namespace GL
             /// 前回対象となったキャラクター
             /// </summary>
             OnChaseTakeDamages,
+
+            /// <summary>
+            /// 選択されたターゲットの両隣もターゲットになる
+            /// </summary>
+            SelectRange,
         }
 
         /// <summary>

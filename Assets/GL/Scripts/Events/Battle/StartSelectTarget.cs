@@ -12,16 +12,16 @@ namespace GL.Events.Battle
         /// <summary>
         /// コマンドを選択中のキャラクター
         /// </summary>
-        public Character Character { get { return this.param1; } }
+        public Character Character => this.param1;
 
         /// <summary>
         /// 実行するコマンド
         /// </summary>
-        public Implement Command { get { return this.param2; } }
+        public Implement Command => this.param2;
 
         /// <summary>
         /// 選択可能なターゲットリスト
         /// </summary>
-        public Character[] Targets { get { return this.param3; } }
+        public Character[] Targets => this.param3;
     }
 }

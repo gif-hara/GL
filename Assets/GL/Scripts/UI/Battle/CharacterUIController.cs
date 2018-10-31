@@ -127,7 +127,7 @@ namespace GL.Battle.UI
                 .SubscribeWithState3(this, invoker, command, (_, t, i, c) =>
                 {
                     t.iconButton.enabled = false;
-                    Broker.Global.Publish(SelectedTargets.Get(i, c, new Character[] { t.character }));
+                    Broker.Global.Publish(SelectedTargets.Get(i, c, BattleManager.Instance.Parties.GetTargets(t.character, c.TargetType)));
                 })
                 .AddTo(this);
         }

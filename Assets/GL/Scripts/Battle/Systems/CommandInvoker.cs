@@ -1,4 +1,5 @@
 ﻿using GL.Events.Battle;
+using GL.Extensions;
 using HK.Framework.EventSystems;
 using UniRx;
 using UnityEngine;
@@ -28,7 +29,7 @@ namespace GL.Battle
             var targets = command.GetTargets(invoker);
 
             // ターゲットを選択する必要がある場合はStartSelectTargetイベントを飛ばす
-            if(eventData.Command.TargetType == Constants.TargetType.Select)
+            if(command.TargetType.IsSelectType())
             {
                 Broker.Global.Publish(StartSelectTarget.Get(invoker, command, targets));
             }

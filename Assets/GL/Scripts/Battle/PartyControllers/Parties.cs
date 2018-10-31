@@ -68,6 +68,45 @@ namespace GL.Battle.PartyControllers
             }
         }
 
+        public Character[] GetTargets(Character target, Constants.TargetType type)
+        {
+            switch(type)
+            {
+                case Constants.TargetType.Select:
+                    return new Character[] { target };
+                case Constants.TargetType.SelectRange:
+                    var party = this.Ally(target);
+                    var result = new List<Character>();
+                    result.Add(target);
+                    var members = party.Members;
+                    var targetIndex = members.FindIndex(c => c == target);
+                    // 右側の敵を取得
+                    for (var i = targetIndex + 1; i < members.Count; i++)
+                    {
+                        var m = members[i];
+                        if (!m.StatusController.IsDead)
+                        {
+                            result.Add(m);
+                            break;
+                        }
+                    }
+                    // 左側の敵を取得
+                    for (var i = targetIndex - 1; i >= 0; i--)
+                    {
+                        var m = members[i];
+                        if (!m.StatusController.IsDead)
+                        {
+                            result.Add(m);
+                            break;
+                        }
+                    }
+                    return result.ToArray();
+                default:
+                    Assert.IsTrue(false, $"{type}は未対応の値です");
+                    return null;
+            }
+        }
+
         /// <summary>
         /// 勝敗結果を返す
         /// </summary>

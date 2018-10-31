@@ -74,6 +74,7 @@ namespace GL.Battle.PartyControllers
             switch(type)
             {
                 case Constants.TargetType.Select: // Selectの場合も全てのリストを返す
+                case Constants.TargetType.SelectRange:
                 case Constants.TargetType.All:
                     result.AddRange(targets);
                     break;

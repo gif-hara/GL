@@ -78,6 +78,7 @@ namespace GL.Battle.Commands.Bundle
                 case Constants.TargetType.Random:
                 case Constants.TargetType.Myself:
                 case Constants.TargetType.OnChaseTakeDamages:
+                case Constants.TargetType.SelectRange:
                     var takeDamage = this.elements.Any(e => e.TakeDamage);
                     return BattleManager.Instance.Parties
                             .GetFromTargetPartyType(invoker, this.parameter.TargetPartyType)

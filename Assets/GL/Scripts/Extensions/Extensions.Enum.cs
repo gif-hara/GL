@@ -23,5 +23,13 @@ namespace GL.Extensions
         {
             return !self.IsPositive();
         }
+
+        /// <summary>
+        /// ターゲット選択可能なタイプか返す
+        /// </summary>
+        public static bool IsSelectType(this Constants.TargetType self)
+        {
+            return self == Constants.TargetType.Select || self == Constants.TargetType.SelectRange;
+        }
     }
 }
