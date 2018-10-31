@@ -286,5 +286,16 @@ namespace GL
             Right,
             Left,
         }
+
+        /// <summary>
+        /// 攻撃のロジックタイプ
+        /// </summary>
+        public enum AttackLogicType
+        {
+            /// <summary>物理</summary>
+            Physics,
+            /// <summary>魔法</summary>
+            Magix,
+        }
     }
 }

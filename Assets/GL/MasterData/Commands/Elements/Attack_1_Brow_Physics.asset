@@ -9,8 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 85774dbf4bdb04ba9a7c436ee15cd82b, type: 3}
-  m_Name: Attack_0.5_Slash
+  m_Name: Attack_1_Brow_Physics
   m_EditorClassIdentifier: 
   parameter:
-    Rate: 0.5
-    AttributeType: 1
+    Rate: 1
+    AttributeType: 0
+    LogicType: 0

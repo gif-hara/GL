@@ -55,7 +55,15 @@ namespace GL.Battle.Commands.Element.Implements
             /// </summary>
             public float Rate;
 
+            /// <summary>
+            /// 属性
+            /// </summary>
             public Constants.AttributeType AttributeType;
+
+            /// <summary>
+            /// 攻撃ロジック
+            /// </summary>
+            public Constants.AttackLogicType LogicType;
         }
     }
 }
