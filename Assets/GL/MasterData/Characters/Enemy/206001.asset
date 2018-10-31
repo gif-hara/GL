@@ -20,7 +20,7 @@ MonoBehaviour:
     guid: 2abb6092-604b-48e6-85e1-009ae050fb2e
   job: {fileID: 11400000, guid: 133729d3c180341fa9cb25500d6c4b8e, type: 2}
   min:
-    HitPoint: 97
+    HitPoint: 87
     Strength: 20
     StrengthMagic: 28
     Defense: 7
@@ -29,7 +29,7 @@ MonoBehaviour:
     Critical: 10
     Avoidance: 0
   max:
-    HitPoint: 97
+    HitPoint: 87
     Strength: 20
     StrengthMagic: 28
     Defense: 7
