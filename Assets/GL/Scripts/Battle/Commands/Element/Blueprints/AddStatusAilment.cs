@@ -18,7 +18,7 @@ namespace GL.Battle.Commands.Element.Blueprints
         }
 
 #if UNITY_EDITOR
-        public override string FileName => $"AddStatusAilment_{Enum.GetName(typeof(Constants.StatusAilmentType), this.parameter.StatusAilmentType)}_{this.parameter.Rate}_{this.parameter.RemainingTurn}";
+        public override string FileName => $"{Enum.GetName(typeof(Constants.StatusAilmentType), this.parameter.StatusAilmentType)}_{this.parameter.Rate}_{this.parameter.RemainingTurn}";
 #endif
     }
 }

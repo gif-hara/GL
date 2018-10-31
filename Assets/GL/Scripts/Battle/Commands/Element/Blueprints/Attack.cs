@@ -17,7 +17,7 @@ namespace GL.Battle.Commands.Element.Blueprints
         }
 
 #if UNITY_EDITOR
-        public override string FileName => $"Attack_{this.parameter.Rate}_{this.parameter.AttributeType}_{this.parameter.LogicType}";
+        public override string FileName => $"{this.parameter.Rate}_{this.parameter.AttributeType}_{this.parameter.LogicType}";
 #endif
     }
 }

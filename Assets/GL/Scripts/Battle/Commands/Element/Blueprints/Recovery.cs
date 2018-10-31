@@ -17,7 +17,7 @@ namespace GL.Battle.Commands.Element.Blueprints
         }
 
 #if UNITY_EDITOR
-        public override string FileName => $"Recovery_{this.parameter.Rate}";
+        public override string FileName => $"{this.parameter.Rate}";
 #endif
     }
 }
