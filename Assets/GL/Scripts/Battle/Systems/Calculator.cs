@@ -80,6 +80,15 @@ namespace GL.Battle
         }
 
         /// <summary>
+        /// 攻撃が当たるか返す
+        /// </summary>
+        public static bool IsHit(Character invoker, Character target)
+        {
+            var threshold = Mathf.Min(target.StatusController.GetTotalParameter(Constants.StatusParameterType.Avoidance).ToPercentage(), Constants.AvoidanceMax);
+            return Random.value >= threshold;
+        }
+
+        /// <summary>
         /// <paramref name="type"/>からパラメータ加算値を返す
         /// </summary>
         public static int GetAddStatusParameterValue(Constants.StatusParameterType type, CharacterStatusController invoker, float rate)

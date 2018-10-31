@@ -118,13 +118,17 @@ namespace GL.Battle.CharacterControllers
         /// <summary>
         /// ダメージを受ける
         /// </summary>
-        public void TakeDamage(int damage)
+        public void TakeDamage(int damage, bool isHit)
         {
-            this.AilmentController.TakeDamage();
-            this.StatusController.HitPoint -= damage;
-            Broker.Global.Publish(DamageNotify.Get(this, damage));
+            if(isHit)
+            {
+                this.AilmentController.TakeDamage();
+                this.StatusController.HitPoint -= damage;
+            }
 
-            if(this.StatusController.IsDead)
+            Broker.Global.Publish(DamageNotify.Get(this, damage, isHit));
+
+            if(isHit && this.StatusController.IsDead)
             {
                 //this.gameObject.SetActive(false);
                 Broker.Global.Publish(DeadNotify.Get(this));

@@ -51,8 +51,19 @@ namespace GL.Battle.CharacterControllers
         /// <remarks>
         /// 整数に統一したいので使うときは百分率に変換する必要があります
         /// </remarks>
-        [SerializeField][Range(0.0f, 100.0f)]
+        [SerializeField]
+        [Range(0.0f, 100.0f)]
         public int Critical;
+
+        /// <summary>
+        /// 回避率
+        /// </summary>
+        /// <remarks>
+        /// 整数に統一したいので使うときは百分率に変換する必要があります
+        /// </remarks>
+        [SerializeField]
+        [Range(0.0f, 50.0f)]
+        public int Avoidance;
 
         public Parameter()
         {
@@ -67,6 +78,8 @@ namespace GL.Battle.CharacterControllers
             this.Defense = other.Defense;
             this.DefenseMagic = other.DefenseMagic;
             this.Speed = other.Speed;
+            this.Critical = other.Critical;
+            this.Avoidance = other.Avoidance;
         }
 
         public Parameter(CharacterRecord characterRecord, int level)
@@ -74,7 +87,7 @@ namespace GL.Battle.CharacterControllers
         {
         }
 
-        public Parameter(int hitPoint, int strength, int strengthMagic, int defense, int defenseMagic, int speed)
+        public Parameter(int hitPoint, int strength, int strengthMagic, int defense, int defenseMagic, int speed, int critical, int avoidance)
         {
             this.HitPoint = hitPoint;
             this.Strength = strength;
@@ -82,6 +95,8 @@ namespace GL.Battle.CharacterControllers
             this.Defense = defense;
             this.DefenseMagic = defenseMagic;
             this.Speed = speed;
+            this.Critical = critical;
+            this.Avoidance = avoidance;
         }
 
         public void Add(Constants.StatusParameterType type, int value)
@@ -109,6 +124,9 @@ namespace GL.Battle.CharacterControllers
                 case Constants.StatusParameterType.Critical:
                     this.Critical += value;
                     break;
+                case Constants.StatusParameterType.Avoidance:
+                    this.Avoidance += value;
+                    break;
                 default:
                     Assert.IsTrue(false, $"{type}は未対応の値です");
                     break;
@@ -133,6 +151,8 @@ namespace GL.Battle.CharacterControllers
                     return this.Speed;
                 case Constants.StatusParameterType.Critical:
                     return this.Critical;
+                case Constants.StatusParameterType.Avoidance:
+                    return this.Avoidance;
                 default:
                     Assert.IsTrue(false, $"{type}は未対応の値です");
                     return 0;
@@ -147,6 +167,8 @@ namespace GL.Battle.CharacterControllers
             this.Defense = 0;
             this.DefenseMagic = 0;
             this.Speed = 0;
+            this.Critical = 0;
+            this.Avoidance = 0;
         }
 
 #if UNITY_EDITOR
@@ -159,7 +181,9 @@ namespace GL.Battle.CharacterControllers
                 this.StrengthMagic.ToString(),
                 this.Defense.ToString(),
                 this.DefenseMagic.ToString(),
-                this.Speed.ToString()
+                this.Speed.ToString(),
+                this.Critical.ToString(),
+                this.Avoidance.ToString()
                 );
         }
 
@@ -172,7 +196,9 @@ namespace GL.Battle.CharacterControllers
                 this.StrengthMagic,
                 this.Defense,
                 this.DefenseMagic,
-                this.Speed
+                this.Speed,
+                this.Critical,
+                this.Avoidance
             };
         }
 #endif

@@ -23,7 +23,7 @@ namespace GL.Battle.CharacterControllers.StatusAilments
         private void OnEndTurnEvent()
         {
             var character = this.controller.Character;
-            character.TakeDamage(Calculator.GetPoisonDamage(character.StatusController));
+            character.TakeDamage(Calculator.GetPoisonDamage(character.StatusController), true);
             Broker.Global.Publish(CompleteEndTurnEvent.Get());
         }
     }

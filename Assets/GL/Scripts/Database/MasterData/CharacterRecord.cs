@@ -195,6 +195,8 @@ namespace GL.Database
                 Defense = Mathf.FloorToInt(Mathf.Lerp(this.min.Defense, this.max.Defense, this.growthCurve.Defense.Evaluate(t))),
                 DefenseMagic = Mathf.FloorToInt(Mathf.Lerp(this.min.DefenseMagic, this.max.DefenseMagic, this.growthCurve.DefenseMagic.Evaluate(t))),
                 Speed = Mathf.FloorToInt(Mathf.Lerp(this.min.Speed, this.max.Speed, this.growthCurve.Speed.Evaluate(t))),
+                Critical = Mathf.FloorToInt(Mathf.Lerp(this.min.Critical, this.max.Critical, this.growthCurve.Critical.Evaluate(t))),
+                Avoidance = Mathf.FloorToInt(Mathf.Lerp(this.min.Avoidance, this.max.Avoidance, this.growthCurve.Avoidance.Evaluate(t))),
             };
         }
 
@@ -207,6 +209,8 @@ namespace GL.Database
             public AnimationCurve Defense = new AnimationCurve();
             public AnimationCurve DefenseMagic = new AnimationCurve();
             public AnimationCurve Speed = new AnimationCurve();
+            public AnimationCurve Critical = new AnimationCurve();
+            public AnimationCurve Avoidance = new AnimationCurve();
         }
 
         [Serializable]

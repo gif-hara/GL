@@ -100,6 +100,9 @@ namespace GL
 
             /// <summary>クリティカル率</summary>
             Critical = 7,
+
+            /// <summary>回避率</summary>
+            Avoidance = 8,
         }
 
         /// <summary>
@@ -280,6 +283,11 @@ namespace GL
         public const int LevelMin = 1;
         
         public const int LevelMax = 100;
+
+        /// <summary>
+        /// 回避率の最大値
+        /// </summary>
+        public const float AvoidanceMax = 0.75f;
 
         public enum HandType
         {

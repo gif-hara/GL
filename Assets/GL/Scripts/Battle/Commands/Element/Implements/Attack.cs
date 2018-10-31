@@ -28,7 +28,8 @@ namespace GL.Battle.Commands.Element.Implements
         {
             targets.ForEach(t =>
             {
-                var damage = Calculator.GetBasicAttackDamage(invoker, t, this.parameter.Rate, this.parameter.AttributeType);
+                var isHit = Calculator.IsHit(invoker, t);
+                var damage = isHit ? Calculator.GetBasicAttackDamage(invoker, t, this.parameter.Rate, this.parameter.AttributeType) : 0;
 
                 // ダメージがマイナスの場合は回復扱いになる
                 if(damage < 0)
@@ -37,12 +38,12 @@ namespace GL.Battle.Commands.Element.Implements
                 }
                 else
                 {
-                    t.TakeDamage(damage);
+                    t.TakeDamage(damage, isHit);
                 }
 
                 if (bundle.CanRecord)
                 {
-                    BattleManager.Instance.InvokedCommandResult.TakeDamages.Add(new InvokedCommandResult.TakeDamage(t, damage));
+                    BattleManager.Instance.InvokedCommandResult.TakeDamages.Add(new InvokedCommandResult.TakeDamage(t, damage, true));
                 }
             });
         }

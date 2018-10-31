@@ -6,16 +6,21 @@ namespace GL.Events.Battle
     /// <summary>
     /// ダメージを通知するイベント
     /// </summary>
-    public sealed class DamageNotify : Message<DamageNotify, Character, int>
+    public sealed class DamageNotify : Message<DamageNotify, Character, int, bool>
     {
         /// <summary>
         /// ダメージを受けたキャラクター
         /// </summary>
-        public Character Receiver { get { return this.param1; } }
+        public Character Receiver => this.param1;
 
         /// <summary>
         /// ダメージ量
         /// </summary>
-        public int Value { get { return this.param2; } }
+        public int Value => this.param2;
+
+        /// <summary>
+        /// 当たったか
+        /// </summary>
+        public bool IsHit => this.param3;
     }
 }

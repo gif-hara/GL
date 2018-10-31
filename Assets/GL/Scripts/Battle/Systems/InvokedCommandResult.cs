@@ -42,15 +42,18 @@ namespace GL.Battle
 
             public readonly int Damage;
 
-            public TakeDamage(Character target, int damage)
+            public readonly bool IsHit;
+
+            public TakeDamage(Character target, int damage, bool isHit)
             {
                 this.Target = target;
                 this.Damage = damage;
+                this.IsHit = isHit;
             }
 
             public override string ToString()
             {
-                return string.Format("[{0} {1}]", this.Target.StatusController.Name, this.Damage);
+                return $"{this.Target.StatusController.Name} , {this.Damage} , {this.IsHit}";
             }
         }
 
