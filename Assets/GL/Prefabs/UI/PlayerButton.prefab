@@ -128,8 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 114104844615554304}
   text: {fileID: 114550650337115670}
-  changeTargetScaleEndValue: 1.15
-  changeTargetScaleDuration: 0.25
+  scaleTween: {fileID: 11400000, guid: efeefda7da862467a85afb9488ea6d83, type: 2}
   changePlayerTween: {fileID: 11400000, guid: 4ac835941075f4c69a4fd0c3a4a8d977, type: 2}
 --- !u!114 &114550650337115670
 MonoBehaviour:
@@ -210,8 +209,8 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -618.80005, y: -774.9015}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}

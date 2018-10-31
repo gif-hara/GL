@@ -22,10 +22,7 @@ namespace GL.Home.UI
         private Text text;
 
         [SerializeField]
-        private float changeTargetScaleEndValue;
-
-        [SerializeField]
-        private float changeTargetScaleDuration;
+        private EmphasisScaleTween scaleTween;
 
         [SerializeField]
         private TargetableTween changePlayerTween;
@@ -66,8 +63,7 @@ namespace GL.Home.UI
         /// </summary>
         private Tween CreateChangeTargetTweener()
         {
-            return this.transform.DOScale(Vector3.one * this.changeTargetScaleEndValue, this.changeTargetScaleDuration)
-                .SetLoops(-1, LoopType.Yoyo);
+            return this.scaleTween.Apply(this.transform);
         }
 
         /// <summary>
