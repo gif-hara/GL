@@ -238,20 +238,17 @@ namespace GL
             /// <summary>ナックル</summary>
             Knuckle = 1 << 7,
 
-            /// <summary>本</summary>
-            Book = 1 << 8,
-
-            /// <summary>大剣</summary>
-            LargeSword = 1 << 9,
-
             /// <summary>槍</summary>
-            Spear = 1 << 10,
+            Spear = 1 << 8,
 
             /// <summary>ハンマー</summary>
-            Hammer = 1 << 11,
+            Hammer = 1 << 9,
 
             /// <summary>腕輪</summary>
-            Bangle = 1 << 12,
+            Bangle = 1 << 10,
+
+            /// <summary>矢</summary>
+            Arrow = 1 << 11,
 
             /// <summary>全て装備出来る</summary>
             All = int.MaxValue,

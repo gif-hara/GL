@@ -15,4 +15,4 @@ MonoBehaviour:
     target: {fileID: 11400000, guid: 40ebd9076c77e4f07bc62c508c9ea824, type: 2}
     value: "\u9ED2\u9B54\u8853\u5E2B"
     guid: 2ee91544-853f-470c-869e-fbf6035756e8
-  equipable: 4128
+  equipable: 1056
