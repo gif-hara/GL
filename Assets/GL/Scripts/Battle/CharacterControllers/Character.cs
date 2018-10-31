@@ -150,7 +150,7 @@ namespace GL.Battle.CharacterControllers
         private void InvokeCommandFromAI()
         {
             var animationController = this.UIController.AnimationController;
-            if (!animationController.IsPlay)
+            if (!animationController.IsPlay(CharacterUIAnimation.AnimationType.Damage))
             {
                 this.StatusController.CharacterRecord.AIController.Invoke(this);
             }

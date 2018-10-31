@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using GL.Battle.CharacterControllers;
 using GL.Tweens;
+using HK.GL.Extensions;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -37,12 +40,10 @@ namespace GL.Battle.UI
         [SerializeField]
         private DamageTween damageTween;
 
-        private Tween currentTween;
+        private Dictionary<AnimationType, Tween> tweens = new Dictionary<AnimationType, Tween>();
 
         private Subject<AnimationType> completeStream = new Subject<AnimationType>();
         public IObservable<AnimationType> OnCompleteAsObservable() => this.completeStream;
-
-        private AnimationType currentType = AnimationType.None;
 
         public void StartEmphasisScaleAnimation()
         {
@@ -56,6 +57,7 @@ namespace GL.Battle.UI
 
         public void StartAttackAnimation(Action onAttack, bool isReverse)
         {
+            this.ClearTween();
             this.ChangeTween(this.attackTween.Apply(this.target, onAttack, isReverse), AnimationType.Attack);
         }
 
@@ -64,38 +66,46 @@ namespace GL.Battle.UI
             this.ChangeTween(this.damageTween.Apply(this.target), AnimationType.Damage);
         }
 
-        public void ClearTween()
+        public bool IsPlay(AnimationType type)
         {
-            if(this.currentTween == null || this.currentType == AnimationType.Attack)
+            return this.tweens.ContainsKey(type) && this.tweens[type] != null;
+        }
+
+        public void KillTween(AnimationType type)
+        {
+            if (!this.tweens.ContainsKey(type) || this.tweens[type] == null)
             {
                 return;
             }
 
-            this.currentTween.Kill();
-            this.target.localScale = Vector3.one;
-            this.target.localRotation = Quaternion.identity;
-            this.currentTween = null;
-            this.currentType = AnimationType.None;
+            this.tweens[type].Kill();
         }
 
-        public bool IsPlay => this.currentTween != null;
+        public void ClearTween()
+        {
+            var tweens = this.tweens.Select(p => p.Value).Where(t => t != null).ToArray();
+            tweens.ForEach(t => t.Kill());
+        }
 
         private void ChangeTween(Tween tween, AnimationType type)
         {
-            // 攻撃アニメーション中は切り替えられない
-            if(this.currentType == AnimationType.Attack)
+            this.KillTween(type);
+            if(!this.tweens.ContainsKey(type))
             {
-                return;
+                this.tweens.Add(type, tween);
             }
-            this.ClearTween();
-            this.currentType = type;
-            this.currentTween = tween;
-            this.currentTween.OnKill(() =>
+            else
             {
+                this.tweens[type] = tween;
+            }
+
+            tween.OnKill(() =>
+            {
+                this.tweens[type] = null;
                 this.completeStream.OnNext(type);
-                this.currentTween = null;
-                this.currentType = AnimationType.None;
                 this.target.localPosition = Vector3.zero;
+                this.target.localScale = Vector3.one;
+                this.target.localRotation = Quaternion.identity;
             });
         }
     }

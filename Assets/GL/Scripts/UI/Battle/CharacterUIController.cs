@@ -137,7 +137,7 @@ namespace GL.Battle.UI
         {
             Broker.Global.Receive<SelectedTargets>()
                 .Take(1)
-                .SubscribeWithState(this, (_, _this) => _this.animationController.ClearTween())
+                .SubscribeWithState(this, (_, _this) => _this.animationController.KillTween(CharacterUIAnimation.AnimationType.Targetable))
                 .AddTo(this);
         }
 
