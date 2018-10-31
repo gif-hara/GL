@@ -39,7 +39,6 @@ namespace GL.DeveloperTools
             var enemyNameAsset = AssetDatabase.LoadAssetAtPath<StringAsset>("Assets/GL/StringAssets/EnemyName.asset");
             var job = AssetDatabase.LoadAssetAtPath<Job>("Assets/GL/MasterData/Jobs/Enemy/0000.asset");
             var colorAsset = AssetDatabase.LoadAssetAtPath<ColorAsset>("Assets/GL/ColorAssets/EnemyIcon.asset");
-            MaterialLottery[] materialLotteries = null;
             for (var i = 1; i < enemyData.Length; i++)
             {
                 var splitEnemyData = enemyData[i].Split(',');
@@ -48,10 +47,10 @@ namespace GL.DeveloperTools
                 if(enemyName != tempEnemyName)
                 {
                     otherData = new OtherData(enemyOtherData.Find(x => x.IndexOf(tempEnemyName) >= 0));
-                    materialLotteries = GetMaterialLotteries(enemyMaterialData, tempEnemyName, level);
                     typeId++;
                 }
                 enemyName = tempEnemyName;
+                var materialLotteries = GetMaterialLotteries(enemyMaterialData, tempEnemyName, level);
                 var iconId = int.Parse(splitEnemyData[1]);
                 var colorId = int.Parse(splitEnemyData[2]);
                 var path = "Assets/GL/MasterData/Characters/Enemy/";
