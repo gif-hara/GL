@@ -57,6 +57,7 @@ namespace GL.Battle.UI
             Assert.IsNotNull(this.character);
 
             Broker.Global.Receive<StartSelectCommand>()
+                .Where(_ => this.character.CharacterType == Constants.CharacterType.Player)
                 .Where(x => x.Character == this.character)
                 .SubscribeWithState(this, (_, _this) =>
                 {
