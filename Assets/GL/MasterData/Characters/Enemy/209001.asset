@@ -20,19 +20,23 @@ MonoBehaviour:
     guid: 1a83212a-e39e-4124-9798-a2830478d226
   job: {fileID: 11400000, guid: 133729d3c180341fa9cb25500d6c4b8e, type: 2}
   min:
-    HitPoint: 87
-    Strength: 19
-    StrengthMagic: 27
-    Defense: 4
-    DefenseMagic: 6
+    HitPoint: 238
+    Strength: 21
+    StrengthMagic: 8
+    Defense: 10
+    DefenseMagic: 4
     Speed: 6
+    Critical: 10
+    Avoidance: 0
   max:
-    HitPoint: 87
-    Strength: 19
-    StrengthMagic: 27
-    Defense: 4
-    DefenseMagic: 6
+    HitPoint: 238
+    Strength: 21
+    StrengthMagic: 8
+    Defense: 10
+    DefenseMagic: 4
     Speed: 6
+    Critical: 10
+    Avoidance: 0
   resistance:
     Poison: 0
     Paralysis: 0
@@ -93,8 +97,8 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  price: 48
-  acquireExperience: 71
+  price: 108
+  acquireExperience: 130
   materialLotteries: []
   aiController: {fileID: 0}
-  level: 2
+  level: 5

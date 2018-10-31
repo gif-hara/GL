@@ -9,32 +9,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4c05a5979337d4f278b5096f8db1513d, type: 3}
-  m_Name: 212001
+  m_Name: 209002
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: f89d1180db9364e7c842c08c6e5ef2c7, type: 3}
-  iconColor: {r: 0.19339621, g: 1, b: 0.23768044, a: 1}
+  icon: {fileID: 21300000, guid: 5eada3731128242cc8c3fc8c85845393, type: 3}
+  iconColor: {r: 1, g: 0.78339946, b: 0.033018887, a: 1}
   rank: 1
   characterName:
     target: {fileID: 11400000, guid: ffe09b92347884a60b1eb29eb0878fcd, type: 2}
-    value: "\u30D6\u30EB\u30FC\u30C8"
-    guid: 29de4703-c698-421d-8bc1-78860dcebc27
+    value: "\u30B4\u30FC\u30EC\u30E0"
+    guid: 1a83212a-e39e-4124-9798-a2830478d226
   job: {fileID: 11400000, guid: 133729d3c180341fa9cb25500d6c4b8e, type: 2}
   min:
-    HitPoint: 87
-    Strength: 19
-    StrengthMagic: 27
-    Defense: 4
-    DefenseMagic: 6
-    Speed: 6
+    HitPoint: 616
+    Strength: 32
+    StrengthMagic: 13
+    Defense: 10
+    DefenseMagic: 4
+    Speed: 8
     Critical: 10
     Avoidance: 0
   max:
-    HitPoint: 87
-    Strength: 19
-    StrengthMagic: 27
-    Defense: 4
-    DefenseMagic: 6
-    Speed: 6
+    HitPoint: 616
+    Strength: 32
+    StrengthMagic: 13
+    Defense: 10
+    DefenseMagic: 4
+    Speed: 8
     Critical: 10
     Avoidance: 0
   resistance:
@@ -97,8 +97,8 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  price: 48
-  acquireExperience: 71
+  price: 376
+  acquireExperience: 451
   materialLotteries: []
   aiController: {fileID: 0}
-  level: 2
+  level: 19

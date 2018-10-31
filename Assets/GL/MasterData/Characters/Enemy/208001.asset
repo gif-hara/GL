@@ -21,18 +21,22 @@ MonoBehaviour:
   job: {fileID: 11400000, guid: 133729d3c180341fa9cb25500d6c4b8e, type: 2}
   min:
     HitPoint: 403
-    Strength: 30
-    StrengthMagic: 42
+    Strength: 29
+    StrengthMagic: 41
     Defense: 8
     DefenseMagic: 12
     Speed: 7
+    Critical: 10
+    Avoidance: 0
   max:
     HitPoint: 403
-    Strength: 30
-    StrengthMagic: 42
+    Strength: 29
+    StrengthMagic: 41
     Defense: 8
     DefenseMagic: 12
     Speed: 7
+    Critical: 10
+    Avoidance: 0
   resistance:
     Poison: 0
     Paralysis: 0

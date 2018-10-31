@@ -21,18 +21,22 @@ MonoBehaviour:
   job: {fileID: 11400000, guid: 133729d3c180341fa9cb25500d6c4b8e, type: 2}
   min:
     HitPoint: 379
-    Strength: 38
+    Strength: 37
     StrengthMagic: 11
     Defense: 17
     DefenseMagic: 9
     Speed: 11
+    Critical: 10
+    Avoidance: 0
   max:
     HitPoint: 379
-    Strength: 38
+    Strength: 37
     StrengthMagic: 11
     Defense: 17
     DefenseMagic: 9
     Speed: 11
+    Critical: 10
+    Avoidance: 0
   resistance:
     Poison: 0
     Paralysis: 0
@@ -96,7 +100,7 @@ MonoBehaviour:
   price: 413
   acquireExperience: 620
   materialLotteries:
-  - material: {fileID: 11400000, guid: 4cf9b0a912efc4057ac5e9536dc528d1, type: 2}
+  - material: {fileID: 0}
     lottery: 1
   aiController: {fileID: 0}
   level: 20

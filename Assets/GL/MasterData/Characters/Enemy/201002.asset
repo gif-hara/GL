@@ -26,6 +26,8 @@ MonoBehaviour:
     Defense: 8
     DefenseMagic: 4
     Speed: 8
+    Critical: 10
+    Avoidance: 0
   max:
     HitPoint: 135
     Strength: 21
@@ -33,6 +35,8 @@ MonoBehaviour:
     Defense: 8
     DefenseMagic: 4
     Speed: 8
+    Critical: 10
+    Avoidance: 0
   resistance:
     Poison: 0
     Paralysis: 0
@@ -96,7 +100,7 @@ MonoBehaviour:
   price: 111
   acquireExperience: 166
   materialLotteries:
-  - material: {fileID: 11400000, guid: 4cf9b0a912efc4057ac5e9536dc528d1, type: 2}
+  - material: {fileID: 0}
     lottery: 1
   aiController: {fileID: 0}
   level: 5

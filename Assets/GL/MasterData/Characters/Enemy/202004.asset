@@ -26,6 +26,8 @@ MonoBehaviour:
     Defense: 20
     DefenseMagic: 30
     Speed: 8
+    Critical: 10
+    Avoidance: 0
   max:
     HitPoint: 205
     Strength: 33
@@ -33,6 +35,8 @@ MonoBehaviour:
     Defense: 20
     DefenseMagic: 30
     Speed: 8
+    Critical: 10
+    Avoidance: 0
   resistance:
     Poison: 0
     Paralysis: 0
