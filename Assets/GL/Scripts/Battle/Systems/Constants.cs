@@ -97,6 +97,9 @@ namespace GL
 
             /// <summary>素早さ</summary>
             Speed = 6,
+
+            /// <summary>クリティカル率</summary>
+            Critical = 7,
         }
 
         /// <summary>

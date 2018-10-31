@@ -45,6 +45,15 @@ namespace GL.Battle.CharacterControllers
         [SerializeField][Range(0.0f, 1000.0f)]
         public int Speed;
 
+        /// <summary>
+        /// クリティカル率
+        /// </summary>
+        /// <remarks>
+        /// 整数に統一したいので使うときは百分率に変換する必要があります
+        /// </remarks>
+        [SerializeField][Range(0.0f, 100.0f)]
+        public int Critical;
+
         public Parameter()
         {
             this.Reset();
@@ -97,6 +106,9 @@ namespace GL.Battle.CharacterControllers
                 case Constants.StatusParameterType.Speed:
                     this.Speed += value;
                     break;
+                case Constants.StatusParameterType.Critical:
+                    this.Critical += value;
+                    break;
                 default:
                     Assert.IsTrue(false, $"{type}は未対応の値です");
                     break;
@@ -119,6 +131,8 @@ namespace GL.Battle.CharacterControllers
                     return this.DefenseMagic;
                 case Constants.StatusParameterType.Speed:
                     return this.Speed;
+                case Constants.StatusParameterType.Critical:
+                    return this.Critical;
                 default:
                     Assert.IsTrue(false, $"{type}は未対応の値です");
                     return 0;

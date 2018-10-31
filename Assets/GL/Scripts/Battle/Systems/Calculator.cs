@@ -74,8 +74,9 @@ namespace GL.Battle
             {
                 return true;
             }
-            
-            return Random.value <= 0.5f;
+
+            var threshold = invoker.StatusController.GetTotalParameter(Constants.StatusParameterType.Critical).ToPercentage();
+            return Random.value <= threshold;
         }
 
         /// <summary>
@@ -95,6 +96,8 @@ namespace GL.Battle
                     return GetAddDefenseMagicValue(invoker, rate);
                 case Constants.StatusParameterType.Speed:
                     return GetAddSpeedValue(invoker, rate);
+                case Constants.StatusParameterType.Critical:
+                    return GetAddCriticalValue(invoker, rate);
                 default:
                     Assert.IsTrue(false, $"{type}は未対応の値です");
                     return 0;
@@ -179,6 +182,14 @@ namespace GL.Battle
             {
                 return Mathf.FloorToInt(rate);
             }
+        }
+
+        /// <summary>
+        /// クリティカル率上昇系コマンドの上昇量を返す
+        /// </summary>
+        private static int GetAddCriticalValue(CharacterStatusController invoker, float rate)
+        {
+            return rate.ToPercentage();
         }
 
         /// <summary>
