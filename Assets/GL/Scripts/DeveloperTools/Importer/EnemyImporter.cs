@@ -102,7 +102,7 @@ namespace GL.DeveloperTools
                 .Select(m =>
                 {
                     var s = m.Split(',');
-                    return new MaterialLottery(materialDatabase.List.Find(x => x.MaterialName == s[2]), int.Parse(s[3]));
+                    return new MaterialLottery(materialDatabase.List.Find(x => x.MaterialName == s[2]), float.Parse(s[3]));
                 })
                 .ToArray();
         }
@@ -117,21 +117,21 @@ namespace GL.DeveloperTools
             {
                 var s = data.Split(',');
                 this.Resistance = new Resistance(
-                    int.Parse(s[1]),
-                    int.Parse(s[2]),
-                    int.Parse(s[3]),
-                    int.Parse(s[4]),
-                    int.Parse(s[5]),
-                    int.Parse(s[6])
+                    float.Parse(s[1]),
+                    float.Parse(s[2]),
+                    float.Parse(s[3]),
+                    float.Parse(s[4]),
+                    float.Parse(s[5]),
+                    float.Parse(s[6])
                 );
                 this.Attribute = new Battle.CharacterControllers.Attribute(
-                    int.Parse(s[7]),
-                    int.Parse(s[8]),
-                    int.Parse(s[9]),
-                    int.Parse(s[10]),
-                    int.Parse(s[11]),
-                    int.Parse(s[12]),
-                    int.Parse(s[13])
+                    float.Parse(s[7]),
+                    float.Parse(s[8]),
+                    float.Parse(s[9]),
+                    float.Parse(s[10]),
+                    float.Parse(s[11]),
+                    float.Parse(s[12]),
+                    float.Parse(s[13])
                 );
             }
         }
