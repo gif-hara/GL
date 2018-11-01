@@ -51,6 +51,7 @@ namespace GL.DeveloperTools
             });
 
             var materialDatabase = AssetDatabase.LoadAssetAtPath<MaterialList>("Assets/GL/MasterData/Database/Material.asset");
+            AssetDatabase.SaveAssets();
             materialDatabase.Reset();
             AssetDatabase.SaveAssets();
         }
