@@ -20,21 +20,21 @@ MonoBehaviour:
     guid: be5bdc48-8561-4c70-bf4c-a3daf1f07d81
   job: {fileID: 11400000, guid: 133729d3c180341fa9cb25500d6c4b8e, type: 2}
   min:
-    HitPoint: 87
-    Strength: 19
-    StrengthMagic: 27
-    Defense: 4
-    DefenseMagic: 6
-    Speed: 6
+    HitPoint: 137
+    Strength: 27
+    StrengthMagic: 30
+    Defense: 9
+    DefenseMagic: 8
+    Speed: 7
     Critical: 10
     Avoidance: 0
   max:
-    HitPoint: 87
-    Strength: 19
-    StrengthMagic: 27
-    Defense: 4
-    DefenseMagic: 6
-    Speed: 6
+    HitPoint: 137
+    Strength: 27
+    StrengthMagic: 30
+    Defense: 9
+    DefenseMagic: 8
+    Speed: 7
     Critical: 10
     Avoidance: 0
   resistance:
@@ -45,13 +45,13 @@ MonoBehaviour:
     Berserk: 0
     Vitals: 0
   attribute:
-    brow: 1
-    slash: 1
-    poke: 1
+    brow: 0.8
+    slash: 0.8
+    poke: 0.8
     no: 1
-    fire: 1
-    water: 1
-    thunder: 1
+    fire: 0
+    water: 0.5
+    thunder: 2
   growthCurve:
     HitPoint:
       serializedVersion: 2
@@ -109,8 +109,12 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  price: 48
-  acquireExperience: 71
-  materialLotteries: []
+  price: 238
+  acquireExperience: 357
+  materialLotteries:
+  - material: {fileID: 11400000, guid: 03723ddad204948bdb4aa4b2dad4f20f, type: 2}
+    lottery: 0.25
+  - material: {fileID: 11400000, guid: 6f44c5d2728e340f68dd279e00c778a9, type: 2}
+    lottery: 0.1
   aiController: {fileID: 0}
-  level: 2
+  level: 12

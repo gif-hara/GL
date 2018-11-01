@@ -25,3 +25,10 @@ MonoBehaviour:
     condition: {fileID: 11400000, guid: 5e616f6c5005f49c6b39ca4db09a447d, type: 2}
   - commandRecord: {fileID: 11400000, guid: ef7e587a55b3f400d95c7b23429ac44f, type: 2}
     condition: {fileID: 11400000, guid: 905632838d0234e898c803db970eb82a, type: 2}
+  needMaterials:
+  - material: {fileID: 11400000, guid: 4cf9b0a912efc4057ac5e9536dc528d1, type: 2}
+    amount: 3
+    materialName:
+      target: {fileID: 11400000, guid: a20e4e8b0011146d590d38d4914a1479, type: 2}
+      value: "\u9244\u9271\u77F3"
+      guid: c0504387-f4b3-4ef2-bf09-af544d553ddd

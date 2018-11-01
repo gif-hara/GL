@@ -20,21 +20,21 @@ MonoBehaviour:
     guid: c003103a-7ccb-4f82-8452-b75af3f853b0
   job: {fileID: 11400000, guid: 133729d3c180341fa9cb25500d6c4b8e, type: 2}
   min:
-    HitPoint: 599
-    Strength: 82
-    StrengthMagic: 82
+    HitPoint: 2169
+    Strength: 133
+    StrengthMagic: 133
     Defense: 36
     DefenseMagic: 32
-    Speed: 33
+    Speed: 65
     Critical: 10
     Avoidance: 0
   max:
-    HitPoint: 599
-    Strength: 82
-    StrengthMagic: 82
+    HitPoint: 2169
+    Strength: 133
+    StrengthMagic: 133
     Defense: 36
     DefenseMagic: 32
-    Speed: 33
+    Speed: 65
     Critical: 10
     Avoidance: 0
   resistance:
@@ -47,10 +47,10 @@ MonoBehaviour:
   attribute:
     brow: 1
     slash: 1
-    poke: 1
+    poke: 1.5
     no: 1
     fire: 1
-    water: 1
+    water: 0.5
     thunder: 1
   growthCurve:
     HitPoint:
@@ -109,8 +109,8 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  price: 1265
-  acquireExperience: 215
+  price: 4328
+  acquireExperience: 736
   materialLotteries: []
   aiController: {fileID: 0}
   level: 56

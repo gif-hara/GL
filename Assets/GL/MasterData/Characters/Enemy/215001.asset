@@ -1,0 +1,122 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c05a5979337d4f278b5096f8db1513d, type: 3}
+  m_Name: 215001
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 46720d476a5c943b0a83f22dd514aba3, type: 3}
+  iconColor: {r: 0.19339621, g: 1, b: 0.23768044, a: 1}
+  rank: 1
+  characterName:
+    target: {fileID: 11400000, guid: ffe09b92347884a60b1eb29eb0878fcd, type: 2}
+    value: "\u30A2\u30F3\u30D5\u30A7\u30A2\u30EA\u30FC"
+    guid: e816d660-4043-4db8-b102-1db904580baf
+  job: {fileID: 11400000, guid: 133729d3c180341fa9cb25500d6c4b8e, type: 2}
+  min:
+    HitPoint: 92
+    Strength: 17
+    StrengthMagic: 32
+    Defense: 3
+    DefenseMagic: 5
+    Speed: 10
+    Critical: 10
+    Avoidance: 0
+  max:
+    HitPoint: 92
+    Strength: 17
+    StrengthMagic: 32
+    Defense: 3
+    DefenseMagic: 5
+    Speed: 10
+    Critical: 10
+    Avoidance: 0
+  resistance:
+    Poison: 0.3
+    Paralysis: 0.3
+    Sleep: 0.3
+    Confuse: 0.3
+    Berserk: 0.3
+    Vitals: 0.3
+  attribute:
+    brow: 1.2
+    slash: 1.2
+    poke: 1.2
+    no: 0.8
+    fire: 0.8
+    water: 0.8
+    thunder: 0.8
+  growthCurve:
+    HitPoint:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    Strength:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    StrengthMagic:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    Defense:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    DefenseMagic:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    Speed:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    Critical:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    Avoidance:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  experience:
+    max: 0
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  price: 143
+  acquireExperience: 186
+  materialLotteries:
+  - material: {fileID: 11400000, guid: a24710ecbf014433fb1ffc8f4a080b30, type: 2}
+    lottery: 0.25
+  - material: {fileID: 11400000, guid: ec7944979b5a6491d82aca6379a6953c, type: 2}
+    lottery: 0.25
+  - material: {fileID: 11400000, guid: 985d5f51623054dbabfb67d09322f275, type: 2}
+    lottery: 0.1
+  aiController: {fileID: 0}
+  level: 8

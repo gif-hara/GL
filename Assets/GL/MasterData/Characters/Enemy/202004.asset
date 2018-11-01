@@ -38,20 +38,20 @@ MonoBehaviour:
     Critical: 10
     Avoidance: 0
   resistance:
-    Poison: 0
+    Poison: 0.5
     Paralysis: 0
-    Sleep: 0
-    Confuse: 0
-    Berserk: 0
+    Sleep: 0.5
+    Confuse: 1
+    Berserk: 1
     Vitals: 0
   attribute:
-    brow: 1
-    slash: 1
-    poke: 1
+    brow: 0.5
+    slash: 0.5
+    poke: 0.7
     no: 1
-    fire: 1
-    water: 1
-    thunder: 1
+    fire: 0.5
+    water: 0
+    thunder: 2
   growthCurve:
     HitPoint:
       serializedVersion: 2
@@ -111,6 +111,10 @@ MonoBehaviour:
       m_RotationOrder: 4
   price: 428
   acquireExperience: 643
-  materialLotteries: []
+  materialLotteries:
+  - material: {fileID: 11400000, guid: b94006b21949e441ebff81c7c285b6ef, type: 2}
+    lottery: 0.2
+  - material: {fileID: 11400000, guid: 7743d8c73159c41c8aaba0c049cb40cd, type: 2}
+    lottery: 0.4
   aiController: {fileID: 0}
   level: 22

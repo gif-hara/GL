@@ -47,11 +47,11 @@ MonoBehaviour:
   attribute:
     brow: 1
     slash: 1
-    poke: 1
-    no: 1
-    fire: 1
-    water: 1
-    thunder: 1
+    poke: 1.5
+    no: 0.8
+    fire: 0.5
+    water: 0.5
+    thunder: 0.5
   growthCurve:
     HitPoint:
       serializedVersion: 2
@@ -111,6 +111,10 @@ MonoBehaviour:
       m_RotationOrder: 4
   price: 126
   acquireExperience: 119
-  materialLotteries: []
+  materialLotteries:
+  - material: {fileID: 11400000, guid: fce42378c915042e78a4a055ed4201a7, type: 2}
+    lottery: 0.2
+  - material: {fileID: 11400000, guid: 6f10b02e7dfab43c6b6da222bb524e53, type: 2}
+    lottery: 0.1
   aiController: {fileID: 0}
   level: 6

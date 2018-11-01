@@ -46,10 +46,10 @@ MonoBehaviour:
     Vitals: 0
   attribute:
     brow: 1
-    slash: 1
+    slash: 1.5
     poke: 1
     no: 1
-    fire: 1
+    fire: 1.5
     water: 1
     thunder: 1
   growthCurve:
