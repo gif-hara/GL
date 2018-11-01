@@ -9,9 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eecbc0a186b374826aed61140b654ace, type: 3}
-  m_Name: 10203
+  m_Name: 10702
   m_EditorClassIdentifier: 
   materialName:
     target: {fileID: 11400000, guid: a20e4e8b0011146d590d38d4914a1479, type: 2}
-    value: "\u30B3\u30CF\u30AF"
-    guid: 0df4f002-d2a1-4768-b770-049823e5a793
+    value: "\u5305\u5E2F"
+    guid: a636631b-46bf-40fd-91ce-970392688a01
