@@ -5,6 +5,7 @@ using UnityEngine;
 using GL.Database;
 using GL.Battle.Commands;
 using System;
+using HK.GL.Extensions;
 
 namespace GL.Database
 {
@@ -23,7 +24,7 @@ namespace GL.Database
         /// <remarks>
         /// ファイル名そのものをIDとしています
         /// </remarks>
-        public string Id { get { return this.name; } }
+        public string Id => this.name;
 
         [SerializeField]
         private int rank;
@@ -31,11 +32,11 @@ namespace GL.Database
 
         [SerializeField]
         private StringAsset.Finder weaponName;
-        public string WeaponName { get { return weaponName.Get; } }
-        
+        public string WeaponName => this.weaponName.Get;
+
         [SerializeField]
         private Constants.WeaponType weaponType;
-        public Constants.WeaponType WeaponType { get { return weaponType; } }
+        public Constants.WeaponType WeaponType => this.weaponType;
 
         [SerializeField]
         private int price;
@@ -46,6 +47,17 @@ namespace GL.Database
 
         [SerializeField]
         private ConditionalCommandRecord[] commands;
-        public ConditionalCommandRecord[] Commands { get { return commands; } }
+        public ConditionalCommandRecord[] Commands => this.commands;
+
+        [SerializeField]
+        private NeedMaterial[] needMaterials = new NeedMaterial[0];
+        public NeedMaterial[] NeedMaterials => this.needMaterials;
+
+#if UNITY_EDITOR
+        void OnValidate()
+        {
+            this.needMaterials.ForEach(m => m.OnValidate());
+        }
+#endif
     }
 }
