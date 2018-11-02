@@ -52,17 +52,9 @@ namespace GL.Battle.PartyControllers
         /// </remarks>
         /// <param name="invoker">ターゲットを選択するキャラクター</param>
         /// <param name="type">ターゲットしたいタイプ</param>
-        /// <param name="takeDamage">ダメージを伴う行動を行うか</param>
-        public Character[] GetTargets(Character invoker, Constants.TargetType type, bool takeDamage)
+        public Character[] GetTargets(Character invoker, Constants.TargetType type)
         {
             var targets = this.SurvivalMembers;
-            var protectCharacters = targets.FindAll(c => c.AilmentController.Find(Constants.StatusAilmentType.Protect));
-            var canProtect = takeDamage && protectCharacters.Count > 0;
-            Character protectCharacter = null;
-            if (canProtect)
-            {
-                protectCharacter = protectCharacters[UnityEngine.Random.Range(0, protectCharacters.Count)];
-            }
             
             // 鎌鼬化の場合は全体化する
             if (invoker.AilmentController.Find(Constants.StatusAilmentType.Sickle))
@@ -76,19 +68,8 @@ namespace GL.Battle.PartyControllers
                 case Constants.TargetType.Select: // Selectの場合も全てのリストを返す
                 case Constants.TargetType.SelectRange:
                 case Constants.TargetType.All:
+                case Constants.TargetType.Random: // Randomもコマンド実行時にターゲットを選択する
                     result.AddRange(targets);
-                    break;
-                case Constants.TargetType.Random:
-                    var random = targets[UnityEngine.Random.Range(0, targets.Count)];
-                    if (canProtect && random != protectCharacter)
-                    {
-                        result.Add(protectCharacter);
-                        // TODO: 庇う発動したことを通知する
-                    }
-                    else
-                    {
-                        result.Add(random);
-                    }
                     break;
                 case Constants.TargetType.Myself:
                     result.Add(invoker);

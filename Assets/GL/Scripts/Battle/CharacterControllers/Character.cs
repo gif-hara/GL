@@ -92,12 +92,13 @@ namespace GL.Battle.CharacterControllers
                 })
                 .AddTo(this);
         }
-        
-        public void StartAttack(Action onAttack, Action postprocess)
+
+        /// <summary>
+        /// 攻撃を開始する
+        /// </summary>
+        public IObservable<CharacterUIAnimation.AnimationType> StartAttack(Action onAttack)
         {
-            onAttack += postprocess;
-            this.UIController.StartAttack(onAttack);
-            // animationCompleteAction();
+            return this.UIController.StartAttack(onAttack);
         }
 
         /// <summary>

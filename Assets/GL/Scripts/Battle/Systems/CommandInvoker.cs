@@ -14,15 +14,15 @@ namespace GL.Battle
         public CommandInvoker(GameObject owner)
         {
             Broker.Global.Receive<SelectedCommand>()
-                .Subscribe(this.OnSelectedCommand)
+                .Subscribe(OnSelectedCommand)
                 .AddTo(owner);
 
             Broker.Global.Receive<SelectedTargets>()
-                .Subscribe(this.OnSelectedTargets)
+                .Subscribe(OnSelectedTargets)
                 .AddTo(owner);
         }
 
-        private void OnSelectedCommand(SelectedCommand eventData)
+        private static void OnSelectedCommand(SelectedCommand eventData)
         {
             var command = eventData.Command;
             var invoker = eventData.Invoker;
@@ -40,7 +40,7 @@ namespace GL.Battle
             }
         }
 
-        private void OnSelectedTargets(SelectedTargets eventData)
+        private static void OnSelectedTargets(SelectedTargets eventData)
         {
             eventData.Command.Invoke(eventData.Invoker, eventData.Targets);
         }

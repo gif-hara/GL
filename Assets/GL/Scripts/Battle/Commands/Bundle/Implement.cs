@@ -8,6 +8,9 @@ using HK.Framework.Text;
 using HK.GL.Extensions;
 using UnityEngine.Assertions;
 using UnityEngine;
+using UniRx;
+using System.Collections.Generic;
+using GL.Battle.UI;
 
 namespace GL.Battle.Commands.Bundle
 {
@@ -21,7 +24,9 @@ namespace GL.Battle.Commands.Bundle
         private int currentChargeTurn;
         public int CurrentChargeTurn => this.currentChargeTurn;
 
-        private Element.IImplement[] elements;
+        private ImplementList[] elementLists;
+
+        private Element.IImplement[] allElement;
 
         public string Name
         {
@@ -37,7 +42,10 @@ namespace GL.Battle.Commands.Bundle
         {
             this.parameter = parameter;
             this.currentChargeTurn = this.parameter.InitialChargeTurn;
-            this.elements = parameter.Elements.Select(e => e.Create()).ToArray();
+            this.elementLists = parameter.ElementLists.Select(e => new ImplementList(e.Create())).ToArray();
+            var allElement = new List<Element.IImplement>();
+            this.elementLists.ForEach(e => allElement.AddRange(e.Implements));
+            this.allElement = allElement.ToArray();
         }
 
         /// <summary>
@@ -51,19 +59,41 @@ namespace GL.Battle.Commands.Bundle
                 BattleManager.Instance.InvokedCommandResult.InvokedCommand = this;
             }
 
-            invoker.StartAttack(
-            () =>
-            {
-                this.elements.ForEach(e =>
-                {
-                    e.Invoke(invoker, this, targets);
-                });
-                this.currentChargeTurn = -1;
-            },
-            () =>
+            this.StartAnimation(invoker, targets, 0);
+            this.currentChargeTurn = -1;
+        }
+
+        private void StartAnimation(Character invoker, Character[] targets, int elementListsIndex)
+        {
+            Debug.Log(targets.Length);
+            if(this.elementLists.Length <= elementListsIndex)
             {
                 this.Postprocess(invoker)();
-            });
+            }
+            else
+            {
+                var tuple = new Tuple<Implement, Character, Character[], int>(this, invoker, targets, elementListsIndex);
+                invoker.StartAttack(
+                () =>
+                {
+                    var elements = this.elementLists[elementListsIndex].Implements;
+                    var finalTargets = this.GetTargetsFromRandom(targets);
+                    elements.ForEach(e =>
+                    {
+                        e.Invoke(invoker, this, finalTargets);
+                    });
+                })
+                .Where(x => x == CharacterUIAnimation.AnimationType.Attack)
+                .Take(1)
+                .SubscribeWithState(tuple, (_, t) =>
+                {
+                    var _this = t.Item1;
+                    var _invoker = t.Item2;
+                    var _targets = t.Item3;
+                    var nextElementListsIndex = t.Item4 + 1;
+                    _this.StartAnimation(_invoker, _targets, nextElementListsIndex);
+                });
+            }
         }
 
         /// <summary>
@@ -79,14 +109,50 @@ namespace GL.Battle.Commands.Bundle
                 case Constants.TargetType.Myself:
                 case Constants.TargetType.OnChaseTakeDamages:
                 case Constants.TargetType.SelectRange:
-                    var takeDamage = this.elements.Any(e => e.TakeDamage);
                     return BattleManager.Instance.Parties
                             .GetFromTargetPartyType(invoker, this.parameter.TargetPartyType)
-                            .GetTargets(invoker, this.parameter.TargetType, takeDamage);
+                            .GetTargets(invoker, this.parameter.TargetType);
                 default:
                     Assert.IsTrue(false, $"未対応の値です TargetType = {this.parameter.TargetType}");
                     return null;
             }
+        }
+
+        /// <summary>
+        /// ターゲットの最終選択を行う
+        /// </summary>
+        /// <remarks>
+        /// Randomでない場合はそのまま利用する
+        /// </remarks>
+        private Character[] GetTargetsFromRandom(Character[] targets)
+        {
+            if(this.parameter.TargetType != Constants.TargetType.Random)
+            {
+                return targets;
+            }
+
+            var result = new List<Character>();
+            var takeDamage = this.allElement.Any(e => e.TakeDamage);
+            var protectCharacters = targets.FindAll(c => c.AilmentController.Find(Constants.StatusAilmentType.Protect));
+            var canProtect = takeDamage && protectCharacters.Length > 0;
+            Character protectCharacter = null;
+            if (canProtect)
+            {
+                protectCharacter = protectCharacters[UnityEngine.Random.Range(0, protectCharacters.Length)];
+            }
+
+            var random = targets[UnityEngine.Random.Range(0, targets.Length)];
+            if (canProtect && random != protectCharacter)
+            {
+                result.Add(protectCharacter);
+                // TODO: 庇う発動したことを通知する
+            }
+            else
+            {
+                result.Add(random);
+            }
+
+            return result.ToArray();
         }
 
         /// <summary>
@@ -173,7 +239,19 @@ namespace GL.Battle.Commands.Bundle
             /// <summary>
             /// 実行されるコマンドリスト
             /// </summary>
-            public Element.Blueprint[] Elements;
+            public BlueprintList[] ElementLists;
+
+            [Serializable]
+            public class BlueprintList
+            {
+                [SerializeField]
+                public Element.Blueprint[] Elements;
+
+                public Element.IImplement[] Create()
+                {
+                    return this.Elements.Select(e => e.Create()).ToArray();
+                }
+            }
         }
 
         /// <summary>
@@ -189,6 +267,16 @@ namespace GL.Battle.Commands.Bundle
             [SerializeField]
             private CommandElementCondition condition;
             public CommandElementCondition Condition => this.condition;
+        }
+
+        public sealed class ImplementList
+        {
+            public Element.IImplement[] Implements { get; private set; }
+
+            public ImplementList(Element.IImplement[] implements)
+            {
+                this.Implements = implements;
+            }
         }
     }
 }

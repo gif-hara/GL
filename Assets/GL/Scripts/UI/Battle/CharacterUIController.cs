@@ -109,9 +109,9 @@ namespace GL.Battle.UI
             }
         }
 
-        public void StartAttack(Action onAttack)
+        public IObservable<CharacterUIAnimation.AnimationType> StartAttack(Action onAttack)
         {
-            this.animationController.StartAttackAnimation(onAttack, this.character.CharacterType == Constants.CharacterType.Enemy);
+            return this.animationController.StartAttackAnimation(onAttack, this.character.CharacterType == Constants.CharacterType.Enemy);
         }
 
         private void Apply()

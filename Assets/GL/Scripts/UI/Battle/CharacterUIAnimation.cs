@@ -55,10 +55,12 @@ namespace GL.Battle.UI
             this.ChangeTween(this.targetableTween.Apply(this.target), AnimationType.Targetable);
         }
 
-        public void StartAttackAnimation(Action onAttack, bool isReverse)
+        public IObservable<AnimationType> StartAttackAnimation(Action onAttack, bool isReverse)
         {
             this.ClearTween();
             this.ChangeTween(this.attackTween.Apply(this.target, onAttack, isReverse), AnimationType.Attack);
+
+            return this.OnCompleteAsObservable();
         }
 
         public void StartDamageAnimation()
