@@ -300,7 +300,7 @@ namespace GL
             /// <summary>物理</summary>
             Physics,
             /// <summary>魔法</summary>
-            Magix,
+            Magic,
         }
     }
 }
