@@ -272,7 +272,7 @@ namespace GL.Home.UI
         {
             var popup = PopupManager.Show(this.equippedWeaponPopupController);
             popup
-                .Setup(this.editPlayer, handType)
+                .Setup(this.editPlayer)
                 .SubmitAsObservable()
                 .SubscribeWithState3(this, popup, handType, (instanceId, _this, _popup, _handType) =>
                 {

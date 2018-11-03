@@ -30,7 +30,7 @@ namespace GL.UI.PopupControllers
         [SerializeField]
         private Button closeButton;
 
-        public EquippedWeaponPopupController Setup(Player player, Constants.HandType handType)
+        public EquippedWeaponPopupController Setup(Player player)
         {
             // TODO: プレイヤーが装備可能な武器種類を抽出する
             var u = UserData.Instance;
