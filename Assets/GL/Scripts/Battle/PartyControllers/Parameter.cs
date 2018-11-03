@@ -76,6 +76,21 @@ namespace GL.Battle.PartyControllers
                         }
                     }
                 }
+                foreach(var accessory in this.Accessories)
+                {
+                    if(accessory == null)
+                    {
+                        continue;
+                    }
+
+                    foreach (var c in accessory.Commands)
+                    {
+                        if (!result.Contains(c.CommandRecord) && c.Condition.Suitable(this.RightWeapon, this.LeftWeapon, this.Accessories))
+                        {
+                            result.Add(c.CommandRecord);
+                        }
+                    }
+                }
 
                 return result.Select(r => r.Create()).ToArray();
             }

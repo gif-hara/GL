@@ -172,6 +172,15 @@ namespace GL.User
                 {
                     result.AddRange(this.LeftHand.BattleWeapon.Commands);
                 }
+                foreach(var a in this.Accessories)
+                {
+                    if(a == null)
+                    {
+                        continue;
+                    }
+
+                    result.AddRange(a.Commands);
+                }
 
                 return result.ToArray();
             }
