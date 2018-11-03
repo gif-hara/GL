@@ -1,0 +1,4 @@
+コマンド名,ListId,コマンドタイプ,パラメータ1,パラメータ2,パラメータ3,パラメータ4,パラメータ5,パラメータ6,パラメータ7
+攻撃(斬撃),0,Attack,1,Slash,Physics,,,,
+攻撃(打撃),0,Attack,1,Brow,Physics,,,,
+攻撃(刺突),0,Attack,1,Poke,Physics,,,,

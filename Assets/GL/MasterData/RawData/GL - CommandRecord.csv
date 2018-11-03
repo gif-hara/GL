@@ -1,0 +1,4 @@
+Id,名前,説明,TargetPartyType,TargetType,Postprocess,ChargeTurn,InitialChargeTurn
+1001001,攻撃(斬撃),対象に斬撃属性の攻撃を行う,Opponent,Select,EndTurn,0,0
+1001002,攻撃(打撃),対象に打撃属性の攻撃を行う,Opponent,Select,EndTurn,0,0
+1001003,攻撃(刺突),対象に刺突属性の攻撃を行う,Opponent,Select,EndTurn,0,0

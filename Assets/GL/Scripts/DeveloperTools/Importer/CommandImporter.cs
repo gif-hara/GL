@@ -23,7 +23,7 @@ namespace GL.DeveloperTools
         [MenuItem("GL/MasterData/Import Command")]
         private static void Import()
         {
-            var commandBundleData = AssetDatabase.LoadAssetAtPath<TextAsset>("Assets/GL/MasterData/RawData/GL - CommandBundle.csv")
+            var commandBundleData = AssetDatabase.LoadAssetAtPath<TextAsset>("Assets/GL/MasterData/RawData/GL - CommandRecord.csv")
                 .text
                 .Split(new string[] { System.Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
             var commandElementData = AssetDatabase.LoadAssetAtPath<TextAsset>("Assets/GL/MasterData/RawData/GL - CommandElement.csv")
