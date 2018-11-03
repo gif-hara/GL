@@ -169,8 +169,8 @@ namespace GL.DeveloperTools
         {
             public int Compare(List<string> x, List<string> y)
             {
-                var xIndex = int.Parse(x[1]);
-                var yIndex = int.Parse(y[1]);
+                var xIndex = int.Parse(x[2]);
+                var yIndex = int.Parse(y[2]);
 
                 return xIndex - yIndex;
             }
