@@ -80,13 +80,15 @@ namespace GL.DeveloperTools
                 var path = "Assets/GL/MasterData/Weapons/";
                 var fileName = splitWeaponRecordData[0];
                 var weaponRecord = ImporterUtility.GetOrCreate<WeaponRecord>(path, fileName);
+                List<NeedMaterial> needMaterials = null;
+                needMaterialDictionary.TryGetValue(fileName, out needMaterials);
                 weaponRecord.Set(
                     int.Parse(splitWeaponRecordData[1]),
                     weaponNameAsset.CreateOrGetFinder(splitWeaponRecordData[2]),
                     (Constants.WeaponType)Enum.Parse(typeof(Constants.WeaponType), splitWeaponRecordData[3]),
                     int.Parse(splitWeaponRecordData[4]),
                     commandDictionary[fileName].ToArray(),
-                    needMaterialDictionary[fileName].ToArray()
+                    needMaterials == null ? null : needMaterials.ToArray()
                 );
                 EditorUtility.SetDirty(weaponRecord);
             }
