@@ -91,6 +91,9 @@ namespace GL.DeveloperTools
                 EditorUtility.SetDirty(weaponRecord);
             }
 
+            var database = AssetDatabase.LoadAssetAtPath<WeaponList>("Assets/GL/MasterData/Database/Weapon.asset");
+            database.Reset();
+            EditorUtility.SetDirty(database);
             AssetDatabase.SaveAssets();
         }
     }

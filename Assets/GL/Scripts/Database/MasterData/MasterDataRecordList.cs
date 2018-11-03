@@ -32,6 +32,15 @@ namespace GL.Database
                 .Select(AssetDatabase.LoadAssetAtPath<T>)
                 .ToArray();
         }
+
+        public void ResetAndDirty()
+        {
+            this.list = AssetDatabase.FindAssets(this.FindAssetsFilter, this.FindAssetsPaths)
+                .Select(AssetDatabase.GUIDToAssetPath)
+                .Select(AssetDatabase.LoadAssetAtPath<T>)
+                .ToArray();
+            EditorUtility.SetDirty(this);
+        }
 #endif
     }
 }

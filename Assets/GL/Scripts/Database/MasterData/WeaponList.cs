@@ -9,7 +9,7 @@ namespace GL.Database
     [CreateAssetMenu(menuName = "GL/MasterData/List/Weapon")]
     public sealed class WeaponList : MasterDataRecordList<WeaponRecord>
     {
-        protected override string FindAssetsFilter => "t:Weapon";
+        protected override string FindAssetsFilter => "t:WeaponRecord";
 
         protected override string[] FindAssetsPaths => new[] { "Assets/GL/MasterData/Weapons" };
     }
