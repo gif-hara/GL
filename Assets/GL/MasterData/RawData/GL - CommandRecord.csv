@@ -5,6 +5,9 @@ Id,名前,説明,TargetPartyType,TargetType,Postprocess,ChargeTurn,InitialCharge
 1001004,狂暴攻撃,狂暴状態の攻撃,Opponent,Random,EndTurn,-1,0
 1001005,混乱攻撃,混乱状態の攻撃,Ally,Random,EndTurn,-1,0
 1001006,追討攻撃,追討状態の攻撃,Opponent,OnChaseTakeDamages,CompleteEndTurnEvent,-1,0
+1001007,ランダム攻撃(斬撃),相手の誰かに斬撃属性の攻撃を行う,Opponent,Random,EndTurn,0,0
+1001008,ランダム攻撃(打撃),相手の誰かに打撃属性の攻撃を行う,Opponent,Random,EndTurn,0,0
+1001009,ランダム攻撃(刺突),相手の誰かに刺突属性の攻撃を行う,Opponent,Random,EndTurn,0,0
 1002001,自分の素早さアップLv.1,自分の素早さを10%上昇する,Ally,Myself,EndTurn,1,1
 1003001,相手の素早さダウンLv.1,対象の素早さを10%減少する,Opponent,Select,EndTurn,1,1
 1004001,自分に鬼神化を付与Lv.1,自分に鬼神化を2ターン付与する,Ally,Myself,EndTurn,1,1
