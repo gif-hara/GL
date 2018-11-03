@@ -20,6 +20,10 @@ namespace GL.Battle.CharacterControllers
         {
             foreach (var accessory in this.Accessories)
             {
+                if(accessory == null)
+                {
+                    continue;
+                }
                 accessory.OnStartBattle(equippedCharacter);
             }
         }

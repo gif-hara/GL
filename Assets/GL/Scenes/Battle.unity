@@ -863,9 +863,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 030eaa02d3e49490fb2ebf0e3846def0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  confuseBlueprint: {fileID: 11400000, guid: 27cfa0bcdb0c54767a21cd379c74f9cd, type: 2}
-  berserkBlueprint: {fileID: 11400000, guid: a263d38f9f46e497088a9a6028be05c5, type: 2}
-  chaseBlueprint: {fileID: 11400000, guid: 9e207ed4b0b414463a4171f7d024f5bf, type: 2}
+  confuseBlueprint: {fileID: 11400000, guid: df9a1002d9eee4df3adb82d97a4ae538, type: 2}
+  berserkBlueprint: {fileID: 11400000, guid: 775a81a50d7244c3f8ab6be79401ae34, type: 2}
+  chaseBlueprint: {fileID: 11400000, guid: c7e107bd366484727bd38e679c826257, type: 2}
 --- !u!4 &1477821176
 Transform:
   m_ObjectHideFlags: 0

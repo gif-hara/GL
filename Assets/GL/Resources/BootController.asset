@@ -50,7 +50,7 @@ MonoBehaviour:
         accessoryInstanceIds: 000000000000000000000000
       - instanceId: 0
         PlayerName: "\u30C6\u30B9\u30C84"
-        Level: 41
+        Level: 1
         BlueprintId: 104001
         rightHand:
           weaponInstanceId: 4
