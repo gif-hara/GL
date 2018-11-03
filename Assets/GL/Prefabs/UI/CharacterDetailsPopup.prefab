@@ -308,6 +308,7 @@ GameObject:
   - component: {fileID: 222474415367515886}
   - component: {fileID: 114981142847602758}
   - component: {fileID: 114442933830797546}
+  - component: {fileID: 114250187532587852}
   m_Layer: 5
   m_Name: Accessory1
   m_TagString: Untagged
@@ -2029,6 +2030,7 @@ GameObject:
   - component: {fileID: 222700237121595636}
   - component: {fileID: 114796362960631308}
   - component: {fileID: 114516218505493356}
+  - component: {fileID: 114941102982155166}
   m_Layer: 5
   m_Name: Accessory3
   m_TagString: Untagged
@@ -2134,6 +2136,7 @@ GameObject:
   - component: {fileID: 222849979891522084}
   - component: {fileID: 114844302759287422}
   - component: {fileID: 114446014676915908}
+  - component: {fileID: 114988263674808598}
   m_Layer: 5
   m_Name: Accessory2
   m_TagString: Untagged
@@ -4117,6 +4120,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
+--- !u!114 &114250187532587852
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1119224596593272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 276052fb9ce274b86834dbd5d939eecd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noneAccessoryName:
+    target: {fileID: 11400000, guid: 4f29c1d3e047745e58f6327b7d25bbc9, type: 2}
+    value: "\u306A\u3057"
+    guid: a2f6ffd6-8c00-4fa4-bb18-d5f39b0c73d5
+  accessoryName: {fileID: 114009072020295740}
+  button: {fileID: 114089585870287048}
 --- !u!114 &114254434056184042
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4879,8 +4899,14 @@ MonoBehaviour:
     vitals: {fileID: 114386610720893324}
   rightWeapon: {fileID: 114459188547436440}
   leftWeapon: {fileID: 114185295502748966}
+  accessories:
+  - {fileID: 114250187532587852}
+  - {fileID: 114988263674808598}
+  - {fileID: 114941102982155166}
   commandListController: {fileID: 114115475725335824}
   equippedWeaponPopupController: {fileID: 114263292963512742, guid: a1b6031fd5b9341b4ac159c268869634,
+    type: 2}
+  equippedAccessoryPopupController: {fileID: 114206724720731872, guid: 78361b3af9fcf4b4489a5fe9fd1cbc0e,
     type: 2}
   defaultModeElement:
     root: {fileID: 1815292968651808}
@@ -8306,6 +8332,23 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114941102982155166
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1884387570992248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 276052fb9ce274b86834dbd5d939eecd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noneAccessoryName:
+    target: {fileID: 11400000, guid: 4f29c1d3e047745e58f6327b7d25bbc9, type: 2}
+    value: "\u306A\u3057"
+    guid: a2f6ffd6-8c00-4fa4-bb18-d5f39b0c73d5
+  accessoryName: {fileID: 114831166182998996}
+  button: {fileID: 114918949290072236}
 --- !u!114 &114944012166747370
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8422,6 +8465,23 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114988263674808598
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1910098998106372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 276052fb9ce274b86834dbd5d939eecd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noneAccessoryName:
+    target: {fileID: 11400000, guid: 4f29c1d3e047745e58f6327b7d25bbc9, type: 2}
+    value: "\u306A\u3057"
+    guid: a2f6ffd6-8c00-4fa4-bb18-d5f39b0c73d5
+  accessoryName: {fileID: 114194880111032442}
+  button: {fileID: 114239108695294592}
 --- !u!114 &114989435581594536
 MonoBehaviour:
   m_ObjectHideFlags: 1

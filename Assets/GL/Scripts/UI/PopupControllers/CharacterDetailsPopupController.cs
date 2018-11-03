@@ -7,6 +7,7 @@ using GL.UI.PopupControllers;
 using GL.User;
 using HK.Framework.EventSystems;
 using HK.Framework.Text;
+using HK.GL.Extensions;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -148,10 +149,16 @@ namespace GL.Home.UI
         private CharacterDetailsPopupWeaponController leftWeapon;
 
         [SerializeField]
+        private CharacterDetailsPopupAccessoryController[] accessories;
+
+        [SerializeField]
         private CommandListController commandListController;
 
         [SerializeField]
         private EquippedWeaponPopupController equippedWeaponPopupController;
+
+        [SerializeField]
+        private EquippedAccessoryPopupController equippedAccessoryPopupController;
 
         [SerializeField]
         private DefaultModeElement defaultModeElement;
@@ -191,6 +198,10 @@ namespace GL.Home.UI
             this.resistance.Apply(player.Resistance);
             this.rightWeapon.Setup(this, player.RightHand.BattleWeapon);
             this.leftWeapon.Setup(this, player.LeftHand.BattleWeapon);
+            for (var i = 0; i < this.accessories.Length; i++)
+            {
+                accessories[i].Setup(this, player.Accessories[i], i);
+            }
             this.commandListController.Setup(player.UsingCommands);
             this.editPlayer = player;
 
@@ -295,6 +306,23 @@ namespace GL.Home.UI
                     }
                     _this.commandListController.Setup(_this.editPlayer.UsingCommands);
                     PopupManager.Close(_popup);
+                });
+        }
+
+        public void ShowEquippedAccessoryPopup(int accessoryIndex)
+        {
+            var popup = PopupManager.Show(this.equippedAccessoryPopupController);
+            popup
+                .Setup(this.editPlayer)
+                .SubmitAsObservable()
+                .SubscribeWithState2(this, popup, (instanceId, _this, _popup) =>
+                {
+                    // 戻るボタンが押されたら何もしない
+                    if (instanceId == -1)
+                    {
+                        PopupManager.Close(_popup);
+                        return;
+                    }
                 });
         }
 

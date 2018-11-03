@@ -1,4 +1,5 @@
 ﻿using System;
+using GL.Database;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -30,5 +31,7 @@ namespace GL.User
                 id = this.id
             };
         }
+
+        public AccessoryRecord AccessoryRecord => MasterData.Accessory.GetById(this.id);
     }
 }

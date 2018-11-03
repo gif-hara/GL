@@ -28,6 +28,11 @@ namespace HK.GL.Extensions
             return Array.FindAll(self, match);
         }
 
+        public static int FindIndex<T>(this T[] self, Predicate<T> match)
+        {
+            return Array.FindIndex(self, match);
+        }
+
         public static void Sort<T>(this T[] self, IComparer<T> comparer)
         {
             Array.Sort(self, comparer);

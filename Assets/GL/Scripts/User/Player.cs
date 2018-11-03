@@ -37,7 +37,8 @@ namespace GL.User
         public Hand LeftHand => this.leftHand;
 
         [SerializeField]
-        public List<int> AccessoryInstanceIds = new List<int>();
+        private int[] accessoryInstanceIds = new int[0];
+        public int[] AccessoryInstanceIds => this.accessoryInstanceIds;
 
         public Parameter Parameter { get { return this.CharacterRecord.GetParameter(this.Level); } }
 
@@ -49,7 +50,7 @@ namespace GL.User
         {
         }
 
-        public static Player Create(InstanceId instanceId, int level, string blueprintId, int rightWeaponInstanceId, int leftWeaponInstanceId)
+        public static Player Create(InstanceId instanceId, int level, string blueprintId, int rightWeaponInstanceId, int leftWeaponInstanceId, int[] accessoryInstanceIds)
         {
             return new Player()
             {
@@ -58,7 +59,8 @@ namespace GL.User
                 Level = level,
                 BlueprintId = blueprintId,
                 rightHand = new Hand(rightWeaponInstanceId),
-                leftHand = new Hand(leftWeaponInstanceId)
+                leftHand = new Hand(leftWeaponInstanceId),
+                accessoryInstanceIds = accessoryInstanceIds
             };
         }
 
@@ -74,7 +76,8 @@ namespace GL.User
                 Level = this.Level,
                 BlueprintId = this.BlueprintId,
                 rightHand = this.rightHand,
-                leftHand = this.leftHand
+                leftHand = this.leftHand,
+                accessoryInstanceIds = this.accessoryInstanceIds
             };
         }
 
@@ -87,6 +90,11 @@ namespace GL.User
         /// <paramref name="weaponId"/>と同じ武器を既に装備しているか返す
         /// </summary>
         public bool IsEquipedSameWeapon(string weaponId) => (this.RightHand.IsPossession && this.RightHand.UserWeapon.Id == weaponId) || (this.LeftHand.IsPossession && this.LeftHand.UserWeapon.Id == weaponId);
+
+        /// <summary>
+        /// <paramref name="instanceId"/>のアクセサリーを装備しているか返す
+        /// </summary>
+        public bool IsEquipedAccessory(int instanceId) => this.AccessoryInstanceIds.FindIndex(a => a == instanceId) >= 0;
 
         /// <summary>
         /// 武器を切り替える
@@ -126,7 +134,15 @@ namespace GL.User
             get
             {
                 var userData = UserData.Instance;
-                return this.AccessoryInstanceIds.Select(instanceId => MasterData.Accessory.GetById(userData.Accessories.GetByInstanceId(instanceId).Id)).ToArray();
+                return this.AccessoryInstanceIds.Select(instanceId =>
+                {
+                    if(instanceId == 0)
+                    {
+                        return null;
+                    }
+                    return MasterData.Accessory.GetById(userData.Accessories.GetByInstanceId(instanceId).Id);
+                })
+                .ToArray();
             }
         }
 

@@ -125,12 +125,14 @@ namespace GL.User
         /// </summary>
         public bool IsEquipedWeapon(User.Weapon weapon) => this.Players.List.FindIndex(p => p.IsEquipedWeapon(weapon.InstanceId)) >= 0;
 
+        public bool IsEquipedAccessory(User.Accessory accessory) => this.Players.List.FindIndex(p => p.IsEquipedAccessory(accessory.InstanceId)) >= 0;
+
         /// <summary>
         /// プレイヤーを追加する
         /// </summary>
         public void AddPlayer(CharacterRecord blueprint)
         {
-            this.Players.List.Add(Player.Create(this.Players.InstanceId, 1, blueprint.Id, 0, 0));
+            this.Players.List.Add(Player.Create(this.Players.InstanceId, 1, blueprint.Id, 0, 0, new int[Constants.EquipmentAccessoryMax]));
         }
 
         /// <summary>

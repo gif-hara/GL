@@ -282,6 +282,11 @@ namespace GL
         public const int LevelMax = 100;
 
         /// <summary>
+        /// 装備できるアクセサリーの数
+        /// </summary>
+        public const int EquipmentAccessoryMax = 3;
+
+        /// <summary>
         /// 回避率の最大値
         /// </summary>
         public const float AvoidanceMax = 0.75f;

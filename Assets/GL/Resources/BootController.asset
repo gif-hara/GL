@@ -29,7 +29,7 @@ MonoBehaviour:
           weaponInstanceId: 1
         leftHand:
           weaponInstanceId: 0
-        AccessoryInstanceIds: 
+        accessoryInstanceIds: 000000000000000000000000
       - instanceId: 0
         PlayerName: "\u30C6\u30B9\u30C82"
         Level: 1
@@ -38,7 +38,7 @@ MonoBehaviour:
           weaponInstanceId: 2
         leftHand:
           weaponInstanceId: 0
-        AccessoryInstanceIds: 
+        accessoryInstanceIds: 000000000000000000000000
       - instanceId: 0
         PlayerName: "\u30C6\u30B9\u30C83"
         Level: 1
@@ -47,16 +47,16 @@ MonoBehaviour:
           weaponInstanceId: 3
         leftHand:
           weaponInstanceId: 0
-        AccessoryInstanceIds: 
+        accessoryInstanceIds: 000000000000000000000000
       - instanceId: 0
         PlayerName: "\u30C6\u30B9\u30C84"
-        Level: 1
+        Level: 41
         BlueprintId: 104001
         rightHand:
           weaponInstanceId: 4
         leftHand:
           weaponInstanceId: 0
-        AccessoryInstanceIds: 
+        accessoryInstanceIds: 000000000000000000000000
       - instanceId: 0
         PlayerName: "\u30C6\u30B9\u30C85"
         Level: 1
@@ -65,7 +65,7 @@ MonoBehaviour:
           weaponInstanceId: 5
         leftHand:
           weaponInstanceId: 0
-        AccessoryInstanceIds: 
+        accessoryInstanceIds: 000000000000000000000000
       InstanceId:
         count: 0
     Parties:
@@ -95,7 +95,17 @@ MonoBehaviour:
       InstanceId:
         count: 0
     Accessories:
-      List: []
+      List:
+      - instanceId: 0
+        id: 1000
+      - instanceId: 0
+        id: 1001
+      - instanceId: 0
+        id: 1000
+      - instanceId: 0
+        id: 1000
+      - instanceId: 0
+        id: 1000
       InstanceId:
         count: 0
     Materials:
