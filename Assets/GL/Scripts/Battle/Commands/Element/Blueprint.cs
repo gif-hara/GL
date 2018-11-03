@@ -24,6 +24,8 @@ namespace GL.Battle.Commands.Element
         {
             AssetDatabase.RenameAsset(AssetDatabase.GetAssetPath(this), this.FileName);
         }
+
+        public abstract Blueprint SetupFromEditor(string data);
 #endif
     }
 }

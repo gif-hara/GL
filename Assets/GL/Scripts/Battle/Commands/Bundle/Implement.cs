@@ -245,12 +245,33 @@ namespace GL.Battle.Commands.Bundle
             public class BlueprintList
             {
                 [SerializeField]
-                public Element.Blueprint[] Elements;
+                public List<Element.Blueprint> Elements = new List<Element.Blueprint>();
 
                 public Element.IImplement[] Create()
                 {
                     return this.Elements.Select(e => e.Create()).ToArray();
                 }
+            }
+
+            public void Set(
+                StringAsset.Finder name,
+                StringAsset.Finder description,
+                Constants.TargetPartyType targetPartyType,
+                Constants.TargetType targetType,
+                Constants.PostprocessCommand postprocess,
+                int chargeTurn,
+                int initialChargeTurn,
+                BlueprintList[] elementLists
+            )
+            {
+                this.Name = name;
+                this.Description = description;
+                this.TargetPartyType = targetPartyType;
+                this.TargetType = targetType;
+                this.Postprocess = postprocess;
+                this.ChargeTurn = chargeTurn;
+                this.InitialChargeTurn = initialChargeTurn;
+                this.ElementLists = elementLists;
             }
         }
 

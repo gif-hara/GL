@@ -17,7 +17,15 @@ namespace GL.Battle.Commands.Element.Blueprints
         }
 
 #if UNITY_EDITOR
-        public override string FileName => $"{this.parameter.Rate}";
+        public override string FileName => $"Recovery_{this.parameter.Rate}";
+
+        public override Blueprint SetupFromEditor(string data)
+        {
+            var s = data.Split('_');
+            this.parameter.Rate = float.Parse(s[1]);
+
+            return this;
+        }
 #endif
     }
 }

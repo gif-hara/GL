@@ -18,7 +18,16 @@ namespace GL.Battle.Commands.Element.Blueprints
         }
 
 #if UNITY_EDITOR
-        public override string FileName => $"{Enum.GetName(typeof(Constants.StatusParameterType), this.parameter.ParameterType)}_{this.parameter.Rate}";
+        public override string FileName => $"AddStatusParameterRate_{Enum.GetName(typeof(Constants.StatusParameterType), this.parameter.ParameterType)}_{this.parameter.Rate}";
+
+        public override Blueprint SetupFromEditor(string data)
+        {
+            var s = data.Split('_');
+            this.parameter.ParameterType = (Constants.StatusParameterType)Enum.Parse(typeof(Constants.StatusParameterType), s[1]);
+            this.parameter.Rate = float.Parse(s[2]);
+
+            return this;
+        }
 #endif
     }
 }

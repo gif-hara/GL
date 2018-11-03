@@ -17,7 +17,15 @@ namespace GL.Battle.Commands.Element.Blueprints
         }
 
 #if UNITY_EDITOR
-        public override string FileName => $"{this.parameter.Value}";
+        public override string FileName => $"RecoveryFixed_{this.parameter.Value}";
+
+        public override Blueprint SetupFromEditor(string data)
+        {
+            var s = data.Split('_');
+            this.parameter.Value = int.Parse(s[1]);
+
+            return this;
+        }
 #endif
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System;
 using System.Linq;
+using System.Collections;
 
 namespace HK.GL.Extensions
 {
@@ -25,6 +26,11 @@ namespace HK.GL.Extensions
         public static T[] FindAll<T>(this T[] self, Predicate<T> match)
         {
             return Array.FindAll(self, match);
+        }
+
+        public static void Sort<T>(this T[] self, IComparer<T> comparer)
+        {
+            Array.Sort(self, comparer);
         }
     }
 }
