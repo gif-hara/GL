@@ -19,5 +19,5 @@ MonoBehaviour:
     target: {fileID: 11400000, guid: 0055e3e35ace045bc85d06a16596e472, type: 2}
     value: "\u653B\u6483\u529B\u304C10\u30A2\u30C3\u30D7\u3059\u308B"
     guid: 8acdac55-cf9f-46c8-91dc-441a6c829408
-  statusParameterType: 1
+  statusParameterType: 2
   amount: 10
