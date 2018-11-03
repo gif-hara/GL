@@ -18,5 +18,13 @@ namespace GL.Database
         [SerializeField]
         private CommandElementCondition condition;
         public CommandElementCondition Condition => this.condition;
+
+#if UNITY_EDITOR
+        public ConditionalCommandRecord(CommandRecord commandRecord, CommandElementCondition condition)
+        {
+            this.commandRecord = commandRecord;
+            this.condition = condition;
+        }
+#endif
     }
 }

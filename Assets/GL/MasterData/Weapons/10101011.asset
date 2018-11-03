@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30e5466c3c6114d91915749921a0104b, type: 3}
+  m_Name: 10101011
+  m_EditorClassIdentifier: 
+  rank: 1
+  weaponName:
+    target: {fileID: 11400000, guid: 204e77b4c5ef24c0b8502112e7c0270f, type: 2}
+    value: "\u30B7\u30B6\u30FC\u30CF\u30F3\u30C9"
+    guid: 81400010-f826-415e-9ab6-1cdf48aef441
+  weaponType: 1
+  price: 2850
+  commands:
+  - commandRecord: {fileID: 11400000, guid: b5a74c3bef8f34e939f18d600621ead3, type: 2}
+    condition: {fileID: 11400000, guid: 5e616f6c5005f49c6b39ca4db09a447d, type: 2}
+  - commandRecord: {fileID: 11400000, guid: 1552526fe373e45b697f9096bf218896, type: 2}
+    condition: {fileID: 11400000, guid: 5e616f6c5005f49c6b39ca4db09a447d, type: 2}
+  - commandRecord: {fileID: 11400000, guid: be83bfbaab4534882b347a859c08c0cb, type: 2}
+    condition: {fileID: 11400000, guid: 905632838d0234e898c803db970eb82a, type: 2}
+  needMaterials: []

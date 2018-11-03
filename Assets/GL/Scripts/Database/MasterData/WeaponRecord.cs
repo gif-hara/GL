@@ -54,9 +54,14 @@ namespace GL.Database
         public NeedMaterial[] NeedMaterials => this.needMaterials;
 
 #if UNITY_EDITOR
-        void OnValidate()
+        public void Set(int rank, StringAsset.Finder weaponName, Constants.WeaponType weaponType, int price, ConditionalCommandRecord[] commands, NeedMaterial[] needMaterials)
         {
-            this.needMaterials.ForEach(m => m.OnValidate());
+            this.rank = rank;
+            this.weaponName = weaponName;
+            this.weaponType = weaponType;
+            this.price = price;
+            this.commands = commands;
+            this.needMaterials = needMaterials;
         }
 #endif
     }

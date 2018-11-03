@@ -21,23 +21,11 @@ namespace GL.Database
         private int amount;
         public int Amount => this.amount;
 
-        [SerializeField]
-        private StringAsset.Finder materialName = null;
-
 #if UNITY_EDITOR
-        public void OnValidate()
+        public NeedMaterial(MaterialRecord material, int amount)
         {
-            if(this.materialName == null || !this.materialName.IsValid)
-            {
-                var stringAsset = AssetDatabase.LoadAssetAtPath<StringAsset>("Assets/GL/StringAssets/MaterialName.asset");
-                this.materialName = new StringAsset.Finder(stringAsset, new StringAsset.Data());
-            }
-            else
-            {
-                var database = AssetDatabase.LoadAssetAtPath<MaterialList>("Assets/GL/MasterData/Database/Material.asset");
-                this.material = database.List.Find(m => m.MaterialName == this.materialName.Get);
-                Assert.IsNotNull(this.material, $"{this.materialName.Get}の素材がありませんでした");
-            }
+            this.material = material;
+            this.amount = amount;
         }
 #endif
     }
