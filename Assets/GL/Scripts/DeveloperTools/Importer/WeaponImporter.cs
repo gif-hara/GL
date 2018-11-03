@@ -83,8 +83,8 @@ namespace GL.DeveloperTools
                 List<NeedMaterial> needMaterials = null;
                 needMaterialDictionary.TryGetValue(fileName, out needMaterials);
                 weaponRecord.Set(
-                    int.Parse(splitWeaponRecordData[1]),
-                    weaponNameAsset.CreateOrGetFinder(splitWeaponRecordData[2]),
+                    weaponNameAsset.CreateOrGetFinder(splitWeaponRecordData[1]),
+                    int.Parse(splitWeaponRecordData[2]),
                     (Constants.WeaponType)Enum.Parse(typeof(Constants.WeaponType), splitWeaponRecordData[3]),
                     int.Parse(splitWeaponRecordData[4]),
                     commandDictionary[fileName].ToArray(),

@@ -27,12 +27,12 @@ namespace GL.Database
         public string Id => this.name;
 
         [SerializeField]
-        private int rank;
-        public int Rank => this.rank;
-
-        [SerializeField]
         private StringAsset.Finder weaponName;
         public string WeaponName => this.weaponName.Get;
+
+        [SerializeField]
+        private int rank;
+        public int Rank => this.rank;
 
         [SerializeField]
         private Constants.WeaponType weaponType;
@@ -54,10 +54,10 @@ namespace GL.Database
         public NeedMaterial[] NeedMaterials => this.needMaterials;
 
 #if UNITY_EDITOR
-        public void Set(int rank, StringAsset.Finder weaponName, Constants.WeaponType weaponType, int price, ConditionalCommandRecord[] commands, NeedMaterial[] needMaterials)
+        public void Set(StringAsset.Finder weaponName, int rank, Constants.WeaponType weaponType, int price, ConditionalCommandRecord[] commands, NeedMaterial[] needMaterials)
         {
-            this.rank = rank;
             this.weaponName = weaponName;
+            this.rank = rank;
             this.weaponType = weaponType;
             this.price = price;
             this.commands = commands;
