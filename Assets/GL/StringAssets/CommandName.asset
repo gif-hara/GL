@@ -124,3 +124,27 @@ MonoBehaviour:
       ja: "\u30DF\u30CB\u30DD\u30FC\u30B7\u30E7\u30F3"
       en: 
     guid: f4e613dc-533a-4519-a00b-dd8d6be4f3b5
+  - value:
+      ja: "\u81EA\u5206\u306E\u7D20\u65E9\u3055\u30A2\u30C3\u30D7Lv.1"
+      en: 
+    guid: 754c5430-5b7e-4884-92be-4eda2678bf93
+  - value:
+      ja: "\u76F8\u624B\u306E\u7D20\u65E9\u3055\u30C0\u30A6\u30F3Lv.1"
+      en: 
+    guid: 6c9d5798-6919-4cc1-9ffe-31d69cd5e982
+  - value:
+      ja: "\u81EA\u5206\u306B\u9B3C\u795E\u5316\u3092\u4ED8\u4E0ELv.1"
+      en: 
+    guid: 74df1705-817e-4656-936a-d88d4f57c54c
+  - value:
+      ja: "\u76F8\u624B\u306B\u6BD2\u3092\u4ED8\u4E0ELv.1"
+      en: 
+    guid: 4292fa0a-fdeb-4eb5-9a1c-2abb5ff9c685
+  - value:
+      ja: "\u5473\u65B9\u3092\u56DE\u5FA9Lv.1"
+      en: 
+    guid: 74f8e3a0-f502-4a3e-8423-24b150d91f2b
+  - value:
+      ja: "\u30DD\u30FC\u30B7\u30E7\u30F3"
+      en: 
+    guid: 510e8dbb-6db5-4192-8847-56f905297976

@@ -10,7 +10,7 @@ namespace GL.Battle.Commands.Element.Blueprints
     public sealed class Attack : Blueprint
     {
         [SerializeField]
-        private Implements.Attack.Parameter parameter;
+        private Implements.Attack.Parameter parameter = new Implements.Attack.Parameter();
         
         public override IImplement Create()
         {
@@ -23,7 +23,6 @@ namespace GL.Battle.Commands.Element.Blueprints
         public override Blueprint SetupFromEditor(string data)
         {
             var s = data.Split('_');
-            this.parameter = new Implements.Attack.Parameter();
             this.parameter.Rate = float.Parse(s[1]);
             this.parameter.AttributeType = (Constants.AttributeType)Enum.Parse(typeof(Constants.AttributeType), s[2]);
             this.parameter.LogicType = (Constants.AttackLogicType)Enum.Parse(typeof(Constants.AttackLogicType), s[3]);

@@ -10,8 +10,8 @@ namespace GL.Battle.Commands.Element.Blueprints
     public sealed class AddStatusParameterRate : Blueprint
     {
         [SerializeField]
-        private Implements.AddStatusParameterRate.Parameter parameter;
-        
+        private Implements.AddStatusParameterRate.Parameter parameter = new Implements.AddStatusParameterRate.Parameter();
+
         public override IImplement Create()
         {
             return new Implements.AddStatusParameterRate(this.parameter);
@@ -23,6 +23,7 @@ namespace GL.Battle.Commands.Element.Blueprints
         public override Blueprint SetupFromEditor(string data)
         {
             var s = data.Split('_');
+            this.parameter = new Implements.AddStatusParameterRate.Parameter();
             this.parameter.ParameterType = (Constants.StatusParameterType)Enum.Parse(typeof(Constants.StatusParameterType), s[1]);
             this.parameter.Rate = float.Parse(s[2]);
 

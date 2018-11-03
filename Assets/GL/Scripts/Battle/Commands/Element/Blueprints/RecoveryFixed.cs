@@ -9,7 +9,7 @@ namespace GL.Battle.Commands.Element.Blueprints
     public sealed class RecoveryFixed : Blueprint
     {
         [SerializeField]
-        private Implements.RecoveryFixed.Parameter parameter;
+        private Implements.RecoveryFixed.Parameter parameter = new Implements.RecoveryFixed.Parameter();
         
         public override IImplement Create()
         {

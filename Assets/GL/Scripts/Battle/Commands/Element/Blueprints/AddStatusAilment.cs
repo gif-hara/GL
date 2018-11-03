@@ -10,7 +10,7 @@ namespace GL.Battle.Commands.Element.Blueprints
     public sealed class AddStatusAilment : Blueprint
     {
         [SerializeField]
-        private Implements.AddStatusAilment.Parameter parameter;
+        private Implements.AddStatusAilment.Parameter parameter = new Implements.AddStatusAilment.Parameter();
         
         public override IImplement Create()
         {

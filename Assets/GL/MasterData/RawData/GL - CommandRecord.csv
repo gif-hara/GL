@@ -2,3 +2,9 @@ Id,名前,説明,TargetPartyType,TargetType,Postprocess,ChargeTurn,InitialCharge
 1001001,攻撃(斬撃),対象に斬撃属性の攻撃を行う,Opponent,Select,EndTurn,0,0
 1001002,攻撃(打撃),対象に打撃属性の攻撃を行う,Opponent,Select,EndTurn,0,0
 1001003,攻撃(刺突),対象に刺突属性の攻撃を行う,Opponent,Select,EndTurn,0,0
+1002001,自分の素早さアップLv.1,自分の素早さを10%上昇する,Ally,Myself,EndTurn,1,1
+1003001,相手の素早さダウンLv.1,対象の素早さを10%減少する,Opponent,Select,EndTurn,1,1
+1004001,自分に鬼神化を付与Lv.1,自分に鬼神化を2ターン付与する,Ally,Myself,EndTurn,1,1
+1005001,相手に毒を付与Lv.1,対象に毒を3ターン付与する,Ally,Myself,EndTurn,1,1
+1006001,味方を回復Lv.1,味方のHPをちょっと回復する,Ally,Select,EndTurn,1,1
+1007001,ポーション,味方のHPを100回復する,Ally,Select,EndTurn,1,1
