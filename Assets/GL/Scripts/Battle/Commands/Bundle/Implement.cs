@@ -65,7 +65,6 @@ namespace GL.Battle.Commands.Bundle
 
         private void StartAnimation(Character invoker, Character[] targets, int elementListsIndex)
         {
-            Debug.Log(targets.Length);
             if(this.elementLists.Length <= elementListsIndex)
             {
                 this.Postprocess(invoker)();
