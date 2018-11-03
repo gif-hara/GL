@@ -14,9 +14,9 @@ namespace GL.UI
         private Transform parent;
 
         [SerializeField]
-        private CommandController commandPrefab;
+        private CommandUIController commandPrefab;
 
-        private readonly List<CommandController> commands = new List<CommandController>();
+        private readonly List<CommandUIController> commands = new List<CommandUIController>();
 
         public void Setup(IEnumerable<ConditionalCommandRecord> commands)
         {

@@ -3,7 +3,7 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -11,5 +11,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6864c0229323746cc93b8e9ad71449eb, type: 3}
   m_Name: AddPoison
   m_EditorClassIdentifier: 
+  elementName:
+    target: {fileID: 11400000, guid: 2b0a21b5cfb9545feafa2c70ee8d2ae8, type: 2}
+    value: "\u6BD2\u8010\u6027\u30A2\u30C3\u30D7"
+    guid: 6e8a2990-28d3-420e-8185-b588aff3e80e
+  description:
+    target: {fileID: 11400000, guid: 0055e3e35ace045bc85d06a16596e472, type: 2}
+    value: "\u6BD2\u8010\u6027\u304C\u30A2\u30C3\u30D7\u3059\u308B"
+    guid: 4eac49ed-95c6-478a-b940-76a3475a6388
   statusAilmentType: 101
   rate: 1

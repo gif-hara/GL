@@ -21,7 +21,7 @@ namespace GL.UI
         private Transform rankParent;
 
         [SerializeField]
-        private CommandController commandPrefab;
+        private CommandUIController commandPrefab;
 
         [SerializeField]
         private GameObject rankPrefab;

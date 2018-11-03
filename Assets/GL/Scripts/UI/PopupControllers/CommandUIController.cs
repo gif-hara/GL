@@ -8,7 +8,7 @@ namespace GL.UI
     /// <summary>
     /// UIのコマンドにプロパティを設定するクラス
     /// </summary>
-    public sealed class CommandController : MonoBehaviour
+    public sealed class CommandUIController : MonoBehaviour
     {
         [SerializeField]
         private Text commandName;

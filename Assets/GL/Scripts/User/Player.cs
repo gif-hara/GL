@@ -111,6 +111,16 @@ namespace GL.User
             }
         }
 
+        /// <summary>
+        /// アクセサリーを切り替える
+        /// </summary>
+        /// <param name="index"></param>
+        /// <param name="instanceId"></param>
+        public void ChangeAccessory(int index, int instanceId)
+        {
+            this.accessoryInstanceIds[index] = instanceId;
+        }
+
         public void LevelUp()
         {
             this.Level++;

@@ -21,7 +21,10 @@ namespace GL.UI
         private Transform rankParent;
 
         [SerializeField]
-        private CommandController commandPrefab;
+        private AccessoryElementUIController accessoryElementPrefab;
+
+        [SerializeField]
+        private CommandUIController commandPrefab;
 
         [SerializeField]
         private GameObject rankPrefab;
@@ -29,6 +32,10 @@ namespace GL.UI
         public AccessoryUIController Setup(AccessoryRecord accessory)
         {
             this.accessoryName.text = accessory.AccessoryName;
+            foreach(var a in accessory.Elements)
+            {
+                Instantiate(this.accessoryElementPrefab, this.transform).Setup(a);
+            }
             foreach(var c in accessory.Commands)
             {
                 Instantiate(this.commandPrefab, this.transform).Setup(c);

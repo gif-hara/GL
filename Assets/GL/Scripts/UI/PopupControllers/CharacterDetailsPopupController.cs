@@ -315,7 +315,7 @@ namespace GL.Home.UI
             popup
                 .Setup(this.editPlayer)
                 .SubmitAsObservable()
-                .SubscribeWithState2(this, popup, (instanceId, _this, _popup) =>
+                .SubscribeWithState3(this, popup, accessoryIndex, (instanceId, _this, _popup, _accessoryIndex) =>
                 {
                     // 戻るボタンが押されたら何もしない
                     if (instanceId == -1)
@@ -323,6 +323,11 @@ namespace GL.Home.UI
                         PopupManager.Close(_popup);
                         return;
                     }
+
+                    _this.editPlayer.ChangeAccessory(_accessoryIndex, instanceId);
+                    UserData.Instance.Save();
+                    _this.accessories[_accessoryIndex].Setup(_this, _this.editPlayer.Accessories[_accessoryIndex], _accessoryIndex);
+                    PopupManager.Close(_popup);
                 });
         }
 
