@@ -86,7 +86,7 @@ namespace GL.DeveloperTools
             BlueprintList blueprintList = null;
             foreach(var s in splitCommandData)
             {
-                var newIndex = int.Parse(s[1]);
+                var newIndex = int.Parse(s[2]);
                 if (index != newIndex)
                 {
                     if (blueprintList != null)
@@ -152,7 +152,7 @@ namespace GL.DeveloperTools
         {
             splitElementData.RemoveAll(m => string.IsNullOrEmpty(m) || m == "\r");
             var builder = new StringBuilder();
-            for (var i = 2; i < splitElementData.Count; i++)
+            for (var i = 3; i < splitElementData.Count; i++)
             {
                 var s = splitElementData[i].RemoveNewLine();
                 builder.Append(s);
