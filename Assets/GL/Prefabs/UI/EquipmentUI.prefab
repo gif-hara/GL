@@ -230,6 +230,8 @@ MonoBehaviour:
   rankParent: {fileID: 224973181813676080}
   commandPrefab: {fileID: 114849972164109422, guid: c591e77bca061467aa52e4f50fb8b67e,
     type: 2}
+  accessoryElementPrefab: {fileID: 114266885233765280, guid: b02c2895ecc1b40199121cf6e9a213fa,
+    type: 2}
   rankPrefab: {fileID: 1477663641577704, guid: a00cdb1cc930743e5be16a664745d1aa, type: 2}
 --- !u!114 &114947650880182392
 MonoBehaviour:

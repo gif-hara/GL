@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 114677544954569764}
   - component: {fileID: 114266885233765280}
   m_Layer: 5
-  m_Name: AccessoryElementUI
+  m_Name: SkillElementUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
