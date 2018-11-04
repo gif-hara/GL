@@ -45,7 +45,7 @@ namespace GL.Home.UI
             this.topRoot.SetActive(false);
             this.listRoot.SetActive(true);
 
-            var targetWeapons = UserData.Instance.UnlockElements.Weapons
+            var targetWeapons = UserData.Instance.UnlockElements.Equipments
                 .Select(w => MasterData.Equipment.GetById(w))
                 .Where(w => w.EquipmentType == weaponType);
             targetWeapons.ForEach(w =>

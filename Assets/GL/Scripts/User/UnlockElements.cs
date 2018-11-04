@@ -21,12 +21,8 @@ namespace GL.User
         public List<string> Characters => this.characters;
 
         [SerializeField]
-        private List<string> weapons = new List<string>();
-        public List<string> Weapons => this.weapons;
-
-        [SerializeField]
-        private List<string> accessories = new List<string>();
-        public List<string> Accessories => this.accessories;
+        private List<string> equipments = new List<string>();
+        public List<string> Equipments => this.equipments;
 
         /// <summary>
         /// 重複していない要素を返す
@@ -36,8 +32,7 @@ namespace GL.User
             var result = new UnlockElements();
             result.enemyParties = other.enemyParties.Where(x => this.enemyParties.FindIndex(e => e == x) < 0).ToList();
             result.characters = other.characters.Where(x => this.characters.FindIndex(c => c == x) < 0).ToList();
-            result.weapons = other.weapons.Where(x => this.weapons.FindIndex(w => w == x) < 0).ToList();
-            result.accessories = other.accessories.Where(x => this.accessories.FindIndex(a => a == x) < 0).ToList();
+            result.equipments = other.equipments.Where(x => this.equipments.FindIndex(w => w == x) < 0).ToList();
 
             return result;
         }

@@ -103,7 +103,7 @@ public partial class SROptions
     [DisplayName("RemoveWeapon")]
     public void RemoveUnlockWeapon()
     {
-        var w = UserData.Instance.UnlockElements.Weapons;
+        var w = UserData.Instance.UnlockElements.Equipments;
         w.RemoveAll(x => true);
         UserData.Instance.Save();
     }

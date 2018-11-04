@@ -159,10 +159,10 @@ namespace GL.User
                 Assert.IsTrue(this.unlockElements.Characters.FindIndex(x => c == x) < 0, $"{0}のキャラクターはすでにアンロックしています");
                 this.unlockElements.Characters.Add(c);
             });
-            elements.Weapons.ForEach(w =>
+            elements.Equipments.ForEach(w =>
             {
-                Assert.IsTrue(this.unlockElements.Weapons.FindIndex(x => w == x) < 0, $"{0}の武器はすでにアンロックしています");
-                this.unlockElements.Weapons.Add(w);
+                Assert.IsTrue(this.unlockElements.Equipments.FindIndex(x => w == x) < 0, $"{0}の武器はすでにアンロックしています");
+                this.unlockElements.Equipments.Add(w);
             });
         }
     }

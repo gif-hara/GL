@@ -99,7 +99,7 @@ namespace GL.Battle
 
         private IDisposable CreateUnlockWeaponPopup(int index, IObserver<Unit> completeStream)
         {
-            var weapons = BattleManager.Instance.AcquireElementController.UnlockElements.Weapons;
+            var weapons = BattleManager.Instance.AcquireElementController.UnlockElements.Equipments;
             return this.CreateNotifyPopup(
                 index,
                 completeStream,
