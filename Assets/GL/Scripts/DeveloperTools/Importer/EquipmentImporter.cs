@@ -102,6 +102,8 @@ namespace GL.DeveloperTools
                 var path = "Assets/GL/MasterData/Equipments/";
                 var fileName = splitEquipmentRecordData[0];
                 var equipmentRecord = ImporterUtility.GetOrCreate<EquipmentRecord>(path, fileName);
+                List<ConditionalCommandRecord> commandRecords = null;
+                commandDictionary.TryGetValue(fileName, out commandRecords);
                 List<SkillElement> skillElements = null;
                 skillElementDictionary.TryGetValue(fileName, out skillElements);
                 List<NeedMaterial> needMaterials = null;
@@ -111,7 +113,7 @@ namespace GL.DeveloperTools
                     int.Parse(splitEquipmentRecordData[2]),
                     (Constants.EquipmentType)Enum.Parse(typeof(Constants.EquipmentType), splitEquipmentRecordData[3]),
                     int.Parse(splitEquipmentRecordData[4]),
-                    commandDictionary[fileName].ToArray(),
+                    commandRecords == null ? null : commandRecords.ToArray(),
                     skillElements == null ? null : skillElements.ToArray(),
                     needMaterials == null ? null : needMaterials.ToArray()
                 );
