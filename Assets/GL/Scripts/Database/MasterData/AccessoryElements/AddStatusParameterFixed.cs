@@ -5,10 +5,10 @@ using UnityEngine;
 namespace GL.Database
 {
     /// <summary>
-    /// ステータスを上昇させるアクセサリー
+    /// ステータスを固定値で上昇させるアクセサリー
     /// </summary>
-    [CreateAssetMenu(menuName = "GL/Accessories/AddStatusParameter")]
-    public sealed class AddStatusParameter : SkillElement
+    [CreateAssetMenu(menuName = "GL/Accessories/AddStatusParameterFixed")]
+    public sealed class AddStatusParameterFixed : SkillElement
     {
         [SerializeField]
         private Constants.StatusParameterType statusParameterType;
