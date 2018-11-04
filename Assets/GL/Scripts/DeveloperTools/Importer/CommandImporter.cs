@@ -8,10 +8,12 @@ using GL.Database;
 using GL.Extensions;
 using HK.Framework.Text;
 using HK.GL.Extensions;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Assertions;
 using static GL.Battle.Commands.Bundle.Implement.Parameter;
+
+#if UNITY_EDITOR
+using UnityEditor;
 
 namespace GL.DeveloperTools
 {
@@ -177,3 +179,5 @@ namespace GL.DeveloperTools
         }
     }
 }
+
+#endif

@@ -1,7 +1,9 @@
 ﻿using System.IO;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Assertions;
+
+#if UNITY_EDITOR
+using UnityEditor;
 
 namespace GL.DeveloperTools
 {
@@ -34,3 +36,5 @@ namespace GL.DeveloperTools
         }
     }
 }
+
+#endif
