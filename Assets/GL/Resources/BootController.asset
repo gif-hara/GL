@@ -92,6 +92,8 @@ MonoBehaviour:
         id: 10101001
       - instanceId: 0
         id: 10101001
+      - instanceId: 0
+        id: 10113001
       InstanceId:
         count: 0
     Accessories:

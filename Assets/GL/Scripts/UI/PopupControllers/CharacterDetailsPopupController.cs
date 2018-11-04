@@ -149,16 +149,13 @@ namespace GL.Home.UI
         private CharacterDetailsPopupEquipmentController leftWeapon;
 
         [SerializeField]
-        private CharacterDetailsPopupAccessoryController[] accessories;
+        private CharacterDetailsPopupEquipmentController[] accessories;
 
         [SerializeField]
         private CommandListController commandListController;
 
         [SerializeField]
-        private EditEquipmentPopupController equippedWeaponPopupController;
-
-        [SerializeField]
-        private EquippedAccessoryPopupController equippedAccessoryPopupController;
+        private EditEquipmentPopupController editEquipmentPopupController;
 
         [SerializeField]
         private DefaultModeElement defaultModeElement;
@@ -196,11 +193,11 @@ namespace GL.Home.UI
             this.parameter.Apply(player.Parameter);
             this.attribute.Apply(player.CharacterRecord);
             this.resistance.Apply(player.Resistance);
-            this.rightWeapon.Setup(this, player.RightHand.EquipmentRecord);
-            this.leftWeapon.Setup(this, player.LeftHand.EquipmentRecord);
+            this.rightWeapon.SetupAsWeapon(this, player.RightHand.EquipmentRecord, Constants.HandType.Right);
+            this.leftWeapon.SetupAsWeapon(this, player.LeftHand.EquipmentRecord, Constants.HandType.Left);
             for (var i = 0; i < this.accessories.Length; i++)
             {
-                accessories[i].Setup(this, player.Accessories[i], i);
+                accessories[i].SetupAsAccessory(this, player.Accessories[i], i);
             }
             this.commandListController.Setup(player.UsingCommands);
             this.editPlayer = player;
@@ -279,11 +276,11 @@ namespace GL.Home.UI
             return this;
         }
 
-        public void ShowEquippedWeaponPopup(Constants.HandType handType)
+        public void ShowEditEquipmentPopup(Constants.HandType handType)
         {
-            var popup = PopupManager.Show(this.equippedWeaponPopupController);
+            var popup = PopupManager.Show(this.editEquipmentPopupController);
             popup
-                .Setup(this.editPlayer)
+                .SetupAsWeapon(this.editPlayer)
                 .SubmitAsObservable()
                 .SubscribeWithState3(this, popup, handType, (instanceId, _this, _popup, _handType) =>
                 {
@@ -298,22 +295,22 @@ namespace GL.Home.UI
                     UserData.Instance.Save();
                     if(_handType == Constants.HandType.Right)
                     {
-                        _this.rightWeapon.Setup(_this, _this.editPlayer.RightHand.EquipmentRecord);
+                        _this.rightWeapon.SetupAsWeapon(_this, _this.editPlayer.RightHand.EquipmentRecord, Constants.HandType.Right);
                     }
                     else
                     {
-                        _this.leftWeapon.Setup(_this, _this.editPlayer.LeftHand.EquipmentRecord);
+                        _this.leftWeapon.SetupAsWeapon(_this, _this.editPlayer.LeftHand.EquipmentRecord, Constants.HandType.Left);
                     }
                     _this.commandListController.Setup(_this.editPlayer.UsingCommands);
                     PopupManager.Close(_popup);
                 });
         }
 
-        public void ShowEquippedAccessoryPopup(int accessoryIndex)
+        public void ShowEditAccessoryPopup(int accessoryIndex)
         {
-            var popup = PopupManager.Show(this.equippedAccessoryPopupController);
+            var popup = PopupManager.Show(this.editEquipmentPopupController);
             popup
-                .Setup(this.editPlayer)
+                .SetupAsAccessory(this.editPlayer)
                 .SubmitAsObservable()
                 .SubscribeWithState3(this, popup, accessoryIndex, (instanceId, _this, _popup, _accessoryIndex) =>
                 {
@@ -326,7 +323,7 @@ namespace GL.Home.UI
 
                     _this.editPlayer.ChangeAccessory(_accessoryIndex, instanceId);
                     UserData.Instance.Save();
-                    _this.accessories[_accessoryIndex].Setup(_this, _this.editPlayer.Accessories[_accessoryIndex], _accessoryIndex);
+                    _this.accessories[_accessoryIndex].SetupAsAccessory(_this, _this.editPlayer.Accessories[_accessoryIndex], _accessoryIndex);
                     PopupManager.Close(_popup);
                 });
         }

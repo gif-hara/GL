@@ -29,7 +29,7 @@ namespace GL.Battle.PartyControllers
         public EquipmentRecord LeftWeapon;
 
         [SerializeField]
-        public AccessoryRecord[] Accessories;
+        public EquipmentRecord[] Accessories;
 
         public static Parameter Create(Player player)
         {

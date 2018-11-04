@@ -24,6 +24,9 @@ namespace GL.UI
         private CommandUIController commandPrefab;
 
         [SerializeField]
+        private AccessoryElementUIController accessoryElementPrefab;
+
+        [SerializeField]
         private GameObject rankPrefab;
 
         public EquipmentUIController Setup(EquipmentRecord equipment)
@@ -32,6 +35,10 @@ namespace GL.UI
             foreach(var c in equipment.Commands)
             {
                 Instantiate(this.commandPrefab, this.transform).Setup(c);
+            }
+            foreach(var s in equipment.SkillElements)
+            {
+                Instantiate(this.accessoryElementPrefab, this.transform).Setup(s);
             }
 
             for (var i = 0; i < equipment.Rank; i++)

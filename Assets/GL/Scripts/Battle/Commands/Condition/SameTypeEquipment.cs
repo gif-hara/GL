@@ -9,7 +9,7 @@ namespace GL.Battle.Commands
     [CreateAssetMenu(menuName = "GL/Commands/Condition/SameTypeEquipment")]
     public sealed class SameTypeEquipment : CommandElementCondition
     {
-        public override bool Suitable(EquipmentRecord rightWeapon, EquipmentRecord leftWeapon, AccessoryRecord[] accessories)
+        public override bool Suitable(EquipmentRecord rightWeapon, EquipmentRecord leftWeapon, EquipmentRecord[] accessories)
         {
             if(rightWeapon == null || leftWeapon == null)
             {

@@ -31,7 +31,7 @@ namespace GL.Home.UI
             this.button.OnClickAsObservable()
                 .SubscribeWithState(this, (_, _this) =>
                 {
-                    _this.controller.ShowEquippedAccessoryPopup(_this.index);
+                    _this.controller.ShowEditAccessoryPopup(_this.index);
                 })
                 .AddTo(this);
         }

@@ -84,7 +84,12 @@ namespace GL.User
         /// <summary>
         /// <paramref name="instanceId"/>を装備しているか返す
         /// </summary>
-        public bool IsEquiped(int instanceId) => this.RightHand.EquipmentInstanceId == instanceId || this.LeftHand.EquipmentInstanceId == instanceId;
+        public bool IsEquiped(int instanceId)
+        {
+            return this.RightHand.EquipmentInstanceId == instanceId ||
+            this.LeftHand.EquipmentInstanceId == instanceId ||
+            this.AccessoryInstanceIds.FindIndex(a => a == instanceId) >= 0;
+        }
 
         /// <summary>
         /// <paramref name="equipmentId"/>と同じ武器を既に装備しているか返す
@@ -139,7 +144,7 @@ namespace GL.User
             }
         }
 
-        public AccessoryRecord[] Accessories
+        public EquipmentRecord[] Accessories
         {
             get
             {
@@ -150,7 +155,7 @@ namespace GL.User
                     {
                         return null;
                     }
-                    return MasterData.Accessory.GetById(userData.Accessories.GetByInstanceId(instanceId).Id);
+                    return MasterData.Equipment.GetById(userData.Equipments.GetByInstanceId(instanceId).Id);
                 })
                 .ToArray();
             }

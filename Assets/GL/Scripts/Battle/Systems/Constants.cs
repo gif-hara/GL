@@ -250,6 +250,9 @@ namespace GL
             /// <summary>矢</summary>
             Arrow = 1 << 11,
 
+            /// <summary>アクセサリー</summary>
+            Accessory = 1 << 12,
+
             /// <summary>全て装備出来る</summary>
             All = int.MaxValue,
         }

@@ -13,6 +13,12 @@ namespace GL.Home.UI
     /// </summary>
     public sealed class CharacterDetailsPopupEquipmentController : MonoBehaviour
     {
+        public enum Mode
+        {
+            Weapon,
+            Accessory,
+        }
+
         [SerializeField]
         private StringAsset.Finder noneEquipmentName;
 
@@ -20,10 +26,13 @@ namespace GL.Home.UI
         private Text equipmentName;
 
         [SerializeField]
+        private Button button;
+
+        private Mode mode;
+
         private Constants.HandType handType;
 
-        [SerializeField]
-        private Button button;
+        private int accessoryIndex;
 
         private CharacterDetailsPopupController controller;
 
@@ -32,12 +41,33 @@ namespace GL.Home.UI
             this.button.OnClickAsObservable()
                 .SubscribeWithState(this, (_, _this) =>
                 {
-                    _this.controller.ShowEquippedWeaponPopup(_this.handType);
+                    if(_this.mode == Mode.Weapon)
+                    {
+                        _this.controller.ShowEditEquipmentPopup(_this.handType);
+                    }
+                    else
+                    {
+                        _this.controller.ShowEditAccessoryPopup(_this.accessoryIndex);
+                    }
                 })
                 .AddTo(this);
         }
 
-        public void Setup(CharacterDetailsPopupController controller, EquipmentRecord equipment)
+        public void SetupAsWeapon(CharacterDetailsPopupController controller, EquipmentRecord equipment, Constants.HandType handType)
+        {
+            this.Setup(controller, equipment);
+            this.mode = Mode.Weapon;
+            this.handType = handType;
+        }
+
+        public void SetupAsAccessory(CharacterDetailsPopupController controller, EquipmentRecord equipment, int accessoryIndex)
+        {
+            this.Setup(controller, equipment);
+            this.mode = Mode.Accessory;
+            this.accessoryIndex = accessoryIndex;
+        }
+
+        private void Setup(CharacterDetailsPopupController controller, EquipmentRecord equipment)
         {
             if (equipment == null)
             {

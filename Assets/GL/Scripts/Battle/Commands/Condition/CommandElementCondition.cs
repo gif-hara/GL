@@ -14,6 +14,6 @@ namespace GL.Battle.Commands
         /// <summary>
         /// 条件を満たしているか返す
         /// </summary>
-        public abstract bool Suitable(EquipmentRecord rightWeapon, EquipmentRecord leftWeapon, AccessoryRecord[] accessories);
+        public abstract bool Suitable(EquipmentRecord rightWeapon, EquipmentRecord leftWeapon, EquipmentRecord[] accessories);
     }
 }
