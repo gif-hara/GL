@@ -125,6 +125,10 @@ MonoBehaviour:
       en: 
     guid: d329c7b1-4d81-482a-9110-806c7f640482
   - value:
+      ja: "\u30B9\u30AD\u30EB"
+      en: 
+    guid: d2668a77-6b9a-4f89-aa01-ed4503375894
+  - value:
       ja: 
       en: 
     guid: beb2f51d-6a69-464b-9881-76f098cc8c35
@@ -204,6 +208,10 @@ MonoBehaviour:
       ja: 
       en: 
     guid: cd61b64f-390e-49ef-b6db-31bf8fab54cc
+  - value:
+      ja: '{0}G'
+      en: 
+    guid: 6014ba3d-bc67-4c24-ac6e-cef618f93dfa
   - value:
       ja: "\u30B7\u30E7\u30C3\u30D7"
       en: 

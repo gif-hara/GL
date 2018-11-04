@@ -37,6 +37,7 @@ namespace GL.Home.UI
         [SerializeField]
         private SimplePopupStrings notBuyFromGoldPopup;
 
+
         /// <summary>
         /// <paramref name="weaponType"/>に対応した武器リストを表示する
         /// </summary>
@@ -68,11 +69,11 @@ namespace GL.Home.UI
             }
         }
 
-        public void ShowConfirmPopup(EquipmentRecord weapon)
+        public void ShowConfirmPopup(EquipmentRecord equipment)
         {
-            var popup = PopupManager.Show(this.confirmShopPopupController);
+            var popup = PopupManager.Show(this.confirmShopPopupController).Setup(equipment);
             popup.SubmitAsObservable()
-                .SubscribeWithState2(this, weapon, (index, _this, _weapon) =>
+                .SubscribeWithState2(this, equipment, (index, _this, _weapon) =>
                 {
                     var isDecide = index > 0;
                     if(isDecide)
