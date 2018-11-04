@@ -117,6 +117,9 @@ namespace GL.DeveloperTools
                     skillElements == null ? null : skillElements.ToArray(),
                     needMaterials == null ? null : needMaterials.ToArray()
                 );
+                var isPlayerEquipment = fileName[0] == '1';
+                var label = isPlayerEquipment ? "PlayerEquipment" : "EnemyEquipment";
+                AssetDatabase.SetLabels(equipmentRecord, new string[] { label });
                 EditorUtility.SetDirty(equipmentRecord);
             }
 

@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 2490c374219e74a7a9c532eeb4a427c9
-timeCreated: 1524057199
-licenseType: Free
+labels:
+- PlayerEquipment
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 11400000

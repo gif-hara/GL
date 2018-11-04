@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: ddb9db169bd8b4768938efc96c40f1a8
-timeCreated: 1523367524
-licenseType: Free
+labels:
+- EnemyEquipment
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 11400000
