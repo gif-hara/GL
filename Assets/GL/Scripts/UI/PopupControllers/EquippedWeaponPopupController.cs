@@ -35,11 +35,11 @@ namespace GL.UI.PopupControllers
             // TODO: プレイヤーが装備可能な武器種類を抽出する
             var u = UserData.Instance;
             u.Weapons.List
-                .Where(w => !u.IsEquipedWeapon(w) && w.BattleWeapon.Rank <= player.CharacterRecord.Rank)
+                .Where(w => !u.IsEquipedWeapon(w) && w.EquipmentRecord.Rank <= player.CharacterRecord.Rank)
                 .ForEach(w =>
             {
                 Instantiate(this.weaponPrefab, this.listParent, false)
-                    .Setup(w.BattleWeapon)
+                    .Setup(w.EquipmentRecord)
                     .Button
                     .OnClickAsObservable()
                     .SubscribeWithState2(this, w, (_, _this, _w) => _this.submit.OnNext(_w.InstanceId))

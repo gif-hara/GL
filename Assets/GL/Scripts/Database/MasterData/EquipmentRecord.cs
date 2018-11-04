@@ -10,13 +10,10 @@ using HK.GL.Extensions;
 namespace GL.Database
 {
     /// <summary>
-    /// 武器レコード
+    /// 装備品レコード
     /// </summary>
-    /// <remarks>
-    /// コマンドリストを担う
-    /// </remarks>
-    [CreateAssetMenu(menuName = "GL/MasterData/Record/Weapon")]
-    public sealed class WeaponRecord : ScriptableObject, IMasterDataRecord
+    [CreateAssetMenu(menuName = "GL/MasterData/Record/Equipment")]
+    public sealed class EquipmentRecord : ScriptableObject, IMasterDataRecord
     {
         /// <summary>
         /// ID
@@ -27,16 +24,16 @@ namespace GL.Database
         public string Id => this.name;
 
         [SerializeField]
-        private StringAsset.Finder weaponName;
-        public string WeaponName => this.weaponName.Get;
+        private StringAsset.Finder equipmentName;
+        public string EquipmentName => this.equipmentName.Get;
 
         [SerializeField]
         private int rank;
         public int Rank => this.rank;
 
         [SerializeField]
-        private Constants.WeaponType weaponType;
-        public Constants.WeaponType WeaponType => this.weaponType;
+        private Constants.EquipmentType equipmentType;
+        public Constants.EquipmentType EquipmentType => this.equipmentType;
 
         [SerializeField]
         private int price;
@@ -59,18 +56,18 @@ namespace GL.Database
 
 #if UNITY_EDITOR
         public void Set(
-            StringAsset.Finder weaponName,
+            StringAsset.Finder equipmentName,
             int rank,
-            Constants.WeaponType weaponType,
+            Constants.EquipmentType equipmentType,
             int price,
             ConditionalCommandRecord[] commands,
             SkillElement[] skills,
             NeedMaterial[] needMaterials
             )
         {
-            this.weaponName = weaponName;
+            this.equipmentName = equipmentName;
             this.rank = rank;
-            this.weaponType = weaponType;
+            this.equipmentType = equipmentType;
             this.price = price;
             this.commands = commands;
             this.skillElements = skills;

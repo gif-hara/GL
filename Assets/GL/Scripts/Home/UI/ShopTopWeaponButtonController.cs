@@ -14,7 +14,7 @@ namespace GL.Home.UI
         private ShopPanelController shopPanelController;
 
         [SerializeField]
-        private WeaponType weaponType;
+        private EquipmentType weaponType;
 
         [SerializeField]
         private Button button;

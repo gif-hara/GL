@@ -24,7 +24,7 @@ namespace GL.User
 
         public User.Weapon UserWeapon => UserData.Instance.Weapons.GetByInstanceId(this.weaponInstanceId);
 
-        public WeaponRecord BattleWeapon => this.IsPossession ? this.UserWeapon.BattleWeapon : null;
+        public EquipmentRecord BattleWeapon => this.IsPossession ? this.UserWeapon.EquipmentRecord : null;
 
         public Hand(int weaponInstanceId)
         {

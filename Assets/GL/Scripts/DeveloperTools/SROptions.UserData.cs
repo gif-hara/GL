@@ -59,7 +59,7 @@ public partial class SROptions
     [DisplayName("Print")]
     public void PrintAllWeapon()
     {
-        UserData.Instance.Weapons.List.ForEach(w => Debug.Log($"[{w.InstanceId}] {w.BattleWeapon.WeaponName}"));
+        UserData.Instance.Weapons.List.ForEach(w => Debug.Log($"[{w.InstanceId}] {w.EquipmentRecord.EquipmentName}"));
     }
 
     [Category(Category.UserData_Material)]

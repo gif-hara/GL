@@ -115,7 +115,7 @@ namespace GL.User
         /// <remarks>
         /// セーブはしていないので個別でセーブしてください
         /// </remarks>
-        public void AddWeapon(WeaponRecord weapon)
+        public void AddWeapon(EquipmentRecord weapon)
         {
             this.Weapons.List.Add(new User.Weapon(this.Weapons.InstanceId, weapon.Id));
         }

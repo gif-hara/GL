@@ -26,9 +26,9 @@ namespace GL.UI
         [SerializeField]
         private GameObject rankPrefab;
 
-        public WeaponController Setup(WeaponRecord weapon)
+        public WeaponController Setup(EquipmentRecord weapon)
         {
-            this.weaponName.text = weapon.WeaponName;
+            this.weaponName.text = weapon.EquipmentName;
             foreach(var c in weapon.Commands)
             {
                 Instantiate(this.commandPrefab, this.transform).Setup(c);

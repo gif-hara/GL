@@ -37,7 +37,7 @@ namespace GL.Home.UI
                 .AddTo(this);
         }
 
-        public void Setup(CharacterDetailsPopupController controller, WeaponRecord weapon)
+        public void Setup(CharacterDetailsPopupController controller, EquipmentRecord weapon)
         {
             if (weapon == null)
             {
@@ -45,7 +45,7 @@ namespace GL.Home.UI
             }
             else
             {
-                this.weaponName.text = weapon.WeaponName;
+                this.weaponName.text = weapon.EquipmentName;
             }
 
             this.controller = controller;

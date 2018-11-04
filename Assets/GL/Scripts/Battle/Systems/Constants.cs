@@ -209,10 +209,10 @@ namespace GL
         }
 
         /// <summary>
-        /// 武器タイプ
+        /// 装備品タイプ
         /// </summary>
         [Flags]
-        public enum WeaponType
+        public enum EquipmentType
         {
             /// <summary>短剣</summary>
             Dagger = 1 << 0,

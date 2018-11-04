@@ -25,9 +25,9 @@ namespace GL.Home.UI
 
         private ShopPanelController shopPanelController;
 
-        public void Setup(ShopPanelController shopPanelController, WeaponRecord weapon)
+        public void Setup(ShopPanelController shopPanelController, EquipmentRecord weapon)
         {
-            this.title.text = weapon.WeaponName;
+            this.title.text = weapon.EquipmentName;
             this.description.text = "";
 
             this.button.OnClickAsObservable()

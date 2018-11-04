@@ -40,14 +40,14 @@ namespace GL.Home.UI
         /// <summary>
         /// <paramref name="weaponType"/>に対応した武器リストを表示する
         /// </summary>
-        public void ShowWeaponList(WeaponType weaponType)
+        public void ShowWeaponList(EquipmentType weaponType)
         {
             this.topRoot.SetActive(false);
             this.listRoot.SetActive(true);
 
             var targetWeapons = UserData.Instance.UnlockElements.Weapons
                 .Select(w => MasterData.Weapon.GetById(w))
-                .Where(w => w.WeaponType == weaponType);
+                .Where(w => w.EquipmentType == weaponType);
             targetWeapons.ForEach(w =>
             {
                 var element = Instantiate(this.shopElementControllerPrefab, this.listContents, false);
@@ -68,7 +68,7 @@ namespace GL.Home.UI
             }
         }
 
-        public void ShowConfirmPopup(WeaponRecord weapon)
+        public void ShowConfirmPopup(EquipmentRecord weapon)
         {
             var popup = PopupManager.Show(this.confirmShopPopupController);
             popup.SubmitAsObservable()
@@ -87,7 +87,7 @@ namespace GL.Home.UI
                 .AddTo(popup);
         }
 
-        private void BuyWeapon(WeaponRecord weapon)
+        private void BuyWeapon(EquipmentRecord weapon)
         {
             PopupManager.Close();
             var userData = UserData.Instance;

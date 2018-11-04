@@ -101,7 +101,7 @@ namespace GL.DeveloperTools
                 var splitWeaponRecordData = weaponRecordData[i].Split(',');
                 var path = "Assets/GL/MasterData/Weapons/";
                 var fileName = splitWeaponRecordData[0];
-                var weaponRecord = ImporterUtility.GetOrCreate<WeaponRecord>(path, fileName);
+                var weaponRecord = ImporterUtility.GetOrCreate<EquipmentRecord>(path, fileName);
                 List<SkillElement> skillElements = null;
                 skillElementDictionary.TryGetValue(fileName, out skillElements);
                 List<NeedMaterial> needMaterials = null;
@@ -109,7 +109,7 @@ namespace GL.DeveloperTools
                 weaponRecord.Set(
                     weaponNameAsset.CreateOrGetFinder(splitWeaponRecordData[1]),
                     int.Parse(splitWeaponRecordData[2]),
-                    (Constants.WeaponType)Enum.Parse(typeof(Constants.WeaponType), splitWeaponRecordData[3]),
+                    (Constants.EquipmentType)Enum.Parse(typeof(Constants.EquipmentType), splitWeaponRecordData[3]),
                     int.Parse(splitWeaponRecordData[4]),
                     commandDictionary[fileName].ToArray(),
                     skillElements == null ? null : skillElements.ToArray(),
@@ -118,7 +118,7 @@ namespace GL.DeveloperTools
                 EditorUtility.SetDirty(weaponRecord);
             }
 
-            var database = AssetDatabase.LoadAssetAtPath<WeaponList>("Assets/GL/MasterData/Database/Weapon.asset");
+            var database = AssetDatabase.LoadAssetAtPath<EquipmentList>("Assets/GL/MasterData/Database/Weapon.asset");
             database.Reset();
             EditorUtility.SetDirty(database);
             AssetDatabase.SaveAssets();

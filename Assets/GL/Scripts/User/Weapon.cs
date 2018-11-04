@@ -36,6 +36,6 @@ namespace GL.User
             return new Weapon(instanceId, this.id);
         }
 
-        public WeaponRecord BattleWeapon => MasterData.Weapon.GetById(this.Id);
+        public EquipmentRecord EquipmentRecord => MasterData.Weapon.GetById(this.Id);
     }
 }
