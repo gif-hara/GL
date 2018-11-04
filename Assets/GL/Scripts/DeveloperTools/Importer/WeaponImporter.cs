@@ -26,6 +26,9 @@ namespace GL.DeveloperTools
             var weaponCommandData = AssetDatabase.LoadAssetAtPath<TextAsset>("Assets/GL/MasterData/RawData/GL - WeaponCommand.csv")
                 .text
                 .Split(new string[] { System.Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+            var weaponSkillData = AssetDatabase.LoadAssetAtPath<TextAsset>("Assets/GL/MasterData/RawData/GL - WeaponSkill.csv")
+                .text
+                .Split(new string[] { System.Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
             var weaponNeedMaterialData = AssetDatabase.LoadAssetAtPath<TextAsset>("Assets/GL/MasterData/RawData/GL - WeaponNeedMaterial.csv")
                 .text
                 .Split(new string[] { System.Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
@@ -50,6 +53,25 @@ namespace GL.DeveloperTools
                 Assert.IsNotNull(condition, $"{conditionName}に対応するCommandElementConditionがありませんでした");
 
                 commandRecords.Add(new ConditionalCommandRecord(commandRecord, condition));
+            }
+
+            // スキルデータを抽出
+            var skillElementDictionary = new Dictionary<string, List<SkillElement>>();
+            for (var i = 1; i < weaponSkillData.Length; i++)
+            {
+                var splitSkillData = weaponSkillData[i].Split(',');
+                var weaponId = splitSkillData[2];
+                var skillId = splitSkillData[3].RemoveNewLine();
+                List<SkillElement> skillElements = null;
+                if(!skillElementDictionary.TryGetValue(weaponId, out skillElements))
+                {
+                    skillElements = new List<SkillElement>();
+                    skillElementDictionary.Add(weaponId, skillElements);
+                }
+
+                var skillElement = AssetDatabase.LoadAssetAtPath<SkillElement>($"Assets/GL/MasterData/SkillElements/{skillId}.asset");
+                Assert.IsNotNull(skillElement, $"{skillId}に対応する{typeof(SkillElement).Name}がありませんでした");
+                skillElements.Add(skillElement);
             }
 
             // 必要素材を抽出
@@ -80,6 +102,8 @@ namespace GL.DeveloperTools
                 var path = "Assets/GL/MasterData/Weapons/";
                 var fileName = splitWeaponRecordData[0];
                 var weaponRecord = ImporterUtility.GetOrCreate<WeaponRecord>(path, fileName);
+                List<SkillElement> skillElements = null;
+                skillElementDictionary.TryGetValue(fileName, out skillElements);
                 List<NeedMaterial> needMaterials = null;
                 needMaterialDictionary.TryGetValue(fileName, out needMaterials);
                 weaponRecord.Set(
@@ -88,6 +112,7 @@ namespace GL.DeveloperTools
                     (Constants.WeaponType)Enum.Parse(typeof(Constants.WeaponType), splitWeaponRecordData[3]),
                     int.Parse(splitWeaponRecordData[4]),
                     commandDictionary[fileName].ToArray(),
+                    skillElements == null ? null : skillElements.ToArray(),
                     needMaterials == null ? null : needMaterials.ToArray()
                 );
                 EditorUtility.SetDirty(weaponRecord);

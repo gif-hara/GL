@@ -50,17 +50,30 @@ namespace GL.Database
         public ConditionalCommandRecord[] Commands => this.commands;
 
         [SerializeField]
+        private SkillElement[] skills;
+        public SkillElement[] Skills => this.skills;
+
+        [SerializeField]
         private NeedMaterial[] needMaterials = new NeedMaterial[0];
         public NeedMaterial[] NeedMaterials => this.needMaterials;
 
 #if UNITY_EDITOR
-        public void Set(StringAsset.Finder weaponName, int rank, Constants.WeaponType weaponType, int price, ConditionalCommandRecord[] commands, NeedMaterial[] needMaterials)
+        public void Set(
+            StringAsset.Finder weaponName,
+            int rank,
+            Constants.WeaponType weaponType,
+            int price,
+            ConditionalCommandRecord[] commands,
+            SkillElement[] skills,
+            NeedMaterial[] needMaterials
+            )
         {
             this.weaponName = weaponName;
             this.rank = rank;
             this.weaponType = weaponType;
             this.price = price;
             this.commands = commands;
+            this.skills = skills;
             this.needMaterials = needMaterials;
         }
 #endif
