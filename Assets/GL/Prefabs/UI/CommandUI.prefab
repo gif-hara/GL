@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 114134534725533922}
   - component: {fileID: 114849972164109422}
   m_Layer: 5
-  m_Name: Command
+  m_Name: CommandUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
