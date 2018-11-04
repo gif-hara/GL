@@ -11,11 +11,11 @@ namespace GL.Database
     public abstract class SkillElement : ScriptableObject
     {
         [SerializeField]
-        private StringAsset.Finder elementName;
+        protected StringAsset.Finder elementName;
         public string ElementName => this.elementName.Get;
 
         [SerializeField]
-        private StringAsset.Finder description;
+        protected StringAsset.Finder description;
         public string Description => this.description.Get;
 
         /// <summary>

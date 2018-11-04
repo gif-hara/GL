@@ -1,0 +1,3 @@
+Id,名前,説明,SkillType,パラメータ1,パラメータ2,パラメータ3,パラメータ4,パラメータ5,パラメータ6,パラメータ7,パラメータ8
+101001,攻撃力5アップ,攻撃力が5アップする,AddStatusParameterFixed,Strength,5,,,,,,
+101002,攻撃力10アップ,攻撃力が10アップする,AddStatusParameterFixed,Strength,10,,,,,,

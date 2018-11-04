@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c932cb5455f464b288e33eb7fa54f213, type: 3}
-  m_Name: AccessoryElementName
+  m_Name: SkillElementName
   m_EditorClassIdentifier: 
   database:
   - value:
@@ -20,3 +20,7 @@ MonoBehaviour:
       ja: "\u6BD2\u8010\u6027\u30A2\u30C3\u30D7"
       en: 
     guid: 6e8a2990-28d3-420e-8185-b588aff3e80e
+  - value:
+      ja: "\u653B\u6483\u529B5\u30A2\u30C3\u30D7"
+      en: 
+    guid: 4af34278-ebc5-4259-89bc-3dc54148e878

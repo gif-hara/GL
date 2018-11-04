@@ -1,6 +1,7 @@
 ﻿using GL.Battle.CharacterControllers;
 using GL.Battle;
 using UnityEngine;
+using HK.Framework.Text;
 
 namespace GL.Database
 {
@@ -30,5 +31,22 @@ namespace GL.Database
         {
             equippedCharacter.StatusController.AddParameterToAccessory(this.StatusParameterType, this.amount);
         }
+
+#if UNITY_EDITOR
+        public AddStatusParameterFixed Setup(
+            StringAsset.Finder elementName,
+            StringAsset.Finder description,
+            Constants.StatusParameterType statusParameterType,
+            int amount
+            )
+        {
+            this.elementName = elementName;
+            this.description = description;
+            this.statusParameterType = statusParameterType;
+            this.amount = amount;
+
+            return this;
+        }
+#endif
     }
 }

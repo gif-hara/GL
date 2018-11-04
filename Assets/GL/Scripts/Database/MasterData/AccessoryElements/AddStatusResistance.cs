@@ -1,6 +1,7 @@
 ﻿using GL.Battle.CharacterControllers;
 using GL.Battle;
 using UnityEngine;
+using HK.Framework.Text;
 
 namespace GL.Database
 {
@@ -20,5 +21,22 @@ namespace GL.Database
         {
             equippedCharacter.StatusController.AddResistanceToAccessory(this.statusAilmentType, this.rate);
         }
+
+#if UNITY_EDITOR
+        public AddStatusResistance Setup(
+            StringAsset.Finder elementName,
+            StringAsset.Finder description,
+            Constants.StatusAilmentType statusAilmentType,
+            float rate
+            )
+        {
+            this.elementName = elementName;
+            this.description = description;
+            this.statusAilmentType = statusAilmentType;
+            this.rate = rate;
+
+            return this;
+        }
+#endif
     }
 }
