@@ -23,16 +23,11 @@ namespace GL.Database
         public int Rank => this.rank;
 
         [SerializeField]
-        private SkillElement[] elements = new SkillElement[0];
-        public SkillElement[] Elements => this.elements;
+        private SkillElement[] skillElements = new SkillElement[0];
+        public SkillElement[] SkillElements => this.skillElements;
 
         [SerializeField]
         private ConditionalCommandRecord[] commands = new ConditionalCommandRecord[0];
         public ConditionalCommandRecord[] Commands => this.commands;
-
-        public void OnStartBattle(Battle.CharacterControllers.Character equippedCharacter)
-        {
-            this.elements.ForEach(e => e.OnStartBattle(equippedCharacter));
-        }
     }
 }

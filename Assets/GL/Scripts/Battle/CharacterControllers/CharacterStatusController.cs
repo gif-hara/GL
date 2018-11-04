@@ -42,6 +42,11 @@ namespace GL.Battle.CharacterControllers
         public Commands.Bundle.Implement[] Commands { private set; get; }
 
         /// <summary>
+        /// スキル
+        /// </summary>
+        public SkillElement[] SkillElements { private set; get; }
+
+        /// <summary>
         /// レベル
         /// </summary>
         public int Level { get; private set; }
@@ -85,7 +90,7 @@ namespace GL.Battle.CharacterControllers
         /// </summary>
         public bool IsDead { get { return this.HitPoint <= 0; } }
 
-        public CharacterStatusController(Character character, CharacterRecord characterRecord, Commands.Bundle.Implement[] commands, int level)
+        public CharacterStatusController(Character character, CharacterRecord characterRecord, Commands.Bundle.Implement[] commands, SkillElement[] skillElements, int level)
         {
             this.Character = character;
             this.CharacterRecord = characterRecord;
@@ -95,6 +100,7 @@ namespace GL.Battle.CharacterControllers
             this.Accessory = new CharacterStatus();
             this.OnSoldier = new CharacterStatus();
             this.Commands = commands;
+            this.SkillElements = skillElements;
             this.Wait = 0.0f;
             this.HitPointMax = this.Base.Parameter.HitPoint;
         }
@@ -144,6 +150,11 @@ namespace GL.Battle.CharacterControllers
         public void AddChargeTurn(int value)
         {
             this.Commands.ForEach(c => c.AddChargeTurn(value));
+        }
+
+        public void OnStartBattle()
+        {
+            this.SkillElements.ForEach(s => s.OnStartBattle(this.Character));
         }
 
         private void PublishModifiedStatus()

@@ -28,18 +28,15 @@ namespace GL.Battle.CharacterControllers
         /// </summary>
         public CharacterAilmentController AilmentController { get; private set; }
         
-        public CharacterAccessoryController AccessoryController { get; private set; }
-
         public Constants.CharacterType CharacterType { get; private set; }
 
         public CharacterUIController UIController { get; private set; }
 
-        public void Initialize(CharacterRecord characterRecord, Implement[] commands, AccessoryRecord[] accessories, int level, Constants.CharacterType characterType)
+        public void Initialize(CharacterRecord characterRecord, Implement[] commands, SkillElement[] skillElements, int level, Constants.CharacterType characterType)
         {
             this.Record = characterRecord;
-            this.StatusController = new CharacterStatusController(this, characterRecord, commands, level);
+            this.StatusController = new CharacterStatusController(this, characterRecord, commands, skillElements, level);
             this.AilmentController = new CharacterAilmentController(this);
-            this.AccessoryController = new CharacterAccessoryController(accessories);
             this.CharacterType = characterType;
             this.UIController = this.GetComponent<CharacterUIController>();
 
@@ -47,7 +44,7 @@ namespace GL.Battle.CharacterControllers
                 .Take(1)
                 .SubscribeWithState(this, (_, _this) =>
                 {
-                    _this.AccessoryController.OnStartBattle(_this);
+                    _this.StatusController.OnStartBattle();
                 })
                 .AddTo(this);
 

@@ -50,7 +50,7 @@ namespace GL.Database
                 character.Initialize(
                     p.Blueprint,
                     p.Commands,
-                    p.Accessories,
+                    p.SkillElements,
                     p.Level,
                     characterType
                 );

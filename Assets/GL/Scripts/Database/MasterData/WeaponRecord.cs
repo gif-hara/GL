@@ -50,8 +50,8 @@ namespace GL.Database
         public ConditionalCommandRecord[] Commands => this.commands;
 
         [SerializeField]
-        private SkillElement[] skills;
-        public SkillElement[] Skills => this.skills;
+        private SkillElement[] skillElements;
+        public SkillElement[] SkillElements => this.skillElements;
 
         [SerializeField]
         private NeedMaterial[] needMaterials = new NeedMaterial[0];
@@ -73,7 +73,7 @@ namespace GL.Database
             this.weaponType = weaponType;
             this.price = price;
             this.commands = commands;
-            this.skills = skills;
+            this.skillElements = skills;
             this.needMaterials = needMaterials;
         }
 #endif

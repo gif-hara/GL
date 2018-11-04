@@ -95,5 +95,32 @@ namespace GL.Battle.PartyControllers
                 return result.Select(r => r.Create()).ToArray();
             }
         }
+
+        public SkillElement[] SkillElements
+        {
+            get
+            {
+                var result = new List<SkillElement>();
+                if(this.RightWeapon != null)
+                {
+                    result.AddRange(this.RightWeapon.SkillElements);
+                }
+                if(this.LeftWeapon != null)
+                {
+                    result.AddRange(this.LeftWeapon.SkillElements);
+                }
+                this.Accessories.ForEach(a =>
+                {
+                    if (a == null)
+                    {
+                        return;
+                    }
+
+                    result.AddRange(a.SkillElements);
+                });
+
+                return result.ToArray();
+            }
+        }
     }
 }

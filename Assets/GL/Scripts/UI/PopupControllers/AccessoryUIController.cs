@@ -32,7 +32,7 @@ namespace GL.UI
         public AccessoryUIController Setup(AccessoryRecord accessory)
         {
             this.accessoryName.text = accessory.AccessoryName;
-            foreach(var a in accessory.Elements)
+            foreach(var a in accessory.SkillElements)
             {
                 Instantiate(this.accessoryElementPrefab, this.transform).Setup(a);
             }
