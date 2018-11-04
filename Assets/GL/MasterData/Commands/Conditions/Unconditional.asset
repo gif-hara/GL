@@ -11,3 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfab7cac79ed646c58338d324fcb0ad6, type: 3}
   m_Name: Unconditional
   m_EditorClassIdentifier: 
+  description:
+    target: {fileID: 11400000, guid: 4f29c1d3e047745e58f6327b7d25bbc9, type: 2}
+    value: "\u306A\u3057"
+    guid: a2f6ffd6-8c00-4fa4-bb18-d5f39b0c73d5

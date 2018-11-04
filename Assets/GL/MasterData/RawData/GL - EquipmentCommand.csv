@@ -1,5 +1,6 @@
 名前,CommandRecord,Condition,EquipmentId,CommandRecordId
 ダガー,攻撃(斬撃),Unconditional,10101001,1001001
+ダガー,自分の素早さアップLv.1,SameTypeEquipment,10101001,1002001
 ククリ,攻撃(斬撃),Unconditional,10101002,1001001
 ナイフ,攻撃(斬撃),Unconditional,10101003,1001001
 ゴブリン1の武器,ランダム攻撃(斬撃),Unconditional,201001,1001007

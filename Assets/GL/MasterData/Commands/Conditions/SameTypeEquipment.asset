@@ -11,3 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 503635b6b54154cc6915690ba7a66177, type: 3}
   m_Name: SameTypeEquipment
   m_EditorClassIdentifier: 
+  description:
+    target: {fileID: 11400000, guid: 4f29c1d3e047745e58f6327b7d25bbc9, type: 2}
+    value: "\u540C\u3058\u30BF\u30A4\u30D7\u306E\u6B66\u5668\u3092\u88C5\u5099\u3057\u3066\u3044\u308B\u5834\u5408\u5B9F\u884C\u53EF\u80FD"
+    guid: fc66cf89-4642-40dd-a402-6f938e2b3b3e
