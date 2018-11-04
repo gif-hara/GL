@@ -26,45 +26,45 @@ MonoBehaviour:
         Level: 1
         BlueprintId: 101001
         rightHand:
-          weaponInstanceId: 1
+          equipmentInstanceId: 1
         leftHand:
-          weaponInstanceId: 0
+          equipmentInstanceId: 0
         accessoryInstanceIds: 000000000000000000000000
       - instanceId: 0
         PlayerName: "\u30C6\u30B9\u30C82"
         Level: 1
         BlueprintId: 102001
         rightHand:
-          weaponInstanceId: 2
+          equipmentInstanceId: 2
         leftHand:
-          weaponInstanceId: 0
+          equipmentInstanceId: 0
         accessoryInstanceIds: 000000000000000000000000
       - instanceId: 0
         PlayerName: "\u30C6\u30B9\u30C83"
         Level: 1
         BlueprintId: 103001
         rightHand:
-          weaponInstanceId: 3
+          equipmentInstanceId: 3
         leftHand:
-          weaponInstanceId: 0
+          equipmentInstanceId: 0
         accessoryInstanceIds: 000000000000000000000000
       - instanceId: 0
         PlayerName: "\u30C6\u30B9\u30C84"
         Level: 1
         BlueprintId: 104001
         rightHand:
-          weaponInstanceId: 4
+          equipmentInstanceId: 4
         leftHand:
-          weaponInstanceId: 0
+          equipmentInstanceId: 0
         accessoryInstanceIds: 000000000000000000000000
       - instanceId: 0
         PlayerName: "\u30C6\u30B9\u30C85"
         Level: 1
         BlueprintId: 105001
         rightHand:
-          weaponInstanceId: 5
+          equipmentInstanceId: 5
         leftHand:
-          weaponInstanceId: 0
+          equipmentInstanceId: 0
         accessoryInstanceIds: 000000000000000000000000
       InstanceId:
         count: 0
@@ -80,7 +80,7 @@ MonoBehaviour:
         PlayerInstanceIds: 01000000020000000300000004000000
       InstanceId:
         count: 0
-    Weapons:
+    Equipments:
       List:
       - instanceId: 0
         id: 10101001
@@ -116,6 +116,7 @@ MonoBehaviour:
       - 101001
       characters: []
       weapons: []
+      accessories: []
     currentPartyIndex: 0
   masterData: {fileID: 11400000, guid: 0a79933d2e00d4e8da66c79e07650958, type: 2}
   dontDestroyPrefabs:

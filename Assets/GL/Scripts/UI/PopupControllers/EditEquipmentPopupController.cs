@@ -14,12 +14,12 @@ namespace GL.UI.PopupControllers
     /// 武器変更のポップアップを制御するクラス
     /// </summary>
     /// <remarks>
-    /// <see cref="this.submit"/>は装備したい武器の<c>InstanceId</c>を渡す
+    /// <see cref="this.submit"/>は装備したい装備品の<c>InstanceId</c>を渡す
     /// </remarks>
-    public sealed class EquippedWeaponPopupController : PopupBase
+    public sealed class EditEquipmentPopupController : PopupBase
     {
         [SerializeField]
-        private EquipmentUIController weaponPrefab;
+        private EquipmentUIController equipmentUIPrefab;
 
         [SerializeField]
         private Transform listParent;
@@ -30,15 +30,15 @@ namespace GL.UI.PopupControllers
         [SerializeField]
         private Button closeButton;
 
-        public EquippedWeaponPopupController Setup(Player player)
+        public EditEquipmentPopupController Setup(Player player)
         {
             // TODO: プレイヤーが装備可能な武器種類を抽出する
             var u = UserData.Instance;
-            u.Weapons.List
-                .Where(w => !u.IsEquipedWeapon(w) && w.EquipmentRecord.Rank <= player.CharacterRecord.Rank)
+            u.Equipments.List
+                .Where(w => !u.IsEquipedEquipment(w) && w.EquipmentRecord.Rank <= player.CharacterRecord.Rank)
                 .ForEach(w =>
             {
-                Instantiate(this.weaponPrefab, this.listParent, false)
+                Instantiate(this.equipmentUIPrefab, this.listParent, false)
                     .Setup(w.EquipmentRecord)
                     .Button
                     .OnClickAsObservable()

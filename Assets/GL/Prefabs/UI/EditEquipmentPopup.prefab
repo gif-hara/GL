@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 114916414178991214}
   - component: {fileID: 114263292963512742}
   m_Layer: 5
-  m_Name: EquippedWeaponPopup
+  m_Name: EditEquipmentPopup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -465,7 +465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c26613d5497264aeabae993aa24daa95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 114898497108784310, guid: a0cce4994d3534be79213d4b0a786f44,
+  equipmentUIPrefab: {fileID: 114898497108784310, guid: a0cce4994d3534be79213d4b0a786f44,
     type: 2}
   listParent: {fileID: 224209631050679762}
   unequipButton: {fileID: 114532687122124034}

@@ -53,7 +53,7 @@ namespace GL.User
         public InstanceData.Party Parties = new InstanceData.Party();
         
         [SerializeField]
-        public InstanceData.Weapon Weapons = new InstanceData.Weapon();
+        public InstanceData.Equipment Equipments = new InstanceData.Equipment();
 
         [SerializeField]
         public InstanceData.Accessory Accessories = new InstanceData.Accessory();
@@ -84,7 +84,7 @@ namespace GL.User
             this.wallet = other.Wallet;
             this.Players.List.AddRange(other.Players.List.Select(p => p.Clone(this.Players.InstanceId)));
             this.Parties.List.AddRange(other.Parties.List.Select(p => p.Clone(this.Parties.InstanceId)));
-            this.Weapons.List.AddRange(other.Weapons.List.Select(w => w.Clone(this.Weapons.InstanceId)));
+            this.Equipments.List.AddRange(other.Equipments.List.Select(w => w.Clone(this.Equipments.InstanceId)));
             this.Accessories.List.AddRange(other.Accessories.List.Select(a => a.Clone(this.Accessories.InstanceId)));
             this.Materials = other.Materials;
             this.unlockElements = other.unlockElements;
@@ -115,24 +115,24 @@ namespace GL.User
         /// <remarks>
         /// セーブはしていないので個別でセーブしてください
         /// </remarks>
-        public void AddWeapon(EquipmentRecord weapon)
+        public void AddEquipment(EquipmentRecord equipment)
         {
-            this.Weapons.List.Add(new User.Equipment(this.Weapons.InstanceId, weapon.Id));
+            this.Equipments.List.Add(new User.Equipment(this.Equipments.InstanceId, equipment.Id));
         }
 
         /// <summary>
-        /// <paramref name="weapon"/>は誰かが装備しているか返す
+        /// <paramref name="equipment"/>は誰かが装備しているか返す
         /// </summary>
-        public bool IsEquipedWeapon(User.Equipment weapon) => this.Players.List.FindIndex(p => p.IsEquipedWeapon(weapon.InstanceId)) >= 0;
+        public bool IsEquipedEquipment(User.Equipment equipment) => this.Players.List.FindIndex(p => p.IsEquiped(equipment.InstanceId)) >= 0;
 
         public bool IsEquipedAccessory(User.Accessory accessory) => this.Players.List.FindIndex(p => p.IsEquipedAccessory(accessory.InstanceId)) >= 0;
 
         /// <summary>
         /// プレイヤーを追加する
         /// </summary>
-        public void AddPlayer(CharacterRecord blueprint)
+        public void AddPlayer(CharacterRecord characterRecord)
         {
-            this.Players.List.Add(Player.Create(this.Players.InstanceId, 1, blueprint.Id, 0, 0, new int[Constants.EquipmentAccessoryMax]));
+            this.Players.List.Add(Player.Create(this.Players.InstanceId, 1, characterRecord.Id, 0, 0, new int[Constants.EquipmentAccessoryMax]));
         }
 
         /// <summary>

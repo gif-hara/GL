@@ -22,9 +22,9 @@ namespace GL.User
         /// </summary>
         public bool IsPossession => this.equipmentInstanceId != 0;
 
-        public User.Equipment UserWeapon => UserData.Instance.Weapons.GetByInstanceId(this.equipmentInstanceId);
+        public User.Equipment UserEquipment => UserData.Instance.Equipments.GetByInstanceId(this.equipmentInstanceId);
 
-        public EquipmentRecord EquipmentRecord => this.IsPossession ? this.UserWeapon.EquipmentRecord : null;
+        public EquipmentRecord EquipmentRecord => this.IsPossession ? this.UserEquipment.EquipmentRecord : null;
 
         public Hand(int equipmentInstanceId)
         {

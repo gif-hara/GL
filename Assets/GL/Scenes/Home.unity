@@ -313,7 +313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopPanelController: {fileID: 970912665}
-  weaponType: 4
+  equipmentType: 0
   button: {fileID: 1059504}
 --- !u!1 &10795363
 GameObject:
@@ -2110,7 +2110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopPanelController: {fileID: 970912665}
-  weaponType: 512
+  equipmentType: 0
   button: {fileID: 434952592}
 --- !u!1 &504166962
 GameObject:
@@ -2385,7 +2385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopPanelController: {fileID: 970912665}
-  weaponType: 1024
+  equipmentType: 0
   button: {fileID: 586147786}
 --- !u!1 &586312407
 GameObject:
@@ -2804,7 +2804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopPanelController: {fileID: 970912665}
-  weaponType: 2
+  equipmentType: 0
   button: {fileID: 607068042}
 --- !u!1 &617581099
 GameObject:
@@ -4661,7 +4661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopPanelController: {fileID: 970912665}
-  weaponType: 256
+  equipmentType: 0
   button: {fileID: 993326949}
 --- !u!1 &1001399557
 GameObject:
@@ -5546,7 +5546,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopPanelController: {fileID: 970912665}
-  weaponType: 16
+  equipmentType: 0
   button: {fileID: 1130346344}
 --- !u!1 &1141862312
 GameObject:
@@ -5790,7 +5790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopPanelController: {fileID: 970912665}
-  weaponType: 32
+  equipmentType: 0
   button: {fileID: 1150582638}
 --- !u!1 &1153441638
 GameObject:
@@ -6011,7 +6011,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopPanelController: {fileID: 970912665}
-  weaponType: 64
+  equipmentType: 0
   button: {fileID: 1191672156}
 --- !u!1 &1203716402
 GameObject:
@@ -8378,7 +8378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopPanelController: {fileID: 970912665}
-  weaponType: 2048
+  equipmentType: 0
   button: {fileID: 1676127576}
 --- !u!1 &1721519781
 GameObject:
@@ -9606,7 +9606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopPanelController: {fileID: 970912665}
-  weaponType: 1
+  equipmentType: 0
   button: {fileID: 1929562001}
 --- !u!1 &1985785917
 GameObject:
@@ -10083,7 +10083,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopPanelController: {fileID: 970912665}
-  weaponType: 8
+  equipmentType: 0
   button: {fileID: 2009995525}
 --- !u!1 &2037690701
 GameObject:
@@ -10299,7 +10299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopPanelController: {fileID: 970912665}
-  weaponType: 128
+  equipmentType: 0
   button: {fileID: 2044726792}
 --- !u!114 &2050366498 stripped
 MonoBehaviour:

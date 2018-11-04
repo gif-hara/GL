@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: MasterData
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: b5ae84a9b26f8455fa4618f4725c571e, type: 2}
-  weapon: {fileID: 11400000, guid: baad0c2263499483caabe73d7473091e, type: 2}
+  equipment: {fileID: 11400000, guid: baad0c2263499483caabe73d7473091e, type: 2}
   accessory: {fileID: 11400000, guid: e7f7fe6ceb1e04c95988b2007b980995, type: 2}
   material: {fileID: 11400000, guid: 54d9cc374a0c44624ba977479167d14b, type: 2}
   enemyParty: {fileID: 11400000, guid: d9e90d0d0565144b394200709bff0490, type: 2}

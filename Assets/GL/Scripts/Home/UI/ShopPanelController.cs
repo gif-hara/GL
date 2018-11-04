@@ -98,7 +98,7 @@ namespace GL.Home.UI
                 return;
             }
 
-            userData.AddWeapon(weapon);
+            userData.AddEquipment(weapon);
             userData.Wallet.Gold.Pay(weapon.Price);
             userData.Save();
 

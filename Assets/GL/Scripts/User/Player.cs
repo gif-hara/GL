@@ -82,14 +82,14 @@ namespace GL.User
         }
 
         /// <summary>
-        /// <paramref name="instanceId"/>の武器を装備しているか返す
+        /// <paramref name="instanceId"/>を装備しているか返す
         /// </summary>
-        public bool IsEquipedWeapon(int instanceId) => this.RightHand.EquipmentInstanceId == instanceId || this.LeftHand.EquipmentInstanceId == instanceId;
+        public bool IsEquiped(int instanceId) => this.RightHand.EquipmentInstanceId == instanceId || this.LeftHand.EquipmentInstanceId == instanceId;
 
         /// <summary>
-        /// <paramref name="weaponId"/>と同じ武器を既に装備しているか返す
+        /// <paramref name="equipmentId"/>と同じ武器を既に装備しているか返す
         /// </summary>
-        public bool IsEquipedSameWeapon(string weaponId) => (this.RightHand.IsPossession && this.RightHand.UserWeapon.Id == weaponId) || (this.LeftHand.IsPossession && this.LeftHand.UserWeapon.Id == weaponId);
+        public bool IsEquipedSameEquipment(string equipmentId) => (this.RightHand.IsPossession && this.RightHand.UserEquipment.Id == equipmentId) || (this.LeftHand.IsPossession && this.LeftHand.UserEquipment.Id == equipmentId);
 
         /// <summary>
         /// <paramref name="instanceId"/>のアクセサリーを装備しているか返す
@@ -97,9 +97,9 @@ namespace GL.User
         public bool IsEquipedAccessory(int instanceId) => this.AccessoryInstanceIds.FindIndex(a => a == instanceId) >= 0;
 
         /// <summary>
-        /// 武器を切り替える
+        /// 装備品を切り替える
         /// </summary>
-        public void ChangeWeapon(Constants.HandType handType, int instanceId)
+        public void ChangeEquipment(Constants.HandType handType, int instanceId)
         {
             if(handType == Constants.HandType.Right)
             {

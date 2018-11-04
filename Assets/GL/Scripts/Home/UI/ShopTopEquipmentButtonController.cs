@@ -8,13 +8,13 @@ namespace GL.Home.UI
     /// <summary>
     /// ショップのトップの武器ボタンを制御するクラス
     /// </summary>
-    public sealed class ShopTopWeaponButtonController : MonoBehaviour
+    public sealed class ShopTopEquipmentButtonController : MonoBehaviour
     {
         [SerializeField]
         private ShopPanelController shopPanelController;
 
         [SerializeField]
-        private EquipmentType weaponType;
+        private EquipmentType equipmentType;
 
         [SerializeField]
         private Button button;
@@ -22,7 +22,7 @@ namespace GL.Home.UI
         void Start()
         {
             this.button.OnClickAsObservable()
-                .SubscribeWithState(this, (_, _this) => _this.shopPanelController.ShowWeaponList(_this.weaponType))
+                .SubscribeWithState(this, (_, _this) => _this.shopPanelController.ShowWeaponList(_this.equipmentType))
                 .AddTo(this);
         }
 

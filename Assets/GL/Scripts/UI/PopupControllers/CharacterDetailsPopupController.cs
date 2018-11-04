@@ -155,7 +155,7 @@ namespace GL.Home.UI
         private CommandListController commandListController;
 
         [SerializeField]
-        private EquippedWeaponPopupController equippedWeaponPopupController;
+        private EditEquipmentPopupController equippedWeaponPopupController;
 
         [SerializeField]
         private EquippedAccessoryPopupController equippedAccessoryPopupController;
@@ -294,7 +294,7 @@ namespace GL.Home.UI
                         return;
                     }
 
-                    _this.editPlayer.ChangeWeapon(_handType, instanceId);
+                    _this.editPlayer.ChangeEquipment(_handType, instanceId);
                     UserData.Instance.Save();
                     if(_handType == Constants.HandType.Right)
                     {
