@@ -15,37 +15,37 @@ namespace GL.DeveloperTools
     /// <summary>
     /// 
     /// </summary>
-    public sealed class WeaponImporter
+    public sealed class EquipmentImporter
     {
-        [MenuItem("GL/MasterData/Import Weapon")]
+        [MenuItem("GL/MasterData/Import Equipment")]
         private static void Import()
         {
-            var weaponRecordData = AssetDatabase.LoadAssetAtPath<TextAsset>("Assets/GL/MasterData/RawData/GL - WeaponRecord.csv")
+            var equipmentRecordData = AssetDatabase.LoadAssetAtPath<TextAsset>("Assets/GL/MasterData/RawData/GL - EquipmentRecord.csv")
                 .text
                 .Split(new string[] { System.Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
-            var weaponCommandData = AssetDatabase.LoadAssetAtPath<TextAsset>("Assets/GL/MasterData/RawData/GL - WeaponCommand.csv")
+            var equipmentCommandData = AssetDatabase.LoadAssetAtPath<TextAsset>("Assets/GL/MasterData/RawData/GL - EquipmentCommand.csv")
                 .text
                 .Split(new string[] { System.Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
-            var weaponSkillData = AssetDatabase.LoadAssetAtPath<TextAsset>("Assets/GL/MasterData/RawData/GL - WeaponSkill.csv")
+            var equipmentSkillData = AssetDatabase.LoadAssetAtPath<TextAsset>("Assets/GL/MasterData/RawData/GL - EquipmentSkill.csv")
                 .text
                 .Split(new string[] { System.Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
-            var weaponNeedMaterialData = AssetDatabase.LoadAssetAtPath<TextAsset>("Assets/GL/MasterData/RawData/GL - WeaponNeedMaterial.csv")
+            var equipmentNeedMaterialData = AssetDatabase.LoadAssetAtPath<TextAsset>("Assets/GL/MasterData/RawData/GL - EquipmentNeedMaterial.csv")
                 .text
                 .Split(new string[] { System.Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
 
             // コマンドデータを抽出
             var commandDictionary = new Dictionary<string, List<ConditionalCommandRecord>>();
-            for (var i = 1; i < weaponCommandData.Length; i++)
+            for (var i = 1; i < equipmentCommandData.Length; i++)
             {
-                var splitCommandData = weaponCommandData[i].Split(',');
+                var splitCommandData = equipmentCommandData[i].Split(',');
                 var conditionName = splitCommandData[2];
-                var weaponId = splitCommandData[3];
+                var equipmentId = splitCommandData[3];
                 var commandId = splitCommandData[4].RemoveNewLine();
                 List<ConditionalCommandRecord> commandRecords = null;
-                if(!commandDictionary.TryGetValue(weaponId, out commandRecords))
+                if(!commandDictionary.TryGetValue(equipmentId, out commandRecords))
                 {
                     commandRecords = new List<ConditionalCommandRecord>();
-                    commandDictionary.Add(weaponId, commandRecords);
+                    commandDictionary.Add(equipmentId, commandRecords);
                 }
                 var commandRecord = AssetDatabase.LoadAssetAtPath<CommandRecord>($"Assets/GL/MasterData/Commands/Bundles/{commandId}.asset");
                 Assert.IsNotNull(commandRecord, $"{commandId}のCommandRecordがありませんでした");
@@ -57,16 +57,16 @@ namespace GL.DeveloperTools
 
             // スキルデータを抽出
             var skillElementDictionary = new Dictionary<string, List<SkillElement>>();
-            for (var i = 1; i < weaponSkillData.Length; i++)
+            for (var i = 1; i < equipmentSkillData.Length; i++)
             {
-                var splitSkillData = weaponSkillData[i].Split(',');
-                var weaponId = splitSkillData[2];
+                var splitSkillData = equipmentSkillData[i].Split(',');
+                var equipmentId = splitSkillData[2];
                 var skillId = splitSkillData[3].RemoveNewLine();
                 List<SkillElement> skillElements = null;
-                if(!skillElementDictionary.TryGetValue(weaponId, out skillElements))
+                if(!skillElementDictionary.TryGetValue(equipmentId, out skillElements))
                 {
                     skillElements = new List<SkillElement>();
-                    skillElementDictionary.Add(weaponId, skillElements);
+                    skillElementDictionary.Add(equipmentId, skillElements);
                 }
 
                 var skillElement = AssetDatabase.LoadAssetAtPath<SkillElement>($"Assets/GL/MasterData/SkillElements/{skillId}.asset");
@@ -78,47 +78,47 @@ namespace GL.DeveloperTools
             var needMaterialDictionary = new Dictionary<string, List<NeedMaterial>>();
             var materialData = AssetDatabase.LoadAssetAtPath<MaterialList>("Assets/GL/MasterData/Database/Material.asset");
             Assert.IsNotNull(materialData, "MaterialListの取得に失敗しました");
-            for (var i = 1; i < weaponNeedMaterialData.Length; i++)
+            for (var i = 1; i < equipmentNeedMaterialData.Length; i++)
             {
-                var splitNeedMaterialData = weaponNeedMaterialData[i].Split(',');
+                var splitNeedMaterialData = equipmentNeedMaterialData[i].Split(',');
                 var materialName = splitNeedMaterialData[1];
-                var weaponId = splitNeedMaterialData[3].RemoveNewLine();
+                var equipmentId = splitNeedMaterialData[3].RemoveNewLine();
                 List<NeedMaterial> needMaterials = null;
-                if(!needMaterialDictionary.TryGetValue(weaponId, out needMaterials))
+                if(!needMaterialDictionary.TryGetValue(equipmentId, out needMaterials))
                 {
                     needMaterials = new List<NeedMaterial>();
-                    needMaterialDictionary.Add(weaponId, needMaterials);
+                    needMaterialDictionary.Add(equipmentId, needMaterials);
                 }
 
                 var material = materialData.GetFromName(materialName);
                 needMaterials.Add(new NeedMaterial(material, int.Parse(splitNeedMaterialData[2])));
             }
 
-            // WeaponRecordを作成
-            var weaponNameAsset = AssetDatabase.LoadAssetAtPath<StringAsset>("Assets/GL/StringAssets/WeaponName.asset");
-            for (var i = 1; i < weaponRecordData.Length; i++)
+            // EquipmentRecordを作成
+            var equipmentNameAsset = AssetDatabase.LoadAssetAtPath<StringAsset>("Assets/GL/StringAssets/EquipmentName.asset");
+            for (var i = 1; i < equipmentRecordData.Length; i++)
             {
-                var splitWeaponRecordData = weaponRecordData[i].Split(',');
-                var path = "Assets/GL/MasterData/Weapons/";
-                var fileName = splitWeaponRecordData[0];
-                var weaponRecord = ImporterUtility.GetOrCreate<EquipmentRecord>(path, fileName);
+                var splitEquipmentRecordData = equipmentRecordData[i].Split(',');
+                var path = "Assets/GL/MasterData/Equipments/";
+                var fileName = splitEquipmentRecordData[0];
+                var equipmentRecord = ImporterUtility.GetOrCreate<EquipmentRecord>(path, fileName);
                 List<SkillElement> skillElements = null;
                 skillElementDictionary.TryGetValue(fileName, out skillElements);
                 List<NeedMaterial> needMaterials = null;
                 needMaterialDictionary.TryGetValue(fileName, out needMaterials);
-                weaponRecord.Set(
-                    weaponNameAsset.CreateOrGetFinder(splitWeaponRecordData[1]),
-                    int.Parse(splitWeaponRecordData[2]),
-                    (Constants.EquipmentType)Enum.Parse(typeof(Constants.EquipmentType), splitWeaponRecordData[3]),
-                    int.Parse(splitWeaponRecordData[4]),
+                equipmentRecord.Set(
+                    equipmentNameAsset.CreateOrGetFinder(splitEquipmentRecordData[1]),
+                    int.Parse(splitEquipmentRecordData[2]),
+                    (Constants.EquipmentType)Enum.Parse(typeof(Constants.EquipmentType), splitEquipmentRecordData[3]),
+                    int.Parse(splitEquipmentRecordData[4]),
                     commandDictionary[fileName].ToArray(),
                     skillElements == null ? null : skillElements.ToArray(),
                     needMaterials == null ? null : needMaterials.ToArray()
                 );
-                EditorUtility.SetDirty(weaponRecord);
+                EditorUtility.SetDirty(equipmentRecord);
             }
 
-            var database = AssetDatabase.LoadAssetAtPath<EquipmentList>("Assets/GL/MasterData/Database/Weapon.asset");
+            var database = AssetDatabase.LoadAssetAtPath<EquipmentList>("Assets/GL/MasterData/Database/Equipment.asset");
             database.Reset();
             EditorUtility.SetDirty(database);
             AssetDatabase.SaveAssets();

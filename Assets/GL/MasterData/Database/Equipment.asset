@@ -9,10 +9,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 49995a3d05a5041aba5f7af7b34b05a9, type: 3}
-  m_Name: Weapon
+  m_Name: 
   m_EditorClassIdentifier: 
-  list:
-  - {fileID: 11400000, guid: ddb9db169bd8b4768938efc96c40f1a8, type: 2}
-  - {fileID: 11400000, guid: 57d2b1df6ad8b446a8d82393a62a6ec3, type: 2}
-  - {fileID: 11400000, guid: 2490c374219e74a7a9c532eeb4a427c9, type: 2}
-  - {fileID: 11400000, guid: d586df8151ad245a99a177f34edfd62c, type: 2}
+  list: []

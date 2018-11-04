@@ -196,8 +196,8 @@ namespace GL.Home.UI
             this.parameter.Apply(player.Parameter);
             this.attribute.Apply(player.CharacterRecord);
             this.resistance.Apply(player.Resistance);
-            this.rightWeapon.Setup(this, player.RightHand.BattleWeapon);
-            this.leftWeapon.Setup(this, player.LeftHand.BattleWeapon);
+            this.rightWeapon.Setup(this, player.RightHand.EquipmentRecord);
+            this.leftWeapon.Setup(this, player.LeftHand.EquipmentRecord);
             for (var i = 0; i < this.accessories.Length; i++)
             {
                 accessories[i].Setup(this, player.Accessories[i], i);
@@ -298,11 +298,11 @@ namespace GL.Home.UI
                     UserData.Instance.Save();
                     if(_handType == Constants.HandType.Right)
                     {
-                        _this.rightWeapon.Setup(_this, _this.editPlayer.RightHand.BattleWeapon);
+                        _this.rightWeapon.Setup(_this, _this.editPlayer.RightHand.EquipmentRecord);
                     }
                     else
                     {
-                        _this.leftWeapon.Setup(_this, _this.editPlayer.LeftHand.BattleWeapon);
+                        _this.leftWeapon.Setup(_this, _this.editPlayer.LeftHand.EquipmentRecord);
                     }
                     _this.commandListController.Setup(_this.editPlayer.UsingCommands);
                     PopupManager.Close(_popup);

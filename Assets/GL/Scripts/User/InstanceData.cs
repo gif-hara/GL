@@ -43,7 +43,7 @@ namespace GL.User
         public class Party : InstanceData<User.Party>{}
 
         [Serializable]
-        public class Weapon : InstanceData<User.Weapon>{}
+        public class Weapon : InstanceData<User.Equipment>{}
 
         [Serializable]
         public class Accessory : InstanceData<User.Accessory>{}

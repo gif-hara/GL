@@ -1,4 +1,4 @@
-名前,CommandRecord,Condition,武器Id,CommandRecordId
+名前,CommandRecord,Condition,EquipmentId,CommandRecordId
 ダガー,攻撃(斬撃),Unconditional,10101001,1001001
 ククリ,攻撃(斬撃),Unconditional,10101002,1001001
 ナイフ,攻撃(斬撃),Unconditional,10101003,1001001

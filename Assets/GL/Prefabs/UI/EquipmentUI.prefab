@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 114865802383456414}
   - component: {fileID: 114898497108784310}
   m_Layer: 5
-  m_Name: Weapon
+  m_Name: EquipmentUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29eaa9f3cd43f4f7c9903997f5c403a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponName: {fileID: 114947650880182392}
+  equipmentName: {fileID: 114947650880182392}
   button: {fileID: 114729796857194368}
   rankParent: {fileID: 224973181813676080}
   commandPrefab: {fileID: 114849972164109422, guid: c591e77bca061467aa52e4f50fb8b67e,

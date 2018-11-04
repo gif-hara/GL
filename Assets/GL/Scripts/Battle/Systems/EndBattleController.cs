@@ -108,7 +108,7 @@ namespace GL.Battle
                 index,
                 completeStream,
                 i => weapons.Count <= i,
-                () => this.unlockWeaponPopup.Show(null, f => f.Format(MasterData.Weapon.GetById(weapons[index]).EquipmentName), null),
+                () => this.unlockWeaponPopup.Show(null, f => f.Format(MasterData.Equipment.GetById(weapons[index]).EquipmentName), null),
                 (i, c) => this.CreateUnlockWeaponPopup(i, c)
             );
         }

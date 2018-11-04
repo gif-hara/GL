@@ -8,10 +8,10 @@ namespace GL.UI
     /// <summary>
     /// 武器UIを制御するクラス
     /// </summary>
-    public sealed class WeaponController : MonoBehaviour
+    public sealed class EquipmentUIController : MonoBehaviour
     {
         [SerializeField]
-        private Text weaponName;
+        private Text equipmentName;
 
         [SerializeField]
         private Button button;
@@ -26,15 +26,15 @@ namespace GL.UI
         [SerializeField]
         private GameObject rankPrefab;
 
-        public WeaponController Setup(EquipmentRecord weapon)
+        public EquipmentUIController Setup(EquipmentRecord equipment)
         {
-            this.weaponName.text = weapon.EquipmentName;
-            foreach(var c in weapon.Commands)
+            this.equipmentName.text = equipment.EquipmentName;
+            foreach(var c in equipment.Commands)
             {
                 Instantiate(this.commandPrefab, this.transform).Setup(c);
             }
 
-            for (var i = 0; i < weapon.Rank; i++)
+            for (var i = 0; i < equipment.Rank; i++)
             {
                 Instantiate(this.rankPrefab, this.rankParent, false);
             }

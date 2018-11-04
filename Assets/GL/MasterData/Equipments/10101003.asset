@@ -11,12 +11,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30e5466c3c6114d91915749921a0104b, type: 3}
   m_Name: 10101003
   m_EditorClassIdentifier: 
-  weaponName:
+  equipmentName:
     target: {fileID: 11400000, guid: 7587e1216a4ef4cfeaf77541e6db4355, type: 2}
     value: "\u30CA\u30A4\u30D5"
     guid: a2b141ab-b5cd-4be9-9bc1-e1168114b28d
   rank: 1
-  weaponType: 1
+  equipmentType: 1
   price: 680
   commands:
   - commandRecord: {fileID: 11400000, guid: 10fca75b377f34a9aa9294156675082f, type: 2}

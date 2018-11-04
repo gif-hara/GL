@@ -19,7 +19,7 @@ namespace GL.UI.PopupControllers
     public sealed class EquippedWeaponPopupController : PopupBase
     {
         [SerializeField]
-        private WeaponController weaponPrefab;
+        private EquipmentUIController weaponPrefab;
 
         [SerializeField]
         private Transform listParent;

@@ -84,7 +84,7 @@ namespace GL.User
         /// <summary>
         /// <paramref name="instanceId"/>の武器を装備しているか返す
         /// </summary>
-        public bool IsEquipedWeapon(int instanceId) => this.RightHand.WeaponInstanceId == instanceId || this.LeftHand.WeaponInstanceId == instanceId;
+        public bool IsEquipedWeapon(int instanceId) => this.RightHand.EquipmentInstanceId == instanceId || this.LeftHand.EquipmentInstanceId == instanceId;
 
         /// <summary>
         /// <paramref name="weaponId"/>と同じ武器を既に装備しているか返す
@@ -103,11 +103,11 @@ namespace GL.User
         {
             if(handType == Constants.HandType.Right)
             {
-                this.RightHand.WeaponInstanceId = instanceId;
+                this.RightHand.EquipmentInstanceId = instanceId;
             }
             else
             {
-                this.LeftHand.WeaponInstanceId = instanceId;
+                this.LeftHand.EquipmentInstanceId = instanceId;
             }
         }
 
@@ -166,11 +166,11 @@ namespace GL.User
                 var result = new List<ConditionalCommandRecord>();
                 if(this.RightHand.IsPossession)
                 {
-                    result.AddRange(this.RightHand.BattleWeapon.Commands);
+                    result.AddRange(this.RightHand.EquipmentRecord.Commands);
                 }
                 if(this.LeftHand.IsPossession)
                 {
-                    result.AddRange(this.LeftHand.BattleWeapon.Commands);
+                    result.AddRange(this.LeftHand.EquipmentRecord.Commands);
                 }
                 foreach(var a in this.Accessories)
                 {
