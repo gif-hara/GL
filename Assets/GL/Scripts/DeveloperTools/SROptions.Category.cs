@@ -13,5 +13,8 @@ public partial class SROptions
         public const string UserData_Weapon = "UserData.Weapon";
         public const string UserData_Material = "UserData.Material";
         public const string UserData_UnlockElements = "UserData.UnlockElements";
+        public const string UserData_UnlockElements_EnemyParty = "UserData.UnlockElements.EnemyParty";
+        public const string UserData_UnlockElements_Character = "UserData.UnlockElements.Character";
+        public const string UserData_UnlockElements_Equipment = "UserData.UnlockElements.Equipment";
     }
 }

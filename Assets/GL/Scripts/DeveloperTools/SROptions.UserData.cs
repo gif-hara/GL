@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Linq;
 using GL.Database;
 using GL.User;
 using HK.GL.Extensions;
@@ -70,17 +71,20 @@ public partial class SROptions
         UserData.Instance.Materials.ForEach(m => Debug.Log($"[{MasterData.Material.GetById(m.Id).MaterialName}] *{m.Count}"));
     }
 
-    [Category(Category.UserData_UnlockElements)]
+    [Category(Category.UserData_UnlockElements_EnemyParty)]
     [Sort(100)]
-    [DisplayName("PrintEnemyParties")]
-    public void PrintAllEnemyParties()
+    [DisplayName("Unlock All")]
+    public void UnlockEnemyPartyAll()
     {
-        UserData.Instance.UnlockElements.EnemyParties.ForEach(m => Debug.Log($"{m}"));
+        var e = UserData.Instance.UnlockElements.EnemyParties;
+        e.Clear();
+        e.AddRange(MasterData.EnemyParty.List.Select(p => p.Id));
+        UserData.Instance.Save();
     }
 
-    [Category(Category.UserData_UnlockElements)]
+    [Category(Category.UserData_UnlockElements_EnemyParty)]
     [Sort(100)]
-    [DisplayName("RemoveEnemyParty")]
+    [DisplayName("Remove")]
     public void RemoveUnlockEnemyParty()
     {
         var e = UserData.Instance.UnlockElements.EnemyParties;
@@ -88,9 +92,20 @@ public partial class SROptions
         UserData.Instance.Save();
     }
 
-    [Category(Category.UserData_UnlockElements)]
+    [Category(Category.UserData_UnlockElements_Character)]
     [Sort(100)]
-    [DisplayName("RemoveCharacter")]
+    [DisplayName("Unlock All")]
+    public void UnlockCharacterAll()
+    {
+        var c = UserData.Instance.UnlockElements.Characters;
+        c.Clear();
+        c.AddRange(MasterData.Character.List.Select(x => x.Id));
+        UserData.Instance.Save();
+    }
+
+    [Category(Category.UserData_UnlockElements_Character)]
+    [Sort(100)]
+    [DisplayName("Remove")]
     public void RemoveUnlockCharacter()
     {
         var c = UserData.Instance.UnlockElements.Characters;
@@ -98,10 +113,21 @@ public partial class SROptions
         UserData.Instance.Save();
     }
 
-    [Category(Category.UserData_UnlockElements)]
+    [Category(Category.UserData_UnlockElements_Equipment)]
     [Sort(100)]
-    [DisplayName("RemoveWeapon")]
-    public void RemoveUnlockWeapon()
+    [DisplayName("Unlock All")]
+    public void UnlockEquipmentAll()
+    {
+        var e = UserData.Instance.UnlockElements.Equipments;
+        e.Clear();
+        e.AddRange(MasterData.Equipment.List.Select(x => x.Id));
+        UserData.Instance.Save();
+    }
+
+    [Category(Category.UserData_UnlockElements_Equipment)]
+    [Sort(100)]
+    [DisplayName("Remove")]
+    public void RemoveUnlockEquipment()
     {
         var w = UserData.Instance.UnlockElements.Equipments;
         w.RemoveAll(x => true);
