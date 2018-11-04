@@ -6,9 +6,9 @@ using UnityEngine.Assertions;
 namespace GL.Database
 {
     /// <summary>
-    /// アクセサリーの効果を構成するクラス
+    /// スキルを構成するクラス
     /// </summary>
-    public abstract class AccessoryElement : ScriptableObject
+    public abstract class SkillElement : ScriptableObject
     {
         [SerializeField]
         private StringAsset.Finder elementName;

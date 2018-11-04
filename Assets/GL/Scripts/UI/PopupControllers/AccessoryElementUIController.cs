@@ -6,7 +6,7 @@ using UnityEngine.UI;
 namespace GL.UI
 {
     /// <summary>
-    /// <see cref="AccessoryElement"/>をUIに設定するクラス
+    /// <see cref="SkillElement"/>をUIに設定するクラス
     /// </summary>
     public sealed class AccessoryElementUIController : MonoBehaviour
     {
@@ -16,7 +16,7 @@ namespace GL.UI
         [SerializeField]
         private Text description;
 
-        public void Setup(AccessoryElement element)
+        public void Setup(SkillElement element)
         {
             this.elementName.text = element.ElementName;
             this.description.text = element.Description;

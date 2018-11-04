@@ -8,7 +8,7 @@ namespace GL.Database
     /// 状態異常の耐性を上昇させるアクセサリー
     /// </summary>
     [CreateAssetMenu(menuName = "GL/Accessories/AddStatusResistance")]
-    public sealed class AddStatusResistance : AccessoryElement
+    public sealed class AddStatusResistance : SkillElement
     {
         [SerializeField]
         private Constants.StatusAilmentType statusAilmentType;

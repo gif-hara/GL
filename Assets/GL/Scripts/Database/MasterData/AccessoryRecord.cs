@@ -23,8 +23,8 @@ namespace GL.Database
         public int Rank => this.rank;
 
         [SerializeField]
-        private AccessoryElement[] elements = new AccessoryElement[0];
-        public AccessoryElement[] Elements => this.elements;
+        private SkillElement[] elements = new SkillElement[0];
+        public SkillElement[] Elements => this.elements;
 
         [SerializeField]
         private ConditionalCommandRecord[] commands = new ConditionalCommandRecord[0];
