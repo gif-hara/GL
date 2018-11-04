@@ -8,7 +8,7 @@ namespace GL.UI
     /// <summary>
     /// <see cref="SkillElement"/>をUIに設定するクラス
     /// </summary>
-    public sealed class AccessoryElementUIController : MonoBehaviour
+    public sealed class SkillElementUIController : MonoBehaviour
     {
         [SerializeField]
         private Text elementName;

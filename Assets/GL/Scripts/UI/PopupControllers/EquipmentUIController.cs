@@ -24,7 +24,7 @@ namespace GL.UI
         private CommandUIController commandPrefab;
 
         [SerializeField]
-        private AccessoryElementUIController accessoryElementPrefab;
+        private SkillElementUIController accessoryElementPrefab;
 
         [SerializeField]
         private GameObject rankPrefab;
