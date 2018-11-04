@@ -35,7 +35,9 @@ namespace GL.UI.PopupControllers
             // TODO: プレイヤーが装備可能な武器種類を抽出する
             var u = UserData.Instance;
             u.Equipments.List
-                .Where(e => !u.IsEquipedEquipment(e) && e.EquipmentRecord.Rank <= player.CharacterRecord.Rank)
+                .Where(e => e.EquipmentRecord.Rank <= player.CharacterRecord.Rank)
+                .Where(e => player.CanEquipmentType(e.EquipmentRecord.EquipmentType))
+                .Where(e => !u.IsEquipedEquipment(e))
                 .ForEach(e =>
             {
                 Instantiate(this.equipmentUIPrefab, this.listParent, false)

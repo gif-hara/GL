@@ -17,5 +17,6 @@ namespace GL.Battle.CharacterControllers.JobSystems
 
         [SerializeField][EnumFlags]
         private Constants.EquipmentType equipable;
+        public Constants.EquipmentType Equipable => this.equipable;
     }
 }

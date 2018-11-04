@@ -81,6 +81,11 @@ namespace GL.User
             };
         }
 
+        public bool CanEquipmentType(Constants.EquipmentType type)
+        {
+            return ((int)this.CharacterRecord.Job.Equipable & (int)type) != 0;
+        }
+
         /// <summary>
         /// <paramref name="instanceId"/>を装備しているか返す
         /// </summary>
