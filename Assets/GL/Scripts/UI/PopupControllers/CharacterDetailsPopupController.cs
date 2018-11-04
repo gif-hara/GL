@@ -143,10 +143,10 @@ namespace GL.Home.UI
         private Resistance resistance;
 
         [SerializeField]
-        private CharacterDetailsPopupWeaponController rightWeapon;
+        private CharacterDetailsPopupEquipmentController rightWeapon;
 
         [SerializeField]
-        private CharacterDetailsPopupWeaponController leftWeapon;
+        private CharacterDetailsPopupEquipmentController leftWeapon;
 
         [SerializeField]
         private CharacterDetailsPopupAccessoryController[] accessories;

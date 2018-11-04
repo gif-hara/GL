@@ -9,15 +9,15 @@ using UnityEngine.UI;
 namespace GL.Home.UI
 {
     /// <summary>
-    /// <see cref="CharacterDetailsPopupController"/>の武器部分を制御するクラス
+    /// <see cref="CharacterDetailsPopupController"/>の装備品部分を制御するクラス
     /// </summary>
-    public sealed class CharacterDetailsPopupWeaponController : MonoBehaviour
+    public sealed class CharacterDetailsPopupEquipmentController : MonoBehaviour
     {
         [SerializeField]
-        private StringAsset.Finder noneWeaponName;
+        private StringAsset.Finder noneEquipmentName;
 
         [SerializeField]
-        private Text weaponName;
+        private Text equipmentName;
 
         [SerializeField]
         private Constants.HandType handType;
@@ -41,11 +41,11 @@ namespace GL.Home.UI
         {
             if (equipment == null)
             {
-                this.weaponName.text = this.noneWeaponName.Get;
+                this.equipmentName.text = this.noneEquipmentName.Get;
             }
             else
             {
-                this.weaponName.text = equipment.EquipmentName;
+                this.equipmentName.text = equipment.EquipmentName;
             }
 
             this.controller = controller;

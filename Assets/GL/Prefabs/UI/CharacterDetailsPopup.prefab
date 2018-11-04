@@ -3581,11 +3581,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 025f0fc270e884d32b479de3df7b7257, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noneWeaponName:
+  noneEquipmentName:
     target: {fileID: 11400000, guid: 4f29c1d3e047745e58f6327b7d25bbc9, type: 2}
     value: "\u306A\u3057"
     guid: a2f6ffd6-8c00-4fa4-bb18-d5f39b0c73d5
-  weaponName: {fileID: 114085367533068220}
+  equipmentName: {fileID: 114085367533068220}
   handType: 1
   button: {fileID: 114247613522960638}
 --- !u!114 &114189757494911578
@@ -5378,11 +5378,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 025f0fc270e884d32b479de3df7b7257, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noneWeaponName:
+  noneEquipmentName:
     target: {fileID: 11400000, guid: 4f29c1d3e047745e58f6327b7d25bbc9, type: 2}
     value: "\u306A\u3057"
     guid: a2f6ffd6-8c00-4fa4-bb18-d5f39b0c73d5
-  weaponName: {fileID: 114220915384075564}
+  equipmentName: {fileID: 114220915384075564}
   handType: 0
   button: {fileID: 114192027521493972}
 --- !u!114 &114461304550235098
