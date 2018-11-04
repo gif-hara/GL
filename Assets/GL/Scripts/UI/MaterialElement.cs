@@ -1,4 +1,5 @@
 ﻿using GL.Database;
+using GL.Extensions;
 using HK.Framework.Text;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -23,7 +24,7 @@ namespace GL.UI
         public MaterialElement Setup(MaterialRecord material, int value)
         {
             this.materialName.text = material.MaterialName;
-            this.value.text = this.valueFormat.Format(value.ToString());
+            this.value.text = this.valueFormat.Format(value.ToString()).RemoveLastNewLine();
 
             return this;
         }
