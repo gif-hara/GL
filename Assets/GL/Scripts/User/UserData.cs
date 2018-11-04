@@ -56,9 +56,6 @@ namespace GL.User
         public InstanceData.Equipment Equipments = new InstanceData.Equipment();
 
         [SerializeField]
-        public InstanceData.Accessory Accessories = new InstanceData.Accessory();
-
-        [SerializeField]
         public List<Material> Materials = new List<Material>();
 
         [SerializeField]
@@ -85,7 +82,6 @@ namespace GL.User
             this.Players.List.AddRange(other.Players.List.Select(p => p.Clone(this.Players.InstanceId)));
             this.Parties.List.AddRange(other.Parties.List.Select(p => p.Clone(this.Parties.InstanceId)));
             this.Equipments.List.AddRange(other.Equipments.List.Select(w => w.Clone(this.Equipments.InstanceId)));
-            this.Accessories.List.AddRange(other.Accessories.List.Select(a => a.Clone(this.Accessories.InstanceId)));
             this.Materials = other.Materials;
             this.unlockElements = other.unlockElements;
             this.currentPartyIndexReactiveProperty.Value = other.currentPartyIndexReactiveProperty.Value;
@@ -124,8 +120,6 @@ namespace GL.User
         /// <paramref name="equipment"/>は誰かが装備しているか返す
         /// </summary>
         public bool IsEquipedEquipment(User.Equipment equipment) => this.Players.List.FindIndex(p => p.IsEquiped(equipment.InstanceId)) >= 0;
-
-        public bool IsEquipedAccessory(User.Accessory accessory) => this.Players.List.FindIndex(p => p.IsEquipedAccessory(accessory.InstanceId)) >= 0;
 
         /// <summary>
         /// プレイヤーを追加する

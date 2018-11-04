@@ -44,8 +44,5 @@ namespace GL.User
 
         [Serializable]
         public class Equipment : InstanceData<User.Equipment>{}
-
-        [Serializable]
-        public class Accessory : InstanceData<User.Accessory>{}
     }
 }

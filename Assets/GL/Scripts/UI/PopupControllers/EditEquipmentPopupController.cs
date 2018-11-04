@@ -32,7 +32,6 @@ namespace GL.UI.PopupControllers
 
         public EditEquipmentPopupController SetupAsWeapon(Player player)
         {
-            // TODO: プレイヤーが装備可能な武器種類を抽出する
             var u = UserData.Instance;
             u.Equipments.List
                 .Where(e => e.EquipmentRecord.Rank <= player.CharacterRecord.Rank)
@@ -40,12 +39,7 @@ namespace GL.UI.PopupControllers
                 .Where(e => !u.IsEquipedEquipment(e))
                 .ForEach(e =>
             {
-                Instantiate(this.equipmentUIPrefab, this.listParent, false)
-                    .Setup(e.EquipmentRecord)
-                    .Button
-                    .OnClickAsObservable()
-                    .SubscribeWithState2(this, e, (_, _this, _e) => _this.submit.OnNext(_e.InstanceId))
-                    .AddTo(this);
+                this.CreateEquipmentUI(e);
             });
 
             this.SetupOtherButton();
@@ -55,24 +49,29 @@ namespace GL.UI.PopupControllers
 
         public EditEquipmentPopupController SetupAsAccessory(Player player)
         {
-            // TODO: プレイヤーが装備可能な武器種類を抽出する
             var u = UserData.Instance;
             u.Equipments.List
+                .Where(e => e.EquipmentRecord.Rank <= player.CharacterRecord.Rank)
                 .Where(e => e.EquipmentRecord.EquipmentType == Constants.EquipmentType.Accessory)
-                .Where(e => !u.IsEquipedEquipment(e) && e.EquipmentRecord.Rank <= player.CharacterRecord.Rank)
+                .Where(e => !u.IsEquipedEquipment(e))
                 .ForEach(e =>
             {
-                Instantiate(this.equipmentUIPrefab, this.listParent, false)
-                    .Setup(e.EquipmentRecord)
-                    .Button
-                    .OnClickAsObservable()
-                    .SubscribeWithState2(this, e, (_, _this, _e) => _this.submit.OnNext(_e.InstanceId))
-                    .AddTo(this);
+                this.CreateEquipmentUI(e);
             });
 
             this.SetupOtherButton();
 
             return this;
+        }
+
+        private void CreateEquipmentUI(Equipment equipment)
+        {
+            Instantiate(this.equipmentUIPrefab, this.listParent, false)
+                .Setup(equipment.EquipmentRecord)
+                .Button
+                .OnClickAsObservable()
+                .SubscribeWithState2(this, equipment, (_, _this, e) => _this.submit.OnNext(e.InstanceId))
+                .AddTo(this);
         }
 
         private void SetupOtherButton()
