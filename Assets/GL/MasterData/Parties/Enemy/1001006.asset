@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a6b740a10aeb45eb891f706ac8eaa2b, type: 3}
+  m_Name: 1001006
+  m_EditorClassIdentifier: 
+  partyName:
+    target: {fileID: 11400000, guid: f8b6937b4695b4cb987a4969fa50c1db, type: 2}
+    value: "\u30B8\u30E1\u30B8\u30E1\u6C60\u306E\u4EF2\u9593\u305F\u3061"
+    guid: 0315b901-4fa2-4b0f-9094-23d639343c87
+  parameters:
+  - Level: 1
+    CharacterRecord: {fileID: 11400000, guid: 765a17dcae8404fe0bcd0fc32992ca5f, type: 2}
+    RightWeapon: {fileID: 0}
+    LeftWeapon: {fileID: 0}
+    Accessories: []
+  - Level: 1
+    CharacterRecord: {fileID: 11400000, guid: b4cbd57454cb74e9c8da45f907ab69bb, type: 2}
+    RightWeapon: {fileID: 0}
+    LeftWeapon: {fileID: 0}
+    Accessories: []
+  - Level: 1
+    CharacterRecord: {fileID: 11400000, guid: b4cbd57454cb74e9c8da45f907ab69bb, type: 2}
+    RightWeapon: {fileID: 0}
+    LeftWeapon: {fileID: 0}
+    Accessories: []
+  - Level: 1
+    CharacterRecord: {fileID: 11400000, guid: 765a17dcae8404fe0bcd0fc32992ca5f, type: 2}
+    RightWeapon: {fileID: 0}
+    LeftWeapon: {fileID: 0}
+    Accessories: []
+  - Level: 1
+    CharacterRecord: {fileID: 11400000, guid: c5a68d956713b4ee9a6b3705e96282f3, type: 2}
+    RightWeapon: {fileID: 0}
+    LeftWeapon: {fileID: 0}
+    Accessories: []
+  characterType: 1
+  unlockElements:
+    enemyParties:
+    - 1001007
+    characters: []
+    equipments: []

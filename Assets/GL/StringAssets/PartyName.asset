@@ -32,3 +32,31 @@ MonoBehaviour:
       ja: "Enemy0\u8ECD\u56E3"
       en: 
     guid: 3a8be327-4461-4e16-9175-539a41ab93c5
+  - value:
+      ja: "\u521D\u3081\u307E\u3057\u3066\uFF01\u30B4\u30D6\u30EA\u30F3\u7D44"
+      en: 
+    guid: c72a29d0-6eab-4b6c-bb10-2db29d890aa7
+  - value:
+      ja: "\u8972\u6765\uFF01\u30B4\u30D6\u30EA\u30F3\u8ECD\u56E3"
+      en: 
+    guid: 6eda9ab5-7d59-4def-b214-fb509a9fb6c8
+  - value:
+      ja: "\u30D9\u30BF\u30D9\u30BF\uFF01\u30B9\u30E9\u30A4\u30E0"
+      en: 
+    guid: f4cf7dab-83b9-4f3b-b2b6-00b224475ced
+  - value:
+      ja: "\u9AD8\u901F\uFF01\u5996\u602A\u30B3\u30A6\u30E2\u30EA"
+      en: 
+    guid: f6f0ad9d-aa07-4f1d-9dad-842d9d71b1de
+  - value:
+      ja: "\u6050\u6016\uFF01\u5893\u5834\u306E\u9632\u4EBA"
+      en: 
+    guid: 871782b6-aed9-4b19-84c3-2d6bc9dac6c2
+  - value:
+      ja: "\u30B8\u30E1\u30B8\u30E1\u6C60\u306E\u4EF2\u9593\u305F\u3061"
+      en: 
+    guid: 0315b901-4fa2-4b0f-9094-23d639343c87
+  - value:
+      ja: "\u30B4\u30D6\u30EA\u30F3\u5148\u8F29\u3068\u90E8\u4E0B"
+      en: 
+    guid: 36e37fdb-1196-4d48-a398-844940a03a19

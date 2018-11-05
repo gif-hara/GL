@@ -9,33 +9,45 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a6b740a10aeb45eb891f706ac8eaa2b, type: 3}
-  m_Name: 101004
+  m_Name: 1001007
   m_EditorClassIdentifier: 
   partyName:
     target: {fileID: 11400000, guid: f8b6937b4695b4cb987a4969fa50c1db, type: 2}
-    value: "Enemy0\u8ECD\u56E3"
-    guid: 3a8be327-4461-4e16-9175-539a41ab93c5
+    value: "\u30B4\u30D6\u30EA\u30F3\u5148\u8F29\u3068\u90E8\u4E0B"
+    guid: 36e37fdb-1196-4d48-a398-844940a03a19
   parameters:
   - Level: 1
-    Blueprint: {fileID: 11400000, guid: 5697bef62633b4f4c8003caf62405c77, type: 2}
+    CharacterRecord: {fileID: 11400000, guid: 5697bef62633b4f4c8003caf62405c77, type: 2}
     RightWeapon: {fileID: 11400000, guid: ddb9db169bd8b4768938efc96c40f1a8, type: 2}
     LeftWeapon: {fileID: 0}
     Accessories: []
   - Level: 1
-    Blueprint: {fileID: 11400000, guid: 5697bef62633b4f4c8003caf62405c77, type: 2}
+    CharacterRecord: {fileID: 11400000, guid: 97da30407154d4c528861bd09add452b, type: 2}
+    RightWeapon: {fileID: 0}
+    LeftWeapon: {fileID: 0}
+    Accessories: []
+  - Level: 1
+    CharacterRecord: {fileID: 11400000, guid: 97da30407154d4c528861bd09add452b, type: 2}
+    RightWeapon: {fileID: 0}
+    LeftWeapon: {fileID: 0}
+    Accessories: []
+  - Level: 1
+    CharacterRecord: {fileID: 11400000, guid: 5697bef62633b4f4c8003caf62405c77, type: 2}
     RightWeapon: {fileID: 11400000, guid: ddb9db169bd8b4768938efc96c40f1a8, type: 2}
     LeftWeapon: {fileID: 0}
     Accessories: []
   - Level: 1
-    Blueprint: {fileID: 11400000, guid: 5697bef62633b4f4c8003caf62405c77, type: 2}
+    CharacterRecord: {fileID: 11400000, guid: 5697bef62633b4f4c8003caf62405c77, type: 2}
     RightWeapon: {fileID: 11400000, guid: ddb9db169bd8b4768938efc96c40f1a8, type: 2}
     LeftWeapon: {fileID: 0}
     Accessories: []
   - Level: 1
-    Blueprint: {fileID: 11400000, guid: 5697bef62633b4f4c8003caf62405c77, type: 2}
+    CharacterRecord: {fileID: 11400000, guid: 5697bef62633b4f4c8003caf62405c77, type: 2}
     RightWeapon: {fileID: 11400000, guid: ddb9db169bd8b4768938efc96c40f1a8, type: 2}
     LeftWeapon: {fileID: 0}
     Accessories: []
   characterType: 1
   unlockElements:
     enemyParties: []
+    characters: []
+    equipments: []

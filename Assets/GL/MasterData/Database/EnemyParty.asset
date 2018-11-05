@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Name: EnemyParty
   m_EditorClassIdentifier: 
   list:
-  - {fileID: 11400000, guid: 3dac803ca1d814d86b4c8d3a892b17e5, type: 2}
-  - {fileID: 11400000, guid: fa4e1301ef41f43898ed6cd983c489ee, type: 2}
-  - {fileID: 11400000, guid: 4e610f59b926c470192fca238fb5ac43, type: 2}
-  - {fileID: 11400000, guid: 55c16e67dd88646fda67ab4659f1307b, type: 2}
+  - {fileID: 11400000, guid: 8b4f980672edc49d995b4981305d896f, type: 2}
+  - {fileID: 11400000, guid: a5102b306d8584358bc51d26b5969a45, type: 2}
+  - {fileID: 11400000, guid: 8821b206f913147678b06acc4be25b82, type: 2}
+  - {fileID: 11400000, guid: 5e44895448d3a4df4a0252224a1bd3fd, type: 2}
+  - {fileID: 11400000, guid: 6e35767914553467fa7a710ec4b26980, type: 2}
+  - {fileID: 11400000, guid: f618d974e58b64fe3b689c53f92f7b12, type: 2}
+  - {fileID: 11400000, guid: f67bed9dd8e8c4e0eb6ae046c061a36b, type: 2}

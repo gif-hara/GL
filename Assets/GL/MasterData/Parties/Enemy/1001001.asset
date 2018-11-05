@@ -9,34 +9,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a6b740a10aeb45eb891f706ac8eaa2b, type: 3}
-  m_Name: 101001
+  m_Name: 1001001
   m_EditorClassIdentifier: 
   partyName:
     target: {fileID: 11400000, guid: f8b6937b4695b4cb987a4969fa50c1db, type: 2}
-    value: 0000
-    guid: 1999759f-b7b1-4f9c-a6e1-c9d2407b26a2
+    value: "\u521D\u3081\u307E\u3057\u3066\uFF01\u30B4\u30D6\u30EA\u30F3\u7D44"
+    guid: c72a29d0-6eab-4b6c-bb10-2db29d890aa7
   parameters:
   - Level: 1
-    Blueprint: {fileID: 11400000, guid: 5697bef62633b4f4c8003caf62405c77, type: 2}
+    CharacterRecord: {fileID: 11400000, guid: 5697bef62633b4f4c8003caf62405c77, type: 2}
     RightWeapon: {fileID: 11400000, guid: ddb9db169bd8b4768938efc96c40f1a8, type: 2}
     LeftWeapon: {fileID: 0}
     Accessories: []
   - Level: 1
-    Blueprint: {fileID: 11400000, guid: 5697bef62633b4f4c8003caf62405c77, type: 2}
+    CharacterRecord: {fileID: 11400000, guid: 5697bef62633b4f4c8003caf62405c77, type: 2}
     RightWeapon: {fileID: 11400000, guid: ddb9db169bd8b4768938efc96c40f1a8, type: 2}
     LeftWeapon: {fileID: 0}
     Accessories: []
   characterType: 1
   unlockElements:
     enemyParties:
-    - 101002
-    characters:
-    - 101001
-    weapons:
-    - 10101001
-    - 10201001
-    - 10301001
-    - 10401001
-    - 10501001
-    accessories:
-    - 1000
+    - 1001002
+    characters: []
+    equipments: []

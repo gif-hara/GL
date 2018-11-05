@@ -65,16 +65,55 @@ namespace GL.DeveloperTools
                 var path = "Assets/GL/MasterData/Parties/Enemy/";
                 var fileName = splitPartyData[0];
                 var partyRecord = ImporterUtility.GetOrCreate<PartyRecord>(path, fileName);
-                var parameter = new Battle.PartyControllers.Parameter();
-                // parameter.Set(
-                //     1,
-
-                // )
-                // partyRecord.Set(
-                //     partyNameAsset.CreateOrGetFinder(splitPartyData[1]),
-
-                // )
+                var parameters = CreateParameters(splitPartyData);
+                UnlockElements unlockElements = null;
+                unlockDictionary.TryGetValue(fileName, out unlockElements);
+                partyRecord.Set(
+                    partyNameAsset.CreateOrGetFinder(splitPartyData[1]),
+                    parameters,
+                    Constants.CharacterType.Enemy,
+                    unlockElements
+                );
+                AssetDatabase.SetLabels(partyRecord, new string[] { "GL.PartyRecord" });
+                EditorUtility.SetDirty(partyRecord);
             }
+
+            var partyDatabase = AssetDatabase.LoadAssetAtPath<EnemyPartyList>("Assets/GL/MasterData/Database/EnemyParty.asset");
+            partyDatabase.Reset();
+            EditorUtility.SetDirty(partyDatabase);
+
+            AssetDatabase.SaveAssets();
+        }
+
+        private static Battle.PartyControllers.Parameter[] CreateParameters(string[] splitPartyData)
+        {
+            var result = new List<Battle.PartyControllers.Parameter>();
+            for (var i = 2; i <= 9; i++)
+            {
+                var characterId = splitPartyData[i];
+                if(string.IsNullOrEmpty(characterId))
+                {
+                    continue;
+                }
+
+                var characterRecord = AssetDatabase.LoadAssetAtPath<CharacterRecord>($"Assets/GL/MasterData/Characters/Enemy/{characterId}.asset");
+                Assert.IsNotNull(characterRecord, $"{characterId}に対応する{typeof(CharacterRecord).Name}の取得に失敗しました");
+                var weaponRecord = AssetDatabase.LoadAssetAtPath<EquipmentRecord>($"Assets/GL/MasterData/Equipments/{characterId}.asset");
+                Assert.IsNotNull(characterRecord, $"{characterId}に対応する武器の取得に失敗しました");
+
+                var parameter = new Battle.PartyControllers.Parameter();
+                parameter.Set(
+                    1,
+                    characterRecord,
+                    weaponRecord,
+                    null,
+                    null
+                    );
+
+                result.Add(parameter);
+            }
+
+            return result.ToArray();
         }
     }
 }

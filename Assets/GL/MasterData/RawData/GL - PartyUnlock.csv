@@ -1,2 +1,7 @@
 パーティ名,UnlockType,Id,PartyId
 初めまして！ゴブリン組,EnemyParty,1001002,1001001
+襲来！ゴブリン軍団,EnemyParty,1001003,1001002
+ベタベタ！スライム,EnemyParty,1001004,1001003
+高速！妖怪コウモリ,EnemyParty,1001005,1001004
+恐怖！墓場の防人,EnemyParty,1001006,1001005
+ジメジメ池の仲間たち,EnemyParty,1001007,1001006
