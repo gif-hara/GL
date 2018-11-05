@@ -20,7 +20,7 @@ namespace GL.Battle.PartyControllers
         public int Level;
 
         [SerializeField]
-        public CharacterRecord Blueprint;
+        public CharacterRecord CharacterRecord;
 
         [SerializeField]
         public EquipmentRecord RightWeapon;
@@ -36,7 +36,7 @@ namespace GL.Battle.PartyControllers
             return new Parameter()
             {
                 Level = player.Level,
-                Blueprint = player.CharacterRecord,
+                CharacterRecord = player.CharacterRecord,
                 RightWeapon = player.RightHand.EquipmentRecord,
                 LeftWeapon = player.LeftHand.EquipmentRecord,
                 Accessories = player.Accessories,
@@ -122,5 +122,16 @@ namespace GL.Battle.PartyControllers
                 return result.ToArray();
             }
         }
+
+#if UNITY_EDITOR
+        public void Set(int level, CharacterRecord characterRecord, EquipmentRecord rightWeapon, EquipmentRecord leftWeapon, EquipmentRecord[] accessories)
+        {
+            this.Level = level;
+            this.CharacterRecord = characterRecord;
+            this.RightWeapon = rightWeapon;
+            this.LeftWeapon = leftWeapon;
+            this.Accessories = accessories;
+        }
+#endif
     }
 }

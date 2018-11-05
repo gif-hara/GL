@@ -48,7 +48,7 @@ namespace GL.Database
             {
                 var character = Instantiate(prefab, parent);
                 character.Initialize(
-                    p.Blueprint,
+                    p.CharacterRecord,
                     p.Commands,
                     p.SkillElements,
                     p.Level,
@@ -59,5 +59,15 @@ namespace GL.Database
 
             return new Battle.PartyControllers.Party(member, this);
         }
+
+#if UNITY_EDITOR
+        public void Set(StringAsset.Finder partyName, Battle.PartyControllers.Parameter[] parameters, Constants.CharacterType characterType, UnlockElements unlockElements)
+        {
+            this.partyName = partyName;
+            this.parameters = parameters;
+            this.characterType = characterType;
+            this.unlockElements = unlockElements;
+        }
+#endif
     }
 }

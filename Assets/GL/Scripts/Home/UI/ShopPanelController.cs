@@ -1,7 +1,9 @@
 ﻿using System.Linq;
 using GL.Database;
+using GL.Events.Home;
 using GL.UI.PopupControllers;
 using GL.User;
+using HK.Framework.EventSystems;
 using HK.Framework.Text;
 using HK.GL.Extensions;
 using UniRx;
@@ -54,6 +56,16 @@ namespace GL.Home.UI
                 var element = Instantiate(this.shopElementControllerPrefab, this.listContents, false);
                 element.Setup(this, w);
             });
+
+            Broker.Global.Publish(ChangeFooter.Get(FooterController.Mode.Cancel));
+            Broker.Global.Receive<ClickedFooterCancelButton>()
+                .Take(1)
+                .SubscribeWithState(this, (_, _this) =>
+                {
+                    _this.ShowTop();
+                    Broker.Global.Publish(ChangeFooter.Get(FooterController.Mode.Default));
+                })
+                .AddTo(this);
         }
 
         /// <summary>
@@ -78,7 +90,7 @@ namespace GL.Home.UI
                     var isDecide = index > 0;
                     if(isDecide)
                     {
-                        _this.BuyWeapon(_weapon);
+                        _this.BuyEquipment(_weapon);
                     }
                     else
                     {
@@ -88,19 +100,19 @@ namespace GL.Home.UI
                 .AddTo(popup);
         }
 
-        private void BuyWeapon(EquipmentRecord weapon)
+        private void BuyEquipment(EquipmentRecord equipment)
         {
             PopupManager.Close();
             var userData = UserData.Instance;
-            if(!userData.Wallet.Gold.IsEnough(weapon.Price))
+            if(!userData.Wallet.Gold.IsEnough(equipment.Price))
             {
                 this.notBuyFromGoldPopup.Show().SubmitAsObservable()
                     .Subscribe(_ => PopupManager.Close());
                 return;
             }
 
-            userData.AddEquipment(weapon);
-            userData.Wallet.Gold.Pay(weapon.Price);
+            userData.AddEquipment(equipment);
+            userData.Wallet.Gold.Pay(equipment.Price);
             userData.Save();
 
             this.buyPopup.Show().SubmitAsObservable()
