@@ -42,8 +42,8 @@ namespace GL.DeveloperTools
             for (var i = 1; i < enemyData.Length; i++)
             {
                 var splitEnemyData = enemyData[i].Split(',');
-                var tempEnemyName = splitEnemyData[0];
-                var level = int.Parse(splitEnemyData[3]);
+                var tempEnemyName = splitEnemyData[1];
+                var level = int.Parse(splitEnemyData[4]);
                 if(enemyName != tempEnemyName)
                 {
                     otherData = new OtherData(enemyOtherData.Find(x => x.IndexOf(tempEnemyName) >= 0));
@@ -51,25 +51,25 @@ namespace GL.DeveloperTools
                 }
                 enemyName = tempEnemyName;
                 var materialLotteries = GetMaterialLotteries(enemyMaterialData, tempEnemyName, level);
-                var iconId = int.Parse(splitEnemyData[1]);
-                var colorId = int.Parse(splitEnemyData[2]);
+                var iconId = int.Parse(splitEnemyData[2]);
+                var colorId = int.Parse(splitEnemyData[3]);
                 var path = "Assets/GL/MasterData/Characters/Enemy/";
-                var fileName = splitEnemyData[23].RemoveNewLine();
+                var fileName = splitEnemyData[0].RemoveNewLine();
                 var enemyAsset = ImporterUtility.GetOrCreate<CharacterRecord>(path, fileName);
                 var parameter = new Parameter(
-                    int.Parse(splitEnemyData[5]),
                     int.Parse(splitEnemyData[6]),
                     int.Parse(splitEnemyData[7]),
                     int.Parse(splitEnemyData[8]),
                     int.Parse(splitEnemyData[9]),
                     int.Parse(splitEnemyData[10]),
                     int.Parse(splitEnemyData[11]),
-                    int.Parse(splitEnemyData[12])
+                    int.Parse(splitEnemyData[12]),
+                    int.Parse(splitEnemyData[13])
                 );
                 enemyAsset.SetAsEnemy(
                     AssetDatabase.LoadAssetAtPath<Sprite>($"Assets/GL/Textures/Enemy/Enemy{iconId}.png"),
                     colorAsset.Colors[colorId - 1],
-                    int.Parse(splitEnemyData[4]),
+                    int.Parse(splitEnemyData[5]),
                     enemyNameAsset.CreateOrGetFinder(enemyName),
                     job,
                     parameter,
@@ -78,8 +78,8 @@ namespace GL.DeveloperTools
                     otherData.Attribute,
                     new CharacterRecord.GrowthCurve(),
                     new CharacterRecord.ExperienceData(),
-                    int.Parse(splitEnemyData[13]),
                     int.Parse(splitEnemyData[14]),
+                    int.Parse(splitEnemyData[15]),
                     materialLotteries,
                     level
                 );
