@@ -13,11 +13,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   elementName:
     target: {fileID: 11400000, guid: 2b0a21b5cfb9545feafa2c70ee8d2ae8, type: 2}
-    value: "\u653B\u6483\u529B10\u30A2\u30C3\u30D7"
-    guid: a0c557e5-30c1-47e4-979d-f68b8ff21a1a
+    value: "HP250\u30A2\u30C3\u30D7"
+    guid: afd795ff-350a-4fe1-9f0c-e00bfa1a9804
   description:
     target: {fileID: 11400000, guid: 0055e3e35ace045bc85d06a16596e472, type: 2}
-    value: "\u653B\u6483\u529B\u304C10\u30A2\u30C3\u30D7\u3059\u308B"
-    guid: 8acdac55-cf9f-46c8-91dc-441a6c829408
-  statusParameterType: 2
-  amount: 10
+    value: "\u30D2\u30C3\u30C8\u30DD\u30A4\u30F3\u30C8\u304C250\u30A2\u30C3\u30D7\u3059\u308B"
+    guid: 63683a5d-81e2-4ce9-8b77-b88ebd99d40a
+  statusParameterType: 1
+  amount: 250

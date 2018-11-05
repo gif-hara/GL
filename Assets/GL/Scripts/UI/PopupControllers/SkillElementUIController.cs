@@ -16,10 +16,10 @@ namespace GL.UI
         [SerializeField]
         private Text description;
 
-        public void Setup(SkillElement element)
+        public void Setup(ConditionalSkillElement element)
         {
-            this.elementName.text = element.ElementName;
-            this.description.text = element.Description;
+            this.elementName.text = element.SkillElement.ElementName;
+            this.description.text = element.SkillElement.Description;
         }
     }
 }

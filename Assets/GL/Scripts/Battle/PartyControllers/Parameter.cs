@@ -101,25 +101,30 @@ namespace GL.Battle.PartyControllers
             get
             {
                 var result = new List<SkillElement>();
-                if(this.RightWeapon != null)
+                this.AddSkillElements(result, this.RightWeapon);
+                this.AddSkillElements(result, this.LeftWeapon);
+                foreach(var a in this.Accessories)
                 {
-                    result.AddRange(this.RightWeapon.SkillElements);
+                    this.AddSkillElements(result, a);
                 }
-                if(this.LeftWeapon != null)
-                {
-                    result.AddRange(this.LeftWeapon.SkillElements);
-                }
-                this.Accessories.ForEach(a =>
-                {
-                    if (a == null)
-                    {
-                        return;
-                    }
-
-                    result.AddRange(a.SkillElements);
-                });
 
                 return result.ToArray();
+            }
+        }
+
+        private void AddSkillElements(List<SkillElement> skillElements, EquipmentRecord equipmentRecord)
+        {
+            if(equipmentRecord == null)
+            {
+                return;
+            }
+
+            foreach (var s in equipmentRecord.SkillElements)
+            {
+                if (s.Condition.Suitable(this.RightWeapon, this.LeftWeapon, this.Accessories))
+                {
+                    skillElements.Add(s.SkillElement);
+                }
             }
         }
 

@@ -49,29 +49,32 @@ namespace GL.DeveloperTools
                 }
                 var commandRecord = AssetDatabase.LoadAssetAtPath<CommandRecord>($"Assets/GL/MasterData/Commands/Bundles/{commandId}.asset");
                 Assert.IsNotNull(commandRecord, $"{commandId}のCommandRecordがありませんでした");
-                var condition = AssetDatabase.LoadAssetAtPath<CommandElementCondition>($"Assets/GL/MasterData/Commands/Conditions/{conditionName}.asset");
+                var condition = AssetDatabase.LoadAssetAtPath<EquipmentElementCondition>($"Assets/GL/MasterData/Commands/Conditions/{conditionName}.asset");
                 Assert.IsNotNull(condition, $"{conditionName}に対応するCommandElementConditionがありませんでした");
 
                 commandRecords.Add(new ConditionalCommandRecord(commandRecord, condition));
             }
 
             // スキルデータを抽出
-            var skillElementDictionary = new Dictionary<string, List<SkillElement>>();
+            var conditionalSkillElementDictionary = new Dictionary<string, List<ConditionalSkillElement>>();
             for (var i = 1; i < equipmentSkillData.Length; i++)
             {
                 var splitSkillData = equipmentSkillData[i].Split(',');
-                var equipmentId = splitSkillData[2];
-                var skillId = splitSkillData[3].RemoveNewLine();
-                List<SkillElement> skillElements = null;
-                if(!skillElementDictionary.TryGetValue(equipmentId, out skillElements))
+                var conditionName = splitSkillData[2];
+                var equipmentId = splitSkillData[3];
+                var skillId = splitSkillData[4].RemoveNewLine();
+                List<ConditionalSkillElement> skillElements = null;
+                if(!conditionalSkillElementDictionary.TryGetValue(equipmentId, out skillElements))
                 {
-                    skillElements = new List<SkillElement>();
-                    skillElementDictionary.Add(equipmentId, skillElements);
+                    skillElements = new List<ConditionalSkillElement>();
+                    conditionalSkillElementDictionary.Add(equipmentId, skillElements);
                 }
 
                 var skillElement = AssetDatabase.LoadAssetAtPath<SkillElement>($"Assets/GL/MasterData/SkillElements/{skillId}.asset");
                 Assert.IsNotNull(skillElement, $"{skillId}に対応する{typeof(SkillElement).Name}がありませんでした");
-                skillElements.Add(skillElement);
+                var condition = AssetDatabase.LoadAssetAtPath<EquipmentElementCondition>($"Assets/GL/MasterData/Commands/Conditions/{conditionName}.asset");
+                Assert.IsNotNull(condition, $"{conditionName}に対応するCommandElementConditionがありませんでした");
+                skillElements.Add(new ConditionalSkillElement(skillElement, condition));
             }
 
             // 必要素材を抽出
@@ -104,8 +107,8 @@ namespace GL.DeveloperTools
                 var equipmentRecord = ImporterUtility.GetOrCreate<EquipmentRecord>(path, fileName);
                 List<ConditionalCommandRecord> commandRecords = null;
                 commandDictionary.TryGetValue(fileName, out commandRecords);
-                List<SkillElement> skillElements = null;
-                skillElementDictionary.TryGetValue(fileName, out skillElements);
+                List<ConditionalSkillElement> conditionalSkillElements = null;
+                conditionalSkillElementDictionary.TryGetValue(fileName, out conditionalSkillElements);
                 List<NeedMaterial> needMaterials = null;
                 needMaterialDictionary.TryGetValue(fileName, out needMaterials);
                 equipmentRecord.Set(
@@ -114,7 +117,7 @@ namespace GL.DeveloperTools
                     (Constants.EquipmentType)Enum.Parse(typeof(Constants.EquipmentType), splitEquipmentRecordData[3]),
                     int.Parse(splitEquipmentRecordData[4]),
                     commandRecords == null ? null : commandRecords.ToArray(),
-                    skillElements == null ? null : skillElements.ToArray(),
+                    conditionalSkillElements == null ? null : conditionalSkillElements.ToArray(),
                     needMaterials == null ? null : needMaterials.ToArray()
                 );
                 var isPlayerEquipment = fileName[0] == '1';

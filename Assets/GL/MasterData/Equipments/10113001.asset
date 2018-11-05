@@ -20,7 +20,8 @@ MonoBehaviour:
   price: 1200
   commands: []
   skillElements:
-  - {fileID: 11400000, guid: b321f1ecdef8f4f6384d82d12ebeee0d, type: 2}
+  - skillElement: {fileID: 11400000, guid: 2a9e76ecfc42e4cb8b0736dc945206fb, type: 2}
+    condition: {fileID: 11400000, guid: 5e616f6c5005f49c6b39ca4db09a447d, type: 2}
   needMaterials:
   - material: {fileID: 11400000, guid: 4cf9b0a912efc4057ac5e9536dc528d1, type: 2}
     amount: 6

@@ -24,3 +24,215 @@ MonoBehaviour:
       ja: "\u653B\u6483\u529B5\u30A2\u30C3\u30D7"
       en: 
     guid: 4af34278-ebc5-4259-89bc-3dc54148e878
+  - value:
+      ja: "HP100\u30A2\u30C3\u30D7"
+      en: 
+    guid: 57067640-f9e0-429a-b186-3d36ac2a1585
+  - value:
+      ja: "HP250\u30A2\u30C3\u30D7"
+      en: 
+    guid: afd795ff-350a-4fe1-9f0c-e00bfa1a9804
+  - value:
+      ja: "HP500\u30A2\u30C3\u30D7"
+      en: 
+    guid: b6a73b19-79ec-4d90-b13d-142a0d8a8fb9
+  - value:
+      ja: "HP1000\u30A2\u30C3\u30D7"
+      en: 
+    guid: 9b9966e5-8a80-455c-a75a-241757a56619
+  - value:
+      ja: "HP2500\u30A2\u30C3\u30D7"
+      en: 
+    guid: 32589712-fd7f-42c9-82aa-67163611ecfd
+  - value:
+      ja: "\u653B\u6483\u529B20\u30A2\u30C3\u30D7"
+      en: 
+    guid: eff79791-f0ac-47db-aa52-be22190c9105
+  - value:
+      ja: "\u653B\u6483\u529B50\u30A2\u30C3\u30D7"
+      en: 
+    guid: 1a778e13-594e-4f4f-be85-f551dc67e411
+  - value:
+      ja: "\u653B\u6483\u529B100\u30A2\u30C3\u30D7"
+      en: 
+    guid: af13ce15-565b-4356-aac7-8ea8bb9c8b73
+  - value:
+      ja: "\u9B54\u653B5\u30A2\u30C3\u30D7"
+      en: 
+    guid: 433a3860-ec90-48fa-b636-de2a5fa5de5e
+  - value:
+      ja: "\u9B54\u653B10\u30A2\u30C3\u30D7"
+      en: 
+    guid: 8060faab-27cb-48a2-85ad-1cde7c892532
+  - value:
+      ja: "\u9B54\u653B20\u30A2\u30C3\u30D7"
+      en: 
+    guid: 68be71ed-b89b-4315-bf0c-2ce09adf21ad
+  - value:
+      ja: "\u9B54\u653B50\u30A2\u30C3\u30D7"
+      en: 
+    guid: 35284572-57a8-45bb-baa5-dcc0de653ed2
+  - value:
+      ja: "\u9B54\u653B100\u30A2\u30C3\u30D7"
+      en: 
+    guid: 9e62b764-a3d4-48af-b9ed-f19f892fd406
+  - value:
+      ja: "\u9632\u5FA1\u529B5\u30A2\u30C3\u30D7"
+      en: 
+    guid: 1139ae75-db81-4d7e-a0ee-8eb09e8fd886
+  - value:
+      ja: "\u9632\u5FA1\u529B10\u30A2\u30C3\u30D7"
+      en: 
+    guid: 86098041-c199-4acd-9766-4a2ea0c2cc9a
+  - value:
+      ja: "\u9632\u5FA1\u529B20\u30A2\u30C3\u30D7"
+      en: 
+    guid: 9721d42a-254a-4ef6-95c2-73a1199426eb
+  - value:
+      ja: "\u9632\u5FA1\u529B50\u30A2\u30C3\u30D7"
+      en: 
+    guid: 779fa073-e22b-4d62-bb04-cdb915e98a67
+  - value:
+      ja: "\u9632\u5FA1\u529B100\u30A2\u30C3\u30D7"
+      en: 
+    guid: f43bf8e2-a342-4cc9-b6f2-4a232a7033b4
+  - value:
+      ja: "\u9B54\u96325\u30A2\u30C3\u30D7"
+      en: 
+    guid: 05a8c82b-7f85-400f-8f91-cc6dd7d17660
+  - value:
+      ja: "\u9B54\u963210\u30A2\u30C3\u30D7"
+      en: 
+    guid: b3f048e5-2524-405f-9c38-3b69ca70d5e0
+  - value:
+      ja: "\u9B54\u963220\u30A2\u30C3\u30D7"
+      en: 
+    guid: dd23e385-4403-4e6e-8492-6e8ea114a8e7
+  - value:
+      ja: "\u9B54\u963250\u30A2\u30C3\u30D7"
+      en: 
+    guid: 3f4c4f71-b346-489a-bb16-3f2a59358b27
+  - value:
+      ja: "\u9B54\u9632100\u30A2\u30C3\u30D7"
+      en: 
+    guid: f263b17c-e855-4946-8756-d0bec190a7de
+  - value:
+      ja: "\u7D20\u65E9\u30555\u30A2\u30C3\u30D7"
+      en: 
+    guid: fed3fc74-3805-4fd7-b201-fe68ef65d020
+  - value:
+      ja: "\u7D20\u65E9\u305510\u30A2\u30C3\u30D7"
+      en: 
+    guid: 429e8caa-0602-445c-9e92-6cd05bc53adc
+  - value:
+      ja: "\u7D20\u65E9\u305520\u30A2\u30C3\u30D7"
+      en: 
+    guid: a058884e-9830-4f39-85a9-c4d214e3d881
+  - value:
+      ja: "\u7D20\u65E9\u305550\u30A2\u30C3\u30D7"
+      en: 
+    guid: 612f9e26-f19d-41c9-a92c-4fbd9e91bbe6
+  - value:
+      ja: "\u7D20\u65E9\u3055100\u30A2\u30C3\u30D7"
+      en: 
+    guid: 44e5bdab-7f2d-433a-a416-924a1b4cbf01
+  - value:
+      ja: "HP5%\u30A2\u30C3\u30D7"
+      en: 
+    guid: b015618a-72f2-4d75-a544-e2ef8c342ad9
+  - value:
+      ja: "HP10%\u30A2\u30C3\u30D7"
+      en: 
+    guid: a05d72bd-c071-4f32-919b-09f0eca330e4
+  - value:
+      ja: "HP15%\u30A2\u30C3\u30D7"
+      en: 
+    guid: 05924148-ea80-4d03-a563-6890ed2a4d21
+  - value:
+      ja: "\u653B\u6483\u529B5%\u30A2\u30C3\u30D7"
+      en: 
+    guid: bf540d46-c4cf-4a09-af86-de9acdd6b907
+  - value:
+      ja: "\u653B\u6483\u529B10%\u30A2\u30C3\u30D7"
+      en: 
+    guid: eed99c4d-315f-4e54-936c-6a6984b3c6a3
+  - value:
+      ja: "\u653B\u6483\u529B15%\u30A2\u30C3\u30D7"
+      en: 
+    guid: 069a76b5-f00e-40c9-8233-c05af92e7b04
+  - value:
+      ja: "\u9B54\u653B5%\u30A2\u30C3\u30D7"
+      en: 
+    guid: dcde8503-4817-4d66-9a4b-0e3ead464f2c
+  - value:
+      ja: "\u9B54\u653B10%\u30A2\u30C3\u30D7"
+      en: 
+    guid: 7a259170-19e6-4fcc-8573-5b98eb4fc980
+  - value:
+      ja: "\u9B54\u653B15%\u30A2\u30C3\u30D7"
+      en: 
+    guid: 55e25d17-2092-459c-aa4f-5cba6bea7eab
+  - value:
+      ja: "\u9632\u5FA1\u529B5%\u30A2\u30C3\u30D7"
+      en: 
+    guid: 0336b46f-8eed-49e7-8016-9ab220d5a338
+  - value:
+      ja: "\u9632\u5FA1\u529B10%\u30A2\u30C3\u30D7"
+      en: 
+    guid: b65cd67a-d5f7-4734-a9db-38d92d0a7eed
+  - value:
+      ja: "\u9632\u5FA1\u529B15%\u30A2\u30C3\u30D7"
+      en: 
+    guid: 64ae527a-7901-474e-a763-f12cc0853346
+  - value:
+      ja: "\u9B54\u96325%\u30A2\u30C3\u30D7"
+      en: 
+    guid: cd03d806-c268-4e72-ba42-8e1b4bd0937c
+  - value:
+      ja: "\u9B54\u963210%\u30A2\u30C3\u30D7"
+      en: 
+    guid: 11e3e463-fcc8-4339-b8e5-c264c75cd0f7
+  - value:
+      ja: "\u9B54\u963215%\u30A2\u30C3\u30D7"
+      en: 
+    guid: 84c34d97-d6ed-43a3-bf93-899fdc546660
+  - value:
+      ja: "\u7D20\u65E9\u30555%\u30A2\u30C3\u30D7"
+      en: 
+    guid: 2d7ea778-4f37-4311-80fd-d37a4ccbbed5
+  - value:
+      ja: "\u7D20\u65E9\u305510%\u30A2\u30C3\u30D7"
+      en: 
+    guid: 82aca4f7-145f-42cc-9dcd-f73049bb178b
+  - value:
+      ja: "\u7D20\u65E9\u305515%\u30A2\u30C3\u30D7"
+      en: 
+    guid: df78f2c2-c545-4972-b943-b04da9b41917
+  - value:
+      ja: "\u4F1A\u5FC3\u73872%\u30A2\u30C3\u30D7"
+      en: 
+    guid: 678f654a-7da9-4f8c-94af-00716ebd4b1d
+  - value:
+      ja: "\u4F1A\u5FC3\u73875%\u30A2\u30C3\u30D7"
+      en: 
+    guid: 2d4c3092-4e4f-4144-ab0e-aa994fe60daa
+  - value:
+      ja: "\u4F1A\u5FC3\u73878%\u30A2\u30C3\u30D7"
+      en: 
+    guid: 9afbb51e-40b1-4333-9bdd-e7ee8f7847ce
+  - value:
+      ja: "\u56DE\u907F\u73872%\u30A2\u30C3\u30D7"
+      en: 
+    guid: 0a3a8143-c0d3-443e-a546-49fc86792487
+  - value:
+      ja: "\u56DE\u907F\u73875%\u30A2\u30C3\u30D7"
+      en: 
+    guid: bd5b409b-ccf4-481e-b559-d11e8d8423be
+  - value:
+      ja: "\u56DE\u907F\u73878%\u30A2\u30C3\u30D7"
+      en: 
+    guid: 8f3b8203-0ed1-4b31-b585-a71adc98489b
+  - value:
+      ja: "8%\u30A2\u30C3\u30D7"
+      en: 
+    guid: 45883575-e5e4-4097-be37-a2ce141fb704

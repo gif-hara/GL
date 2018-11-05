@@ -49,6 +49,13 @@ namespace GL.DeveloperTools
                         (Constants.StatusParameterType)Enum.Parse(typeof(Constants.StatusParameterType), splitSkillElementData[4]),
                         int.Parse(splitSkillElementData[5])
                     );
+                case "AddStatusParameterRate":
+                    return ImporterUtility.GetOrCreate<AddStatusParameterRate>(path, fileName).Setup(
+                        elementNameAsset.CreateOrGetFinder(splitSkillElementData[1]),
+                        descriptionAsset.CreateOrGetFinder(splitSkillElementData[2]),
+                        (Constants.StatusParameterType)Enum.Parse(typeof(Constants.StatusParameterType), splitSkillElementData[4]),
+                        float.Parse(splitSkillElementData[5])
+                    );
                 case "AddStatusResistance":
                     return ImporterUtility.GetOrCreate<AddStatusResistance>(path, fileName).Setup(
                         elementNameAsset.CreateOrGetFinder(splitSkillElementData[1]),

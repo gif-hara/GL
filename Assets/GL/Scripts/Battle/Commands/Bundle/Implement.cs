@@ -285,8 +285,8 @@ namespace GL.Battle.Commands.Bundle
             public Element.Blueprint Element => this.element;
 
             [SerializeField]
-            private CommandElementCondition condition;
-            public CommandElementCondition Condition => this.condition;
+            private EquipmentElementCondition condition;
+            public EquipmentElementCondition Condition => this.condition;
         }
 
         public sealed class ImplementList

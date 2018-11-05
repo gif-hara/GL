@@ -8,9 +8,9 @@ using UnityEngine.Assertions;
 namespace GL.Battle.Commands
 {
     /// <summary>
-    /// コマンドが実行出来る条件を持つクラス
+    /// 装備品のコマンドやスキルが実行出来る条件を持つクラス
     /// </summary>
-    public abstract class CommandElementCondition : ScriptableObject
+    public abstract class EquipmentElementCondition : ScriptableObject
     {
         [SerializeField]
         private StringAsset.Finder description;

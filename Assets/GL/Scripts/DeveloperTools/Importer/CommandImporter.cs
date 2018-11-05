@@ -134,7 +134,7 @@ namespace GL.DeveloperTools
                     result = ScriptableObject.CreateInstance<Attack>().SetupFromEditor(data);
                     break;
                 case "AddStatusParameterRate":
-                    result = ScriptableObject.CreateInstance<AddStatusParameterRate>().SetupFromEditor(data);
+                    result = ScriptableObject.CreateInstance<Battle.Commands.Element.Blueprints.AddStatusParameterRate>().SetupFromEditor(data);
                     break;
                 case "AddStatusAilment":
                     result = ScriptableObject.CreateInstance<AddStatusAilment>().SetupFromEditor(data);

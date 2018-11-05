@@ -7,7 +7,7 @@ namespace GL.Battle.Commands
     /// 無条件でコマンド実行出来る
     /// </summary>
     [CreateAssetMenu(menuName = "GL/Commands/Condition/Unconditional")]
-    public sealed class Unconditional : CommandElementCondition
+    public sealed class Unconditional : EquipmentElementCondition
     {
         public override bool Suitable(EquipmentRecord rightWeapon, EquipmentRecord leftWeapon, EquipmentRecord[] accessories)
         {

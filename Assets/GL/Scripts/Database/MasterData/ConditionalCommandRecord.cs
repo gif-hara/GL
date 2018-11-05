@@ -16,11 +16,11 @@ namespace GL.Database
         public CommandRecord CommandRecord => this.commandRecord;
 
         [SerializeField]
-        private CommandElementCondition condition;
-        public CommandElementCondition Condition => this.condition;
+        private EquipmentElementCondition condition;
+        public EquipmentElementCondition Condition => this.condition;
 
 #if UNITY_EDITOR
-        public ConditionalCommandRecord(CommandRecord commandRecord, CommandElementCondition condition)
+        public ConditionalCommandRecord(CommandRecord commandRecord, EquipmentElementCondition condition)
         {
             this.commandRecord = commandRecord;
             this.condition = condition;

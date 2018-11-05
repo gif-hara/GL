@@ -9,15 +9,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 42b1b47d79f854650b762f8bd6806567, type: 3}
-  m_Name: Strength10
+  m_Name: 101014
   m_EditorClassIdentifier: 
   elementName:
     target: {fileID: 11400000, guid: 2b0a21b5cfb9545feafa2c70ee8d2ae8, type: 2}
-    value: "\u653B\u6483\u529B10\u30A2\u30C3\u30D7"
-    guid: a0c557e5-30c1-47e4-979d-f68b8ff21a1a
+    value: "\u9B54\u653B50\u30A2\u30C3\u30D7"
+    guid: 35284572-57a8-45bb-baa5-dcc0de653ed2
   description:
     target: {fileID: 11400000, guid: 0055e3e35ace045bc85d06a16596e472, type: 2}
-    value: "\u653B\u6483\u529B\u304C10\u30A2\u30C3\u30D7\u3059\u308B"
-    guid: 8acdac55-cf9f-46c8-91dc-441a6c829408
-  statusParameterType: 2
-  amount: 10
+    value: "\u9B54\u6CD5\u653B\u6483\u529B\u304C50\u30A2\u30C3\u30D7\u3059\u308B"
+    guid: 3c437f8e-64ec-4c3f-93cd-381cddf7d85f
+  statusParameterType: 3
+  amount: 50

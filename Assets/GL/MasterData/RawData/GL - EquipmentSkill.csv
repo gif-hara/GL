@@ -1,2 +1,2 @@
-名前,スキル名,EquipmentId,SkilElementId
-赤いバンダナ,攻撃力10アップ,10113001,101002
+名前,スキル名,Condition,EquipmentId,SkilElementId
+赤いバンダナ,攻撃力5アップ,Unconditional,10113001,101006

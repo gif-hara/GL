@@ -96,29 +96,14 @@ MonoBehaviour:
         id: 10113001
       InstanceId:
         count: 0
-    Accessories:
-      List:
-      - instanceId: 0
-        id: 1000
-      - instanceId: 0
-        id: 1001
-      - instanceId: 0
-        id: 1000
-      - instanceId: 0
-        id: 1000
-      - instanceId: 0
-        id: 1000
-      InstanceId:
-        count: 0
     Materials:
     - id: 1000
       count: 1
     unlockElements:
       enemyParties:
-      - 101001
+      - 1001001
       characters: []
-      weapons: []
-      accessories: []
+      equipments: []
     currentPartyIndex: 0
   masterData: {fileID: 11400000, guid: 0a79933d2e00d4e8da66c79e07650958, type: 2}
   dontDestroyPrefabs:
