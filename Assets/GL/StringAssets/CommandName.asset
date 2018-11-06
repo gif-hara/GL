@@ -164,3 +164,63 @@ MonoBehaviour:
       ja: "\u30E9\u30F3\u30C0\u30E0\u653B\u6483(\u523A\u7A81)"
       en: 
     guid: 1cd98a47-3832-41f9-a458-2973869dacf8
+  - value:
+      ja: "\u81EA\u5206\u306B\u9B3C\u795E\u5316\u3092\u4ED8\u4E0ELv.2"
+      en: 
+    guid: 1ec61246-df85-43a5-bd28-d2bd919b5462
+  - value:
+      ja: "\u81EA\u5206\u306B\u9B3C\u795E\u5316\u3092\u4ED8\u4E0ELv.3"
+      en: 
+    guid: b317d7b6-ed10-4361-bcfb-375d80c7f31f
+  - value:
+      ja: "\u81EA\u5206\u306B\u786C\u8CEA\u5316\u3092\u4ED8\u4E0ELv.1"
+      en: 
+    guid: 0f81c357-fc84-4816-bb30-7bc3d8e3f6ac
+  - value:
+      ja: "\u81EA\u5206\u306B\u786C\u8CEA\u5316\u3092\u4ED8\u4E0ELv.2"
+      en: 
+    guid: 22b6e8e3-5562-40ba-815e-6035a242d772
+  - value:
+      ja: "\u81EA\u5206\u306B\u786C\u8CEA\u5316\u3092\u4ED8\u4E0ELv.3"
+      en: 
+    guid: 805c9526-c747-4b64-9eb2-7f39db18900d
+  - value:
+      ja: "\u81EA\u5206\u306B\u5148\u5236\u3092\u4ED8\u4E0ELv.1"
+      en: 
+    guid: d67c077d-7fd4-4d76-a0b1-37584ffb1c61
+  - value:
+      ja: "\u81EA\u5206\u306B\u5148\u5236\u3092\u4ED8\u4E0ELv.2"
+      en: 
+    guid: b8cb2467-61a4-417b-b556-483d9b8b037c
+  - value:
+      ja: "\u81EA\u5206\u306B\u5148\u5236\u3092\u4ED8\u4E0ELv.3"
+      en: 
+    guid: e386a6bf-f4cb-43fc-8ad0-7a5b686a2dc2
+  - value:
+      ja: "\u81EA\u5206\u306B\u518D\u751F\u3092\u4ED8\u4E0ELv.1"
+      en: 
+    guid: c6b80468-a8f5-400f-9761-7a5918c9200f
+  - value:
+      ja: "\u81EA\u5206\u306B\u518D\u751F\u3092\u4ED8\u4E0ELv.2"
+      en: 
+    guid: 66902d6a-8440-4e12-b116-7327da02d2a5
+  - value:
+      ja: "\u81EA\u5206\u306B\u518D\u751F\u3092\u4ED8\u4E0ELv.3"
+      en: 
+    guid: 69b60ca4-1b28-4763-b090-89e95c79c4d5
+  - value:
+      ja: "\u85AC\u8349"
+      en: 
+    guid: 209008c8-95a5-4d91-8603-6f22afbb6551
+  - value:
+      ja: "\u5143\u6C17\u8349"
+      en: 
+    guid: 38c8a1e7-9cc5-4475-954f-088a6f9305e7
+  - value:
+      ja: "\u8D85\u5143\u6C17\u8349"
+      en: 
+    guid: cdf49135-0e60-4a65-81ba-40ec1bd56b1c
+  - value:
+      ja: "\u5287\u5143\u6C17\u8349"
+      en: 
+    guid: 16b5f367-9945-4167-a838-b7b7a044e1b5

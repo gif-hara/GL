@@ -43,12 +43,12 @@ namespace GL.DeveloperTools
                 var e = commandElementData[i];
                 var splitElementData = e.Split(',');
                 GetAssetName(splitElementData.ToList());
-                var commandName = splitElementData[0];
+                var commandId = splitElementData[0];
                 List<string> elements = null;
-                if(!elementDictionary.TryGetValue(commandName, out elements))
+                if(!elementDictionary.TryGetValue(commandId, out elements))
                 {
                     elements = new List<string>();
-                    elementDictionary.Add(commandName, elements);
+                    elementDictionary.Add(commandId, elements);
                 }
 
                 elements.Add(e);
@@ -70,7 +70,7 @@ namespace GL.DeveloperTools
                     (Constants.PostprocessCommand)Enum.Parse(typeof(Constants.PostprocessCommand), split[5]),
                     int.Parse(split[6]),
                     int.Parse(split[7]),
-                    GetBlueprintLists(elementDictionary[commandName], commandElementDictionary)
+                    GetBlueprintLists(elementDictionary[fileName], commandElementDictionary)
                 );
                 EditorUtility.SetDirty(bundle);
             }
@@ -88,7 +88,7 @@ namespace GL.DeveloperTools
             BlueprintList blueprintList = null;
             foreach(var s in splitCommandData)
             {
-                var newIndex = int.Parse(s[2]);
+                var newIndex = int.Parse(s[3]);
                 if (index != newIndex)
                 {
                     if (blueprintList != null)
@@ -154,7 +154,7 @@ namespace GL.DeveloperTools
         {
             splitElementData.RemoveAll(m => string.IsNullOrEmpty(m) || m == "\r");
             var builder = new StringBuilder();
-            for (var i = 3; i < splitElementData.Count; i++)
+            for (var i = 4; i < splitElementData.Count; i++)
             {
                 var s = splitElementData[i].RemoveNewLine();
                 builder.Append(s);

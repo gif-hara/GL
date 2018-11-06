@@ -9,22 +9,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 221d7d34226dd41a8b8a8ce5033a61a1, type: 3}
-  m_Name: 1007001
+  m_Name: 1004008
   m_EditorClassIdentifier: 
   parameter:
     Name:
       target: {fileID: 11400000, guid: 3534e70039cc6491cad3f648e57e8b4b, type: 2}
-      value: "\u85AC\u8349"
-      guid: 209008c8-95a5-4d91-8603-6f22afbb6551
+      value: "\u81EA\u5206\u306B\u5148\u5236\u3092\u4ED8\u4E0ELv.2"
+      guid: b8cb2467-61a4-417b-b556-483d9b8b037c
     Description:
       target: {fileID: 11400000, guid: 64540f3636eab4a58b159c78cd0cb228, type: 2}
-      value: "\u5473\u65B9\u306EHP\u3092100\u56DE\u5FA9\u3059\u308B"
-      guid: 23a02429-cd3f-46b3-a3e5-2520aa5d66db
+      value: "\u81EA\u5206\u306B\u5148\u5236\u30921\u30BF\u30FC\u30F3\u4ED8\u4E0E\u3059\u308B"
+      guid: 24299933-e022-446a-a732-9cee7e4344d4
     TargetPartyType: 0
-    TargetType: 0
+    TargetType: 3
     Postprocess: 0
-    ChargeTurn: 1
-    InitialChargeTurn: 1
+    ChargeTurn: 5
+    InitialChargeTurn: 5
     ElementLists:
     - Elements:
-      - {fileID: 11400000, guid: e4ae92a4aacc143dcbd393deaa4e1ecf, type: 2}
+      - {fileID: 11400000, guid: 3892532cb610949349c3458e9dce4ea8, type: 2}

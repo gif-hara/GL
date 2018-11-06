@@ -192,3 +192,51 @@ MonoBehaviour:
       ja: "\u76F8\u624B\u306E\u8AB0\u304B\u306B\u523A\u7A81\u5C5E\u6027\u306E\u653B\u6483\u3092\u884C\u3046"
       en: 
     guid: d85a3a87-3413-49b7-8292-4e7f5666ac78
+  - value:
+      ja: "\u81EA\u5206\u306B\u9B3C\u795E\u5316\u30921\u30BF\u30FC\u30F3\u4ED8\u4E0E\u3059\u308B"
+      en: 
+    guid: 4f629392-364f-4a35-9184-2427911e638d
+  - value:
+      ja: "\u81EA\u5206\u306B\u9B3C\u795E\u5316\u30923\u30BF\u30FC\u30F3\u4ED8\u4E0E\u3059\u308B"
+      en: 
+    guid: 220b6e5e-d690-4407-901b-db95289b4cdf
+  - value:
+      ja: "\u81EA\u5206\u306B\u786C\u8CEA\u5316\u30921\u30BF\u30FC\u30F3\u4ED8\u4E0E\u3059\u308B"
+      en: 
+    guid: 347c58f3-c03b-4d06-937b-72f7ce154e67
+  - value:
+      ja: "\u81EA\u5206\u306B\u786C\u8CEA\u5316\u30922\u30BF\u30FC\u30F3\u4ED8\u4E0E\u3059\u308B"
+      en: 
+    guid: 4eb2dbc4-f422-487f-bf08-9cb1d1c84732
+  - value:
+      ja: "\u81EA\u5206\u306B\u786C\u8CEA\u5316\u30923\u30BF\u30FC\u30F3\u4ED8\u4E0E\u3059\u308B"
+      en: 
+    guid: 1bed2805-c1dd-49bf-a40e-cae8fe255f9f
+  - value:
+      ja: "\u81EA\u5206\u306B\u5148\u5236\u30921\u30BF\u30FC\u30F3\u4ED8\u4E0E\u3059\u308B"
+      en: 
+    guid: 24299933-e022-446a-a732-9cee7e4344d4
+  - value:
+      ja: "\u81EA\u5206\u306B\u518D\u751F\u30923\u30BF\u30FC\u30F3\u4ED8\u4E0E\u3059\u308B"
+      en: 
+    guid: 4d6372be-45ae-4a00-91dc-9477b86c03ed
+  - value:
+      ja: "\u81EA\u5206\u306B\u518D\u751F\u30924\u30BF\u30FC\u30F3\u4ED8\u4E0E\u3059\u308B"
+      en: 
+    guid: f74e66ff-da00-403f-8cb1-99cc5068be8f
+  - value:
+      ja: "\u81EA\u5206\u306B\u518D\u751F\u30925\u30BF\u30FC\u30F3\u4ED8\u4E0E\u3059\u308B"
+      en: 
+    guid: beac9958-6da8-40d0-b883-4f16a10f0d4b
+  - value:
+      ja: "\u5473\u65B9\u306EHP\u3092300\u56DE\u5FA9\u3059\u308B"
+      en: 
+    guid: 8cb290b4-120e-4f9f-8354-dc232b558fc6
+  - value:
+      ja: "\u5473\u65B9\u306EHP\u3092800\u56DE\u5FA9\u3059\u308B"
+      en: 
+    guid: 8d91fc85-6069-4daf-b1b7-4346386bcbdb
+  - value:
+      ja: "\u5473\u65B9\u306EHP\u30922000\u56DE\u5FA9\u3059\u308B"
+      en: 
+    guid: d6020625-b29e-4071-83db-ad0021772c53
