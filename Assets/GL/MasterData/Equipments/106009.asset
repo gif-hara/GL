@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30e5466c3c6114d91915749921a0104b, type: 3}
+  m_Name: 106009
+  m_EditorClassIdentifier: 
+  equipmentName:
+    target: {fileID: 11400000, guid: 7587e1216a4ef4cfeaf77541e6db4355, type: 2}
+    value: "\u30BB\u30D7\u30BF\u30FC\u306E\u30ED\u30C3\u30C9"
+    guid: 6b329f9d-ed4e-4c7c-a3cb-6ea372dcf20d
+  rank: 1
+  equipmentType: 32
+  price: 6800
+  commands: []
+  skillElements: []
+  needMaterials: []

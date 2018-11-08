@@ -92,6 +92,37 @@ namespace GL.Battle.CharacterControllers
             this.thunder = thunder;
         }
 
+        public void Add(Constants.AttributeType type, float value)
+        {
+            switch (type)
+            {
+                case Constants.AttributeType.Brow:
+                    this.brow += value;
+                    break;
+                case Constants.AttributeType.Slash:
+                    this.slash += value;
+                    break;
+                case Constants.AttributeType.Poke:
+                    this.poke += value;
+                    break;
+                case Constants.AttributeType.No:
+                    this.no += value;
+                    break;
+                case Constants.AttributeType.Fire:
+                    this.fire += value;
+                    break;
+                case Constants.AttributeType.Water:
+                    this.water += value;
+                    break;
+                case Constants.AttributeType.Thunder:
+                    this.thunder += value;
+                    break;
+                default:
+                    Assert.IsTrue(false, $"{type}は未対応の値です");
+                    break;
+            }
+        }
+
         public float Get(Constants.AttributeType type)
         {
             switch(type)

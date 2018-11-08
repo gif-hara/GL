@@ -83,17 +83,17 @@ MonoBehaviour:
     Equipments:
       List:
       - instanceId: 0
-        id: 10101001
+        id: 101001
       - instanceId: 0
-        id: 10101001
+        id: 101001
       - instanceId: 0
-        id: 10101001
+        id: 101001
       - instanceId: 0
-        id: 10101001
+        id: 101001
       - instanceId: 0
-        id: 10101001
+        id: 101001
       - instanceId: 0
-        id: 10113001
+        id: 113001
       InstanceId:
         count: 0
     Materials:

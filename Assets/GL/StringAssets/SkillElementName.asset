@@ -236,3 +236,63 @@ MonoBehaviour:
       ja: "8%\u30A2\u30C3\u30D7"
       en: 
     guid: 45883575-e5e4-4097-be37-a2ce141fb704
+  - value:
+      ja: "\u6BD2\u8010\u602750%\u30A2\u30C3\u30D7"
+      en: 
+    guid: 52cbf075-971a-4d1f-bdf4-3883c22f193a
+  - value:
+      ja: "\u6BD2\u8010\u6027100%\u30A2\u30C3\u30D7"
+      en: 
+    guid: 6cc8b5ca-db36-4877-a72e-08842bfb3b68
+  - value:
+      ja: "\u9EBB\u75FA\u8010\u602750%\u30A2\u30C3\u30D7"
+      en: 
+    guid: a24622d8-88fd-497b-a047-a859ec21af81
+  - value:
+      ja: "\u9EBB\u75FA\u8010\u6027100%\u30A2\u30C3\u30D7"
+      en: 
+    guid: 5d1ad63b-ccc9-4003-8b4c-c037dadd8570
+  - value:
+      ja: "\u7761\u7720\u8010\u602750%\u30A2\u30C3\u30D7"
+      en: 
+    guid: e2f2c615-e9c3-460e-a882-e62a42b20ebd
+  - value:
+      ja: "\u7761\u7720\u8010\u6027100%\u30A2\u30C3\u30D7"
+      en: 
+    guid: 559d9795-1498-478e-961c-329cd3f7324a
+  - value:
+      ja: "\u6DF7\u4E71\u8010\u602750%\u30A2\u30C3\u30D7"
+      en: 
+    guid: b52ac708-69e2-470d-b161-e8423ff256d2
+  - value:
+      ja: "\u6DF7\u4E71\u8010\u6027100%\u30A2\u30C3\u30D7"
+      en: 
+    guid: b1790cdf-664e-4f75-b426-ade2b9ccd7e0
+  - value:
+      ja: "\u72C2\u66B4\u8010\u602750%\u30A2\u30C3\u30D7"
+      en: 
+    guid: 468cc450-02cc-4819-8d25-2c4e6611bd60
+  - value:
+      ja: "\u72C2\u66B4\u8010\u6027100%\u30A2\u30C3\u30D7"
+      en: 
+    guid: f7d88ead-d814-49b2-bfeb-002470036f00
+  - value:
+      ja: "\u6025\u6240\u8010\u602750%\u30A2\u30C3\u30D7"
+      en: 
+    guid: c09e0fa8-40f5-4855-9def-83af54bfa0d5
+  - value:
+      ja: "\u6025\u6240\u8010\u6027100%\u30A2\u30C3\u30D7"
+      en: 
+    guid: d5800da9-e847-4346-8440-f0fed7c48ae0
+  - value:
+      ja: "\u6253\u6483\u8010\u602730%\u30A2\u30C3\u30D7"
+      en: 
+    guid: a577fb77-97f7-4b3f-a446-b613ab9758f7
+  - value:
+      ja: "\u6253\u6483\u8010\u602750%\u30A2\u30C3\u30D7"
+      en: 
+    guid: 765c09f5-1792-43ab-a7f5-1793a5f91bca
+  - value:
+      ja: "1\u30C1\u30E3\u30FC\u30B8\u30BF\u30FC\u30F3\u6E1B\u5C11"
+      en: 
+    guid: 6b80b9c9-f8d1-450e-a1a2-e5a96b41f473

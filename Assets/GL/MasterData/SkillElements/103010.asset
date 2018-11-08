@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6864c0229323746cc93b8e9ad71449eb, type: 3}
+  m_Name: 103010
+  m_EditorClassIdentifier: 
+  elementName:
+    target: {fileID: 11400000, guid: 2b0a21b5cfb9545feafa2c70ee8d2ae8, type: 2}
+    value: "\u72C2\u66B4\u8010\u6027100%\u30A2\u30C3\u30D7"
+    guid: f7d88ead-d814-49b2-bfeb-002470036f00
+  description:
+    target: {fileID: 11400000, guid: 0055e3e35ace045bc85d06a16596e472, type: 2}
+    value: "\u72C2\u66B4\u3092\u7121\u52B9\u5316\u3059\u308B\u78BA\u7387\u304C100%\u30A2\u30C3\u30D7\u3059\u308B"
+    guid: 04e60ada-73f8-4926-8c1d-f171d6518e63
+  statusAilmentType: 105
+  rate: 1

@@ -43,7 +43,7 @@ namespace GL.DeveloperTools
                 var e = commandElementData[i];
                 var splitElementData = e.Split(',');
                 GetAssetName(splitElementData.ToList());
-                var commandId = splitElementData[0];
+                var commandId = splitElementData[2];
                 List<string> elements = null;
                 if(!elementDictionary.TryGetValue(commandId, out elements))
                 {
@@ -62,6 +62,8 @@ namespace GL.DeveloperTools
                 var commandName = split[1];
                 var path = $"Assets/GL/MasterData/Commands/Bundles/";
                 var bundle = ImporterUtility.GetOrCreate<CommandRecord>(path, fileName);
+                List<string> elementList = null;
+                elementDictionary.TryGetValue(fileName, out elementList);
                 bundle.Parameter.Set(
                     commandNameAsset.CreateOrGetFinder(commandName),
                     commandDescriptionAsset.CreateOrGetFinder(split[2]),
@@ -70,7 +72,7 @@ namespace GL.DeveloperTools
                     (Constants.PostprocessCommand)Enum.Parse(typeof(Constants.PostprocessCommand), split[5]),
                     int.Parse(split[6]),
                     int.Parse(split[7]),
-                    GetBlueprintLists(elementDictionary[fileName], commandElementDictionary)
+                    elementList == null ? null : GetBlueprintLists(elementDictionary[fileName], commandElementDictionary)
                 );
                 EditorUtility.SetDirty(bundle);
             }

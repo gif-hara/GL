@@ -39,34 +39,43 @@ namespace GL.DeveloperTools
             var path = "Assets/GL/MasterData/SkillElements/";
             var fileName = splitSkillElementData[0];
             var type = splitSkillElementData[3];
+            var elementName = elementNameAsset.CreateOrGetFinder(splitSkillElementData[1]);
+            var description = descriptionAsset.CreateOrGetFinder(splitSkillElementData[2]);
 
             switch(type)
             {
                 case "AddStatusParameterFixed":
                     return ImporterUtility.GetOrCreate<AddStatusParameterFixed>(path, fileName).Setup(
-                        elementNameAsset.CreateOrGetFinder(splitSkillElementData[1]),
-                        descriptionAsset.CreateOrGetFinder(splitSkillElementData[2]),
+                        elementName,
+                        description,
                         (Constants.StatusParameterType)Enum.Parse(typeof(Constants.StatusParameterType), splitSkillElementData[4]),
                         int.Parse(splitSkillElementData[5])
                     );
                 case "AddStatusParameterRate":
                     return ImporterUtility.GetOrCreate<AddStatusParameterRate>(path, fileName).Setup(
-                        elementNameAsset.CreateOrGetFinder(splitSkillElementData[1]),
-                        descriptionAsset.CreateOrGetFinder(splitSkillElementData[2]),
+                        elementName,
+                        description,
                         (Constants.StatusParameterType)Enum.Parse(typeof(Constants.StatusParameterType), splitSkillElementData[4]),
                         float.Parse(splitSkillElementData[5])
                     );
                 case "AddStatusResistance":
                     return ImporterUtility.GetOrCreate<AddStatusResistance>(path, fileName).Setup(
-                        elementNameAsset.CreateOrGetFinder(splitSkillElementData[1]),
-                        descriptionAsset.CreateOrGetFinder(splitSkillElementData[2]),
+                        elementName,
+                        description,
                         (Constants.StatusAilmentType)Enum.Parse(typeof(Constants.StatusAilmentType), splitSkillElementData[4]),
+                        float.Parse(splitSkillElementData[5])
+                    );
+                case "AddAttribute":
+                    return ImporterUtility.GetOrCreate<AddAttribute>(path, fileName).Setup(
+                        elementName,
+                        description,
+                        (Constants.AttributeType)Enum.Parse(typeof(Constants.AttributeType), splitSkillElementData[4]),
                         float.Parse(splitSkillElementData[5])
                     );
                 case "SubtractChargeTurn":
                     return ImporterUtility.GetOrCreate<SubtractChargeTurn>(path, fileName).Setup(
-                        elementNameAsset.CreateOrGetFinder(splitSkillElementData[1]),
-                        descriptionAsset.CreateOrGetFinder(splitSkillElementData[2]),
+                        elementName,
+                        description,
                         int.Parse(splitSkillElementData[4])
                     );
                 default:
