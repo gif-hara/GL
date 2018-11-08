@@ -24,6 +24,9 @@ namespace GL.Battle.Commands.Bundle
         private int currentChargeTurn;
         public int CurrentChargeTurn => this.currentChargeTurn;
 
+        private int chargeTurn;
+        public int ChargeTurn => this.chargeTurn;
+
         private ImplementList[] elementLists;
 
         private Element.IImplement[] allElement;
@@ -42,6 +45,7 @@ namespace GL.Battle.Commands.Bundle
         {
             this.parameter = parameter;
             this.currentChargeTurn = this.parameter.InitialChargeTurn;
+            this.chargeTurn = this.parameter.ChargeTurn;
             this.elementLists = parameter.ElementLists.Select(e => new ImplementList(e.Create())).ToArray();
             var allElement = new List<Element.IImplement>();
             this.elementLists.ForEach(e => allElement.AddRange(e.Implements));
@@ -118,6 +122,14 @@ namespace GL.Battle.Commands.Bundle
         }
 
         /// <summary>
+        /// 必要チャージターン数を減らす
+        /// </summary>
+        public void SubtractChargeTurn(int amount)
+        {
+            this.chargeTurn -= amount;
+        }
+
+        /// <summary>
         /// ターゲットの最終選択を行う
         /// </summary>
         /// <remarks>
@@ -174,8 +186,6 @@ namespace GL.Battle.Commands.Bundle
         /// コマンドを実行可能か返す
         /// </summary>
         public bool CanInvoke => this.currentChargeTurn >= this.parameter.ChargeTurn;
-
-        public int ChargeTurn => this.parameter.ChargeTurn;
 
         /// <summary>
         /// コマンド実行後の後始末

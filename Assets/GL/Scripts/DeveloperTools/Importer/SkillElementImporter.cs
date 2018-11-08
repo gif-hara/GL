@@ -63,6 +63,12 @@ namespace GL.DeveloperTools
                         (Constants.StatusAilmentType)Enum.Parse(typeof(Constants.StatusAilmentType), splitSkillElementData[4]),
                         float.Parse(splitSkillElementData[5])
                     );
+                case "SubtractChargeTurn":
+                    return ImporterUtility.GetOrCreate<SubtractChargeTurn>(path, fileName).Setup(
+                        elementNameAsset.CreateOrGetFinder(splitSkillElementData[1]),
+                        descriptionAsset.CreateOrGetFinder(splitSkillElementData[2]),
+                        int.Parse(splitSkillElementData[4])
+                    );
                 default:
                     Assert.IsTrue(false, $"{type}は未対応の値です");
                     return null;
