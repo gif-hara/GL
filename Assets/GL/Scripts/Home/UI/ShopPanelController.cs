@@ -39,6 +39,8 @@ namespace GL.Home.UI
         [SerializeField]
         private SimplePopupStrings notBuyFromGoldPopup;
 
+        [SerializeField]
+        private SimplePopupStrings notBuyFromNeedMaterialPopup;
 
         /// <summary>
         /// <paramref name="weaponType"/>に対応した武器リストを表示する
@@ -104,15 +106,22 @@ namespace GL.Home.UI
         {
             PopupManager.Close();
             var userData = UserData.Instance;
+
+            // ゴールドが足りているか
             if(!userData.Wallet.Gold.IsEnough(equipment.Price))
             {
-                this.notBuyFromGoldPopup.Show().SubmitAsObservable()
-                    .Subscribe(_ => PopupManager.Close());
+                this.notBuyFromGoldPopup.Show().CloseOnSubmit();
                 return;
             }
 
-            userData.AddEquipment(equipment);
-            userData.Wallet.Gold.Pay(equipment.Price);
+            // 必要素材が足りているか
+            if(!userData.CanBuyEquipment(equipment))
+            {
+                this.notBuyFromNeedMaterialPopup.Show().CloseOnSubmit();
+                return;
+            }
+
+            userData.BuyEquipment(equipment);
             userData.Save();
 
             this.buyPopup.Show().SubmitAsObservable()

@@ -4391,6 +4391,19 @@ MonoBehaviour:
     - target: {fileID: 11400000, guid: 4f29c1d3e047745e58f6327b7d25bbc9, type: 2}
       value: OK
       guid: e886c7f9-8e8e-49db-84ba-57f49af20587
+  notBuyFromNeedMaterialPopup:
+    Title:
+      target: {fileID: 11400000, guid: 4f29c1d3e047745e58f6327b7d25bbc9, type: 2}
+      value: "\u30B7\u30E7\u30C3\u30D7"
+      guid: c1ad2a9e-a3ba-4c72-9d6a-9ce212bd0994
+    Message:
+      target: {fileID: 11400000, guid: 4f29c1d3e047745e58f6327b7d25bbc9, type: 2}
+      value: "\u7D20\u6750\u304C\u8DB3\u308A\u306A\u3044\u3088\uFF01"
+      guid: 22d5556b-20cd-4da4-aec2-5a2e15471c74
+    ButtonNames:
+    - target: {fileID: 11400000, guid: 4f29c1d3e047745e58f6327b7d25bbc9, type: 2}
+      value: OK
+      guid: e886c7f9-8e8e-49db-84ba-57f49af20587
 --- !u!1 &1001399557
 GameObject:
   m_ObjectHideFlags: 0

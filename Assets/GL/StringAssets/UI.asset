@@ -225,6 +225,10 @@ MonoBehaviour:
       en: 
     guid: bcce9290-68ee-4df2-b720-ffc4a98b990d
   - value:
+      ja: "\u7D20\u6750\u304C\u8DB3\u308A\u306A\u3044\u3088\uFF01"
+      en: 
+    guid: 22d5556b-20cd-4da4-aec2-5a2e15471c74
+  - value:
       ja: "\u88C5\u5099\u54C1"
       en: 
     guid: 08965fc0-5254-413c-a007-57a66d5cc8c4

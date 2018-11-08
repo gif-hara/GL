@@ -4,6 +4,7 @@ using System.Linq;
 using GL.Database;
 using GL.Systems;
 using HK.Framework.Systems;
+using HK.GL.Extensions;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -106,13 +107,21 @@ namespace GL.User
         }
 
         /// <summary>
-        /// 武器を追加する
+        /// 武器を購入する
         /// </summary>
         /// <remarks>
         /// セーブはしていないので個別でセーブしてください
         /// </remarks>
-        public void AddEquipment(EquipmentRecord equipment)
+        public void BuyEquipment(EquipmentRecord equipment)
         {
+            equipment.NeedMaterials.ForEach(n =>
+            {
+                var material = this.Materials.Find(m => m.Id == n.Material.Id);
+                Assert.IsNotNull(material, $"{n.Material.MaterialName}を持っていないのに{equipment.EquipmentName}を購入しようとしました");
+                material.Count -= n.Amount;
+                Assert.IsTrue(material.Count >= 0, $"{n.Material.MaterialName}を必要数持っていませんでした");
+            });
+            this.Wallet.Gold.Pay(equipment.Price);
             this.Equipments.List.Add(new User.Equipment(this.Equipments.InstanceId, equipment.Id));
         }
 
@@ -142,6 +151,28 @@ namespace GL.User
             }
 
             m.Count += value;
+        }
+
+        /// <summary>
+        /// <paramref name="equipment"/>を購入出来るか返す
+        /// </summary>
+        public bool CanBuyEquipment(EquipmentRecord equipment)
+        {
+            foreach(var n in equipment.NeedMaterials)
+            {
+                var material = this.Materials.Find(m => m.Id == n.Material.Id);
+                if(material == null)
+                {
+                    return false;
+                }
+
+                if(material.Count < n.Amount)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         /// <summary>
