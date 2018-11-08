@@ -24,11 +24,19 @@ namespace GL.UI
         [SerializeField]
         private StringAsset.Finder conditionFormat;
 
+        [SerializeField]
+        private Text chargeTurn;
+
+        [SerializeField]
+        private Text initialChargeTurn;
+
         public void Setup(ConditionalCommandRecord command)
         {
             this.commandName.text = command.CommandRecord.Parameter.Name.Get;
             this.description.text = command.CommandRecord.Parameter.Description.Get;
             this.condition.text = this.conditionFormat.Format(command.Condition.Description.Get).RemoveLastNewLine();
+            this.chargeTurn.text = command.CommandRecord.Parameter.ChargeTurn.ToString();
+            this.initialChargeTurn.text = command.CommandRecord.Parameter.InitialChargeTurn.ToString();
         }
     }
 }

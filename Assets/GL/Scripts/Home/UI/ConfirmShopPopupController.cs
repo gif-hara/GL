@@ -43,10 +43,16 @@ namespace GL.Home.UI
         private Transform commandParent;
 
         [SerializeField]
+        private Transform needMaterialParent;
+
+        [SerializeField]
         private SkillElementUIController skillElementPrefab;
 
         [SerializeField]
         private CommandUIController commandPrefab;
+
+        [SerializeField]
+        private NeedMaterialUIController needMaterialPrefab;
 
         [SerializeField]
         private GameObject skillNoneObject;
@@ -85,6 +91,11 @@ namespace GL.Home.UI
             equipment.Commands.ForEach(c =>
             {
                 Instantiate(this.commandPrefab, this.commandParent, false).Setup(c);
+            });
+
+            equipment.NeedMaterials.ForEach(n =>
+            {
+                Instantiate(this.needMaterialPrefab, this.needMaterialParent, false).Setup(n);
             });
 
             return this;
