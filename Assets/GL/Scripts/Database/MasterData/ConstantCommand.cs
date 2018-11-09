@@ -12,9 +12,33 @@ namespace GL.Database
         [SerializeField]
         private CommandRecord unequipment;
 
+        [SerializeField]
+        private CommandRecord confuse;
+
+        [SerializeField]
+        private CommandRecord berserk;
+
+        [SerializeField]
+        private CommandRecord chase;
+
         /// <summary>
         /// 素手のコマンド
         /// </summary>
         public CommandRecord Unequipment => this.unequipment;
+
+        /// <summary>
+        /// 混乱コマンド
+        /// </summary>
+        public CommandRecord Confuse => this.confuse;
+
+        /// <summary>
+        /// 狂暴コマンド
+        /// </summary>
+        public CommandRecord Berserk => this.berserk;
+
+        /// <summary>
+        /// 追討コマンド
+        /// </summary>
+        public CommandRecord Chase => this.chase;
     }
 }

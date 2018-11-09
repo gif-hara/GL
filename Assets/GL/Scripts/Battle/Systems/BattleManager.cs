@@ -20,24 +20,6 @@ namespace GL.Battle
     {
         public static BattleManager Instance { private set; get; }
 
-        /// <summary>
-        /// 混乱した時のコマンド
-        /// </summary>
-        [SerializeField]
-        private CommandRecord confuseBlueprint;
-
-        /// <summary>
-        /// 狂暴した時のコマンド
-        /// </summary>
-        [SerializeField]
-        private CommandRecord berserkBlueprint;
-
-        /// <summary>
-        /// 追い打ち時のコマンド
-        /// </summary>
-        [SerializeField]
-        private CommandRecord chaseBlueprint;
-
         public Commands.Bundle.Implement ConfuseCommand { get; private set; }
 
         public Commands.Bundle.Implement BerserkCommand { get; private set; }
@@ -61,9 +43,10 @@ namespace GL.Battle
             Assert.IsNull(Instance);
             Instance = this;
 
-            this.ConfuseCommand = this.confuseBlueprint.Create();
-            this.BerserkCommand = this.berserkBlueprint.Create();
-            this.ChaseCommand = this.chaseBlueprint.Create();
+            var constantCommand = MasterData.ConstantCommand;
+            this.ConfuseCommand = constantCommand.Confuse.Create();
+            this.BerserkCommand = constantCommand.Berserk.Create();
+            this.ChaseCommand = constantCommand.Chase.Create();
 
             this.BehavioralOrder = this.GetComponent<BehavioralOrderController>();
             new CommandInvoker(this.gameObject);
