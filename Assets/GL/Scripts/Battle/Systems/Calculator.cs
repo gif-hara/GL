@@ -274,43 +274,36 @@ namespace GL.Battle
                 result.Add(constantCommand.Unequipment);
             }
 
-            if (rightWeapon != null)
+            AddCommandRecords(result, rightWeapon, rightWeapon, leftWeapon, accessories);
+            AddCommandRecords(result, leftWeapon, rightWeapon, leftWeapon, accessories);
+            foreach (var a in accessories)
             {
-                foreach (var c in rightWeapon.Commands)
-                {
-                    if (!result.Contains(c) && c.Condition.Suitable(rightWeapon, leftWeapon, accessories))
-                    {
-                        result.Add(c);
-                    }
-                }
-            }
-            if (leftWeapon != null)
-            {
-                foreach (var c in leftWeapon.Commands)
-                {
-                    if (!result.Contains(c) && c.Condition.Suitable(rightWeapon, leftWeapon, accessories))
-                    {
-                        result.Add(c);
-                    }
-                }
-            }
-            foreach (var accessory in accessories)
-            {
-                if (accessory == null)
-                {
-                    continue;
-                }
-
-                foreach (var c in accessory.Commands)
-                {
-                    if (!result.Contains(c) && c.Condition.Suitable(rightWeapon, leftWeapon, accessories))
-                    {
-                        result.Add(c);
-                    }
-                }
+                AddCommandRecords(result, a, rightWeapon, leftWeapon, accessories);
             }
 
             return result.ToArray();
+        }
+
+        private static void AddCommandRecords(
+            List<ConditionalCommandRecord> result,
+            EquipmentRecord target,
+            EquipmentRecord rightWeapon,
+            EquipmentRecord leftWeapon,
+            EquipmentRecord[] accessories
+            )
+        {
+            if(target == null)
+            {
+                return;
+            }
+
+            foreach (var c in target.Commands)
+            {
+                if (!result.Contains(c) && c.Condition.Suitable(rightWeapon, leftWeapon, accessories))
+                {
+                    result.Add(c);
+                }
+            }
         }
     }
 }
