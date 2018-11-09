@@ -1,4 +1,6 @@
-﻿using GL.Battle.CharacterControllers;
+﻿using System.Collections.Generic;
+using GL.Battle.CharacterControllers;
+using GL.Database;
 using GL.Extensions;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -256,6 +258,59 @@ namespace GL.Battle
         public static int GetRecoveryAmount(Character invoker, float rate)
         {
             return Mathf.FloorToInt(rate);
+        }
+
+        /// <summary>
+        /// 装備品から利用可能なコマンドを返す
+        /// </summary>
+        public static ConditionalCommandRecord[] GetCommandRecords(EquipmentRecord rightWeapon, EquipmentRecord leftWeapon, EquipmentRecord[] accessories)
+        {
+            var constantCommand = MasterData.ConstantCommand;
+            var result = new List<ConditionalCommandRecord>();
+
+            // 何も装備していないときは素手コマンドを追加
+            if (rightWeapon == null && leftWeapon == null)
+            {
+                result.Add(constantCommand.Unequipment);
+            }
+
+            if (rightWeapon != null)
+            {
+                foreach (var c in rightWeapon.Commands)
+                {
+                    if (!result.Contains(c) && c.Condition.Suitable(rightWeapon, leftWeapon, accessories))
+                    {
+                        result.Add(c);
+                    }
+                }
+            }
+            if (leftWeapon != null)
+            {
+                foreach (var c in leftWeapon.Commands)
+                {
+                    if (!result.Contains(c) && c.Condition.Suitable(rightWeapon, leftWeapon, accessories))
+                    {
+                        result.Add(c);
+                    }
+                }
+            }
+            foreach (var accessory in accessories)
+            {
+                if (accessory == null)
+                {
+                    continue;
+                }
+
+                foreach (var c in accessory.Commands)
+                {
+                    if (!result.Contains(c) && c.Condition.Suitable(rightWeapon, leftWeapon, accessories))
+                    {
+                        result.Add(c);
+                    }
+                }
+            }
+
+            return result.ToArray();
         }
     }
 }

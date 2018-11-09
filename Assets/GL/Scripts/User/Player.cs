@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using GL.Battle;
 using GL.Battle.CharacterControllers;
 using GL.Database;
 using HK.GL.Extensions;
@@ -173,26 +174,7 @@ namespace GL.User
         {
             get
             {
-                var result = new List<ConditionalCommandRecord>();
-                if(this.RightHand.IsPossession)
-                {
-                    result.AddRange(this.RightHand.EquipmentRecord.Commands);
-                }
-                if(this.LeftHand.IsPossession)
-                {
-                    result.AddRange(this.LeftHand.EquipmentRecord.Commands);
-                }
-                foreach(var a in this.Accessories)
-                {
-                    if(a == null)
-                    {
-                        continue;
-                    }
-
-                    result.AddRange(a.Commands);
-                }
-
-                return result.ToArray();
+                return Calculator.GetCommandRecords(this.RightHand.EquipmentRecord, this.LeftHand.EquipmentRecord, this.Accessories);
             }
         }
     }

@@ -10,7 +10,7 @@ namespace GL.Database
     public sealed class ConstantCommand :ScriptableObject
     {
         [SerializeField]
-        private CommandRecord unequipment;
+        private ConditionalCommandRecord unequipment;
 
         [SerializeField]
         private CommandRecord confuse;
@@ -24,7 +24,7 @@ namespace GL.Database
         /// <summary>
         /// 素手のコマンド
         /// </summary>
-        public CommandRecord Unequipment => this.unequipment;
+        public ConditionalCommandRecord Unequipment => this.unequipment;
 
         /// <summary>
         /// 混乱コマンド

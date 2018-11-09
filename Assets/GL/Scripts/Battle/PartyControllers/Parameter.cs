@@ -43,58 +43,7 @@ namespace GL.Battle.PartyControllers
             };
         }
 
-        public Commands.Bundle.Implement[] Commands
-        {
-            get
-            {
-                var constantCommand = MasterData.ConstantCommand;
-                var result = new List<CommandRecord>();
-
-                // 何も装備していないときは素手コマンドを追加
-                if (this.RightWeapon == null && this.LeftWeapon == null)
-                {
-                    result.Add(constantCommand.Unequipment);
-                }
-
-                if (this.RightWeapon != null)
-                {
-                    foreach (var c in this.RightWeapon.Commands)
-                    {
-                        if (!result.Contains(c.CommandRecord) && c.Condition.Suitable(this.RightWeapon, this.LeftWeapon, this.Accessories))
-                        {
-                            result.Add(c.CommandRecord);
-                        }
-                    }
-                }
-                if (this.LeftWeapon != null)
-                {
-                    foreach (var c in this.LeftWeapon.Commands)
-                    {
-                        if (!result.Contains(c.CommandRecord) && c.Condition.Suitable(this.RightWeapon, this.LeftWeapon, this.Accessories))
-                        {
-                            result.Add(c.CommandRecord);
-                        }
-                    }
-                }
-                foreach(var accessory in this.Accessories)
-                {
-                    if(accessory == null)
-                    {
-                        continue;
-                    }
-
-                    foreach (var c in accessory.Commands)
-                    {
-                        if (!result.Contains(c.CommandRecord) && c.Condition.Suitable(this.RightWeapon, this.LeftWeapon, this.Accessories))
-                        {
-                            result.Add(c.CommandRecord);
-                        }
-                    }
-                }
-
-                return result.Select(r => r.Create()).ToArray();
-            }
-        }
+        public Commands.Bundle.Implement[] Commands => Calculator.GetCommandRecords(this.RightWeapon, this.LeftWeapon, this.Accessories).Select(r => r.CommandRecord.Create()).ToArray();
 
         public SkillElement[] SkillElements
         {
