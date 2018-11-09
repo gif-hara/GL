@@ -45,37 +45,7 @@ namespace GL.Battle.PartyControllers
 
         public Commands.Bundle.Implement[] Commands => Calculator.GetCommandRecords(this.RightWeapon, this.LeftWeapon, this.Accessories).Select(r => r.CommandRecord.Create()).ToArray();
 
-        public SkillElement[] SkillElements
-        {
-            get
-            {
-                var result = new List<SkillElement>();
-                this.AddSkillElements(result, this.RightWeapon);
-                this.AddSkillElements(result, this.LeftWeapon);
-                foreach(var a in this.Accessories)
-                {
-                    this.AddSkillElements(result, a);
-                }
-
-                return result.ToArray();
-            }
-        }
-
-        private void AddSkillElements(List<SkillElement> skillElements, EquipmentRecord equipmentRecord)
-        {
-            if(equipmentRecord == null)
-            {
-                return;
-            }
-
-            foreach (var s in equipmentRecord.SkillElements)
-            {
-                if (s.Condition.Suitable(this.RightWeapon, this.LeftWeapon, this.Accessories))
-                {
-                    skillElements.Add(s.SkillElement);
-                }
-            }
-        }
+        public SkillElement[] SkillElements => Calculator.GetSkillElements(this.RightWeapon, this.LeftWeapon, this.Accessories).Select(s => s.SkillElement).ToArray();
 
 #if UNITY_EDITOR
         public void Set(int level, CharacterRecord characterRecord, EquipmentRecord rightWeapon, EquipmentRecord leftWeapon, EquipmentRecord[] accessories)

@@ -305,5 +305,40 @@ namespace GL.Battle
                 }
             }
         }
+
+        public static ConditionalSkillElement[] GetSkillElements(EquipmentRecord rightWeapon, EquipmentRecord leftWeapon, EquipmentRecord[] accessories)
+        {
+            var result = new List<ConditionalSkillElement>();
+            AddSkillElements(result, rightWeapon, rightWeapon, leftWeapon, accessories);
+            AddSkillElements(result, leftWeapon, rightWeapon, leftWeapon, accessories);
+            foreach (var a in accessories)
+            {
+                AddSkillElements(result, a, rightWeapon, leftWeapon, accessories);
+            }
+
+            return result.ToArray();
+        }
+
+        private static void AddSkillElements(
+            List<ConditionalSkillElement> result,
+            EquipmentRecord target,
+            EquipmentRecord rightWeapon,
+            EquipmentRecord leftWeapon,
+            EquipmentRecord[] accessories
+            )
+        {
+            if (target == null)
+            {
+                return;
+            }
+
+            foreach (var s in target.SkillElements)
+            {
+                if (s.Condition.Suitable(rightWeapon, leftWeapon, accessories))
+                {
+                    result.Add(s);
+                }
+            }
+        }
     }
 }
