@@ -170,12 +170,8 @@ namespace GL.User
         /// <summary>
         /// バトルで利用するコマンドを返す
         /// </summary>
-        public ConditionalCommandRecord[] UsingCommands
-        {
-            get
-            {
-                return Calculator.GetCommandRecords(this.RightHand.EquipmentRecord, this.LeftHand.EquipmentRecord, this.Accessories);
-            }
-        }
+        public ConditionalCommandRecord[] UsingCommands => Calculator.GetCommandRecords(this.RightHand.EquipmentRecord, this.LeftHand.EquipmentRecord, this.Accessories);
+
+        public ConditionalSkillElement[] ConditionalSkillElements => Calculator.GetSkillElements(this.RightHand.EquipmentRecord, this.LeftHand.EquipmentRecord, this.Accessories);
     }
 }

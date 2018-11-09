@@ -155,6 +155,9 @@ namespace GL.Home.UI
         private CommandListController commandListController;
 
         [SerializeField]
+        private SkillElementListController skillElementListController;
+
+        [SerializeField]
         private EditEquipmentPopupController editEquipmentPopupController;
 
         [SerializeField]
@@ -200,6 +203,7 @@ namespace GL.Home.UI
                 accessories[i].SetupAsAccessory(this, player.Accessories[i], i);
             }
             this.commandListController.Setup(player.UsingCommands);
+            this.skillElementListController.Setup(player.ConditionalSkillElements);
             this.editPlayer = player;
 
             this.equipmentsRoot.SetActive(true);

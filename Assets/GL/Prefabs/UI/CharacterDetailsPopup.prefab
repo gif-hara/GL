@@ -1081,7 +1081,7 @@ GameObject:
   - component: {fileID: 222628376150895496}
   - component: {fileID: 114345483494295772}
   - component: {fileID: 114441457397545660}
-  - component: {fileID: 114201977620093418}
+  - component: {fileID: 114160681288037494}
   m_Layer: 5
   m_Name: Skills
   m_TagString: Untagged
@@ -2615,7 +2615,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3430,7 +3430,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: e6af61d9eafc84a6f8151e06d4334bf3, type: 3}
-    m_FontSize: 36
+    m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
@@ -3491,6 +3491,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 999
+--- !u!114 &114160681288037494
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1442864815711052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ddfd62e34f3b4f92a6b10d7e06ca619, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 224775841307925538}
+  skillPrefab: {fileID: 114266885233765280, guid: b02c2895ecc1b40199121cf6e9a213fa,
+    type: 2}
+  noneObject: {fileID: 1591358516769750}
 --- !u!114 &114160922216760066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3848,20 +3863,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114201977620093418
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1442864815711052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3e92dbfa4ad1484397ed7837e46c52d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parent: {fileID: 224775841307925538}
-  commandPrefab: {fileID: 114849972164109422, guid: c591e77bca061467aa52e4f50fb8b67e,
-    type: 2}
 --- !u!114 &114203206785885540
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4908,6 +4909,7 @@ MonoBehaviour:
   - {fileID: 114892717562386912}
   - {fileID: 114858700529047930}
   commandListController: {fileID: 114115475725335824}
+  skillElementListController: {fileID: 114160681288037494}
   editEquipmentPopupController: {fileID: 114263292963512742, guid: a1b6031fd5b9341b4ac159c268869634,
     type: 2}
   defaultModeElement:
@@ -5489,7 +5491,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: e6af61d9eafc84a6f8151e06d4334bf3, type: 3}
-    m_FontSize: 24
+    m_FontSize: 36
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -7418,7 +7420,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: e6af61d9eafc84a6f8151e06d4334bf3, type: 3}
-    m_FontSize: 36
+    m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
