@@ -185,7 +185,7 @@ namespace GL.Battle.Commands.Bundle
         /// <summary>
         /// コマンドを実行可能か返す
         /// </summary>
-        public bool CanInvoke => this.currentChargeTurn >= this.parameter.ChargeTurn;
+        public bool CanInvoke => this.currentChargeTurn >= this.chargeTurn;
 
         /// <summary>
         /// コマンド実行後の後始末
