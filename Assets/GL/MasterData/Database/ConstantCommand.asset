@@ -11,4 +11,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84a338c826cb4441799d28da3b1f1539, type: 3}
   m_Name: ConstantCommand
   m_EditorClassIdentifier: 
-  unequipment: {fileID: 11400000, guid: 10ae1b460e41946bb887b8334c2b3ea8, type: 2}
+  unequipment: {fileID: 11400000, guid: f091bd4a9521641a7905c21f00a9b268, type: 2}
