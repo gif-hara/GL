@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfab7cac79ed646c58338d324fcb0ad6, type: 3}
+  m_Name: UnconditionalNoneWeapon
+  m_EditorClassIdentifier: 
+  description:
+    target: {fileID: 11400000, guid: 4f29c1d3e047745e58f6327b7d25bbc9, type: 2}
+    value: "\u4E21\u624B\u306B\u4F55\u3082\u88C5\u5099\u3057\u3066\u3044\u306A\u3044\u6642\u306B\u5B9F\u884C\u53EF\u80FD"
+    guid: 7cd952e8-7851-480a-a5f0-68d26dafb7ba

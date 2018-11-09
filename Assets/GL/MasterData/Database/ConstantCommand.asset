@@ -11,4 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84a338c826cb4441799d28da3b1f1539, type: 3}
   m_Name: ConstantCommand
   m_EditorClassIdentifier: 
-  unequipment: {fileID: 11400000, guid: f091bd4a9521641a7905c21f00a9b268, type: 2}
+  unequipment:
+    commandRecord: {fileID: 11400000, guid: f091bd4a9521641a7905c21f00a9b268, type: 2}
+    condition: {fileID: 11400000, guid: 7ef01bfc63f714e56a69b16575c97389, type: 2}
+  confuse: {fileID: 11400000, guid: 10ae1b460e41946bb887b8334c2b3ea8, type: 2}
+  berserk: {fileID: 11400000, guid: 10fca75b377f34a9aa9294156675082f, type: 2}
+  chase: {fileID: 11400000, guid: 149deef79a9a940f59a7584fde01b7ef, type: 2}
