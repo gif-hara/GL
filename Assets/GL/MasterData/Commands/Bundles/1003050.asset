@@ -25,4 +25,6 @@ MonoBehaviour:
     Postprocess: 0
     ChargeTurn: 2
     InitialChargeTurn: 2
-    ElementLists: []
+    ElementLists:
+    - Elements:
+      - {fileID: 11400000, guid: 84e50554849ce4041b0b8e6527555f2c, type: 2}

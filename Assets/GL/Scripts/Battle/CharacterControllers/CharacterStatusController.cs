@@ -123,6 +123,12 @@ namespace GL.Battle.CharacterControllers
             this.PublishModifiedStatus();
         }
 
+        public void AddAttributeToDynamic(Constants.AttributeType type, float value)
+        {
+            this.Dynamic.Attribute.Add(type, value);
+            this.PublishModifiedStatus();
+        }
+
         public void AddAttributeToAccessory(Constants.AttributeType type, float value)
         {
             this.Accessory.Attribute.Add(type, value);

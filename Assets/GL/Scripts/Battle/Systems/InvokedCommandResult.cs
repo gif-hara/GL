@@ -17,6 +17,8 @@ namespace GL.Battle
         
         public readonly List<AddParameter> AddParameters = new List<AddParameter>();
 
+        public readonly List<AddAttribute> AddAttributes = new List<AddAttribute>();
+
         public void Reset()
         {
             this.InvokedCommand = null;
@@ -84,6 +86,27 @@ namespace GL.Battle
             public readonly int Amount;
 
             public AddParameter(Character target, Constants.StatusParameterType type, int amount)
+            {
+                this.Target = target;
+                this.Type = type;
+                this.Amount = amount;
+            }
+
+            public override string ToString()
+            {
+                return string.Format("[{0} {1} {2}]", this.Target.StatusController.Name, this.Type, this.Amount);
+            }
+        }
+
+        public class AddAttribute
+        {
+            public readonly Character Target;
+
+            public readonly Constants.AttributeType Type;
+
+            public readonly float Amount;
+
+            public AddAttribute(Character target, Constants.AttributeType type, float amount)
             {
                 this.Target = target;
                 this.Type = type;

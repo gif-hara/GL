@@ -14,15 +14,17 @@ MonoBehaviour:
   parameter:
     Name:
       target: {fileID: 11400000, guid: 3534e70039cc6491cad3f648e57e8b4b, type: 2}
-      value: "\u6575\u5168\u54E1\u306E\u653B\u6483\u529B\u30C0\u30A6\u30F3Lv.3"
-      guid: 83cfa634-d15e-45fd-802d-803baa1ff726
+      value: "\u5168\u54E1\u306E\u653B\u6483\u529B\u30C0\u30A6\u30F3Lv.3"
+      guid: 74e1119e-0a60-4e69-a646-ff1568942853
     Description:
       target: {fileID: 11400000, guid: 64540f3636eab4a58b159c78cd0cb228, type: 2}
-      value: "\u6575\u5168\u54E1\u306E\u653B\u6483\u529B\u3092\u6E1B\u5C11\u3059\u308B"
-      guid: 65e4acc8-6401-429c-977d-b4240371d673
+      value: "\u5168\u54E1\u306E\u653B\u6483\u529B\u3092\u6E1B\u5C11\u3059\u308B"
+      guid: 9b04295a-4015-4558-a5db-6aeeaeaf1206
     TargetPartyType: 1
     TargetType: 1
     Postprocess: 0
     ChargeTurn: 3
     InitialChargeTurn: 3
-    ElementLists: []
+    ElementLists:
+    - Elements:
+      - {fileID: 11400000, guid: 71302b1631e1b4e3cbcf43fd52950e4b, type: 2}

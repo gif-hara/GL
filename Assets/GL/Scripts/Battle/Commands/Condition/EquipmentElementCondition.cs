@@ -13,8 +13,8 @@ namespace GL.Battle.Commands
     public abstract class EquipmentElementCondition : ScriptableObject
     {
         [SerializeField]
-        private StringAsset.Finder description;
-        public StringAsset.Finder Description => this.description;
+        protected StringAsset.Finder description;
+        public virtual string Description => this.description.Get;
 
         /// <summary>
         /// 条件を満たしているか返す

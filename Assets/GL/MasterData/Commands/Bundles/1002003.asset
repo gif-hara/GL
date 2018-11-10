@@ -18,8 +18,8 @@ MonoBehaviour:
       guid: fb28720e-0408-4265-9965-a02eb90f1d97
     Description:
       target: {fileID: 11400000, guid: 64540f3636eab4a58b159c78cd0cb228, type: 2}
-      value: "\u5BFE\u8C61\u306B\u523A\u7A81\u5C5E\u6027\u306E\u653B\u6483\u3092\u884C\u3046"
-      guid: d05a0d2f-bf8a-4196-ab5b-968df320436b
+      value: "\u5BFE\u8C61\u306B\u523A\u7A81\u5C5E\u6027\u306E\u7269\u7406\u653B\u6483\u3092\u884C\u3046"
+      guid: 3184412d-906d-48cd-9963-7b95bffc0c65
     TargetPartyType: 1
     TargetType: 0
     Postprocess: 0

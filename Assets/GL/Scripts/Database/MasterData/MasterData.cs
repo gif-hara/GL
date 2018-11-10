@@ -31,6 +31,10 @@ namespace GL.Database
         private ConstantCommand constantCommand;
         public static ConstantCommand ConstantCommand => instance.constantCommand;
 
+        [SerializeField]
+        private ConstantString constantString;
+        public static ConstantString ConstantString => instance.constantString;
+
         public void Setup()
         {
             Assert.IsNull(instance);

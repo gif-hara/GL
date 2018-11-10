@@ -21,8 +21,10 @@ MonoBehaviour:
       value: "\u5168\u54E1\u306E\u9632\u5FA1\u529B\u3092\u8D85\u4E0A\u6607\u3059\u308B"
       guid: 7fc0035d-9817-48ae-8fa7-4f9e45ba829a
     TargetPartyType: 0
-    TargetType: 0
+    TargetType: 1
     Postprocess: 0
     ChargeTurn: 3
     InitialChargeTurn: 3
-    ElementLists: []
+    ElementLists:
+    - Elements:
+      - {fileID: 11400000, guid: 84e50554849ce4041b0b8e6527555f2c, type: 2}

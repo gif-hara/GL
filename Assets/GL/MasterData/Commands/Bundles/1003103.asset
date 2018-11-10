@@ -18,11 +18,13 @@ MonoBehaviour:
       guid: 3a91de7a-ba05-4730-9825-0782290ef619
     Description:
       target: {fileID: 11400000, guid: 64540f3636eab4a58b159c78cd0cb228, type: 2}
-      value: "\u5473\u65B9\u306E\u56DE\u907F\u7387\u3092\u4E0A\u6607\u3059\u308B"
-      guid: 201e6101-76db-4c09-984f-c0b430a86e48
+      value: "\u5168\u54E1\u306E\u56DE\u907F\u7387\u3092\u4E0A\u6607\u3059\u308B"
+      guid: e69de36a-9adc-4ebb-afe0-636416a49777
     TargetPartyType: 0
-    TargetType: 0
+    TargetType: 1
     Postprocess: 0
     ChargeTurn: 3
     InitialChargeTurn: 3
-    ElementLists: []
+    ElementLists:
+    - Elements:
+      - {fileID: 11400000, guid: 1125d6daa43804fec8693973314e0a13, type: 2}

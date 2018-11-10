@@ -34,7 +34,7 @@ namespace GL.UI
         {
             this.commandName.text = command.CommandRecord.Parameter.Name.Get;
             this.description.text = command.CommandRecord.Parameter.Description.Get;
-            this.condition.text = this.conditionFormat.Format(command.Condition.Description.Get).RemoveLastNewLine();
+            this.condition.text = this.conditionFormat.Format(command.Condition.Description).RemoveLastNewLine();
             this.chargeTurn.text = command.CommandRecord.Parameter.ChargeTurn.ToString();
             this.initialChargeTurn.text = command.CommandRecord.Parameter.InitialChargeTurn.ToString();
         }

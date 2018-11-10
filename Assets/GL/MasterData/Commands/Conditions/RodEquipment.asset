@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b921e65162d345108a0ad947c551cb6, type: 3}
+  m_Name: RodEquipment
+  m_EditorClassIdentifier: 
+  description:
+    target: {fileID: 11400000, guid: 4f29c1d3e047745e58f6327b7d25bbc9, type: 2}
+    value: "{0}\u3092\u88C5\u5099\u3057\u3066\u3044\u308B\u5834\u5408\u5B9F\u884C\u53EF\u80FD"
+    guid: 71609891-7931-4a7a-97ab-2323f2f5c4be
+  target: 32

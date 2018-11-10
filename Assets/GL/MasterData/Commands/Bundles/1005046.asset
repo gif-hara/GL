@@ -14,15 +14,18 @@ MonoBehaviour:
   parameter:
     Name:
       target: {fileID: 11400000, guid: 3534e70039cc6491cad3f648e57e8b4b, type: 2}
-      value: "\u5473\u65B9\u306B\u5E87\u3046\u3092\u4ED8\u4E0ELv.1"
-      guid: 71a59738-81f0-4e14-a32b-68a0c0f95d5e
+      value: "\u5168\u54E1\u306E\u523A\u7A81\u8010\u6027\u30A2\u30C3\u30D7Lv.1"
+      guid: 1cc0bbdc-76e4-4fee-9320-3f62602299c6
     Description:
       target: {fileID: 11400000, guid: 64540f3636eab4a58b159c78cd0cb228, type: 2}
-      value: "\u5473\u65B9\u306B\u5E87\u3046\u30921\u30BF\u30FC\u30F3\u4ED8\u4E0E\u3059\u308B"
-      guid: 0b58c513-3c2e-49ce-9013-203a5fe54e0d
+      value: "\u5168\u54E1\u306E\u523A\u7A81\u30C0\u30E1\u30FC\u30B8\u3092\u3061\u3087\u3063\u3068\u8EFD\u6E1B\u3059\u308B"
+      guid: cd03929e-b1cf-448b-8845-0a555f7173c6
     TargetPartyType: 0
     TargetType: 3
     Postprocess: 0
-    ChargeTurn: 5
-    InitialChargeTurn: 5
-    ElementLists: []
+    ChargeTurn: 2
+    InitialChargeTurn: 2
+    ElementLists:
+    - Elements:
+      - {fileID: 11400000, guid: d00503c73c6e944eb950bb1fb168d255, type: 2}
+      - {fileID: 11400000, guid: d00503c73c6e944eb950bb1fb168d255, type: 2}

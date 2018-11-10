@@ -118,6 +118,15 @@ namespace GL.Battle
         }
 
         /// <summary>
+        /// 属性値の上昇量を返す
+        /// </summary>
+        public static float GetAddAttributeValue(float rate)
+        {
+            // 単純に倍率を返すだけ
+            return rate;
+        }
+
+        /// <summary>
         /// 攻撃力上昇系コマンドの上昇量を返す
         /// </summary>
         private static int GetAddStrengthValue(CharacterStatusController invoker, float rate)

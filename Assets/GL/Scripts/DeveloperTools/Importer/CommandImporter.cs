@@ -111,11 +111,11 @@ namespace GL.DeveloperTools
         private static Blueprint GetOrCreateBlueprint(Dictionary<string, Blueprint> dictionary, string key)
         {
             Blueprint result = null;
-            if(!dictionary.TryGetValue(key, out result))
+            if (!dictionary.TryGetValue(key, out result))
             {
                 var path = $"Assets/GL/MasterData/Commands/Elements/{key}.asset";
                 result = AssetDatabase.LoadAssetAtPath<Blueprint>(path);
-                if(result == null)
+                if (result == null)
                 {
                     result = CreateBlueprint(key);
                     AssetDatabase.CreateAsset(result, path);
@@ -141,11 +141,17 @@ namespace GL.DeveloperTools
                 case "AddStatusAilment":
                     result = ScriptableObject.CreateInstance<AddStatusAilment>().SetupFromEditor(data);
                     break;
+                case "AddAttribute":
+                    result = ScriptableObject.CreateInstance<Battle.Commands.Element.Blueprints.AddAttribute>().SetupFromEditor(data);
+                    break;
                 case "Recovery":
                     result = ScriptableObject.CreateInstance<Recovery>().SetupFromEditor(data);
                     break;
                 case "RecoveryFixed":
                     result = ScriptableObject.CreateInstance<RecoveryFixed>().SetupFromEditor(data);
+                    break;
+                default:
+                    Assert.IsTrue(false, $"{type}は未対応の値です");
                     break;
             }
 

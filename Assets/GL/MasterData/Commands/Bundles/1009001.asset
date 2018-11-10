@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 221d7d34226dd41a8b8a8ce5033a61a1, type: 3}
+  m_Name: 1009001
+  m_EditorClassIdentifier: 
+  parameter:
+    Name:
+      target: {fileID: 11400000, guid: 3534e70039cc6491cad3f648e57e8b4b, type: 2}
+      value: "\u5473\u65B9\u3092\u56DE\u5FA9Lv.1"
+      guid: 74f8e3a0-f502-4a3e-8423-24b150d91f2b
+    Description:
+      target: {fileID: 11400000, guid: 64540f3636eab4a58b159c78cd0cb228, type: 2}
+      value: "\u5473\u65B9\u306EHP\u3092\u3061\u3087\u3063\u3068\u56DE\u5FA9\u3059\u308B"
+      guid: 281f801d-7541-4c08-8417-5c86d2b185c4
+    TargetPartyType: 0
+    TargetType: 0
+    Postprocess: 0
+    ChargeTurn: 3
+    InitialChargeTurn: 3
+    ElementLists:
+    - Elements:
+      - {fileID: 11400000, guid: 9b6701ea217294c0f86d50da40fdd400, type: 2}
