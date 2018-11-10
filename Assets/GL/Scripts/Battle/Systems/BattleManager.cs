@@ -26,6 +26,8 @@ namespace GL.Battle
 
         public Commands.Bundle.Implement ChaseCommand { get; private set; }
 
+        public Commands.Bundle.Implement CounterCommand { get; private set; }
+
         public Parties Parties { private set; get; }
 
         public BehavioralOrderController BehavioralOrder { private set; get; }
@@ -47,6 +49,7 @@ namespace GL.Battle
             this.ConfuseCommand = constantCommand.Confuse.Create();
             this.BerserkCommand = constantCommand.Berserk.Create();
             this.ChaseCommand = constantCommand.Chase.Create();
+            this.CounterCommand = constantCommand.Counter.Create();
 
             this.BehavioralOrder = this.GetComponent<BehavioralOrderController>();
             new CommandInvoker(this.gameObject);

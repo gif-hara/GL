@@ -21,6 +21,9 @@ namespace GL.Database
         [SerializeField]
         private CommandRecord chase;
 
+        [SerializeField]
+        private CommandRecord counter;
+
         /// <summary>
         /// 素手のコマンド
         /// </summary>
@@ -40,5 +43,10 @@ namespace GL.Database
         /// 追討コマンド
         /// </summary>
         public CommandRecord Chase => this.chase;
+
+        /// <summary>
+        /// 仕返しコマンド
+        /// </summary>
+        public CommandRecord Counter => this.counter;
     }
 }

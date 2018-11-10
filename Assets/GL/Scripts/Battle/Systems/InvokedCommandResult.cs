@@ -40,14 +40,17 @@ namespace GL.Battle
 
         public class TakeDamage
         {
+            public readonly Character Invoker;
+
             public readonly Character Target;
 
             public readonly int Damage;
 
             public readonly bool IsHit;
 
-            public TakeDamage(Character target, int damage, bool isHit)
+            public TakeDamage(Character invoker, Character target, int damage, bool isHit)
             {
+                this.Invoker = invoker;
                 this.Target = target;
                 this.Damage = damage;
                 this.IsHit = isHit;
@@ -55,7 +58,7 @@ namespace GL.Battle
 
             public override string ToString()
             {
-                return $"{this.Target.StatusController.Name} , {this.Damage} , {this.IsHit}";
+                return $"{this.Invoker.StatusController.Name} , {this.Target.StatusController.Name} , {this.Damage} , {this.IsHit}";
             }
         }
 

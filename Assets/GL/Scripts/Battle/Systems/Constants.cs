@@ -41,6 +41,11 @@ namespace GL
             /// 選択されたターゲットの両隣もターゲットになる
             /// </summary>
             SelectRange,
+
+            /// <summary>
+            /// 仕返しによる攻撃
+            /// </summary>
+            OnCounterTakeDamages,
         }
 
         /// <summary>
@@ -134,18 +139,22 @@ namespace GL
             /// <remarks>パーティが自分自身のみの場合全てのパラメータが倍になる</remarks>
             Soldier = 6,
             
-            /// <summary>追い打ち</summary>
+            /// <summary>追討</summary>
             /// <remarks>味方が攻撃した際に自分自身も通常攻撃を行う</remarks>
             Chase = 7,
             
             /// <summary>憤怒</summary>
             /// <remarks>攻撃を受ける度に攻撃力が上昇する</remarks>
             Rage = 8,
-            
+
             /// <summary>庇う</summary>
             /// <remarks>味方が攻撃を受ける時、自分自身が身代わりになる</remarks>
             Protect = 9,
-            
+
+            /// <summary>仕返</summary>
+            /// <remarks>相手が自分自身に攻撃した時、攻撃を行う</remarks>
+            Counter = 10,
+
             /// <summary>毒</summary>
             /// <remarks>ターン終了時に一定量のダメージを受ける</remarks>
             Poison = 101,

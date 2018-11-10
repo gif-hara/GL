@@ -77,6 +77,9 @@ namespace GL.Battle.PartyControllers
                 case Constants.TargetType.OnChaseTakeDamages:
                     result.AddRange(BattleManager.Instance.InvokedCommandResult.TakeDamages.Select(x => x.Target));
                     break;
+                case Constants.TargetType.OnCounterTakeDamages:
+                    result.AddRange(BattleManager.Instance.InvokedCommandResult.TakeDamages.Select(x => x.Invoker));
+                    break;
                 default:
                     Assert.IsTrue(false, string.Format("未対応の値です {0}", type));
                     break;

@@ -112,6 +112,7 @@ namespace GL.Battle.Commands.Bundle
                 case Constants.TargetType.Myself:
                 case Constants.TargetType.OnChaseTakeDamages:
                 case Constants.TargetType.SelectRange:
+                case Constants.TargetType.OnCounterTakeDamages:
                     return BattleManager.Instance.Parties
                             .GetFromTargetPartyType(invoker, this.parameter.TargetPartyType)
                             .GetTargets(invoker, this.parameter.TargetType);

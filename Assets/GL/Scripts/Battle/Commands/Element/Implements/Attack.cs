@@ -43,7 +43,7 @@ namespace GL.Battle.Commands.Element.Implements
 
                 if (bundle.CanRecord)
                 {
-                    BattleManager.Instance.InvokedCommandResult.TakeDamages.Add(new InvokedCommandResult.TakeDamage(t, damage, true));
+                    BattleManager.Instance.InvokedCommandResult.TakeDamages.Add(new InvokedCommandResult.TakeDamage(invoker, t, damage, true));
                 }
             });
         }
