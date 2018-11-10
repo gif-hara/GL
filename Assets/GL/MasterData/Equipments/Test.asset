@@ -25,6 +25,24 @@ MonoBehaviour:
     condition: {fileID: 11400000, guid: 5e616f6c5005f49c6b39ca4db09a447d, type: 2}
   - commandRecord: {fileID: 11400000, guid: 6124da2583b1d477bb9dbc1c12d1a1ab, type: 2}
     condition: {fileID: 11400000, guid: 5e616f6c5005f49c6b39ca4db09a447d, type: 2}
+  - commandRecord: {fileID: 11400000, guid: 17e9300e5f8e14e348e8912a49a2189b, type: 2}
+    condition: {fileID: 11400000, guid: 5e616f6c5005f49c6b39ca4db09a447d, type: 2}
+  - commandRecord: {fileID: 11400000, guid: 92bcee48a98d64021929e441f6606dc0, type: 2}
+    condition: {fileID: 11400000, guid: 5e616f6c5005f49c6b39ca4db09a447d, type: 2}
+  - commandRecord: {fileID: 11400000, guid: cf640631d709c4d86a6131c467b62f62, type: 2}
+    condition: {fileID: 11400000, guid: 5e616f6c5005f49c6b39ca4db09a447d, type: 2}
+  - commandRecord: {fileID: 11400000, guid: 074364ca857fc4ec28ce6a06d6be04f8, type: 2}
+    condition: {fileID: 11400000, guid: 5e616f6c5005f49c6b39ca4db09a447d, type: 2}
+  - commandRecord: {fileID: 11400000, guid: e24831a84ae314811a1c373591ac329a, type: 2}
+    condition: {fileID: 11400000, guid: 5e616f6c5005f49c6b39ca4db09a447d, type: 2}
+  - commandRecord: {fileID: 11400000, guid: 6f3455d827f35483c8c7f8e0d4b8dd7f, type: 2}
+    condition: {fileID: 11400000, guid: 5e616f6c5005f49c6b39ca4db09a447d, type: 2}
+  - commandRecord: {fileID: 11400000, guid: 4a7588778df074c7584284a9593b7a74, type: 2}
+    condition: {fileID: 11400000, guid: 5e616f6c5005f49c6b39ca4db09a447d, type: 2}
+  - commandRecord: {fileID: 11400000, guid: dbdd364d1626048e09b306712e906127, type: 2}
+    condition: {fileID: 11400000, guid: 5e616f6c5005f49c6b39ca4db09a447d, type: 2}
+  - commandRecord: {fileID: 11400000, guid: 680b868c3fb3f48b5a961c23ab8861df, type: 2}
+    condition: {fileID: 11400000, guid: 5e616f6c5005f49c6b39ca4db09a447d, type: 2}
   skillElements: []
   needMaterials:
   - material: {fileID: 11400000, guid: 4cf9b0a912efc4057ac5e9536dc528d1, type: 2}
