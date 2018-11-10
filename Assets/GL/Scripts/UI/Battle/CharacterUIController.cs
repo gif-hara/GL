@@ -65,6 +65,13 @@ namespace GL.Battle.UI
                 })
                 .AddTo(this);
 
+            Broker.Global.Receive<StartSelectCommand>()
+                .SubscribeWithState(this, (_, _this) =>
+                {
+                    _this.animationController.KillTween(CharacterUIAnimation.AnimationType.Targetable);
+                })
+                .AddTo(this);
+
             Broker.Global.Receive<StartSelectTarget>()
                 .Where(x => x.Targets.Find(t => t == this.character) != null)
                 .SubscribeWithState(this, (x, _this) =>

@@ -37,12 +37,13 @@ namespace GL.Battle.UI
                 .AddTo(this);
 
             Broker.Global.Receive<SelectedCommand>()
-                .SubscribeWithState(this, (_, _this) => _this.DestroyButtons())
+                .SubscribeWithState(this, (_, _this) => _this.gameObject.SetActive(false))
                 .AddTo(this);
         }
 
         private void OnSelectCommandFromPlayer(Character character)
         {
+            this.gameObject.SetActive(true);
             this.DestroyButtons();
             if (!character.CanMove)
             {
@@ -60,6 +61,7 @@ namespace GL.Battle.UI
 
         private void OnSelectCommandFromEnemy()
         {
+            this.gameObject.SetActive(false);
             this.DestroyButtons();
         }
 

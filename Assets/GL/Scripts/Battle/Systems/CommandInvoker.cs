@@ -1,4 +1,6 @@
-﻿using GL.Events.Battle;
+﻿using GL.Battle.CharacterControllers;
+using GL.Events.Battle;
+using GL.Events.Home;
 using GL.Extensions;
 using HK.Framework.EventSystems;
 using UniRx;
@@ -11,14 +13,24 @@ namespace GL.Battle
     /// </summary>
     public sealed class CommandInvoker
     {
+        private Character commandSelectCharacter;
+
         public CommandInvoker(GameObject owner)
         {
+            Broker.Global.Receive<StartSelectCommand>()
+                .SubscribeWithState(this, (x, _this) => _this.commandSelectCharacter = x.Character)
+                .AddTo(owner);
+
             Broker.Global.Receive<SelectedCommand>()
                 .Subscribe(OnSelectedCommand)
                 .AddTo(owner);
 
             Broker.Global.Receive<SelectedTargets>()
                 .Subscribe(OnSelectedTargets)
+                .AddTo(owner);
+
+            Broker.Global.Receive<ClickedFooterCancelButton>()
+                .SubscribeWithState(this, (_, _this) => _this.OnClickedCancelButton())
                 .AddTo(owner);
         }
 
@@ -43,6 +55,11 @@ namespace GL.Battle
         private static void OnSelectedTargets(SelectedTargets eventData)
         {
             eventData.Command.Invoke(eventData.Invoker, eventData.Targets);
+        }
+
+        private void OnClickedCancelButton()
+        {
+            Broker.Global.Publish(StartSelectCommand.Get(this.commandSelectCharacter));
         }
     }
 }
