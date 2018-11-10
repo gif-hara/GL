@@ -6,6 +6,7 @@ using GL.Events.Battle;
 using HK.Framework.EventSystems;
 using UniRx;
 using GL;
+using UnityEngine.UI;
 
 namespace GL.Battle.UI
 {
@@ -15,13 +16,26 @@ namespace GL.Battle.UI
     public sealed class SelectCommandPanelController : MonoBehaviour
     {
         [SerializeField]
-        private Transform buttonParent;
+        private RectTransform buttonParent;
 
         [SerializeField]
         private SelectCommandButtonController buttonPrefab;
 
+        [SerializeField]
+        private float heightMax;
+
+        [SerializeField]
+        private LayoutGroup rootLayoutGroup;
+
+        [SerializeField]
+        private GridLayoutGroup commandLayoutGroup;
+
+        private RectTransform cachedTransform;
+
         void Awake()
         {
+            this.cachedTransform = (RectTransform)this.transform;
+
             Broker.Global.Receive<VisibleRequestSelectCommandPanel>()
                 .SubscribeWithState(this, (x, _this) =>
                 {
@@ -57,6 +71,18 @@ namespace GL.Battle.UI
                 var command = commands[i];
                 button.SetProperty(character, command);
             }
+
+            var r = this.rootLayoutGroup;
+            var c = this.commandLayoutGroup;
+            var constraintCount = ((commands.Length - 1) / c.constraintCount) + 1;
+            var height = (c.cellSize.y * constraintCount) + (c.spacing.y * (constraintCount - 1)) + c.padding.bottom + c.padding.top + r.padding.bottom + r.padding.top;
+            var sizeDelta = this.cachedTransform.sizeDelta;
+            sizeDelta.y = Mathf.Min(height, this.heightMax);
+            this.cachedTransform.sizeDelta = sizeDelta;
+
+            var buttonParentPosition = this.buttonParent.anchoredPosition;
+            buttonParentPosition.y = 0;
+            this.buttonParent.anchoredPosition = buttonParentPosition;
         }
 
         private void OnSelectCommandFromEnemy()

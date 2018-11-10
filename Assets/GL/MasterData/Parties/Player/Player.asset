@@ -17,12 +17,12 @@ MonoBehaviour:
     guid: ed6b6d31-e963-4715-9e55-c4fe352d8078
   parameters:
   - Level: 1
-    Blueprint: {fileID: 11400000, guid: 166aac9dcf1da4d76acbe5a1917da73b, type: 2}
-    RightWeapon: {fileID: 11400000, guid: dac0e42f0d8a448218081bd81c8b3682, type: 2}
-    LeftWeapon: {fileID: 11400000, guid: 364ee933ca77d42e5a32ecad55f8cc91, type: 2}
+    CharacterRecord: {fileID: 11400000, guid: 166aac9dcf1da4d76acbe5a1917da73b, type: 2}
+    RightWeapon: {fileID: 11400000, guid: 41e632e068e884c058e3d4c74b9cfb53, type: 2}
+    LeftWeapon: {fileID: 0}
     Accessories: []
   characterType: 0
   unlockElements:
     enemyParties: []
     characters: []
-    weapons: []
+    equipments: []
