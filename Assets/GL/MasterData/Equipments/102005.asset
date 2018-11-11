@@ -18,6 +18,14 @@ MonoBehaviour:
   rank: 1
   equipmentType: 2
   price: 1850
-  commands: []
+  commands:
+  - commandRecord: {fileID: 11400000, guid: 92c3615222c1a45928274f1b377f5e22, type: 2}
+    condition: {fileID: 11400000, guid: 5e616f6c5005f49c6b39ca4db09a447d, type: 2}
+  - commandRecord: {fileID: 11400000, guid: fe01a886897724badba44bfb836b58fb, type: 2}
+    condition: {fileID: 11400000, guid: 34df0525ef1894b1a96ad932bcb95558, type: 2}
+  - commandRecord: {fileID: 11400000, guid: 780fc31a49c4e4868bb4d3853fe444c5, type: 2}
+    condition: {fileID: 11400000, guid: 260032a1114f9410e8c7d1cfefe7f0d6, type: 2}
+  - commandRecord: {fileID: 11400000, guid: ab028c0d4f149480d9c58cdc9ebce146, type: 2}
+    condition: {fileID: 11400000, guid: 260032a1114f9410e8c7d1cfefe7f0d6, type: 2}
   skillElements: []
   needMaterials: []

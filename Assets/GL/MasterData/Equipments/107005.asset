@@ -13,11 +13,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   equipmentName:
     target: {fileID: 11400000, guid: 7587e1216a4ef4cfeaf77541e6db4355, type: 2}
-    value: "\u4E0E\u4E00\u306E\u5F13"
-    guid: e88ec287-1783-43f5-8865-7f98aa856884
+    value: "\u30D5\u30B8\u30EF\u30E9\u306E\u5F13"
+    guid: 52ee229b-40aa-4809-a9a2-b4772c66c0a5
   rank: 1
   equipmentType: 64
   price: 1670
-  commands: []
+  commands:
+  - commandRecord: {fileID: 11400000, guid: a5b4080cd15a64f66bbaa9e10e1a2282, type: 2}
+    condition: {fileID: 11400000, guid: 5e616f6c5005f49c6b39ca4db09a447d, type: 2}
+  - commandRecord: {fileID: 11400000, guid: 16c73ff6e95d84662b1f9e42a446f153, type: 2}
+    condition: {fileID: 11400000, guid: 5e616f6c5005f49c6b39ca4db09a447d, type: 2}
+  - commandRecord: {fileID: 11400000, guid: 127f2359e110e47edbc2d9817b288fd4, type: 2}
+    condition: {fileID: 11400000, guid: 905632838d0234e898c803db970eb82a, type: 2}
+  - commandRecord: {fileID: 11400000, guid: 7625eff10ec094165854286f0a49d2ea, type: 2}
+    condition: {fileID: 11400000, guid: 2a1016289873845dfac385497dbe8f93, type: 2}
   skillElements: []
   needMaterials: []

@@ -400,3 +400,11 @@ MonoBehaviour:
       ja: "\u304B\u307E\u3044\u305F\u3061\u306E\u77E2"
       en: 
     guid: 981189c3-a8d0-44d8-a0b6-99c9f23e495f
+  - value:
+      ja: "\u30D5\u30B8\u30EF\u30E9\u306E\u5F13"
+      en: 
+    guid: 52ee229b-40aa-4809-a9a2-b4772c66c0a5
+  - value:
+      ja: "\u30CF\u30E4\u30D6\u30B5\u306E\u5F13"
+      en: 
+    guid: d7edd606-8db1-4659-a90d-a39527ef7418

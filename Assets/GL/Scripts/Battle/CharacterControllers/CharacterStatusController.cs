@@ -37,11 +37,6 @@ namespace GL.Battle.CharacterControllers
         public CharacterStatus OnSoldier { private set; get; }
 
         /// <summary>
-        /// コマンド実行時のみ一時的に加算されるステータス
-        /// </summary>
-        public CharacterStatus Temporary { private set; get; }
-
-        /// <summary>
         /// 使用可能なコマンド
         /// </summary>
         public Commands.Bundle.Implement[] Commands { private set; get; }
@@ -138,17 +133,6 @@ namespace GL.Battle.CharacterControllers
         {
             this.Accessory.Attribute.Add(type, value);
             this.PublishModifiedStatus();
-        }
-
-        public void AddParameterToTemporary(Constants.StatusParameterType type, int value)
-        {
-            this.Temporary.Parameter.Add(type, value);
-            this.PublishModifiedStatus();
-        }
-
-        public void ResetTemporary()
-        {
-            this.Temporary.Reset();
         }
 
         public int GetTotalParameter(Constants.StatusParameterType type)
