@@ -25,7 +25,7 @@ namespace GL.DeveloperTools
         [MenuItem("GL/MasterData/Import Command")]
         private static void Import()
         {
-            var commandBundleData = AssetDatabase.LoadAssetAtPath<TextAsset>("Assets/GL/MasterData/RawData/GL - CommandRecord.csv")
+            var commandRecordData = AssetDatabase.LoadAssetAtPath<TextAsset>("Assets/GL/MasterData/RawData/GL - CommandRecord.csv")
                 .text
                 .Split(new string[] { System.Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
             var commandElementData = AssetDatabase.LoadAssetAtPath<TextAsset>("Assets/GL/MasterData/RawData/GL - CommandElement.csv")
@@ -37,9 +37,16 @@ namespace GL.DeveloperTools
             var commandNameAsset = AssetDatabase.LoadAssetAtPath<StringAsset>("Assets/GL/StringAssets/CommandName.asset");
             var commandDescriptionAsset = AssetDatabase.LoadAssetAtPath<StringAsset>("Assets/GL/StringAssets/CommandDescription.asset");
 
+            var totalProcessCount = commandRecordData.Length + commandElementData.Length;
+            var currentProcessCount = 0;
+
             // CommandElementを抽出
             for (var i = 1; i < commandElementData.Length; i++)
             {
+                if(currentProcessCount % 10 == 0)
+                {
+                    EditorUtility.DisplayProgressBar("CommandImporter", $"{currentProcessCount}/{totalProcessCount} Parse CommandElement", (float)currentProcessCount / totalProcessCount);
+                }
                 var e = commandElementData[i];
                 var splitElementData = e.Split(',');
                 GetAssetName(splitElementData.ToList());
@@ -52,12 +59,17 @@ namespace GL.DeveloperTools
                 }
 
                 elements.Add(e);
+                currentProcessCount++;
             }
 
             // CommandRecordを抽出
-            for (var i = 1; i < commandBundleData.Length; i++)
+            for (var i = 1; i < commandRecordData.Length; i++)
             {
-                var split = commandBundleData[i].Split(',');
+                if(currentProcessCount % 10 == 0)
+                {
+                    EditorUtility.DisplayProgressBar("CommandImporter", $"{currentProcessCount}/{totalProcessCount} Parse CommandRecord", (float)currentProcessCount / totalProcessCount);
+                }
+                var split = commandRecordData[i].Split(',');
                 var fileName = split[0];
                 var commandName = split[1];
                 var path = $"Assets/GL/MasterData/Commands/Bundles/";
@@ -75,8 +87,10 @@ namespace GL.DeveloperTools
                     elementList == null ? null : GetBlueprintLists(elementDictionary[fileName], commandElementDictionary)
                 );
                 EditorUtility.SetDirty(bundle);
+                currentProcessCount++;
             }
 
+            EditorUtility.ClearProgressBar();
             AssetDatabase.SaveAssets();
         }
 
