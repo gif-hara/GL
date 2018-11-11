@@ -15,7 +15,7 @@ namespace GL.Battle
         /// <summary>
         /// 通常攻撃でのダメージ計算を行う
         /// </summary>
-        public static int GetBasicAttackDamage(Character invoker, Character target, float rate, Constants.AttributeType attributeType)
+        public static int GetBasicAttackDamage(Character invoker, Character target, float rate, Constants.AttributeType attributeType, float addCritical)
         {
             var baseStrength = Mathf.Pow(invoker.StatusController.GetTotalParameter(Constants.StatusParameterType.Strength), 1.48f) * rate;
             var baseDefense = Mathf.Pow(target.StatusController.GetTotalParameter(Constants.StatusParameterType.Defense), 1.39f);
@@ -24,7 +24,7 @@ namespace GL.Battle
             result += Random.Range(-random, random);
 
             // クリティカルが発生したら1.5倍
-            if (LotteryCritical(invoker, target))
+            if (LotteryCritical(invoker, target, addCritical))
             {
                 result *= 1.5f;
             }
@@ -69,7 +69,7 @@ namespace GL.Battle
         /// <summary>
         /// クリティカルが発生したか返す
         /// </summary>
-        public static bool LotteryCritical(Character invoker, Character target)
+        public static bool LotteryCritical(Character invoker, Character target, float addCritical)
         {
             // 対象が急所持ちなら必ずクリティカルが発生する
             if (target.AilmentController.Find(Constants.StatusAilmentType.Vitals))
@@ -77,17 +77,18 @@ namespace GL.Battle
                 return true;
             }
 
-            var threshold = invoker.StatusController.GetTotalParameter(Constants.StatusParameterType.Critical).ToPercentage();
+            var threshold = invoker.StatusController.GetTotalParameter(Constants.StatusParameterType.Critical).ToPercentage() + addCritical;
             return Random.value <= threshold;
         }
 
         /// <summary>
         /// 攻撃が当たるか返す
         /// </summary>
-        public static bool IsHit(Character invoker, Character target)
+        public static bool IsHit(Character invoker, Character target, float accuracy)
         {
+            var random = Random.Range(0.0f, accuracy);
             var threshold = Mathf.Min(target.StatusController.GetTotalParameter(Constants.StatusParameterType.Avoidance).ToPercentage(), Constants.AvoidanceMax);
-            return Random.value >= threshold;
+            return random >= threshold;
         }
 
         /// <summary>

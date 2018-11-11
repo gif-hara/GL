@@ -48,6 +48,13 @@ namespace GL.Battle.CharacterControllers
                 })
                 .AddTo(this);
 
+            Broker.Global.Receive<EndTurn>()
+                .Where(x => x.Character == this)
+                .SubscribeWithState(this, (_, _this) =>
+                {
+                    _this.StatusController.ResetTemporary();
+                })
+                .AddTo(this);
 
             Broker.Global.Receive<StartSelectCommand>()
                 .Where(x => x.Character == this)

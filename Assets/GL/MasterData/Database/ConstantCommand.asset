@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: ConstantCommand
   m_EditorClassIdentifier: 
   unequipment:
-    commandRecord: {fileID: 11400000, guid: f091bd4a9521641a7905c21f00a9b268, type: 2}
+    commandRecord: {fileID: 11400000, guid: 680b868c3fb3f48b5a961c23ab8861df, type: 2}
     condition: {fileID: 11400000, guid: 7ef01bfc63f714e56a69b16575c97389, type: 2}
   confuse: {fileID: 11400000, guid: 10ae1b460e41946bb887b8334c2b3ea8, type: 2}
   berserk: {fileID: 11400000, guid: 10fca75b377f34a9aa9294156675082f, type: 2}

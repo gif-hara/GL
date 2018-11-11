@@ -28,8 +28,8 @@ namespace GL.Battle.Commands.Element.Implements
         {
             targets.ForEach(t =>
             {
-                var isHit = Calculator.IsHit(invoker, t);
-                var damage = isHit ? Calculator.GetBasicAttackDamage(invoker, t, this.parameter.Rate, this.parameter.AttributeType) : 0;
+                var isHit = Calculator.IsHit(invoker, t, this.parameter.Accuracy);
+                var damage = isHit ? Calculator.GetBasicAttackDamage(invoker, t, this.parameter.Rate, this.parameter.AttributeType, this.parameter.AddCritical) : 0;
 
                 // ダメージがマイナスの場合は回復扱いになる
                 if(damage < 0)
@@ -65,6 +65,16 @@ namespace GL.Battle.Commands.Element.Implements
             /// 攻撃ロジック
             /// </summary>
             public Constants.AttackLogicType LogicType;
+
+            /// <summary>
+            /// 命中率
+            /// </summary>
+            public float Accuracy;
+
+            /// <summary>
+            /// 加算されるクリティカル率
+            /// </summary>
+            public float AddCritical;
         }
     }
 }

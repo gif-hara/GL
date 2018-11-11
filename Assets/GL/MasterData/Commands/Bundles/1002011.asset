@@ -27,4 +27,4 @@ MonoBehaviour:
     InitialChargeTurn: 1
     ElementLists:
     - Elements:
-      - {fileID: 11400000, guid: b50037038a3fd4b38a0dc47d5544cce7, type: 2}
+      - {fileID: 11400000, guid: 4520529706a9444379d34e2d7edad284, type: 2}
