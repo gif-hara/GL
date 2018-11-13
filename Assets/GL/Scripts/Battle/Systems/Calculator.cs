@@ -87,6 +87,8 @@ namespace GL.Battle
         public static bool IsHit(Character invoker, Character target, float accuracy)
         {
             var random = Random.Range(0.0f, accuracy);
+            Debug.Log($"invoker = {invoker}");
+            Debug.Log($"target => {target}");
             var threshold = Mathf.Min(target.StatusController.GetTotalParameter(Constants.StatusParameterType.Avoidance).ToPercentage(), Constants.AvoidanceMax);
             return random >= threshold;
         }

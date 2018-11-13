@@ -2,12 +2,12 @@
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace GL.Battle.AI
+namespace GL.Battle.AIControllers
 {
     /// <summary>
     /// 実際にコマンドを実行するAI要素
     /// </summary>
-    public abstract class AIElement : ScriptableObject
+    public abstract class InvokeCommand : ScriptableObject
     {
         /// <summary>
         /// コマンドを実行する

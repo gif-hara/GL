@@ -38,7 +38,7 @@ namespace GL.Battle.Commands.Element.Implements
                 }
                 else
                 {
-                    t.TakeDamage(damage, isHit);
+                    t.TakeDamage(invoker, damage, isHit);
                 }
 
                 if (bundle.CanRecord)

@@ -6,7 +6,7 @@ namespace GL.Events.Battle
     /// <summary>
     /// ダメージを通知するイベント
     /// </summary>
-    public sealed class DamageNotify : Message<DamageNotify, Character, int, bool>
+    public sealed class DamageNotify : Message<DamageNotify, Character, int, bool, Character>
     {
         /// <summary>
         /// ダメージを受けたキャラクター
@@ -22,5 +22,10 @@ namespace GL.Events.Battle
         /// 当たったか
         /// </summary>
         public bool IsHit => this.param3;
+
+        /// <summary>
+        /// ダメージを与えたキャラクター
+        /// </summary>
+        public Character Invoker => this.param4;
     }
 }

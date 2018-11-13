@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Text;
-using GL.Battle.AI;
+using GL.Battle.AIControllers;
 using GL.Battle.CharacterControllers;
 using GL.Battle.CharacterControllers.JobSystems;
 using HK.Framework.Text;
@@ -91,8 +91,8 @@ namespace GL.Database
         public MaterialLottery[] MaterialLotteries => this.materialLotteries;
 
         [SerializeField]
-        private AIController aiController;
-        public AIController AIController => this.aiController;
+        private AI ai;
+        public AI AI => this.ai;
 
         /// <summary>
         /// レベル

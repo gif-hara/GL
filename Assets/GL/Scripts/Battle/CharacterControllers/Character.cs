@@ -32,6 +32,14 @@ namespace GL.Battle.CharacterControllers
 
         public CharacterUIController UIController { get; private set; }
 
+        /// <summary>
+        /// AIコントローラー
+        /// </summary>
+        /// <remarks>
+        /// 敵のみ保持しています
+        /// </remarks>
+        public AIController AIController { get; private set; }
+
         public void Initialize(CharacterRecord characterRecord, Implement[] commands, SkillElement[] skillElements, int level, Constants.CharacterType characterType)
         {
             this.Record = characterRecord;
@@ -39,6 +47,11 @@ namespace GL.Battle.CharacterControllers
             this.AilmentController = new CharacterAilmentController(this);
             this.CharacterType = characterType;
             this.UIController = this.GetComponent<CharacterUIController>();
+            
+            if(this.CharacterType == Constants.CharacterType.Enemy)
+            {
+                this.AIController = new AIController(this, this.Record.AI);
+            }
 
             Broker.Global.Receive<StartBattle>()
                 .Take(1)
@@ -115,7 +128,7 @@ namespace GL.Battle.CharacterControllers
         /// <summary>
         /// ダメージを受ける
         /// </summary>
-        public void TakeDamage(int damage, bool isHit)
+        public void TakeDamage(Character invoker, int damage, bool isHit)
         {
             if(isHit)
             {
@@ -123,7 +136,7 @@ namespace GL.Battle.CharacterControllers
                 this.StatusController.HitPoint -= damage;
             }
 
-            Broker.Global.Publish(DamageNotify.Get(this, damage, isHit));
+            Broker.Global.Publish(DamageNotify.Get(this, damage, isHit, invoker));
 
             if(isHit && this.StatusController.IsDead)
             {
@@ -153,13 +166,13 @@ namespace GL.Battle.CharacterControllers
             var animationController = this.UIController.AnimationController;
             if (!animationController.IsPlay(CharacterUIAnimation.AnimationType.Damage))
             {
-                this.StatusController.CharacterRecord.AIController.Invoke(this);
+                this.AIController.InvokeCommand();
             }
             else
             {
                 animationController.OnCompleteAsObservable()
                     .Take(1)
-                    .SubscribeWithState(this, (_, _this) => _this.StatusController.CharacterRecord.AIController.Invoke(_this))
+                    .SubscribeWithState(this, (_, _this) => _this.AIController.InvokeCommand())
                     .AddTo(this);
             }
         }

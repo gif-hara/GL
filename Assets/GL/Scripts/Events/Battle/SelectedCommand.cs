@@ -10,7 +10,7 @@ namespace GL.Events.Battle
     public sealed class SelectedCommand : Message<SelectedCommand, Character, Implement>
     {
         /// <summary>
-        /// 実行するヤーツ
+        /// 実行するキャラクター
         /// </summary>
         public Character Invoker{ get{ return this.param1; } }
 

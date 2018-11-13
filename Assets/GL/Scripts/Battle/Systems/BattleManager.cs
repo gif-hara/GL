@@ -107,6 +107,7 @@ namespace GL.Battle
 
         public void EndTurn(Character character)
         {
+            this.InvokedCommandResult.InvokedCharacter = character;
             this.BehavioralOrder.EndTurn(this.Parties);
             Broker.Global.Publish(GL.Events.Battle.EndTurn.Get(character));
 

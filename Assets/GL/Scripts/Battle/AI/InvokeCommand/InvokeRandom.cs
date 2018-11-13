@@ -4,13 +4,13 @@ using HK.Framework.EventSystems;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace GL.Battle.AI
+namespace GL.Battle.AIControllers
 {
     /// <summary>
     /// ランダムにコマンドを実行する
     /// </summary>
-    [CreateAssetMenu(menuName = "GL/AI/Element/InvokeRandom")]
-    public sealed class InvokeRandom : AIElement
+    [CreateAssetMenu(menuName = "GL/AI/InvokeCommand/InvokeRandom")]
+    public sealed class InvokeRandom : InvokeCommand
     {
         public override void Invoke(Character character)
         {

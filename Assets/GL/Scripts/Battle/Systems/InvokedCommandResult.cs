@@ -9,6 +9,11 @@ namespace GL.Battle
     /// </summary>
     public sealed class InvokedCommandResult
     {
+        /// <summary>
+        /// コマンドを実行したキャラクター
+        /// </summary>
+        public Character InvokedCharacter;
+
         public Battle.Commands.Bundle.Implement InvokedCommand;
         
         public readonly List<TakeDamage> TakeDamages = new List<TakeDamage>();
