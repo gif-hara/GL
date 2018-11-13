@@ -46,6 +46,7 @@ namespace GL.Battle.CharacterControllers
                 .AddTo(this.owner);
 
             Broker.Global.Receive<EndTurn>()
+                .Where(_ => !this.owner.StatusController.IsDead)
                 .SubscribeWithState(this, (_, _this) =>
                 {
                     _this.InvokeEndTurnEvent();
