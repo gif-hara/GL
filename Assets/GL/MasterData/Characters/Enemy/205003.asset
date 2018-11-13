@@ -112,5 +112,5 @@ MonoBehaviour:
   price: 948
   acquireExperience: 896
   materialLotteries: []
-  aiController: {fileID: 0}
+  ai: {fileID: 0}
   level: 27

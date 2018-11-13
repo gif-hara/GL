@@ -20,7 +20,7 @@ MonoBehaviour:
     guid: dcc6b3d3-41e3-49f3-9d71-031de04dddcc
   job: {fileID: 11400000, guid: 03c5211d0da644382b9ae5badc37a266, type: 2}
   min:
-    HitPoint: 228
+    HitPoint: 73333
     Strength: 15
     StrengthMagic: 7
     Defense: 7
@@ -292,5 +292,5 @@ MonoBehaviour:
   price: 400
   acquireExperience: 0
   materialLotteries: []
-  aiController: {fileID: 0}
+  ai: {fileID: 0}
   level: 0

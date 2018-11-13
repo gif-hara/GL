@@ -23,13 +23,13 @@ MonoBehaviour:
     condition: {fileID: 11400000, guid: 5e616f6c5005f49c6b39ca4db09a447d, type: 2}
   - commandRecord: {fileID: 11400000, guid: 9f6851141d30d4425a56b2b85bd08a7a, type: 2}
     condition: {fileID: 11400000, guid: 905632838d0234e898c803db970eb82a, type: 2}
-  - commandRecord: {fileID: 11400000, guid: 1720aa7119edb41aeb7ff30784e8458a, type: 2}
+  - commandRecord: {fileID: 11400000, guid: d4dea9740feba4c9b8bc281eac67fdfd, type: 2}
     condition: {fileID: 11400000, guid: 1de81b135f1b140d08d65621d68ef4ca, type: 2}
-  - commandRecord: {fileID: 11400000, guid: 1720aa7119edb41aeb7ff30784e8458a, type: 2}
+  - commandRecord: {fileID: 11400000, guid: d4dea9740feba4c9b8bc281eac67fdfd, type: 2}
     condition: {fileID: 11400000, guid: 4a137bfad541940d69a37ba2b54857a6, type: 2}
-  - commandRecord: {fileID: 11400000, guid: 7eca84c8ea7ce423da3eafa8d2361d4f, type: 2}
+  - commandRecord: {fileID: 11400000, guid: dba9ccb78d5d44a27a776d5ad7734de6, type: 2}
     condition: {fileID: 11400000, guid: 1de81b135f1b140d08d65621d68ef4ca, type: 2}
-  - commandRecord: {fileID: 11400000, guid: 7eca84c8ea7ce423da3eafa8d2361d4f, type: 2}
+  - commandRecord: {fileID: 11400000, guid: dba9ccb78d5d44a27a776d5ad7734de6, type: 2}
     condition: {fileID: 11400000, guid: 4a137bfad541940d69a37ba2b54857a6, type: 2}
   skillElements: []
   needMaterials: []

@@ -13,11 +13,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   equipmentName:
     target: {fileID: 11400000, guid: 7587e1216a4ef4cfeaf77541e6db4355, type: 2}
-    value: "\u304B\u307E\u3044\u305F\u3061\u306E\u77E2"
-    guid: 981189c3-a8d0-44d8-a0b6-99c9f23e495f
+    value: "\u30D0\u30C3\u30C8\u306E\u77E2\u7B52"
+    guid: d2b3d811-f4ef-42a1-8b15-e781ee1700ab
   rank: 1
   equipmentType: 2048
   price: 3400
-  commands: []
+  commands:
+  - commandRecord: {fileID: 11400000, guid: a5b4080cd15a64f66bbaa9e10e1a2282, type: 2}
+    condition: {fileID: 11400000, guid: 5e616f6c5005f49c6b39ca4db09a447d, type: 2}
+  - commandRecord: {fileID: 11400000, guid: fe0c26249e10540a782db50f7e846b0c, type: 2}
+    condition: {fileID: 11400000, guid: d96eb82f0ee304797be156e14a982c80, type: 2}
+  - commandRecord: {fileID: 11400000, guid: a5b4080cd15a64f66bbaa9e10e1a2282, type: 2}
+    condition: {fileID: 11400000, guid: 5e616f6c5005f49c6b39ca4db09a447d, type: 2}
+  - commandRecord: {fileID: 11400000, guid: 3c1e3f5a0f38140a7a94aa08c80e2365, type: 2}
+    condition: {fileID: 11400000, guid: d96eb82f0ee304797be156e14a982c80, type: 2}
+  - commandRecord: {fileID: 11400000, guid: ad10bd8f4a9db40e19909e7d8ecfc00b, type: 2}
+    condition: {fileID: 11400000, guid: d96eb82f0ee304797be156e14a982c80, type: 2}
   skillElements: []
   needMaterials: []

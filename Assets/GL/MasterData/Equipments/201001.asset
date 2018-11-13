@@ -19,7 +19,7 @@ MonoBehaviour:
   equipmentType: 2147483647
   price: 0
   commands:
-  - commandRecord: {fileID: 11400000, guid: c24e911eb895a4b53a25637d64521cdf, type: 2}
+  - commandRecord: {fileID: 11400000, guid: 34924b545cbc44a93a5981c4e52d6d4c, type: 2}
     condition: {fileID: 11400000, guid: 5e616f6c5005f49c6b39ca4db09a447d, type: 2}
   skillElements: []
   needMaterials: []

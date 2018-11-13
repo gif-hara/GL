@@ -21,7 +21,7 @@ MonoBehaviour:
   commands:
   - commandRecord: {fileID: 11400000, guid: df74625730bce445e85a77b5f7c000c3, type: 2}
     condition: {fileID: 11400000, guid: 5e616f6c5005f49c6b39ca4db09a447d, type: 2}
-  - commandRecord: {fileID: 11400000, guid: 265f3dcaf8f6643dea5e5b1b77135de5, type: 2}
+  - commandRecord: {fileID: 11400000, guid: 6cf033da323a84b93ada3075bbdd3a00, type: 2}
     condition: {fileID: 11400000, guid: 34df0525ef1894b1a96ad932bcb95558, type: 2}
   - commandRecord: {fileID: 11400000, guid: f6dd58bfa01b249b58863da3c8dfbc60, type: 2}
     condition: {fileID: 11400000, guid: 905632838d0234e898c803db970eb82a, type: 2}

@@ -116,5 +116,5 @@ MonoBehaviour:
     lottery: 0.25
   - material: {fileID: 11400000, guid: 985d5f51623054dbabfb67d09322f275, type: 2}
     lottery: 0.1
-  aiController: {fileID: 0}
+  ai: {fileID: 0}
   level: 10
