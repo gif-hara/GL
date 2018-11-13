@@ -19,5 +19,5 @@ MonoBehaviour:
   defaultOnEndTurnEventSelectors:
   - conditions:
     - Elements:
-      - {fileID: 11400000, guid: 716b9a386772b490ea94013221b6df43, type: 2}
+      - {fileID: 11400000, guid: c55d02593701942a08fad4ee92359ba9, type: 2}
     element: {fileID: 11400000, guid: f065bcbb1a5804d78a309a2ea98ea20f, type: 2}

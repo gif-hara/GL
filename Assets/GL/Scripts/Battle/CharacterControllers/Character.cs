@@ -156,6 +156,14 @@ namespace GL.Battle.CharacterControllers
             Broker.Global.Publish(RecoveryNotify.Get(this, amount));
         }
 
+        /// <summary>
+        /// <paramref name="target"/>との関係性を返す
+        /// </summary>
+        public Constants.TargetPartyType GetTargetPartyType(Character target)
+        {
+            return target.CharacterType == this.CharacterType ? Constants.TargetPartyType.Ally : Constants.TargetPartyType.Opponent;
+        }
+
         private void InternalEndTurn()
         {
             BattleManager.Instance.EndTurn(this);
