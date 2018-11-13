@@ -164,6 +164,12 @@ namespace GL.DeveloperTools
                 case "RecoveryFixed":
                     result = ScriptableObject.CreateInstance<RecoveryFixed>().SetupFromEditor(data);
                     break;
+                case "AddStatusParameterRateInvoker":
+                    result = ScriptableObject.CreateInstance<AddStatusParameterRateInvoker>().SetupFromEditor(data);
+                    break;
+                case "AddStatusAilmentInvoker":
+                    result = ScriptableObject.CreateInstance<AddStatusAilmentInvoker>().SetupFromEditor(data);
+                    break;
                 default:
                     Assert.IsTrue(false, $"{type}は未対応の値です");
                     break;
