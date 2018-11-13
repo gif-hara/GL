@@ -78,9 +78,6 @@ ID,名前,説明,TargetPartyType,TargetType,Postprocess,ChargeTurn,InitialCharge
 1002073,スパーリング,全員の攻撃力をちょっと上昇する,Opponent,Select,EndTurn,0,0
 1002074,スイング,対象に打撃属性の強い攻撃を行って少し攻撃力を上昇する,Opponent,Select,EndTurn,0,0
 1002075,ヒットアンドアウェイ,対象に打撃属性の攻撃を行って先制を1ターン付与する,Opponent,Select,EndTurn,0,0
-1002076,カウンター攻撃(斬撃),対象に斬撃属性の物理攻撃を行う,Opponent,Select,CompleteEndTurnEvent,0,0
-1002077,カウンター攻撃(打撃),対象に打撃属性の物理攻撃を行う,Opponent,Select,CompleteEndTurnEvent,0,0
-1002078,カウンター攻撃(刺突),対象に刺突属性の物理攻撃を行う,Opponent,Select,CompleteEndTurnEvent,0,0
 1003001,自分の攻撃力アップLv.1,自分の攻撃力をちょっと上昇する,Ally,Myself,EndTurn,1,1
 1003002,自分の攻撃力アップLv.2,自分の攻撃力を少し上昇する,Ally,Myself,EndTurn,1,1
 1003003,自分の攻撃力アップLv.3,自分の攻撃力を上昇する,Ally,Myself,EndTurn,1,1
@@ -541,3 +538,6 @@ ID,名前,説明,TargetPartyType,TargetType,Postprocess,ChargeTurn,InitialCharge
 1010002,元気草,味方のHPを300回復する,Ally,Select,EndTurn,2,2
 1010003,超元気草,味方のHPを800回復する,Ally,Select,EndTurn,3,3
 1010004,劇元気草,味方のHPを2000回復する,Ally,Select,EndTurn,3,3
+1102001,カウンター攻撃(斬撃),対象に斬撃属性の物理攻撃を行う,Opponent,Select,CompleteEndTurnEvent,0,0
+1102002,カウンター攻撃(打撃),対象に打撃属性の物理攻撃を行う,Opponent,Select,CompleteEndTurnEvent,0,0
+1102003,カウンター攻撃(刺突),対象に刺突属性の物理攻撃を行う,Opponent,Select,CompleteEndTurnEvent,0,0
