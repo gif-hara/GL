@@ -57,7 +57,11 @@ namespace GL.Battle.Commands.Bundle
         /// </summary>
         public void Invoke(Character invoker, Character[] targets)
         {
-            Assert.IsTrue(this.currentChargeTurn >= this.parameter.ChargeTurn, $"{this.parameter.Name.Get}がチャージターン数を満たしていないのにコマンドが実行されました");
+            if(invoker.CharacterType == Constants.CharacterType.Player)
+            {
+                Assert.IsTrue(this.currentChargeTurn >= this.parameter.ChargeTurn, $"{this.parameter.Name.Get}がチャージターン数を満たしていないのにコマンドが実行されました");
+            }
+            
             if(this.CanRecord)
             {
                 BattleManager.Instance.InvokedCommandResult.InvokedCommand = this;
