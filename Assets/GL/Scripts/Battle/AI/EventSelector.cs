@@ -19,8 +19,8 @@ namespace GL.Battle.AIControllers
         public Conditions[] Conditions => this.conditions;
 
         [SerializeField]
-        private Event element;
-        public Event Element => this.element;
+        private Event[] events;
+        public Event[] Events => this.events;
 
         public bool Suitable(Character invoker)
         {

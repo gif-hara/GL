@@ -77,11 +77,15 @@ namespace GL.Battle.CharacterControllers
 
         public void InvokeEndTurnEvent()
         {
-            foreach(var e in this.currentOnEndTurnEventSelectors)
+            foreach(var s in this.currentOnEndTurnEventSelectors)
             {
-                if(e.Suitable(this.owner))
+                if(!s.Suitable(this.owner))
                 {
-                    e.Element.Invoke(this.owner);
+                    continue;
+                }
+                foreach(var e in s.Events)
+                {
+                    e.Invoke(this.owner);
                 }
             }
         }
