@@ -30,6 +30,8 @@ namespace GL.Battle.CharacterControllers
 
         private EventSelector[] currentOnEndTurnEventSelectors;
 
+        public int InvokedCount { get; private set; }
+
         public AIController(Character owner, AI ai)
         {
             this.owner = owner;
@@ -46,10 +48,16 @@ namespace GL.Battle.CharacterControllers
                 .AddTo(this.owner);
 
             Broker.Global.Receive<EndTurn>()
-                .Where(_ => !this.owner.StatusController.IsDead)
-                .SubscribeWithState(this, (_, _this) =>
+                .SubscribeWithState(this, (x, _this) =>
                 {
-                    _this.InvokeEndTurnEvent();
+                    if(!_this.owner.StatusController.IsDead)
+                    {
+                        _this.InvokeEndTurnEvent();
+                    }
+                    if(x.Character == _this.owner)
+                    {
+                        _this.InvokedCount++;
+                    }
                 })
                 .AddTo(this.owner);
 
