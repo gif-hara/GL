@@ -13,11 +13,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultCommandSelectors:
   - conditions:
-    - Elements:
-      - {fileID: 11400000, guid: 716b9a386772b490ea94013221b6df43, type: 2}
-    element: {fileID: 11400000, guid: 98589908d2c214b45be8b4739e2d610a, type: 2}
+    - {fileID: 11400000, guid: 716b9a386772b490ea94013221b6df43, type: 2}
+    commandRecord: {fileID: 11400000, guid: 680b868c3fb3f48b5a961c23ab8861df, type: 2}
+    targetType: 0
   defaultOnEndTurnEventSelectors:
   - conditions:
     - Elements:
       - {fileID: 11400000, guid: c55d02593701942a08fad4ee92359ba9, type: 2}
-    element: {fileID: 11400000, guid: f065bcbb1a5804d78a309a2ea98ea20f, type: 2}
+    events:
+    - {fileID: 11400000, guid: f065bcbb1a5804d78a309a2ea98ea20f, type: 2}

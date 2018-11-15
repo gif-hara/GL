@@ -67,7 +67,7 @@ namespace GL.Battle.CharacterControllers
             {
                 if (b.Suitable(this.owner))
                 {
-                    b.Element.Invoke(this.owner);
+                    b.Invoke(this.owner);
                     return;
                 }
             }
@@ -88,6 +88,16 @@ namespace GL.Battle.CharacterControllers
                     e.Invoke(this.owner);
                 }
             }
+        }
+
+        public void ChangeCommandSelector(CommandSelector[] commandSelectors)
+        {
+            this.currentCommandSelectors = commandSelectors;
+        }
+
+        public void ChangeOnEndTurnEventSelector(EventSelector[] eventSelectors)
+        {
+            this.currentOnEndTurnEventSelectors = eventSelectors;
         }
     }
 }
