@@ -11,12 +11,12 @@ namespace GL.Battle.AIControllers
     /// <remarks>
     /// <see cref="CommandSelector"/>とは違って条件を満たしているイベントは全て実行されます
     /// </remarks>
-    [Serializable]
-    public sealed class EventSelector
+    [CreateAssetMenu(menuName = "GL/AI/EventSelector")]
+    public sealed class EventSelector : ScriptableObject
     {
         [SerializeField]
-        private Conditions[] conditions;
-        public Conditions[] Conditions => this.conditions;
+        private Condition[] conditions;
+        public Condition[] Conditions => this.conditions;
 
         [SerializeField]
         private Event[] events;
