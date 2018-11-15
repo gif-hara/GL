@@ -15,19 +15,11 @@ namespace GL.Battle.AIControllers
     [Serializable]
     public sealed class CommandSelector
     {
-        public enum TargetType
-        {
-            Random,
-        }
-
         [SerializeField]
         private Condition[] conditions;
 
         [SerializeField]
-        private CommandRecord commandRecord;
-
-        [SerializeField]
-        private TargetType targetType;
+        private InvokeCommand[] invokeCommands;
 
         public bool Suitable(Character invoker)
         {
@@ -44,14 +36,8 @@ namespace GL.Battle.AIControllers
 
         public void Invoke(Character invoker)
         {
-            var command = this.commandRecord.Create();
-            Broker.Global.Publish(SelectedCommand.Get(invoker, command));
-            if(command.TargetType.IsSelectType())
-            {
-                var targets = command.GetTargets(invoker);
-                var target = targets[UnityEngine.Random.Range(0, targets.Length)];
-                Broker.Global.Publish(SelectedTargets.Get(invoker, command, new Character[] { target }));
-            }
+            var invokeCommand = this.invokeCommands[UnityEngine.Random.Range(0, this.invokeCommands.Length)];
+            invokeCommand.Invoke(invoker);
         }
     }
 }
