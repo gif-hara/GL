@@ -12,8 +12,8 @@ namespace GL.Battle.AIControllers
     /// <summary>
     /// コマンドを選択するクラス
     /// </summary>
-    [Serializable]
-    public sealed class CommandSelector
+    [CreateAssetMenu(menuName = "GL/AI/CommandSelector")]
+    public sealed class CommandSelector : ScriptableObject
     {
         [SerializeField]
         private Condition[] conditions;
