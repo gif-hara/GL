@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using GL.Battle.CharacterControllers;
 using GL.Database;
 using GL.Events.Battle;
@@ -39,5 +40,15 @@ namespace GL.Battle.AIControllers
             var invokeCommand = this.invokeCommands[UnityEngine.Random.Range(0, this.invokeCommands.Length)];
             invokeCommand.Invoke(invoker);
         }
+
+#if UNITY_EDITOR
+        public CommandSelector Set(Condition[] conditions, InvokeCommand[] invokeCommands)
+        {
+            this.conditions = conditions;
+            this.invokeCommands = invokeCommands;
+
+            return this;
+        }
+#endif
     }
 }

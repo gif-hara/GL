@@ -34,5 +34,15 @@ namespace GL.Battle.AIControllers
 
             return false;
         }
+
+#if UNITY_EDITOR
+        public EventSelector Set(Condition[] conditions, Event[] events)
+        {
+            this.conditions = conditions;
+            this.events = events;
+
+            return this;
+        }
+#endif
     }
 }

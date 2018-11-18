@@ -26,9 +26,13 @@ namespace GL.Battle.CharacterControllers
         private Character affectedCharacter;
         public Character AffectedCharacter => this.affectedCharacter;
 
-        private CommandSelector[] currentCommandSelectors;
+        private int currentCommandSelectorListIndex;
 
-        private EventSelector[] currentOnEndTurnEventSelectors;
+        private int currentOnEndTurnEventSelectorListIndex;
+
+        private List<CommandSelector> CurrentCommandSelectors => this.ai.CommandSelectorLists[this.currentCommandSelectorListIndex].CommandSelectors;
+
+        private List<EventSelector> CurrentOnEndTurnEventSelectors => this.ai.OnEndTurnEventSelectorLists[this.currentOnEndTurnEventSelectorListIndex].EventSelectors;
 
         public int InvokedCount { get; private set; }
 
@@ -36,8 +40,8 @@ namespace GL.Battle.CharacterControllers
         {
             this.owner = owner;
             this.ai = ai;
-            this.currentCommandSelectors = this.ai.DefaultCommandSelectors;
-            this.currentOnEndTurnEventSelectors = this.ai.DefaultOnEndTurnEventSelectors;
+            this.currentCommandSelectorListIndex = 0;
+            this.currentOnEndTurnEventSelectorListIndex = 0;
 
             Broker.Global.Receive<DamageNotify>()
                 .Where(x => x.Receiver == this.owner)
@@ -71,7 +75,7 @@ namespace GL.Battle.CharacterControllers
 
         public void InvokeCommand()
         {
-            foreach (var b in this.currentCommandSelectors)
+            foreach (var b in this.CurrentCommandSelectors)
             {
                 if (b.Suitable(this.owner))
                 {
@@ -85,7 +89,7 @@ namespace GL.Battle.CharacterControllers
 
         public void InvokeEndTurnEvent()
         {
-            foreach(var s in this.currentOnEndTurnEventSelectors)
+            foreach(var s in this.CurrentOnEndTurnEventSelectors)
             {
                 if(!s.Suitable(this.owner))
                 {
@@ -98,14 +102,14 @@ namespace GL.Battle.CharacterControllers
             }
         }
 
-        public void ChangeCommandSelector(CommandSelector[] commandSelectors)
+        public void ChangeCommandSelector(int index)
         {
-            this.currentCommandSelectors = commandSelectors;
+            this.currentCommandSelectorListIndex = index;
         }
 
-        public void ChangeOnEndTurnEventSelector(EventSelector[] eventSelectors)
+        public void ChangeOnEndTurnEventSelector(int index)
         {
-            this.currentOnEndTurnEventSelectors = eventSelectors;
+            this.currentOnEndTurnEventSelectorListIndex = index;
         }
     }
 }

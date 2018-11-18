@@ -11,11 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95783d095e65b4fc28586a4dd82a514e, type: 3}
   m_Name: 201001
   m_EditorClassIdentifier: 
-  defaultCommandSelectors:
-  - {fileID: 11400000, guid: 154eb687c2f2744d680a07a42481fcaa, type: 2}
-  - {fileID: 11400000, guid: c3996709fdb984cc79f06d5e656f5902, type: 2}
-  defaultOnEndTurnEventSelectors:
-  - conditions:
-    - {fileID: 11400000, guid: c55d02593701942a08fad4ee92359ba9, type: 2}
-    events:
-    - {fileID: 11400000, guid: f065bcbb1a5804d78a309a2ea98ea20f, type: 2}
+  commandSelectorLists:
+  - commandSelectors:
+    - {fileID: 11400000, guid: 154eb687c2f2744d680a07a42481fcaa, type: 2}
+    - {fileID: 11400000, guid: c3996709fdb984cc79f06d5e656f5902, type: 2}
+  onEndTurnEventSelectorLists:
+  - eventSelectors:
+    - {fileID: 11400000, guid: 15aba5e36943b4c7f89d5682b1315b82, type: 2}

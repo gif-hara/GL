@@ -1,0 +1,2 @@
+EnemyId,PatternID,Condition
+201001,0,ExistAffectedCharacter_Opponent

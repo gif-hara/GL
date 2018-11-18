@@ -8,8 +8,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbfc015345f9040f8a3aaa071a97194a, type: 3}
-  m_Name: Counter
+  m_Script: {fileID: 11500000, guid: 752c8e54fc7d244c4863526c46fab7b3, type: 3}
+  m_Name: IsTurnMatchedSurplus_2_1
   m_EditorClassIdentifier: 
-  commandRecord: {fileID: 11400000, guid: d249ca93b63ab4170ad12ada8870715a, type: 2}
-  targetType: 0
+  divide: 2
+  matchNumber: 1

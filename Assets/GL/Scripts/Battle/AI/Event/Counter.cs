@@ -65,5 +65,15 @@ namespace GL.Battle.AIControllers
 
             return result.ToArray();
         }
+
+#if UNITY_EDITOR
+        public Counter Set(CommandRecord commandRecord, TargetType targetType)
+        {
+            this.commandRecord = commandRecord;
+            this.targetType = targetType;
+
+            return this;
+        }
+#endif
     }
 }

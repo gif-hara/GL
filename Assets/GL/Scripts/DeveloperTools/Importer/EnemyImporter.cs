@@ -21,8 +21,9 @@ namespace GL.DeveloperTools
     public static class EnemyImporter
     {
         [MenuItem("GL/MasterData/Import Enemy")]
-        private static void Import()
+        public static void Import()
         {
+            EnemyAIImporter.Import();
             var enemyData = AssetDatabase.LoadAssetAtPath<TextAsset>("Assets/GL/MasterData/RawData/GL - Enemy.csv")
                 .text
                 .Split(new string[] { System.Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);

@@ -40,5 +40,15 @@ namespace GL.Battle.AIControllers
                 Broker.Global.Publish(SelectedTargets.Get(invoker, command, new Character[] { target }));
             }
         }
+
+#if UNITY_EDITOR
+        public InvokeCommand Set(CommandRecord commandRecord, TargetType targetType)
+        {
+            this.commandRecord = commandRecord;
+            this.targetType = targetType;
+
+            return this;
+        }
+#endif
     }
 }
