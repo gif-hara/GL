@@ -49,20 +49,13 @@ namespace GL.DeveloperTools
                 .ToDictionary(c => c.Parameter.Name.Get);
 
             // CommandConditionを抽出
-            var currentPatternId = -1;
-            var currentListId = 0;
             for (var i = 1; i < commandConditionData.Length; i++)
             {
                 var splitData = commandConditionData[i].Split(',');
                 var enemyId = splitData[0];
                 var patternId = int.Parse(splitData[1]);
-                if(currentPatternId != patternId)
-                {
-                    currentPatternId = patternId;
-                    currentListId = 0;
-                }
-                var commandConditionKey = $"{enemyId}_{patternId}_{currentListId}";
-                currentListId++;
+                var listId = int.Parse(splitData[2]);
+                var commandConditionKey = $"{enemyId}_{patternId}_{listId}";
                 List<string> commandConditionList = null;
                 if(!commandConditionDictionary.TryGetValue(commandConditionKey, out commandConditionList))
                 {
@@ -73,19 +66,13 @@ namespace GL.DeveloperTools
             }
 
             // InvokeCommandを抽出
-            currentPatternId = -1;
             for (var i = 1; i < invokeCommandData.Length; i++)
             {
                 var splitData = invokeCommandData[i].Split(',');
                 var enemyId = splitData[0];
                 var patternId = int.Parse(splitData[1]);
-                if(currentPatternId != patternId)
-                {
-                    currentPatternId = patternId;
-                    currentListId = 0;
-                }
-                var invokeCommandKey = $"{enemyId}_{patternId}_{currentListId}";
-                currentListId++;
+                var listId = int.Parse(splitData[2]);
+                var invokeCommandKey = $"{enemyId}_{patternId}_{listId}";
                 List<string> invokeCommandList = null;
                 if (!invokeCommandDictionary.TryGetValue(invokeCommandKey, out invokeCommandList))
                 {
@@ -104,7 +91,7 @@ namespace GL.DeveloperTools
                 var commandConditions = commandConditionPair.Value.Select(c =>
                 {
                     var splitData = c.Split(',');
-                    var conditionName = splitData[2];
+                    var conditionName = splitData[3].RemoveNewLine();
                     var result = AssetDatabase.LoadAssetAtPath<Condition>($"Assets/GL/MasterData/AI/Conditions/{conditionName}.asset");
                     Assert.IsNotNull(result, $"{conditionName}のConditionがありませんでした");
                     return result;
@@ -112,8 +99,8 @@ namespace GL.DeveloperTools
                 var invokeCommands = invokeCommandDictionary[fileName].Select(c =>
                 {
                     var splitData = c.Split(',');
-                    var commandName = splitData[2];
-                    var targetType = (InvokeCommand.TargetType)Enum.Parse(typeof(InvokeCommand.TargetType), splitData[3]);
+                    var commandName = splitData[3];
+                    var targetType = (InvokeCommand.TargetType)Enum.Parse(typeof(InvokeCommand.TargetType), splitData[4].RemoveNewLine());
                     var command = commandRecords[commandName];
                     Assert.IsNotNull(command, $"{commandName}のコマンドがありませんでした");
                     return new InvokeCommand().Set(command, targetType);
@@ -131,20 +118,13 @@ namespace GL.DeveloperTools
             }
 
             // OnEndTurnEventConditionを抽出
-            currentPatternId = -1;
-            currentListId = 0;
             for (var i = 1; i < onEndTurnEventConditionData.Length; i++)
             {
                 var splitData = onEndTurnEventConditionData[i].Split(',');
                 var enemyId = splitData[0];
                 var patternId = int.Parse(splitData[1]);
-                if(currentPatternId != patternId)
-                {
-                    currentPatternId = patternId;
-                    currentListId = 0;
-                }
-                var onEndTurnEventConditionKey = $"{enemyId}_{patternId}_{currentListId}";
-                currentListId++;
+                var listId = int.Parse(splitData[2]);
+                var onEndTurnEventConditionKey = $"{enemyId}_{patternId}_{listId}";
                 List<string> onEndTurnEventConditionList = null;
                 if (!onEndTurnEventConditionDictionary.TryGetValue(onEndTurnEventConditionKey, out onEndTurnEventConditionList))
                 {
@@ -155,19 +135,13 @@ namespace GL.DeveloperTools
             }
 
             // OnEndTurnEventRecordを抽出
-            currentPatternId = -1;
             for (var i = 1; i < onEndTurnEventRecordData.Length; i++)
             {
                 var splitData = onEndTurnEventRecordData[i].Split(',');
                 var enemyId = splitData[0];
                 var patternId = int.Parse(splitData[1]);
-                if(currentPatternId != patternId)
-                {
-                    currentPatternId = patternId;
-                    currentListId = 0;
-                }
-                var onEndTurnEventRecordKey = $"{enemyId}_{patternId}_{currentListId}";
-                currentListId++;
+                var listId = int.Parse(splitData[2]);
+                var onEndTurnEventRecordKey = $"{enemyId}_{patternId}_{listId}";
                 List<string> onEndTurnEventRecordList = null;
                 if(!onEndTurnEventRecordDictionary.TryGetValue(onEndTurnEventRecordKey, out onEndTurnEventRecordList))
                 {
@@ -187,7 +161,7 @@ namespace GL.DeveloperTools
                     .Select(e =>
                     {
                         var splitData = e.Split(',');
-                        var conditionName = splitData[2];
+                        var conditionName = splitData[3].RemoveNewLine();
                         var result = AssetDatabase.LoadAssetAtPath<Condition>($"Assets/GL/MasterData/AI/Conditions/{conditionName}.asset");
                         Assert.IsNotNull(result, $"{conditionName}のConditionがありませんでした");
                         return result;
@@ -221,17 +195,19 @@ namespace GL.DeveloperTools
                 var path = "Assets/GL/MasterData/AI/Controllers/";
                 ImporterUtility.GetOrCreate<AI>(path, enemyId).Set(GetCommandSelectorLists(commandSelectors), GetOnEndTurnEventSelectorLists(onEndTurnEventSelectors));
             }
+
+            AssetDatabase.SaveAssets();
         }
 
         private static Battle.AIControllers.Event GetOrCreateEvent(string[] splitData, Dictionary<string, CommandRecord> commandRecords)
         {
             var path = "Assets/GL/MasterData/AI/Events/";
-            var type = splitData[2];
+            var type = splitData[3];
             switch(type)
             {
                 case "Counter":
-                    var commandRecord = commandRecords[splitData[3]];
-                    var targetType = (Counter.TargetType)Enum.Parse(typeof(Counter.TargetType), splitData[4]);
+                    var commandRecord = commandRecords[splitData[4]];
+                    var targetType = (Counter.TargetType)Enum.Parse(typeof(Counter.TargetType), splitData[5]);
                     return ImporterUtility.GetOrCreate<Counter>(path, $"{type}_{commandRecord.Id}_{targetType}").Set(commandRecord, targetType);
                 default:
                     Assert.IsTrue(false, $"{type}は未対応の値です");
@@ -259,6 +235,11 @@ namespace GL.DeveloperTools
 
         private static AI.EventSelectorList[] GetOnEndTurnEventSelectorLists(List<EventSelector> eventSelectors)
         {
+            if(eventSelectors == null)
+            {
+                return new AI.EventSelectorList[0];
+            }
+            
             var result = new List<AI.EventSelectorList>();
             foreach(var eventSelector in eventSelectors)
             {
