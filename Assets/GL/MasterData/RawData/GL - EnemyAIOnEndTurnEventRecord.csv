@@ -1,2 +1,2 @@
-EnemyId,PatternID,EventType,パラメータ1,パラメータ2,パラメータ3,パラメータ4,パラメータ5,パラメータ6,パラメータ7,パラメータ8
-201001,0,Counter,カウンター攻撃(斬撃),AffectedCharacter,,,,,,
+EnemyId,PatternID,ListID,EventType,パラメータ1,パラメータ2,パラメータ3,パラメータ4,パラメータ5,パラメータ6,パラメータ7,パラメータ8
+208001,0,0,Counter,カウンター攻撃(斬撃),AffectedCharacter,,,,,,

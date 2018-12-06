@@ -1,2 +1,14 @@
-EnemyId,PatternID,Condition
-201001,0,Unconditional
+EnemyId,PatternID,ListID,Condition
+201001,0,0,Unconditional
+201002,0,0,Unconditional
+202001,0,0,Unconditional
+202002,0,0,Unconditional
+203001,0,0,IsTurnMatchedSurplus_2_0
+203001,0,1,IsTurnMatchedSurplus_2_1
+203002,0,0,IsTurnMatchedSurplus_2_0
+203002,0,1,IsTurnMatchedSurplus_2_1
+204001,0,0,Unconditional
+204002,0,0,Unconditional
+205001,0,0,Unconditional
+206001,0,0,Unconditional
+207001,0,0,Unconditional
