@@ -23,12 +23,12 @@ MonoBehaviour:
     Accessories: []
   - Level: 1
     CharacterRecord: {fileID: 11400000, guid: 97da30407154d4c528861bd09add452b, type: 2}
-    RightWeapon: {fileID: 0}
+    RightWeapon: {fileID: 11400000, guid: a96996ebb91fc41078d7f78b9b118ca8, type: 2}
     LeftWeapon: {fileID: 0}
     Accessories: []
   - Level: 1
     CharacterRecord: {fileID: 11400000, guid: 97da30407154d4c528861bd09add452b, type: 2}
-    RightWeapon: {fileID: 0}
+    RightWeapon: {fileID: 11400000, guid: a96996ebb91fc41078d7f78b9b118ca8, type: 2}
     LeftWeapon: {fileID: 0}
     Accessories: []
   - Level: 1

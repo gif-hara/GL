@@ -28,4 +28,4 @@ MonoBehaviour:
   skillElements: []
   needMaterials:
   - material: {fileID: 11400000, guid: 4cf9b0a912efc4057ac5e9536dc528d1, type: 2}
-    amount: 3
+    amount: 4

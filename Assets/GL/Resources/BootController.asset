@@ -23,7 +23,7 @@ MonoBehaviour:
       List:
       - instanceId: 0
         PlayerName: "\u30C6\u30B9\u30C81"
-        Level: 1
+        Level: 100
         BlueprintId: 101001
         rightHand:
           equipmentInstanceId: 1
@@ -32,7 +32,7 @@ MonoBehaviour:
         accessoryInstanceIds: 000000000000000000000000
       - instanceId: 0
         PlayerName: "\u30C6\u30B9\u30C82"
-        Level: 1
+        Level: 100
         BlueprintId: 102001
         rightHand:
           equipmentInstanceId: 2
@@ -41,7 +41,7 @@ MonoBehaviour:
         accessoryInstanceIds: 000000000000000000000000
       - instanceId: 0
         PlayerName: "\u30C6\u30B9\u30C83"
-        Level: 1
+        Level: 100
         BlueprintId: 103001
         rightHand:
           equipmentInstanceId: 3
@@ -50,7 +50,7 @@ MonoBehaviour:
         accessoryInstanceIds: 000000000000000000000000
       - instanceId: 0
         PlayerName: "\u30C6\u30B9\u30C84"
-        Level: 1
+        Level: 100
         BlueprintId: 104001
         rightHand:
           equipmentInstanceId: 4

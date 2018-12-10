@@ -192,3 +192,71 @@ MonoBehaviour:
       ja: "\u30E2\u30F3\u30B9\u30BF\u30FC\u306E\u9B54\u6CD5\u77F3"
       en: 
     guid: c6b63d9e-7b12-4127-9ee3-f6176d9b8338
+  - value:
+      ja: "\u30B4\u30D6\u30EA\u30F3\u306E\u9B42"
+      en: 
+    guid: dcb364eb-6375-46ee-9e2e-59cb0e0ca6a8
+  - value:
+      ja: "\u30B9\u30E9\u30A4\u30E0\u306E\u9B42"
+      en: 
+    guid: 071ffe9a-923e-4b06-9827-5224715ecba7
+  - value:
+      ja: "\u30DE\u30DF\u30A3\u306E\u9B42"
+      en: 
+    guid: 53b54dff-1fdd-43b0-b242-cc0ce30c801e
+  - value:
+      ja: "\u30D0\u30C3\u30C8\u306E\u9B42"
+      en: 
+    guid: 0c37252d-4e7f-4352-9059-3ea71d8a7151
+  - value:
+      ja: "\u30DF\u30C3\u30C9\u30A2\u30A4\u306E\u9B42"
+      en: 
+    guid: f6a24fc9-7479-4c2f-92e2-660ca09be7b4
+  - value:
+      ja: "\u30D5\u30ED\u30C3\u30B0\u306E\u9B42"
+      en: 
+    guid: 13b92e2a-e333-4e91-94c8-e3d22c54849e
+  - value:
+      ja: "\u30C1\u30E3\u30FC\u30E0\u30AD\u30C3\u30B9\u306E\u9B42"
+      en: 
+    guid: ea9dfbb9-9ae0-4aa6-b818-894d52c37858
+  - value:
+      ja: "\u30A4\u30D5\u30EA\u30FC\u30C8\u306E\u9B42"
+      en: 
+    guid: 313ffbbe-45c2-4ae5-a857-ac1a77f2007c
+  - value:
+      ja: "\u30B4\u30FC\u30EC\u30E0\u306E\u9B42"
+      en: 
+    guid: c5e3fbcc-cc4f-4bc6-8197-740e5eaf7ab9
+  - value:
+      ja: "\u30B5\u30CF\u30AE\u30F3\u306E\u9B42"
+      en: 
+    guid: 74f23655-c6b6-45cd-8749-6c944bc393ae
+  - value:
+      ja: "\u30DE\u30C3\u30C9\u30B7\u30FC\u30D7\u306E\u9B42"
+      en: 
+    guid: 66dfdd73-5235-478f-9571-ecdadf8c5061
+  - value:
+      ja: "\u30D6\u30EB\u30FC\u30C8\u306E\u9B42"
+      en: 
+    guid: 36648180-91cf-455d-90d6-ddd4e674ac1b
+  - value:
+      ja: "\u30B5\u30EB\u30D5\u30A7\u30FC\u30C8\u306E\u9B42"
+      en: 
+    guid: 797da407-95ca-4beb-803d-26678293d37d
+  - value:
+      ja: "\u30A2\u30B5\u30B7\u30F3\u30DE\u30F3\u30C6\u30A3\u30B9\u306E\u9B42"
+      en: 
+    guid: e0d510e4-e62f-4a34-aa53-4846b5d6ca8c
+  - value:
+      ja: "\u30A2\u30F3\u30D5\u30A7\u30A2\u30EA\u30FC\u306E\u9B42"
+      en: 
+    guid: 6934fe63-c0cc-4ede-8a0d-18df1f77f881
+  - value:
+      ja: "\u30B4\u30FC\u30B9\u30C8\u306E\u9B42"
+      en: 
+    guid: 1c1d4526-5d9d-44d2-aea6-605e0018cca4
+  - value:
+      ja: "\u30E6\u30CB\u30B3\u30FC\u30F3\u306E\u9B42"
+      en: 
+    guid: 805a97ac-d23e-4144-84ae-0876086d554c

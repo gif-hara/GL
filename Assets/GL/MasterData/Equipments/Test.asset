@@ -13,8 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   equipmentName:
     target: {fileID: 11400000, guid: 7587e1216a4ef4cfeaf77541e6db4355, type: 2}
-    value: "\u30C0\u30AC\u30FC"
-    guid: bdb779f7-391d-4af3-8c40-5b61cb488a83
+    value: "\u30C6\u30B9\u30C8\u6B66\u5668"
+    guid: 23999f7f-c4ac-4593-bd70-65d142f4d9e4
   rank: 1
   equipmentType: 1
   price: 300
@@ -24,6 +24,4 @@ MonoBehaviour:
   - commandRecord: {fileID: 11400000, guid: bbdb6359713644fe6b07439a3e54b0c6, type: 2}
     condition: {fileID: 11400000, guid: 5e616f6c5005f49c6b39ca4db09a447d, type: 2}
   skillElements: []
-  needMaterials:
-  - material: {fileID: 11400000, guid: 4cf9b0a912efc4057ac5e9536dc528d1, type: 2}
-    amount: 3
+  needMaterials: []

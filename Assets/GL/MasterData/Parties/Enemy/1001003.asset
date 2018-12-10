@@ -18,12 +18,12 @@ MonoBehaviour:
   parameters:
   - Level: 1
     CharacterRecord: {fileID: 11400000, guid: 765a17dcae8404fe0bcd0fc32992ca5f, type: 2}
-    RightWeapon: {fileID: 0}
+    RightWeapon: {fileID: 11400000, guid: 98bd7cf0c6b3e43e68e990869d5cf05b, type: 2}
     LeftWeapon: {fileID: 0}
     Accessories: []
   - Level: 1
     CharacterRecord: {fileID: 11400000, guid: 765a17dcae8404fe0bcd0fc32992ca5f, type: 2}
-    RightWeapon: {fileID: 0}
+    RightWeapon: {fileID: 11400000, guid: 98bd7cf0c6b3e43e68e990869d5cf05b, type: 2}
     LeftWeapon: {fileID: 0}
     Accessories: []
   - Level: 1
