@@ -30,30 +30,16 @@ namespace GL.Battle
                 .Where(x => x.Character.CharacterType == Constants.CharacterType.Enemy)
                 .SubscribeWithState(this, (x, _this) =>
                 {
-                    var b = x.Character.StatusController.CharacterRecord;
-                    _this.Experience += b.AcquireExperience;
-                    _this.Gold += b.Price;
-                    b.MaterialLotteries
-                        .Where(m => m.IsAcquire)
-                        .Select(m => m.Material)
-                        .ForEach(m =>
-                        {
-                            if (this.Materials.ContainsKey(m))
-                            {
-                                this.Materials[m]++;
-                            }
-                            else
-                            {
-                                this.Materials.Add(m, 1);
-                            }
-                        });
+                    _this.AddMaterial(x.Character.StatusController.CharacterRecord);
                 })
                 .AddTo(owner);
             Broker.Global.Receive<EndBattle>()
                 .Where(x => x.Result == Constants.BattleResult.PlayerWin)
                 .SubscribeWithState(this, (_, _this) =>
                 {
-                    _this.UnlockElements = UserData.Instance.UnlockElements.GetNotDuplicate(BattleManager.Instance.Parties.Enemy.PartyRecord.UnlockElements);
+                    var unlockEquipments = BattleManager.Instance.Parties.Enemy.PartyRecord.UnlockElements;
+                    unlockEquipments.Equipments.AddRange(_this.GetUnlockEquipments());
+                    _this.UnlockElements = UserData.Instance.UnlockElements.GetNotDuplicate(unlockEquipments);
                     _this.ApplyUserData();
                 })
                 .AddTo(owner);
@@ -67,6 +53,47 @@ namespace GL.Battle
             this.Materials.ForEach(m => u.AddMaterial(m.Key, m.Value));
             u.AddUnlockElements(this.UnlockElements);
             u.Save();
+        }
+
+        private void AddMaterial(CharacterRecord characterRecord)
+        {
+            this.Experience += characterRecord.AcquireExperience;
+            this.Gold += characterRecord.Price;
+            characterRecord.MaterialLotteries
+                .Where(m => m.IsAcquire)
+                .Select(m => m.Material)
+                .ForEach(m =>
+                {
+                    if (this.Materials.ContainsKey(m))
+                    {
+                        this.Materials[m]++;
+                    }
+                    else
+                    {
+                        this.Materials.Add(m, 1);
+                    }
+                });
+        }
+
+        private List<string> GetUnlockEquipments()
+        {
+            var result = new List<string>();
+            var equipmentList = MasterData.Equipment;
+            this.Materials.ForEach(m =>
+            {
+                var unlockEquipments = equipmentList.List.FindAll(e =>
+                {
+                    if(e.NeedMaterials.Length <= 0)
+                    {
+                        return false;
+                    }
+                    return e.NeedMaterials[0].Material == m.Key;
+                })
+                .Select(e => e.Id);
+                result.AddRange(unlockEquipments);
+            });
+
+            return result;
         }
     }
 }
