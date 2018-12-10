@@ -25,12 +25,14 @@ namespace GL.DeveloperTools
 
             var typeId = 1;
             var index = 1;
-            data.ForEach(d =>
+            for (var i = 0; i < data.Length; i++)
             {
+                var d = data[i];
+                EditorUtility.DisplayProgressBar("MaterialImporter", $"{i} / {data.Length - 1} Parse MaterialRecord", (float)i / (data.Length - 1));
                 var split = d.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
 
                 // 空白の場合はID類をリセットする
-                if(string.IsNullOrWhiteSpace(split[0]))
+                if (string.IsNullOrWhiteSpace(split[0]))
                 {
                     typeId++;
                     index = 1;
@@ -48,13 +50,14 @@ namespace GL.DeveloperTools
                 var materialNameFinder = materialNameAsset.CreateOrGetFinder(materialName);
                 materialAsset.Set(materialNameFinder);
                 EditorUtility.SetDirty(materialAsset);
-            });
+            }
 
             var materialDatabase = AssetDatabase.LoadAssetAtPath<MaterialList>("Assets/GL/MasterData/Database/Material.asset");
             AssetDatabase.SaveAssets();
             materialDatabase.Reset();
             EditorUtility.SetDirty(materialDatabase);
             AssetDatabase.SaveAssets();
+            EditorUtility.ClearProgressBar();
         }
     }
 }
