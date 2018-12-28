@@ -29,7 +29,7 @@ MonoBehaviour:
     condition: {fileID: 11400000, guid: 260032a1114f9410e8c7d1cfefe7f0d6, type: 2}
   skillElements: []
   needMaterials:
-  - material: {fileID: 11400000, guid: a358d3e3b83b043dea0b3a38d2019d52, type: 2}
-    amount: 5
   - material: {fileID: 11400000, guid: 805bf2abc77e940e3ba6c146bc5a2a3c, type: 2}
     amount: 2
+  - material: {fileID: 11400000, guid: a358d3e3b83b043dea0b3a38d2019d52, type: 2}
+    amount: 5

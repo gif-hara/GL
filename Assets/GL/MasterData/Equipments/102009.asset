@@ -26,4 +26,8 @@ MonoBehaviour:
   - commandRecord: {fileID: 11400000, guid: 632833b53ed56407799ba1f01450f432, type: 2}
     condition: {fileID: 11400000, guid: 905632838d0234e898c803db970eb82a, type: 2}
   skillElements: []
-  needMaterials: []
+  needMaterials:
+  - material: {fileID: 11400000, guid: 2b7338d5eda1f430eafe66f3e8ff7b0a, type: 2}
+    amount: 5
+  - material: {fileID: 11400000, guid: 8671d505c506d46e294595eae5805624, type: 2}
+    amount: 2
