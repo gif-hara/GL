@@ -50,9 +50,11 @@ namespace GL.DeveloperTools
                     commandDictionary.Add(equipmentId, commandRecords);
                 }
                 var commandRecord = AssetDatabase.LoadAssetAtPath<CommandRecord>($"Assets/GL/MasterData/Commands/Bundles/{commandId}.asset");
-                Assert.IsNotNull(commandRecord, $"{commandId}のCommandRecordがありませんでした");
+                Assert.IsNotNull(commandRecord, $"{commandId}の{typeof(CommandRecord).Name}がありませんでした");
+
                 var condition = AssetDatabase.LoadAssetAtPath<EquipmentElementCondition>($"Assets/GL/MasterData/Commands/Conditions/{conditionName}.asset");
-                Assert.IsNotNull(condition, $"{conditionName}に対応するCommandElementConditionがありませんでした");
+                Assert.IsNotNull(condition, $"{conditionName}に対応する{typeof(EquipmentElementCondition).Name}がありませんでした");
+
                 var invokeCondition = AssetDatabase.LoadAssetAtPath<CommandInvokeCondition>($"Assets/GL/MasterData/Commands/InvokeConditions/{invokeConditionName}.asset");
                 Assert.IsNotNull(invokeCondition, $"{invokeConditionName}に対応する{typeof(CommandInvokeCondition).Name}がありませんでした");
 
