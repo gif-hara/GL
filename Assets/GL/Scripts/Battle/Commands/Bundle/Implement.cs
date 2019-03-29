@@ -21,11 +21,9 @@ namespace GL.Battle.Commands.Bundle
     {
         private Parameter parameter;
 
-        private int currentChargeTurn;
-        public int CurrentChargeTurn => this.currentChargeTurn;
+        public int CurrentChargeTurn { get; private set; }
 
-        private int chargeTurn;
-        public int ChargeTurn => this.chargeTurn;
+        public int ChargeTurn { get; private set; }
 
         private ImplementList[] elementLists;
 
@@ -44,8 +42,8 @@ namespace GL.Battle.Commands.Bundle
         public Implement(Parameter parameter)
         {
             this.parameter = parameter;
-            this.currentChargeTurn = this.parameter.InitialChargeTurn;
-            this.chargeTurn = this.parameter.ChargeTurn;
+            this.CurrentChargeTurn = this.parameter.InitialChargeTurn;
+            this.ChargeTurn = this.parameter.ChargeTurn;
             this.elementLists = parameter.ElementLists.Select(e => new ImplementList(e.Create())).ToArray();
             var allElement = new List<Element.IImplement>();
             this.elementLists.ForEach(e => allElement.AddRange(e.Implements));
@@ -59,7 +57,7 @@ namespace GL.Battle.Commands.Bundle
         {
             if(invoker.CharacterType == Constants.CharacterType.Player)
             {
-                Assert.IsTrue(this.currentChargeTurn >= this.parameter.ChargeTurn, $"{this.parameter.Name.Get}がチャージターン数を満たしていないのにコマンドが実行されました");
+                Assert.IsTrue(this.CurrentChargeTurn >= this.parameter.ChargeTurn, $"{this.parameter.Name.Get}がチャージターン数を満たしていないのにコマンドが実行されました");
             }
             
             if(this.CanRecord)
@@ -68,7 +66,7 @@ namespace GL.Battle.Commands.Bundle
             }
 
             this.StartAnimation(invoker, targets, 0);
-            this.currentChargeTurn = -1;
+            this.CurrentChargeTurn = -1;
         }
 
         private void StartAnimation(Character invoker, Character[] targets, int elementListsIndex)
@@ -131,7 +129,7 @@ namespace GL.Battle.Commands.Bundle
         /// </summary>
         public void SubtractChargeTurn(int amount)
         {
-            this.chargeTurn -= amount;
+            this.ChargeTurn -= amount;
         }
 
         /// <summary>
@@ -184,13 +182,13 @@ namespace GL.Battle.Commands.Bundle
         /// </summary>
         public void AddChargeTurn(int value)
         {
-            this.currentChargeTurn += value;
+            this.CurrentChargeTurn += value;
         }
 
         /// <summary>
         /// コマンドを実行可能か返す
         /// </summary>
-        public bool CanInvoke => this.currentChargeTurn >= this.chargeTurn;
+        public bool CanInvoke => this.CurrentChargeTurn >= this.ChargeTurn;
 
         /// <summary>
         /// コマンド実行後の後始末

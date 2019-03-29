@@ -319,5 +319,26 @@ namespace GL
             /// <summary>魔法</summary>
             Magic,
         }
+
+        /// <summary>
+        /// 比較タイプ
+        /// </summary>
+        public enum ComparisonType
+        {
+            /// <summary>
+            /// より大きい
+            /// </summary>
+            Greater,
+
+            /// <summary>
+            /// より小さい
+            /// </summary>
+            Less,
+
+            /// <summary>
+            /// 同じ
+            /// </summary>
+            Equal,
+        }
     }
 }

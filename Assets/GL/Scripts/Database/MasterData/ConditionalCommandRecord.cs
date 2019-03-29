@@ -1,4 +1,5 @@
 ﻿using System;
+using GL.Battle;
 using GL.Battle.Commands;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -18,6 +19,10 @@ namespace GL.Database
         [SerializeField]
         private EquipmentElementCondition condition;
         public EquipmentElementCondition Condition => this.condition;
+
+        [SerializeField]
+        private CommandInvokeCondition invokeCondition;
+        public CommandInvokeCondition InvokeCondition => this.invokeCondition;
 
 #if UNITY_EDITOR
         public ConditionalCommandRecord(CommandRecord commandRecord, EquipmentElementCondition condition)

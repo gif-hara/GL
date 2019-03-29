@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93e7c0530e18344508995c2c59349ef2, type: 3}
+  m_Name: RemainingHitPoint_Opponent_0.8_Less
+  m_EditorClassIdentifier: 
+  description:
+    target: {fileID: 11400000, guid: 4f29c1d3e047745e58f6327b7d25bbc9, type: 2}
+    value: "HP\u304C{0}%{1}{2}\n"
+    guid: ae301ff6-d093-49fb-8f7e-98d3ca860fe5
+  targetPartyType: 1
+  percentage: 0.8
+  comparisonType: 1
