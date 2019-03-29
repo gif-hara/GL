@@ -1,13 +1,12 @@
 ﻿using System;
-using GL.Battle;
 using GL.Database;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace GL.Battle.CharacterControllers
+namespace GL.Battle
 {
     [Serializable]
-    public class Parameter
+    public class CharacterParameter
     {
         /// <summary>
         /// ヒットポイント
@@ -65,12 +64,12 @@ namespace GL.Battle.CharacterControllers
         [Range(0.0f, 50.0f)]
         public int Avoidance;
 
-        public Parameter()
+        public CharacterParameter()
         {
             this.Reset();
         }
 
-        public Parameter(Parameter other)
+        public CharacterParameter(CharacterParameter other)
         {
             this.HitPoint = other.HitPoint;
             this.Strength = other.Strength;
@@ -82,12 +81,12 @@ namespace GL.Battle.CharacterControllers
             this.Avoidance = other.Avoidance;
         }
 
-        public Parameter(CharacterRecord characterRecord, int level)
+        public CharacterParameter(CharacterRecord characterRecord, int level)
             : this(characterRecord.GetParameter(level))
         {
         }
 
-        public Parameter(int hitPoint, int strength, int strengthMagic, int defense, int defenseMagic, int speed, int critical, int avoidance)
+        public CharacterParameter(int hitPoint, int strength, int strengthMagic, int defense, int defenseMagic, int speed, int critical, int avoidance)
         {
             this.HitPoint = hitPoint;
             this.Strength = strength;

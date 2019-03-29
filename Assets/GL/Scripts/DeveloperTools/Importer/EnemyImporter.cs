@@ -10,6 +10,7 @@ using GL.Battle.CharacterControllers.JobSystems;
 using static GL.Database.CharacterRecord;
 using System.Collections.Generic;
 using GL.Extensions;
+using GL.Battle;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -57,7 +58,7 @@ namespace GL.DeveloperTools
                 var path = "Assets/GL/MasterData/Characters/Enemy/";
                 var fileName = splitEnemyData[0].RemoveNewLine();
                 var enemyAsset = ImporterUtility.GetOrCreate<CharacterRecord>(path, fileName);
-                var parameter = new Parameter(
+                var parameter = new CharacterParameter(
                     int.Parse(splitEnemyData[6]),
                     int.Parse(splitEnemyData[7]),
                     int.Parse(splitEnemyData[8]),

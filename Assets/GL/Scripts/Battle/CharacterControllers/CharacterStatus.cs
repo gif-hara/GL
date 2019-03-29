@@ -17,7 +17,7 @@ namespace GL.Battle.CharacterControllers
         public string Name;
 
         [SerializeField]
-        public Parameter Parameter;
+        public CharacterParameter Parameter;
 
         [SerializeField]
         public Resistance Resistance;
@@ -28,7 +28,7 @@ namespace GL.Battle.CharacterControllers
         public CharacterStatus()
         {
             this.Name = "";
-            this.Parameter = new Parameter();
+            this.Parameter = new CharacterParameter();
             this.Resistance = new Resistance();
             this.Attribute = new Attribute();
         }
@@ -36,7 +36,7 @@ namespace GL.Battle.CharacterControllers
         public CharacterStatus(CharacterRecord characterRecord, int level)
         {
             this.Name = characterRecord.CharacterName;
-            this.Parameter = new Parameter(characterRecord, level);
+            this.Parameter = new CharacterParameter(characterRecord, level);
             this.Resistance = new Resistance(characterRecord);
             this.Attribute = new Attribute(characterRecord);
         }
@@ -44,7 +44,7 @@ namespace GL.Battle.CharacterControllers
         public void Copy(CharacterStatus other)
         {
             this.Name = other.Name;
-            this.Parameter = new Parameter(other.Parameter);
+            this.Parameter = new CharacterParameter(other.Parameter);
             this.Resistance = new Resistance(other.Resistance);
             this.Attribute = new Attribute(other.Attribute);
         }

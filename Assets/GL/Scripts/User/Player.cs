@@ -41,7 +41,7 @@ namespace GL.User
         private int[] accessoryInstanceIds = new int[0];
         public int[] AccessoryInstanceIds => this.accessoryInstanceIds;
 
-        public Parameter Parameter { get { return this.CharacterRecord.GetParameter(this.Level); } }
+        public CharacterParameter Parameter { get { return this.CharacterRecord.GetParameter(this.Level); } }
 
         public Resistance Resistance { get { return this.CharacterRecord.Resistance; } }
 

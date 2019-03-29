@@ -1,4 +1,5 @@
 ﻿using System;
+using GL.Battle;
 using GL.Battle.CharacterControllers;
 using GL.Database;
 using GL.Events.Home;
@@ -435,7 +436,7 @@ namespace GL.Home.UI
             [SerializeField]
             private Text speed;
 
-            public void Apply(Battle.CharacterControllers.Parameter parameter)
+            public void Apply(CharacterParameter parameter)
             {
                 this.hitPoint.text = parameter.HitPoint.ToString();
                 this.strength.text = parameter.Strength.ToString();

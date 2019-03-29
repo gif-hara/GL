@@ -9,6 +9,7 @@ using HK.GL.Extensions;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using GL.Battle;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -50,12 +51,12 @@ namespace GL.Database
         public Job Job { get { return job; } }
         
         [SerializeField]
-        private Parameter min;
-        public Parameter Min => this.min;
+        private CharacterParameter min;
+        public CharacterParameter Min => this.min;
 
         [SerializeField]
-        private Parameter max;
-        public Parameter Max => this.max;
+        private CharacterParameter max;
+        public CharacterParameter Max => this.max;
 
         [SerializeField]
         private Resistance resistance;
@@ -123,11 +124,11 @@ namespace GL.Database
             EditorGUIUtility.systemCopyBuffer = result.ToString();
         }
 
-        private Parameter[] GetLevelAllParameter()
+        private CharacterParameter[] GetLevelAllParameter()
         {
             const int min = Constants.LevelMin;
             const int max = Constants.LevelMax;
-            var parameters = new Parameter[max];
+            var parameters = new CharacterParameter[max];
             for (int i = min; i <= max; i++)
             {
                 parameters[i - 1] = this.GetParameter(i);
@@ -142,8 +143,8 @@ namespace GL.Database
             int rank,
             StringAsset.Finder characterName,
             Job job,
-            Parameter min,
-            Parameter max,
+            CharacterParameter min,
+            CharacterParameter max,
             Resistance resistance,
             Battle.CharacterControllers.Attribute attribute,
             GrowthCurve growthCurve,
@@ -179,15 +180,15 @@ namespace GL.Database
             image.color = this.iconColor;
         }
 
-        public Parameter GetParameter(int level)
+        public CharacterParameter GetParameter(int level)
         {
             return this.EvaluteParameter(level);
         }
 
-        private Parameter EvaluteParameter(int level)
+        private CharacterParameter EvaluteParameter(int level)
         {
             var t = (float)(level - 1) / (Constants.LevelMax - 1);
-            return new Parameter
+            return new CharacterParameter
             {
                 HitPoint = Mathf.FloorToInt(Mathf.Lerp(this.min.HitPoint, this.max.HitPoint, this.growthCurve.HitPoint.Evaluate(t))),
                 Strength = Mathf.FloorToInt(Mathf.Lerp(this.min.Strength, this.max.Strength, this.growthCurve.Strength.Evaluate(t))),
