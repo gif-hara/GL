@@ -25,10 +25,11 @@ namespace GL.Database
         public CommandInvokeCondition InvokeCondition => this.invokeCondition;
 
 #if UNITY_EDITOR
-        public ConditionalCommandRecord(CommandRecord commandRecord, EquipmentElementCondition condition)
+        public ConditionalCommandRecord(CommandRecord commandRecord, EquipmentElementCondition condition, CommandInvokeCondition invokeCondition)
         {
             this.commandRecord = commandRecord;
             this.condition = condition;
+            this.invokeCondition = invokeCondition;
         }
 #endif
     }

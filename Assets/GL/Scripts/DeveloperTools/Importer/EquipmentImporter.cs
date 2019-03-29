@@ -6,6 +6,7 @@ using GL.Database;
 using GL.Extensions;
 using GL.Battle.Commands;
 using HK.Framework.Text;
+using GL.Battle;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -39,8 +40,9 @@ namespace GL.DeveloperTools
             {
                 var splitCommandData = equipmentCommandData[i].Split(',');
                 var conditionName = splitCommandData[2];
-                var equipmentId = splitCommandData[3];
-                var commandId = splitCommandData[4].RemoveNewLine();
+                var invokeConditionName = splitCommandData[3];
+                var equipmentId = splitCommandData[4];
+                var commandId = splitCommandData[5].RemoveNewLine();
                 List<ConditionalCommandRecord> commandRecords = null;
                 if(!commandDictionary.TryGetValue(equipmentId, out commandRecords))
                 {
@@ -51,8 +53,10 @@ namespace GL.DeveloperTools
                 Assert.IsNotNull(commandRecord, $"{commandId}のCommandRecordがありませんでした");
                 var condition = AssetDatabase.LoadAssetAtPath<EquipmentElementCondition>($"Assets/GL/MasterData/Commands/Conditions/{conditionName}.asset");
                 Assert.IsNotNull(condition, $"{conditionName}に対応するCommandElementConditionがありませんでした");
+                var invokeCondition = AssetDatabase.LoadAssetAtPath<CommandInvokeCondition>($"Assets/GL/MasterData/Commands/InvokeConditions/{invokeConditionName}.asset");
+                Assert.IsNotNull(invokeCondition, $"{invokeConditionName}に対応する{typeof(CommandInvokeCondition).Name}がありませんでした");
 
-                commandRecords.Add(new ConditionalCommandRecord(commandRecord, condition));
+                commandRecords.Add(new ConditionalCommandRecord(commandRecord, condition, invokeCondition));
             }
 
             // スキルデータを抽出

@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -21,11 +22,15 @@ MonoBehaviour:
   commands:
   - commandRecord: {fileID: 11400000, guid: df74625730bce445e85a77b5f7c000c3, type: 2}
     condition: {fileID: 11400000, guid: 5e616f6c5005f49c6b39ca4db09a447d, type: 2}
+    invokeCondition: {fileID: 11400000, guid: 32cd59399704145dc8b99b489bc7404e, type: 2}
   - commandRecord: {fileID: 11400000, guid: f0c85561ad27448b4a762be74eeb3f3f, type: 2}
     condition: {fileID: 11400000, guid: 5e616f6c5005f49c6b39ca4db09a447d, type: 2}
+    invokeCondition: {fileID: 11400000, guid: 32cd59399704145dc8b99b489bc7404e, type: 2}
   - commandRecord: {fileID: 11400000, guid: 00ea98e3f145d43868d36474fe9ee376, type: 2}
     condition: {fileID: 11400000, guid: c0b4f6864e2a24214a389668fc259c39, type: 2}
+    invokeCondition: {fileID: 11400000, guid: 32cd59399704145dc8b99b489bc7404e, type: 2}
   - commandRecord: {fileID: 11400000, guid: f161a3efee9ea4e14b8f4ed246636ca2, type: 2}
     condition: {fileID: 11400000, guid: a2715693899af405396ca906db5c2f76, type: 2}
+    invokeCondition: {fileID: 11400000, guid: 32cd59399704145dc8b99b489bc7404e, type: 2}
   skillElements: []
   needMaterials: []

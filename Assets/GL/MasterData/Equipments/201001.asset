@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -18,8 +19,6 @@ MonoBehaviour:
   rank: 1
   equipmentType: 2147483647
   price: 0
-  commands:
-  - commandRecord: {fileID: 11400000, guid: 34924b545cbc44a93a5981c4e52d6d4c, type: 2}
-    condition: {fileID: 11400000, guid: 5e616f6c5005f49c6b39ca4db09a447d, type: 2}
+  commands: []
   skillElements: []
   needMaterials: []
