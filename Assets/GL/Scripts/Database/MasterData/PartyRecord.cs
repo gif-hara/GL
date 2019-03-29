@@ -21,7 +21,7 @@ namespace GL.Database
         private StringAsset.Finder partyName;
 
         [SerializeField]
-        private Battle.PartyControllers.Parameter[] parameters;
+        private PartyParameter[] parameters;
 
         [SerializeField]
         private Constants.CharacterType characterType;
@@ -35,7 +35,7 @@ namespace GL.Database
         public static PartyRecord CloneAsPlayerParty(User.Party party)
         {
             var clone = ScriptableObject.CreateInstance<PartyRecord>();
-            clone.parameters = party.AsPlayers.Select(p => Battle.PartyControllers.Parameter.Create(p)).ToArray();
+            clone.parameters = party.AsPlayers.Select(p => PartyParameter.Create(p)).ToArray();
             clone.characterType = Constants.CharacterType.Player;
 
             return clone;
@@ -61,7 +61,7 @@ namespace GL.Database
         }
 
 #if UNITY_EDITOR
-        public void Set(StringAsset.Finder partyName, Battle.PartyControllers.Parameter[] parameters, Constants.CharacterType characterType, UnlockElements unlockElements)
+        public void Set(StringAsset.Finder partyName, PartyParameter[] parameters, Constants.CharacterType characterType, UnlockElements unlockElements)
         {
             this.partyName = partyName;
             this.parameters = parameters;

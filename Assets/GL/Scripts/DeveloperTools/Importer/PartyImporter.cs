@@ -6,6 +6,7 @@ using GL.User;
 using GL.Extensions;
 using GL.Database;
 using HK.Framework.Text;
+using GL.Battle;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -85,9 +86,9 @@ namespace GL.DeveloperTools
             AssetDatabase.SaveAssets();
         }
 
-        private static Battle.PartyControllers.Parameter[] CreateParameters(string[] splitPartyData)
+        private static PartyParameter[] CreateParameters(string[] splitPartyData)
         {
-            var result = new List<Battle.PartyControllers.Parameter>();
+            var result = new List<PartyParameter>();
             for (var i = 2; i <= 9; i++)
             {
                 var characterId = splitPartyData[i];
@@ -101,7 +102,7 @@ namespace GL.DeveloperTools
                 var weaponRecord = AssetDatabase.LoadAssetAtPath<EquipmentRecord>($"Assets/GL/MasterData/Equipments/{characterId}.asset");
                 Assert.IsNotNull(characterRecord, $"{characterId}に対応する武器の取得に失敗しました");
 
-                var parameter = new Battle.PartyControllers.Parameter();
+                var parameter = new PartyParameter();
                 parameter.Set(
                     1,
                     characterRecord,

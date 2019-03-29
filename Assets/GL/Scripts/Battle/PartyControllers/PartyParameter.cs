@@ -1,19 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using GL.Battle;
 using GL.Database;
 using GL.User;
-using HK.GL.Extensions;
 using UnityEngine;
 
-namespace GL.Battle.PartyControllers
+namespace GL.Battle
 {
     /// <summary>
     /// パーティに必要なパラメータ
     /// </summary>
     [Serializable]
-    public class Parameter
+    public class PartyParameter
     {
         [SerializeField]
         [Range(1.0f, 100.0f)]
@@ -31,9 +28,9 @@ namespace GL.Battle.PartyControllers
         [SerializeField]
         public EquipmentRecord[] Accessories;
 
-        public static Parameter Create(Player player)
+        public static PartyParameter Create(Player player)
         {
-            return new Parameter()
+            return new PartyParameter()
             {
                 Level = player.Level,
                 CharacterRecord = player.CharacterRecord,
