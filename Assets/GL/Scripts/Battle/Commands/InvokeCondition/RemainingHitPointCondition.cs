@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using GL.Battle.CharacterControllers;
+using GL.Database;
 using UnityEngine;
 using UnityEngine.Assertions;
 using static GL.Constants;
@@ -42,7 +43,7 @@ namespace GL.Battle
             }
         }
 
-        public override Character[] Suitable(BattleManager battleManager, Character invoker)
+        public override Character[] Suitable(BattleManager battleManager, Character invoker, CommandRecord command)
         {
             Assert.AreNotEqual(this.comparisonType, ComparisonType.Equal);
 

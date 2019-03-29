@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using GL.Battle.CharacterControllers;
+using GL.Database;
 using HK.Framework.Text;
 using UnityEngine;
 
@@ -17,6 +18,6 @@ namespace GL.Battle
         /// <summary>
         /// 条件を満たしているキャラクターを返す
         /// </summary>
-        public abstract Character[] Suitable(BattleManager battleManager, Character invoker);
+        public abstract Character[] Suitable(BattleManager battleManager, Character invoker, CommandRecord command);
     }
 }
